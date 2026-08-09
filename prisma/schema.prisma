@@ -1,0 +1,219 @@
+// BCNAirportTaxi — data model
+// Booking intermediary: we collect a 20% booking fee online; the metered fare is
+// settled with the driver in the taxi. Nothing here stores card data.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  DRIVER
+  ADMIN
+}
+
+enum BookingStatus {
+  PENDING // created, booking fee not yet paid
+  CONFIRMED // booking fee paid
+  ASSIGNED // driver attached
+  EN_ROUTE // driver on the way / trip running
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+/// T-1 daytime weekday, T-2 night/weekend/holiday. T-4 is the fixed
+/// airport <-> Moll Adossat price. Stored so a historic booking always
+/// explains the estimate it was quoted, even after tariffs change.
+enum Tariff {
+  T1
+  T2
+  T4
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String
+  phone        String?
+  passwordHash String
+  role         Role      @default(USER)
+  locale       String    @default("en")
+  lastSeenAt   DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  bookings Booking[] @relation("UserBookings")
+  driver   Driver?
+  messages Message[]
+  reviews  Review[]
+
+  @@index([role])
+  @@index([createdAt])
+}
+
+model Driver {
+  id            String  @id @default(cuid())
+  userId        String? @unique
+  user          User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+  name          String
+  phone         String
+  licenseNumber String
+  photoUrl      String?
+  active        Boolean @default(true)
+
+  vehicleId String?
+  vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+
+  lastSeenAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  bookings Booking[] @relation("DriverBookings")
+
+  @@index([active])
+  @@index([createdAt])
+}
+
+model Vehicle {
+  id       String @id @default(cuid())
+  slug     String @unique
+  name     String
+  category String
+  seats    Int
+  bags     Int
+  imageUrl String
+  imageAlt String
+  /// Ordering weight for the fleet picker.
+  sortOrder Int     @default(0)
+  active    Boolean @default(true)
+
+  drivers  Driver[]
+  bookings Booking[]
+
+  @@index([active, sortOrder])
+}
+
+model Booking {
+  id        String @id @default(cuid())
+  reference String @unique
+
+  userId String?
+  user   User?   @relation("UserBookings", fields: [userId], references: [id], onDelete: SetNull)
+
+  // Contact details captured at booking time (guest checkout allowed).
+  contactName  String
+  contactEmail String
+  contactPhone String
+
+  // Route
+  pickupLabel  String
+  pickupLat    Float
+  pickupLng    Float
+  dropoffLabel String
+  dropoffLat   Float
+  dropoffLng   Float
+  roadKm       Float
+  durationMin  Int
+
+  // Quote — every component stored so the estimate is reproducible.
+  tariff        Tariff
+  startFare     Decimal @db.Decimal(10, 2)
+  perKmRate     Decimal @db.Decimal(10, 4)
+  supplements   Decimal @db.Decimal(10, 2)
+  estimateTotal Decimal @db.Decimal(10, 2)
+  bookingFee    Decimal @db.Decimal(10, 2)
+  currency      String  @default("EUR")
+
+  pickupAt   DateTime
+  passengers Int      @default(1)
+  luggage    Int      @default(0)
+  notes      String?
+
+  vehicleId String?
+  vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+
+  driverId String?
+  driver   Driver? @relation("DriverBookings", fields: [driverId], references: [id], onDelete: SetNull)
+
+  status          BookingStatus @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  sumupRef        String?
+  sumupCheckoutId String?
+
+  locale    String   @default("en")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages      Message[]
+  review        Review?
+  locationPings LocationPing[]
+
+  @@index([status, createdAt])
+  @@index([userId, createdAt])
+  @@index([driverId, status])
+  @@index([pickupAt])
+  @@index([sumupCheckoutId])
+}
+
+model Message {
+  id        String  @id @default(cuid())
+  bookingId String
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  senderRole Role
+  senderId   String?
+  sender     User?   @relation(fields: [senderId], references: [id], onDelete: SetNull)
+
+  body String
+
+  /// True once the message was mirrored to email because the recipient was offline.
+  deliveredEmail Boolean   @default(false)
+  readAt         DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@index([bookingId, createdAt])
+}
+
+model Review {
+  id        String  @id @default(cuid())
+  bookingId String  @unique
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  authorName String
+  rating     Int
+  text       String
+  /// Admin moderation gate — only approved reviews feed AggregateRating JSON-LD.
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([approved, createdAt])
+  @@index([rating])
+}
+
+model LocationPing {
+  id        String  @id @default(cuid())
+  bookingId String
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  role Role
+  lat  Float
+  lng  Float
+  ts   DateTime @default(now())
+
+  @@index([bookingId, role, ts])
+}
