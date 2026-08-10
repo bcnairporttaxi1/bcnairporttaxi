@@ -2,7 +2,9 @@ import { TZDate } from '@date-fns/tz';
 import {
   BARCELONA_HOLIDAYS,
   LANDMARKS,
+  SPECIAL_NIGHTS,
   TARIFFS,
+  type PaymentMode,
   type TariffCode,
 } from './tariffs';
 
@@ -26,7 +28,7 @@ export interface QuoteInput {
   pickupAt: Date;
 }
 
-export interface QuoteBreakdownLine {
+export interface SupplementLine {
   key: string;
   amount: number;
 }
@@ -35,17 +37,42 @@ export interface Quote {
   tariff: TariffCode;
   roadKm: number;
   durationMin: number;
+
   startFare: number;
+  /** Official AMB per-km rate for the active tariff. */
   perKmRate: number;
-  distanceCharge: number;
+  /** What we charge per km on the prepaid fare (official + markup). */
+  perKmRateCharged: number;
+
   supplements: number;
-  supplementLines: QuoteBreakdownLine[];
-  /** Set when a legal minimum or fixed price overrode the metered calculation. */
+  supplementLines: SupplementLine[];
+
+  /** Set when a legal minimum or fixed price overrode the calculation. */
   adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
-  /** Estimated metered fare, paid to the driver in the taxi. */
-  estimateTotal: number;
-  /** Our separate 20% online service charge. */
+
+  /**
+   * What the taxi meter is expected to read. Paid to the driver in the car
+   * under FEE_ONLY. Uses official AMB rates only — never the markup.
+   */
+  meterEstimate: number;
+
+  /**
+   * Our locked, pay-in-advance fare. Official rates plus the per-km markup.
+   * Under FULL_PREPAID this is what the passenger pays and nothing is owed
+   * in the taxi.
+   */
+  fixedFare: number;
+
+  /** 20% service charge, derived from the fixed fare. */
   bookingFee: number;
+
+  /** Charged online when paying the booking fee only. */
+  payNowFeeOnly: number;
+  /** Charged online when prepaying everything. */
+  payNowFull: number;
+  /** Still owed to the driver under FEE_ONLY. */
+  payInTaxiFeeOnly: number;
+
   currency: string;
 }
 
@@ -92,6 +119,38 @@ export function isBarcelonaHoliday(at: Date): boolean {
 }
 
 /**
+ * Special-night supplement, if the pickup falls in one.
+ *
+ * The window is 20:00–06:00 Barcelona time, so Christmas Eve evening and the
+ * small hours of Christmas morning both qualify, but Christmas Day daytime
+ * does not.
+ */
+export function specialNightSupplement(
+  at: Date,
+): { key: string; amount: number } | null {
+  const z = new TZDate(at, BARCELONA_TZ);
+  const mmdd = `${String(z.getMonth() + 1).padStart(2, '0')}-${String(
+    z.getDate(),
+  ).padStart(2, '0')}`;
+  const hour = z.getHours();
+
+  const inNightWindow = hour >= 20 || hour < 6;
+  if (!inNightWindow) return null;
+
+  const key = (SPECIAL_NIGHTS as Record<string, string | undefined>)[mmdd];
+  if (!key) return null;
+
+  // 24 Dec / 31 Dec qualify only from 20:00; 25 Dec / 1 Jan only before 06:00.
+  const isEve = mmdd === '12-24' || mmdd === '12-31';
+  if (isEve && hour < 20) return null;
+  if (!isEve && hour >= 6) return null;
+
+  const amount =
+    TARIFFS.specialNights[key as keyof typeof TARIFFS.specialNights];
+  return { key, amount };
+}
+
+/**
  * T-1 = Mon–Fri 08:00–20:00 (Barcelona local).
  * T-2 = 20:00–08:00, all day Saturday and Sunday, and official holidays.
  *
@@ -113,12 +172,22 @@ export function meetsLeadTime(pickupAt: Date, now: Date = new Date()): boolean {
   return pickupAt.getTime() - now.getTime() >= MIN_LEAD_HOURS * 3600_000;
 }
 
+/** What the passenger pays online for a given mode. */
+export function amountDueOnline(quote: Quote, mode: PaymentMode): number {
+  return mode === 'FULL_PREPAID' ? quote.payNowFull : quote.payNowFeeOnly;
+}
+
+/** What is still owed to the driver in the taxi for a given mode. */
+export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
+  return mode === 'FULL_PREPAID' ? 0 : quote.payInTaxiFeeOnly;
+}
+
 /**
  * Build a full fare estimate.
  *
- * Order of operations matters: supplements are capped, then the airport
- * minimum is applied to the whole metered total, and the booking fee is
- * derived from the final estimate.
+ * Produces two fare figures from one set of inputs: the official meter estimate
+ * and our marked-up fixed prepaid fare. Supplements and the airport minimum
+ * apply to both; only the per-km rate differs.
  */
 export function calculateQuote(input: QuoteInput): Quote {
   const { pickup, dropoff, roadKm, durationMin, pickupAt } = input;
@@ -133,29 +202,38 @@ export function calculateQuote(input: QuoteInput): Quote {
     (pickupAirport && dropoffMoll) || (pickupMoll && dropoffAirport);
 
   if (isT4Route) {
-    const estimateTotal = TARIFFS.t4FixedAirportMollAdossat;
+    const meterEstimate = TARIFFS.t4FixedAirportMollAdossat;
+    // A regulated closed price carries no per-km component, so there is
+    // nothing for the markup to apply to.
+    const fixedFare = meterEstimate;
+    const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
+
     return {
       tariff: 'T4',
       roadKm,
       durationMin,
       startFare: 0,
       perKmRate: 0,
-      distanceCharge: 0,
+      perKmRateCharged: 0,
       supplements: 0,
       supplementLines: [],
       adjustment: 'T4_FIXED',
-      estimateTotal,
-      bookingFee: round2(estimateTotal * TARIFFS.bookingFeeRate),
+      meterEstimate,
+      fixedFare,
+      bookingFee,
+      payNowFeeOnly: bookingFee,
+      payNowFull: round2(fixedFare + bookingFee),
+      payInTaxiFeeOnly: meterEstimate,
       currency: TARIFFS.currency,
     };
   }
 
   const tariff = selectTariff(pickupAt);
   const perKmRate = TARIFFS.perKm[tariff];
-  const distanceCharge = round2(roadKm * perKmRate);
+  const perKmRateCharged = round2(perKmRate + TARIFFS.perKmMarkup);
 
   // Supplements apply to either end of the trip.
-  const lines: QuoteBreakdownLine[] = [];
+  const lines: SupplementLine[] = [];
   if (pickupAirport || dropoffAirport) {
     lines.push({ key: 'airportElPrat', amount: TARIFFS.supplements.airportElPrat });
   }
@@ -169,18 +247,34 @@ export function calculateQuote(input: QuoteInput): Quote {
     lines.push({ key: 'firaGranVia', amount: TARIFFS.supplements.firaGranVia });
   }
 
+  const special = specialNightSupplement(pickupAt);
+  if (special) lines.push({ key: special.key, amount: special.amount });
+
   const rawSupplements = lines.reduce((sum, l) => sum + l.amount, 0);
   const supplements = round2(
     Math.min(rawSupplements, TARIFFS.supplements.maxPerService),
   );
 
-  let estimateTotal = round2(TARIFFS.startFare + distanceCharge + supplements);
+  let meterEstimate = round2(
+    TARIFFS.startFare + round2(roadKm * perKmRate) + supplements,
+  );
+  let fixedFare = round2(
+    TARIFFS.startFare + round2(roadKm * perKmRateCharged) + supplements,
+  );
+
   let adjustment: Quote['adjustment'] = null;
 
-  if (pickupAirport && estimateTotal < TARIFFS.minFareFromAirport) {
-    estimateTotal = TARIFFS.minFareFromAirport;
+  // The regulated minimum applies to the meter. Our prepaid fare must never
+  // sit below it either, or prepaying would undercut the legal floor.
+  if (pickupAirport && meterEstimate < TARIFFS.minFareFromAirport) {
+    meterEstimate = TARIFFS.minFareFromAirport;
     adjustment = 'AIRPORT_MINIMUM';
   }
+  if (pickupAirport && fixedFare < TARIFFS.minFareFromAirport) {
+    fixedFare = TARIFFS.minFareFromAirport;
+  }
+
+  const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
 
   return {
     tariff,
@@ -188,12 +282,16 @@ export function calculateQuote(input: QuoteInput): Quote {
     durationMin,
     startFare: TARIFFS.startFare,
     perKmRate,
-    distanceCharge,
+    perKmRateCharged,
     supplements,
     supplementLines: lines,
     adjustment,
-    estimateTotal,
-    bookingFee: round2(estimateTotal * TARIFFS.bookingFeeRate),
+    meterEstimate,
+    fixedFare,
+    bookingFee,
+    payNowFeeOnly: bookingFee,
+    payNowFull: round2(fixedFare + bookingFee),
+    payInTaxiFeeOnly: meterEstimate,
     currency: TARIFFS.currency,
   };
 }

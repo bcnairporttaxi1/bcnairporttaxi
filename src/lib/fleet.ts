@@ -23,7 +23,7 @@ export const FLEET: FleetVehicle[] = [
     categoryKey: 'eco',
     seats: 4,
     bags: 4,
-    image: '/img/fleet-toyota-prius.svg',
+    image: '/img/fleet-toyota-prius.png',
     imageAlt:
       'Toyota Prius+ eco hybrid Barcelona airport taxi in black and yellow livery, three-quarter front view',
     sortOrder: 1,
@@ -34,7 +34,7 @@ export const FLEET: FleetVehicle[] = [
     categoryKey: 'standard',
     seats: 4,
     bags: 3,
-    image: '/img/fleet-toyota-corolla.svg',
+    image: '/img/fleet-toyota-corolla.png',
     imageAlt:
       'Toyota Corolla standard Barcelona airport taxi in black and yellow livery, three-quarter front view',
     sortOrder: 2,
@@ -45,7 +45,7 @@ export const FLEET: FleetVehicle[] = [
     categoryKey: 'minivan',
     seats: 6,
     bags: 6,
-    image: '/img/fleet-mercedes-vito.svg',
+    image: '/img/fleet-mercedes-vito.png',
     imageAlt:
       'Mercedes-Benz Vito minivan Barcelona airport taxi for six passengers, three-quarter front view',
     sortOrder: 3,
@@ -56,7 +56,7 @@ export const FLEET: FleetVehicle[] = [
     categoryKey: 'premium',
     seats: 7,
     bags: 7,
-    image: '/img/fleet-mercedes-vclass.svg',
+    image: '/img/fleet-mercedes-vclass.png',
     imageAlt:
       'Mercedes-Benz V-Class premium van Barcelona airport taxi for seven passengers, three-quarter front view',
     sortOrder: 4,

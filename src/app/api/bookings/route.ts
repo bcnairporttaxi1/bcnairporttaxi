@@ -2,7 +2,13 @@ import { NextResponse } from 'next/server';
 import { randomBytes } from 'node:crypto';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
-import { calculateQuote, isAirport, meetsLeadTime } from '@/lib/pricing';
+import {
+  amountDueInTaxi,
+  amountDueOnline,
+  calculateQuote,
+  isAirport,
+  meetsLeadTime,
+} from '@/lib/pricing';
 import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
 import { createCheckout } from '@/lib/payments/sumup';
 import { SITE_URL } from '@/lib/site';
@@ -25,6 +31,7 @@ const bodySchema = z.object({
   passengers: z.number().int().min(1).max(8),
   luggage: z.number().int().min(0).max(12),
   vehicleSlug: z.string().trim().max(60).optional(),
+  paymentMode: z.enum(['FEE_ONLY', 'FULL_PREPAID']).default('FEE_ONLY'),
   notes: z.string().trim().max(1000).optional(),
   locale: z.string().trim().max(5).default('en'),
 });
@@ -114,6 +121,9 @@ export async function POST(request: Request) {
     pickupAt,
   });
 
+  const amountOnline = amountDueOnline(quote, input.paymentMode);
+  const amountInTaxi = amountDueInTaxi(quote, input.paymentMode);
+
   const vehicle = input.vehicleSlug
     ? await prisma.vehicle.findUnique({ where: { slug: input.vehicleSlug } })
     : null;
@@ -138,9 +148,13 @@ export async function POST(request: Request) {
         tariff: quote.tariff,
         startFare: quote.startFare,
         perKmRate: quote.perKmRate,
+        perKmRateCharged: quote.perKmRateCharged,
         supplements: quote.supplements,
-        estimateTotal: quote.estimateTotal,
+        meterEstimate: quote.meterEstimate,
+        fixedFare: quote.fixedFare,
         bookingFee: quote.bookingFee,
+        amountOnline,
+        paymentMode: input.paymentMode,
         pickupAt,
         passengers: input.passengers,
         luggage: input.luggage,
@@ -150,12 +164,16 @@ export async function POST(request: Request) {
       },
     });
 
-    // Booking fee only — the metered fare is never charged online.
+    // Under FEE_ONLY this is the booking fee alone; under FULL_PREPAID it is the
+    // fixed fare plus the fee. The metered fare is never charged online.
     const checkout = await createCheckout({
-      amount: quote.bookingFee,
+      amount: amountOnline,
       currency: quote.currency,
       reference,
-      description: `Booking fee for Barcelona taxi ${reference}`,
+      description:
+        input.paymentMode === 'FULL_PREPAID'
+          ? `Barcelona taxi ${reference} — fare and booking fee`
+          : `Booking fee for Barcelona taxi ${reference}`,
       returnUrl: `${SITE_URL}/${input.locale}/booking/${reference}`,
     });
 
@@ -174,10 +192,15 @@ export async function POST(request: Request) {
       roadKm: quote.roadKm,
       durationMin: quote.durationMin,
       tariff: quote.tariff,
-      estimateTotal: quote.estimateTotal,
+      paymentMode: input.paymentMode,
+      meterEstimate: quote.meterEstimate,
+      fixedFare: quote.fixedFare,
       bookingFee: quote.bookingFee,
+      amountOnline,
+      amountInTaxi,
       vehicleName: vehicle?.name,
       feePaid: false,
+      locale: input.locale,
     });
 
     const emailResult = await sendEmail({
@@ -191,6 +214,8 @@ export async function POST(request: Request) {
       {
         reference,
         quote,
+        amountOnline,
+        amountInTaxi,
         payment: {
           configured: checkout.configured,
           redirectUrl: checkout.redirectUrl,

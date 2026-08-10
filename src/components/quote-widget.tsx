@@ -1,9 +1,10 @@
 'use client';
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
-import { MIN_LEAD_HOURS, meetsLeadTime } from '@/lib/pricing';
+import { Link } from '@/i18n/navigation';
+import { meetsLeadTime } from '@/lib/pricing';
 import { whatsappLink } from '@/lib/site';
 import { AddressField, type Place } from './address-field';
 
@@ -14,22 +15,30 @@ const RouteMap = dynamic(() => import('./route-map'), {
   ),
 });
 
+export interface QuotePayload {
+  tariff: 'T1' | 'T2' | 'T4';
+  roadKm: number;
+  durationMin: number;
+  perKmRate: number;
+  perKmRateCharged: number;
+  supplements: number;
+  supplementLines: Array<{ key: string; amount: number }>;
+  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
+  meterEstimate: number;
+  fixedFare: number;
+  bookingFee: number;
+  payNowFeeOnly: number;
+  payNowFull: number;
+  payInTaxiFeeOnly: number;
+  currency: string;
+}
+
 interface QuoteResponse {
-  quote: {
-    tariff: 'T1' | 'T2' | 'T4';
-    roadKm: number;
-    durationMin: number;
-    supplements: number;
-    supplementLines: Array<{ key: string; amount: number }>;
-    adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
-    estimateTotal: number;
-    bookingFee: number;
-    currency: string;
-  };
+  quote: QuotePayload;
   geometry: [number, number][];
 }
 
-const eur = (n: number) =>
+export const eur = (n: number) =>
   new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
 
 /** Default pickup: tomorrow at 10:00, which always clears the 3-hour rule. */
@@ -44,7 +53,10 @@ function defaultDateTime() {
   };
 }
 
-export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
+export function QuoteWidget({
+  presetPickup = '',
+  presetDropoff = '',
+}: {
   presetPickup?: string;
   presetDropoff?: string;
 }) {
@@ -61,7 +73,6 @@ export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tooSoon, setTooSoon] = useState(false);
-  const liveRef = useRef<HTMLParagraphElement>(null);
 
   const pickupAt = useMemo(() => new Date(`${date}T${time}:00`), [date, time]);
 
@@ -130,6 +141,24 @@ export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
         : t('tariffT4')
     : '';
 
+  /**
+   * Carries only the trip inputs to checkout, never the price. Checkout
+   * recomputes the fare server-side, so a hand-edited URL cannot set what is
+   * charged.
+   */
+  const checkoutHref =
+    pickup && dropoff
+      ? `/checkout?${new URLSearchParams({
+          plat: String(pickup.lat),
+          plng: String(pickup.lng),
+          plabel: pickup.label,
+          dlat: String(dropoff.lat),
+          dlng: String(dropoff.lng),
+          dlabel: dropoff.label,
+          at: pickupAt.toISOString(),
+        }).toString()}`
+      : '/book';
+
   return (
     <section
       aria-labelledby={headingId}
@@ -195,8 +224,8 @@ export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
           {loading ? t('calculating') : t('calculate')}
         </button>
 
-        <p ref={liveRef} aria-live="polite" className="sr-only">
-          {q ? `${t('estimatedFare')} ${eur(q.estimateTotal)}` : ''}
+        <p aria-live="polite" className="sr-only">
+          {q ? `${t('estimatedFare')} ${eur(q.meterEstimate)}` : ''}
         </p>
 
         {error && (
@@ -241,10 +270,10 @@ export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
           </div>
 
           <p
-            key={q?.estimateTotal ?? 'idle'}
+            key={q?.meterEstimate ?? 'idle'}
             className="taximeter-digits animate-digit-roll mt-2 text-5xl font-bold sm:text-6xl"
           >
-            {q ? eur(q.estimateTotal) : '— . —'}
+            {q ? eur(q.meterEstimate) : '— . —'}
           </p>
 
           {q && <p className="mt-1 text-xs text-porcelain/50">{tariffLabel}</p>}
@@ -275,20 +304,47 @@ export function QuoteWidget({ presetPickup = '', presetDropoff = '' }: {
 
           {q?.adjustment === 'AIRPORT_MINIMUM' && (
             <p className="mt-3 text-xs text-accent">
-              {t('airportMinimumApplied', { amount: eur(q.estimateTotal) })}
+              {t('airportMinimumApplied', { amount: eur(q.meterEstimate) })}
             </p>
           )}
           {q?.adjustment === 'T4_FIXED' && (
             <p className="mt-3 text-xs text-accent">{t('t4Applied')}</p>
           )}
 
-          {/* The booking fee is deliberately visually separated from the fare. */}
-          <div className="mt-4 flex items-center justify-between rounded-lg bg-white/5 px-3 py-3">
-            <span className="text-sm text-porcelain/70">{t('bookingFee')}</span>
-            <span className="font-mono text-lg font-bold text-porcelain">
-              {q ? eur(q.bookingFee) : '—'}
-            </span>
-          </div>
+          {/* Both payment routes, side by side, so the choice is explicit. */}
+          {q && (
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-porcelain/50">
+                  {t('modeFeeOnlyTitle')}
+                </p>
+                <p className="mt-1 font-mono text-xl font-bold text-porcelain">
+                  {eur(q.payNowFeeOnly)}
+                </p>
+                <p className="mt-1 text-xs text-porcelain/50">
+                  + {eur(q.payInTaxiFeeOnly)} {t('payInTaxi').toLowerCase()}
+                </p>
+              </div>
+              <div className="rounded-lg border border-accent/40 bg-accent/10 p-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  {t('modeFullTitle')}
+                </p>
+                <p className="mt-1 font-mono text-xl font-bold text-porcelain">
+                  {eur(q.payNowFull)}
+                </p>
+                <p className="mt-1 text-xs text-porcelain/50">{t('nothingInTaxi')}</p>
+              </div>
+            </div>
+          )}
+
+          {q && (
+            <Link
+              href={checkoutHref}
+              className="mt-4 block rounded-lg bg-accent px-5 py-3.5 text-center font-display font-extrabold text-ink transition hover:bg-accent-deep"
+            >
+              {t('bookNow')}
+            </Link>
+          )}
 
           <p className="mt-4 text-xs leading-relaxed text-porcelain/45">{t('disclaimer')}</p>
         </div>

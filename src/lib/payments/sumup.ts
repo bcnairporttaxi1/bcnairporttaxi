@@ -57,6 +57,10 @@ export async function createCheckout(req: CheckoutRequest): Promise<CheckoutResu
       merchant_code: process.env.SUMUP_MERCHANT_CODE,
       description: req.description,
       return_url: req.returnUrl,
+      redirect_url: req.returnUrl,
+      // Without this SumUp returns a bare checkout intended for their widget;
+      // we want the hosted page so card data never touches our origin.
+      hosted_checkout: { enabled: true },
     }),
     signal: AbortSignal.timeout(12000),
   });

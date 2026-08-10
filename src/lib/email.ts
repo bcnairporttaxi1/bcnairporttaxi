@@ -65,10 +65,19 @@ export interface BookingEmailData {
   roadKm: number;
   durationMin: number;
   tariff: string;
-  estimateTotal: number;
+  paymentMode: 'FEE_ONLY' | 'FULL_PREPAID';
+  /** What the taxi meter is expected to read. */
+  meterEstimate: number;
+  /** Our locked prepaid fare. */
+  fixedFare: number;
   bookingFee: number;
+  /** Taken online, per the chosen mode. */
+  amountOnline: number;
+  /** Still owed to the driver. Zero when fully prepaid. */
+  amountInTaxi: number;
   vehicleName?: string | null;
   feePaid: boolean;
+  locale?: string;
 }
 
 function layout(title: string, body: string): string {
@@ -101,13 +110,37 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     timeZone: 'Europe/Madrid',
   }).format(d.pickupAt);
 
-  const feeLine = d.feePaid
+  const prepaid = d.paymentMode === 'FULL_PREPAID';
+
+  const status = d.feePaid
     ? `<p style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px;font-size:14px">
-         Booking fee of <strong>${eur(d.bookingFee)}</strong> paid. This receipt covers the booking fee only.
+         Payment of <strong>${eur(d.amountOnline)}</strong> received.
+         ${prepaid
+           ? 'Your fare is fully paid — there is nothing to pay in the taxi.'
+           : `You still pay the metered fare of about <strong>${eur(d.amountInTaxi)}</strong> to your driver.`}
        </p>`
     : `<p style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:14px">
-         Your booking fee of <strong>${eur(d.bookingFee)}</strong> is not yet paid. Your reservation is
-         confirmed once payment completes.
+         <strong>${eur(d.amountOnline)}</strong> is not yet paid. Your reservation is confirmed
+         as soon as payment completes.
+       </p>`;
+
+  const fareRows = prepaid
+    ? `${row('Fixed price (paid online)', eur(d.fixedFare), true)}
+       ${row('Booking fee (20%)', eur(d.bookingFee), true)}
+       ${row('Total paid online', eur(d.amountOnline), true)}
+       ${row('To pay in the taxi', 'Nothing')}`
+    : `${row('Estimated meter fare', eur(d.meterEstimate), true)}
+       ${row('Booking fee (20%), paid online', eur(d.bookingFee), true)}
+       ${row('To pay your driver', `about ${eur(d.amountInTaxi)}`, true)}`;
+
+  const closing = prepaid
+    ? `<p style="font-size:14px;line-height:1.6">
+         Your price is <strong>locked</strong>. Whatever the traffic does, you owe nothing further
+         in the taxi.
+       </p>`
+    : `<p style="font-size:14px;line-height:1.6">
+         You pay the <strong>metered fare</strong> directly to your driver in the taxi, by cash or card.
+         The figure above is an estimate from the official AMB tariff; the meter decides the exact amount.
        </p>`;
 
   const html = layout(
@@ -120,14 +153,10 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
        ${row('Vehicle', d.vehicleName ?? 'Assigned on confirmation')}
        ${row('Distance', `${d.roadKm} km · approx ${d.durationMin} min`)}
        ${row('Tariff', d.tariff)}
-       ${row('Estimated meter fare', eur(d.estimateTotal), true)}
-       ${row('Booking fee (20%)', eur(d.bookingFee), true)}
+       ${fareRows}
      </table>
-     ${feeLine}
-     <p style="font-size:14px;line-height:1.6">
-       You pay the <strong>metered fare</strong> directly to your driver in the taxi, by cash or card.
-       The amount above is an estimate based on the official AMB tariff.
-     </p>`,
+     ${status}
+     ${closing}`,
   );
 
   const text = [
@@ -141,11 +170,16 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     `Distance: ${d.roadKm} km, approx ${d.durationMin} min`,
     `Tariff:   ${d.tariff}`,
     ``,
-    `Estimated meter fare: ${eur(d.estimateTotal)}`,
-    `Booking fee (20%):    ${eur(d.bookingFee)} ${d.feePaid ? '(paid)' : '(unpaid)'}`,
+    prepaid
+      ? `Fixed price:       ${eur(d.fixedFare)}`
+      : `Est. meter fare:   ${eur(d.meterEstimate)}`,
+    `Booking fee (20%): ${eur(d.bookingFee)}`,
+    `Paid online:       ${eur(d.amountOnline)} ${d.feePaid ? '(received)' : '(pending)'}`,
+    `Pay in the taxi:   ${prepaid ? 'Nothing' : `about ${eur(d.amountInTaxi)}`}`,
     ``,
-    `You pay the metered fare directly to your driver in the taxi.`,
-    `The final fare is set by the official taxi meter; an invoice is available on request.`,
+    prepaid
+      ? `Your price is locked. Nothing further is owed in the taxi.`
+      : `You pay the metered fare directly to your driver. The meter decides the exact amount.`,
   ].join('\n');
 
   return { subject: `Your Barcelona taxi — booking ${d.reference}`, html, text };

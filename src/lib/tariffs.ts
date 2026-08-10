@@ -5,10 +5,17 @@
  * This file is the single source of truth for pricing; nothing else should
  * hardcode a rate.
  *
- * Legal framing: the figures below produce an *estimate* only. The fare the
- * passenger actually pays is whatever the official taxi meter shows, settled
- * with the driver in the car. Our 20% booking fee is a separate service charge
- * collected online and is never added to the metered fare.
+ * Two distinct numbers come out of this config, and they must never be
+ * conflated:
+ *
+ *  1. METER ESTIMATE — built from the official AMB rates below. This is what
+ *     the taxi meter will actually read, and what the passenger pays the driver
+ *     when they choose to settle in the car.
+ *
+ *  2. FIXED PREPAID FARE — the official rates plus `perKmMarkup`. This is our
+ *     own locked, pay-in-advance price. It is deliberately a little above the
+ *     meter because we absorb the traffic and routing variance when we
+ *     guarantee a price up front.
  */
 
 export const TARIFFS = {
@@ -17,7 +24,15 @@ export const TARIFFS = {
   /** Bajada de bandera — applies to both T-1 and T-2. */
   startFare: 2.8,
 
+  /** Official AMB per-km rates. */
   perKm: { T1: 1.35, T2: 1.66 },
+
+  /**
+   * Our surcharge per kilometre on the FIXED PREPAID fare only.
+   * e.g. T-1 1.35 -> 1.45 charged. Never applied to the meter estimate,
+   * because we cannot change what the taxi meter reads.
+   */
+  perKmMarkup: 0.1,
 
   waitPerHour: 27.75,
 
@@ -27,6 +42,17 @@ export const TARIFFS = {
     sants: 2.55,
     firaGranVia: 3.3,
     maxPerService: 17.1,
+  },
+
+  /**
+   * Special-night supplements, applied on top of the T-2 tariff.
+   * VERIFY at taxi.amb.cat — these change with the yearly tariff order.
+   */
+  specialNights: {
+    /** Nit de Nadal — Christmas Eve night into Christmas morning. */
+    nitDeNadal: 4.2,
+    /** Nit de Cap d'Any — New Year's Eve night into New Year's Day. */
+    capDAny: 4.2,
   },
 
   /** Any trip originating at El Prat bills at least this much. */
@@ -44,7 +70,7 @@ export const TARIFFS = {
     minFare: 8.0,
   },
 
-  /** OUR booking fee. Charged online via SumUp. Never part of the meter. */
+  /** OUR booking fee, charged online. Never part of the meter. */
   bookingFeeRate: 0.2,
 
   /**
@@ -60,6 +86,16 @@ export const TARIFFS = {
 } as const;
 
 export type TariffCode = 'T1' | 'T2' | 'T4';
+
+/**
+ * How the passenger settles the trip.
+ *
+ * FEE_ONLY      — pay our 20% booking fee online now, pay the metered fare to
+ *                 the driver in the taxi.
+ * FULL_PREPAID  — pay the fixed fare plus the booking fee online now, and
+ *                 nothing at all in the taxi.
+ */
+export type PaymentMode = 'FEE_ONLY' | 'FULL_PREPAID';
 
 /**
  * Official Barcelona public holidays (Catalonia + Barcelona local festivities).
@@ -100,6 +136,18 @@ export const BARCELONA_HOLIDAYS: readonly string[] = [
   '2027-12-08',
   '2027-12-25',
 ] as const;
+
+/**
+ * Nights carrying an extra supplement, as `MM-DD` in Barcelona local time.
+ * The supplement runs from 20:00 on the given date through 06:00 the next
+ * morning, so both halves of the night are covered.
+ */
+export const SPECIAL_NIGHTS = {
+  '12-24': 'nitDeNadal',
+  '12-25': 'nitDeNadal', // 00:00-06:00 on Christmas morning
+  '12-31': 'capDAny',
+  '01-01': 'capDAny', // 00:00-06:00 on New Year's Day
+} as const satisfies Record<string, keyof typeof TARIFFS.specialNights>;
 
 /** Known fixed points used for supplement detection. */
 export const LANDMARKS = {

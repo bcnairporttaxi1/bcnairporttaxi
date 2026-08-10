@@ -33,6 +33,13 @@ enum PaymentStatus {
   REFUNDED
 }
 
+/// FEE_ONLY: 20% booking fee online, metered fare paid to the driver in the car.
+/// FULL_PREPAID: fixed fare + booking fee online, nothing owed in the taxi.
+enum PaymentMode {
+  FEE_ONLY
+  FULL_PREPAID
+}
+
 /// T-1 daytime weekday, T-2 night/weekend/holiday. T-4 is the fixed
 /// airport <-> Moll Adossat price. Stored so a historic booking always
 /// explains the estimate it was quoted, even after tariffs change.
@@ -127,14 +134,25 @@ model Booking {
   roadKm       Float
   durationMin  Int
 
-  // Quote — every component stored so the estimate is reproducible.
-  tariff        Tariff
-  startFare     Decimal @db.Decimal(10, 2)
-  perKmRate     Decimal @db.Decimal(10, 4)
-  supplements   Decimal @db.Decimal(10, 2)
-  estimateTotal Decimal @db.Decimal(10, 2)
-  bookingFee    Decimal @db.Decimal(10, 2)
-  currency      String  @default("EUR")
+  // Quote — every component stored so the price is reproducible after the
+  // tariff table changes, and so disputes can be settled from the record.
+  tariff          Tariff
+  startFare       Decimal @db.Decimal(10, 2)
+  /// Official AMB rate used for the meter estimate.
+  perKmRate       Decimal @db.Decimal(10, 4)
+  /// Rate we actually charged on the fixed fare (official + markup).
+  perKmRateCharged Decimal @db.Decimal(10, 4)
+  supplements     Decimal @db.Decimal(10, 2)
+  /// What the taxi meter is expected to read.
+  meterEstimate   Decimal @db.Decimal(10, 2)
+  /// Our locked prepaid fare.
+  fixedFare       Decimal @db.Decimal(10, 2)
+  bookingFee      Decimal @db.Decimal(10, 2)
+  /// Amount actually taken online, derived from paymentMode.
+  amountOnline    Decimal @db.Decimal(10, 2)
+  currency        String  @default("EUR")
+
+  paymentMode PaymentMode @default(FEE_ONLY)
 
   pickupAt   DateTime
   passengers Int      @default(1)
