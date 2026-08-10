@@ -12,7 +12,10 @@
     "account": "A minha conta",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
-    "skipToContent": "Ir para o conteúdo principal"
+    "skipToContent": "Ir para o conteúdo principal",
+    "services": "Serviços",
+    "blog": "Guias",
+    "signIn": "Entrar"
   },
   "home": {
     "metaTitle": "Táxi Aeroporto Barcelona | Transferes El Prat Online",
@@ -36,7 +39,8 @@
       "reviewsTitle": "O que dizem os passageiros",
       "whyTitle": "Porquê reservar connosco",
       "whyIntro": "Tarifas reguladas, um carro reservado para si e alguém para contactar se algo mudar."
-    }
+    },
+    "kicker": "Serviço de táxi licenciado para o aeroporto de Barcelona"
   },
   "quote": {
     "title": "Preço imediato",
@@ -98,7 +102,10 @@
       "body": "A reserva online precisa de pelo menos 3 horas de antecedência. Para mais cedo, escreva-nos no WhatsApp e confirmamos um carro diretamente.",
       "cta": "Reservar urgente no WhatsApp",
       "prefill": "Olá, preciso de um táxi em Barcelona de {pickup} para {dropoff} às {time}."
-    }
+    },
+    "panelKicker": "Reserva",
+    "panelTitle": "Planeie o seu transfer",
+    "panelSub": "Preço imediato · Taxímetro oficial · 24/7"
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",
@@ -151,5 +158,10 @@
     "title": "Algo correu mal",
     "body": "Ocorreu um erro inesperado. A sua reserva não foi cobrada. Tente novamente.",
     "retry": "Tentar novamente"
+  },
+  "topbar": {
+    "licensed": "Táxis licenciados AMB",
+    "always": "Serviço 24/7",
+    "fleet": "Frota premium"
   }
 }

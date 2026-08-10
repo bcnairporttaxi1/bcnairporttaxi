@@ -12,7 +12,10 @@
     "account": "El meu compte",
     "openMenu": "Obrir menú",
     "closeMenu": "Tancar menú",
-    "skipToContent": "Anar al contingut principal"
+    "skipToContent": "Anar al contingut principal",
+    "services": "Serveis",
+    "blog": "Guies",
+    "signIn": "Entrar"
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
@@ -36,7 +39,8 @@
       "reviewsTitle": "Què diuen els passatgers",
       "whyTitle": "Per què reservar amb nosaltres",
       "whyIntro": "Tarifes regulades, un cotxe reservat per a tu i algú a qui trucar si alguna cosa canvia."
-    }
+    },
+    "kicker": "Servei de taxi amb llicència a l'aeroport de Barcelona"
   },
   "quote": {
     "title": "Preu a l'instant",
@@ -98,7 +102,10 @@
       "body": "La reserva online necessita almenys 3 hores d'antelació. Per a un trajecte abans, escriu-nos per WhatsApp i et confirmem un cotxe directament.",
       "cta": "Reservar urgent per WhatsApp",
       "prefill": "Hola, necessito un taxi a Barcelona des de {pickup} fins a {dropoff} a les {time}."
-    }
+    },
+    "panelKicker": "Reserva",
+    "panelTitle": "Planifica el teu trasllat",
+    "panelSub": "Preu a l'instant · Taxímetre oficial · 24/7"
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -151,5 +158,10 @@
     "title": "Alguna cosa ha anat malament",
     "body": "S'ha produït un error inesperat. No s'ha cobrat la teva reserva. Torna-ho a provar.",
     "retry": "Reintentar"
+  },
+  "topbar": {
+    "licensed": "Taxis amb llicència AMB",
+    "always": "Servei 24/7",
+    "fleet": "Flota premium"
   }
 }

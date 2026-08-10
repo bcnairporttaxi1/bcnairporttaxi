@@ -12,7 +12,10 @@
     "account": "我的账户",
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
-    "skipToContent": "跳到主要内容"
+    "skipToContent": "跳到主要内容",
+    "services": "服务",
+    "blog": "指南",
+    "signIn": "登录"
   },
   "home": {
     "metaTitle": "巴塞罗那机场出租车 | 在线预订埃尔普拉特接送",
@@ -36,7 +39,8 @@
       "reviewsTitle": "乘客评价",
       "whyTitle": "为什么选择我们",
       "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。"
-    }
+    },
+    "kicker": "巴塞罗那持牌机场出租车服务"
   },
   "quote": {
     "title": "立即获取价格",
@@ -98,7 +102,10 @@
       "body": "在线预订需至少提前 3 小时。若需更早出发，请通过 WhatsApp 联系我们，我们将直接为您确认车辆。",
       "cta": "通过 WhatsApp 紧急预订",
       "prefill": "您好，我需要一辆巴塞罗那出租车，从 {pickup} 到 {dropoff}，时间 {time}。"
-    }
+    },
+    "panelKicker": "预订",
+    "panelTitle": "规划您的接送",
+    "panelSub": "即时报价 · 官方计价器 · 24/7"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",
@@ -151,5 +158,10 @@
     "title": "出了点问题",
     "body": "发生了意外错误。您的预订未被扣款。请重试。",
     "retry": "重试"
+  },
+  "topbar": {
+    "licensed": "持牌 AMB 出租车",
+    "always": "24/7 服务",
+    "fleet": "高端车队"
   }
 }

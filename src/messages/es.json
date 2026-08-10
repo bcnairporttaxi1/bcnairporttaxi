@@ -12,7 +12,10 @@
     "account": "Mi cuenta",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "skipToContent": "Ir al contenido principal"
+    "skipToContent": "Ir al contenido principal",
+    "services": "Servicios",
+    "blog": "Guías",
+    "signIn": "Entrar"
   },
   "home": {
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
@@ -54,7 +57,8 @@
         "title": "Una persona, no una cola",
         "body": "Escríbenos por WhatsApp y hablarás con alguien que puede cambiar tu reserva. Con menos de tres horas de antelación, es la forma más rápida de conseguir un coche."
       }
-    }
+    },
+    "kicker": "Servicio de taxi con licencia al aeropuerto de Barcelona"
   },
   "quote": {
     "title": "Precio al instante",
@@ -120,7 +124,10 @@
       "body": "La reserva online necesita al menos 3 horas de antelación. Para un trayecto antes, escríbenos por WhatsApp y te confirmamos un coche directamente.",
       "cta": "Reservar urgente por WhatsApp",
       "prefill": "Hola, necesito un taxi en Barcelona desde {pickup} hasta {dropoff} a las {time}."
-    }
+    },
+    "panelKicker": "Reserva",
+    "panelTitle": "Planifica tu traslado",
+    "panelSub": "Precio al instante · Taxímetro oficial · 24/7"
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -212,5 +219,10 @@
     "title": "Algo ha salido mal",
     "body": "Se ha producido un error inesperado. No se ha cobrado tu reserva. Inténtalo de nuevo.",
     "retry": "Reintentar"
+  },
+  "topbar": {
+    "licensed": "Taxis con licencia AMB",
+    "always": "Servicio 24/7",
+    "fleet": "Flota premium"
   }
 }

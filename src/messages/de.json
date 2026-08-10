@@ -12,7 +12,10 @@
     "account": "Mein Konto",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "skipToContent": "Zum Hauptinhalt springen"
+    "skipToContent": "Zum Hauptinhalt springen",
+    "services": "Leistungen",
+    "blog": "Ratgeber",
+    "signIn": "Anmelden"
   },
   "home": {
     "metaTitle": "Taxi Flughafen Barcelona | El Prat Transfers online",
@@ -36,7 +39,8 @@
       "reviewsTitle": "Was Fahrgäste sagen",
       "whyTitle": "Warum bei uns buchen",
       "whyIntro": "Regulierte Tarife, ein reservierter Wagen und jemand, den Sie anrufen können, wenn sich etwas ändert."
-    }
+    },
+    "kicker": "Lizenzierter Taxi-Service zum Flughafen Barcelona"
   },
   "quote": {
     "title": "Sofortpreis",
@@ -98,7 +102,10 @@
       "body": "Online-Buchungen brauchen mindestens 3 Stunden Vorlauf. Für früher schreiben Sie uns auf WhatsApp und wir bestätigen direkt einen Wagen.",
       "cta": "Dringend über WhatsApp buchen",
       "prefill": "Hallo, ich brauche ein Taxi in Barcelona von {pickup} nach {dropoff} um {time}."
-    }
+    },
+    "panelKicker": "Reservierung",
+    "panelTitle": "Planen Sie Ihren Transfer",
+    "panelSub": "Sofortpreis · Offizielles Taxameter · 24/7"
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -151,5 +158,10 @@
     "title": "Etwas ist schiefgelaufen",
     "body": "Ein unerwarteter Fehler ist aufgetreten. Ihre Buchung wurde nicht belastet. Bitte erneut versuchen.",
     "retry": "Erneut versuchen"
+  },
+  "topbar": {
+    "licensed": "Lizenzierte AMB-Taxis",
+    "always": "24/7 Service",
+    "fleet": "Premium-Fuhrpark"
   }
 }

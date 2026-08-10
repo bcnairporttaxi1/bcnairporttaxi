@@ -57,9 +57,16 @@ function defaultDateTime() {
 export function QuoteWidget({
   presetPickup = '',
   presetDropoff = '',
+  variant = 'full',
 }: {
   presetPickup?: string;
   presetDropoff?: string;
+  /**
+   * `panel` stacks everything into one column for the hero sidebar and drops
+   * the map, which has no room there. `full` is the two-column layout used on
+   * the booking and landing pages.
+   */
+  variant?: 'full' | 'panel';
 }) {
   const t = useTranslations('quote');
   const initial = useMemo(defaultDateTime, []);
@@ -189,29 +196,53 @@ export function QuoteWidget({
         }).toString()}`
       : '/book';
 
+  const isPanel = variant === 'panel';
+
   return (
     <section
       aria-labelledby={headingId}
-      className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
+      className={
+        isPanel
+          ? 'overflow-hidden rounded-card border border-white/12 bg-graphite/95 shadow-2xl backdrop-blur'
+          : 'grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]'
+      }
     >
+      {isPanel && (
+        <div className="bg-gradient-to-r from-accent to-accent-deep px-6 py-5">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink/70">
+            {t('panelKicker')}
+          </p>
+          <h2 id={headingId} className="mt-1 font-display text-2xl font-extrabold text-ink">
+            {t('panelTitle')}
+          </h2>
+          <p className="mt-1 text-sm font-medium text-ink/70">{t('panelSub')}</p>
+        </div>
+      )}
+
       <form
         onSubmit={submit}
-        className="rounded-card border border-white/12 bg-graphite/95 p-5 shadow-2xl backdrop-blur sm:p-7"
+        className={
+          isPanel
+            ? 'p-5 sm:p-6'
+            : 'rounded-card border border-white/12 bg-graphite/95 p-5 shadow-2xl backdrop-blur sm:p-7'
+        }
       >
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h2 id={headingId} className="font-display text-xl font-extrabold text-porcelain">
-              {t('title')}
-            </h2>
-            <p className="mt-1 text-xs text-porcelain/50">{t('instantPrice')}</p>
+        {!isPanel && (
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h2 id={headingId} className="font-display text-xl font-extrabold text-porcelain">
+                {t('title')}
+              </h2>
+              <p className="mt-1 text-xs text-porcelain/50">{t('instantPrice')}</p>
+            </div>
+            <span className="hidden shrink-0 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-bold text-accent sm:block">
+              24/7
+            </span>
           </div>
-          <span className="hidden shrink-0 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-bold text-accent sm:block">
-            24/7
-          </span>
-        </div>
+        )}
 
         {/* Trip type — one way is the overwhelming majority, so it leads. */}
-        <fieldset className="mt-5">
+        <fieldset className={isPanel ? '' : 'mt-5'}>
           <legend className="sr-only">{t('tripType')}</legend>
           <div className="grid grid-cols-2 gap-1.5 rounded-xl border border-white/12 bg-ink/60 p-1.5">
             {(['ONE_WAY', 'RETURN'] as const).map((v) => {
@@ -330,8 +361,8 @@ export function QuoteWidget({
         )}
       </form>
 
-      <div className="grid gap-4">
-        <div className="taximeter rounded-card p-5 sm:p-6">
+      <div className={isPanel ? 'px-5 pb-5 sm:px-6 sm:pb-6' : 'grid gap-4'}>
+        <div className={`taximeter rounded-card p-5 ${isPanel ? '' : 'sm:p-6'}`}>
           <div className="flex items-baseline justify-between gap-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-porcelain/55">
               {t('estimatedFare')}
@@ -469,9 +500,11 @@ export function QuoteWidget({
 
         {/* Leaflet is ~150KB of JS for a panel that is usually below the fold on
             mobile. Mount it only once it is near the viewport, or as soon as
-            there is a route to draw. */}
+            there is a route to draw. The hero sidebar has no room for a map at
+            all, so it is skipped there entirely. */}
         <div
           ref={mapSlotRef}
+          hidden={isPanel}
           className="overflow-hidden rounded-card border border-white/10 bg-graphite-2 p-1.5"
         >
           {showMap ? (

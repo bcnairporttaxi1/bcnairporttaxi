@@ -24,6 +24,7 @@ export default async function HomePage(props: {
   const tw = await getTranslations('howItWorks');
   const tfaq = await getTranslations('faq');
   const tc = await getTranslations('common');
+  const tn = await getTranslations('nav');
 
   const faqItems = FAQ_KEYS.map((k) => ({
     q: tfaq(`items.${k}.q`),
@@ -68,15 +69,20 @@ export default async function HomePage(props: {
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(245,179,1,0.16),transparent)]"
         />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:pt-20">
-          <div className="max-w-2xl">
-            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-porcelain sm:text-5xl lg:text-6xl">
+        {/* Copy left, booking panel right on desktop; stacked on mobile with the
+            panel first, because that is what people came to do. */}
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
+          <div className="order-2 max-w-2xl lg:order-1">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+              {t('kicker')}
+            </p>
+            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-porcelain sm:text-5xl lg:text-6xl">
               {t('h1')}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-porcelain/75 sm:text-lg">
               {t('intro')}
             </p>
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-porcelain/70">
+            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-porcelain/70">
               {(['licensed', 'meter', 'noSurge', 'support'] as const).map((k) => (
                 <li key={k} className="flex items-center gap-2">
                   <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-accent">
@@ -86,10 +92,25 @@ export default async function HomePage(props: {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/book"
+                className="sheen rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              >
+                {tc('book')}
+              </Link>
+              <Link
+                href="/destinations"
+                className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain transition hover:bg-white/10"
+              >
+                {tn('destinations')}
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-10 animate-fade-rise">
-            <QuoteWidget />
+          <div className="order-1 animate-fade-rise lg:order-2">
+            <QuoteWidget variant="panel" />
           </div>
         </div>
       </section>

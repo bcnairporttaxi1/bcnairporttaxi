@@ -16,7 +16,10 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "skipToContent": "Skip to main content",
-    "destinations": "Destinations"
+    "destinations": "Destinations",
+    "services": "Services",
+    "blog": "Guides",
+    "signIn": "Sign in"
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
@@ -58,7 +61,8 @@
         "title": "A person, not a queue",
         "body": "Message us on WhatsApp and you reach someone who can actually move your booking. Under three hours' notice, that is the fastest way to get a car."
       }
-    }
+    },
+    "kicker": "Barcelona's licensed airport taxi service"
   },
   "quote": {
     "title": "Get an instant price",
@@ -131,7 +135,10 @@
       "body": "Online booking needs at least 3 hours' notice. For a ride sooner than that, message us on WhatsApp and we will confirm a car directly.",
       "cta": "Book urgently on WhatsApp",
       "prefill": "Hi, I need a Barcelona taxi from {pickup} to {dropoff} at {time}."
-    }
+    },
+    "panelKicker": "Reservation",
+    "panelTitle": "Plan your transfer",
+    "panelSub": "Instant price · Official meter · 24/7"
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",
@@ -326,5 +333,10 @@
     "title": "Something went wrong",
     "body": "An unexpected error occurred. Your booking has not been charged. Please try again.",
     "retry": "Try again"
+  },
+  "topbar": {
+    "licensed": "Licensed AMB taxis",
+    "always": "24/7 service",
+    "fleet": "Premium fleet"
   }
 }

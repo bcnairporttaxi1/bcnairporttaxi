@@ -12,7 +12,10 @@
     "account": "Mijn account",
     "openMenu": "Menu openen",
     "closeMenu": "Menu sluiten",
-    "skipToContent": "Naar hoofdinhoud"
+    "skipToContent": "Naar hoofdinhoud",
+    "services": "Diensten",
+    "blog": "Gidsen",
+    "signIn": "Inloggen"
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
@@ -36,7 +39,8 @@
       "reviewsTitle": "Wat passagiers zeggen",
       "whyTitle": "Waarom bij ons boeken",
       "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert."
-    }
+    },
+    "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
   },
   "quote": {
     "title": "Direct een prijs",
@@ -98,7 +102,10 @@
       "body": "Online boeken vraagt minstens 3 uur vooraf. Voor eerder: stuur ons een WhatsApp en we bevestigen direct een auto.",
       "cta": "Spoed boeken via WhatsApp",
       "prefill": "Hallo, ik heb een taxi nodig in Barcelona van {pickup} naar {dropoff} om {time}."
-    }
+    },
+    "panelKicker": "Reservering",
+    "panelTitle": "Plan uw transfer",
+    "panelSub": "Direct een prijs · Officiële meter · 24/7"
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -151,5 +158,10 @@
     "title": "Er ging iets mis",
     "body": "Er is een onverwachte fout opgetreden. Uw boeking is niet belast. Probeer het opnieuw.",
     "retry": "Opnieuw proberen"
+  },
+  "topbar": {
+    "licensed": "Vergunde AMB-taxi's",
+    "always": "24/7 service",
+    "fleet": "Premium wagenpark"
   }
 }

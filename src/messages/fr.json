@@ -12,7 +12,10 @@
     "account": "Mon compte",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
-    "skipToContent": "Aller au contenu principal"
+    "skipToContent": "Aller au contenu principal",
+    "services": "Services",
+    "blog": "Guides",
+    "signIn": "Connexion"
   },
   "home": {
     "metaTitle": "Taxi Aéroport Barcelone | Transferts El Prat en ligne",
@@ -36,7 +39,8 @@
       "reviewsTitle": "Ce que disent les passagers",
       "whyTitle": "Pourquoi réserver chez nous",
       "whyIntro": "Des tarifs réglementés, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change."
-    }
+    },
+    "kicker": "Service de taxi agréé vers l'aéroport de Barcelone"
   },
   "quote": {
     "title": "Prix instantané",
@@ -98,7 +102,10 @@
       "body": "La réservation en ligne demande au moins 3 heures. Pour un trajet plus tôt, écrivez-nous sur WhatsApp et nous confirmons une voiture directement.",
       "cta": "Réserver en urgence sur WhatsApp",
       "prefill": "Bonjour, j'ai besoin d'un taxi à Barcelone de {pickup} à {dropoff} à {time}."
-    }
+    },
+    "panelKicker": "Réservation",
+    "panelTitle": "Planifiez votre transfert",
+    "panelSub": "Prix instantané · Compteur officiel · 24h/24"
   },
   "fleet": {
     "h1": "Notre flotte de taxis à Barcelone",
@@ -151,5 +158,10 @@
     "title": "Une erreur est survenue",
     "body": "Une erreur inattendue s'est produite. Votre réservation n'a pas été débitée. Réessayez.",
     "retry": "Réessayer"
+  },
+  "topbar": {
+    "licensed": "Taxis agréés AMB",
+    "always": "Service 24h/24",
+    "fleet": "Flotte premium"
   }
 }

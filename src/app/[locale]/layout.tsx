@@ -6,6 +6,7 @@ import { Inter, Sora, Space_Mono } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@/lib/site';
+import { TopBar } from '@/components/top-bar';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { CookieBanner } from '@/components/cookie-banner';
@@ -129,6 +130,7 @@ export default async function LocaleLayout(props: {
           {/* Always /account — reading the session here would make cookies()
               part of the layout and turn every marketing page dynamic. That
               route redirects by role instead. */}
+          <TopBar />
           <SiteHeader accountHref="/account" />
           <main id="main">{props.children}</main>
           <SiteFooter />
