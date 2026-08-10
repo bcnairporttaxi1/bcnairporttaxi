@@ -44,6 +44,9 @@ export default async function HomePage(props: {
           fill
           priority
           fetchPriority="high"
+          // It sits under a heavy scrim, so compression artefacts are not
+          // visible and this keeps the LCP payload down.
+          quality={60}
           sizes="100vw"
           className="object-cover object-center"
         />
