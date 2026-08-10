@@ -14,6 +14,9 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
     "gen:images": "tsx scripts/generate-images.ts",
+    "gen:art": "tsx scripts/make-fleet-art.ts",
+    "seo:audit": "tsx scripts/seo-audit.ts",
+    "verify:payment": "tsx scripts/verify-payment-flow.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {
