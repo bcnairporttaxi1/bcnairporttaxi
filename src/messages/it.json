@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Prezzi",
+    "fleet": "Flotta",
+    "destinations": "Destinazioni",
+    "howItWorks": "Come funziona",
+    "book": "Prenota",
+    "faq": "FAQ",
+    "contact": "Contatti",
+    "language": "Lingua",
+    "account": "Il mio account",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "skipToContent": "Vai al contenuto principale"
+  },
+  "home": {
+    "metaTitle": "Taxi Aeroporto Barcellona | Transfer El Prat Online",
+    "metaDescription": "Prenota online un taxi per l'aeroporto di Barcellona. Tariffe ufficiali AMB, commissione del 20%, taxi neri e gialli autorizzati da e per El Prat. 24 ore.",
+    "h1": "Taxi per l'aeroporto di Barcellona, prenotato prima di atterrare",
+    "intro": "Prenota un taxi autorizzato di Barcellona da o per l'aeroporto di El Prat. Vedi una stima precisa basata sulla tariffa ufficiale AMB prima di prenotare e paghi al conducente l'importo del tassametro in auto, esattamente come al posteggio, ma con l'auto che ti aspetta già.",
+    "trust": {
+      "licensed": "Taxi autorizzati AMB",
+      "meter": "Tariffa ufficiale del tassametro",
+      "noSurge": "Nessun sovrapprezzo dinamico",
+      "support": "Prenotazioni 24 h"
+    },
+    "sections": {
+      "howTitle": "Come funziona la prenotazione",
+      "howIntro": "Tre passaggi e l'auto è prenotata.",
+      "fleetTitle": "Scegli il veicolo",
+      "fleetIntro": "Ogni auto è un taxi autorizzato di Barcellona. Scegli in base al gruppo e ai bagagli.",
+      "routesTitle": "Tratte più richieste per l'aeroporto di Barcellona",
+      "routesIntro": "I transfer che ci vengono richiesti più spesso.",
+      "faqTitle": "Domande sul taxi per l'aeroporto",
+      "reviewsTitle": "Cosa dicono i passeggeri",
+      "whyTitle": "Perché prenotare con noi",
+      "whyIntro": "Tariffe regolamentate, un'auto riservata per te e qualcuno da chiamare se qualcosa cambia."
+    }
+  },
+  "quote": {
+    "title": "Prezzo immediato",
+    "pickup": "Ritiro",
+    "pickupPlaceholder": "Hotel, via o aeroporto di Barcellona",
+    "dropoff": "Destinazione",
+    "dropoffPlaceholder": "Dove vai?",
+    "date": "Data",
+    "time": "Ora",
+    "passengers": "Passeggeri",
+    "luggage": "Bagagli",
+    "calculate": "Calcola il prezzo",
+    "calculating": "Calcolo…",
+    "searching": "Ricerca…",
+    "noResults": "Nessun indirizzo trovato",
+    "estimatedFare": "Tariffa stimata del tassametro",
+    "fixedFare": "Prezzo fisso, pagato online",
+    "bookingFee": "Commissione di prenotazione (20%)",
+    "distance": "Distanza",
+    "duration": "Tempo stim.",
+    "payNow": "Paga ora",
+    "payInTaxi": "Paga in taxi",
+    "nothingInTaxi": "Niente da pagare in taxi",
+    "modeFeeOnlyTitle": "Paga solo la commissione",
+    "modeFeeOnlyBody": "Paghi {fee} di commissione online. Al conducente paghi la tariffa del tassametro, circa {fare}, in contanti o con carta.",
+    "modeFullTitle": "Paga tutto ora",
+    "modeFullBody": "Paghi {total} online e niente in taxi. Il prezzo è bloccato, qualunque cosa faccia il traffico.",
+    "chooseHowToPay": "Scegli come pagare",
+    "bookNow": "Prenota ora",
+    "tripType": "Tipo di viaggio",
+    "oneWay": "Solo andata",
+    "return": "Andata e ritorno",
+    "returnNote": "Il ritorno viene quotato separatamente e confermato via email.",
+    "instantPrice": "Prezzo immediato, senza registrazione",
+    "tariffBadge": "Tariffa {tariff}",
+    "tariffT1": "T-1 · feriale diurno",
+    "tariffT2": "T-2 · notte, weekend o festivi",
+    "tariffT4": "T-4 · prezzo fisso aeroporto–porto",
+    "supplements": "Supplementi",
+    "supplementNames": {
+      "airportElPrat": "Aeroporto di El Prat",
+      "mollAdossat": "Porto crociere Moll Adossat",
+      "sants": "Stazione di Sants",
+      "firaGranVia": "Fira Gran Via",
+      "nitDeNadal": "Supplemento notte di Natale",
+      "capDAny": "Supplemento notte di Capodanno",
+      "santJoan": "Supplemento notte di Sant Joan",
+      "largeVehicle": "Veicolo grande (5-8 posti)"
+    },
+    "disclaimer": "La tariffa finale è stabilita dal tassametro ufficiale. La fattura viene rilasciata in taxi su richiesta. La commissione di prenotazione è un servizio addebitato separatamente.",
+    "errors": {
+      "pickupRequired": "Scegli un punto di ritiro.",
+      "dropoffRequired": "Scegli una destinazione.",
+      "pickupOutsideCity": "Il ritiro deve essere a Barcellona o all'aeroporto di El Prat. La destinazione può essere ovunque.",
+      "routeFailed": "Non è stato possibile calcolare il percorso. Controlla entrambi gli indirizzi."
+    },
+    "urgent": {
+      "title": "Parti tra meno di 3 ore?",
+      "body": "La prenotazione online richiede almeno 3 ore di anticipo. Per prima, scrivici su WhatsApp e ti confermiamo un'auto direttamente.",
+      "cta": "Prenota urgente su WhatsApp",
+      "prefill": "Ciao, mi serve un taxi a Barcellona da {pickup} a {dropoff} alle {time}."
+    }
+  },
+  "fleet": {
+    "h1": "La nostra flotta di taxi a Barcellona",
+    "seats": "{count, plural, one {# passeggero} other {# passeggeri}}",
+    "bags": "{count, plural, one {# valigia} other {# valigie}}",
+    "passengersLabel": "Passeggeri",
+    "luggageLabel": "Bagagli",
+    "categories": {
+      "eco": "Taxi ibrido ecologico",
+      "standard": "Taxi standard",
+      "estate": "Taxi station wagon",
+      "minivan": "Taxi minivan",
+      "premium": "Van premium"
+    }
+  },
+  "common": {
+    "book": "Prenota ora",
+    "learnMore": "Scopri di più",
+    "viewFleet": "Vedi tutta la flotta",
+    "readAllFaqs": "Vedi tutte le domande",
+    "backHome": "Torna alla home",
+    "loading": "Caricamento…"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi è un servizio di prenotazione di taxi autorizzati di Barcellona. Siamo intermediari, non un'azienda di taxi: le tariffe sono stabilite dal tassametro ufficiale AMB e pagate al conducente.",
+    "routes": "Tratte popolari",
+    "company": "Azienda",
+    "legal": "Note legali",
+    "terms": "Termini",
+    "privacy": "Privacy",
+    "cookies": "Cookie",
+    "refunds": "Rimborsi",
+    "installApp": "Installa l'app",
+    "rights": "Tutti i diritti riservati.",
+    "disclaimerShort": "Le stime seguono le tariffe ufficiali AMB. La tariffa finale è quella del tassametro."
+  },
+  "cookies": {
+    "title": "Usiamo i cookie",
+    "body": "Usiamo cookie essenziali per il funzionamento del sito. Con il tuo consenso usiamo anche cookie analitici.",
+    "accept": "Accetta tutti",
+    "reject": "Solo essenziali",
+    "settings": "Impostazioni"
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "body": "La pagina che cercavi non esiste. Torniamo a prenotare un taxi.",
+    "cta": "Torna alla home"
+  },
+  "error": {
+    "title": "Qualcosa è andato storto",
+    "body": "Si è verificato un errore imprevisto. La prenotazione non è stata addebitata. Riprova.",
+    "retry": "Riprova"
+  }
+}

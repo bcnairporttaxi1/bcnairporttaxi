@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "首页",
+    "pricing": "价格",
+    "fleet": "车队",
+    "destinations": "目的地",
+    "howItWorks": "预订流程",
+    "book": "立即预订",
+    "faq": "常见问题",
+    "contact": "联系我们",
+    "language": "语言",
+    "account": "我的账户",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "skipToContent": "跳到主要内容"
+  },
+  "home": {
+    "metaTitle": "巴塞罗那机场出租车 | 在线预订埃尔普拉特接送",
+    "metaDescription": "在线预订巴塞罗那机场出租车。官方 AMB 计价器费率，20% 预订服务费，往返埃尔普拉特机场的持牌黑黄出租车，24 小时服务。",
+    "h1": "巴塞罗那机场出租车，落地前就订好",
+    "intro": "预订持牌巴塞罗那出租车，往返埃尔普拉特机场。预订前即可看到依据官方 AMB 费率计算的准确估价，车费按计价器在车上支付给司机——与在出租车站相同，但车已在等您。",
+    "trust": {
+      "licensed": "持牌 AMB 出租车",
+      "meter": "官方计价器费率",
+      "noSurge": "无高峰加价",
+      "support": "24 小时预订"
+    },
+    "sections": {
+      "howTitle": "预订流程",
+      "howIntro": "三个步骤，车即锁定。",
+      "fleetTitle": "选择您的车型",
+      "fleetIntro": "每辆车都是持牌巴塞罗那出租车。请根据人数和行李选择。",
+      "routesTitle": "热门巴塞罗那机场路线",
+      "routesIntro": "我们接单最多的接送路线。",
+      "faqTitle": "机场出租车常见问题",
+      "reviewsTitle": "乘客评价",
+      "whyTitle": "为什么选择我们",
+      "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。"
+    }
+  },
+  "quote": {
+    "title": "立即获取价格",
+    "pickup": "上车地点",
+    "pickupPlaceholder": "酒店、街道或巴塞罗那机场",
+    "dropoff": "目的地",
+    "dropoffPlaceholder": "您要去哪里？",
+    "date": "日期",
+    "time": "时间",
+    "passengers": "乘客",
+    "luggage": "行李",
+    "calculate": "查看即时价格",
+    "calculating": "计算中…",
+    "searching": "搜索中…",
+    "noResults": "未找到匹配地址",
+    "estimatedFare": "计价器预估车费",
+    "fixedFare": "固定价格，在线支付",
+    "bookingFee": "预订服务费（20%）",
+    "distance": "距离",
+    "duration": "预计时间",
+    "payNow": "现在支付",
+    "payInTaxi": "在车上支付",
+    "nothingInTaxi": "车上无需支付",
+    "modeFeeOnlyTitle": "仅支付预订服务费",
+    "modeFeeOnlyBody": "在线支付 {fee} 服务费。计价器车费约 {fare}，在车上以现金或刷卡支付给司机。",
+    "modeFullTitle": "现在支付全部",
+    "modeFullBody": "在线支付 {total}，车上无需再付。无论路况如何，价格已锁定。",
+    "chooseHowToPay": "选择支付方式",
+    "bookNow": "立即预订",
+    "tripType": "行程类型",
+    "oneWay": "单程",
+    "return": "往返",
+    "returnNote": "返程单独报价，并通过电子邮件确认。",
+    "instantPrice": "即时报价，无需注册",
+    "tariffBadge": "费率 {tariff}",
+    "tariffT1": "T-1 · 工作日白天",
+    "tariffT2": "T-2 · 夜间、周末或节假日",
+    "tariffT4": "T-4 · 机场至邮轮港固定价",
+    "supplements": "附加费",
+    "supplementNames": {
+      "airportElPrat": "埃尔普拉特机场",
+      "mollAdossat": "Moll Adossat 邮轮港",
+      "sants": "桑茨车站",
+      "firaGranVia": "Fira Gran Via 会展中心",
+      "nitDeNadal": "平安夜附加费",
+      "capDAny": "跨年夜附加费",
+      "santJoan": "圣约翰之夜附加费",
+      "largeVehicle": "大型车辆（5-8 座）"
+    },
+    "disclaimer": "最终车费以官方计价器为准。可在车上索取发票。预订服务费为独立的服务收费。",
+    "errors": {
+      "pickupRequired": "请选择上车地点。",
+      "dropoffRequired": "请选择目的地。",
+      "pickupOutsideCity": "上车地点须在巴塞罗那市内或埃尔普拉特机场。目的地不限。",
+      "routeFailed": "无法计算该路线，请检查两个地址。"
+    },
+    "urgent": {
+      "title": "3 小时内出发？",
+      "body": "在线预订需至少提前 3 小时。若需更早出发，请通过 WhatsApp 联系我们，我们将直接为您确认车辆。",
+      "cta": "通过 WhatsApp 紧急预订",
+      "prefill": "您好，我需要一辆巴塞罗那出租车，从 {pickup} 到 {dropoff}，时间 {time}。"
+    }
+  },
+  "fleet": {
+    "h1": "我们在巴塞罗那的出租车队",
+    "seats": "{count, plural, other {# 位乘客}}",
+    "bags": "{count, plural, other {# 件行李}}",
+    "passengersLabel": "乘客",
+    "luggageLabel": "行李",
+    "categories": {
+      "eco": "环保混动出租车",
+      "standard": "标准出租车",
+      "estate": "旅行版出租车",
+      "minivan": "小型商务车",
+      "premium": "豪华商务车"
+    }
+  },
+  "common": {
+    "book": "立即预订",
+    "learnMore": "了解更多",
+    "viewFleet": "查看全部车型",
+    "readAllFaqs": "查看全部问题",
+    "backHome": "返回首页",
+    "loading": "加载中…"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi 是持牌巴塞罗那出租车的预订服务平台。我们是中介，而非出租车运营商：车费由官方 AMB 计价器决定，并支付给司机。",
+    "routes": "热门路线",
+    "company": "公司",
+    "legal": "法律信息",
+    "terms": "条款",
+    "privacy": "隐私",
+    "cookies": "Cookie",
+    "refunds": "退款政策",
+    "installApp": "安装应用",
+    "rights": "版权所有。",
+    "disclaimerShort": "估价依据官方 AMB 费率。最终车费以计价器为准。"
+  },
+  "cookies": {
+    "title": "我们使用 Cookie",
+    "body": "我们使用必要的 Cookie 来运行网站。在您同意的情况下，我们也会使用分析类 Cookie。",
+    "accept": "全部接受",
+    "reject": "仅必要",
+    "settings": "设置"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "body": "您访问的页面不存在。让我们回到预订出租车。",
+    "cta": "返回首页"
+  },
+  "error": {
+    "title": "出了点问题",
+    "body": "发生了意外错误。您的预订未被扣款。请重试。",
+    "retry": "重试"
+  }
+}

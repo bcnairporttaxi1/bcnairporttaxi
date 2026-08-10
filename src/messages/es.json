@@ -1,0 +1,216 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "pricing": "Precios",
+    "fleet": "Flota",
+    "destinations": "Destinos",
+    "howItWorks": "Cómo funciona",
+    "book": "Reservar",
+    "faq": "Preguntas",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "account": "Mi cuenta",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "skipToContent": "Ir al contenido principal"
+  },
+  "home": {
+    "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
+    "metaDescription": "Reserva online un taxi al aeropuerto de Barcelona. Tarifas oficiales del AMB, gestión del 20%, taxis negros y amarillos con licencia hacia y desde El Prat. 24 horas.",
+    "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
+    "intro": "Reserva un taxi con licencia de Barcelona hacia o desde el aeropuerto de El Prat. Verás una estimación precisa según la tarifa oficial del AMB antes de reservar, y pagarás al conductor el importe del taxímetro en el coche, igual que en la parada, pero con el coche ya esperándote.",
+    "trust": {
+      "licensed": "Taxis con licencia AMB",
+      "meter": "Tarifa oficial del taxímetro",
+      "noSurge": "Sin precios dinámicos",
+      "support": "Reservas 24 h"
+    },
+    "sections": {
+      "howTitle": "Cómo funciona la reserva",
+      "howIntro": "Tres pasos y el coche queda reservado.",
+      "fleetTitle": "Elige tu vehículo",
+      "fleetIntro": "Todos los coches son taxis con licencia de Barcelona. Elige el que se ajuste a tu grupo y equipaje.",
+      "routesTitle": "Rutas populares al aeropuerto de Barcelona",
+      "routesIntro": "Los traslados que más nos reservan.",
+      "faqTitle": "Preguntas sobre el taxi al aeropuerto",
+      "reviewsTitle": "Lo que dicen los pasajeros",
+      "whyTitle": "Por qué reservar con nosotros",
+      "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia."
+    },
+    "why": {
+      "meter": {
+        "title": "El taxímetro oficial, sin añadidos",
+        "body": "Las tarifas de Barcelona las fija el AMB y son idénticas en todos los taxis con licencia. Te mostramos una estimación precisa según la distancia real por carretera y pagas el taxímetro, o fijas un precio cerrado por adelantado si prefieres seguridad."
+      },
+      "flight": {
+        "title": "Seguimos tu vuelo",
+        "body": "Tu conductor sigue el número de vuelo. Si aterrizas tarde, el coche sigue allí sin coste adicional. El punto de encuentro está en tu email de confirmación."
+      },
+      "licensed": {
+        "title": "Solo conductores con licencia",
+        "body": "Cada vehículo es un taxi con licencia de Barcelona, con taxímetro y el seguro que exige la ciudad. Nunca coches sin licencia."
+      },
+      "support": {
+        "title": "Una persona, no una cola",
+        "body": "Escríbenos por WhatsApp y hablarás con alguien que puede cambiar tu reserva. Con menos de tres horas de antelación, es la forma más rápida de conseguir un coche."
+      }
+    }
+  },
+  "quote": {
+    "title": "Precio al instante",
+    "pickup": "Recogida",
+    "pickupPlaceholder": "Hotel, calle o aeropuerto de Barcelona",
+    "dropoff": "Destino",
+    "dropoffPlaceholder": "¿A dónde vas?",
+    "date": "Fecha",
+    "time": "Hora",
+    "passengers": "Pasajeros",
+    "luggage": "Equipaje",
+    "calculate": "Ver precio al instante",
+    "calculating": "Calculando…",
+    "searching": "Buscando…",
+    "noResults": "No se encontró ninguna dirección",
+    "estimatedFare": "Tarifa estimada del taxímetro",
+    "fixedFare": "Precio cerrado, pagado online",
+    "bookingFee": "Gastos de gestión (20%)",
+    "distance": "Distancia",
+    "duration": "Tiempo est.",
+    "payNow": "Pagar ahora",
+    "payInTaxi": "Pagar en el taxi",
+    "nothingInTaxi": "Nada que pagar en el taxi",
+    "modeFeeOnlyTitle": "Pagar solo la gestión",
+    "modeFeeOnlyBody": "Paga {fee} de gestión online. Al conductor le pagas la tarifa del taxímetro, unos {fare}, en efectivo o con tarjeta.",
+    "modeFullTitle": "Pagar todo ahora",
+    "modeFullBody": "Paga {total} online y nada en el taxi. Tu precio queda fijado, pase lo que pase con el tráfico.",
+    "chooseHowToPay": "Elige cómo pagar",
+    "bookNow": "Reservar ahora",
+    "tripType": "Tipo de trayecto",
+    "oneWay": "Solo ida",
+    "return": "Ida y vuelta",
+    "returnNote": "La vuelta se presupuesta aparte y se confirma por email.",
+    "instantPrice": "Precio al instante, sin registro",
+    "tariffBadge": "Tarifa {tariff}",
+    "tariffT1": "T-1 · laborable de día",
+    "tariffT2": "T-2 · noche, fin de semana o festivo",
+    "tariffT4": "T-4 · precio fijo aeropuerto–puerto",
+    "airportMinimumApplied": "Se aplica la tarifa mínima de aeropuerto de {amount}.",
+    "t4Applied": "Precio fijo aeropuerto ↔ terminal de cruceros.",
+    "supplements": "Suplementos",
+    "supplementNames": {
+      "airportElPrat": "Aeropuerto de El Prat",
+      "mollAdossat": "Puerto de cruceros Moll Adossat",
+      "sants": "Estación de Sants",
+      "firaGranVia": "Fira Gran Via",
+      "nitDeNadal": "Suplemento Nochebuena",
+      "capDAny": "Suplemento Nochevieja",
+      "santJoan": "Suplemento noche de San Juan",
+      "largeVehicle": "Vehículo grande (5-8 plazas)"
+    },
+    "disclaimer": "La tarifa final la marca el taxímetro oficial. Se entrega factura en el taxi si la solicitas. Los gastos de gestión son un cargo de servicio independiente.",
+    "fixedFareNote": "Nuestro precio cerrado está algo por encima del taxímetro porque lo fijamos por adelantado y asumimos la variación del tráfico. Si prefieres pagar en el taxi, pagas simplemente el taxímetro.",
+    "errors": {
+      "pickupRequired": "Elige un punto de recogida.",
+      "dropoffRequired": "Elige un destino.",
+      "pickupOutsideCity": "La recogida debe ser en Barcelona o en el aeropuerto de El Prat. El destino puede ser cualquiera.",
+      "routeFailed": "No hemos podido calcular esa ruta. Revisa ambas direcciones.",
+      "geocodeFailed": "La búsqueda de direcciones no está disponible. Inténtalo de nuevo."
+    },
+    "urgent": {
+      "title": "¿Sales en menos de 3 horas?",
+      "body": "La reserva online necesita al menos 3 horas de antelación. Para un trayecto antes, escríbenos por WhatsApp y te confirmamos un coche directamente.",
+      "cta": "Reservar urgente por WhatsApp",
+      "prefill": "Hola, necesito un taxi en Barcelona desde {pickup} hasta {dropoff} a las {time}."
+    }
+  },
+  "fleet": {
+    "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
+    "metaDescription": "Taxis con licencia para el aeropuerto de Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito y Mercedes V-Class. Plazas y equipaje para cada grupo.",
+    "h1": "Nuestra flota de taxis en Barcelona",
+    "intro": "Cada vehículo es un taxi con licencia de Barcelona con taxímetro. Elige según el tamaño del grupo y el equipaje: la estimación es la misma en todos, porque la tarifa la fija el AMB.",
+    "seats": "{count, plural, one {# pasajero} other {# pasajeros}}",
+    "bags": "{count, plural, one {# maleta} other {# maletas}}",
+    "passengersLabel": "Pasajeros",
+    "luggageLabel": "Equipaje",
+    "categories": {
+      "eco": "Taxi híbrido ecológico",
+      "standard": "Taxi estándar",
+      "estate": "Taxi familiar",
+      "minivan": "Taxi minivan",
+      "premium": "Furgoneta premium"
+    }
+  },
+  "common": {
+    "from": "desde",
+    "to": "hasta",
+    "km": "km",
+    "min": "min",
+    "book": "Reservar ahora",
+    "learnMore": "Saber más",
+    "viewFleet": "Ver toda la flota de taxis",
+    "readAllFaqs": "Ver todas las preguntas",
+    "backHome": "Volver al inicio",
+    "loading": "Cargando…",
+    "required": "obligatorio"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi es un servicio de reservas de taxis con licencia de Barcelona. Somos intermediarios, no una empresa de taxis: las tarifas las marca el taxímetro oficial del AMB y se pagan al conductor.",
+    "routes": "Rutas populares",
+    "company": "Empresa",
+    "legal": "Legal",
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "refunds": "Reembolsos",
+    "installApp": "Instalar la app",
+    "rights": "Todos los derechos reservados.",
+    "disclaimerShort": "Las estimaciones siguen las tarifas oficiales del AMB. La tarifa final es el taxímetro."
+  },
+  "cookies": {
+    "title": "Usamos cookies",
+    "body": "Usamos cookies esenciales para que la web funcione. Con tu consentimiento, también usamos cookies de análisis para entender cómo se usa el sitio.",
+    "accept": "Aceptar todas",
+    "reject": "Solo esenciales",
+    "settings": "Configuración"
+  },
+  "checkout": {
+    "h1": "Completa tu reserva",
+    "yourTrip": "Tu trayecto",
+    "chooseVehicle": "Elige tu vehículo",
+    "yourDetails": "Tus datos",
+    "name": "Nombre completo",
+    "email": "Email",
+    "phone": "Teléfono (con prefijo)",
+    "flight": "Número de vuelo",
+    "flightHelp": "Opcional. Permite a tu conductor seguir tu aterrizaje.",
+    "notes": "Notas para el conductor",
+    "notesHelp": "Opcional. Códigos de puerta, equipaje extra, sillas infantiles.",
+    "passengers": "Pasajeros",
+    "luggage": "Equipaje",
+    "summary": "Resumen del precio",
+    "payButton": "Pagar {amount} y confirmar",
+    "processing": "Procesando…",
+    "agree": "Al reservar aceptas nuestros términos y la política de reembolsos.",
+    "missingQuote": "Empieza pidiendo un precio en la página principal y vuelve para completar la reserva.",
+    "getPrice": "Ver precio"
+  },
+  "confirmation": {
+    "titlePaid": "Reserva confirmada",
+    "titlePending": "Reserva recibida",
+    "bodyPaid": "Tu taxi está reservado. Te hemos enviado la confirmación y el recibo por email.",
+    "bodyPending": "Tu reserva está guardada. Se confirma en cuanto se complete el pago.",
+    "reference": "Referencia de reserva",
+    "driverNote": "Te enviaremos los datos de tu conductor antes de la recogida.",
+    "notFound": "No hemos encontrado esa reserva.",
+    "backHome": "Volver al inicio"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "La página que buscas no existe. Volvamos a reservar un taxi.",
+    "cta": "Volver al inicio"
+  },
+  "error": {
+    "title": "Algo ha salido mal",
+    "body": "Se ha producido un error inesperado. No se ha cobrado tu reserva. Inténtalo de nuevo.",
+    "retry": "Reintentar"
+  }
+}

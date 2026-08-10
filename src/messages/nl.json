@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Tarieven",
+    "fleet": "Wagenpark",
+    "destinations": "Bestemmingen",
+    "howItWorks": "Hoe het werkt",
+    "book": "Boeken",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Taal",
+    "account": "Mijn account",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "skipToContent": "Naar hoofdinhoud"
+  },
+  "home": {
+    "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
+    "metaDescription": "Boek online een taxi naar de luchthaven van Barcelona. Officiële AMB-tarieven, 20% boekingskosten, vergunde zwart-gele taxi's van en naar El Prat. 24 uur.",
+    "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
+    "intro": "Reserveer een vergunde taxi in Barcelona van of naar luchthaven El Prat. U ziet vóór het boeken een nauwkeurige schatting op basis van het officiële AMB-tarief en betaalt de chauffeur het metertarief in de auto — precies zoals op de standplaats, maar met een auto die al op u wacht.",
+    "trust": {
+      "licensed": "Vergunde AMB-taxi's",
+      "meter": "Officieel metertarief",
+      "noSurge": "Geen piektarieven",
+      "support": "24 uur boeken"
+    },
+    "sections": {
+      "howTitle": "Zo werkt boeken",
+      "howIntro": "Drie stappen en de auto staat gereserveerd.",
+      "fleetTitle": "Kies uw voertuig",
+      "fleetIntro": "Elke auto is een vergunde taxi uit Barcelona. Kies op groepsgrootte en bagage.",
+      "routesTitle": "Populaire routes naar de luchthaven van Barcelona",
+      "routesIntro": "De transfers die het vaakst worden geboekt.",
+      "faqTitle": "Vragen over de luchthaventaxi",
+      "reviewsTitle": "Wat passagiers zeggen",
+      "whyTitle": "Waarom bij ons boeken",
+      "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert."
+    }
+  },
+  "quote": {
+    "title": "Direct een prijs",
+    "pickup": "Ophalen",
+    "pickupPlaceholder": "Hotel, straat of luchthaven Barcelona",
+    "dropoff": "Bestemming",
+    "dropoffPlaceholder": "Waar gaat u heen?",
+    "date": "Datum",
+    "time": "Tijd",
+    "passengers": "Passagiers",
+    "luggage": "Bagage",
+    "calculate": "Toon prijs",
+    "calculating": "Berekenen…",
+    "searching": "Zoeken…",
+    "noResults": "Geen adres gevonden",
+    "estimatedFare": "Geschat metertarief",
+    "fixedFare": "Vaste prijs, online betaald",
+    "bookingFee": "Boekingskosten (20%)",
+    "distance": "Afstand",
+    "duration": "Reistijd ca.",
+    "payNow": "Nu betalen",
+    "payInTaxi": "In de taxi betalen",
+    "nothingInTaxi": "Niets te betalen in de taxi",
+    "modeFeeOnlyTitle": "Alleen boekingskosten",
+    "modeFeeOnlyBody": "U betaalt {fee} boekingskosten online. De chauffeur betaalt u het metertarief van ongeveer {fare}, contant of met kaart.",
+    "modeFullTitle": "Alles nu betalen",
+    "modeFullBody": "Betaal {total} online en niets in de taxi. Uw prijs ligt vast, wat het verkeer ook doet.",
+    "chooseHowToPay": "Kies hoe u betaalt",
+    "bookNow": "Nu boeken",
+    "tripType": "Type rit",
+    "oneWay": "Enkele reis",
+    "return": "Retour",
+    "returnNote": "De terugreis wordt apart geoffreerd en per e-mail bevestigd.",
+    "instantPrice": "Direct een prijs, geen account nodig",
+    "tariffBadge": "Tarief {tariff}",
+    "tariffT1": "T-1 · doordeweeks overdag",
+    "tariffT2": "T-2 · nacht, weekend of feestdag",
+    "tariffT4": "T-4 · vaste prijs luchthaven–haven",
+    "supplements": "Toeslagen",
+    "supplementNames": {
+      "airportElPrat": "Luchthaven El Prat",
+      "mollAdossat": "Cruisehaven Moll Adossat",
+      "sants": "Station Sants",
+      "firaGranVia": "Fira Gran Via",
+      "nitDeNadal": "Toeslag kerstavond",
+      "capDAny": "Toeslag oudejaarsavond",
+      "santJoan": "Toeslag Sant Joan-nacht",
+      "largeVehicle": "Groot voertuig (5-8 plaatsen)"
+    },
+    "disclaimer": "Het eindtarief wordt bepaald door de officiële taxameter. Een factuur krijgt u op verzoek in de taxi. De boekingskosten zijn een aparte servicevergoeding.",
+    "errors": {
+      "pickupRequired": "Kies een ophaalpunt.",
+      "dropoffRequired": "Kies een bestemming.",
+      "pickupOutsideCity": "Ophalen moet in Barcelona of op luchthaven El Prat. De bestemming mag overal zijn.",
+      "routeFailed": "We konden die route niet berekenen. Controleer beide adressen."
+    },
+    "urgent": {
+      "title": "Vertrekt u binnen 3 uur?",
+      "body": "Online boeken vraagt minstens 3 uur vooraf. Voor eerder: stuur ons een WhatsApp en we bevestigen direct een auto.",
+      "cta": "Spoed boeken via WhatsApp",
+      "prefill": "Hallo, ik heb een taxi nodig in Barcelona van {pickup} naar {dropoff} om {time}."
+    }
+  },
+  "fleet": {
+    "h1": "Ons taxiwagenpark in Barcelona",
+    "seats": "{count, plural, one {# passagier} other {# passagiers}}",
+    "bags": "{count, plural, one {# koffer} other {# koffers}}",
+    "passengersLabel": "Passagiers",
+    "luggageLabel": "Bagage",
+    "categories": {
+      "eco": "Eco-hybride taxi",
+      "standard": "Standaardtaxi",
+      "estate": "Stationwagen-taxi",
+      "minivan": "Minivan-taxi",
+      "premium": "Premium bus"
+    }
+  },
+  "common": {
+    "book": "Nu boeken",
+    "learnMore": "Meer weten",
+    "viewFleet": "Bekijk het hele wagenpark",
+    "readAllFaqs": "Alle vragen bekijken",
+    "backHome": "Terug naar home",
+    "loading": "Laden…"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi is een boekingsdienst voor vergunde taxi's in Barcelona. Wij zijn bemiddelaar, geen taxibedrijf: tarieven worden bepaald door de officiële AMB-taxameter en aan de chauffeur betaald.",
+    "routes": "Populaire routes",
+    "company": "Bedrijf",
+    "legal": "Juridisch",
+    "terms": "Voorwaarden",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "refunds": "Terugbetalingen",
+    "installApp": "App installeren",
+    "rights": "Alle rechten voorbehouden.",
+    "disclaimerShort": "Schattingen volgen de officiële AMB-tarieven. Het eindtarief is de taxameter."
+  },
+  "cookies": {
+    "title": "We gebruiken cookies",
+    "body": "We gebruiken essentiële cookies om de site te laten werken. Met uw toestemming gebruiken we ook analytische cookies.",
+    "accept": "Alles accepteren",
+    "reject": "Alleen essentiële",
+    "settings": "Instellingen"
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "body": "De pagina die u zocht bestaat niet. Terug naar het boeken van een taxi.",
+    "cta": "Terug naar home"
+  },
+  "error": {
+    "title": "Er ging iets mis",
+    "body": "Er is een onverwachte fout opgetreden. Uw boeking is niet belast. Probeer het opnieuw.",
+    "retry": "Opnieuw proberen"
+  }
+}

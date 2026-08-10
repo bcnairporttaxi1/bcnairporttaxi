@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "pricing": "Tarifs",
+    "fleet": "Flotte",
+    "destinations": "Destinations",
+    "howItWorks": "Comment ça marche",
+    "book": "Réserver",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Langue",
+    "account": "Mon compte",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "skipToContent": "Aller au contenu principal"
+  },
+  "home": {
+    "metaTitle": "Taxi Aéroport Barcelone | Transferts El Prat en ligne",
+    "metaDescription": "Réservez en ligne un taxi pour l'aéroport de Barcelone. Tarifs officiels AMB, frais de réservation de 20%, taxis noir et jaune agréés vers et depuis El Prat. 24h/24.",
+    "h1": "Taxi aéroport de Barcelone, réservé avant d'atterrir",
+    "intro": "Réservez un taxi agréé de Barcelone vers ou depuis l'aéroport d'El Prat. Vous voyez une estimation précise calculée sur le tarif officiel AMB avant de réserver, et vous réglez au chauffeur le montant du compteur dans la voiture — exactement comme à la station, mais avec une voiture qui vous attend déjà.",
+    "trust": {
+      "licensed": "Taxis agréés AMB",
+      "meter": "Tarif officiel au compteur",
+      "noSurge": "Pas de tarification dynamique",
+      "support": "Réservation 24h/24"
+    },
+    "sections": {
+      "howTitle": "Comment réserver",
+      "howIntro": "Trois étapes, et la voiture est réservée.",
+      "fleetTitle": "Choisissez votre véhicule",
+      "fleetIntro": "Chaque voiture est un taxi agréé de Barcelone. Choisissez selon votre groupe et vos bagages.",
+      "routesTitle": "Trajets populaires vers l'aéroport de Barcelone",
+      "routesIntro": "Les transferts que l'on nous demande le plus.",
+      "faqTitle": "Questions sur le taxi aéroport",
+      "reviewsTitle": "Ce que disent les passagers",
+      "whyTitle": "Pourquoi réserver chez nous",
+      "whyIntro": "Des tarifs réglementés, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change."
+    }
+  },
+  "quote": {
+    "title": "Prix instantané",
+    "pickup": "Prise en charge",
+    "pickupPlaceholder": "Hôtel, rue ou aéroport de Barcelone",
+    "dropoff": "Destination",
+    "dropoffPlaceholder": "Où allez-vous ?",
+    "date": "Date",
+    "time": "Heure",
+    "passengers": "Passagers",
+    "luggage": "Bagages",
+    "calculate": "Obtenir le prix",
+    "calculating": "Calcul en cours…",
+    "searching": "Recherche…",
+    "noResults": "Aucune adresse trouvée",
+    "estimatedFare": "Tarif estimé au compteur",
+    "fixedFare": "Prix fixe, payé en ligne",
+    "bookingFee": "Frais de réservation (20%)",
+    "distance": "Distance",
+    "duration": "Durée est.",
+    "payNow": "Payer maintenant",
+    "payInTaxi": "Payer dans le taxi",
+    "nothingInTaxi": "Rien à payer dans le taxi",
+    "modeFeeOnlyTitle": "Payer les frais seulement",
+    "modeFeeOnlyBody": "Payez {fee} de frais en ligne. Vous réglez au chauffeur le tarif au compteur, environ {fare}, en espèces ou par carte.",
+    "modeFullTitle": "Tout payer maintenant",
+    "modeFullBody": "Payez {total} en ligne et rien dans le taxi. Votre prix est bloqué, quelle que soit la circulation.",
+    "chooseHowToPay": "Choisissez le mode de paiement",
+    "bookNow": "Réserver",
+    "tripType": "Type de trajet",
+    "oneWay": "Aller simple",
+    "return": "Aller-retour",
+    "returnNote": "Le retour est devisé séparément et confirmé par e-mail.",
+    "instantPrice": "Prix instantané, sans compte",
+    "tariffBadge": "Tarif {tariff}",
+    "tariffT1": "T-1 · jour de semaine",
+    "tariffT2": "T-2 · nuit, week-end ou jour férié",
+    "tariffT4": "T-4 · prix fixe aéroport–port",
+    "supplements": "Suppléments",
+    "supplementNames": {
+      "airportElPrat": "Aéroport d'El Prat",
+      "mollAdossat": "Port de croisière Moll Adossat",
+      "sants": "Gare de Sants",
+      "firaGranVia": "Fira Gran Via",
+      "nitDeNadal": "Supplément nuit de Noël",
+      "capDAny": "Supplément nuit du Nouvel An",
+      "santJoan": "Supplément nuit de la Saint-Jean",
+      "largeVehicle": "Grand véhicule (5-8 places)"
+    },
+    "disclaimer": "Le tarif final est fixé par le compteur officiel. Une facture est remise dans le taxi sur demande. Les frais de réservation sont un service facturé séparément.",
+    "errors": {
+      "pickupRequired": "Choisissez un point de prise en charge.",
+      "dropoffRequired": "Choisissez une destination.",
+      "pickupOutsideCity": "La prise en charge doit être à Barcelone ou à l'aéroport d'El Prat. La destination peut être n'importe où.",
+      "routeFailed": "Impossible de calculer ce trajet. Vérifiez les deux adresses."
+    },
+    "urgent": {
+      "title": "Vous partez dans moins de 3 heures ?",
+      "body": "La réservation en ligne demande au moins 3 heures. Pour un trajet plus tôt, écrivez-nous sur WhatsApp et nous confirmons une voiture directement.",
+      "cta": "Réserver en urgence sur WhatsApp",
+      "prefill": "Bonjour, j'ai besoin d'un taxi à Barcelone de {pickup} à {dropoff} à {time}."
+    }
+  },
+  "fleet": {
+    "h1": "Notre flotte de taxis à Barcelone",
+    "seats": "{count, plural, one {# passager} other {# passagers}}",
+    "bags": "{count, plural, one {# valise} other {# valises}}",
+    "passengersLabel": "Passagers",
+    "luggageLabel": "Bagages",
+    "categories": {
+      "eco": "Taxi hybride écologique",
+      "standard": "Taxi standard",
+      "estate": "Taxi break",
+      "minivan": "Taxi monospace",
+      "premium": "Van premium"
+    }
+  },
+  "common": {
+    "book": "Réserver",
+    "learnMore": "En savoir plus",
+    "viewFleet": "Voir toute la flotte",
+    "readAllFaqs": "Voir toutes les questions",
+    "backHome": "Retour à l'accueil",
+    "loading": "Chargement…"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi est un service de réservation de taxis agréés de Barcelone. Nous sommes intermédiaires, pas exploitant de taxis : les tarifs sont fixés par le compteur officiel AMB et réglés au chauffeur.",
+    "routes": "Trajets populaires",
+    "company": "Entreprise",
+    "legal": "Mentions légales",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "cookies": "Cookies",
+    "refunds": "Remboursements",
+    "installApp": "Installer l'app",
+    "rights": "Tous droits réservés.",
+    "disclaimerShort": "Les estimations suivent les tarifs officiels AMB. Le tarif final est celui du compteur."
+  },
+  "cookies": {
+    "title": "Nous utilisons des cookies",
+    "body": "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre accord, nous utilisons aussi des cookies de mesure d'audience.",
+    "accept": "Tout accepter",
+    "reject": "Essentiels uniquement",
+    "settings": "Paramètres"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page que vous cherchez n'existe pas. Revenons à la réservation.",
+    "cta": "Retour à l'accueil"
+  },
+  "error": {
+    "title": "Une erreur est survenue",
+    "body": "Une erreur inattendue s'est produite. Votre réservation n'a pas été débitée. Réessayez.",
+    "retry": "Réessayer"
+  }
+}

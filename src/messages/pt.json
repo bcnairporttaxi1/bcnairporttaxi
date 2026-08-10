@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Início",
+    "pricing": "Preços",
+    "fleet": "Frota",
+    "destinations": "Destinos",
+    "howItWorks": "Como funciona",
+    "book": "Reservar",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "account": "A minha conta",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "skipToContent": "Ir para o conteúdo principal"
+  },
+  "home": {
+    "metaTitle": "Táxi Aeroporto Barcelona | Transferes El Prat Online",
+    "metaDescription": "Reserve online um táxi para o aeroporto de Barcelona. Tarifas oficiais AMB, taxa de reserva de 20%, táxis pretos e amarelos licenciados de e para El Prat. 24 horas.",
+    "h1": "Táxi para o aeroporto de Barcelona, reservado antes de aterrar",
+    "intro": "Reserve um táxi licenciado de Barcelona de ou para o aeroporto de El Prat. Vê uma estimativa precisa segundo a tarifa oficial AMB antes de reservar e paga ao motorista o valor do taxímetro no carro, tal como na praça, mas com o carro já à sua espera.",
+    "trust": {
+      "licensed": "Táxis licenciados AMB",
+      "meter": "Tarifa oficial do taxímetro",
+      "noSurge": "Sem preços dinâmicos",
+      "support": "Reservas 24 h"
+    },
+    "sections": {
+      "howTitle": "Como funciona a reserva",
+      "howIntro": "Três passos e o carro fica reservado.",
+      "fleetTitle": "Escolha o seu veículo",
+      "fleetIntro": "Todos os carros são táxis licenciados de Barcelona. Escolha conforme o grupo e a bagagem.",
+      "routesTitle": "Rotas populares para o aeroporto de Barcelona",
+      "routesIntro": "Os transferes que mais nos pedem.",
+      "faqTitle": "Perguntas sobre o táxi para o aeroporto",
+      "reviewsTitle": "O que dizem os passageiros",
+      "whyTitle": "Porquê reservar connosco",
+      "whyIntro": "Tarifas reguladas, um carro reservado para si e alguém para contactar se algo mudar."
+    }
+  },
+  "quote": {
+    "title": "Preço imediato",
+    "pickup": "Recolha",
+    "pickupPlaceholder": "Hotel, rua ou aeroporto de Barcelona",
+    "dropoff": "Destino",
+    "dropoffPlaceholder": "Para onde vai?",
+    "date": "Data",
+    "time": "Hora",
+    "passengers": "Passageiros",
+    "luggage": "Bagagem",
+    "calculate": "Ver preço imediato",
+    "calculating": "A calcular…",
+    "searching": "A procurar…",
+    "noResults": "Nenhuma morada encontrada",
+    "estimatedFare": "Tarifa estimada do taxímetro",
+    "fixedFare": "Preço fixo, pago online",
+    "bookingFee": "Taxa de reserva (20%)",
+    "distance": "Distância",
+    "duration": "Tempo est.",
+    "payNow": "Pagar agora",
+    "payInTaxi": "Pagar no táxi",
+    "nothingInTaxi": "Nada a pagar no táxi",
+    "modeFeeOnlyTitle": "Pagar só a taxa",
+    "modeFeeOnlyBody": "Paga {fee} de taxa online. Ao motorista paga a tarifa do taxímetro, cerca de {fare}, em dinheiro ou cartão.",
+    "modeFullTitle": "Pagar tudo agora",
+    "modeFullBody": "Paga {total} online e nada no táxi. O preço fica fixo, aconteça o que acontecer no trânsito.",
+    "chooseHowToPay": "Escolha como pagar",
+    "bookNow": "Reservar agora",
+    "tripType": "Tipo de viagem",
+    "oneWay": "Só ida",
+    "return": "Ida e volta",
+    "returnNote": "A volta é orçamentada à parte e confirmada por email.",
+    "instantPrice": "Preço imediato, sem registo",
+    "tariffBadge": "Tarifa {tariff}",
+    "tariffT1": "T-1 · dia útil diurno",
+    "tariffT2": "T-2 · noite, fim de semana ou feriado",
+    "tariffT4": "T-4 · preço fixo aeroporto–porto",
+    "supplements": "Suplementos",
+    "supplementNames": {
+      "airportElPrat": "Aeroporto de El Prat",
+      "mollAdossat": "Porto de cruzeiros Moll Adossat",
+      "sants": "Estação de Sants",
+      "firaGranVia": "Fira Gran Via",
+      "nitDeNadal": "Suplemento noite de Natal",
+      "capDAny": "Suplemento noite de Ano Novo",
+      "santJoan": "Suplemento noite de São João",
+      "largeVehicle": "Veículo grande (5-8 lugares)"
+    },
+    "disclaimer": "A tarifa final é definida pelo taxímetro oficial. É entregue fatura no táxi mediante pedido. A taxa de reserva é um serviço cobrado à parte.",
+    "errors": {
+      "pickupRequired": "Escolha um ponto de recolha.",
+      "dropoffRequired": "Escolha um destino.",
+      "pickupOutsideCity": "A recolha tem de ser em Barcelona ou no aeroporto de El Prat. O destino pode ser em qualquer lugar.",
+      "routeFailed": "Não foi possível calcular essa rota. Verifique ambas as moradas."
+    },
+    "urgent": {
+      "title": "Parte em menos de 3 horas?",
+      "body": "A reserva online precisa de pelo menos 3 horas de antecedência. Para mais cedo, escreva-nos no WhatsApp e confirmamos um carro diretamente.",
+      "cta": "Reservar urgente no WhatsApp",
+      "prefill": "Olá, preciso de um táxi em Barcelona de {pickup} para {dropoff} às {time}."
+    }
+  },
+  "fleet": {
+    "h1": "A nossa frota de táxis em Barcelona",
+    "seats": "{count, plural, one {# passageiro} other {# passageiros}}",
+    "bags": "{count, plural, one {# mala} other {# malas}}",
+    "passengersLabel": "Passageiros",
+    "luggageLabel": "Bagagem",
+    "categories": {
+      "eco": "Táxi híbrido ecológico",
+      "standard": "Táxi standard",
+      "estate": "Táxi carrinha",
+      "minivan": "Táxi minivan",
+      "premium": "Carrinha premium"
+    }
+  },
+  "common": {
+    "book": "Reservar agora",
+    "learnMore": "Saber mais",
+    "viewFleet": "Ver toda a frota",
+    "readAllFaqs": "Ver todas as perguntas",
+    "backHome": "Voltar ao início",
+    "loading": "A carregar…"
+  },
+  "footer": {
+    "about": "A BCNAirportTaxi é um serviço de reservas de táxis licenciados de Barcelona. Somos intermediários, não uma empresa de táxis: as tarifas são definidas pelo taxímetro oficial AMB e pagas ao motorista.",
+    "routes": "Rotas populares",
+    "company": "Empresa",
+    "legal": "Legal",
+    "terms": "Termos",
+    "privacy": "Privacidade",
+    "cookies": "Cookies",
+    "refunds": "Reembolsos",
+    "installApp": "Instalar a app",
+    "rights": "Todos os direitos reservados.",
+    "disclaimerShort": "As estimativas seguem as tarifas oficiais AMB. A tarifa final é o taxímetro."
+  },
+  "cookies": {
+    "title": "Utilizamos cookies",
+    "body": "Utilizamos cookies essenciais para o funcionamento do site. Com o seu consentimento, usamos também cookies de análise.",
+    "accept": "Aceitar todos",
+    "reject": "Apenas essenciais",
+    "settings": "Definições"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "body": "A página que procurava não existe. Vamos voltar a reservar um táxi.",
+    "cta": "Voltar ao início"
+  },
+  "error": {
+    "title": "Algo correu mal",
+    "body": "Ocorreu um erro inesperado. A sua reserva não foi cobrada. Tente novamente.",
+    "retry": "Tentar novamente"
+  }
+}
