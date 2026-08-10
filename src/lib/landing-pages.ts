@@ -16,6 +16,9 @@
  * a translated version is supplied, so a page is never blank.
  */
 
+import { ES_LANDING_COPY } from './landing-copy/es';
+import { CA_LANDING_COPY } from './landing-copy/ca';
+
 export interface LandingSection {
   h2: string;
   body: string;
@@ -389,8 +392,29 @@ export function getLandingPage(slug: string): LandingPage | undefined {
   return LANDING_PAGES.find((p) => p.slug === slug);
 }
 
+/**
+ * Translated long-form copy, kept in per-locale modules so this file stays
+ * readable. A locale with no entry for a page falls back to English rather
+ * than rendering a blank section.
+ */
+const TRANSLATIONS: Record<string, Record<string, LandingCopy>> = {
+  es: ES_LANDING_COPY,
+  ca: CA_LANDING_COPY,
+};
+
 export function getLandingCopy(page: LandingPage, locale: string): LandingCopy {
-  return page.copy[locale] ?? page.copy.en;
+  return (
+    TRANSLATIONS[locale]?.[page.slug] ??
+    page.copy[locale] ??
+    page.copy.en
+  );
+}
+
+/** Locales with a full translation of a given page — used for hreflang sanity. */
+export function translatedLocales(slug: string): string[] {
+  return Object.entries(TRANSLATIONS)
+    .filter(([, pages]) => slug in pages)
+    .map(([locale]) => locale);
 }
 
 export const LANDING_SLUGS = LANDING_PAGES.map((p) => p.slug);
