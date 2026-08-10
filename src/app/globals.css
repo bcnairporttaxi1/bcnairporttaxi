@@ -182,6 +182,73 @@ h4 {
   background-size: 100% 2px;
 }
 
+/**
+ * Marquee. The track holds two identical passes and slides exactly one pass
+ * width, so the loop has no visible seam.
+ */
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  /* Chips fade at the edges instead of being cut off mid-shape. */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.marquee-track {
+  animation: marquee-slide var(--marquee-duration, 38s) linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/**
+ * Horizontal rail with momentum on touch and snap points. Used for the fleet
+ * so every card is the same size and the row scrolls both directions.
+ */
+.rail {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hairline) transparent;
+}
+
+.rail > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.rail::-webkit-scrollbar {
+  height: 8px;
+}
+.rail::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rail::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: 999px;
+}
+.rail::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
 @keyframes shimmer {
   0% {
     background-position: -140% 0;
@@ -238,6 +305,10 @@ h4 {
   .sheen::after {
     animation: none;
     display: none;
+  }
+  /* Leave the marquee parked rather than looping forever. */
+  .marquee-track {
+    animation: none;
   }
 }
 

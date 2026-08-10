@@ -4,6 +4,8 @@ import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { VehicleCard } from '@/components/vehicle-card';
 import { FaqAccordion } from '@/components/faq-accordion';
+import { FleetRail } from '@/components/fleet-rail';
+import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
@@ -169,13 +171,17 @@ export default async function HomePage(props: {
             <p className="mt-3 max-w-2xl text-muted">{t('sections.fleetIntro')}</p>
           </Reveal>
 
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FLEET.map((v, i) => (
-              <Reveal as="li" key={v.slug} delay={(i % 3) * 90} className="flex">
-                <VehicleCard vehicle={v} />
-              </Reveal>
-            ))}
-          </ul>
+          {/* Rail rather than a grid: every card is the same size and the row
+              scrolls both ways on touch and desktop. */}
+          <div className="mt-12">
+            <FleetRail>
+              {FLEET.map((v) => (
+                <div key={v.slug} data-rail-item className="flex w-[300px] sm:w-[340px]">
+                  <VehicleCard vehicle={v} sizes="340px" />
+                </div>
+              ))}
+            </FleetRail>
+          </div>
 
           <Link
             href="/fleet"
@@ -221,6 +227,8 @@ export default async function HomePage(props: {
           })}
         </ul>
       </section>
+
+      <PaymentMethods />
 
       {/* FAQ */}
       <section className="border-t border-hairline bg-white py-20 sm:py-24">

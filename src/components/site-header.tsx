@@ -9,6 +9,7 @@ import { localeNames, locales } from '@/i18n/routing';
 const NAV = [
   { href: '/pricing', key: 'pricing' },
   { href: '/fleet', key: 'fleet' },
+  { href: '/destinations', key: 'destinations' },
   { href: '/how-it-works', key: 'howItWorks' },
   { href: '/faq', key: 'faq' },
   { href: '/contact', key: 'contact' },
