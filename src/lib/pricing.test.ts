@@ -98,6 +98,19 @@ describe('specialNightSupplement', () => {
     );
   });
 
+  it('applies on the Sant Joan revetlla', () => {
+    expect(specialNightSupplement(new Date('2026-06-23T23:00:00+02:00'))?.key).toBe(
+      'santJoan',
+    );
+    expect(specialNightSupplement(new Date('2026-06-24T02:00:00+02:00'))?.key).toBe(
+      'santJoan',
+    );
+  });
+
+  it('does not apply on Sant Joan daytime', () => {
+    expect(specialNightSupplement(new Date('2026-06-24T14:00:00+02:00'))).toBeNull();
+  });
+
   it('does not apply on an ordinary night', () => {
     expect(specialNightSupplement(summer('23:00'))).toBeNull();
   });
@@ -290,8 +303,49 @@ describe('calculateQuote — supplements', () => {
 
     expect(q.tariff).toBe('T2');
     expect(q.supplementLines.some((l) => l.key === 'capDAny')).toBe(true);
-    expect(q.supplements).toBe(4.2);
-    expect(q.meterEstimate).toBe(23.6); // 2.80 + 16.60 + 4.20
+    expect(q.supplements).toBe(4.6);
+    expect(q.meterEstimate).toBe(24); // 2.80 + 16.60 + 4.60
+  });
+
+  it('adds the Sant Joan night supplement', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GRACIA,
+      roadKm: 10,
+      durationMin: 18,
+      pickupAt: new Date('2026-06-23T22:00:00+02:00'),
+    });
+
+    expect(q.supplementLines.some((l) => l.key === 'santJoan')).toBe(true);
+    expect(q.supplements).toBe(4.6);
+  });
+
+  it('adds the large-vehicle supplement for 5+ seat vehicles', () => {
+    const base = {
+      pickup: EIXAMPLE,
+      dropoff: GRACIA,
+      roadKm: 10,
+      durationMin: 18,
+      pickupAt: summer('13:00'),
+    };
+
+    const small = calculateQuote({ ...base, vehicleSeats: 4 });
+    const large = calculateQuote({ ...base, vehicleSeats: 6 });
+
+    expect(small.supplementLines.some((l) => l.key === 'largeVehicle')).toBe(false);
+    expect(large.supplementLines.some((l) => l.key === 'largeVehicle')).toBe(true);
+    expect(round(large.meterEstimate - small.meterEstimate)).toBe(4.6);
+  });
+
+  it('omits the large-vehicle supplement when no vehicle is chosen yet', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GRACIA,
+      roadKm: 10,
+      durationMin: 18,
+      pickupAt: summer('13:00'),
+    });
+    expect(q.supplementLines.some((l) => l.key === 'largeVehicle')).toBe(false);
   });
 
   it('caps combined supplements at the per-service maximum', () => {

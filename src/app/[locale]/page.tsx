@@ -36,12 +36,17 @@ export default async function HomePage(props: {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink">
+        {/* Decorative backdrop at 40% opacity behind the headline. On phones we
+            deliberately request a quarter-width variant: upscaled it is
+            indistinguishable at this opacity, and it keeps the LCP payload tiny. */}
         <Image
           src="/img/hero-banner.png"
-          alt="Black and yellow Barcelona taxi arriving at El Prat airport at dusk"
+          alt="Black and yellow Barcelona airport taxi at El Prat terminal at dusk"
           fill
           priority
-          sizes="100vw"
+          fetchPriority="high"
+          quality={60}
+          sizes="(max-width: 768px) 25vw, 100vw"
           className="object-cover opacity-40"
         />
         <div

@@ -10,7 +10,8 @@ import { eur } from './quote-widget';
 
 interface Props {
   locale: string;
-  quote: Quote;
+  /** Keyed by vehicle slug — the price changes with vehicle capacity. */
+  quotesByVehicle: Record<string, Quote>;
   pickup: { lat: number; lng: number; label: string };
   dropoff: { lat: number; lng: number; label: string };
   pickupAtIso: string;
@@ -21,7 +22,7 @@ interface Props {
 
 export function CheckoutForm({
   locale,
-  quote,
+  quotesByVehicle,
   pickup,
   dropoff,
   pickupAtIso,
@@ -46,6 +47,8 @@ export function CheckoutForm({
 
   const vehicle = fleet.find((v) => v.slug === vehicleSlug) ?? fleet[0];
   const overCapacity = passengers > vehicle.seats || luggage > vehicle.bags;
+
+  const quote = quotesByVehicle[vehicle.slug] ?? Object.values(quotesByVehicle)[0];
 
   const dueNow = mode === 'FULL_PREPAID' ? quote.payNowFull : quote.payNowFeeOnly;
   const dueInTaxi = mode === 'FULL_PREPAID' ? 0 : quote.payInTaxiFeeOnly;
@@ -176,6 +179,18 @@ export function CheckoutForm({
                         </p>
                         <p className="mt-2 font-mono text-sm">
                           {tf('seats', { count: v.seats })} · {tf('bags', { count: v.bags })}
+                        </p>
+                        {/* Larger vehicles carry an official supplement, so the
+                            total differs per vehicle and must be visible here. */}
+                        <p className="mt-2 font-mono text-sm font-bold">
+                          {eur(
+                            mode === 'FULL_PREPAID'
+                              ? (quotesByVehicle[v.slug]?.payNowFull ?? 0)
+                              : (quotesByVehicle[v.slug]?.payNowFeeOnly ?? 0),
+                          )}{' '}
+                          <span className="font-sans text-xs font-normal text-muted">
+                            {tq('payNow').toLowerCase()}
+                          </span>
                         </p>
                       </div>
                     </label>

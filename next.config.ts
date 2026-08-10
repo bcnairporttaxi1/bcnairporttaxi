@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     // All imagery is generated at build time and served locally, so no remote
     // patterns are needed. AVIF first keeps the hero within the LCP budget.
     formats: ['image/avif', 'image/webp'],
+    // Next 16 restricts qualities to [75] by default and silently coerces
+    // anything else to the nearest allowed value. 60 is for the hero backdrop,
+    // which sits at 40% opacity where the loss is invisible.
+    qualities: [60, 75],
   },
   async headers() {
     return [

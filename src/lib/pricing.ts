@@ -3,6 +3,7 @@ import {
   BARCELONA_HOLIDAYS,
   LANDMARKS,
   SPECIAL_NIGHTS,
+  SPECIAL_NIGHT_EVES,
   TARIFFS,
   type PaymentMode,
   type TariffCode,
@@ -26,6 +27,11 @@ export interface QuoteInput {
   durationMin: number;
   /** Absolute pickup instant. Tariff is derived from this in Barcelona time. */
   pickupAt: Date;
+  /**
+   * Seats in the chosen vehicle. Vehicles carrying 5-8 passengers attract an
+   * official AMB supplement, so the quote changes with vehicle choice.
+   */
+  vehicleSeats?: number;
 }
 
 export interface SupplementLine {
@@ -140,8 +146,8 @@ export function specialNightSupplement(
   const key = (SPECIAL_NIGHTS as Record<string, string | undefined>)[mmdd];
   if (!key) return null;
 
-  // 24 Dec / 31 Dec qualify only from 20:00; 25 Dec / 1 Jan only before 06:00.
-  const isEve = mmdd === '12-24' || mmdd === '12-31';
+  // Eves qualify only from 20:00; the following mornings only before 06:00.
+  const isEve = SPECIAL_NIGHT_EVES.has(mmdd);
   if (isEve && hour < 20) return null;
   if (!isEve && hour >= 6) return null;
 
@@ -190,7 +196,7 @@ export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
  * apply to both; only the per-km rate differs.
  */
 export function calculateQuote(input: QuoteInput): Quote {
-  const { pickup, dropoff, roadKm, durationMin, pickupAt } = input;
+  const { pickup, dropoff, roadKm, durationMin, pickupAt, vehicleSeats } = input;
 
   const pickupAirport = isAirport(pickup);
   const dropoffAirport = isAirport(dropoff);
@@ -249,6 +255,13 @@ export function calculateQuote(input: QuoteInput): Quote {
 
   const special = specialNightSupplement(pickupAt);
   if (special) lines.push({ key: special.key, amount: special.amount });
+
+  if (vehicleSeats && vehicleSeats >= TARIFFS.largeVehicleMinSeats) {
+    lines.push({
+      key: 'largeVehicle',
+      amount: TARIFFS.supplements.largeVehicle,
+    });
+  }
 
   const rawSupplements = lines.reduce((sum, l) => sum + l.amount, 0);
   const supplements = round2(

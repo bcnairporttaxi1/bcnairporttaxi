@@ -80,7 +80,9 @@
       "sants": "Sants station",
       "firaGranVia": "Fira Gran Via",
       "nitDeNadal": "Christmas night supplement",
-      "capDAny": "New Year's night supplement"
+      "capDAny": "New Year's night supplement",
+      "santJoan": "Sant Joan night supplement",
+      "largeVehicle": "Large vehicle (5-8 seats)"
     },
     "disclaimer": "Final fare is set by the official taxi meter. An invoice is provided in the taxi on request. The booking fee is a separate service charge for arranging your ride.",
     "fixedFareNote": "Our fixed price is a little above the meter because we lock it in advance and absorb any traffic or routing variance. Choose to pay in the taxi instead and you simply pay the meter.",

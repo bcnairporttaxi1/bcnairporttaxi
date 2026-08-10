@@ -139,20 +139,29 @@ export default async function CheckoutPage(props: {
     );
   }
 
-  const quote = calculateQuote({
-    pickup,
-    dropoff,
-    roadKm: route.roadKm,
-    durationMin: route.durationMin,
-    pickupAt,
-  });
+  // One quote per vehicle: 5-8 seat vehicles carry an AMB supplement, so
+  // switching vehicle changes the price. Priced here rather than in the
+  // browser so the figure shown always matches the figure charged.
+  const quotesByVehicle = Object.fromEntries(
+    FLEET.map((v) => [
+      v.slug,
+      calculateQuote({
+        pickup,
+        dropoff,
+        roadKm: route.roadKm,
+        durationMin: route.durationMin,
+        pickupAt,
+        vehicleSeats: v.seats,
+      }),
+    ]),
+  );
 
   return (
     <>
       <PageHero title={t('h1')} />
       <CheckoutForm
         locale={locale}
-        quote={quote}
+        quotesByVehicle={quotesByVehicle}
         pickup={{ ...pickup, label: plabel }}
         dropoff={{ ...dropoff, label: dlabel }}
         pickupAtIso={pickupAt.toISOString()}

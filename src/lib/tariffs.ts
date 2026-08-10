@@ -41,18 +41,25 @@ export const TARIFFS = {
     mollAdossat: 4.6,
     sants: 2.55,
     firaGranVia: 3.3,
+    /** Vehicles carrying 5 to 8 passengers — our Vito and V-Class. */
+    largeVehicle: 4.6,
     maxPerService: 17.1,
   },
 
+  /** Seat count at or above which `largeVehicle` applies. */
+  largeVehicleMinSeats: 5,
+
   /**
-   * Special-night supplements, applied on top of the T-2 tariff.
-   * VERIFY at taxi.amb.cat — these change with the yearly tariff order.
+   * Eve-of-holiday supplement, verified against taxi.amb.cat (2026 tariff).
+   * Applies on the nights of 24-25 Dec, 31 Dec-1 Jan and 23-24 Jun.
    */
   specialNights: {
     /** Nit de Nadal — Christmas Eve night into Christmas morning. */
-    nitDeNadal: 4.2,
+    nitDeNadal: 4.6,
     /** Nit de Cap d'Any — New Year's Eve night into New Year's Day. */
-    capDAny: 4.2,
+    capDAny: 4.6,
+    /** Revetlla de Sant Joan — 23 June night into 24 June. */
+    santJoan: 4.6,
   },
 
   /** Any trip originating at El Prat bills at least this much. */
@@ -147,7 +154,12 @@ export const SPECIAL_NIGHTS = {
   '12-25': 'nitDeNadal', // 00:00-06:00 on Christmas morning
   '12-31': 'capDAny',
   '01-01': 'capDAny', // 00:00-06:00 on New Year's Day
+  '06-23': 'santJoan',
+  '06-24': 'santJoan', // 00:00-06:00 on Sant Joan morning
 } as const satisfies Record<string, keyof typeof TARIFFS.specialNights>;
+
+/** Dates whose supplement starts at 20:00 rather than ending at 06:00. */
+export const SPECIAL_NIGHT_EVES = new Set(['12-24', '12-31', '06-23']);
 
 /** Known fixed points used for supplement detection. */
 export const LANDMARKS = {

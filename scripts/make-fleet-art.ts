@@ -287,7 +287,13 @@ async function main() {
     console.log(`wrote public/img/${file} (${(png.length / 1024).toFixed(0)} KB)`);
   }
 
-  const hero = await sharp(Buffer.from(heroSvg())).png({ quality: 90 }).toBuffer();
+  // The hero renders at 40% opacity behind the headline, so it is effectively
+  // a dark backdrop. Palette quantisation costs nothing visible there and cuts
+  // the LCP payload by roughly 5x.
+  const hero = await sharp(Buffer.from(heroSvg()))
+    .resize(1280, 720)
+    .png({ palette: true, quality: 70, compressionLevel: 9, effort: 10 })
+    .toBuffer();
   await writeFile(path.join(OUT, 'hero-banner.png'), hero);
   console.log(`wrote public/img/hero-banner.png (${(hero.length / 1024).toFixed(0)} KB)`);
 }

@@ -113,20 +113,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'routing_unavailable' }, { status: 502 });
   }
 
+  // Vehicle first: 5-8 seat vehicles carry an official supplement, so the
+  // quote depends on which one was chosen.
+  const vehicle = input.vehicleSlug
+    ? await prisma.vehicle.findUnique({ where: { slug: input.vehicleSlug } })
+    : null;
+
   const quote = calculateQuote({
     pickup: input.pickup,
     dropoff: input.dropoff,
     roadKm: route.roadKm,
     durationMin: route.durationMin,
     pickupAt,
+    vehicleSeats: vehicle?.seats,
   });
 
   const amountOnline = amountDueOnline(quote, input.paymentMode);
   const amountInTaxi = amountDueInTaxi(quote, input.paymentMode);
-
-  const vehicle = input.vehicleSlug
-    ? await prisma.vehicle.findUnique({ where: { slug: input.vehicleSlug } })
-    : null;
 
   const reference = makeReference();
 
