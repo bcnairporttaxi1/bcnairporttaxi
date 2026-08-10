@@ -64,6 +64,11 @@ export async function SiteFooter() {
               </li>
             ))}
             <li>
+              <Link href="/blog" className="hover:text-accent">
+                Guides
+              </Link>
+            </li>
+            <li>
               <Link href="/install" className="hover:text-accent">
                 {t('installApp')}
               </Link>

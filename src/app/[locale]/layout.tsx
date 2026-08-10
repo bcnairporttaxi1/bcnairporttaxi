@@ -78,7 +78,7 @@ export async function generateMetadata(props: {
       url: absoluteUrl(`/${locale}`),
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/img/hero-banner.svg', width: 1600, height: 900, alt: t('h1') }],
+      images: [{ url: '/img/hero-banner.png', width: 1600, height: 900, alt: t('h1') }],
     },
     twitter: {
       card: 'summary_large_image',

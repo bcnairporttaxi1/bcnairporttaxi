@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { LANDING_SLUGS } from '@/lib/landing-pages';
 import { LEGAL_SLUGS } from '@/lib/legal';
+import { BLOG_SLUGS } from '@/lib/blog';
 import { localeHrefLang, locales } from '@/i18n/routing';
 
 /** Routes that exist as their own page files, relative to a locale prefix. */
@@ -15,6 +16,7 @@ const STATIC_PATHS = [
   '/contact',
   '/reviews',
   '/install',
+  '/blog',
 ];
 
 function priorityFor(path: string): number {
@@ -28,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     ...STATIC_PATHS,
     ...LANDING_SLUGS.map((s) => `/${s}`),
+    ...BLOG_SLUGS.map((s) => `/blog/${s}`),
     ...LEGAL_SLUGS.map((s) => `/${s}`),
   ];
 

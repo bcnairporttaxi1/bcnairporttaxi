@@ -19,7 +19,8 @@ export async function generateMetadata(props: {
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `/${l}/book`;
   return {
-    title: copy.title,
+    // Absolute so the layout suffix does not push it past display length.
+    title: { absolute: copy.title },
     description: copy.description,
     alternates: { canonical: `/${locale}/book`, languages },
   };

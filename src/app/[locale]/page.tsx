@@ -37,7 +37,7 @@ export default async function HomePage(props: {
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink">
         <Image
-          src="/img/hero-banner.svg"
+          src="/img/hero-banner.png"
           alt="Black and yellow Barcelona taxi arriving at El Prat airport at dusk"
           fill
           priority
