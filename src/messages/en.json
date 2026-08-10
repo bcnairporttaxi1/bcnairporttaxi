@@ -1,0 +1,238 @@
+{
+  "site": {
+    "name": "BCNAirportTaxi",
+    "tagline": "Barcelona airport taxi, booked in advance"
+  },
+  "nav": {
+    "home": "Home",
+    "pricing": "Prices",
+    "fleet": "Fleet",
+    "howItWorks": "How it works",
+    "book": "Book online",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content"
+  },
+  "home": {
+    "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
+    "metaDescription": "Book a Barcelona airport taxi online in advance. Official AMB metered fares, fixed 20% booking fee, licensed black-and-yellow taxis to and from El Prat. 24 hours.",
+    "h1": "Barcelona airport taxi, booked before you land",
+    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. You see an accurate fare estimate from the official AMB tariff before you book, and you pay the driver the metered fare in the car — exactly as you would at the rank, but with a car already waiting for you.",
+    "trust": {
+      "licensed": "Licensed AMB taxis",
+      "meter": "Official meter fare",
+      "noSurge": "No surge pricing",
+      "support": "24 h booking"
+    },
+    "sections": {
+      "howTitle": "How booking works",
+      "howIntro": "Three steps, and the car is reserved.",
+      "fleetTitle": "Choose your vehicle",
+      "fleetIntro": "Every car is a licensed Barcelona taxi. Pick the one that fits your group and luggage.",
+      "routesTitle": "Popular Barcelona airport routes",
+      "routesIntro": "The transfers we are booked for most often.",
+      "faqTitle": "Barcelona airport taxi questions",
+      "reviewsTitle": "What passengers say"
+    }
+  },
+  "quote": {
+    "title": "Get an instant price",
+    "pickup": "Pickup",
+    "pickupPlaceholder": "Hotel, street or Barcelona airport",
+    "dropoff": "Drop-off",
+    "dropoffPlaceholder": "Where are you going?",
+    "swap": "Swap pickup and drop-off",
+    "date": "Date",
+    "time": "Time",
+    "passengers": "Passengers",
+    "luggage": "Luggage",
+    "calculate": "Get instant price",
+    "calculating": "Calculating…",
+    "searching": "Searching…",
+    "noResults": "No matching address found",
+    "estimatedFare": "Estimated meter fare",
+    "bookingFee": "Booking fee (20%)",
+    "distance": "Distance",
+    "duration": "Est. time",
+    "tariffBadge": "Tariff {tariff}",
+    "tariffT1": "T-1 · weekday daytime",
+    "tariffT2": "T-2 · night, weekend or holiday",
+    "tariffT4": "T-4 · fixed airport–cruise port price",
+    "airportMinimumApplied": "Minimum airport fare of {amount} applied.",
+    "t4Applied": "Fixed price for airport ↔ cruise terminal.",
+    "supplements": "Supplements",
+    "supplementNames": {
+      "airportElPrat": "El Prat airport",
+      "mollAdossat": "Moll Adossat cruise port",
+      "sants": "Sants station",
+      "firaGranVia": "Fira Gran Via"
+    },
+    "disclaimer": "Final fare is set by the official taxi meter. An invoice is provided in the taxi on request. The booking fee is a separate service charge for arranging your ride.",
+    "continue": "Continue to booking",
+    "errors": {
+      "pickupRequired": "Choose a pickup point.",
+      "dropoffRequired": "Choose a destination.",
+      "pickupOutsideCity": "Pickup must be inside Barcelona or at El Prat airport. Drop-off can be anywhere.",
+      "routeFailed": "We could not calculate that route. Please check both addresses.",
+      "geocodeFailed": "Address lookup is unavailable right now. Please try again."
+    },
+    "urgent": {
+      "title": "Leaving in less than 3 hours?",
+      "body": "Online booking needs at least 3 hours' notice. For a ride sooner than that, message us on WhatsApp and we will confirm a car directly.",
+      "cta": "Book urgently on WhatsApp",
+      "prefill": "Hi, I need a Barcelona taxi from {pickup} to {dropoff} at {time}."
+    }
+  },
+  "fleet": {
+    "metaTitle": "Our Barcelona Taxi Fleet | Cars, Minivans and Premium Vans",
+    "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van. Seats and luggage capacity for every group.",
+    "h1": "Our Barcelona taxi fleet",
+    "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage — the price estimate is the same regardless of vehicle, because the meter rate is set by the AMB.",
+    "seats": "{count, plural, one {# passenger} other {# passengers}}",
+    "bags": "{count, plural, one {# bag} other {# bags}}",
+    "select": "Select {name}",
+    "categories": {
+      "eco": "Eco hybrid taxi",
+      "standard": "Standard taxi",
+      "minivan": "Minivan taxi",
+      "premium": "Premium van taxi"
+    }
+  },
+  "pricing": {
+    "metaTitle": "Barcelona Airport Taxi Price 2026 | Official AMB Fares",
+    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum and our 20% booking fee.",
+    "h1": "Barcelona airport taxi prices",
+    "intro": "Barcelona taxi fares are not set by us. They are fixed by the Àrea Metropolitana de Barcelona (AMB) and run on the official meter in every licensed taxi. The table below is the current tariff, valid 19 January 2026 to 17 January 2027.",
+    "tableCaption": "Official AMB urban taxi tariffs, valid 19 Jan 2026 – 17 Jan 2027",
+    "concept": "Concept",
+    "amount": "Amount",
+    "rows": {
+      "startFare": "Start fare (bajada de bandera)",
+      "perKmT1": "Per km — T-1 (Mon–Fri 08:00–20:00)",
+      "perKmT2": "Per km — T-2 (nights, weekends, holidays)",
+      "waitPerHour": "Waiting time, per hour",
+      "airportSupplement": "El Prat airport supplement",
+      "mollSupplement": "Moll Adossat cruise port supplement",
+      "santsSupplement": "Sants station supplement",
+      "firaSupplement": "Fira Gran Via supplement",
+      "maxSupplement": "Maximum supplements per service",
+      "minFromAirport": "Minimum fare from the airport",
+      "t4Fixed": "Fixed price: airport ↔ Moll Adossat (T-4)"
+    },
+    "feeTitle": "Our booking fee",
+    "feeBody": "We charge a booking fee of 20% of the estimated fare. It is paid online when you reserve, it is shown separately before you pay, and it is never added to the taxi meter. It covers arranging, confirming and tracking your ride. You receive a separate receipt for it by email.",
+    "verifyNote": "Tariffs are reviewed by the AMB each January. We verify them at taxi.amb.cat at every changeover."
+  },
+  "howItWorks": {
+    "metaTitle": "How Booking a Barcelona Airport Taxi Works",
+    "metaDescription": "Book a Barcelona airport taxi in three steps: get an instant fare estimate, pay the 20% booking fee online, and pay the metered fare to your driver.",
+    "h1": "How it works",
+    "steps": {
+      "one": {
+        "title": "Get your estimate",
+        "body": "Enter pickup and drop-off. We measure the real road distance and apply the official AMB tariff for your travel time to produce an accurate fare estimate."
+      },
+      "two": {
+        "title": "Reserve the car",
+        "body": "Choose your vehicle and pay the 20% booking fee online. Your booking is confirmed instantly by email, and a driver is assigned to you."
+      },
+      "three": {
+        "title": "Pay the meter in the taxi",
+        "body": "Your driver meets you at the agreed time. You pay the metered fare directly in the car, by cash or card, and can ask for the official taxi invoice."
+      }
+    }
+  },
+  "faq": {
+    "metaTitle": "Barcelona Airport Taxi FAQ | Fares, Booking and El Prat Pickup",
+    "metaDescription": "Answers about Barcelona airport taxi bookings: how the fare is calculated, where to meet your driver at El Prat, luggage, invoices and cancellations.",
+    "h1": "Frequently asked questions",
+    "items": {
+      "fareAccurate": {
+        "q": "Is the price I see the price I pay?",
+        "a": "The figure we show is an accurate estimate built from the official AMB tariff and the real road distance of your route. The amount you actually pay is whatever the taxi meter shows at the end of the trip, which can vary slightly with traffic and the exact route taken. Our 20% booking fee is separate and is paid online when you reserve."
+      },
+      "whyFee": {
+        "q": "Why is there a 20% booking fee?",
+        "a": "Barcelona taxi fares are fixed by the AMB, so no taxi can charge more or less than the meter. Our booking fee is a separate service charge for reserving and guaranteeing your car in advance, assigning a driver, and giving you tracking and support. It is shown to you before you pay and receipted separately."
+      },
+      "invoice": {
+        "q": "Can I get an invoice?",
+        "a": "Yes. The official invoice for the journey is the taxi meter invoice, which your driver will give you in the car on request. We email you a separate receipt for the booking fee."
+      },
+      "meetDriver": {
+        "q": "Where do I meet my driver at El Prat?",
+        "a": "Your driver waits in the arrivals hall of your terminal with a name sign, and follows your flight so a delay does not lose your car. The exact meeting point is in your confirmation email."
+      },
+      "urgent": {
+        "q": "Can I book for the next hour?",
+        "a": "Online bookings need at least three hours' notice so we can assign a driver reliably. For anything sooner, message us on WhatsApp and we will confirm a car directly if one is available."
+      },
+      "luggage": {
+        "q": "How much luggage can I bring?",
+        "a": "Each vehicle lists its passenger and bag capacity. A standard taxi takes up to 4 passengers and 3 bags; the Mercedes V-Class takes 7 passengers and 7 bags. If you are carrying oversized items such as bicycles or skis, tell us in the booking notes."
+      },
+      "cancel": {
+        "q": "Can I cancel?",
+        "a": "Yes. Cancel at least 24 hours before pickup and the booking fee is refunded in full. See our refund policy for the details."
+      },
+      "outsideBarcelona": {
+        "q": "Do you pick up outside Barcelona?",
+        "a": "Not yet. At the moment pickups must be inside Barcelona city or at El Prat airport. Your destination, however, can be anywhere."
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact BCNAirportTaxi | Barcelona Airport Transfers",
+    "metaDescription": "Contact BCNAirportTaxi for Barcelona airport transfer bookings, urgent rides on WhatsApp, and help with an existing reservation.",
+    "h1": "Contact us",
+    "intro": "Booking questions, urgent rides and changes to an existing reservation.",
+    "whatsappTitle": "WhatsApp — fastest",
+    "whatsappBody": "For urgent rides within 3 hours and anything time-sensitive.",
+    "emailTitle": "Email",
+    "emailBody": "For quotes, invoices and booking changes."
+  },
+  "common": {
+    "from": "from",
+    "to": "to",
+    "km": "km",
+    "min": "min",
+    "book": "Book now",
+    "learnMore": "Learn more",
+    "backHome": "Back to home",
+    "loading": "Loading…",
+    "required": "required"
+  },
+  "footer": {
+    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: fares are set by the official AMB meter and paid to your driver.",
+    "routes": "Popular routes",
+    "company": "Company",
+    "legal": "Legal",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "refunds": "Refund policy",
+    "installApp": "Install the app",
+    "rights": "All rights reserved.",
+    "disclaimerShort": "Fare estimates follow official AMB tariffs. The final fare is the taxi meter."
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "body": "We use essential cookies to run the site. With your consent we also use analytics cookies to understand how the site is used.",
+    "accept": "Accept all",
+    "reject": "Essential only",
+    "settings": "Cookie settings"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you were looking for does not exist. Let's get you back to booking a taxi.",
+    "cta": "Back to home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "body": "An unexpected error occurred. Your booking has not been charged. Please try again.",
+    "retry": "Try again"
+  }
+}
