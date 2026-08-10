@@ -126,7 +126,10 @@ export default async function LocaleLayout(props: {
           <a href="#main" className="skip-link">
             {t('skipToContent')}
           </a>
-          <SiteHeader />
+          {/* Always /account — reading the session here would make cookies()
+              part of the layout and turn every marketing page dynamic. That
+              route redirects by role instead. */}
+          <SiteHeader accountHref="/account" />
           <main id="main">{props.children}</main>
           <SiteFooter />
           <CookieBanner />

@@ -47,7 +47,7 @@ function LanguageSwitcher() {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ accountHref }: { accountHref: string }) {
   const t = useTranslations('nav');
   const [open, setOpen] = useState(false);
 
@@ -81,6 +81,15 @@ export function SiteHeader() {
           <div className="hidden sm:block">
             <LanguageSwitcher />
           </div>
+          <Link
+            href={accountHref}
+            aria-label={t('account')}
+            className="hidden rounded-lg border border-white/15 p-2.5 text-porcelain transition hover:bg-white/10 sm:block"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+              <path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 1.8c-3.6 0-8 1.8-8 4.2v2.2h16V18c0-2.4-4.4-4.2-8-4.2Z" />
+            </svg>
+          </Link>
           <Link
             href="/book"
             className="rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
@@ -121,7 +130,14 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 border-t border-white/10 pt-3 sm:hidden">
+          <div className="mt-3 space-y-3 border-t border-white/10 pt-3 sm:hidden">
+            <Link
+              href={accountHref}
+              onClick={() => setOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-porcelain/90 hover:bg-white/5"
+            >
+              {t('account')}
+            </Link>
             <LanguageSwitcher />
           </div>
         </nav>

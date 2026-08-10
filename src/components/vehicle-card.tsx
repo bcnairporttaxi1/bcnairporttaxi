@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import type { FleetVehicle } from '@/lib/fleet';
 
 function PersonIcon() {
@@ -35,6 +36,7 @@ export async function VehicleCard({
   sizes?: string;
 }) {
   const t = await getTranslations('fleet');
+  const tc = await getTranslations('common');
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-card border border-hairline bg-white">
@@ -76,6 +78,19 @@ export async function VehicleCard({
         </dl>
 
         <p className="mt-3 text-sm leading-relaxed text-muted">{vehicle.luggageNote}</p>
+
+        {/* Pushed to the bottom so every card's CTA lines up regardless of how
+            long the luggage note runs. */}
+        <Link
+          href={{ pathname: '/book', query: { vehicle: vehicle.slug } }}
+          className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 pt-3 font-display text-sm font-bold text-porcelain transition hover:bg-accent hover:text-ink"
+        >
+          {tc('book')}
+          <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-current">
+            <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+          </svg>
+          <span className="sr-only">— {vehicle.name}</span>
+        </Link>
       </div>
     </article>
   );

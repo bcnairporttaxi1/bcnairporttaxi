@@ -17,6 +17,7 @@
     "gen:art": "tsx scripts/make-fleet-art.ts",
     "seo:audit": "tsx scripts/seo-audit.ts",
     "verify:payment": "tsx scripts/verify-payment-flow.ts",
+    "admin": "tsx scripts/create-admin.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "react-dom": "19.2.8",
     "react-leaflet": "^5.0.0",
     "resend": "^6.18.1",
+    "server-only": "^0.0.1",
     "ws": "^8.21.3",
     "zod": "^4.1.12"
   },
