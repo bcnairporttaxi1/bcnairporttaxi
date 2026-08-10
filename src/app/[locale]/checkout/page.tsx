@@ -157,6 +157,7 @@ export default async function CheckoutPage(props: {
         dropoff={{ ...dropoff, label: dlabel }}
         pickupAtIso={pickupAt.toISOString()}
         fleet={FLEET}
+        initialMode={one('mode') === 'FULL_PREPAID' ? 'FULL_PREPAID' : 'FEE_ONLY'}
       />
     </>
   );

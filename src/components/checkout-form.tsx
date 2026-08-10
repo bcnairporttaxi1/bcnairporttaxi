@@ -15,6 +15,8 @@ interface Props {
   dropoff: { lat: number; lng: number; label: string };
   pickupAtIso: string;
   fleet: FleetVehicle[];
+  /** Preselected from the home-screen choice. */
+  initialMode: PaymentMode;
 }
 
 export function CheckoutForm({
@@ -24,13 +26,14 @@ export function CheckoutForm({
   dropoff,
   pickupAtIso,
   fleet,
+  initialMode,
 }: Props) {
   const t = useTranslations('checkout');
   const tq = useTranslations('quote');
   const tf = useTranslations('fleet');
 
   const [vehicleSlug, setVehicleSlug] = useState(fleet[1]?.slug ?? fleet[0].slug);
-  const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
+  const [mode, setMode] = useState<PaymentMode>(initialMode);
   const [passengers, setPassengers] = useState(2);
   const [luggage, setLuggage] = useState(2);
   const [name, setName] = useState('');

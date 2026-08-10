@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { meetsLeadTime } from '@/lib/pricing';
+import type { PaymentMode } from '@/lib/tariffs';
 import { whatsappLink } from '@/lib/site';
 import { AddressField, type Place } from './address-field';
 
@@ -73,6 +74,8 @@ export function QuoteWidget({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tooSoon, setTooSoon] = useState(false);
+  /** Chosen here on the home screen and carried into checkout preselected. */
+  const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
 
   const pickupAt = useMemo(() => new Date(`${date}T${time}:00`), [date, time]);
 
@@ -156,6 +159,7 @@ export function QuoteWidget({
           dlng: String(dropoff.lng),
           dlabel: dropoff.label,
           at: pickupAt.toISOString(),
+          mode,
         }).toString()}`
       : '/book';
 
@@ -311,30 +315,74 @@ export function QuoteWidget({
             <p className="mt-3 text-xs text-accent">{t('t4Applied')}</p>
           )}
 
-          {/* Both payment routes, side by side, so the choice is explicit. */}
+          {/* Real radio choice, carried through to checkout. Neither option is
+              preferred by default styling — only the actual selection is lit. */}
           {q && (
-            <div className="mt-5 grid gap-2 sm:grid-cols-2">
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                <p className="text-xs font-semibold uppercase tracking-wide text-porcelain/50">
-                  {t('modeFeeOnlyTitle')}
-                </p>
-                <p className="mt-1 font-mono text-xl font-bold text-porcelain">
-                  {eur(q.payNowFeeOnly)}
-                </p>
-                <p className="mt-1 text-xs text-porcelain/50">
-                  + {eur(q.payInTaxiFeeOnly)} {t('payInTaxi').toLowerCase()}
-                </p>
+            <fieldset className="mt-5">
+              <legend className="mb-2 text-xs font-semibold uppercase tracking-widest text-porcelain/55">
+                {t('chooseHowToPay')}
+              </legend>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {(
+                  [
+                    {
+                      value: 'FEE_ONLY' as const,
+                      title: t('modeFeeOnlyTitle'),
+                      amount: q.payNowFeeOnly,
+                      sub: `+ ${eur(q.payInTaxiFeeOnly)} ${t('payInTaxi').toLowerCase()}`,
+                    },
+                    {
+                      value: 'FULL_PREPAID' as const,
+                      title: t('modeFullTitle'),
+                      amount: q.payNowFull,
+                      sub: t('nothingInTaxi'),
+                    },
+                  ]
+                ).map((opt) => {
+                  const selected = mode === opt.value;
+                  return (
+                    <label
+                      key={opt.value}
+                      className={`cursor-pointer rounded-lg border p-3 transition ${
+                        selected
+                          ? 'border-accent bg-accent/15'
+                          : 'border-white/12 bg-white/5 hover:border-white/25'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="paymentMode"
+                        value={opt.value}
+                        checked={selected}
+                        onChange={() => setMode(opt.value)}
+                        className="sr-only"
+                      />
+                      <span className="flex items-center gap-2">
+                        <span
+                          aria-hidden="true"
+                          className={`grid h-4 w-4 shrink-0 place-items-center rounded-full border-2 ${
+                            selected ? 'border-accent' : 'border-porcelain/40'
+                          }`}
+                        >
+                          {selected && <span className="h-2 w-2 rounded-full bg-accent" />}
+                        </span>
+                        <span
+                          className={`text-xs font-semibold uppercase tracking-wide ${
+                            selected ? 'text-accent' : 'text-porcelain/60'
+                          }`}
+                        >
+                          {opt.title}
+                        </span>
+                      </span>
+                      <span className="mt-1.5 block font-mono text-xl font-bold text-porcelain">
+                        {eur(opt.amount)}
+                      </span>
+                      <span className="mt-1 block text-xs text-porcelain/50">{opt.sub}</span>
+                    </label>
+                  );
+                })}
               </div>
-              <div className="rounded-lg border border-accent/40 bg-accent/10 p-3">
-                <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-                  {t('modeFullTitle')}
-                </p>
-                <p className="mt-1 font-mono text-xl font-bold text-porcelain">
-                  {eur(q.payNowFull)}
-                </p>
-                <p className="mt-1 text-xs text-porcelain/50">{t('nothingInTaxi')}</p>
-              </div>
-            </div>
+            </fieldset>
           )}
 
           {q && (
