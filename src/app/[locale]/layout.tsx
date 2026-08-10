@@ -83,10 +83,10 @@ export async function generateMetadata(props: {
       description: t('metaDescription'),
       images: [
         {
-          url: '/img/hero-banner.png',
-          width: 1600,
-          height: 900,
-          alt: 'Black and yellow Mercedes V-Class Barcelona airport taxi in official AMB livery',
+          url: '/img/hero-banner.jpg',
+          width: 1920,
+          height: 1080,
+          alt: 'Black and yellow Barcelona airport taxi on the waterfront at sunset with the Sagrada Família behind',
         },
       ],
     },

@@ -85,15 +85,19 @@ async function main() {
     console.log(`  ${job.label.padEnd(30)} -> ${job.out} (${(buf.length / 1024).toFixed(0)} KB)`);
   }
 
-  // Hero: the V-Class, cropped wide and darkened by the overlay in the page.
-  const heroSrc = path.join(SRC, 'Gemini_Generated_Image_ns1sknns1sknns1s-clean.png');
+  // Hero: the supplied waterfront banner. Shown at full strength behind a
+  // directional scrim, so it is encoded as JPEG — a photograph of a sunset
+  // compresses far better than PNG and next/image derives AVIF from it anyway.
+  const heroSrc = path.join(SRC, 'bcnairporttaxi baner.png');
   if (await exists(heroSrc)) {
     const hero = await sharp(heroSrc)
-      .resize(1600, 900, { fit: 'cover', position: 'centre' })
-      .png({ quality: 70, compressionLevel: 9, effort: 8 })
+      .resize(1920, 1080, { fit: 'cover', position: 'centre' })
+      .jpeg({ quality: 78, mozjpeg: true })
       .toBuffer();
-    await writeFile(path.join(OUT, 'hero-banner.png'), hero);
-    console.log(`  Hero banner                    -> hero-banner.png (${(hero.length / 1024).toFixed(0)} KB)`);
+    await writeFile(path.join(OUT, 'hero-banner.jpg'), hero);
+    console.log(`  Hero banner                    -> hero-banner.jpg (${(hero.length / 1024).toFixed(0)} KB)`);
+  } else {
+    console.error('  MISSING hero: bcnairporttaxi baner.png');
   }
 
   // Logo: trim the transparent margin so it can be sized precisely in the nav.

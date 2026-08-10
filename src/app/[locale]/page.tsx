@@ -37,22 +37,29 @@ export default async function HomePage(props: {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink">
-        {/* Decorative backdrop at 40% opacity behind the headline. On phones we
-            deliberately request a quarter-width variant: upscaled it is
-            indistinguishable at this opacity, and it keeps the LCP payload tiny. */}
+        {/* Shown at full strength — it is the brand image, not a texture. */}
         <Image
-          src="/img/hero-banner.png"
-          alt="Black and yellow Barcelona airport taxi at El Prat terminal at dusk"
+          src="/img/hero-banner.jpg"
+          alt="Black and yellow Mercedes Barcelona taxi on the waterfront at sunset, with the Sagrada Família and the W Hotel behind"
           fill
           priority
           fetchPriority="high"
-          quality={60}
-          sizes="(max-width: 768px) 25vw, 100vw"
-          className="object-cover opacity-40"
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Readability scrim. The headline sits left and the car sits right, so
+            on wide screens the darkening sweeps left-to-right and leaves the
+            vehicle clear. Narrow screens get a vertical scrim instead, because
+            the text spans the full width there. Without this the porcelain
+            headline fails contrast against the sunset. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-ink/92 via-ink/78 to-ink/92 md:bg-gradient-to-r md:from-ink md:via-ink/88 md:to-ink/25"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(245,179,1,0.18),transparent)]"
+          className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(245,179,1,0.16),transparent)]"
         />
         <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:pt-20">
           <div className="max-w-2xl">
