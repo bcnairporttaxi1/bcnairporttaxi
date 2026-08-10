@@ -337,6 +337,8 @@
   "topbar": {
     "licensed": "Licensed AMB taxis",
     "always": "24/7 service",
-    "fleet": "Premium fleet"
+    "fleet": "Premium fleet",
+    "emailUs": "Email us",
+    "callUs": "Call us"
   }
 }

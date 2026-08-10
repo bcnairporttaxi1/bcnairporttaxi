@@ -127,13 +127,10 @@ export default async function HomePage(props: {
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {(['one', 'two', 'three'] as const).map((step, i) => (
             <Reveal as="li" key={step} delay={i * 110}>
+              {/* The oversized watermark numeral was removed: at 1.31:1 on white
+                  it failed contrast, and the numbered badge already carries the
+                  sequence. */}
               <div className="lift relative h-full rounded-card border border-hairline bg-white p-7">
-                <span
-                  aria-hidden="true"
-                  className="absolute right-5 top-4 font-mono text-5xl font-bold text-hairline"
-                >
-                  0{i + 1}
-                </span>
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink font-mono text-lg font-bold text-accent">
                   {i + 1}
                 </span>

@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "Taxi autorizzati AMB",
     "always": "Servizio 24/7",
-    "fleet": "Flotta premium"
+    "fleet": "Flotta premium",
+    "emailUs": "Scrivici",
+    "callUs": "Chiamaci"
   }
 }

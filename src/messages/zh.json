@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "持牌 AMB 出租车",
     "always": "24/7 服务",
-    "fleet": "高端车队"
+    "fleet": "高端车队",
+    "emailUs": "发邮件给我们",
+    "callUs": "致电我们"
   }
 }

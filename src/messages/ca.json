@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "Taxis amb llicència AMB",
     "always": "Servei 24/7",
-    "fleet": "Flota premium"
+    "fleet": "Flota premium",
+    "emailUs": "Escriu-nos",
+    "callUs": "Truca'ns"
   }
 }

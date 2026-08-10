@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "Vergunde AMB-taxi's",
     "always": "24/7 service",
-    "fleet": "Premium wagenpark"
+    "fleet": "Premium wagenpark",
+    "emailUs": "Mail ons",
+    "callUs": "Bel ons"
   }
 }

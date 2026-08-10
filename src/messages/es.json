@@ -223,6 +223,8 @@
   "topbar": {
     "licensed": "Taxis con licencia AMB",
     "always": "Servicio 24/7",
-    "fleet": "Flota premium"
+    "fleet": "Flota premium",
+    "emailUs": "Escríbenos",
+    "callUs": "Llámanos"
   }
 }

@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "Táxis licenciados AMB",
     "always": "Serviço 24/7",
-    "fleet": "Frota premium"
+    "fleet": "Frota premium",
+    "emailUs": "Escreva-nos",
+    "callUs": "Ligue-nos"
   }
 }

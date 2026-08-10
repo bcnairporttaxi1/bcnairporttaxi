@@ -31,19 +31,23 @@ export async function TopBar() {
         </ul>
 
         <div className="ml-auto flex items-center gap-5">
+          {/* The label is hidden on the narrowest screens, so the link carries
+              an explicit name — otherwise it is an icon with no text at all. */}
           <a
             href={`mailto:${CONTACT_EMAIL}`}
+            aria-label={`${t('emailUs')}: ${CONTACT_EMAIL}`}
             className="flex items-center gap-1.5 transition hover:text-accent"
           >
             <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current">
               <path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h13A1.5 1.5 0 0 1 18 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 2 14.5v-9Zm2.2.5L10 10.3 15.8 6H4.2Z" />
             </svg>
-            <span className="hidden xs:inline sm:inline">{CONTACT_EMAIL}</span>
+            <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
           </a>
 
           {phone && (
             <a
               href={`tel:${phone}`}
+              aria-label={`${t('callUs')}: ${phone}`}
               className="flex items-center gap-1.5 font-semibold text-porcelain transition hover:text-accent"
             >
               <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current">

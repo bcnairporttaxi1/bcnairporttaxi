@@ -162,6 +162,8 @@
   "topbar": {
     "licensed": "Lizenzierte AMB-Taxis",
     "always": "24/7 Service",
-    "fleet": "Premium-Fuhrpark"
+    "fleet": "Premium-Fuhrpark",
+    "emailUs": "E-Mail an uns",
+    "callUs": "Rufen Sie uns an"
   }
 }
