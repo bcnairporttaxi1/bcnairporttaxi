@@ -62,6 +62,26 @@ and leaves the committed artwork in place, so a build never breaks.
 `npx tsx scripts/make-icons.ts` rasterises the PWA icons and favicon from a
 single inline SVG source via `sharp`.
 
+## Deployment
+
+Live at **https://bcnairporttaxi.vercel.app** — Vercel project `bcnairporttaxi`,
+linked to this repo, so pushes to `main` deploy automatically.
+
+To sync environment variables from a local `.env` into the Vercel project:
+
+```bash
+VERCEL_TOKEN=... VERCEL_PROJECT_ID=... npx tsx scripts/sync-vercel-env.ts
+```
+
+Values are upserted across production/preview/development and never printed.
+`NEXT_PUBLIC_*` are stored as plain (they are inlined into the client bundle
+anyway); everything else is encrypted. Pass `KEY=value` arguments to override a
+`.env` entry for production — this is how `AUTH_SECRET` and
+`NEXT_PUBLIC_SITE_URL` get production-specific values.
+
+Empty variables are skipped, so `SUMUP_API_KEY` and `SUMUP_MERCHANT_CODE` are
+not yet set — add them and re-run to switch payments from stub to live.
+
 ## Pricing engine
 
 All rates live in [`src/lib/tariffs.ts`](src/lib/tariffs.ts) — **the only place
