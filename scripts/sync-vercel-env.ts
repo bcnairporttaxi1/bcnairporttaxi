@@ -21,6 +21,13 @@ if (!TOKEN || !PROJECT) {
 /** Keys that must never be uploaded even if present locally. */
 const SKIP = new Set<string>();
 
+/**
+ * Values that are obviously development-only. Uploading one of these would
+ * silently weaken production, so the run aborts unless an explicit
+ * `KEY=value` override is supplied on the command line.
+ */
+const DEV_PLACEHOLDER = /dev-only|changeme|replace-in-production|placeholder|localhost/i;
+
 /** Overrides applied on top of the .env values, for production-only settings. */
 const OVERRIDES: Record<string, string> = {};
 for (const arg of process.argv.slice(2)) {
@@ -61,6 +68,14 @@ async function main() {
       console.log(`  skip   ${key} (empty or excluded)`);
       skipped++;
       continue;
+    }
+
+    if (DEV_PLACEHOLDER.test(value) && !(key in OVERRIDES)) {
+      console.error(
+        `  ABORT  ${key} looks like a development placeholder.\n` +
+          `         Pass a real value explicitly:  ${key}=<value>`,
+      );
+      process.exit(1);
     }
 
     const res = await fetch(
