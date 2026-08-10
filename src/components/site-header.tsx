@@ -58,8 +58,8 @@ export function SiteHeader() {
           <Image
             src="/img/logo.png"
             alt="BCNAirportTaxi — premium Barcelona airport taxi service"
-            width={176}
-            height={96}
+            width={258}
+            height={120}
             priority
             className="h-9 w-auto sm:h-11"
           />

@@ -129,6 +129,88 @@ h4 {
   animation: fade-rise 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/**
+ * Scroll reveal. Elements start displaced and settle when the Reveal wrapper
+ * marks them visible. Transform + opacity only, so it stays on the compositor
+ * and costs nothing in layout.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal[data-visible='true'] {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Cards lift slightly toward the pointer. */
+.lift {
+  transition:
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 260ms ease;
+}
+
+.lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px -18px rgb(14 14 16 / 38%);
+}
+
+/* Photographs bloom a little inside their frame on hover. */
+.zoom-frame img {
+  transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zoom-frame:hover img {
+  transform: scale(1.055);
+}
+
+/* Amber underline that draws in from the left. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover {
+  background-size: 100% 2px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -140% 0;
+  }
+  100% {
+    background-position: 240% 0;
+  }
+}
+
+/* Slow sheen across the primary CTA. */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgb(255 255 255 / 42%) 50%,
+    transparent 70%
+  );
+  background-size: 220% 100%;
+  animation: shimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -140,6 +222,22 @@ h4 {
   }
   .taximeter-digits {
     text-shadow: none;
+  }
+  /* Reveal content immediately rather than leaving it displaced, and drop the
+     decorative motion entirely. */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+  .zoom-frame:hover img {
+    transform: none;
+  }
+  .sheen::after {
+    animation: none;
+    display: none;
   }
 }
 

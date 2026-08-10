@@ -34,8 +34,8 @@ export async function SiteFooter() {
           <Image
             src="/img/logo.png"
             alt="BCNAirportTaxi — Barcelona airport taxi booking"
-            width={176}
-            height={96}
+            width={258}
+            height={120}
             className="h-11 w-auto"
           />
           <p className="mt-4 text-sm leading-relaxed text-porcelain/65">{t('about')}</p>

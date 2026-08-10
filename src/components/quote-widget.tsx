@@ -76,6 +76,7 @@ export function QuoteWidget({
   const [tooSoon, setTooSoon] = useState(false);
   /** Chosen here on the home screen and carried into checkout preselected. */
   const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
+  const [tripType, setTripType] = useState<'ONE_WAY' | 'RETURN'>('ONE_WAY');
 
   const mapSlotRef = useRef<HTMLDivElement>(null);
   const [mapInView, setMapInView] = useState(false);
@@ -195,11 +196,49 @@ export function QuoteWidget({
     >
       <form
         onSubmit={submit}
-        className="rounded-card border border-white/10 bg-graphite p-5 sm:p-6"
+        className="rounded-card border border-white/12 bg-graphite/95 p-5 shadow-2xl backdrop-blur sm:p-7"
       >
-        <h2 id={headingId} className="font-display text-xl font-bold text-porcelain">
-          {t('title')}
-        </h2>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h2 id={headingId} className="font-display text-xl font-extrabold text-porcelain">
+              {t('title')}
+            </h2>
+            <p className="mt-1 text-xs text-porcelain/50">{t('instantPrice')}</p>
+          </div>
+          <span className="hidden shrink-0 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-bold text-accent sm:block">
+            24/7
+          </span>
+        </div>
+
+        {/* Trip type — one way is the overwhelming majority, so it leads. */}
+        <fieldset className="mt-5">
+          <legend className="sr-only">{t('tripType')}</legend>
+          <div className="grid grid-cols-2 gap-1.5 rounded-xl border border-white/12 bg-ink/60 p-1.5">
+            {(['ONE_WAY', 'RETURN'] as const).map((v) => {
+              const active = tripType === v;
+              return (
+                <label
+                  key={v}
+                  className={`cursor-pointer rounded-lg px-3 py-2.5 text-center text-sm font-bold transition ${
+                    active
+                      ? 'bg-accent text-ink'
+                      : 'text-porcelain/65 hover:bg-white/5 hover:text-porcelain'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="tripType"
+                    value={v}
+                    checked={active}
+                    onChange={() => setTripType(v)}
+                    className="sr-only"
+                  />
+                  {v === 'ONE_WAY' ? t('oneWay') : t('return')}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
 
         <div className="mt-5 space-y-4">
           <AddressField
@@ -245,10 +284,16 @@ export function QuoteWidget({
           </div>
         </div>
 
+        {tripType === 'RETURN' && (
+          <p className="mt-3 rounded-lg border border-white/12 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-porcelain/65">
+            {t('returnNote')}
+          </p>
+        )}
+
         <button
           type="submit"
           disabled={loading}
-          className="mt-5 w-full rounded-lg bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+          className="sheen mt-5 w-full rounded-xl bg-accent px-5 py-4 font-display text-base font-extrabold text-ink shadow-lg shadow-accent/20 transition hover:bg-accent-deep hover:shadow-accent/30 active:scale-[0.99] disabled:opacity-60"
         >
           {loading ? t('calculating') : t('calculate')}
         </button>

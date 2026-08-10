@@ -18,6 +18,14 @@ const OUT = path.join(process.cwd(), 'public', 'img');
 /** Matches the dark studio backdrop in the source photographs. */
 const BACKDROP = { r: 8, g: 8, b: 10, alpha: 1 };
 
+/** Source filename of the brand logo in the Downloads folder. */
+const LOGO_FILE = 'ChatGPT Image Aug 10, 2026, 04_34_16 PM.png';
+
+/** Every fleet card renders 3:2. */
+const CANVAS = { w: 1200, h: 800 };
+/** Width every vehicle is scaled to, so all cards show cars at one scale. */
+const CAR_TARGET_W = 1010;
+
 interface Job {
   src: string;
   out: string;
@@ -57,6 +65,48 @@ const FLEET_JOBS: Job[] = [
   },
 ];
 
+/**
+ * Scales a source so the vehicle itself occupies a fixed width, then crops to
+ * the card canvas centred on the vehicle.
+ *
+ * Compositing a trimmed cut-out onto a flat fill was the obvious approach and
+ * it does not work: these backdrops are vignetted, so any solid colour leaves a
+ * visible rectangle. Scaling the whole frame keeps the original gradient
+ * continuous while still equalising how large each car appears.
+ */
+async function normaliseVehicle(src: string): Promise<Buffer> {
+  const meta = await sharp(src).metadata();
+  const srcW = meta.width ?? CANVAS.w;
+  const srcH = meta.height ?? CANVAS.h;
+
+  // Locate the vehicle: trim reports how much flat border it removed.
+  const { info } = await sharp(src)
+    .trim({ threshold: 18 })
+    .toBuffer({ resolveWithObject: true });
+
+  const offsetLeft = -(info.trimOffsetLeft ?? 0);
+  const offsetTop = -(info.trimOffsetTop ?? 0);
+  const carCentreX = offsetLeft + info.width / 2;
+  const carCentreY = offsetTop + info.height / 2;
+
+  // Equalise apparent size by matching vehicle width, not image width.
+  const scale = CAR_TARGET_W / info.width;
+  const newW = Math.max(CANVAS.w, Math.round(srcW * scale));
+  const newH = Math.max(CANVAS.h, Math.round(srcH * scale));
+
+  const clamp = (v: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, v));
+
+  const left = clamp(Math.round(carCentreX * scale - CANVAS.w / 2), 0, newW - CANVAS.w);
+  const top = clamp(Math.round(carCentreY * scale - CANVAS.h / 2), 0, newH - CANVAS.h);
+
+  return sharp(src)
+    .resize(newW, newH, { fit: 'fill' })
+    .extract({ left, top, width: CANVAS.w, height: CANVAS.h })
+    .png({ quality: 82, compressionLevel: 9, effort: 8 })
+    .toBuffer();
+}
+
 async function exists(p: string) {
   try {
     await access(p);
@@ -76,10 +126,7 @@ async function main() {
       continue;
     }
 
-    const buf = await sharp(src)
-      .resize(1200, 800, { fit: 'contain', background: BACKDROP })
-      .png({ quality: 82, compressionLevel: 9, effort: 8 })
-      .toBuffer();
+    const buf = await normaliseVehicle(src);
 
     await writeFile(path.join(OUT, job.out), buf);
     console.log(`  ${job.label.padEnd(30)} -> ${job.out} (${(buf.length / 1024).toFixed(0)} KB)`);
@@ -100,30 +147,29 @@ async function main() {
     console.error('  MISSING hero: bcnairporttaxi baner.png');
   }
 
-  // Logo: trim the transparent margin so it can be sized precisely in the nav.
-  const logoSrc = path.join(SRC, 'bcnairporttaxi logo.png');
+  // Logo: trim the flat surround so it can be sized precisely in the nav. The
+  // artwork is drawn on near-black, which matches the header, so it is kept as
+  // a rectangle rather than being knocked out — a cutout of the glow would
+  // leave a grey halo.
+  const logoSrc = path.join(SRC, LOGO_FILE);
   if (await exists(logoSrc)) {
-    const logo = await sharp(logoSrc)
-      .trim()
-      .resize({ height: 96, withoutEnlargement: true })
-      .png({ compressionLevel: 9, effort: 8 })
-      .toBuffer();
-    const meta = await sharp(logo).metadata();
-    await writeFile(path.join(OUT, 'logo.png'), logo);
-    console.log(
-      `  Logo                           -> logo.png (${(logo.length / 1024).toFixed(0)} KB, ${meta.width}x${meta.height})`,
-    );
-
-    // Larger copy for social cards and the app icon source.
-    const logoLarge = await sharp(logoSrc)
-      .trim()
-      .resize({ height: 320, withoutEnlargement: true })
-      .png({ compressionLevel: 9, effort: 8 })
-      .toBuffer();
-    await writeFile(path.join(OUT, 'logo-large.png'), logoLarge);
-    console.log(`  Logo (large)                   -> logo-large.png (${(logoLarge.length / 1024).toFixed(0)} KB)`);
+    for (const [name, height] of [
+      ['logo.png', 120],
+      ['logo-large.png', 400],
+    ] as const) {
+      const out = await sharp(logoSrc)
+        .trim({ threshold: 26 })
+        .resize({ height, withoutEnlargement: true })
+        .png({ compressionLevel: 9, effort: 8 })
+        .toBuffer();
+      const meta = await sharp(out).metadata();
+      await writeFile(path.join(OUT, name), out);
+      console.log(
+        `  Logo ${String(height).padStart(3)}px                     -> ${name} (${(out.length / 1024).toFixed(0)} KB, ${meta.width}x${meta.height})`,
+      );
+    }
   } else {
-    console.error('  MISSING logo: bcnairporttaxi logo.png');
+    console.error(`  MISSING logo: ${LOGO_FILE}`);
   }
 }
 

@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { VehicleCard } from '@/components/vehicle-card';
+import { FaqAccordion } from '@/components/faq-accordion';
+import { Reveal } from '@/components/reveal';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
 import { LANDING_PAGES, getLandingCopy } from '@/lib/landing-pages';
@@ -91,45 +93,87 @@ export default async function HomePage(props: {
       </section>
 
       {/* How it works */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-          {t('sections.howTitle')}
-        </h2>
-        <p className="mt-3 max-w-2xl text-muted">{t('sections.howIntro')}</p>
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+        <Reveal>
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+            {t('sections.howTitle')}
+          </h2>
+          <p className="mt-3 max-w-2xl text-muted">{t('sections.howIntro')}</p>
+        </Reveal>
 
-        <ol className="mt-10 grid gap-6 md:grid-cols-3">
+        <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {(['one', 'two', 'three'] as const).map((step, i) => (
-            <li
-              key={step}
-              className="rounded-card border border-hairline bg-white p-6"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-ink font-mono text-lg font-bold text-accent">
-                {i + 1}
-              </span>
-              <h3 className="mt-4 font-display text-lg font-bold">
-                {tw(`steps.${step}.title`)}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {tw(`steps.${step}.body`)}
-              </p>
-            </li>
+            <Reveal as="li" key={step} delay={i * 110}>
+              <div className="lift relative h-full rounded-card border border-hairline bg-white p-7">
+                <span
+                  aria-hidden="true"
+                  className="absolute right-5 top-4 font-mono text-5xl font-bold text-hairline"
+                >
+                  0{i + 1}
+                </span>
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink font-mono text-lg font-bold text-accent">
+                  {i + 1}
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold">
+                  {tw(`steps.${step}.title`)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {tw(`steps.${step}.body`)}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </ol>
       </section>
 
-      {/* Fleet */}
-      <section className="border-y border-hairline bg-white py-20">
+      {/* Why book with us */}
+      <section className="border-y border-hairline bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            {t('sections.fleetTitle')}
-          </h2>
-          <p className="mt-3 max-w-2xl text-muted">{t('sections.fleetIntro')}</p>
+          <Reveal>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.whyTitle')}
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted">{t('sections.whyIntro')}</p>
+          </Reveal>
 
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FLEET.map((v) => (
-              <li key={v.slug} className="flex">
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+            {(['meter', 'flight', 'licensed', 'support'] as const).map((k, i) => (
+              <Reveal as="li" key={k} delay={i * 90}>
+                <div className="lift h-full rounded-card border border-hairline bg-porcelain p-7">
+                  <span
+                    aria-hidden="true"
+                    className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent-text"
+                  >
+                    <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current">
+                      <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
+                    </svg>
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-bold">
+                    {t(`why.${k}.title`)}
+                  </h3>
+                  <p className="mt-2 leading-relaxed text-muted">{t(`why.${k}.body`)}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Fleet */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <Reveal>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.fleetTitle')}
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted">{t('sections.fleetIntro')}</p>
+          </Reveal>
+
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {FLEET.map((v, i) => (
+              <Reveal as="li" key={v.slug} delay={(i % 3) * 90} className="flex">
                 <VehicleCard vehicle={v} />
-              </li>
+              </Reveal>
             ))}
           </ul>
 
@@ -149,47 +193,73 @@ export default async function HomePage(props: {
         </h2>
         <p className="mt-3 max-w-2xl text-muted">{t('sections.routesIntro')}</p>
 
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {LANDING_PAGES.map((p) => {
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {LANDING_PAGES.map((p, i) => {
             const copy = getLandingCopy(p, locale);
             return (
-              <li key={p.slug}>
+              <Reveal as="li" key={p.slug} delay={(i % 3) * 80}>
                 <Link
                   href={`/${p.slug}`}
-                  className="group flex h-full flex-col rounded-card border border-hairline bg-white p-5 transition hover:border-ink"
+                  className="lift group flex h-full flex-col rounded-card border border-hairline bg-white p-6 hover:border-accent"
                 >
-                  <h3 className="font-display text-base font-bold group-hover:text-accent-text">
+                  <h3 className="font-display text-base font-bold transition-colors group-hover:text-accent-text">
                     {copy.h1}
                   </h3>
                   <p className="mt-2 line-clamp-3 text-sm text-muted">{copy.description}</p>
+                  <span
+                    aria-hidden="true"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-text opacity-0 transition-opacity group-hover:opacity-100"
+                  >
+                    {tc('learnMore')}
+                    <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current">
+                      <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+                    </svg>
+                  </span>
                 </Link>
-              </li>
+              </Reveal>
             );
           })}
         </ul>
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-hairline bg-white py-20">
+      <section className="border-t border-hairline bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            {t('sections.faqTitle')}
-          </h2>
-          <dl className="mt-8 divide-y divide-hairline">
-            {faqItems.map((item) => (
-              <div key={item.q} className="py-5">
-                <dt className="font-display text-lg font-bold">{item.q}</dt>
-                <dd className="mt-2 leading-relaxed text-muted">{item.a}</dd>
-              </div>
-            ))}
-          </dl>
-          <Link
-            href="/faq"
-            className="mt-6 inline-block font-semibold text-accent-text underline underline-offset-4"
-          >
-            {tc('readAllFaqs')}
-          </Link>
+          <Reveal>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.faqTitle')}
+            </h2>
+          </Reveal>
+          <Reveal delay={90}>
+            <div className="mt-10">
+              <FaqAccordion items={faqItems} />
+            </div>
+            <Link
+              href="/faq"
+              className="link-underline mt-7 inline-block font-semibold text-accent-text"
+            >
+              {tc('readAllFaqs')}
+            </Link>
+          </Reveal>
         </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="bg-ink py-20 sm:py-24">
+        <Reveal className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="font-display text-3xl font-extrabold text-porcelain sm:text-4xl">
+            {t('h1')}
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-porcelain/70">
+            {t('sections.howIntro')}
+          </p>
+          <Link
+            href="/book"
+            className="sheen mt-8 inline-block rounded-xl bg-accent px-8 py-4 font-display text-base font-extrabold text-ink transition hover:bg-accent-deep active:scale-[0.99]"
+          >
+            {tc('book')}
+          </Link>
+        </Reveal>
       </section>
     </>
   );

@@ -35,7 +35,27 @@
       "routesTitle": "Popular Barcelona airport routes",
       "routesIntro": "The transfers we are booked for most often.",
       "faqTitle": "Barcelona airport taxi questions",
-      "reviewsTitle": "What passengers say"
+      "reviewsTitle": "What passengers say",
+      "whyTitle": "Why book with us",
+      "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes."
+    },
+    "why": {
+      "meter": {
+        "title": "The official meter, nothing added",
+        "body": "Barcelona fares are set by the AMB and identical in every licensed taxi. We show you an accurate estimate from the real road distance, and you pay the meter — or lock a fixed price in advance if you prefer certainty."
+      },
+      "flight": {
+        "title": "We watch your flight",
+        "body": "Your driver tracks your flight number. Land late and the car is still there, at no extra cost. Meeting point is in your confirmation email before you take off."
+      },
+      "licensed": {
+        "title": "Licensed drivers only",
+        "body": "Every vehicle is a licensed Barcelona taxi with a working meter and the insurance the city requires. No unlicensed cars, ever."
+      },
+      "support": {
+        "title": "A person, not a queue",
+        "body": "Message us on WhatsApp and you reach someone who can actually move your booking. Under three hours' notice, that is the fastest way to get a car."
+      }
     }
   },
   "quote": {
@@ -67,6 +87,16 @@
     "modeFullBody": "Pay {total} online and nothing at all in the taxi. Your price is locked in, whatever the traffic does.",
     "chooseHowToPay": "Choose how to pay",
     "bookNow": "Book now",
+    "tripType": "Trip type",
+    "oneWay": "One way",
+    "return": "Return",
+    "returnDate": "Return date",
+    "returnTime": "Return time",
+    "returnNote": "Return legs are quoted separately and confirmed by email.",
+    "step1": "Where to?",
+    "step2": "When?",
+    "step3": "Your price",
+    "instantPrice": "Instant price, no account needed",
     "tariffBadge": "Tariff {tariff}",
     "tariffT1": "T-1 · weekday daytime",
     "tariffT2": "T-2 · night, weekend or holiday",
