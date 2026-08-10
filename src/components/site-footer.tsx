@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { LANDING_PAGES, getLandingCopy } from '@/lib/landing-pages';
@@ -30,10 +31,14 @@ export async function SiteFooter() {
     <footer className="mt-24 border-t border-white/10 bg-ink text-porcelain/80">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-display text-lg font-extrabold text-porcelain">
-            BCN<span className="text-accent">AirportTaxi</span>
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-porcelain/65">{t('about')}</p>
+          <Image
+            src="/img/logo.png"
+            alt="BCNAirportTaxi — Barcelona airport taxi booking"
+            width={176}
+            height={96}
+            className="h-11 w-auto"
+          />
+          <p className="mt-4 text-sm leading-relaxed text-porcelain/65">{t('about')}</p>
         </div>
 
         <nav aria-labelledby="footer-routes">

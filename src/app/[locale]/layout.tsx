@@ -81,7 +81,14 @@ export async function generateMetadata(props: {
       url: absoluteUrl(`/${locale}`),
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/img/hero-banner.png', width: 1600, height: 900, alt: t('h1') }],
+      images: [
+        {
+          url: '/img/hero-banner.png',
+          width: 1600,
+          height: 900,
+          alt: 'Black and yellow Mercedes V-Class Barcelona airport taxi in official AMB livery',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',

@@ -10,6 +10,7 @@ import { FLEET } from '../src/lib/fleet';
 const CATEGORY_LABELS: Record<string, string> = {
   eco: 'Eco hybrid taxi',
   standard: 'Standard taxi',
+  estate: 'Estate taxi',
   minivan: 'Minivan taxi',
   premium: 'Premium van taxi',
 };

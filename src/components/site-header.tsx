@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { localeNames, locales } from '@/i18n/routing';
@@ -12,22 +13,6 @@ const NAV = [
   { href: '/faq', key: 'faq' },
   { href: '/contact', key: 'contact' },
 ] as const;
-
-function TaxiMark() {
-  return (
-    <span
-      aria-hidden="true"
-      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent"
-    >
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="#0E0E10" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 11l1.6-4A2 2 0 0 1 8.5 6h7a2 2 0 0 1 1.9 1L19 11" />
-        <path d="M3 11h18v5a1 1 0 0 1-1 1h-1M6 17H4a1 1 0 0 1-1-1v-5" />
-        <circle cx="7.5" cy="17" r="1.6" />
-        <circle cx="16.5" cy="17" r="1.6" />
-      </svg>
-    </span>
-  );
-}
 
 function LanguageSwitcher() {
   const t = useTranslations('nav');
@@ -69,14 +54,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 font-display text-lg font-extrabold tracking-tight text-porcelain"
-        >
-          <TaxiMark />
-          <span>
-            BCN<span className="text-accent">AirportTaxi</span>
-          </span>
+        <Link href="/" className="flex shrink-0 items-center" aria-label="BCNAirportTaxi — home">
+          <Image
+            src="/img/logo.png"
+            alt="BCNAirportTaxi — premium Barcelona airport taxi service"
+            width={176}
+            height={96}
+            priority
+            className="h-9 w-auto sm:h-11"
+          />
         </Link>
 
         <nav aria-label="Main" className="ml-auto hidden items-center gap-1 lg:flex">

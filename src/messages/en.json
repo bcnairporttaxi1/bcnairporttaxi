@@ -107,11 +107,14 @@
     "h1": "Our Barcelona taxi fleet",
     "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage — the price estimate is the same regardless of vehicle, because the meter rate is set by the AMB.",
     "seats": "{count, plural, one {# passenger} other {# passengers}}",
-    "bags": "{count, plural, one {# bag} other {# bags}}",
+    "bags": "{count, plural, one {# suitcase} other {# suitcases}}",
     "select": "Select {name}",
+    "passengersLabel": "Passengers",
+    "luggageLabel": "Luggage",
     "categories": {
       "eco": "Eco hybrid taxi",
       "standard": "Standard taxi",
+      "estate": "Estate taxi",
       "minivan": "Minivan taxi",
       "premium": "Premium van taxi"
     }

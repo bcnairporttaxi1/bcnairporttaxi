@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
+import { VehicleCard } from '@/components/vehicle-card';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
 import { locales } from '@/i18n/routing';
@@ -44,36 +44,24 @@ export default async function FleetPage(props: {
       <PageHero title={t('h1')} intro={t('intro')} />
 
       <div className="mx-auto max-w-6xl px-4 py-14">
-        <ul className="grid gap-6 sm:grid-cols-2">
-          {FLEET.map((v) => (
-            <li
-              key={v.slug}
-              className="overflow-hidden rounded-card border border-hairline bg-white"
-            >
-              <Image
-                src={v.image}
-                alt={v.imageAlt}
-                width={1200}
-                height={800}
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="aspect-[3/2] w-full object-cover"
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {FLEET.map((v, i) => (
+            <li key={v.slug} className="flex">
+              <VehicleCard
+                vehicle={v}
+                priority={i === 0}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              <div className="p-6">
-                <h2 className="font-display text-xl font-bold">{v.name}</h2>
-                <p className="text-sm text-muted">{t(`categories.${v.categoryKey}`)}</p>
-                <p className="mt-3 font-mono text-sm">
-                  {t('seats', { count: v.seats })} · {t('bags', { count: v.bags })}
-                </p>
-                <Link
-                  href="/book"
-                  className="mt-5 inline-block rounded-lg bg-ink px-4 py-2.5 text-sm font-bold text-porcelain hover:bg-graphite"
-                >
-                  {tc('book')}
-                </Link>
-              </div>
             </li>
           ))}
         </ul>
+
+        <Link
+          href="/book"
+          className="mt-10 inline-block rounded-lg bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+        >
+          {tc('book')}
+        </Link>
       </div>
     </>
   );

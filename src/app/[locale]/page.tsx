@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
+import { VehicleCard } from '@/components/vehicle-card';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
 import { LANDING_PAGES, getLandingCopy } from '@/lib/landing-pages';
@@ -114,27 +115,10 @@ export default async function HomePage(props: {
           </h2>
           <p className="mt-3 max-w-2xl text-muted">{t('sections.fleetIntro')}</p>
 
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FLEET.map((v) => (
-              <li
-                key={v.slug}
-                className="overflow-hidden rounded-card border border-hairline bg-porcelain"
-              >
-                <Image
-                  src={v.image}
-                  alt={v.imageAlt}
-                  width={1200}
-                  height={800}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="aspect-[3/2] w-full object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-bold">{v.name}</h3>
-                  <p className="text-sm text-muted">{tf(`categories.${v.categoryKey}`)}</p>
-                  <p className="mt-3 font-mono text-sm">
-                    {tf('seats', { count: v.seats })} · {tf('bags', { count: v.bags })}
-                  </p>
-                </div>
+              <li key={v.slug} className="flex">
+                <VehicleCard vehicle={v} />
               </li>
             ))}
           </ul>
