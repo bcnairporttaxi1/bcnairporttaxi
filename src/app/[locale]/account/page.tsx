@@ -96,6 +96,14 @@ export default async function AccountPage(props: {
           >
             View details
           </Link>
+          {(b.status === 'ASSIGNED' || b.status === 'EN_ROUTE') && (
+            <Link
+              href={`/trip/${b.reference}`}
+              className="rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
+            >
+              Track live &amp; chat
+            </Link>
+          )}
           {/* One-click repeat: prefills a new quote with the same route. */}
           <Link
             href={{

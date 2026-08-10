@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
 import { requireDriver } from '@/lib/guards';
@@ -116,6 +117,13 @@ export default async function DriverPage(props: {
           >
             Navigate
           </a>
+
+          <Link
+            href={`/trip/${b.reference}`}
+            className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+          >
+            Track &amp; chat
+          </Link>
 
           {b.status !== 'EN_ROUTE' && b.status !== 'COMPLETED' && (
             <form action={updateTripStatus}>
