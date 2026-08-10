@@ -52,20 +52,26 @@ export async function VehicleCard({
         <h3 className="font-display text-lg font-bold">{vehicle.name}</h3>
         <p className="text-sm text-muted">{t(`categories.${vehicle.categoryKey}`)}</p>
 
+        {/* A dl's div may contain only dt and dd, so the icons live inside the
+            dd rather than as siblings. */}
         <dl className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           <div className="flex items-center gap-1.5">
             <dt className="sr-only">{t('passengersLabel')}</dt>
-            <span className="text-accent-text">
-              <PersonIcon />
-            </span>
-            <dd className="font-mono font-bold">{t('seats', { count: vehicle.seats })}</dd>
+            <dd className="flex items-center gap-1.5 font-mono font-bold">
+              <span className="text-accent-text">
+                <PersonIcon />
+              </span>
+              {t('seats', { count: vehicle.seats })}
+            </dd>
           </div>
           <div className="flex items-center gap-1.5">
             <dt className="sr-only">{t('luggageLabel')}</dt>
-            <span className="text-accent-text">
-              <SuitcaseIcon />
-            </span>
-            <dd className="font-mono font-bold">{t('bags', { count: vehicle.bags })}</dd>
+            <dd className="flex items-center gap-1.5 font-mono font-bold">
+              <span className="text-accent-text">
+                <SuitcaseIcon />
+              </span>
+              {t('bags', { count: vehicle.bags })}
+            </dd>
           </div>
         </dl>
 
