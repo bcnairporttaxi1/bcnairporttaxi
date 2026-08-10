@@ -77,8 +77,20 @@ export const TARIFFS = {
     minFare: 8.0,
   },
 
-  /** OUR booking fee, charged online. Never part of the meter. */
-  bookingFeeRate: 0.2,
+  /**
+   * OUR booking fee, charged online. Never part of the meter.
+   *
+   * Weekends and special days cost more to staff, so they carry the higher
+   * rate. This is decided by the calendar day of the pickup, not by which
+   * meter tariff applies: a Monday at 23:00 bills the night tariff T-2 but is
+   * still a weekday for the fee, while Saturday lunchtime is not.
+   */
+  bookingFeeRate: {
+    /** Monday to Friday, excluding holidays. */
+    weekday: 0.2,
+    /** Saturday, Sunday, official holidays and special days. */
+    weekend: 0.25,
+  },
 
   /**
    * INTERURBAN (outside the AMB area) — tariffs T-6 and T-7.
@@ -88,18 +100,19 @@ export const TARIFFS = {
    * destination lies outside the metropolitan area, the applicable fares are
    * established by the Generalitat de Catalunya".
    *
-   * !! VERIFY AGAINST THE DOGC BEFORE TAKING MONEY ON THESE !!
-   * The figures below come from a trade summary rather than the official
-   * order. They are close enough to quote from, but confirm them in the DOGC
-   * interurban tariff order before charging a customer.
+   * Figures confirmed by the operator against the Generalitat schedule.
+   * Re-verify at the Portal Jurídic each time the order is updated.
    *
-   * T-6 = Mon–Fri 08:00–20:00. T-7 = nights, weekends and holidays.
+   * T-6 = Mon–Fri 08:00–20:00.
+   * T-7 = Mon–Fri 20:00–08:00, plus Saturdays, Sundays and holidays all day.
    */
   outsideAMB: {
     enabled: true,
     startFare: { T6: 7.25, T7: 7.9 },
     perKm: { T6: 0.82, T7: 0.89 },
     waitPerHour: { T6: 22.47, T7: 24.32 },
+    /** Waiting is billed in quarter-hour blocks. */
+    waitPer15Min: { T6: 5.62, T7: 6.08 },
     /** Airport entry/exit, and 5–8 seat vehicles, both apply interurban too. */
     supplements: { airportElPrat: 4.6, largeVehicle: 4.6 },
   },

@@ -28,6 +28,8 @@ export interface QuotePayload {
   meterEstimate: number;
   fixedFare: number;
   bookingFee: number;
+  /** 0.20 on weekdays, 0.25 at weekends and on special days. */
+  bookingFeeRate: number;
   payNowFeeOnly: number;
   payNowFull: number;
   payInTaxiFeeOnly: number;
@@ -493,6 +495,13 @@ export function QuoteWidget({
             >
               {t('bookNow')}
             </Link>
+          )}
+
+          {q && (
+            <p className="mt-3 text-xs text-porcelain/50">
+              {t('bookingFee', { pct: Math.round(q.bookingFeeRate * 100) })} ·{' '}
+              {eur(q.bookingFee)}
+            </p>
           )}
 
           <p className="mt-4 text-xs leading-relaxed text-porcelain/45">{t('disclaimer')}</p>

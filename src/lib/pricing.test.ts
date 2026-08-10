@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { LANDMARKS, TARIFFS } from './tariffs';
 import {
   isInterurban,
+  bookingFeeRateFor,
   amountDueInTaxi,
   amountDueOnline,
   calculateQuote,
@@ -475,5 +476,68 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
       pickupAt: summer('13:00'),
     });
     expect(q.tariff).toBe('T1');
+  });
+});
+
+describe('booking fee rate by day', () => {
+  const trip = (pickupAt: Date) =>
+    calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GRACIA,
+      roadKm: 10,
+      durationMin: 18,
+      pickupAt,
+    });
+
+  it('charges 20% Monday to Friday', () => {
+    expect(bookingFeeRateFor(summer('13:00'))).toBe(0.2); // Wednesday
+    expect(bookingFeeRateFor(new Date('2026-07-13T09:00:00+02:00'))).toBe(0.2); // Mon
+    expect(bookingFeeRateFor(new Date('2026-07-17T18:00:00+02:00'))).toBe(0.2); // Fri
+  });
+
+  it('still charges 20% on a weekday night, even though the meter is T-2', () => {
+    const q = trip(summer('23:00'));
+    expect(q.tariff).toBe('T2');
+    expect(q.bookingFeeRate).toBe(0.2);
+  });
+
+  it('charges 25% on Saturday and Sunday', () => {
+    expect(bookingFeeRateFor(new Date('2026-07-18T13:00:00+02:00'))).toBe(0.25); // Sat
+    expect(bookingFeeRateFor(new Date('2026-07-19T13:00:00+02:00'))).toBe(0.25); // Sun
+  });
+
+  it('charges 25% on an official holiday falling midweek', () => {
+    // 2026-09-24 La Mercè is a Thursday.
+    expect(bookingFeeRateFor(new Date('2026-09-24T13:00:00+02:00'))).toBe(0.25);
+  });
+
+  it('charges 25% on a special night', () => {
+    expect(bookingFeeRateFor(new Date('2026-12-24T22:00:00+01:00'))).toBe(0.25);
+    expect(bookingFeeRateFor(new Date('2026-12-31T23:00:00+01:00'))).toBe(0.25);
+    expect(bookingFeeRateFor(new Date('2026-06-23T22:00:00+02:00'))).toBe(0.25);
+  });
+
+  it('applies the rate to the fee actually charged', () => {
+    const weekday = trip(summer('13:00'));
+    const weekend = trip(new Date('2026-07-18T13:00:00+02:00'));
+
+    // Weekday: 17.30 fixed x 0.20
+    expect(weekday.bookingFee).toBe(3.46);
+    // Saturday runs on T-2, so the fixed fare is higher AND the rate is 25%.
+    expect(weekend.bookingFeeRate).toBe(0.25);
+    expect(weekend.bookingFee).toBe(round(weekend.fixedFare * 0.25));
+  });
+
+  it('uses the weekend rate on interurban trips too', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: { lat: 41.9794, lng: 2.8214 },
+      roadKm: 100,
+      durationMin: 75,
+      pickupAt: new Date('2026-07-18T13:00:00+02:00'),
+    });
+    expect(q.tariff).toBe('T7');
+    expect(q.bookingFeeRate).toBe(0.25);
+    expect(q.bookingFee).toBe(round(q.fixedFare * 0.25));
   });
 });

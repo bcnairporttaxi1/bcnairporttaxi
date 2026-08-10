@@ -76,7 +76,7 @@
     "noResults": "No se encontró ninguna dirección",
     "estimatedFare": "Tarifa estimada del taxímetro",
     "fixedFare": "Precio cerrado, pagado online",
-    "bookingFee": "Gastos de gestión (20%)",
+    "bookingFee": "Gastos de gestión ({pct}%)",
     "distance": "Distancia",
     "duration": "Tiempo est.",
     "payNow": "Pagar ahora",
@@ -127,7 +127,8 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planifica tu traslado",
-    "panelSub": "Precio al instante · Taxímetro oficial · 24/7"
+    "panelSub": "Precio al instante · Taxímetro oficial · 24/7",
+    "bookingFeeNote": "Las reservas de lunes a viernes tienen un 20% de gestión. Fines de semana, festivos y noches especiales, un 25%."
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",

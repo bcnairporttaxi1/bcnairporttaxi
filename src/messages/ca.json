@@ -58,7 +58,7 @@
     "noResults": "No s'ha trobat cap adreça",
     "estimatedFare": "Tarifa estimada del taxímetre",
     "fixedFare": "Preu tancat, pagat online",
-    "bookingFee": "Despeses de gestió (20%)",
+    "bookingFee": "Despeses de gestió ({pct}%)",
     "distance": "Distància",
     "duration": "Temps est.",
     "payNow": "Pagar ara",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planifica el teu trasllat",
-    "panelSub": "Preu a l'instant · Taxímetre oficial · 24/7"
+    "panelSub": "Preu a l'instant · Taxímetre oficial · 24/7",
+    "bookingFeeNote": "Les reserves de dilluns a divendres tenen un 20% de gestió. Caps de setmana, festius i nits especials, un 25%."
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",

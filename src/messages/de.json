@@ -58,7 +58,7 @@
     "noResults": "Keine Adresse gefunden",
     "estimatedFare": "Geschätzter Taxameterpreis",
     "fixedFare": "Festpreis, online bezahlt",
-    "bookingFee": "Buchungsgebühr (20%)",
+    "bookingFee": "Buchungsgebühr ({pct}%)",
     "distance": "Entfernung",
     "duration": "Fahrzeit ca.",
     "payNow": "Jetzt zahlen",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Reservierung",
     "panelTitle": "Planen Sie Ihren Transfer",
-    "panelSub": "Sofortpreis · Offizielles Taxameter · 24/7"
+    "panelSub": "Sofortpreis · Offizielles Taxameter · 24/7",
+    "bookingFeeNote": "Buchungen unter der Woche kosten 20% Gebühr. Wochenenden, Feiertage und besondere Nächte 25%."
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",

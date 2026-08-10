@@ -58,7 +58,7 @@
     "noResults": "Geen adres gevonden",
     "estimatedFare": "Geschat metertarief",
     "fixedFare": "Vaste prijs, online betaald",
-    "bookingFee": "Boekingskosten (20%)",
+    "bookingFee": "Boekingskosten ({pct}%)",
     "distance": "Afstand",
     "duration": "Reistijd ca.",
     "payNow": "Nu betalen",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Reservering",
     "panelTitle": "Plan uw transfer",
-    "panelSub": "Direct een prijs · Officiële meter · 24/7"
+    "panelSub": "Direct een prijs · Officiële meter · 24/7",
+    "bookingFeeNote": "Boekingen doordeweeks kosten 20% aan kosten. Weekenden, feestdagen en bijzondere nachten 25%."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",

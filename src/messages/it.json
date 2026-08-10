@@ -58,7 +58,7 @@
     "noResults": "Nessun indirizzo trovato",
     "estimatedFare": "Tariffa stimata del tassametro",
     "fixedFare": "Prezzo fisso, pagato online",
-    "bookingFee": "Commissione di prenotazione (20%)",
+    "bookingFee": "Commissione di prenotazione ({pct}%)",
     "distance": "Distanza",
     "duration": "Tempo stim.",
     "payNow": "Paga ora",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Prenotazione",
     "panelTitle": "Pianifica il tuo transfer",
-    "panelSub": "Prezzo immediato · Tassametro ufficiale · 24/7"
+    "panelSub": "Prezzo immediato · Tassametro ufficiale · 24/7",
+    "bookingFeeNote": "Le prenotazioni nei giorni feriali hanno una commissione del 20%. Weekend, festivi e notti speciali: 25%."
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",

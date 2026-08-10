@@ -58,7 +58,7 @@
     "noResults": "Nenhuma morada encontrada",
     "estimatedFare": "Tarifa estimada do taxímetro",
     "fixedFare": "Preço fixo, pago online",
-    "bookingFee": "Taxa de reserva (20%)",
+    "bookingFee": "Taxa de reserva ({pct}%)",
     "distance": "Distância",
     "duration": "Tempo est.",
     "payNow": "Pagar agora",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planeie o seu transfer",
-    "panelSub": "Preço imediato · Taxímetro oficial · 24/7"
+    "panelSub": "Preço imediato · Taxímetro oficial · 24/7",
+    "bookingFeeNote": "As reservas em dias úteis têm 20% de taxa. Fins de semana, feriados e noites especiais: 25%."
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",

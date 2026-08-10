@@ -70,8 +70,10 @@ export interface Quote {
    */
   fixedFare: number;
 
-  /** 20% service charge, derived from the fixed fare. */
+  /** Service charge, derived from the fixed fare. */
   bookingFee: number;
+  /** Which rate applied: 0.20 on weekdays, 0.25 at weekends and special days. */
+  bookingFeeRate: number;
 
   /** Charged online when paying the booking fee only. */
   payNowFeeOnly: number;
@@ -126,7 +128,7 @@ function interurbanQuote(
   const fixedFare = round2(
     startFare + round2(roadKm * perKmRateCharged) + supplements,
   );
-  const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
+  const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 
   return {
     tariff,
@@ -141,6 +143,7 @@ function interurbanQuote(
     meterEstimate,
     fixedFare,
     bookingFee,
+    bookingFeeRate: bookingFeeRateFor(pickupAt),
     payNowFeeOnly: bookingFee,
     payNowFull: round2(fixedFare + bookingFee),
     payInTaxiFeeOnly: meterEstimate,
@@ -235,6 +238,27 @@ export function selectTariff(at: Date): 'T1' | 'T2' {
   return hour >= 8 && hour < 20 ? 'T1' : 'T2';
 }
 
+/**
+ * Booking fee rate for a given pickup.
+ *
+ * Driven by the calendar day rather than the meter tariff: a weekday night
+ * bills on T-2 but is still a weekday for the fee, whereas Saturday lunchtime
+ * is a weekend even though it is daytime. Holidays and the special nights
+ * (Nadal, Cap d'Any, Sant Joan) count as weekend.
+ */
+export function bookingFeeRateFor(at: Date): number {
+  const z = new TZDate(at, BARCELONA_TZ);
+  const day = z.getDay(); // 0 = Sunday, 6 = Saturday
+
+  const isWeekend = day === 0 || day === 6;
+  const isHoliday = isBarcelonaHoliday(at);
+  const isSpecial = specialNightSupplement(at) !== null;
+
+  return isWeekend || isHoliday || isSpecial
+    ? TARIFFS.bookingFeeRate.weekend
+    : TARIFFS.bookingFeeRate.weekday;
+}
+
 /** True when a point lies inside the AMB metropolitan area. */
 export function insideAMB(p: Coords): boolean {
   return (
@@ -292,7 +316,7 @@ export function calculateQuote(input: QuoteInput): Quote {
     // A regulated closed price carries no per-km component, so there is
     // nothing for the markup to apply to.
     const fixedFare = meterEstimate;
-    const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
+    const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 
     return {
       tariff: 'T4',
@@ -307,6 +331,7 @@ export function calculateQuote(input: QuoteInput): Quote {
       meterEstimate,
       fixedFare,
       bookingFee,
+      bookingFeeRate: bookingFeeRateFor(pickupAt),
       payNowFeeOnly: bookingFee,
       payNowFull: round2(fixedFare + bookingFee),
       payInTaxiFeeOnly: meterEstimate,
@@ -373,7 +398,7 @@ export function calculateQuote(input: QuoteInput): Quote {
     fixedFare = TARIFFS.minFareFromAirport;
   }
 
-  const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
+  const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 
   return {
     tariff,
@@ -388,6 +413,7 @@ export function calculateQuote(input: QuoteInput): Quote {
     meterEstimate,
     fixedFare,
     bookingFee,
+    bookingFeeRate: bookingFeeRateFor(pickupAt),
     payNowFeeOnly: bookingFee,
     payNowFull: round2(fixedFare + bookingFee),
     payInTaxiFeeOnly: meterEstimate,

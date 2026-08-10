@@ -58,7 +58,7 @@
     "noResults": "未找到匹配地址",
     "estimatedFare": "计价器预估车费",
     "fixedFare": "固定价格，在线支付",
-    "bookingFee": "预订服务费（20%）",
+    "bookingFee": "预订服务费（{pct}%）",
     "distance": "距离",
     "duration": "预计时间",
     "payNow": "现在支付",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "预订",
     "panelTitle": "规划您的接送",
-    "panelSub": "即时报价 · 官方计价器 · 24/7"
+    "panelSub": "即时报价 · 官方计价器 · 24/7",
+    "bookingFeeNote": "工作日预订收取 20% 服务费。周末、节假日及特殊夜晚为 25%。"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",

@@ -102,6 +102,10 @@ export default async function BookingPage(props: {
   }
 
   const prepaid = booking.paymentMode === 'FULL_PREPAID';
+  // Derived from the stored amounts rather than recomputed, so a historic
+  // booking always shows the rate it was actually charged.
+  const fixed = Number(booking.fixedFare);
+  const feePct = fixed > 0 ? Math.round((Number(booking.bookingFee) / fixed) * 100) : 20;
   const when = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
     dateStyle: 'full',
     timeStyle: 'short',
@@ -176,7 +180,7 @@ export default async function BookingPage(props: {
               </dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('bookingFee')}</dt>
+              <dt className="text-muted">{tq('bookingFee', { pct: feePct })}</dt>
               <dd className="text-right font-mono">{eur(Number(booking.bookingFee))}</dd>
             </div>
             <div className="flex justify-between gap-4 py-3">

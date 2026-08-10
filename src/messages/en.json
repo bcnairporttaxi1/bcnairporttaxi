@@ -81,7 +81,7 @@
     "noResults": "No matching address found",
     "estimatedFare": "Estimated meter fare",
     "fixedFare": "Fixed price, paid online",
-    "bookingFee": "Booking fee (20%)",
+    "bookingFee": "Booking fee ({pct}%)",
     "distance": "Distance",
     "duration": "Est. time",
     "payNow": "Pay now",
@@ -138,7 +138,8 @@
     },
     "panelKicker": "Reservation",
     "panelTitle": "Plan your transfer",
-    "panelSub": "Instant price · Official meter · 24/7"
+    "panelSub": "Instant price · Official meter · 24/7",
+    "bookingFeeNote": "Weekday bookings carry a 20% fee. Weekends, holidays and special nights carry 25%."
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",

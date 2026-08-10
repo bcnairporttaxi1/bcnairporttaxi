@@ -337,7 +337,7 @@ export function CheckoutForm({
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-muted">{tq('bookingFee')}</dt>
+                <dt className="text-muted">{tq('bookingFee', { pct: Math.round(quote.bookingFeeRate * 100) })}</dt>
                 <dd className="font-mono">{eur(quote.bookingFee)}</dd>
               </div>
             </dl>

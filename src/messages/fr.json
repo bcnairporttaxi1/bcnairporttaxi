@@ -58,7 +58,7 @@
     "noResults": "Aucune adresse trouvée",
     "estimatedFare": "Tarif estimé au compteur",
     "fixedFare": "Prix fixe, payé en ligne",
-    "bookingFee": "Frais de réservation (20%)",
+    "bookingFee": "Frais de réservation ({pct}%)",
     "distance": "Distance",
     "duration": "Durée est.",
     "payNow": "Payer maintenant",
@@ -105,7 +105,8 @@
     },
     "panelKicker": "Réservation",
     "panelTitle": "Planifiez votre transfert",
-    "panelSub": "Prix instantané · Compteur officiel · 24h/24"
+    "panelSub": "Prix instantané · Compteur officiel · 24h/24",
+    "bookingFeeNote": "Les réservations en semaine comportent 20% de frais. Week-ends, jours fériés et nuits spéciales : 25%."
   },
   "fleet": {
     "h1": "Notre flotte de taxis à Barcelone",
