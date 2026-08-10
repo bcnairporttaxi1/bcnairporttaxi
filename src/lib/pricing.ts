@@ -1,5 +1,6 @@
 import { TZDate } from '@date-fns/tz';
 import {
+  AMB_BOUNDS,
   BARCELONA_HOLIDAYS,
   LANDMARKS,
   SPECIAL_NIGHTS,
@@ -84,6 +85,67 @@ export interface Quote {
 
 function round2(n: number): number {
   return Math.round((n + Number.EPSILON) * 100) / 100;
+}
+
+/**
+ * Interurban fare on the Generalitat's T-6/T-7 tariff.
+ *
+ * The daytime/night split matches the urban rule — weekday 08:00–20:00 is the
+ * cheaper band — so `selectTariff` decides which applies and it maps onto
+ * T-6/T-7. The airport minimum and the fixed T-4 price are urban rules and
+ * deliberately do not apply here.
+ */
+function interurbanQuote(
+  input: QuoteInput,
+  ends: { pickupAirport: boolean; dropoffAirport: boolean },
+): Quote {
+  const { roadKm, durationMin, pickupAt, vehicleSeats } = input;
+  const cfg = TARIFFS.outsideAMB;
+
+  const tariff: TariffCode = selectTariff(pickupAt) === 'T1' ? 'T6' : 'T7';
+  const band = tariff === 'T6' ? 'T6' : 'T7';
+
+  const startFare = cfg.startFare[band];
+  const perKmRate = cfg.perKm[band];
+  const perKmRateCharged = round2(perKmRate + TARIFFS.perKmMarkup);
+
+  const lines: SupplementLine[] = [];
+  if (ends.pickupAirport || ends.dropoffAirport) {
+    lines.push({ key: 'airportElPrat', amount: cfg.supplements.airportElPrat });
+  }
+  if (vehicleSeats && vehicleSeats >= TARIFFS.largeVehicleMinSeats) {
+    lines.push({ key: 'largeVehicle', amount: cfg.supplements.largeVehicle });
+  }
+
+  const special = specialNightSupplement(pickupAt);
+  if (special) lines.push({ key: special.key, amount: special.amount });
+
+  const supplements = round2(lines.reduce((sum, l) => sum + l.amount, 0));
+
+  const meterEstimate = round2(startFare + round2(roadKm * perKmRate) + supplements);
+  const fixedFare = round2(
+    startFare + round2(roadKm * perKmRateCharged) + supplements,
+  );
+  const bookingFee = round2(fixedFare * TARIFFS.bookingFeeRate);
+
+  return {
+    tariff,
+    roadKm,
+    durationMin,
+    startFare,
+    perKmRate,
+    perKmRateCharged,
+    supplements,
+    supplementLines: lines,
+    adjustment: null,
+    meterEstimate,
+    fixedFare,
+    bookingFee,
+    payNowFeeOnly: bookingFee,
+    payNowFull: round2(fixedFare + bookingFee),
+    payInTaxiFeeOnly: meterEstimate,
+    currency: TARIFFS.currency,
+  };
 }
 
 /** Great-circle distance in km — used only for landmark proximity, never for fares. */
@@ -173,6 +235,24 @@ export function selectTariff(at: Date): 'T1' | 'T2' {
   return hour >= 8 && hour < 20 ? 'T1' : 'T2';
 }
 
+/** True when a point lies inside the AMB metropolitan area. */
+export function insideAMB(p: Coords): boolean {
+  return (
+    p.lat >= AMB_BOUNDS.minLat &&
+    p.lat <= AMB_BOUNDS.maxLat &&
+    p.lng >= AMB_BOUNDS.minLng &&
+    p.lng <= AMB_BOUNDS.maxLng
+  );
+}
+
+/**
+ * A journey is interurban when either end sits outside the AMB. The whole
+ * trip then bills on T-6/T-7, not just the portion beyond the boundary.
+ */
+export function isInterurban(pickup: Coords, dropoff: Coords): boolean {
+  return !insideAMB(pickup) || !insideAMB(dropoff);
+}
+
 /** True when the pickup is at least MIN_LEAD_HOURS away. */
 export function meetsLeadTime(pickupAt: Date, now: Date = new Date()): boolean {
   return pickupAt.getTime() - now.getTime() >= MIN_LEAD_HOURS * 3600_000;
@@ -232,6 +312,12 @@ export function calculateQuote(input: QuoteInput): Quote {
       payInTaxiFeeOnly: meterEstimate,
       currency: TARIFFS.currency,
     };
+  }
+
+  // Interurban: either end outside the AMB switches the whole journey to the
+  // Generalitat's T-6/T-7 tariff, which has its own start fare and per-km rate.
+  if (TARIFFS.outsideAMB.enabled && isInterurban(pickup, dropoff)) {
+    return interurbanQuote(input, { pickupAirport, dropoffAirport });
   }
 
   const tariff = selectTariff(pickupAt);

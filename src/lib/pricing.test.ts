@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { LANDMARKS, TARIFFS } from './tariffs';
 import {
+  isInterurban,
   amountDueInTaxi,
   amountDueOnline,
   calculateQuote,
@@ -378,3 +379,101 @@ describe('meetsLeadTime', () => {
 function round(n: number): number {
   return Math.round((n + Number.EPSILON) * 100) / 100;
 }
+
+describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
+  // Girona: comfortably north of the AMB boundary.
+  const GIRONA = { lat: 41.9794, lng: 2.8214 };
+  // Sitges: south-west, also outside.
+  const SITGES = { lat: 41.2351, lng: 1.8117 };
+
+  it('treats a trip as interurban when either end is outside the AMB', () => {
+    expect(isInterurban(EIXAMPLE, GRACIA)).toBe(false);
+    expect(isInterurban(EIXAMPLE, GIRONA)).toBe(true);
+    expect(isInterurban(GIRONA, EIXAMPLE)).toBe(true);
+    expect(isInterurban(AIRPORT, SITGES)).toBe(true);
+  });
+
+  it('bills T-6 on a weekday daytime run', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: 100,
+      durationMin: 75,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(q.tariff).toBe('T6');
+    expect(q.startFare).toBe(7.25);
+    expect(q.perKmRate).toBe(0.82);
+    expect(q.meterEstimate).toBe(89.25); // 7.25 + 82.00
+  });
+
+  it('bills T-7 at night', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: 100,
+      durationMin: 75,
+      pickupAt: summer('22:00'),
+    });
+
+    expect(q.tariff).toBe('T7');
+    expect(q.startFare).toBe(7.9);
+    expect(q.perKmRate).toBe(0.89);
+    expect(q.meterEstimate).toBe(96.9); // 7.90 + 89.00
+  });
+
+  it('applies the same 10 cent markup to the prepaid fare', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: 100,
+      durationMin: 75,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(q.perKmRateCharged).toBe(0.92);
+    expect(round(q.fixedFare - q.meterEstimate)).toBe(10); // 100 km x 0.10
+  });
+
+  it('adds the airport supplement on an interurban airport run', () => {
+    const q = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: SITGES,
+      roadKm: 30,
+      durationMin: 30,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(q.tariff).toBe('T6');
+    expect(q.supplementLines.some((l) => l.key === 'airportElPrat')).toBe(true);
+    expect(q.meterEstimate).toBe(36.45); // 7.25 + 24.60 + 4.60
+  });
+
+  it('does not apply the urban airport minimum to an interurban trip', () => {
+    // Short hop from the airport to just outside the AMB: the 21 EUR urban
+    // minimum is an AMB rule and must not leak into the Generalitat tariff.
+    const q = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: { lat: 41.19, lng: 1.95 },
+      roadKm: 8,
+      durationMin: 12,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(q.tariff).toBe('T6');
+    expect(q.adjustment).toBeNull();
+    expect(q.meterEstimate).toBe(18.41); // 7.25 + 6.56 + 4.60
+  });
+
+  it('keeps urban trips on the AMB meter', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GRACIA,
+      roadKm: 10,
+      durationMin: 18,
+      pickupAt: summer('13:00'),
+    });
+    expect(q.tariff).toBe('T1');
+  });
+});

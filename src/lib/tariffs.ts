@@ -81,18 +81,44 @@ export const TARIFFS = {
   bookingFeeRate: 0.2,
 
   /**
-   * OUTSIDE-AMB (interurban) — PHASE 2, feature-flagged OFF.
-   * Placeholder rates: VERIFY against the Generalitat de Catalunya interurban
-   * tariff before flipping `enabled` to true.
+   * INTERURBAN (outside the AMB area) — tariffs T-6 and T-7.
+   *
+   * These are set by the Generalitat de Catalunya, not the AMB, and are not
+   * published on taxi.amb.cat: that page states only that "when the origin or
+   * destination lies outside the metropolitan area, the applicable fares are
+   * established by the Generalitat de Catalunya".
+   *
+   * !! VERIFY AGAINST THE DOGC BEFORE TAKING MONEY ON THESE !!
+   * The figures below come from a trade summary rather than the official
+   * order. They are close enough to quote from, but confirm them in the DOGC
+   * interurban tariff order before charging a customer.
+   *
+   * T-6 = Mon–Fri 08:00–20:00. T-7 = nights, weekends and holidays.
    */
   outsideAMB: {
-    enabled: false,
-    perKm: { T6: 0, T7: 0 },
-    startFare: 0,
+    enabled: true,
+    startFare: { T6: 7.25, T7: 7.9 },
+    perKm: { T6: 0.82, T7: 0.89 },
+    waitPerHour: { T6: 22.47, T7: 24.32 },
+    /** Airport entry/exit, and 5–8 seat vehicles, both apply interurban too. */
+    supplements: { airportElPrat: 4.6, largeVehicle: 4.6 },
   },
 } as const;
 
-export type TariffCode = 'T1' | 'T2' | 'T4';
+/**
+ * Bounding box for the AMB metropolitan area.
+ *
+ * A trip is interurban when either end falls outside this box, which switches
+ * the whole journey to the T-6/T-7 tariff rather than the urban meter.
+ */
+export const AMB_BOUNDS = {
+  minLat: 41.2,
+  maxLat: 41.55,
+  minLng: 1.9,
+  maxLng: 2.35,
+} as const;
+
+export type TariffCode = 'T1' | 'T2' | 'T4' | 'T6' | 'T7';
 
 /**
  * How the passenger settles the trip.

@@ -40,13 +40,18 @@ enum PaymentMode {
   FULL_PREPAID
 }
 
-/// T-1 daytime weekday, T-2 night/weekend/holiday. T-4 is the fixed
-/// airport <-> Moll Adossat price. Stored so a historic booking always
-/// explains the estimate it was quoted, even after tariffs change.
+/// Urban (AMB): T-1 daytime weekday, T-2 night/weekend/holiday, T-4 the fixed
+/// airport <-> Moll Adossat price.
+/// Interurban (Generalitat, outside the AMB): T-6 daytime weekday, T-7 nights,
+/// weekends and holidays.
+/// Stored so a historic booking always explains the estimate it was quoted,
+/// even after tariffs change.
 enum Tariff {
   T1
   T2
   T4
+  T6
+  T7
 }
 
 model User {

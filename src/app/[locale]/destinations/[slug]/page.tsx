@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/reveal';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
+import { calculateQuote } from '@/lib/pricing';
 import {
   DESTINATION_PAGES,
   getDestination,
@@ -12,6 +13,9 @@ import {
 } from '@/lib/destinations';
 import { whatsappLink } from '@/lib/site';
 import { locales } from '@/i18n/routing';
+
+const eur = (n: number) =>
+  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -48,6 +52,23 @@ export default async function DestinationPage(props: {
 
   const group = groupOf(slug);
   const siblings = (group?.destinations ?? []).filter((x) => x.slug !== slug).slice(0, 6);
+
+  // Indicative price on the Generalitat interurban tariff. Built from the
+  // published distance rather than a live route lookup, so it is a guide
+  // figure — the exact fare still comes from the booking form or a quote.
+  const estimate =
+    d.km !== undefined
+      ? calculateQuote({
+          // A representative city-centre origin and a point outside the AMB:
+          // enough to select the interurban tariff, which is what sets the rate.
+          pickup: { lat: 41.3874, lng: 2.1686 },
+          dropoff: { lat: 41.9794, lng: 2.8214 },
+          roadKm: d.km,
+          durationMin: d.minutes ?? 0,
+          // Weekday midday, so the quoted "from" price is the cheaper T-6 band.
+          pickupAt: new Date('2026-07-15T13:00:00+02:00'),
+        })
+      : null;
 
   const quote = `Hi, I would like a fixed quote for a Barcelona transfer: ${d.name}.`;
 
@@ -104,8 +125,12 @@ export default async function DestinationPage(props: {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-porcelain/50">Price</dt>
-                <dd className="font-mono text-xl font-bold text-accent">Fixed quote</dd>
+                <dt className="text-xs uppercase tracking-wider text-porcelain/50">
+                  From (daytime)
+                </dt>
+                <dd className="font-mono text-xl font-bold text-accent">
+                  {estimate ? eur(estimate.fixedFare) : 'On request'}
+                </dd>
               </div>
             </dl>
           )}
@@ -137,12 +162,18 @@ export default async function DestinationPage(props: {
         ))}
 
         <div className="mt-10 rounded-card border-2 border-accent/40 bg-accent/5 p-6">
-          <h2 className="font-display text-lg font-extrabold">Why this route is not metered</h2>
+          <h2 className="font-display text-lg font-extrabold">How this route is priced</h2>
           <p className="mt-3 text-sm leading-relaxed">
-            Official AMB meter tariffs apply inside the Barcelona metropolitan area.{' '}
+            AMB meter tariffs cover the Barcelona metropolitan area only.{' '}
             {d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '')} lies
-            beyond it, so we agree a fixed price with you in advance instead — including any
-            waiting time — and confirm it in writing before you travel.
+            beyond it, so this journey runs on the interurban tariff set by the Generalitat
+            de Catalunya: <strong>T-6</strong> on weekdays between 08:00 and 20:00, and the
+            higher <strong>T-7</strong> at night, at weekends and on holidays.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed">
+            The figure above is a guide based on the typical distance. Enter your exact
+            addresses in the booking form for a precise price, or ask us on WhatsApp for a
+            written fixed quote including any waiting time.
           </p>
         </div>
 

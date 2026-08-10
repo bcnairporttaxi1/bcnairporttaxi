@@ -1,12 +1,13 @@
 /**
  * Transfer destinations outside the AMB zone.
  *
- * IMPORTANT — these routes cannot be priced by the meter engine. AMB tariffs
- * cover the metropolitan area only; anything beyond it falls under the
- * Generalitat's interurban tariff, which is not configured
- * (`TARIFFS.outsideAMB.enabled === false`). Until those rates are supplied,
- * every destination here is quote-on-request via WhatsApp rather than showing
- * a price we cannot stand behind.
+ * These routes price on the Generalitat's interurban tariff (T-6/T-7), not the
+ * AMB meter, because they leave the metropolitan area. The pricing engine
+ * detects that automatically from the coordinates — see `isInterurban`.
+ *
+ * The `km` figures below are indicative distances used for the "from" price on
+ * each page. An actual booking still routes through OSRM, so the fare charged
+ * comes from the real road distance rather than these.
  *
  * `hasPage: true` generates a detail page at /destinations/<slug>. The rest
  * render as request-a-quote cards, so no card is ever a dead link.

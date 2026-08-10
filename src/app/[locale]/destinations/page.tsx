@@ -182,10 +182,13 @@ export default async function DestinationsPage(props: {
       {/* Pricing note — these routes genuinely cannot be metered. */}
       <div className="mx-auto max-w-6xl px-4 pt-12">
         <p className="rounded-card border-2 border-accent/40 bg-accent/5 p-5 text-sm leading-relaxed">
-          <strong>How these are priced.</strong> Official AMB meter tariffs cover the
-          Barcelona metropolitan area only. Every destination on this page lies beyond it, so
-          these journeys are quoted as a <strong>fixed price agreed in advance</strong> rather
-          than run on the meter — including any waiting time for day trips.
+          <strong>How these are priced.</strong> AMB meter tariffs cover the Barcelona
+          metropolitan area only. Every destination on this page lies beyond it, so these
+          journeys run on the interurban tariff set by the Generalitat de Catalunya:{' '}
+          <strong>T-6</strong> on weekdays between 08:00 and 20:00, and the higher{' '}
+          <strong>T-7</strong> at night, at weekends and on holidays. Enter your addresses in
+          the booking form for an exact price, or ask us for a written fixed quote including
+          waiting time.
         </p>
       </div>
 
