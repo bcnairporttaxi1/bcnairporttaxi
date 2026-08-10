@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/reveal';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { DESTINATION_GROUPS, FEATURED_DESTINATIONS, type Destination } from '@/lib/destinations';
+import { destinationPhoto } from '@/lib/destination-photos';
 import { CONTACT_EMAIL, whatsappLink } from '@/lib/site';
 import { locales } from '@/i18n/routing';
 
@@ -40,8 +42,23 @@ function DestinationCard({ d }: { d: Destination }) {
   const meta =
     d.km && d.minutes ? `${d.km} km · about ${Math.round(d.minutes / 5) * 5} min` : null;
 
+  const photo = destinationPhoto(d.slug);
+
   const inner = (
     <>
+      {photo && (
+        <div className="zoom-frame -mx-6 -mt-6 mb-5 overflow-hidden">
+          <Image
+            src={photo.file}
+            alt={`${d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '')} — private transfer destination from Barcelona`}
+            width={1200}
+            height={800}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="aspect-[3/2] w-full object-cover"
+          />
+        </div>
+      )}
+
       <div className="flex items-center justify-between gap-3">
         <span
           className={`rounded-full px-2.5 py-1 text-xs font-bold ${
@@ -73,7 +90,7 @@ function DestinationCard({ d }: { d: Destination }) {
   );
 
   const className =
-    'lift group flex h-full flex-col rounded-card border border-hairline bg-white p-6 hover:border-accent';
+    'lift group flex h-full flex-col overflow-hidden rounded-card border border-hairline bg-white p-6 hover:border-accent';
 
   return d.hasPage ? (
     <Link href={`/destinations/${d.slug}`} className={className}>

@@ -479,64 +479,63 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
   });
 });
 
-describe('booking fee rate by day', () => {
-  const trip = (pickupAt: Date) =>
-    calculateQuote({
+describe('booking fee window (Sat 08:00 to Mon 08:00)', () => {
+  const rate = (iso: string) => bookingFeeRateFor(new Date(iso));
+
+  it('stays at 20% through Friday night and Saturday before 08:00', () => {
+    expect(rate('2026-07-17T23:00:00+02:00')).toBe(0.2); // Fri 23:00
+    expect(rate('2026-07-18T02:00:00+02:00')).toBe(0.2); // Sat 02:00
+    expect(rate('2026-07-18T07:59:00+02:00')).toBe(0.2); // Sat 07:59
+  });
+
+  it('opens at exactly Saturday 08:00', () => {
+    expect(rate('2026-07-18T08:00:00+02:00')).toBe(0.25);
+  });
+
+  it('holds all Saturday and all Sunday', () => {
+    expect(rate('2026-07-18T13:00:00+02:00')).toBe(0.25);
+    expect(rate('2026-07-18T23:30:00+02:00')).toBe(0.25);
+    expect(rate('2026-07-19T04:00:00+02:00')).toBe(0.25);
+    expect(rate('2026-07-19T23:30:00+02:00')).toBe(0.25);
+  });
+
+  it('holds into Monday until 08:00, then drops', () => {
+    expect(rate('2026-07-20T03:00:00+02:00')).toBe(0.25); // Mon 03:00
+    expect(rate('2026-07-20T07:59:00+02:00')).toBe(0.25);
+    expect(rate('2026-07-20T08:00:00+02:00')).toBe(0.2); // Mon 08:00
+  });
+
+  it('uses the same 08:00 window for a midweek holiday', () => {
+    // La Mercè, Thursday 24 September 2026.
+    expect(rate('2026-09-24T07:00:00+02:00')).toBe(0.2); // before it opens
+    expect(rate('2026-09-24T08:00:00+02:00')).toBe(0.25);
+    expect(rate('2026-09-24T23:00:00+02:00')).toBe(0.25);
+    expect(rate('2026-09-25T03:00:00+02:00')).toBe(0.25); // spills into Friday
+    expect(rate('2026-09-25T09:00:00+02:00')).toBe(0.2); // back to normal
+  });
+
+  it('uses the same window for special days', () => {
+    expect(rate('2026-12-24T07:00:00+01:00')).toBe(0.2);
+    expect(rate('2026-12-24T10:00:00+01:00')).toBe(0.25);
+    expect(rate('2026-12-25T02:00:00+01:00')).toBe(0.25);
+    expect(rate('2026-06-23T09:00:00+02:00')).toBe(0.25); // Sant Joan
+  });
+
+  it('is evaluated in Barcelona time, not UTC', () => {
+    // 06:30 UTC on Saturday in summer is 08:30 in Barcelona: inside the window.
+    expect(rate('2026-07-18T06:30:00Z')).toBe(0.25);
+    // 05:30 UTC is 07:30 local: still outside.
+    expect(rate('2026-07-18T05:30:00Z')).toBe(0.2);
+  });
+
+  it('charges the rate it reports', () => {
+    const q = calculateQuote({
       pickup: EIXAMPLE,
       dropoff: GRACIA,
       roadKm: 10,
       durationMin: 18,
-      pickupAt,
-    });
-
-  it('charges 20% Monday to Friday', () => {
-    expect(bookingFeeRateFor(summer('13:00'))).toBe(0.2); // Wednesday
-    expect(bookingFeeRateFor(new Date('2026-07-13T09:00:00+02:00'))).toBe(0.2); // Mon
-    expect(bookingFeeRateFor(new Date('2026-07-17T18:00:00+02:00'))).toBe(0.2); // Fri
-  });
-
-  it('still charges 20% on a weekday night, even though the meter is T-2', () => {
-    const q = trip(summer('23:00'));
-    expect(q.tariff).toBe('T2');
-    expect(q.bookingFeeRate).toBe(0.2);
-  });
-
-  it('charges 25% on Saturday and Sunday', () => {
-    expect(bookingFeeRateFor(new Date('2026-07-18T13:00:00+02:00'))).toBe(0.25); // Sat
-    expect(bookingFeeRateFor(new Date('2026-07-19T13:00:00+02:00'))).toBe(0.25); // Sun
-  });
-
-  it('charges 25% on an official holiday falling midweek', () => {
-    // 2026-09-24 La Mercè is a Thursday.
-    expect(bookingFeeRateFor(new Date('2026-09-24T13:00:00+02:00'))).toBe(0.25);
-  });
-
-  it('charges 25% on a special night', () => {
-    expect(bookingFeeRateFor(new Date('2026-12-24T22:00:00+01:00'))).toBe(0.25);
-    expect(bookingFeeRateFor(new Date('2026-12-31T23:00:00+01:00'))).toBe(0.25);
-    expect(bookingFeeRateFor(new Date('2026-06-23T22:00:00+02:00'))).toBe(0.25);
-  });
-
-  it('applies the rate to the fee actually charged', () => {
-    const weekday = trip(summer('13:00'));
-    const weekend = trip(new Date('2026-07-18T13:00:00+02:00'));
-
-    // Weekday: 17.30 fixed x 0.20
-    expect(weekday.bookingFee).toBe(3.46);
-    // Saturday runs on T-2, so the fixed fare is higher AND the rate is 25%.
-    expect(weekend.bookingFeeRate).toBe(0.25);
-    expect(weekend.bookingFee).toBe(round(weekend.fixedFare * 0.25));
-  });
-
-  it('uses the weekend rate on interurban trips too', () => {
-    const q = calculateQuote({
-      pickup: EIXAMPLE,
-      dropoff: { lat: 41.9794, lng: 2.8214 },
-      roadKm: 100,
-      durationMin: 75,
       pickupAt: new Date('2026-07-18T13:00:00+02:00'),
     });
-    expect(q.tariff).toBe('T7');
     expect(q.bookingFeeRate).toBe(0.25);
     expect(q.bookingFee).toBe(round(q.fixedFare * 0.25));
   });

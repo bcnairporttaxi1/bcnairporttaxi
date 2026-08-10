@@ -247,16 +247,52 @@ export function selectTariff(at: Date): 'T1' | 'T2' {
  * (Nadal, Cap d'Any, Sant Joan) count as weekend.
  */
 export function bookingFeeRateFor(at: Date): number {
-  const z = new TZDate(at, BARCELONA_TZ);
-  const day = z.getDay(); // 0 = Sunday, 6 = Saturday
-
-  const isWeekend = day === 0 || day === 6;
-  const isHoliday = isBarcelonaHoliday(at);
-  const isSpecial = specialNightSupplement(at) !== null;
-
-  return isWeekend || isHoliday || isSpecial
+  return inElevatedFeeWindow(at)
     ? TARIFFS.bookingFeeRate.weekend
     : TARIFFS.bookingFeeRate.weekday;
+}
+
+/** Same instant, shifted back a day — used to test the small hours. */
+function previousDay(at: Date): Date {
+  return new Date(at.getTime() - 24 * 3600_000);
+}
+
+/**
+ * True inside the higher-fee window.
+ *
+ * The window runs 08:00 to 08:00, not midnight to midnight: it opens Saturday
+ * at 08:00 and closes Monday at 08:00, so Friday's late night is still a
+ * weekday and Sunday's late night is not. Holidays and special days use the
+ * same shape — from 08:00 on the day itself until 08:00 the next morning.
+ */
+export function inElevatedFeeWindow(at: Date): boolean {
+  const z = new TZDate(at, BARCELONA_TZ);
+  const day = z.getDay(); // 0 = Sunday, 6 = Saturday
+  const hour = z.getHours();
+
+  // Saturday 08:00 through Monday 08:00.
+  if (day === 6 && hour >= 8) return true;
+  if (day === 0) return true;
+  if (day === 1 && hour < 8) return true;
+
+  // A holiday or special day, from 08:00 on the day itself...
+  const special = (d: Date) =>
+    isBarcelonaHoliday(d) || specialNightDateKey(d) !== null;
+
+  if (special(at) && hour >= 8) return true;
+  // ...through 08:00 the following morning.
+  if (hour < 8 && special(previousDay(at))) return true;
+
+  return false;
+}
+
+/** The special-day key for a date, ignoring the time of day. */
+function specialNightDateKey(at: Date): string | null {
+  const z = new TZDate(at, BARCELONA_TZ);
+  const mmdd = `${String(z.getMonth() + 1).padStart(2, '0')}-${String(
+    z.getDate(),
+  ).padStart(2, '0')}`;
+  return (SPECIAL_NIGHTS as Record<string, string | undefined>)[mmdd] ?? null;
 }
 
 /** True when a point lies inside the AMB metropolitan area. */

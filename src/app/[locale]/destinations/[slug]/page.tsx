@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -11,6 +12,7 @@ import {
   getDestination,
   groupOf,
 } from '@/lib/destinations';
+import { attributionLine, destinationPhoto } from '@/lib/destination-photos';
 import { whatsappLink } from '@/lib/site';
 import { locales } from '@/i18n/routing';
 
@@ -71,6 +73,8 @@ export default async function DestinationPage(props: {
       : null;
 
   const quote = `Hi, I would like a fixed quote for a Barcelona transfer: ${d.name}.`;
+  const photo = destinationPhoto(slug);
+  const place = d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '');
 
   return (
     <>
@@ -151,6 +155,32 @@ export default async function DestinationPage(props: {
               Book an airport transfer instead
             </Link>
           </div>
+
+          {photo && (
+            <figure className="mt-10 overflow-hidden rounded-card border border-white/10">
+              <Image
+                src={photo.file}
+                alt={`${place}, destination for a private transfer from Barcelona`}
+                width={1200}
+                height={800}
+                sizes="(max-width: 1024px) 100vw, 1100px"
+                priority
+                className="aspect-[16/9] w-full object-cover"
+              />
+              {/* CC BY and CC BY-SA both require the author to be credited
+                  wherever the image is shown. */}
+              <figcaption className="bg-graphite px-4 py-2 text-xs text-porcelain/50">
+                <a
+                  href={photo.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="hover:text-accent"
+                >
+                  {attributionLine(photo)} · Wikimedia Commons
+                </a>
+              </figcaption>
+            </figure>
+          )}
         </div>
       </section>
 

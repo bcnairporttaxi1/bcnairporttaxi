@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "girona",
+    "file": "/img/destinations/girona.jpg",
+    "title": "Girona des de l aire edited.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Patronat de Turisme Costa Brava Pirineu de Girona",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Girona_des_de_l_aire_edited.jpg"
+  },
+  {
+    "slug": "montserrat",
+    "file": "/img/destinations/montserrat.jpg",
+    "title": "Montserrat des de Manresa.JPG",
+    "license": "CC BY-SA 3.0",
+    "author": "Josep Renalias",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Montserrat_des_de_Manresa.JPG"
+  },
+  {
+    "slug": "sitges",
+    "file": "/img/destinations/sitges.jpg",
+    "title": "Sitges - Ansicht 4.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Werner Lang (Wela49)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sitges_-_Ansicht_4.jpg"
+  },
+  {
+    "slug": "andorra",
+    "file": "/img/destinations/andorra.jpg",
+    "title": "Flag of Andorra.svg",
+    "license": "Public domain",
+    "author": "Original: Napoleon III Vector: HansenBCN",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Andorra.svg"
+  },
+  {
+    "slug": "tarragona",
+    "file": "/img/destinations/tarragona.jpg",
+    "title": "Roman circus of Tarraco 01.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Bernard Gagnon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roman_circus_of_Tarraco_01.jpg"
+  },
+  {
+    "slug": "valencia",
+    "file": "/img/destinations/valencia.jpg",
+    "title": "Malvarrosa Beach, Valencia, Spain (29812271043).jpg",
+    "license": "CC BY 2.0",
+    "author": "Boris Dzhingarov",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malvarrosa_Beach,_Valencia,_Spain_(29812271043).jpg"
+  },
+  {
+    "slug": "costa-brava",
+    "file": "/img/destinations/costa-brava.jpg",
+    "title": "Costa Brava Calas.JPG",
+    "license": "CC BY-SA 3.0",
+    "author": "Gabriele Delhey",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costa_Brava_Calas.JPG"
+  },
+  {
+    "slug": "lloret-de-mar",
+    "file": "/img/destinations/lloret-de-mar.jpg",
+    "title": "Lloret de Mar - Panorama of main beach.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Victor Gleim",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lloret_de_Mar_-_Panorama_of_main_beach.jpg"
+  },
+  {
+    "slug": "tossa-de-mar",
+    "file": "/img/destinations/tossa-de-mar.jpg",
+    "title": "Tossa de Mar Torreón JMM.JPG",
+    "license": "CC BY-SA 2.5",
+    "author": "Unknown",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tossa_de_Mar_Torre%C3%B3n_JMM.JPG"
+  },
+  {
+    "slug": "blanes",
+    "file": "/img/destinations/blanes.jpg",
+    "title": "Blanes, Spain Overview.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Maxis88",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blanes,_Spain_Overview.jpg"
+  },
+  {
+    "slug": "la-roca-village",
+    "file": "/img/destinations/la-roca-village.jpg",
+    "title": "La Roca Castell Catalonia.JPG",
+    "license": "CC BY-SA 3.0",
+    "author": "1997",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Roca_Castell_Catalonia.JPG"
+  }
+]
