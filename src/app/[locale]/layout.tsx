@@ -12,9 +12,10 @@ import { CookieBanner } from '@/components/cookie-banner';
 import { OrganizationJsonLd } from '@/components/json-ld';
 import '../globals.css';
 
+// Omitting `weight` loads the variable font: one file covering every weight,
+// instead of one file per weight. Sora and Inter both ship variable versions.
 const sora = Sora({
   subsets: ['latin'],
-  weight: ['700', '800'],
   variable: '--font-sora',
   display: 'swap',
 });
@@ -25,9 +26,11 @@ const inter = Inter({
   display: 'swap',
 });
 
+// Space Mono has no variable version. It is used only for figures, so the
+// regular weight alone is loaded and bold is synthesised.
 const spaceMono = Space_Mono({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400'],
   variable: '--font-space-mono',
   display: 'swap',
 });
