@@ -138,7 +138,7 @@ export default async function HomePage(props: {
             href="/fleet"
             className="mt-8 inline-block rounded-lg border-2 border-ink px-5 py-3 font-display font-bold transition hover:bg-ink hover:text-porcelain"
           >
-            {tc('learnMore')}
+            {tc('viewFleet')}
           </Link>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default async function HomePage(props: {
                   href={`/${p.slug}`}
                   className="group flex h-full flex-col rounded-card border border-hairline bg-white p-5 transition hover:border-ink"
                 >
-                  <h3 className="font-display text-base font-bold group-hover:text-accent-deep">
+                  <h3 className="font-display text-base font-bold group-hover:text-accent-text">
                     {copy.h1}
                   </h3>
                   <p className="mt-2 line-clamp-3 text-sm text-muted">{copy.description}</p>
@@ -186,9 +186,9 @@ export default async function HomePage(props: {
           </dl>
           <Link
             href="/faq"
-            className="mt-6 inline-block font-semibold text-accent-deep underline underline-offset-4"
+            className="mt-6 inline-block font-semibold text-accent-text underline underline-offset-4"
           >
-            {tc('learnMore')}
+            {tc('readAllFaqs')}
           </Link>
         </div>
       </section>

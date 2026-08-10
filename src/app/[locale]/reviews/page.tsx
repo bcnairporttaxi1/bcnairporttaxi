@@ -87,7 +87,7 @@ export default async function ReviewsPage(props: {
             <ul className="mt-8 space-y-5">
               {reviews.map((r) => (
                 <li key={r.id} className="rounded-card border border-hairline bg-white p-6">
-                  <p aria-label={`${r.rating} out of 5`} className="font-mono text-accent-deep">
+                  <p aria-label={`${r.rating} out of 5`} className="font-mono text-accent-text">
                     {'★'.repeat(r.rating)}
                     <span className="text-muted">{'★'.repeat(5 - r.rating)}</span>
                   </p>

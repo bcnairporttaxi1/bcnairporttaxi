@@ -200,7 +200,7 @@ export default async function BookingPage(props: {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/" className="font-semibold text-accent-deep underline underline-offset-4">
+          <Link href="/" className="font-semibold text-accent-text underline underline-offset-4">
             {t('backHome')}
           </Link>
         </div>

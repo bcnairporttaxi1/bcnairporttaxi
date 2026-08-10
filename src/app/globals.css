@@ -11,6 +11,12 @@
   --color-graphite-2: #202027;
   --color-accent: #f5b301;
   --color-accent-deep: #e0a000;
+  /**
+   * Amber dark enough for body text on porcelain/white.
+   * accent-deep is only 2.28:1 on white and fails WCAG AA; this is 5.38:1.
+   * Use accent/accent-deep for fills, accent-text for text on light surfaces.
+   */
+  --color-accent-text: #8a6400;
   --color-porcelain: #faf8f3;
   --color-slate-body: #2a2a2e;
   --color-muted: #6b6b72;

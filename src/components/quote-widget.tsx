@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useId, useMemo, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -76,6 +76,31 @@ export function QuoteWidget({
   const [tooSoon, setTooSoon] = useState(false);
   /** Chosen here on the home screen and carried into checkout preselected. */
   const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
+
+  const mapSlotRef = useRef<HTMLDivElement>(null);
+  const [mapInView, setMapInView] = useState(false);
+  /** A fetched route always wins, even if the panel is still off-screen. */
+  const showMap = mapInView || Boolean(result);
+
+  useEffect(() => {
+    const el = mapSlotRef.current;
+    if (!el || mapInView) return;
+
+    // No IntersectionObserver (very old browser) — just show it.
+    if (typeof IntersectionObserver === 'undefined') {
+      setMapInView(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) setMapInView(true);
+      },
+      { rootMargin: '200px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mapInView]);
 
   const pickupAt = useMemo(() => new Date(`${date}T${time}:00`), [date, time]);
 
@@ -397,13 +422,26 @@ export function QuoteWidget({
           <p className="mt-4 text-xs leading-relaxed text-porcelain/45">{t('disclaimer')}</p>
         </div>
 
-        <div className="overflow-hidden rounded-card border border-white/10 bg-graphite-2 p-1.5">
-          <RouteMap
-            pickup={pickup}
-            dropoff={dropoff}
-            geometry={result?.geometry ?? null}
-            label="Route map from pickup to drop-off in Barcelona"
-          />
+        {/* Leaflet is ~150KB of JS for a panel that is usually below the fold on
+            mobile. Mount it only once it is near the viewport, or as soon as
+            there is a route to draw. */}
+        <div
+          ref={mapSlotRef}
+          className="overflow-hidden rounded-card border border-white/10 bg-graphite-2 p-1.5"
+        >
+          {showMap ? (
+            <RouteMap
+              pickup={pickup}
+              dropoff={dropoff}
+              geometry={result?.geometry ?? null}
+              label="Route map from pickup to drop-off in Barcelona"
+            />
+          ) : (
+            <div
+              aria-hidden="true"
+              className="h-full min-h-[280px] w-full rounded-xl bg-graphite-2"
+            />
+          )}
         </div>
       </div>
     </section>
