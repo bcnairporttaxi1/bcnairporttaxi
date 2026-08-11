@@ -2,6 +2,7 @@
 
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { AuthState } from '@/app/[locale]/(auth)/actions';
 
@@ -31,6 +32,7 @@ export function AuthForm({
   action: (state: AuthState, formData: FormData) => Promise<AuthState>;
 }) {
   const [state, formAction] = useActionState(action, {} as AuthState);
+  const t = useTranslations('auth');
   const isRegister = mode === 'register';
 
   return (
@@ -40,12 +42,12 @@ export function AuthForm({
       {isRegister && (
         <>
           <label className="mb-4 block">
-            <span className="mb-1.5 block text-sm font-medium">Full name</span>
+            <span className="mb-1.5 block text-sm font-medium">{t('fullName')}</span>
             <input name="name" required autoComplete="name" className={field} />
           </label>
           <label className="mb-4 block">
             <span className="mb-1.5 block text-sm font-medium">
-              Phone <span className="text-muted">(optional)</span>
+              {t('phone')} <span className="text-muted">{t('optional')}</span>
             </span>
             <input name="phone" type="tel" autoComplete="tel" className={field} />
           </label>
@@ -53,12 +55,12 @@ export function AuthForm({
       )}
 
       <label className="mb-4 block">
-        <span className="mb-1.5 block text-sm font-medium">Email</span>
+        <span className="mb-1.5 block text-sm font-medium">{t('email')}</span>
         <input name="email" type="email" required autoComplete="email" className={field} />
       </label>
 
       <label className="block">
-        <span className="mb-1.5 block text-sm font-medium">Password</span>
+        <span className="mb-1.5 block text-sm font-medium">{t('password')}</span>
         <input
           name="password"
           type="password"
@@ -68,7 +70,7 @@ export function AuthForm({
           className={field}
         />
         {isRegister && (
-          <span className="mt-1 block text-xs text-muted">At least 8 characters.</span>
+          <span className="mt-1 block text-xs text-muted">{t('passwordHint')}</span>
         )}
       </label>
 
@@ -79,23 +81,23 @@ export function AuthForm({
       )}
 
       <SubmitButton
-        label={isRegister ? 'Create account' : 'Sign in'}
-        pendingLabel={isRegister ? 'Creating…' : 'Signing in…'}
+        label={isRegister ? t('createAccount') : t('signIn')}
+        pendingLabel={isRegister ? t('creating') : t('signingIn')}
       />
 
       <p className="mt-5 text-center text-sm text-muted">
         {isRegister ? (
           <>
-            Already have an account?{' '}
+            {t('haveAccount')}{' '}
             <Link href="/login" className="font-semibold text-accent-text underline underline-offset-4">
-              Sign in
+              {t('signIn')}
             </Link>
           </>
         ) : (
           <>
-            No account yet?{' '}
+            {t('noAccount')}{' '}
             <Link href="/register" className="font-semibold text-accent-text underline underline-offset-4">
-              Create one
+              {t('createOne')}
             </Link>
           </>
         )}

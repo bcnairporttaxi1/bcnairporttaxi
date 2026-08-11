@@ -20,14 +20,14 @@ export async function generateMetadata(props: {
   };
 }
 
-const eur = (n: number) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
-
 export default async function BookingPage(props: {
   params: Promise<{ locale: string; reference: string }>;
 }) {
   const { locale, reference } = await props.params;
   setRequestLocale(locale);
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+
 
   const t = await getTranslations('confirmation');
   const tq = await getTranslations('quote');

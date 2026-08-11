@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/reveal';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
@@ -17,31 +17,24 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: 'destinations' });
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `/${l}/destinations`;
   return {
-    title: { absolute: 'Barcelona Transfer Destinations | Private Taxi & Minivan' },
-    description:
-      'Private taxi and minivan transfers from Barcelona airport, city, cruise port and hotels to Costa Brava, Sitges, Tarragona, Montserrat, Andorra, Valencia and beyond.',
+    title: { absolute: t('metaTitle') },
+    description: t('metaDescription'),
     alternates: { canonical: `/${locale}/destinations`, languages },
   };
 }
 
-const COVERAGE = [
-  'Barcelona Airport pickup and drop-off',
-  'Cruise port transfers from Barcelona terminals',
-  'Hotel pickup for families, couples and business travellers',
-  'Private address pickup in Barcelona and nearby towns',
-  '4–8 seat vehicles and minivans with luggage space',
-  'Fixed price confirmed before you travel',
-];
+/** Strips the routing prefix so copy can name the place on its own. */
+const placeOf = (name: string) =>
+  name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '');
 
-function DestinationCard({ d }: { d: Destination }) {
-  const quoteText = `Hi, I would like a quote for a Barcelona transfer to ${d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '')}.`;
+type Copy = Awaited<ReturnType<typeof getTranslations<'destinations'>>>;
 
-  const meta =
-    d.km && d.minutes ? `${d.km} km · about ${Math.round(d.minutes / 5) * 5} min` : null;
-
+function DestinationCard({ d, t }: { d: Destination; t: Copy }) {
+  const place = placeOf(d.name);
   const photo = destinationPhoto(d.slug);
 
   const inner = (
@@ -50,7 +43,7 @@ function DestinationCard({ d }: { d: Destination }) {
         <div className="zoom-frame -mx-6 -mt-6 mb-5 overflow-hidden">
           <Image
             src={photo.file}
-            alt={`${d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '')} — private transfer destination from Barcelona`}
+            alt={t('photoAlt', { place })}
             width={1200}
             height={800}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -65,11 +58,11 @@ function DestinationCard({ d }: { d: Destination }) {
             d.hasPage ? 'bg-accent/15 text-accent-text' : 'bg-slate-200 text-slate-700'
           }`}
         >
-          {d.hasPage ? 'Route page' : 'On request'}
+          {d.hasPage ? t('badgeRoutePage') : t('badgeOnRequest')}
         </span>
         {d.featured && (
           <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-bold text-accent">
-            Featured
+            {t('badgeFeatured')}
           </span>
         )}
       </div>
@@ -78,10 +71,14 @@ function DestinationCard({ d }: { d: Destination }) {
         {d.name}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{d.blurb}</p>
-      {meta && <p className="mt-3 font-mono text-xs text-muted">{meta}</p>}
+      {d.km && d.minutes && (
+        <p className="mt-3 font-mono text-xs text-muted">
+          {t('cardMeta', { km: d.km, min: Math.round(d.minutes / 5) * 5 })}
+        </p>
+      )}
 
       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-accent-text">
-        {d.hasPage ? 'View route' : 'Ask for a quote'}
+        {d.hasPage ? t('ctaViewRoute') : t('ctaAskQuote')}
         <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current" aria-hidden="true">
           <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
         </svg>
@@ -98,7 +95,7 @@ function DestinationCard({ d }: { d: Destination }) {
     </Link>
   ) : (
     <a
-      href={whatsappLink(quoteText)}
+      href={whatsappLink(t('waQuoteTo', { place }))}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
@@ -113,13 +110,23 @@ export default async function DestinationsPage(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
+  const t = await getTranslations('destinations');
+
+  const coverage = [
+    t('coverage1'),
+    t('coverage2'),
+    t('coverage3'),
+    t('coverage4'),
+    t('coverage5'),
+    t('coverage6'),
+  ];
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: `/${locale}` },
-          { name: 'Destinations', url: `/${locale}/destinations` },
+          { name: t('crumbHome'), url: `/${locale}` },
+          { name: t('crumbDestinations'), url: `/${locale}/destinations` },
         ]}
       />
 
@@ -127,37 +134,33 @@ export default async function DestinationsPage(props: {
       <section className="bg-ink">
         <div className="mx-auto max-w-6xl px-4 pb-16 pt-14">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            Route hub
+            {t('eyebrow')}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight text-porcelain sm:text-5xl">
-            Barcelona transfer destinations
+            {t('h1')}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">
-            Private taxi and minivan transfers from Barcelona airport, the city, the cruise
-            port, hotels and private addresses to destinations across Catalonia, Andorra and
-            Spain.
-          </p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{t('intro')}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href={whatsappLink('Hi, I would like a quote for a Barcelona transfer.')}
+              href={whatsappLink(t('waQuoteGeneric'))}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
             >
-              Ask on WhatsApp
+              {t('askWhatsapp')}
             </a>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain transition hover:bg-white/10"
             >
-              Email us
+              {t('emailUs')}
             </a>
             <Link
               href="/book"
               className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain transition hover:bg-white/10"
             >
-              Book an airport transfer
+              {t('bookTransfer')}
             </Link>
           </div>
         </div>
@@ -168,16 +171,13 @@ export default async function DestinationsPage(props: {
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
-              Routes for airports, ports, hotels and groups
+              {t('coverageH2')}
             </h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-muted">
-              Choose a route page below, or ask us for a fixed quote to anywhere else. We
-              confirm the vehicle, the pickup plan and the price before your trip.
-            </p>
+            <p className="mt-3 max-w-3xl leading-relaxed text-muted">{t('coverageIntro')}</p>
           </Reveal>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {COVERAGE.map((item, i) => (
+            {coverage.map((item, i) => (
               <Reveal as="li" key={item} delay={(i % 3) * 70}>
                 <span className="flex items-start gap-2.5 text-sm">
                   <span
@@ -199,29 +199,24 @@ export default async function DestinationsPage(props: {
       {/* Pricing note — these routes genuinely cannot be metered. */}
       <div className="mx-auto max-w-6xl px-4 pt-12">
         <p className="rounded-card border-2 border-accent/40 bg-accent/5 p-5 text-sm leading-relaxed">
-          <strong>How these are priced.</strong> AMB meter tariffs cover the Barcelona
-          metropolitan area only. Every destination on this page lies beyond it, so these
-          journeys run on the interurban tariff set by the Generalitat de Catalunya:{' '}
-          <strong>T-6</strong> on weekdays between 08:00 and 20:00, and the higher{' '}
-          <strong>T-7</strong> at night, at weekends and on holidays. Enter your addresses in
-          the booking form for an exact price, or ask us for a written fixed quote including
-          waiting time.
+          <strong>{t('pricingTitle')}</strong>{' '}
+          {t.rich('pricingBody', {
+            b: (chunks) => <strong>{chunks}</strong>,
+          })}
         </p>
       </div>
 
       {/* Featured */}
       <section className="mx-auto max-w-6xl px-4 py-14">
         <Reveal>
-          <h2 className="font-display text-2xl font-extrabold sm:text-3xl">Featured routes</h2>
-          <p className="mt-3 max-w-2xl text-muted">
-            The transfers we are asked for most, each with its own route page.
-          </p>
+          <h2 className="font-display text-2xl font-extrabold sm:text-3xl">{t('featuredH2')}</h2>
+          <p className="mt-3 max-w-2xl text-muted">{t('featuredIntro')}</p>
         </Reveal>
 
         <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURED_DESTINATIONS.map((d, i) => (
             <Reveal as="li" key={d.slug} delay={(i % 4) * 70} className="flex">
-              <DestinationCard d={d} />
+              <DestinationCard d={d} t={t} />
             </Reveal>
           ))}
         </ul>
@@ -244,7 +239,7 @@ export default async function DestinationsPage(props: {
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {group.destinations.map((d, i) => (
                 <Reveal as="li" key={d.slug} delay={(i % 3) * 70} className="flex">
-                  <DestinationCard d={d} />
+                  <DestinationCard d={d} t={t} />
                 </Reveal>
               ))}
             </ul>

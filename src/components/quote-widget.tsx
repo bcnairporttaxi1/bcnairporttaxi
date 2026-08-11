@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { meetsLeadTime } from '@/lib/pricing';
 import type { PaymentMode } from '@/lib/tariffs';
@@ -41,8 +41,7 @@ interface QuoteResponse {
   geometry: [number, number][];
 }
 
-export const eur = (n: number) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
+
 
 /** Default pickup: tomorrow at 10:00, which always clears the 3-hour rule. */
 function defaultDateTime() {
@@ -70,6 +69,12 @@ export function QuoteWidget({
    */
   variant?: 'full' | 'panel';
 }) {
+  const locale = useLocale();
+
+  // Euros the way the reader writes them: "€45.20" in English, "45,20 €" in Spanish.
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+
   const t = useTranslations('quote');
   const initial = useMemo(defaultDateTime, []);
   const headingId = useId();

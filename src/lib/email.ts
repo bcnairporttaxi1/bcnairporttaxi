@@ -53,9 +53,6 @@ export async function sendEmail(opts: {
   }
 }
 
-const eur = (n: number) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
-
 export interface BookingEmailData {
   reference: string;
   contactName: string;
@@ -104,7 +101,19 @@ function row(label: string, value: string, strong = false): string {
 }
 
 export function bookingConfirmationEmail(d: BookingEmailData) {
-  const when = new Intl.DateTimeFormat('en-GB', {
+  const eur = (n: number) =>
+    new Intl.NumberFormat(d.locale ?? 'en', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(n);
+
+  // The fee is 20% or 25% depending on when the pickup falls, so the label has
+  // to follow the booking rather than assume the weekday rate. It was computed
+  // as a share of the fixed fare, so dividing recovers it — and the two rates
+  // are far enough apart that rounding to a whole percent is safe.
+  const feePct = d.fixedFare > 0 ? Math.round((d.bookingFee / d.fixedFare) * 100) : 20;
+
+  const when = new Intl.DateTimeFormat(d.locale ?? 'en', {
     dateStyle: 'full',
     timeStyle: 'short',
     timeZone: 'Europe/Madrid',
@@ -126,11 +135,11 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
 
   const fareRows = prepaid
     ? `${row('Fixed price (paid online)', eur(d.fixedFare), true)}
-       ${row('Booking fee (20%)', eur(d.bookingFee), true)}
+       ${row(`Booking fee (${feePct}%)`, eur(d.bookingFee), true)}
        ${row('Total paid online', eur(d.amountOnline), true)}
        ${row('To pay in the taxi', 'Nothing')}`
     : `${row('Estimated meter fare', eur(d.meterEstimate), true)}
-       ${row('Booking fee (20%), paid online', eur(d.bookingFee), true)}
+       ${row(`Booking fee (${feePct}%), paid online`, eur(d.bookingFee), true)}
        ${row('To pay your driver', `about ${eur(d.amountInTaxi)}`, true)}`;
 
   const closing = prepaid
@@ -173,7 +182,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     prepaid
       ? `Fixed price:       ${eur(d.fixedFare)}`
       : `Est. meter fare:   ${eur(d.meterEstimate)}`,
-    `Booking fee (20%): ${eur(d.bookingFee)}`,
+    `Booking fee (${feePct}%): ${eur(d.bookingFee)}`,
     `Paid online:       ${eur(d.amountOnline)} ${d.feePaid ? '(received)' : '(pending)'}`,
     `Pay in the taxi:   ${prepaid ? 'Nothing' : `about ${eur(d.amountInTaxi)}`}`,
     ``,

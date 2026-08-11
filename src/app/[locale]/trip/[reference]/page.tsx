@@ -45,7 +45,7 @@ export default async function TripPage(props: {
     data: { lastSeenAt: new Date() },
   });
 
-  const when = new Intl.DateTimeFormat('en-GB', {
+  const when = new Intl.DateTimeFormat(locale, {
     dateStyle: 'full',
     timeStyle: 'short',
     timeZone: 'Europe/Madrid',

@@ -78,7 +78,7 @@ export default async function BlogPostPage(props: {
 
       <article className="mx-auto max-w-3xl px-4 py-14">
         <p className="font-mono text-xs text-muted">
-          {new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' }).format(
+          {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
             new Date(post.published),
           )}{' '}
           · {post.readingMinutes} min read

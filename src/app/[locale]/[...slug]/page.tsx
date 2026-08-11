@@ -121,7 +121,7 @@ export default async function LandingPageRoute(props: {
 
       <section className="border-t border-hairline bg-white py-14">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 className="font-display text-xl font-extrabold">Related transfers</h2>
+          <h2 className="font-display text-xl font-extrabold">{t('relatedTransfers')}</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {page.related.map((rel) => {
               const target = getLandingPage(rel);

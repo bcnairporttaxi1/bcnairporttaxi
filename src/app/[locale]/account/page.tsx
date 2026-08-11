@@ -1,24 +1,32 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
 
-export const metadata: Metadata = {
-  title: { absolute: 'My bookings | BCNAirportTaxi' },
-  robots: { index: false, follow: false },
-};
-
-const eur = (n: unknown) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(Number(n));
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: 'account' });
+  return {
+    title: { absolute: t('metaTitle') },
+    robots: { index: false, follow: false },
+  };
+}
 
 export default async function AccountPage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
+  const t = await getTranslations('account');
+
+  // Money and dates follow the reader's locale, not a fixed English one.
+  const eur = (n: unknown) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
 
   const user = await requireRole(['USER', 'ADMIN', 'DRIVER'], locale);
 
@@ -43,7 +51,7 @@ export default async function AccountPage(props: {
   );
 
   const when = (d: Date) =>
-    new Intl.DateTimeFormat('en-GB', {
+    new Intl.DateTimeFormat(locale, {
       dateStyle: 'medium',
       timeStyle: 'short',
       timeZone: 'Europe/Madrid',
@@ -62,29 +70,29 @@ export default async function AccountPage(props: {
 
         <dl className="mt-4 space-y-1.5 text-sm">
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">From</dt>
+            <dt className="shrink-0 text-muted">{t('from')}</dt>
             <dd className="font-medium">{b.pickupLabel}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">To</dt>
+            <dt className="shrink-0 text-muted">{t('to')}</dt>
             <dd className="font-medium">{b.dropoffLabel}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Vehicle</dt>
-            <dd>{b.vehicle?.name ?? 'Assigned on confirmation'}</dd>
+            <dt className="shrink-0 text-muted">{t('vehicle')}</dt>
+            <dd>{b.vehicle?.name ?? t('vehicleTbd')}</dd>
           </div>
           {b.driver && (
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Driver</dt>
+              <dt className="shrink-0 text-muted">{t('driver')}</dt>
               <dd>
                 {b.driver.name} · {b.driver.phone}
               </dd>
             </div>
           )}
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">To pay in the taxi</dt>
+            <dt className="shrink-0 text-muted">{t('toPayInTaxi')}</dt>
             <dd className="font-mono">
-              {b.paymentMode === 'FULL_PREPAID' ? 'Nothing' : eur(b.meterEstimate)}
+              {b.paymentMode === 'FULL_PREPAID' ? t('nothingToPay') : eur(b.meterEstimate)}
             </dd>
           </div>
         </dl>
@@ -94,14 +102,14 @@ export default async function AccountPage(props: {
             href={`/booking/${b.reference}`}
             className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
           >
-            View details
+            {t('viewDetails')}
           </Link>
           {(b.status === 'ASSIGNED' || b.status === 'EN_ROUTE') && (
             <Link
               href={`/trip/${b.reference}`}
               className="rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
             >
-              Track live &amp; chat
+              {t('trackChat')}
             </Link>
           )}
           {/* One-click repeat: prefills a new quote with the same route. */}
@@ -121,7 +129,7 @@ export default async function AccountPage(props: {
             }}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
           >
-            Book this trip again
+            {t('bookAgain')}
           </Link>
         </div>
       </article>
@@ -130,30 +138,30 @@ export default async function AccountPage(props: {
 
   return (
     <PanelShell
-      title="My bookings"
-      subtitle="Your upcoming trips and everything you have booked before."
+      title={t('title')}
+      subtitle={t('subtitle')}
       userName={user.name}
       locale={locale}
     >
       {bookings.length === 0 ? (
         <div className="rounded-card border border-hairline bg-white p-10 text-center">
-          <p className="text-muted">You have no bookings yet.</p>
+          <p className="text-muted">{t('empty')}</p>
           <Link
             href="/"
             className="mt-5 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
           >
-            Get a price
+            {t('getPrice')}
           </Link>
         </div>
       ) : (
         <div className="space-y-10">
           <section>
             <h2 className="font-display text-xl font-extrabold">
-              Upcoming ({upcoming.length})
+              {t('upcoming', { count: upcoming.length })}
             </h2>
             {upcoming.length === 0 ? (
               <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
-                Nothing coming up.
+                {t('nothingUpcoming')}
               </p>
             ) : (
               <div className="mt-4 space-y-4">
@@ -166,7 +174,9 @@ export default async function AccountPage(props: {
 
           {past.length > 0 && (
             <section>
-              <h2 className="font-display text-xl font-extrabold">Past ({past.length})</h2>
+              <h2 className="font-display text-xl font-extrabold">
+                {t('past', { count: past.length })}
+              </h2>
               <div className="mt-4 space-y-4">
                 {past.map((b) => (
                   <Card key={b.id} b={b} />

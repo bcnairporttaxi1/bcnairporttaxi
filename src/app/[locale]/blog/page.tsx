@@ -54,7 +54,7 @@ export default async function BlogIndex(props: {
                 <h2 className="font-display text-xl font-extrabold">{post.title}</h2>
                 <p className="mt-2 leading-relaxed text-muted">{post.excerpt}</p>
                 <p className="mt-3 font-mono text-xs text-muted">
-                  {new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' }).format(
+                  {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
                     new Date(post.published),
                   )}{' '}
                   · {post.readingMinutes} min read

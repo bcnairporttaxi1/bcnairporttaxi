@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import type { FleetVehicle } from '@/lib/fleet';
 import type { Quote } from '@/lib/pricing';
 import type { PaymentMode } from '@/lib/tariffs';
-import { eur } from './quote-widget';
 
 interface Props {
   locale: string;
@@ -29,6 +28,13 @@ export function CheckoutForm({
   fleet,
   initialMode,
 }: Props) {
+  // Same locale rule as the date formatter below: zh needs an explicit script.
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale === 'zh' ? 'zh-Hans' : locale, {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(n);
+
   const t = useTranslations('checkout');
   const tq = useTranslations('quote');
   const tf = useTranslations('fleet');

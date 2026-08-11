@@ -23,15 +23,15 @@ export async function generateMetadata(props: {
   };
 }
 
-const eur = (n: number) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(n);
-
 export default async function PricingPage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations('pricing');
+  const eur = (n: number) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+
 
   const rows: Array<[string, string]> = [
     ['startFare', eur(TARIFFS.startFare)],
