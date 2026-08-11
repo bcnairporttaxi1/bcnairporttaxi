@@ -18,6 +18,13 @@
 
 import { ES_LANDING_COPY } from './landing-copy/es';
 import { CA_LANDING_COPY } from './landing-copy/ca';
+import { FR_LANDING_COPY } from './landing-copy/fr';
+import { DE_LANDING_COPY } from './landing-copy/de';
+import { IT_LANDING_COPY } from './landing-copy/it';
+import { PT_LANDING_COPY } from './landing-copy/pt';
+import { NL_LANDING_COPY } from './landing-copy/nl';
+import { RU_LANDING_COPY } from './landing-copy/ru';
+import { ZH_LANDING_COPY } from './landing-copy/zh';
 
 export interface LandingSection {
   h2: string;
@@ -400,6 +407,13 @@ export function getLandingPage(slug: string): LandingPage | undefined {
 const TRANSLATIONS: Record<string, Record<string, LandingCopy>> = {
   es: ES_LANDING_COPY,
   ca: CA_LANDING_COPY,
+  fr: FR_LANDING_COPY,
+  de: DE_LANDING_COPY,
+  it: IT_LANDING_COPY,
+  pt: PT_LANDING_COPY,
+  nl: NL_LANDING_COPY,
+  ru: RU_LANDING_COPY,
+  zh: ZH_LANDING_COPY,
 };
 
 export function getLandingCopy(page: LandingPage, locale: string): LandingCopy {
