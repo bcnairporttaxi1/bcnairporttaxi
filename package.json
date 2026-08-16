@@ -18,7 +18,8 @@
     "seo:audit": "tsx scripts/seo-audit.ts",
     "verify:payment": "tsx scripts/verify-payment-flow.ts",
     "admin": "tsx scripts/create-admin.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "verify:rides": "tsx --env-file=.env scripts/verify-ride-flow.ts"
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",

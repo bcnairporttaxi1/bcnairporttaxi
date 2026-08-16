@@ -101,23 +101,6 @@ export async function advanceRide(formData: FormData): Promise<void> {
   revalidatePath(`/${locale}/trip/${booking.reference}`);
 }
 
-/** Turns the driver's live location on or off for one ride. */
-export async function toggleRideLocation(formData: FormData): Promise<void> {
-  const driver = await currentDriver();
-  if (!driver) throw new Error('No driver record');
-
-  const bookingId = String(formData.get('bookingId'));
-  const locale = String(formData.get('locale') ?? 'en');
-  const on = formData.get('share') === 'on';
-
-  await prisma.booking.updateMany({
-    where: { id: bookingId, driverId: driver.id },
-    data: { driverSharesLocation: on },
-  });
-
-  revalidatePath(`/${locale}/driver`);
-}
-
 const payoutSchema = z
   .object({
     method: z.enum(['BIZUM', 'BANK']),

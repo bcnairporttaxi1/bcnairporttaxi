@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { PanelShell } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
@@ -125,8 +126,8 @@ export default async function RevenuePage(props: {
         <ul className="flex flex-wrap gap-2">
           {PERIODS.map((p) => (
             <li key={p.key}>
-              <a
-                href={`/${locale}/admin/revenue?period=${p.key}`}
+              <Link
+                href={{ pathname: '/admin/revenue', query: { period: p.key } }}
                 className={`inline-block rounded-xl px-4 py-2.5 text-sm font-bold transition ${
                   p.key === period
                     ? 'bg-ink text-porcelain'
@@ -134,7 +135,7 @@ export default async function RevenuePage(props: {
                 }`}
               >
                 {p.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

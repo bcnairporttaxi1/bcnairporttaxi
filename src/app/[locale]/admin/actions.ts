@@ -98,9 +98,10 @@ export async function setBookingStatus(formData: FormData): Promise<void> {
 const driverSchema = z.object({
   name: z.string().trim().min(2).max(120),
   phone: z.string().trim().min(6).max(40),
+  whatsapp: z.string().trim().max(40).optional().or(z.literal('')),
   licenseNumber: z.string().trim().min(1).max(60),
+  plate: z.string().trim().max(20).optional().or(z.literal('')),
   email: z.email().max(200).optional().or(z.literal('')),
-  password: z.string().min(8).max(200).optional().or(z.literal('')),
   vehicleId: z.string().trim().optional().or(z.literal('')),
 });
 
@@ -111,32 +112,39 @@ export async function addDriver(formData: FormData): Promise<void> {
   const parsed = driverSchema.safeParse({
     name: formData.get('name'),
     phone: formData.get('phone'),
+    whatsapp: formData.get('whatsapp') ?? '',
     licenseNumber: formData.get('licenseNumber'),
+    plate: formData.get('plate') ?? '',
     email: formData.get('email') ?? '',
-    password: formData.get('password') ?? '',
     vehicleId: formData.get('vehicleId') ?? '',
   });
   if (!parsed.success) return;
 
-  const { name, phone, licenseNumber, email, password, vehicleId } = parsed.data;
+  const { name, phone, whatsapp, licenseNumber, plate, email, vehicleId } = parsed.data;
 
-  // A login is optional: a driver can exist as a dispatch record only, and be
-  // given panel access later.
+  // A login is optional: a driver can exist as a dispatch record only and be
+  // given panel access later. When it is wanted, the password is generated and
+  // mailed rather than typed by an admin, so nobody but the driver ever knows
+  // it — same rule as every other account.
   let userId: string | undefined;
-  if (email && password) {
+  let temporaryPassword: string | undefined;
+
+  if (email) {
     const existing = await prisma.user.findUnique({ where: { email: email.toLowerCase() } });
     if (existing) {
       await prisma.user.update({ where: { id: existing.id }, data: { role: 'DRIVER' } });
       userId = existing.id;
     } else {
+      temporaryPassword = generateTemporaryPassword();
       const created = await prisma.user.create({
         data: {
           email: email.toLowerCase(),
           name,
           phone,
-          passwordHash: await hashPassword(password),
+          passwordHash: await hashPassword(temporaryPassword),
           role: 'DRIVER',
           locale,
+          mustChangePassword: true,
         },
       });
       userId = created.id;
@@ -147,11 +155,23 @@ export async function addDriver(formData: FormData): Promise<void> {
     data: {
       name,
       phone,
+      whatsapp: whatsapp || null,
       licenseNumber,
+      plate: plate ? plate.toUpperCase() : null,
       vehicleId: vehicleId || null,
       userId,
     },
   });
+
+  if (email && temporaryPassword) {
+    const mail = temporaryPasswordEmail({
+      name,
+      email: email.toLowerCase(),
+      password: temporaryPassword,
+      loginUrl: absoluteUrl(`/${locale}/login`),
+    });
+    await sendEmail({ to: email.toLowerCase(), ...mail });
+  }
 
   revalidatePath(`/${locale}/admin/drivers`);
 }

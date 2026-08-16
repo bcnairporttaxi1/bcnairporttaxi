@@ -108,8 +108,18 @@ export default async function AdminDriversPage(props: {
                 <input name="phone" type="tel" required className={field} />
               </label>
               <label className="block">
+                <span className="mb-1.5 block text-sm font-medium">
+                  WhatsApp <span className="text-muted">(optional)</span>
+                </span>
+                <input name="whatsapp" type="tel" className={field} />
+              </label>
+              <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">Licence number</span>
                 <input name="licenseNumber" required className={field} />
+              </label>
+              <label className="block">
+                <span className="mb-1.5 block text-sm font-medium">Number plate</span>
+                <input name="plate" placeholder="1234 ABC" className={field} />
               </label>
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">Vehicle</span>
@@ -129,12 +139,10 @@ export default async function AdminDriversPage(props: {
                   <span className="mb-1.5 block text-sm">Email</span>
                   <input name="email" type="email" className={field} />
                 </label>
-                <label className="mt-3 block">
-                  <span className="mb-1.5 block text-sm">Password</span>
-                  <input name="password" type="password" minLength={8} className={field} />
-                </label>
-                <p className="mt-2 text-xs text-muted">
-                  Leave blank to add a dispatch-only record. You can grant access later.
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  Leave blank for a dispatch-only record; you can grant access later. Give an
+                  address and we generate a password, email it to the driver, and require
+                  them to replace it on first sign-in.
                 </p>
               </fieldset>
             </div>

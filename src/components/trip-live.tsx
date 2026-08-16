@@ -96,12 +96,23 @@ export function TripLive({
   }, [messages.length]);
 
   const stopSharing = useCallback(() => {
+    // Only worth telling the server if we were actually broadcasting. This
+    // also runs as the unmount cleanup, and leaving the page genuinely does
+    // stop sharing — the watch dies with the component either way, so the
+    // other side should not be left looking at a position that will never
+    // update again.
+    const wasSharing = watchRef.current !== null;
+
     if (watchRef.current !== null) {
       navigator.geolocation.clearWatch(watchRef.current);
       watchRef.current = null;
     }
     setSharing(false);
-  }, []);
+
+    if (wasSharing) {
+      fetch(`/api/trips/${reference}/location`, { method: 'DELETE' }).catch(() => {});
+    }
+  }, [reference]);
 
   useEffect(() => stopSharing, [stopSharing]);
 

@@ -3,6 +3,9 @@ import { redirect } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
+import { EditRideForm } from '@/components/edit-ride-form';
+import { editMyRide } from './actions';
+import { isPassengerEditable, minutesLeftToEdit } from '@/lib/rides';
 import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
 
@@ -96,6 +99,24 @@ export default async function AccountPage(props: {
             </dd>
           </div>
         </dl>
+
+        {isPassengerEditable(b) && (
+          <div className="mt-5 border-t border-hairline pt-4">
+            <EditRideForm
+              bookingId={b.id}
+              locale={locale}
+              action={editMyRide}
+              minutesLeft={minutesLeftToEdit(b)}
+              current={{
+                pickupLabel: b.pickupLabel,
+                dropoffLabel: b.dropoffLabel,
+                passengers: b.passengers,
+                luggage: b.luggage,
+                notes: b.notes ?? '',
+              }}
+            />
+          </div>
+        )}
 
         <div className="mt-5 flex flex-wrap gap-3 border-t border-hairline pt-4">
           <Link
