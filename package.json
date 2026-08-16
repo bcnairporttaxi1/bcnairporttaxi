@@ -19,7 +19,8 @@
     "verify:payment": "tsx scripts/verify-payment-flow.ts",
     "admin": "tsx scripts/create-admin.ts",
     "postinstall": "prisma generate",
-    "verify:rides": "tsx --env-file=.env scripts/verify-ride-flow.ts"
+    "verify:rides": "tsx --env-file=.env scripts/verify-ride-flow.ts",
+    "admin:reset": "tsx --env-file=.env scripts/reset-admin-password.ts"
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
