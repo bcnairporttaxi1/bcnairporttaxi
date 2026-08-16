@@ -49,7 +49,7 @@ export function CookieBanner() {
         <button
           type="button"
           onClick={() => choose('all')}
-          className="rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink hover:bg-accent-deep"
+          className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink hover:bg-accent-deep"
         >
           {t('accept')}
         </button>

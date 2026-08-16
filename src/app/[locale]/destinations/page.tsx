@@ -146,7 +146,7 @@ export default async function DestinationsPage(props: {
               href={whatsappLink(t('waQuoteGeneric'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              className="wave rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
             >
               {t('askWhatsapp')}
             </a>

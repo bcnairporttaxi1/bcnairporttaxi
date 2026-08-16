@@ -59,7 +59,7 @@ export function InstallPrompt() {
         if (outcome === 'accepted') setInstalled(true);
         setDeferred(null);
       }}
-      className="rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+      className="wave rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
     >
       Install the app now
     </button>

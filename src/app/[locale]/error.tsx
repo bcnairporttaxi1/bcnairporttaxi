@@ -26,7 +26,7 @@ export default function LocaleError({
       <button
         type="button"
         onClick={reset}
-        className="mt-8 rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+        className="wave mt-8 rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
       >
         {t('retry')}
       </button>

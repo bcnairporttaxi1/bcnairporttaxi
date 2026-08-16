@@ -281,7 +281,7 @@ export function TripLive({
             <button
               type="submit"
               disabled={sending || !draft.trim()}
-              className="rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep disabled:opacity-50"
+              className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep disabled:opacity-50"
             >
               {t('send')}
             </button>

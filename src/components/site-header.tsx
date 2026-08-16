@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { Link, usePathname } from '@/i18n/navigation';
-import { localeNames, locales } from '@/i18n/routing';
 
 interface NavChild {
   href: string;
@@ -130,45 +130,6 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
   );
 }
 
-function LanguageSwitcher() {
-  const t = useTranslations('nav');
-  const pathname = usePathname();
-  const locale = useLocale();
-
-  return (
-    <label className="relative inline-flex items-center">
-      <span className="sr-only">{t('language')}</span>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-2.5 text-xs font-bold text-accent"
-      >
-        {locale.toUpperCase()}
-      </span>
-      <select
-        value={locale}
-        onChange={(e) => {
-          // Same page, different language — pathname here excludes the prefix.
-          window.location.href = `/${e.target.value}${pathname === '/' ? '' : pathname}`;
-        }}
-        className="cursor-pointer appearance-none rounded-full border border-white/15 bg-white/5 py-2 pl-9 pr-7 text-sm text-porcelain transition hover:bg-white/10"
-      >
-        {locales.map((l) => (
-          <option key={l} value={l} className="bg-ink text-porcelain">
-            {localeNames[l]}
-          </option>
-        ))}
-      </select>
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 20 20"
-        className="pointer-events-none absolute right-2 h-4 w-4 fill-porcelain/70"
-      >
-        <path d="M5.5 7.5 10 12l4.5-4.5z" />
-      </svg>
-    </label>
-  );
-}
-
 export function SiteHeader({ accountHref }: { accountHref: string }) {
   const t = useTranslations('nav');
   const [open, setOpen] = useState(false);
@@ -218,7 +179,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
           </Link>
           <Link
             href="/book"
-            className="rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
+            className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
           >
             {t('book')}
           </Link>

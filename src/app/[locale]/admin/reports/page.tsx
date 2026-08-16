@@ -114,7 +114,7 @@ export default async function ReportsPage(props: {
           <button
             name="status"
             value="RESOLVED"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+            className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
           >
             Resolve
           </button>

@@ -15,7 +15,9 @@
     "skipToContent": "Anar al contingut principal",
     "services": "Serveis",
     "blog": "Guies",
-    "signIn": "Entrar"
+    "signIn": "Entrar",
+    "languageHeading": "Llegeix aquest web en la teva llengua",
+    "languageIntro": "Tot (preus, rutes, el formulari de reserva i el correu de confirmació) està escrit en els deu. Tria'n un i tot el web et segueix."
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",

@@ -148,7 +148,7 @@ export default async function AccountPage(props: {
                 mode: b.paymentMode,
               },
             }}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+            className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
           >
             {t('bookAgain')}
           </Link>
@@ -169,7 +169,7 @@ export default async function AccountPage(props: {
           <p className="text-muted">{t('empty')}</p>
           <Link
             href="/"
-            className="mt-5 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+            className="wave mt-5 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
           >
             {t('getPrice')}
           </Link>

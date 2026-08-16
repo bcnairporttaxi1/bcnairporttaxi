@@ -149,7 +149,7 @@ export default async function AdminDriversPage(props: {
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-xl bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              className="wave mt-6 w-full rounded-xl bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
             >
               Add driver
             </button>

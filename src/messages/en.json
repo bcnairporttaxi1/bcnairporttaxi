@@ -19,7 +19,9 @@
     "destinations": "Destinations",
     "services": "Services",
     "blog": "Guides",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "languageHeading": "Read this site in your language",
+    "languageIntro": "Everything — prices, routes, the booking form and your confirmation email — is written in all ten. Pick one and the whole site follows."
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",

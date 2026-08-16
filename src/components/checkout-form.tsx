@@ -370,7 +370,7 @@ export function CheckoutForm({
             <button
               type="submit"
               disabled={busy}
-              className="mt-5 w-full rounded-lg bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+              className="wave mt-5 w-full rounded-lg bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
             >
               {busy ? t('processing') : t('payButton', { amount: eur(dueNow) })}
             </button>

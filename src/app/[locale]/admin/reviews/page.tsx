@@ -90,7 +90,7 @@ export default async function AdminReviewsPage(props: {
                     <input type="hidden" name="approve" value="1" />
                     <button
                       type="submit"
-                      className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+                      className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
                     >
                       Publish
                     </button>

@@ -7,6 +7,7 @@ import { FaqAccordion } from '@/components/faq-accordion';
 import { FleetRail } from '@/components/fleet-rail';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
+import { LanguageGrid } from '@/components/language-switcher';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@/lib/fleet';
 import { LANDING_PAGES, getLandingCopy } from '@/lib/landing-pages';
@@ -41,7 +42,7 @@ export default async function HomePage(props: {
       <FaqJsonLd items={faqItems} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ink">
+      <section className="stage relative overflow-hidden bg-ink">
         {/* Shown at full strength — it is the brand image, not a texture. */}
         <Image
           src="/img/hero-banner.jpg"
@@ -69,6 +70,14 @@ export default async function HomePage(props: {
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(245,179,1,0.16),transparent)]"
         />
+
+        {/* Two very slow blobs drifting behind the copy. They animate transform
+            only and sit above the scrim but below the text, so they add depth
+            without ever touching contrast on the headline. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <span className="aurora left-[-10%] top-[-15%] h-[420px] w-[420px] bg-accent/25" />
+          <span className="aurora aurora-slow bottom-[-25%] right-[-5%] h-[520px] w-[520px] bg-accent/15" />
+        </div>
         {/* Copy left, booking panel right on desktop; stacked on mobile with the
             panel first, because that is what people came to do. */}
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
@@ -76,6 +85,10 @@ export default async function HomePage(props: {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
               {t('kicker')}
             </p>
+            <span
+              aria-hidden="true"
+              className="horizon mt-3 block h-px w-40 bg-gradient-to-r from-accent to-transparent"
+            />
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-porcelain sm:text-5xl lg:text-6xl">
               {t('h1')}
             </h1>
@@ -94,29 +107,36 @@ export default async function HomePage(props: {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
+              {/* The primary CTA carries a permanent slow swell so it reads as
+                  live before anyone points at it; the secondary only waves on
+                  approach, so the two never compete. */}
               <Link
                 href="/book"
-                className="sheen rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+                className="wave wave-idle rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink hover:bg-accent-deep"
               >
                 {tc('book')}
               </Link>
               <Link
                 href="/destinations"
-                className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain transition hover:bg-white/10"
+                className="wave rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain hover:bg-white/10"
               >
                 {tn('destinations')}
               </Link>
             </div>
           </div>
 
-          <div className="order-1 animate-fade-rise lg:order-2">
+          <div className="plinth order-1 animate-fade-rise rounded-card lg:order-2">
             <QuoteWidget variant="panel" />
           </div>
         </div>
       </section>
 
+      {/* Right under the fold: an arriving visitor should be able to see their
+          own language without opening anything. */}
+      <LanguageGrid />
+
       {/* How it works */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+      <section className="stage mx-auto max-w-6xl px-4 py-20 sm:py-24">
         <Reveal>
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
             {t('sections.howTitle')}

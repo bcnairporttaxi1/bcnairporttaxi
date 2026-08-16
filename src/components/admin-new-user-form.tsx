@@ -13,7 +13,7 @@ function Submit() {
     <button
       type="submit"
       disabled={pending}
-      className="mt-5 w-full rounded-xl bg-accent px-5 py-3 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-5 w-full rounded-xl bg-accent px-5 py-3 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
     >
       {pending ? 'Creating…' : 'Create and email password'}
     </button>

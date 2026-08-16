@@ -91,7 +91,7 @@ export function RideActions({
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
+          className="wave rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
         >
           {step.label}
         </button>

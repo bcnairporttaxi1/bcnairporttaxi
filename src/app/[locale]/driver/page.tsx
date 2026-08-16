@@ -197,7 +197,7 @@ export default async function DriverPage(props: {
 
       <Link
         href="/driver/earnings"
-        className="mb-10 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+        className="wave mb-10 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
       >
         Earnings &amp; withdrawals
       </Link>

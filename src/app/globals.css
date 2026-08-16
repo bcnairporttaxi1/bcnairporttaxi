@@ -278,6 +278,206 @@ h4 {
   pointer-events: none;
 }
 
+/* ── Depth and motion ────────────────────────────────────────────────────
+   All of this is CSS. Nothing here ships JavaScript, so it costs nothing on
+   the main thread and cannot delay interaction — which matters on a page
+   whose whole job is a booking form. Every effect is switched off wholesale
+   in the reduced-motion block at the end of the file. */
+
+/* A shared 3D context. Children opt into depth by translating on Z; without
+   a perspective ancestor those transforms would flatten to nothing. */
+.stage {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+/* Cards that tip toward the pointer. The rotation is small on purpose:
+   past a couple of degrees text starts to shimmer as it resamples, which
+   reads as cheap rather than expensive. */
+.tilt {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.tilt:hover,
+.tilt:focus-visible {
+  transform: translateZ(28px) rotateX(2.2deg) rotateY(-2.4deg);
+  box-shadow:
+    0 22px 45px -22px rgb(14 14 16 / 42%),
+    0 4px 14px -6px rgb(14 14 16 / 22%);
+}
+
+/* Layered surface: a soft gradient rim that only shows on approach, which
+   gives an edge some thickness without drawing a hard border. */
+.plinth {
+  position: relative;
+  isolation: isolate;
+}
+.plinth::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgb(245 179 1 / 55%),
+    rgb(245 179 1 / 0%) 42%,
+    rgb(245 179 1 / 0%) 62%,
+    rgb(245 179 1 / 35%)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.plinth:hover::before,
+.plinth:focus-within::before {
+  opacity: 1;
+}
+
+/* ── Wave buttons ───────────────────────────────────────────────────────
+   A crest of light travels across the face on hover, and the whole control
+   rides up a little as it goes. The wave is a pseudo-element so it never
+   interferes with the label's own layout or contrast. */
+.wave {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wave::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgb(255 255 255 / 45%) 42%,
+    rgb(255 255 255 / 62%) 50%,
+    rgb(255 255 255 / 45%) 58%,
+    transparent 80%
+  );
+  background-size: 220% 100%;
+  background-position: 180% 0;
+  transition: background-position 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.wave:hover,
+.wave:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -12px rgb(14 14 16 / 45%);
+}
+.wave:hover::before,
+.wave:focus-visible::before {
+  background-position: -80% 0;
+}
+.wave:active {
+  transform: translateY(0);
+}
+
+/* The rolling underline for dark-on-light secondary buttons, where a white
+   crest would be invisible. Same idea, inverted. */
+.wave-dark::before {
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgb(14 14 16 / 10%) 42%,
+    rgb(14 14 16 / 16%) 50%,
+    rgb(14 14 16 / 10%) 58%,
+    transparent 80%
+  );
+  background-size: 220% 100%;
+  background-position: 180% 0;
+}
+
+/* A permanent, slow swell on the single most important button on the page,
+   so it reads as live before anyone points at it. */
+@keyframes wave-idle {
+  0%,
+  100% {
+    background-position: 180% 0;
+  }
+  55% {
+    background-position: -80% 0;
+  }
+}
+.wave-idle::before {
+  animation: wave-idle 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ── Ambient depth for the hero ─────────────────────────────────────────
+   Two very slow, very soft blobs drifting behind the content. Blur is
+   expensive to repaint, so these animate transform only and sit on their own
+   layer rather than forcing the hero to repaint with them. */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+  }
+}
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+  animation: drift 19s ease-in-out infinite;
+  pointer-events: none;
+}
+.aurora-slow {
+  animation-duration: 27s;
+  animation-direction: reverse;
+}
+
+/* A thin horizon line that sweeps once as the hero settles. */
+@keyframes horizon {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+.horizon {
+  transform-origin: left center;
+  animation: horizon 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+/* Floating chips in the hero, each offset so they never pulse in unison. */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.bob {
+  animation: bob 4.5s ease-in-out infinite;
+}
+.bob-2 {
+  animation-delay: -1.5s;
+}
+.bob-3 {
+  animation-delay: -3s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -308,6 +508,33 @@ h4 {
   }
   /* Leave the marquee parked rather than looping forever. */
   .marquee-track {
+    animation: none;
+  }
+  /* Depth and wave effects: keep the colour and the focus ring, drop every
+     transform and travelling highlight. The buttons still respond to hover,
+     they just stop moving. */
+  .tilt:hover,
+  .tilt:focus-visible {
+    transform: none;
+  }
+  .wave:hover,
+  .wave:focus-visible {
+    transform: none;
+  }
+  .wave::before,
+  .wave-idle::before {
+    animation: none;
+    display: none;
+  }
+  .aurora {
+    animation: none;
+  }
+  .horizon {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  .bob {
     animation: none;
   }
 }

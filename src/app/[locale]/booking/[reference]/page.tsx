@@ -43,7 +43,7 @@ export default async function BookingPage(props: {
         <div className="mx-auto max-w-3xl px-4 py-14 text-center">
           <Link
             href="/"
-            className="inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+            className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
           >
             {t('backHome')}
           </Link>

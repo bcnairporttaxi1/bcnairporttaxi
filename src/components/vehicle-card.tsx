@@ -83,7 +83,7 @@ export async function VehicleCard({
             long the luggage note runs. */}
         <Link
           href={{ pathname: '/book', query: { vehicle: vehicle.slug } }}
-          className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 pt-3 font-display text-sm font-bold text-porcelain transition hover:bg-accent hover:text-ink"
+          className="wave mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 pt-3 font-display text-sm font-bold text-porcelain transition hover:bg-accent hover:text-ink"
         >
           {tc('book')}
           <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-current">

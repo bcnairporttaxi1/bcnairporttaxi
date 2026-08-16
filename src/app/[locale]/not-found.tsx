@@ -13,7 +13,7 @@ export default async function LocaleNotFound() {
       <p className="mt-3 text-muted">{t('body')}</p>
       <Link
         href="/"
-        className="mt-8 rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+        className="wave mt-8 rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
       >
         {t('cta')}
       </Link>

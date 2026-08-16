@@ -13,7 +13,7 @@ function Submit() {
     <button
       type="submit"
       disabled={pending}
-      className="mt-5 rounded-xl bg-accent px-5 py-2.5 font-display text-sm font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-5 rounded-xl bg-accent px-5 py-2.5 font-display text-sm font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
     >
       {pending ? 'Saving…' : 'Save changes'}
     </button>

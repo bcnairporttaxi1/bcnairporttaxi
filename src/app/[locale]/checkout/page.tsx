@@ -89,7 +89,7 @@ export default async function CheckoutPage(props: {
           <div className="mt-6 text-center">
             <Link
               href="/"
-              className="inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+              className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
             >
               {t('getPrice')}
             </Link>
@@ -114,7 +114,7 @@ export default async function CheckoutPage(props: {
           <div className="mt-6 text-center">
             <Link
               href="/"
-              className="inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+              className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
             >
               {t('getPrice')}
             </Link>

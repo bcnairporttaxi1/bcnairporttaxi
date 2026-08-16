@@ -360,7 +360,7 @@ export function QuoteWidget({
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-block rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink hover:bg-accent-deep"
+              className="wave mt-3 inline-block rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink hover:bg-accent-deep"
             >
               {t('urgent.cta')}
             </a>
@@ -496,7 +496,7 @@ export function QuoteWidget({
           {q && (
             <Link
               href={checkoutHref}
-              className="mt-4 block rounded-lg bg-accent px-5 py-3.5 text-center font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              className="wave mt-4 block rounded-lg bg-accent px-5 py-3.5 text-center font-display font-extrabold text-ink transition hover:bg-accent-deep"
             >
               {t('bookNow')}
             </Link>
