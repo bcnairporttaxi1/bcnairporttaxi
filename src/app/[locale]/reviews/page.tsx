@@ -32,7 +32,10 @@ export default async function ReviewsPage(props: {
   // Only moderated reviews are ever shown, and only these feed AggregateRating.
   const reviews = await prisma.review
     .findMany({
-      where: { approved: true },
+      // Direction matters as much as approval here: a driver's rating of a
+      // passenger is internal and must never surface as a testimonial, even
+      // if something upstream marked it approved.
+      where: { approved: true, direction: 'USER_TO_DRIVER' },
       orderBy: { createdAt: 'desc' },
       take: 50,
     })

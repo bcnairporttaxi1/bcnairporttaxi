@@ -20,11 +20,19 @@ export default async function AdminReviewsPage(props: {
   const user = await requireRole(['ADMIN'], locale);
 
   const reviews = await prisma.review.findMany({
-    include: { booking: { select: { reference: true } } },
+    include: {
+      booking: { select: { reference: true } },
+      driver: { select: { name: true } },
+    },
     orderBy: [{ approved: 'asc' }, { createdAt: 'desc' }],
   });
 
-  const pending = reviews.filter((r) => !r.approved);
+  // Passengers rating drivers can be published. Drivers rating passengers are
+  // internal to the office and have no publish path at all — separating them
+  // here means the Publish button is never even drawn on one.
+  const aboutDrivers = reviews.filter((r) => r.direction === 'USER_TO_DRIVER');
+  const aboutPassengers = reviews.filter((r) => r.direction === 'DRIVER_TO_USER');
+  const pending = aboutDrivers.filter((r) => !r.approved);
 
   return (
     <PanelShell
@@ -36,16 +44,21 @@ export default async function AdminReviewsPage(props: {
       activeHref="/admin/reviews"
     >
       <p className="text-muted">
-        {pending.length} awaiting moderation · {reviews.length - pending.length} published
+        {pending.length} awaiting moderation ·{' '}
+        {aboutDrivers.filter((r) => r.approved).length} published
       </p>
 
-      {reviews.length === 0 ? (
-        <p className="mt-6 rounded-card border border-hairline bg-white p-10 text-center text-muted">
-          No reviews yet. They appear here once passengers complete trips.
+      <h2 className="mt-8 font-display text-xl font-extrabold">
+        Passengers on drivers ({aboutDrivers.length})
+      </h2>
+
+      {aboutDrivers.length === 0 ? (
+        <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+          No ratings yet. They appear here once passengers complete trips.
         </p>
       ) : (
-        <ul className="mt-6 space-y-4">
-          {reviews.map((r) => (
+        <ul className="mt-4 space-y-4">
+          {aboutDrivers.map((r) => (
             <li key={r.id} className="rounded-card border border-hairline bg-white p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
@@ -55,6 +68,7 @@ export default async function AdminReviewsPage(props: {
                   </p>
                   <p className="mt-1 text-sm text-muted">
                     {r.authorName} · booking {r.booking.reference}
+                    {r.driver?.name ? ` · driver ${r.driver.name}` : ''}
                   </p>
                 </div>
                 <span
@@ -94,6 +108,41 @@ export default async function AdminReviewsPage(props: {
                   </form>
                 </div>
               )}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <h2 className="mt-12 font-display text-xl font-extrabold">
+        Drivers on passengers ({aboutPassengers.length})
+      </h2>
+      <p className="mt-1 text-sm text-muted">
+        Internal only. These never appear on the site and cannot be published.
+      </p>
+
+      {aboutPassengers.length === 0 ? (
+        <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+          Nothing yet.
+        </p>
+      ) : (
+        <ul className="mt-4 space-y-4">
+          {aboutPassengers.map((r) => (
+            <li key={r.id} className="rounded-card border border-hairline bg-white p-5">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <p className="font-mono text-accent-text" aria-label={`${r.rating} out of 5`}>
+                    {'★'.repeat(r.rating)}
+                    <span className="text-muted">{'★'.repeat(5 - r.rating)}</span>
+                  </p>
+                  <p className="mt-1 text-sm text-muted">
+                    {r.authorName} · booking {r.booking.reference}
+                  </p>
+                </div>
+                <span className="rounded-full bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-700">
+                  internal
+                </span>
+              </div>
+              {r.text && <p className="mt-3 leading-relaxed">{r.text}</p>}
             </li>
           ))}
         </ul>

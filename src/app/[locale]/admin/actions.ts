@@ -195,7 +195,13 @@ export async function moderateReview(formData: FormData): Promise<void> {
   const locale = String(formData.get('locale') ?? 'en');
 
   if (approve) {
-    await prisma.review.update({ where: { id }, data: { approved: true } });
+    // Publishing only ever applies to passenger-to-driver ratings. Enforced
+    // here rather than in the form, so a crafted request cannot promote an
+    // internal rating of a passenger onto the public page.
+    await prisma.review.updateMany({
+      where: { id, direction: 'USER_TO_DRIVER' },
+      data: { approved: true },
+    });
   } else {
     await prisma.review.delete({ where: { id } });
   }
