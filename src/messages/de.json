@@ -298,5 +298,17 @@
     "send": "Senden",
     "emailed": "per E-Mail",
     "offlineNote": "Ist {role} nicht online, senden wir Ihre Nachricht zusätzlich per E-Mail."
+  },
+  "password": {
+    "title": "Passwort ändern",
+    "intro": "Wählen Sie etwas, das nur Sie kennen. Sie bleiben angemeldet.",
+    "titleForced": "Eigenes Passwort festlegen",
+    "introForced": "Ihr Konto wurde mit einem Passwort eröffnet, das wir erzeugt und Ihnen per E-Mail geschickt haben. Ersetzen Sie es, bevor Sie weitermachen.",
+    "current": "Aktuelles Passwort",
+    "next": "Neues Passwort",
+    "confirm": "Neues Passwort wiederholen",
+    "hint": "Mindestens 8 Zeichen.",
+    "save": "Passwort speichern",
+    "saving": "Wird gespeichert…"
   }
 }

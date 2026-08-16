@@ -298,5 +298,17 @@
     "send": "Invia",
     "emailed": "inviato via email",
     "offlineNote": "Se il {role} non è online, inviamo il tuo messaggio anche via email."
+  },
+  "password": {
+    "title": "Cambia la password",
+    "intro": "Scegli qualcosa che conosci solo tu. Resterai connesso.",
+    "titleForced": "Imposta la tua password",
+    "introForced": "Il tuo account è stato aperto con una password generata da noi e inviata via email. Sostituiscila prima di proseguire.",
+    "current": "Password attuale",
+    "next": "Nuova password",
+    "confirm": "Ripeti la nuova password",
+    "hint": "Almeno 8 caratteri.",
+    "save": "Salva password",
+    "saving": "Salvataggio…"
   }
 }

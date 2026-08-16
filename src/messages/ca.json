@@ -298,5 +298,17 @@
     "send": "Envia",
     "emailed": "enviat per correu",
     "offlineNote": "Si el {role} no està connectat, també li enviem el teu missatge per correu."
+  },
+  "password": {
+    "title": "Canvia la contrasenya",
+    "intro": "Tria una cosa que només sàpigues tu. La sessió es mantindrà oberta.",
+    "titleForced": "Estableix la teva contrasenya",
+    "introForced": "El teu compte es va obrir amb una contrasenya que vam generar i enviar-te per correu. Canvia-la abans de continuar.",
+    "current": "Contrasenya actual",
+    "next": "Nova contrasenya",
+    "confirm": "Repeteix la nova contrasenya",
+    "hint": "Mínim 8 caràcters.",
+    "save": "Desa la contrasenya",
+    "saving": "Desant…"
   }
 }

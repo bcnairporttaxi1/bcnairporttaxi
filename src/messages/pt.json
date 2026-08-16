@@ -298,5 +298,17 @@
     "send": "Enviar",
     "emailed": "enviado por e-mail",
     "offlineNote": "Se o {role} não estiver online, enviamos também a sua mensagem por e-mail."
+  },
+  "password": {
+    "title": "Alterar a palavra-passe",
+    "intro": "Escolha algo que só você saiba. A sessão mantém-se aberta.",
+    "titleForced": "Defina a sua palavra-passe",
+    "introForced": "A sua conta foi aberta com uma palavra-passe que gerámos e lhe enviámos por e-mail. Substitua-a antes de continuar.",
+    "current": "Palavra-passe atual",
+    "next": "Nova palavra-passe",
+    "confirm": "Repita a nova palavra-passe",
+    "hint": "Pelo menos 8 caracteres.",
+    "save": "Guardar",
+    "saving": "A guardar…"
   }
 }

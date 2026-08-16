@@ -17,13 +17,44 @@ enum Role {
   ADMIN
 }
 
+/// The lifecycle a ride moves through. EN_ROUTE onwards is driven by the four
+/// buttons in the driver panel, so each transition is a real event with a
+/// timestamp rather than a status someone set by hand.
 enum BookingStatus {
   PENDING // created, booking fee not yet paid
   CONFIRMED // booking fee paid
   ASSIGNED // driver attached
-  EN_ROUTE // driver on the way / trip running
+  EN_ROUTE // driver on the way
+  ARRIVED // driver waiting at the pickup point
+  ON_BOARD // passenger in the car
   COMPLETED
   CANCELLED
+}
+
+/// How a driver wants to be paid out for prepaid rides.
+enum PayoutMethod {
+  BIZUM
+  BANK
+}
+
+enum WithdrawalStatus {
+  REQUESTED
+  APPROVED
+  PAID
+  REJECTED
+}
+
+/// Who a rating was written by. A booking can hold one of each.
+enum RatingDirection {
+  USER_TO_DRIVER
+  DRIVER_TO_USER
+}
+
+enum ReportStatus {
+  OPEN
+  REVIEWING
+  RESOLVED
+  DISMISSED
 }
 
 enum PaymentStatus {
@@ -59,20 +90,36 @@ model User {
   email        String    @unique
   name         String
   phone        String?
+  /// Shown to the driver of an active ride so they can reach the passenger.
+  whatsapp     String?
   passwordHash String
   role         Role      @default(USER)
   locale       String    @default("en")
   lastSeenAt   DateTime?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+
+  /// Accounts opened by an admin get a generated password mailed to them, and
+  /// cannot reach anything but the change-password screen until they replace it.
+  mustChangePassword Boolean   @default(false)
+  passwordChangedAt  DateTime?
+
+  /// Set by an admin after an upheld report. Blocks login.
+  blocked       Boolean @default(false)
+  blockedReason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   bookings Booking[] @relation("UserBookings")
   driver   Driver?
   messages Message[]
   reviews  Review[]
 
+  reportsMade     Report[] @relation("ReportsByUser")
+  reportsReceived Report[] @relation("ReportsAgainstUser")
+
   @@index([role])
   @@index([createdAt])
+  @@index([blocked])
 }
 
 model Driver {
@@ -81,9 +128,24 @@ model Driver {
   user          User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
   name          String
   phone         String
+  /// Passengers on an active ride see this alongside the phone number.
+  whatsapp      String?
   licenseNumber String
+  /// Registration plate, shown to the passenger so they identify the right car.
+  plate         String?
   photoUrl      String?
   active        Boolean @default(true)
+
+  /// Set by an admin after an upheld report. Blocks login and new assignments.
+  blocked       Boolean @default(false)
+  blockedReason String?
+
+  // Where prepaid earnings are sent. Bizum needs only a phone; a transfer needs
+  // the IBAN and the name on the account.
+  payoutMethod     PayoutMethod?
+  payoutBizumPhone String?
+  payoutIban       String?
+  payoutHolder     String?
 
   vehicleId String?
   vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
@@ -92,10 +154,16 @@ model Driver {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 
-  bookings Booking[] @relation("DriverBookings")
+  bookings    Booking[]    @relation("DriverBookings")
+  withdrawals Withdrawal[]
+
+  reportsMade     Report[] @relation("ReportsByDriver")
+  reportsReceived Report[] @relation("ReportsAgainstDriver")
+  ratings         Review[] @relation("DriverRatings")
 
   @@index([active])
   @@index([createdAt])
+  @@index([blocked])
 }
 
 model Vehicle {
@@ -175,12 +243,44 @@ model Booking {
   sumupRef        String?
   sumupCheckoutId String?
 
+  // Ride timeline. Each is stamped by the matching driver-panel button, so the
+  // admin ride view can show what happened and when without guessing.
+  enRouteAt   DateTime?
+  arrivedAt   DateTime?
+  onBoardAt   DateTime?
+  completedAt DateTime?
+  cancelledAt DateTime?
+  /// USER, DRIVER or ADMIN — passengers cannot cancel, so in practice ADMIN.
+  cancelledBy Role?
+  cancelReason String?
+
+  /// Passengers may change the route or details until this moment — 30 minutes
+  /// from booking, and never after a driver is on the way.
+  editableUntil DateTime?
+
+  /// Stamped once the "driver is at your door" mail goes out, so the proximity
+  /// check cannot send it twice.
+  atDoorNotifiedAt DateTime?
+
+  /// What the platform owes this driver for the ride. Non-zero only when the
+  /// passenger prepaid, because otherwise the driver takes the fare in the car.
+  driverPayout  Decimal  @default(0) @db.Decimal(10, 2)
+  /// What the driver must still collect in the taxi. Zero when fully prepaid.
+  cashToCollect Decimal  @default(0) @db.Decimal(10, 2)
+  /// Confirmed by the driver on completion.
+  cashCollected Boolean  @default(false)
+
+  // Live location is opt-in on both sides and can be revoked mid-trip.
+  userSharesLocation   Boolean @default(false)
+  driverSharesLocation Boolean @default(false)
+
   locale    String   @default("en")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   messages      Message[]
-  review        Review?
+  reviews       Review[]
+  reports       Report[]
   locationPings LocationPing[]
 
   @@index([status, createdAt])
@@ -188,6 +288,7 @@ model Booking {
   @@index([driverId, status])
   @@index([pickupAt])
   @@index([sumupCheckoutId])
+  @@index([status, pickupAt])
 }
 
 model Message {
@@ -209,13 +310,21 @@ model Message {
   @@index([bookingId, createdAt])
 }
 
+/// One row per rating, in either direction. A completed ride can carry two:
+/// the passenger rating the driver and the driver rating the passenger. Only
+/// passenger-to-driver ratings are ever eligible for the public reviews page.
 model Review {
   id        String  @id @default(cuid())
-  bookingId String  @unique
+  bookingId String
   booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  direction RatingDirection @default(USER_TO_DRIVER)
 
   userId String?
   user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  driverId String?
+  driver   Driver? @relation("DriverRatings", fields: [driverId], references: [id], onDelete: SetNull)
 
   authorName String
   rating     Int
@@ -224,8 +333,79 @@ model Review {
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())
 
+  @@unique([bookingId, direction])
   @@index([approved, createdAt])
   @@index([rating])
+  @@index([driverId, createdAt])
+  @@index([direction, createdAt])
+}
+
+/// A complaint raised by one party about the other on a specific ride.
+model Report {
+  id        String  @id @default(cuid())
+  bookingId String
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  reporterRole Role
+
+  byUserId String?
+  byUser   User?   @relation("ReportsByUser", fields: [byUserId], references: [id], onDelete: SetNull)
+
+  byDriverId String?
+  byDriver   Driver? @relation("ReportsByDriver", fields: [byDriverId], references: [id], onDelete: SetNull)
+
+  againstUserId String?
+  againstUser   User?   @relation("ReportsAgainstUser", fields: [againstUserId], references: [id], onDelete: SetNull)
+
+  againstDriverId String?
+  againstDriver   Driver? @relation("ReportsAgainstDriver", fields: [againstDriverId], references: [id], onDelete: SetNull)
+
+  reason  String
+  details String?
+
+  status     ReportStatus @default(OPEN)
+  adminNotes String?
+  resolvedAt DateTime?
+  createdAt  DateTime     @default(now())
+
+  @@index([status, createdAt])
+  @@index([bookingId])
+}
+
+/// A driver asking to be paid the prepaid earnings sitting in their balance.
+model Withdrawal {
+  id       String @id @default(cuid())
+  driverId String
+  driver   Driver @relation(fields: [driverId], references: [id], onDelete: Cascade)
+
+  amount Decimal      @db.Decimal(10, 2)
+  method PayoutMethod
+  /// Snapshot of where the money was sent, so changing payout details later
+  /// does not rewrite the history of past payouts.
+  destination String
+
+  status     WithdrawalStatus @default(REQUESTED)
+  adminNotes String?
+  reference  String?
+  requestedAt DateTime        @default(now())
+  processedAt DateTime?
+
+  @@index([driverId, requestedAt])
+  @@index([status, requestedAt])
+}
+
+/// Trail for admin actions that change or remove data, including bulk ones.
+model AuditLog {
+  id      String @id @default(cuid())
+  actorId String?
+  actorEmail String
+  action  String
+  /// Comma-separated booking references or ids the action touched.
+  target  String
+  detail  String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
 }
 
 model LocationPing {

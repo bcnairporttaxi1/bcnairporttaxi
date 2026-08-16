@@ -473,5 +473,17 @@
     "send": "Send",
     "emailed": "emailed",
     "offlineNote": "If the {role} is not online, we email your message to them as well."
+  },
+  "password": {
+    "title": "Change your password",
+    "intro": "Pick something only you know. You will stay signed in.",
+    "titleForced": "Set your own password",
+    "introForced": "Your account was opened with a password we generated and emailed you. Replace it before you carry on.",
+    "current": "Current password",
+    "next": "New password",
+    "confirm": "Repeat new password",
+    "hint": "At least 8 characters.",
+    "save": "Save password",
+    "saving": "Saving…"
   }
 }

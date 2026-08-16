@@ -298,5 +298,17 @@
     "send": "Envoyer",
     "emailed": "envoyé par e-mail",
     "offlineNote": "Si le {role} n'est pas en ligne, nous lui envoyons aussi votre message par e-mail."
+  },
+  "password": {
+    "title": "Changer votre mot de passe",
+    "intro": "Choisissez quelque chose que vous seul connaissez. Vous resterez connecté.",
+    "titleForced": "Définissez votre propre mot de passe",
+    "introForced": "Votre compte a été ouvert avec un mot de passe que nous avons généré et envoyé par e-mail. Remplacez-le avant de continuer.",
+    "current": "Mot de passe actuel",
+    "next": "Nouveau mot de passe",
+    "confirm": "Répétez le nouveau mot de passe",
+    "hint": "8 caractères minimum.",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…"
   }
 }

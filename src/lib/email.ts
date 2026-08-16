@@ -193,3 +193,224 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
 
   return { subject: `Your Barcelona taxi — booking ${d.reference}`, html, text };
 }
+
+/**
+ * The password an admin-opened account is born with.
+ *
+ * The password itself only ever exists in this email and in the admin's browser
+ * at the moment of creation — it is hashed on the way into the database, so no
+ * screen anywhere can show it again.
+ */
+export function temporaryPasswordEmail(d: {
+  name: string;
+  email: string;
+  password: string;
+  loginUrl: string;
+}) {
+  const subject = 'Your BCNAirportTaxi account';
+
+  const html = layout(
+    'Your account is ready',
+    `<p style="font-size:15px;line-height:1.7">Hello ${d.name}, we have opened an account for you at BCNAirportTaxi.</p>
+     <table style="width:100%;border-collapse:collapse;margin-top:14px">
+       ${row('Email', d.email)}
+       ${row('Temporary password', `<code style="font-family:ui-monospace,Menlo,monospace;font-size:16px">${d.password}</code>`, true)}
+     </table>
+     <p style="margin-top:18px"><a href="${d.loginUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Sign in</a></p>
+     <p style="font-size:14px;line-height:1.7;color:#6b6b72;margin-top:18px">
+       This password works once. You will be asked to choose your own as soon as you sign in.
+     </p>`,
+  );
+
+  const text = [
+    `Hello ${d.name},`,
+    ``,
+    `We have opened an account for you at BCNAirportTaxi.`,
+    ``,
+    `Email:              ${d.email}`,
+    `Temporary password: ${d.password}`,
+    ``,
+    `Sign in: ${d.loginUrl}`,
+    ``,
+    `You will be asked to choose your own password as soon as you sign in.`,
+  ].join('\n');
+
+  return { subject, html, text };
+}
+
+/**
+ * Sent once, when the car is essentially outside.
+ *
+ * Triggered by the driver's location rather than by them pressing a button, so
+ * it lands while the passenger still has time to come down.
+ */
+export function driverAtDoorEmail(d: {
+  name: string;
+  reference: string;
+  pickupLabel: string;
+  driverName: string;
+  driverPhone: string;
+  plate?: string | null;
+  vehicleName?: string | null;
+  tripUrl: string;
+}) {
+  const subject = `Your driver is outside — ${d.reference}`;
+
+  const html = layout(
+    'Your driver is outside',
+    `<p style="font-size:15px;line-height:1.7">${d.name}, your car has arrived at ${d.pickupLabel}.</p>
+     <table style="width:100%;border-collapse:collapse;margin-top:14px">
+       ${row('Driver', d.driverName)}
+       ${row('Phone', d.driverPhone)}
+       ${d.plate ? row('Number plate', `<strong>${d.plate}</strong>`, true) : ''}
+       ${d.vehicleName ? row('Vehicle', d.vehicleName) : ''}
+       ${row('Reference', d.reference)}
+     </table>
+     <p style="margin-top:18px"><a href="${d.tripUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Track and message your driver</a></p>`,
+  );
+
+  const text = [
+    `${d.name}, your driver is outside at ${d.pickupLabel}.`,
+    ``,
+    `Driver:       ${d.driverName}`,
+    `Phone:        ${d.driverPhone}`,
+    d.plate ? `Number plate: ${d.plate}` : '',
+    d.vehicleName ? `Vehicle:      ${d.vehicleName}` : '',
+    `Reference:    ${d.reference}`,
+    ``,
+    `Track and message: ${d.tripUrl}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  return { subject, html, text };
+}
+
+/** Tells the passenger a driver has been attached, with the details to look for. */
+export function driverAssignedEmail(d: {
+  name: string;
+  reference: string;
+  pickupAt: Date;
+  locale?: string;
+  driverName: string;
+  driverPhone: string;
+  plate?: string | null;
+  vehicleName?: string | null;
+  tripUrl: string;
+}) {
+  const when = new Intl.DateTimeFormat(d.locale ?? 'en', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Europe/Madrid',
+  }).format(d.pickupAt);
+
+  const subject = `Your driver for ${d.reference}`;
+
+  const html = layout(
+    'Your driver is confirmed',
+    `<p style="font-size:15px;line-height:1.7">${d.name}, here is who is picking you up on ${when}.</p>
+     <table style="width:100%;border-collapse:collapse;margin-top:14px">
+       ${row('Driver', d.driverName)}
+       ${row('Phone', d.driverPhone)}
+       ${d.plate ? row('Number plate', `<strong>${d.plate}</strong>`, true) : ''}
+       ${d.vehicleName ? row('Vehicle', d.vehicleName) : ''}
+     </table>
+     <p style="margin-top:18px"><a href="${d.tripUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">View your trip</a></p>`,
+  );
+
+  const text = [
+    `${d.name}, your driver for ${when}:`,
+    ``,
+    `Driver:       ${d.driverName}`,
+    `Phone:        ${d.driverPhone}`,
+    d.plate ? `Number plate: ${d.plate}` : '',
+    d.vehicleName ? `Vehicle:      ${d.vehicleName}` : '',
+    ``,
+    `Your trip: ${d.tripUrl}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  return { subject, html, text };
+}
+
+/** Asks the passenger to rate the driver once the ride is done. */
+export function rideCompletedEmail(d: {
+  name: string;
+  reference: string;
+  reviewUrl: string;
+  paidInCar: number | null;
+  locale?: string;
+}) {
+  const money = (n: number) =>
+    new Intl.NumberFormat(d.locale ?? 'en', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(n);
+
+  const subject = `Thanks for travelling with us — ${d.reference}`;
+
+  const settled = d.paidInCar
+    ? `You paid the metered fare of about ${money(d.paidInCar)} to your driver in the car. An invoice is available from the driver on request.`
+    : `This ride was paid in full in advance — nothing was owed in the car.`;
+
+  const html = layout(
+    'Ride complete',
+    `<p style="font-size:15px;line-height:1.7">${d.name}, thank you for travelling with us.</p>
+     <p style="font-size:15px;line-height:1.7">${settled}</p>
+     <p style="margin-top:18px"><a href="${d.reviewUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Rate your driver</a></p>`,
+  );
+
+  const text = [
+    `${d.name}, thank you for travelling with us.`,
+    ``,
+    settled,
+    ``,
+    `Rate your driver: ${d.reviewUrl}`,
+  ].join('\n');
+
+  return { subject, html, text };
+}
+
+/** Confirms to a driver that a withdrawal has been requested or settled. */
+export function withdrawalEmail(d: {
+  driverName: string;
+  amount: number;
+  method: 'BIZUM' | 'BANK';
+  destination: string;
+  status: 'REQUESTED' | 'APPROVED' | 'PAID' | 'REJECTED';
+  note?: string | null;
+}) {
+  const money = (n: number) =>
+    new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(n);
+
+  const headline = {
+    REQUESTED: 'Withdrawal requested',
+    APPROVED: 'Withdrawal approved',
+    PAID: 'Withdrawal sent',
+    REJECTED: 'Withdrawal declined',
+  }[d.status];
+
+  const subject = `${headline} — ${money(d.amount)}`;
+
+  const html = layout(
+    headline,
+    `<table style="width:100%;border-collapse:collapse">
+       ${row('Amount', money(d.amount), true)}
+       ${row('Method', d.method === 'BIZUM' ? 'Bizum' : 'Bank transfer')}
+       ${row('To', d.destination)}
+     </table>
+     ${d.note ? `<p style="font-size:14px;line-height:1.7;color:#6b6b72;margin-top:16px">${d.note}</p>` : ''}`,
+  );
+
+  const text = [
+    headline,
+    ``,
+    `Amount: ${money(d.amount)}`,
+    `Method: ${d.method === 'BIZUM' ? 'Bizum' : 'Bank transfer'}`,
+    `To:     ${d.destination}`,
+    d.note ? `\n${d.note}` : '',
+  ].join('\n');
+
+  return { subject, html, text };
+}

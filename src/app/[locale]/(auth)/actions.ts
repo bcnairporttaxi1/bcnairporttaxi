@@ -6,9 +6,11 @@ import { prisma } from '@/lib/db';
 import {
   createSession,
   destroySession,
+  getSession,
   hashPassword,
   verifyPassword,
 } from '@/lib/auth';
+import { passwordProblem } from '@/lib/passwords';
 
 export interface AuthState {
   error?: string;
@@ -30,6 +32,13 @@ function homeFor(role: string): string {
   if (role === 'DRIVER') return '/driver';
   return '/account';
 }
+
+/**
+ * Accounts opened by an admin arrive with a generated password. Until it is
+ * replaced the session exists but goes nowhere else — see `requireRole`, which
+ * bounces every other panel back to this screen.
+ */
+const CHANGE_PASSWORD = '/account/password';
 
 export async function login(
   _prev: AuthState,
@@ -56,13 +65,23 @@ export async function login(
     return { error: 'Those details do not match an account.' };
   }
 
+  // Checked after the password so a blocked account cannot be told apart from
+  // a wrong one by anybody who does not already hold the credentials.
+  if (user.blocked) {
+    return {
+      error: 'This account is suspended. Contact us if you think that is a mistake.',
+    };
+  }
+
   await createSession({ userId: user.id, email: user.email, role: user.role });
   await prisma.user.update({
     where: { id: user.id },
     data: { lastSeenAt: new Date() },
   });
 
-  redirect(`/${locale}${homeFor(user.role)}`);
+  redirect(
+    `/${locale}${user.mustChangePassword ? CHANGE_PASSWORD : homeFor(user.role)}`,
+  );
 }
 
 export async function register(
@@ -107,4 +126,52 @@ export async function logout(formData: FormData): Promise<void> {
   const locale = String(formData.get('locale') ?? 'en');
   await destroySession();
   redirect(`/${locale}`);
+}
+
+/**
+ * Replaces the password of the signed-in account.
+ *
+ * Used both by people changing a password they chose and by people clearing
+ * the generated one they were emailed. The current password is required in
+ * both cases: a session left open on a shared machine should not be enough to
+ * take an account over.
+ */
+export async function changePassword(
+  _prev: AuthState,
+  formData: FormData,
+): Promise<AuthState> {
+  const locale = String(formData.get('locale') ?? 'en');
+
+  const session = await getSession();
+  if (!session) redirect(`/${locale}/login`);
+
+  const current = String(formData.get('currentPassword') ?? '');
+  const next = String(formData.get('newPassword') ?? '');
+  const confirm = String(formData.get('confirmPassword') ?? '');
+
+  const user = await prisma.user.findUnique({ where: { id: session.userId } });
+  if (!user) redirect(`/${locale}/login`);
+
+  if (!(await verifyPassword(current, user.passwordHash))) {
+    return { error: 'That is not your current password.' };
+  }
+  if (next !== confirm) {
+    return { error: 'The two new passwords do not match.' };
+  }
+  const problem = passwordProblem(next, user.email);
+  if (problem) return { error: problem };
+  if (await verifyPassword(next, user.passwordHash)) {
+    return { error: 'Choose a password you have not just been using.' };
+  }
+
+  await prisma.user.update({
+    where: { id: user.id },
+    data: {
+      passwordHash: await hashPassword(next),
+      mustChangePassword: false,
+      passwordChangedAt: new Date(),
+    },
+  });
+
+  redirect(`/${locale}${homeFor(user.role)}`);
 }

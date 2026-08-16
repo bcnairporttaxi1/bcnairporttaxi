@@ -298,5 +298,17 @@
     "send": "Versturen",
     "emailed": "gemaild",
     "offlineNote": "Is de {role} niet online, dan mailen wij uw bericht ook naar hen."
+  },
+  "password": {
+    "title": "Wachtwoord wijzigen",
+    "intro": "Kies iets dat alleen u kent. U blijft ingelogd.",
+    "titleForced": "Stel uw eigen wachtwoord in",
+    "introForced": "Uw account is geopend met een wachtwoord dat wij hebben aangemaakt en gemaild. Vervang het voordat u verdergaat.",
+    "current": "Huidig wachtwoord",
+    "next": "Nieuw wachtwoord",
+    "confirm": "Herhaal nieuw wachtwoord",
+    "hint": "Minstens 8 tekens.",
+    "save": "Wachtwoord opslaan",
+    "saving": "Opslaan…"
   }
 }

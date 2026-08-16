@@ -359,5 +359,17 @@
     "send": "Enviar",
     "emailed": "enviado por correo",
     "offlineNote": "Si el {role} no está conectado, también le enviamos tu mensaje por correo."
+  },
+  "password": {
+    "title": "Cambia tu contraseña",
+    "intro": "Elige algo que solo sepas tú. Tu sesión seguirá abierta.",
+    "titleForced": "Establece tu propia contraseña",
+    "introForced": "Tu cuenta se abrió con una contraseña que generamos y te enviamos por correo. Cámbiala antes de continuar.",
+    "current": "Contraseña actual",
+    "next": "Nueva contraseña",
+    "confirm": "Repite la nueva contraseña",
+    "hint": "Mínimo 8 caracteres.",
+    "save": "Guardar contraseña",
+    "saving": "Guardando…"
   }
 }
