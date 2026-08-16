@@ -2,17 +2,16 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
+import { RideActions } from '@/components/driver-ride-actions';
 import { prisma } from '@/lib/db';
 import { requireDriver } from '@/lib/guards';
-import { updateTripStatus } from './actions';
+import { ACTIVE_STATUSES } from '@/lib/rides';
+import { advanceRide, driverBalance } from './actions';
 
 export const metadata: Metadata = {
   title: { absolute: 'My trips | BCNAirportTaxi' },
   robots: { index: false, follow: false },
 };
-
-const eur = (n: unknown) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(Number(n));
 
 export default async function DriverPage(props: {
   params: Promise<{ locale: string }>;
@@ -22,13 +21,18 @@ export default async function DriverPage(props: {
 
   const { user, driver } = await requireDriver(locale);
 
+  const eur = (n: unknown) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
+  const when = (d: Date) =>
+    new Intl.DateTimeFormat(locale, {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'Europe/Madrid',
+    }).format(d);
+
   if (!driver) {
     return (
-      <PanelShell
-        title="My trips"
-        userName={user.name}
-        locale={locale}
-      >
+      <PanelShell title="My trips" userName={user.name} locale={locale}>
         <p className="rounded-card border border-hairline bg-white p-10 text-center text-muted">
           This account has no driver record attached yet. Ask the office to link it.
         </p>
@@ -36,30 +40,31 @@ export default async function DriverPage(props: {
     );
   }
 
-  const bookings = await prisma.booking.findMany({
-    where: { driverId: driver.id, status: { notIn: ['CANCELLED'] } },
-    include: { vehicle: true },
-    orderBy: { pickupAt: 'asc' },
-  });
+  const [bookings, balance, ratingAgg] = await Promise.all([
+    prisma.booking.findMany({
+      where: { driverId: driver.id },
+      include: { vehicle: true, user: { select: { whatsapp: true } } },
+      orderBy: { pickupAt: 'asc' },
+    }),
+    driverBalance(driver.id),
+    prisma.review.aggregate({
+      where: { driverId: driver.id, direction: 'USER_TO_DRIVER' },
+      _avg: { rating: true },
+      _count: true,
+    }),
+  ]);
 
-  const startOfToday = new Date();
-  startOfToday.setHours(0, 0, 0, 0);
-  const endOfToday = new Date(startOfToday);
-  endOfToday.setDate(endOfToday.getDate() + 1);
-
-  const today = bookings.filter(
-    (b) => b.pickupAt >= startOfToday && b.pickupAt < endOfToday,
+  const active = bookings.filter((b) => ACTIVE_STATUSES.includes(b.status));
+  const upcoming = bookings.filter(
+    (b) => !ACTIVE_STATUSES.includes(b.status) && b.status !== 'COMPLETED' && b.status !== 'CANCELLED',
   );
-  const later = bookings.filter((b) => b.pickupAt >= endOfToday);
-
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat('en-GB', {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const done = bookings
+    .filter((b) => b.status === 'COMPLETED')
+    .sort((a, b) => b.pickupAt.getTime() - a.pickupAt.getTime());
 
   function Trip({ b }: { b: (typeof bookings)[number] }) {
+    const prepaid = b.paymentMode === 'FULL_PREPAID';
+
     return (
       <article className="rounded-card border border-hairline bg-white p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -69,6 +74,20 @@ export default async function DriverPage(props: {
           </div>
           <StatusPill value={b.status} />
         </div>
+
+        {/* The single thing a driver must know before pulling away: whether
+            money changes hands in the car. Stated loudly, never buried. */}
+        <p
+          className={`mt-4 rounded-xl px-4 py-3 font-display text-sm font-extrabold ${
+            prepaid
+              ? 'bg-green-50 text-green-900 ring-1 ring-green-200'
+              : 'bg-amber-50 text-amber-900 ring-1 ring-amber-200'
+          }`}
+        >
+          {prepaid
+            ? 'PAID ONLINE — collect nothing'
+            : `COLLECT IN CAR — ${eur(b.meterEstimate)} on the meter`}
+        </p>
 
         <dl className="mt-4 space-y-1.5 text-sm">
           <div className="flex gap-2">
@@ -86,20 +105,25 @@ export default async function DriverPage(props: {
               <a href={`tel:${b.contactPhone}`} className="font-semibold text-accent-text">
                 {b.contactPhone}
               </a>
+              {b.user?.whatsapp && (
+                <>
+                  {' · '}
+                  <a
+                    href={`https://wa.me/${b.user.whatsapp.replace(/\D/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-accent-text"
+                  >
+                    WhatsApp
+                  </a>
+                </>
+              )}
             </dd>
           </div>
           <div className="flex gap-2">
             <dt className="shrink-0 text-muted">People / bags</dt>
             <dd>
               {b.passengers} / {b.luggage}
-            </dd>
-          </div>
-          <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Collect in car</dt>
-            <dd className="font-mono font-bold">
-              {b.paymentMode === 'FULL_PREPAID'
-                ? 'Nothing — prepaid'
-                : `${eur(b.meterEstimate)} (meter)`}
             </dd>
           </div>
         </dl>
@@ -117,73 +141,98 @@ export default async function DriverPage(props: {
           >
             Navigate
           </a>
-
           <Link
             href={`/trip/${b.reference}`}
             className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
           >
             Track &amp; chat
           </Link>
-
-          {b.status !== 'EN_ROUTE' && b.status !== 'COMPLETED' && (
-            <form action={updateTripStatus}>
-              <input type="hidden" name="bookingId" value={b.id} />
-              <input type="hidden" name="locale" value={locale} />
-              <input type="hidden" name="status" value="EN_ROUTE" />
-              <button
-                type="submit"
-                className="rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
-              >
-                Start trip
-              </button>
-            </form>
-          )}
-
-          {b.status !== 'COMPLETED' && (
-            <form action={updateTripStatus}>
-              <input type="hidden" name="bookingId" value={b.id} />
-              <input type="hidden" name="locale" value={locale} />
-              <input type="hidden" name="status" value="COMPLETED" />
-              <button
-                type="submit"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
-              >
-                Mark completed
-              </button>
-            </form>
-          )}
         </div>
+
+        <RideActions
+          bookingId={b.id}
+          reference={b.reference}
+          locale={locale}
+          status={b.status}
+          prepaid={prepaid}
+          cashDue={eur(b.meterEstimate)}
+          sharingLocation={b.driverSharesLocation}
+          advance={advanceRide}
+        />
       </article>
     );
   }
 
+  const rated = ratingAgg._count > 0;
+
   return (
     <PanelShell
       title="My trips"
-      subtitle={`${driver.name} · ${bookings.length} assigned`}
+      subtitle={`${driver.name} · ${driver.plate ?? 'no plate on file'}`}
       userName={user.name}
       locale={locale}
     >
+      {/* Earnings summary, with the detail a click away. */}
+      <div className="mb-8 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-card border border-hairline bg-white p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Available to withdraw</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.available)}</p>
+        </div>
+        <div className="rounded-card border border-hairline bg-white p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Awaiting payout</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.pending)}</p>
+        </div>
+        <div className="rounded-card border border-hairline bg-white p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Your rating</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">
+            {rated ? `${(ratingAgg._avg.rating ?? 0).toFixed(1)} ★` : '—'}
+            {rated && (
+              <span className="ml-2 font-sans text-xs font-normal text-muted">
+                {ratingAgg._count}
+              </span>
+            )}
+          </p>
+        </div>
+      </div>
+
+      <Link
+        href="/driver/earnings"
+        className="mb-10 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+      >
+        Earnings &amp; withdrawals
+      </Link>
+
+      {active.length > 0 && (
+        <section className="mb-10">
+          <h2 className="font-display text-xl font-extrabold">In progress ({active.length})</h2>
+          <div className="mt-4 space-y-4">
+            {active.map((b) => (
+              <Trip key={b.id} b={b} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section>
-        <h2 className="font-display text-xl font-extrabold">Today ({today.length})</h2>
-        {today.length === 0 ? (
+        <h2 className="font-display text-xl font-extrabold">Upcoming ({upcoming.length})</h2>
+        {upcoming.length === 0 ? (
           <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
-            Nothing scheduled today.
+            Nothing assigned yet.
           </p>
         ) : (
           <div className="mt-4 space-y-4">
-            {today.map((b) => (
+            {upcoming.map((b) => (
               <Trip key={b.id} b={b} />
             ))}
           </div>
         )}
       </section>
 
-      {later.length > 0 && (
+      {done.length > 0 && (
         <section className="mt-10">
-          <h2 className="font-display text-xl font-extrabold">Coming up ({later.length})</h2>
+          <h2 className="font-display text-xl font-extrabold">Completed ({done.length})</h2>
           <div className="mt-4 space-y-4">
-            {later.map((b) => (
+            {done.slice(0, 25).map((b) => (
               <Trip key={b.id} b={b} />
             ))}
           </div>
