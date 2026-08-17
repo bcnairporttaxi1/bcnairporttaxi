@@ -6,12 +6,8 @@ import { prisma } from '@/lib/db';
 import { getSession } from '@/lib/auth';
 import { absoluteUrl } from '@/lib/site';
 import { sendEmail, rideCompletedEmail, withdrawalEmail } from '@/lib/email';
-import {
-  DRIVER_FLOW,
-  canTransition,
-  settlementFor,
-  timestampFieldFor,
-} from '@/lib/rides';
+import { DRIVER_FLOW, canTransition, settlementFor } from '@/lib/rides';
+import { applyRideStatus } from '@/lib/ride-service';
 import type { BookingStatus } from '@/generated/prisma/enums';
 
 export interface DriverActionState {
@@ -62,28 +58,15 @@ export async function advanceRide(formData: FormData): Promise<void> {
     return;
   }
 
-  const stamp = timestampFieldFor(next);
+  // The service stamps the timestamp and, on completion, freezes the split so
+  // a later tariff edit cannot rewrite what a driver was owed for work already
+  // done. Shared with the admin panel so the two cannot drift apart.
+  await applyRideStatus(booking.id, next, 'DRIVER');
+
   const money = settlementFor({
     paymentMode: booking.paymentMode,
     meterEstimate: Number(booking.meterEstimate),
     fixedFare: Number(booking.fixedFare),
-  });
-
-  await prisma.booking.update({
-    where: { id: booking.id },
-    data: {
-      status: next,
-      ...(stamp ? { [stamp]: new Date() } : {}),
-      // The split is frozen at completion so a later tariff edit cannot
-      // rewrite what a driver was owed for work already done.
-      ...(next === 'COMPLETED'
-        ? {
-            driverPayout: money.driverPayout,
-            cashToCollect: money.cashToCollect,
-            cashCollected: !money.prepaid,
-          }
-        : {}),
-    },
   });
 
   if (next === 'COMPLETED') {

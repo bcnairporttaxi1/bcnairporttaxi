@@ -9,6 +9,7 @@ import {
   minutesLeftToEdit,
   settlementFor,
   shouldNotifyAtDoor,
+  statusWriteFor,
 } from './rides';
 
 const min = (n: number) => n * 60_000;
@@ -215,3 +216,47 @@ describe('admin ride buckets', () => {
   });
 });
 
+
+describe('status writes', () => {
+  const prepaid = {
+    paymentMode: 'FULL_PREPAID' as const,
+    meterEstimate: 40.05,
+    fixedFare: 43.6,
+  };
+  const feeOnly = { ...prepaid, paymentMode: 'FEE_ONLY' as const };
+
+  // The bug this pins: completion used to settle only when a driver pressed
+  // the button, so an office-completed prepaid ride paid the driver nothing.
+  it('settles a prepaid ride whoever completes it', () => {
+    for (const actor of ['DRIVER', 'ADMIN'] as const) {
+      const w = statusWriteFor('COMPLETED', prepaid, actor);
+      expect(w.driverPayout).toBe(43.6);
+      expect(w.cashToCollect).toBe(0);
+    }
+  });
+
+  it('settles a fee-only ride to cash in the car, never a payout', () => {
+    const w = statusWriteFor('COMPLETED', feeOnly, 'ADMIN');
+    expect(w.driverPayout).toBe(0);
+    expect(w.cashToCollect).toBe(40.05);
+    expect(w.cashCollected).toBe(true);
+  });
+
+  it('stamps the matching timestamp for every step', () => {
+    expect(statusWriteFor('EN_ROUTE', prepaid, 'DRIVER').enRouteAt).toBeInstanceOf(Date);
+    expect(statusWriteFor('ARRIVED', prepaid, 'DRIVER').arrivedAt).toBeInstanceOf(Date);
+    expect(statusWriteFor('ON_BOARD', prepaid, 'DRIVER').onBoardAt).toBeInstanceOf(Date);
+    expect(statusWriteFor('COMPLETED', prepaid, 'DRIVER').completedAt).toBeInstanceOf(Date);
+  });
+
+  it('does not settle a ride that has not completed', () => {
+    const w = statusWriteFor('ARRIVED', prepaid, 'DRIVER');
+    expect(w.driverPayout).toBeUndefined();
+    expect(w.cashToCollect).toBeUndefined();
+  });
+
+  it('records who cancelled', () => {
+    expect(statusWriteFor('CANCELLED', prepaid, 'ADMIN').cancelledBy).toBe('ADMIN');
+    expect(statusWriteFor('CANCELLED', prepaid, 'ADMIN').cancelledAt).toBeInstanceOf(Date);
+  });
+});

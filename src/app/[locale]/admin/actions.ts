@@ -11,6 +11,7 @@ import {
   temporaryPasswordEmail,
   withdrawalEmail,
 } from '@/lib/email';
+import { applyRideStatus, applyRideStatusBulk } from '@/lib/ride-service';
 import type { BookingStatus } from '@/generated/prisma/enums';
 
 export interface AdminActionState {
@@ -87,12 +88,12 @@ export async function setBookingStatus(formData: FormData): Promise<void> {
   const parsed = z.enum(STATUSES).safeParse(formData.get('status'));
   if (!parsed.success) return;
 
-  await prisma.booking.update({
-    where: { id: bookingId },
-    data: { status: parsed.data as BookingStatus },
-  });
+  // Goes through the shared service so completing a ride here settles it the
+  // same way completing it from the driver panel does.
+  await applyRideStatus(bookingId, parsed.data as BookingStatus, 'ADMIN');
 
   revalidatePath(`/${locale}/admin`);
+  revalidatePath(`/${locale}/admin/rides`);
 }
 
 const driverSchema = z.object({
@@ -285,17 +286,10 @@ export async function bulkUpdateRides(formData: FormData): Promise<void> {
     if (!parsed.success) return;
     const status = parsed.data as BookingStatus;
 
-    await prisma.booking.updateMany({
-      where: { id: { in: ids } },
-      data: {
-        status,
-        ...(status === 'CANCELLED'
-          ? { cancelledAt: new Date(), cancelledBy: 'ADMIN' as const }
-          : {}),
-        ...(status === 'COMPLETED' ? { completedAt: new Date() } : {}),
-      },
-    });
-    await audit('bulk_status', ids.join(','), status);
+    // Not an updateMany: the settlement figures differ per booking, so each
+    // row needs its own values. The service does them in one transaction.
+    const moved = await applyRideStatusBulk(ids, status, 'ADMIN');
+    await audit('bulk_status', ids.join(','), `${status} (${moved})`);
     revalidatePath(`/${locale}/admin/rides`);
     return;
   }

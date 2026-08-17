@@ -202,3 +202,36 @@ export function bucketFor(
   if (b.status === 'CONFIRMED' && !b.driverId) return 'new';
   return b.pickupAt >= now ? 'upcoming' : 'new';
 }
+
+/**
+ * The full set of columns written when a ride changes status.
+ *
+ * Completion is not merely a status change: it freezes what the driver is owed
+ * and what they took in the car. Keeping that here, rather than in whichever
+ * panel happens to trigger it, is what stops an office-completed ride from
+ * silently paying a driver nothing.
+ */
+export function statusWriteFor(
+  status: BookingStatus,
+  booking: { paymentMode: PaymentMode; meterEstimate: number; fixedFare: number },
+  actor: Role,
+): Record<string, unknown> {
+  const stamp = timestampFieldFor(status);
+  const data: Record<string, unknown> = {
+    status,
+    ...(stamp ? { [stamp]: new Date() } : {}),
+  };
+
+  if (status === 'COMPLETED') {
+    const money = settlementFor(booking);
+    data.driverPayout = money.driverPayout;
+    data.cashToCollect = money.cashToCollect;
+    // Fee-only rides settle in the car by definition; prepaid ones have
+    // nothing to collect. Neither leaves money outstanding at this point.
+    data.cashCollected = !money.prepaid;
+  }
+
+  if (status === 'CANCELLED') data.cancelledBy = actor;
+
+  return data;
+}
