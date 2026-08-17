@@ -84,11 +84,30 @@ Application errors currently go to `console.error` and land in Vercel's logs,
 which are searchable but not alertable. Wiring Sentry is the obvious next step
 and is not done.
 
+## Domain
+
+`bcnairporttaxi.es` — registered and DNS-hosted at IONOS (`ui-dns.*`
+nameservers). The apex `A` record points to Vercel's `76.76.21.21`; SSL is
+issued and renewed by Vercel automatically.
+
+IONOS also runs email on this domain (`mx00/mx01.ionos.es`). **Never move the
+nameservers away from IONOS without recreating those MX records first** —
+that is where `bookings@` lives.
+
+`www.bcnairporttaxi.es` is attached to the project but has no DNS record yet.
+To enable it, add at IONOS:
+
+```
+Type: CNAME    Host: www    Value: cname.vercel-dns.com
+```
+
+Vercel then redirects `www` to the apex on its own.
+
 ## Before going live
 
-- [ ] `NEXT_PUBLIC_SITE_URL` set to the real domain — canonicals, `og:url`, the
+- [x] `NEXT_PUBLIC_SITE_URL` set to the real domain — canonicals, `og:url`, the
       sitemap and every email link derive from it
-- [ ] Domain pointed at Vercel and added in the project
+- [x] Domain pointed at Vercel and added in the project
 - [ ] `AUTH_SECRET` is a real 32-byte random value, not a placeholder
 - [ ] `RESEND_FROM` on a verified domain, not `onboarding@resend.dev`
 - [ ] `NEXT_PUBLIC_WHATSAPP_NUMBER` is the real number
