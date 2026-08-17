@@ -32,9 +32,11 @@ over-careful about separating those two pots of money, that is why.
  10 models    checkout         email         geocoding       routing
 ```
 
-Functions run in Europe because Neon is in `eu-central-1` and the panels make
-several round trips per page. Serving them from the US would add ~100 ms per
-query, which the ride panel multiplies by three.
+Functions are pinned to `fra1` in `vercel.json` because Neon is in
+`eu-central-1` and the panels make several round trips per page. This is not
+theoretical: the default put them in `iad1`, and `/api/health` measured a
+**664 ms** round trip to the database from Virginia — a transatlantic hop on
+every single query. Frankfurt is a few milliseconds from the database.
 
 ## Layers, and the one rule that matters
 
