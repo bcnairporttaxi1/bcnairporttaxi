@@ -64,6 +64,10 @@ export default async function CheckoutPage(props: {
 
   const t = await getTranslations('checkout');
 
+  /** Keeps a prefill inside the range the form allows, or drops it. */
+  const clamp = (v: number | null, lo: number, hi: number) =>
+    v === null || Number.isNaN(v) ? undefined : Math.min(hi, Math.max(lo, Math.round(v)));
+
   const plat = num(one('plat'));
   const plng = num(one('plng'));
   const dlat = num(one('dlat'));
@@ -166,6 +170,9 @@ export default async function CheckoutPage(props: {
         pickupAtIso={pickupAt.toISOString()}
         fleet={FLEET}
         initialMode={one('mode') === 'FULL_PREPAID' ? 'FULL_PREPAID' : 'FEE_ONLY'}
+        // Carried over by the rebook link so a repeat trip opens as it was.
+        initialPassengers={clamp(num(one('pax')), 1, 8)}
+        initialLuggage={clamp(num(one('bags')), 0, 16)}
       />
     </>
   );

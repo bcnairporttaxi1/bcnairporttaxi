@@ -17,6 +17,9 @@ interface Props {
   fleet: FleetVehicle[];
   /** Preselected from the home-screen choice. */
   initialMode: PaymentMode;
+  /** Carried over when rebooking a previous trip. Defaults to a couple. */
+  initialPassengers?: number;
+  initialLuggage?: number;
 }
 
 export function CheckoutForm({
@@ -27,6 +30,8 @@ export function CheckoutForm({
   pickupAtIso,
   fleet,
   initialMode,
+  initialPassengers,
+  initialLuggage,
 }: Props) {
   // Same locale rule as the date formatter below: zh needs an explicit script.
   const eur = (n: number) =>
@@ -41,8 +46,8 @@ export function CheckoutForm({
 
   const [vehicleSlug, setVehicleSlug] = useState(fleet[1]?.slug ?? fleet[0].slug);
   const [mode, setMode] = useState<PaymentMode>(initialMode);
-  const [passengers, setPassengers] = useState(2);
-  const [luggage, setLuggage] = useState(2);
+  const [passengers, setPassengers] = useState(initialPassengers ?? 2);
+  const [luggage, setLuggage] = useState(initialLuggage ?? 2);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');

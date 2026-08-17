@@ -454,7 +454,11 @@
     "nothingToPay": "Nothing",
     "viewDetails": "View details",
     "trackChat": "Track live & chat",
-    "bookAgain": "Book this trip again"
+    "bookAgain": "Book this trip again",
+    "rebookTitle": "Book this journey again",
+    "rebookIntro": "Your last trip, ready to repeat. Change the date at checkout.",
+    "rebookCta": "Rebook this journey",
+    "happeningNow": "Happening now"
   },
   "trip": {
     "livePosition": "Live position",

@@ -51,9 +51,28 @@ export default async function DriverPage(props: {
   ]);
 
   const active = bookings.filter((b) => ACTIVE_STATUSES.includes(b.status));
-  const upcoming = bookings.filter(
-    (b) => !ACTIVE_STATUSES.includes(b.status) && b.status !== 'COMPLETED' && b.status !== 'CANCELLED',
+
+  const dayStart = new Date();
+  dayStart.setHours(0, 0, 0, 0);
+  const dayEnd = new Date(dayStart);
+  dayEnd.setDate(dayEnd.getDate() + 1);
+
+  const scheduled = bookings.filter(
+    (b) =>
+      !ACTIVE_STATUSES.includes(b.status) &&
+      b.status !== 'COMPLETED' &&
+      b.status !== 'CANCELLED',
   );
+  const today = scheduled.filter((b) => b.pickupAt >= dayStart && b.pickupAt < dayEnd);
+  const upcoming = scheduled.filter((b) => b.pickupAt >= dayEnd);
+  const overdue = scheduled.filter((b) => b.pickupAt < dayStart);
+
+  // What the driver takes home today, split the way they are actually paid.
+  const doneToday = bookings.filter(
+    (b) => b.status === 'COMPLETED' && b.completedAt && b.completedAt >= dayStart,
+  );
+  const cashToday = doneToday.reduce((n, b) => n + Number(b.cashToCollect), 0);
+  const owedToday = doneToday.reduce((n, b) => n + Number(b.driverPayout), 0);
   const done = bookings
     .filter((b) => b.status === 'COMPLETED')
     .sort((a, b) => b.pickupAt.getTime() - a.pickupAt.getTime());
@@ -168,6 +187,29 @@ export default async function DriverPage(props: {
       userName={user.name}
       locale={locale}
     >
+      {/* Today first — it is what a driver checks between rides. */}
+      <div className="mb-4 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-card border-2 border-accent/40 bg-accent/5 p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Rides today</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">
+            {doneToday.length}
+            <span className="ml-2 font-sans text-xs font-normal text-muted">
+              done · {today.length} to go
+            </span>
+          </p>
+        </div>
+        <div className="rounded-card border border-hairline bg-white p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Cash taken today</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(cashToday)}</p>
+          <p className="mt-0.5 text-xs text-muted">collected in the car</p>
+        </div>
+        <div className="rounded-card border border-hairline bg-white p-5">
+          <p className="text-xs uppercase tracking-wider text-muted">Owed to you today</p>
+          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(owedToday)}</p>
+          <p className="mt-0.5 text-xs text-muted">prepaid rides</p>
+        </div>
+      </div>
+
       {/* Earnings summary, with the detail a click away. */}
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
         <div className="rounded-card border border-hairline bg-white p-5">
@@ -209,20 +251,50 @@ export default async function DriverPage(props: {
         </section>
       )}
 
+      {overdue.length > 0 && (
+        <section className="mb-10">
+          <h2 className="font-display text-xl font-extrabold text-red-800">
+            Pickup time passed ({overdue.length})
+          </h2>
+          <p className="mt-1 text-sm text-muted">
+            These were due before today and have not been started. Call the office if
+            something is wrong.
+          </p>
+          <div className="mt-4 space-y-4">
+            {overdue.map((b) => (
+              <Trip key={b.id} b={b} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section>
-        <h2 className="font-display text-xl font-extrabold">Upcoming ({upcoming.length})</h2>
-        {upcoming.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
-            Nothing assigned yet.
+        <h2 className="font-display text-xl font-extrabold">Today ({today.length})</h2>
+        {today.length === 0 ? (
+          <p className="mt-4 rounded-card border border-dashed border-hairline bg-white p-8 text-center text-muted">
+            Nothing left today.
           </p>
         ) : (
           <div className="mt-4 space-y-4">
-            {upcoming.map((b) => (
+            {today.map((b) => (
               <Trip key={b.id} b={b} />
             ))}
           </div>
         )}
       </section>
+
+      {upcoming.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-display text-xl font-extrabold">
+            Coming up ({upcoming.length})
+          </h2>
+          <div className="mt-4 space-y-4">
+            {upcoming.map((b) => (
+              <Trip key={b.id} b={b} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {done.length > 0 && (
         <section className="mt-10">

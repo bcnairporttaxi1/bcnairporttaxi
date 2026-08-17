@@ -279,7 +279,11 @@
     "nothingToPay": "Rien",
     "viewDetails": "Voir les détails",
     "trackChat": "Suivre en direct et discuter",
-    "bookAgain": "Réserver de nouveau ce trajet"
+    "bookAgain": "Réserver de nouveau ce trajet",
+    "rebookTitle": "Refaire ce trajet",
+    "rebookIntro": "Votre dernier trajet, prêt à répéter. Changez la date au paiement.",
+    "rebookCta": "Réserver à nouveau",
+    "happeningNow": "En cours"
   },
   "trip": {
     "livePosition": "Position en direct",

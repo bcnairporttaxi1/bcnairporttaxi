@@ -1,29 +1,60 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-import { PanelShell, StatusPill } from '@/components/panel-shell';
+import { Link } from '@/i18n/navigation';
+import { PanelShell } from '@/components/panel-shell';
+import { AdminBookingCard } from '@/components/admin-booking-card';
+import type { AssignableDriver } from '@/components/assign-driver-control';
 import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
-import { assignDriver, setBookingStatus } from './actions';
+import { assignDriver } from './actions';
 import { ADMIN_TABS } from './tabs';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Admin | BCNAirportTaxi' },
+  title: { absolute: 'Dispatch | BCNAirportTaxi' },
   robots: { index: false, follow: false },
 };
 
-const eur = (n: unknown) =>
-  new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(Number(n));
+/** Statuses where a driver is actively working the ride. */
+const ACTIVE = ['EN_ROUTE', 'ARRIVED', 'ON_BOARD'] as const;
 
-const STATUSES = [
-  'PENDING',
-  'CONFIRMED',
-  'ASSIGNED',
-  'EN_ROUTE',
-  'COMPLETED',
-  'CANCELLED',
-] as const;
+function Stat({
+  label,
+  value,
+  hint,
+  tone = 'plain',
+  href,
+}: {
+  label: string;
+  value: string | number;
+  hint?: string;
+  tone?: 'plain' | 'urgent' | 'good';
+  href?: string;
+}) {
+  const body = (
+    <div
+      className={`h-full rounded-card border p-4 transition ${
+        tone === 'urgent'
+          ? 'border-amber-300 bg-amber-50'
+          : tone === 'good'
+            ? 'border-green-200 bg-green-50'
+            : 'border-hairline bg-white'
+      } ${href ? 'hover:border-ink' : ''}`}
+    >
+      <p className="font-mono text-[11px] uppercase tracking-wider text-muted">{label}</p>
+      <p className="mt-1 font-mono text-2xl font-extrabold">{value}</p>
+      {hint && <p className="mt-0.5 text-xs text-muted">{hint}</p>}
+    </div>
+  );
+  return href ? (
+    <Link href={href} className="block">
+      {body}
+    </Link>
+  ) : (
+    body
+  );
+}
 
-export default async function AdminPage(props: {
+export default async function AdminDispatchPage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
@@ -31,168 +62,184 @@ export default async function AdminPage(props: {
 
   const user = await requireRole(['ADMIN'], locale);
 
-  const [bookings, drivers, counts] = await Promise.all([
-    prisma.booking.findMany({
-      include: { driver: true, vehicle: true },
-      orderBy: { pickupAt: 'asc' },
-      take: 100,
-    }),
-    prisma.driver.findMany({ where: { active: true }, orderBy: { name: 'asc' } }),
-    prisma.booking.groupBy({ by: ['status'], _count: { _all: true } }),
-  ]);
+  const eur = (n: unknown) =>
+    new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' }).format(Number(n));
+  const when = (d: Date) =>
+    new Intl.DateTimeFormat('en-GB', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'Europe/Madrid',
+    }).format(d);
 
-  const countFor = (s: string) =>
-    counts.find((c) => c.status === s)?._count._all ?? 0;
+  const now = new Date();
+  const dayStart = new Date(now);
+  dayStart.setHours(0, 0, 0, 0);
+  const dayEnd = new Date(dayStart);
+  dayEnd.setDate(dayEnd.getDate() + 1);
 
-  const revenue = bookings
-    .filter((b) => b.paymentStatus === 'PAID')
-    .reduce((sum, b) => sum + Number(b.amountOnline), 0);
+  const select = {
+    id: true, reference: true, status: true, paymentStatus: true, paymentMode: true,
+    pickupAt: true, createdAt: true, pickupLabel: true, dropoffLabel: true,
+    pickupLat: true, pickupLng: true, dropoffLat: true, dropoffLng: true,
+    contactName: true, contactEmail: true, contactPhone: true,
+    passengers: true, luggage: true, notes: true,
+    roadKm: true, durationMin: true, tariff: true, startFare: true, perKmRate: true,
+    supplements: true, meterEstimate: true, fixedFare: true, bookingFee: true,
+    amountOnline: true, driverPayout: true, driverId: true,
+    driver: { select: { name: true, phone: true, plate: true } },
+    vehicle: { select: { name: true } },
+  } as const;
+
+  // Batched into one round trip rather than eight concurrent connections.
+  const [needsDriver, active, upcoming, driverRows, todayCount, feesToday, unpaid] =
+    await prisma.$transaction([
+      prisma.booking.findMany({
+        where: { status: 'CONFIRMED', driverId: null },
+        orderBy: { pickupAt: 'asc' },
+        select,
+        take: 40,
+      }),
+      prisma.booking.findMany({
+        where: { status: { in: [...ACTIVE] } },
+        orderBy: { pickupAt: 'asc' },
+        select,
+        take: 40,
+      }),
+      prisma.booking.findMany({
+        where: { status: 'ASSIGNED', pickupAt: { gte: now } },
+        orderBy: { pickupAt: 'asc' },
+        select,
+        take: 40,
+      }),
+      prisma.driver.findMany({
+        where: { active: true, blocked: false },
+        orderBy: { name: 'asc' },
+        select: {
+          id: true, name: true, plate: true,
+          vehicle: { select: { name: true } },
+          bookings: {
+            where: { pickupAt: { gte: dayStart, lt: dayEnd }, status: { notIn: ['CANCELLED'] } },
+            select: { status: true },
+          },
+        },
+      }),
+      prisma.booking.count({ where: { pickupAt: { gte: dayStart, lt: dayEnd } } }),
+      prisma.booking.aggregate({
+        where: { paymentStatus: 'PAID', createdAt: { gte: dayStart, lt: dayEnd } },
+        _sum: { bookingFee: true },
+      }),
+      prisma.booking.count({ where: { status: 'PENDING' } }),
+    ]);
+
+  const drivers: AssignableDriver[] = driverRows.map((d) => ({
+    id: d.id,
+    name: d.name,
+    plate: d.plate,
+    vehicleName: d.vehicle?.name ?? null,
+    loadToday: d.bookings.length,
+    busy: d.bookings.some((b) => ACTIVE.includes(b.status as (typeof ACTIVE)[number])),
+  }));
+
+  const Section = ({
+    title,
+    hint,
+    rides,
+    empty,
+  }: {
+    title: string;
+    hint: string;
+    rides: typeof needsDriver;
+    empty: string;
+  }) => (
+    <section className="mt-10 first:mt-0">
+      <div className="mb-4 flex flex-wrap items-baseline gap-3">
+        <h2 className="font-display text-xl font-extrabold">{title}</h2>
+        <span className="rounded-full bg-ink px-2.5 py-0.5 font-mono text-xs font-bold text-accent">
+          {rides.length}
+        </span>
+        <p className="text-sm text-muted">{hint}</p>
+      </div>
+      {rides.length === 0 ? (
+        <p className="rounded-card border border-dashed border-hairline bg-white p-8 text-center text-sm text-muted">
+          {empty}
+        </p>
+      ) : (
+        <div className="space-y-5">
+          {rides.map((b) => (
+            <AdminBookingCard
+              key={b.id}
+              b={b}
+              locale={locale}
+              drivers={drivers}
+              eur={eur}
+              when={when}
+              assignAction={assignDriver}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  );
 
   return (
     <PanelShell
-      title="Bookings"
-      subtitle="Every reservation, newest pickup first. Assign a driver and move the status as the trip progresses."
+      title="Dispatch"
+      subtitle="Everything waiting on a decision, with the whole ride on one card."
       userName={user.name}
       locale={locale}
       tabs={ADMIN_TABS}
       activeHref="/admin"
     >
-      {/* Snapshot */}
-      <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          ['Awaiting payment', String(countFor('PENDING'))],
-          ['Confirmed', String(countFor('CONFIRMED'))],
-          ['Needs a driver', String(countFor('CONFIRMED'))],
-          ['Collected online', eur(revenue)],
-        ].map(([label, value]) => (
-          <div key={label} className="rounded-card border border-hairline bg-white p-5">
-            <dt className="text-sm text-muted">{label}</dt>
-            <dd className="mt-1 font-mono text-2xl font-extrabold">{value}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <Stat
+          label="Needs a driver"
+          value={needsDriver.length}
+          hint="paid, nobody assigned"
+          tone={needsDriver.length > 0 ? 'urgent' : 'good'}
+        />
+        <Stat label="On the road" value={active.length} hint="in progress now" />
+        <Stat label="Upcoming" value={upcoming.length} hint="assigned, ahead" />
+        <Stat label="Rides today" value={todayCount} hint="all statuses" />
+        <Stat
+          label="Fees today"
+          value={eur(feesToday._sum.bookingFee ?? 0)}
+          hint="paid bookings"
+          tone="good"
+        />
+      </div>
 
-      {bookings.length === 0 ? (
-        <p className="mt-8 rounded-card border border-hairline bg-white p-10 text-center text-muted">
-          No bookings yet.
+      {unpaid > 0 && (
+        <p className="mb-8 rounded-card border-2 border-amber-300 bg-amber-50 px-4 py-3 text-sm">
+          <strong>{unpaid}</strong> booking{unpaid === 1 ? '' : 's'} started checkout but
+          never paid. They hold no driver and expire on their own —{' '}
+          <Link
+            href={{ pathname: '/admin/rides', query: { bucket: 'pending' } }}
+            className="font-semibold text-accent-text underline underline-offset-2"
+          >
+            review them
+          </Link>
+          .
         </p>
-      ) : (
-        <div className="mt-8 space-y-4">
-          {bookings.map((b) => (
-            <article
-              key={b.id}
-              className="rounded-card border border-hairline bg-white p-5 sm:p-6"
-            >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <p className="font-mono text-lg font-extrabold">{b.reference}</p>
-                  <p className="text-sm text-muted">
-                    {new Intl.DateTimeFormat('en-GB', {
-                      dateStyle: 'medium',
-                      timeStyle: 'short',
-                      timeZone: 'Europe/Madrid',
-                    }).format(b.pickupAt)}
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <StatusPill value={b.status} />
-                  <StatusPill value={b.paymentStatus} />
-                </div>
-              </div>
-
-              <dl className="mt-4 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">From</dt>
-                  <dd className="font-medium">{b.pickupLabel}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">To</dt>
-                  <dd className="font-medium">{b.dropoffLabel}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">Passenger</dt>
-                  <dd>
-                    {b.contactName} · {b.contactPhone}
-                  </dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">Vehicle</dt>
-                  <dd>{b.vehicle?.name ?? '—'}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">Paid online</dt>
-                  <dd className="font-mono">{eur(b.amountOnline)}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="shrink-0 text-muted">In the taxi</dt>
-                  <dd className="font-mono">
-                    {b.paymentMode === 'FULL_PREPAID' ? 'Nothing' : eur(b.meterEstimate)}
-                  </dd>
-                </div>
-              </dl>
-
-              {b.notes && (
-                <p className="mt-3 rounded-lg bg-porcelain p-3 text-sm text-muted">{b.notes}</p>
-              )}
-
-              <div className="mt-5 flex flex-wrap gap-3 border-t border-hairline pt-4">
-                <form action={assignDriver} className="flex items-center gap-2">
-                  <input type="hidden" name="bookingId" value={b.id} />
-                  <input type="hidden" name="locale" value={locale} />
-                  <label className="sr-only" htmlFor={`driver-${b.id}`}>
-                    Assign driver to {b.reference}
-                  </label>
-                  <select
-                    id={`driver-${b.id}`}
-                    name="driverId"
-                    defaultValue={b.driverId ?? ''}
-                    className="rounded-lg border border-hairline bg-white px-3 py-2 text-sm"
-                  >
-                    <option value="">No driver</option>
-                    {drivers.map((d) => (
-                      <option key={d.id} value={d.id}>
-                        {d.name}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    type="submit"
-                    className="rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
-                  >
-                    Assign
-                  </button>
-                </form>
-
-                <form action={setBookingStatus} className="flex items-center gap-2">
-                  <input type="hidden" name="bookingId" value={b.id} />
-                  <input type="hidden" name="locale" value={locale} />
-                  <label className="sr-only" htmlFor={`status-${b.id}`}>
-                    Status for {b.reference}
-                  </label>
-                  <select
-                    id={`status-${b.id}`}
-                    name="status"
-                    defaultValue={b.status}
-                    className="rounded-lg border border-hairline bg-white px-3 py-2 text-sm"
-                  >
-                    {STATUSES.map((s) => (
-                      <option key={s} value={s}>
-                        {s.replace('_', ' ')}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    type="submit"
-                    className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
-                  >
-                    Update
-                  </button>
-                </form>
-              </div>
-            </article>
-          ))}
-        </div>
       )}
+
+      <Section
+        title="Needs a driver"
+        hint="paid and waiting — assign in one click"
+        rides={needsDriver}
+        empty="Nothing waiting. Every paid ride has a driver."
+      />
+      <Section
+        title="On the road"
+        hint="a driver is working these now"
+        rides={active}
+        empty="No rides in progress."
+      />
+      <Section
+        title="Upcoming"
+        hint="assigned and still ahead"
+        rides={upcoming}
+        empty="Nothing scheduled."
+      />
     </PanelShell>
   );
 }

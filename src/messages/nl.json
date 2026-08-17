@@ -279,7 +279,11 @@
     "nothingToPay": "Niets",
     "viewDetails": "Details bekijken",
     "trackChat": "Live volgen & chatten",
-    "bookAgain": "Deze rit opnieuw boeken"
+    "bookAgain": "Deze rit opnieuw boeken",
+    "rebookTitle": "Deze rit opnieuw boeken",
+    "rebookIntro": "Uw laatste rit, klaar om te herhalen. Wijzig de datum bij het afrekenen.",
+    "rebookCta": "Opnieuw boeken",
+    "happeningNow": "Nu onderweg"
   },
   "trip": {
     "livePosition": "Live positie",

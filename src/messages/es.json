@@ -340,7 +340,11 @@
     "nothingToPay": "Nada",
     "viewDetails": "Ver detalles",
     "trackChat": "Seguir en directo y chatear",
-    "bookAgain": "Reservar este viaje otra vez"
+    "bookAgain": "Reservar este viaje otra vez",
+    "rebookTitle": "Repite este trayecto",
+    "rebookIntro": "Tu último viaje, listo para repetir. Cambia la fecha al pagar.",
+    "rebookCta": "Reservar de nuevo",
+    "happeningNow": "En curso ahora"
   },
   "trip": {
     "livePosition": "Posición en directo",

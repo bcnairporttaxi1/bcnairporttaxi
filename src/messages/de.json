@@ -279,7 +279,11 @@
     "nothingToPay": "Nichts",
     "viewDetails": "Details ansehen",
     "trackChat": "Live verfolgen & chatten",
-    "bookAgain": "Diese Fahrt erneut buchen"
+    "bookAgain": "Diese Fahrt erneut buchen",
+    "rebookTitle": "Diese Fahrt erneut buchen",
+    "rebookIntro": "Ihre letzte Fahrt, bereit zur Wiederholung. Datum an der Kasse ändern.",
+    "rebookCta": "Erneut buchen",
+    "happeningNow": "Läuft gerade"
   },
   "trip": {
     "livePosition": "Live-Position",

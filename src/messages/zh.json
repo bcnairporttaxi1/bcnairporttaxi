@@ -279,7 +279,11 @@
     "nothingToPay": "无需支付",
     "viewDetails": "查看详情",
     "trackChat": "实时追踪与聊天",
-    "bookAgain": "再次预订此行程"
+    "bookAgain": "再次预订此行程",
+    "rebookTitle": "再次预订此行程",
+    "rebookIntro": "您上次的行程，可一键重订。结账时可更改日期。",
+    "rebookCta": "重新预订",
+    "happeningNow": "正在进行"
   },
   "trip": {
     "livePosition": "实时位置",

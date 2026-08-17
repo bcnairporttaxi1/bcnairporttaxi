@@ -279,7 +279,11 @@
     "nothingToPay": "Nulla",
     "viewDetails": "Vedi dettagli",
     "trackChat": "Segui in diretta e chatta",
-    "bookAgain": "Prenota di nuovo questo viaggio"
+    "bookAgain": "Prenota di nuovo questo viaggio",
+    "rebookTitle": "Ripeti questo viaggio",
+    "rebookIntro": "Il tuo ultimo viaggio, pronto da ripetere. Cambia la data al pagamento.",
+    "rebookCta": "Prenota di nuovo",
+    "happeningNow": "In corso ora"
   },
   "trip": {
     "livePosition": "Posizione in tempo reale",
