@@ -64,6 +64,11 @@ export default async function UsersPage(props: {
 
       <section>
         <h2 className="font-display text-xl font-extrabold">All accounts ({users.length})</h2>
+        {users.length === 0 ? (
+          <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+            No accounts yet. Open one above, or wait for a passenger to register.
+          </p>
+        ) : (
         <div className="mt-4 overflow-x-auto rounded-card border border-hairline bg-white">
           <table className="w-full text-sm">
             <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
@@ -142,6 +147,7 @@ export default async function UsersPage(props: {
             </tbody>
           </table>
         </div>
+        )}
       </section>
     </PanelShell>
   );
