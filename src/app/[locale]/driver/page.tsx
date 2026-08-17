@@ -5,8 +5,9 @@ import { PanelShell, StatusPill } from '@/components/panel-shell';
 import { RideActions } from '@/components/driver-ride-actions';
 import { prisma } from '@/lib/db';
 import { requireDriver } from '@/lib/guards';
+import { driverBalance } from '@/lib/driver-balance';
 import { ACTIVE_STATUSES } from '@/lib/rides';
-import { advanceRide, driverBalance } from './actions';
+import { advanceRide, } from './actions';
 
 export const metadata: Metadata = {
   title: { absolute: 'My trips | BCNAirportTaxi' },

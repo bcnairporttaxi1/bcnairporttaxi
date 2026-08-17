@@ -5,7 +5,8 @@ import { PanelShell } from '@/components/panel-shell';
 import { PayoutDetailsForm, WithdrawForm } from '@/components/driver-payout-forms';
 import { prisma } from '@/lib/db';
 import { requireDriver } from '@/lib/guards';
-import { driverBalance, requestWithdrawal, savePayoutDetails } from '../actions';
+import { driverBalance } from '@/lib/driver-balance';
+import { requestWithdrawal, savePayoutDetails } from '../actions';
 
 export const metadata: Metadata = {
   title: { absolute: 'Earnings | BCNAirportTaxi' },

@@ -8,6 +8,7 @@ import { absoluteUrl } from '@/lib/site';
 import { sendEmail, rideCompletedEmail, withdrawalEmail } from '@/lib/email';
 import { DRIVER_FLOW, canTransition, settlementFor } from '@/lib/rides';
 import { applyRideStatus } from '@/lib/ride-service';
+import { driverBalance } from '@/lib/driver-balance';
 import type { BookingStatus } from '@/generated/prisma/enums';
 
 export interface DriverActionState {
@@ -129,41 +130,6 @@ export async function savePayoutDetails(
 
   revalidatePath(`/${locale}/driver/earnings`);
   return { ok: 'Payout details saved.' };
-}
-
-/**
- * Computes what a driver may withdraw right now.
- *
- * Earned is the sum of payouts on completed rides; anything already requested
- * counts against it until an admin rejects it, so a driver cannot ask for the
- * same money twice by submitting the form again.
- */
-export async function driverBalance(driverId: string) {
-  const [earnedAgg, heldAgg, paidAgg] = await Promise.all([
-    prisma.booking.aggregate({
-      where: { driverId, status: 'COMPLETED' },
-      _sum: { driverPayout: true },
-    }),
-    prisma.withdrawal.aggregate({
-      where: { driverId, status: { in: ['REQUESTED', 'APPROVED'] } },
-      _sum: { amount: true },
-    }),
-    prisma.withdrawal.aggregate({
-      where: { driverId, status: 'PAID' },
-      _sum: { amount: true },
-    }),
-  ]);
-
-  const earned = Number(earnedAgg._sum.driverPayout ?? 0);
-  const pending = Number(heldAgg._sum.amount ?? 0);
-  const paid = Number(paidAgg._sum.amount ?? 0);
-
-  return {
-    earned,
-    pending,
-    paid,
-    available: Math.max(0, Math.round((earned - pending - paid) * 100) / 100),
-  };
 }
 
 /** Raises a withdrawal request against the available balance. */

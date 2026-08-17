@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
 import { z } from 'zod';
 import { calculateQuote, isAirport } from '@/lib/pricing';
 
@@ -37,6 +38,11 @@ function insideServiceArea(p: { lat: number; lng: number }): boolean {
 }
 
 export async function POST(request: Request) {
+  // A quote costs us an OSRM route lookup, so the ceiling protects a free
+  // third-party service as much as it protects us.
+  const limit = rateLimit(clientKey(request, 'quote'), 60, 60);
+  if (!limit.ok) return tooManyRequests(limit);
+
   let json: unknown;
   try {
     json = await request.json();

@@ -9,9 +9,21 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
     <script
       type="application/ld+json"
       // The payload is built from our own constants, never from user input.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: serialise(data) }}
     />
   );
+}
+
+/**
+ * JSON for a <script> block.
+ *
+ * A literal `</script>` anywhere in the data would close the tag early and
+ * let whatever follows be parsed as markup. None of the current callers pass
+ * anything a visitor wrote, but this sits one careless prop away from doing
+ * so, and escaping the angle bracket costs nothing.
+ */
+function serialise(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 
 export function OrganizationJsonLd({ locale }: { locale: string }) {

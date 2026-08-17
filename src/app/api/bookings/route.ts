@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
 import { randomBytes } from 'node:crypto';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
@@ -81,6 +82,12 @@ async function fetchRoute(
 }
 
 export async function POST(request: Request) {
+  // Ten bookings per ten minutes from one address. Well above any real
+  // customer, well below what it takes to fill the table with junk and
+  // burn SumUp checkouts and outbound email.
+  const limit = rateLimit(clientKey(request, 'bookings'), 10, 600);
+  if (!limit.ok) return tooManyRequests(limit);
+
   let json: unknown;
   try {
     json = await request.json();

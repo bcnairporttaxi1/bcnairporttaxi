@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
 import { z } from 'zod';
 
 /**
@@ -39,6 +40,12 @@ async function throttle() {
 }
 
 export async function GET(request: Request) {
+  // Nominatim asks for at most one request a second and will ban an
+  // address that ignores it. This keeps us inside their policy even if
+  // someone points a script at the endpoint.
+  const limit = rateLimit(clientKey(request, 'geocode'), 60, 60);
+  if (!limit.ok) return tooManyRequests(limit);
+
   const url = new URL(request.url);
   const parsed = querySchema.safeParse({ q: url.searchParams.get('q') ?? '' });
 
