@@ -94,6 +94,18 @@ IONOS also runs email on this domain (`mx00/mx01.ionos.es`). **Never move the
 nameservers away from IONOS without recreating those MX records first** —
 that is where `bookings@` lives.
 
+Sending and receiving are deliberately split:
+
+- **Outbound** goes through Resend, authenticated on the `send.` subdomain
+  (`resend._domainkey` TXT, `send` TXT for SPF, `send` MX). None of it touches
+  the root, so the mailbox is unaffected.
+- **Inbound** stays with IONOS on the root MX records.
+
+Do **not** enable Resend's "Enable Receiving". It adds an MX on `@` at priority
+9, which outranks the IONOS records at priority 10 — every message would go to
+Resend instead of the mailbox, and nothing in this app reads inbound mail. If
+programmatic inbound is ever wanted, put it on a subdomain.
+
 `www.bcnairporttaxi.es` is attached to the project but has no DNS record yet.
 To enable it, add at IONOS:
 
@@ -109,7 +121,7 @@ Vercel then redirects `www` to the apex on its own.
       sitemap and every email link derive from it
 - [x] Domain pointed at Vercel and added in the project
 - [ ] `AUTH_SECRET` is a real 32-byte random value, not a placeholder
-- [ ] `RESEND_FROM` on a verified domain, not `onboarding@resend.dev`
+- [x] `RESEND_FROM` on a verified domain, not `onboarding@resend.dev`
 - [ ] `NEXT_PUBLIC_WHATSAPP_NUMBER` is the real number
 - [ ] SumUp key is live rather than sandbox, merchant code correct
 - [ ] `npm run verify:payment` passes against production credentials
