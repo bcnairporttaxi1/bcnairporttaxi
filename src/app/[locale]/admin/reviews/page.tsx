@@ -25,6 +25,7 @@ export default async function AdminReviewsPage(props: {
       driver: { select: { name: true } },
     },
     orderBy: [{ approved: 'asc' }, { createdAt: 'desc' }],
+    take: 300,
   });
 
   // Passengers rating drivers can be published. Drivers rating passengers are

@@ -31,23 +31,24 @@ export default async function TripPage(props: {
   const access = await resolveTripAccess(reference);
   if (!access) notFound();
 
-  const booking = await prisma.booking.findUnique({
-    where: { id: access.bookingId },
-    include: { driver: true, vehicle: true },
-  });
+  // These three do not depend on each other, so they go together rather than
+  // three round trips deep. The update marks the viewer present, which is what
+  // decides whether an inbound message also gets mirrored to email.
+  const [booking, user] = await Promise.all([
+    prisma.booking.findUnique({
+      where: { id: access.bookingId },
+      include: { driver: true, vehicle: true },
+    }),
+    prisma.user.findUnique({
+      where: { id: session.userId },
+      select: { name: true },
+    }),
+    prisma.user.update({
+      where: { id: session.userId },
+      data: { lastSeenAt: new Date() },
+    }),
+  ]);
   if (!booking) notFound();
-
-  const user = await prisma.user.findUnique({
-    where: { id: session.userId },
-    select: { name: true },
-  });
-
-  // Marks the viewer present, which is what decides whether an inbound message
-  // also gets mirrored to email.
-  await prisma.user.update({
-    where: { id: session.userId },
-    data: { lastSeenAt: new Date() },
-  });
 
   const when = new Intl.DateTimeFormat(locale, {
     dateStyle: 'full',

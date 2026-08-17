@@ -338,6 +338,8 @@ model Review {
   @@index([rating])
   @@index([driverId, createdAt])
   @@index([direction, createdAt])
+  // The driver panel averages one direction for one driver.
+  @@index([driverId, direction])
 }
 
 /// A complaint raised by one party about the other on a specific ride.
@@ -392,6 +394,8 @@ model Withdrawal {
 
   @@index([driverId, requestedAt])
   @@index([status, requestedAt])
+  // driverBalance filters on both at once to work out what is still held.
+  @@index([driverId, status])
 }
 
 /// Trail for admin actions that change or remove data, including bulk ones.

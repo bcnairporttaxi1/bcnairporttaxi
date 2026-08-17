@@ -43,6 +43,9 @@ export default async function AccountPage(props: {
     where: { OR: [{ userId: user.id }, { contactEmail: user.email }] },
     include: { vehicle: true, driver: true },
     orderBy: { pickupAt: 'desc' },
+    // A frequent traveller's history is unbounded otherwise, and nobody
+    // scrolls past a couple of hundred past trips.
+    take: 200,
   });
 
   const now = Date.now();

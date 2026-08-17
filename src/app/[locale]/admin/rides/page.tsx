@@ -96,15 +96,15 @@ export default async function AdminRidesPage(props: {
       select: { id: true, name: true },
       orderBy: { name: 'asc' },
     }),
-    Promise.all(
-      BUCKETS.map(async (b) => [
-        b.key,
-        await prisma.booking.count({ where: whereFor(b.key, now) }),
-      ] as const),
-    ),
+    // Six counts, but one round trip: the bucket predicates overlap and
+    // cannot be expressed as a single groupBy, so they are batched instead.
+    // Promise.all here would open six connections against the same pool.
+    prisma.$transaction(BUCKETS.map((b) => prisma.booking.count({ where: whereFor(b.key, now) }))),
   ]);
 
-  const countOf = Object.fromEntries(counts) as Record<RideBucket, number>;
+  const countOf = Object.fromEntries(
+    BUCKETS.map((b, i) => [b.key, counts[i] ?? 0]),
+  ) as Record<RideBucket, number>;
 
   const rows: RideRow[] = bookings.map((b) => ({
     id: b.id,
