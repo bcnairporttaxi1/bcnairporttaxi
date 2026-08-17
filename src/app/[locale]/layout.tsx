@@ -6,10 +6,6 @@ import { Inter, Sora, Space_Mono } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@/lib/site';
-import { TopBar } from '@/components/top-bar';
-import { SiteHeader } from '@/components/site-header';
-import { SiteFooter } from '@/components/site-footer';
-import { CookieBanner } from '@/components/cookie-banner';
 import { OrganizationJsonLd } from '@/components/json-ld';
 import '../globals.css';
 
@@ -127,14 +123,11 @@ export default async function LocaleLayout(props: {
           <a href="#main" className="skip-link">
             {t('skipToContent')}
           </a>
-          {/* Always /account — reading the session here would make cookies()
-              part of the layout and turn every marketing page dynamic. That
-              route redirects by role instead. */}
-          <TopBar />
-          <SiteHeader accountHref="/account" />
-          <main id="main">{props.children}</main>
-          <SiteFooter />
-          <CookieBanner />
+            {/* Site header, footer and cookie banner live in the (site) route
+                group now. They belong to the public website, not to the
+                signed-in panels, which render their own application chrome
+                through PanelShell. Route groups do not affect URLs. */}
+            {props.children}
           <OrganizationJsonLd locale={locale} />
         </NextIntlClientProvider>
       </body>

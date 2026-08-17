@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useState } from 'react';
 import { useFormStatus } from 'react-dom';
-import type { AccountActionState } from '@/app/[locale]/account/actions';
+import type { AccountActionState } from '@/app/[locale]/(panel)/account/actions';
 
 const field =
   'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-slate-body';
