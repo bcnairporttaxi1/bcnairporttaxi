@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { PageHero } from '@/components/page-hero';
 import { QuoteWidget } from '@/components/quote-widget';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { locales } from '@/i18n/routing';

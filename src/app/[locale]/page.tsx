@@ -21,7 +21,6 @@ export default async function HomePage(props: {
   setRequestLocale(locale);
 
   const t = await getTranslations('home');
-  const tf = await getTranslations('fleet');
   const tw = await getTranslations('howItWorks');
   const tfaq = await getTranslations('faq');
   const tc = await getTranslations('common');

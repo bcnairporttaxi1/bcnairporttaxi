@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useLocale, useTranslations } from 'next-intl';
+import { eurIn } from '@/lib/format';
 import { Link } from '@/i18n/navigation';
 import { meetsLeadTime } from '@/lib/pricing';
 import type { PaymentMode } from '@/lib/tariffs';
@@ -72,11 +73,12 @@ export function QuoteWidget({
   const locale = useLocale();
 
   // Euros the way the reader writes them: "€45.20" in English, "45,20 €" in Spanish.
-  const eur = (n: number) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+  // The shared formatter caches its Intl instance per locale. Building one
+  // inline rebuilt it on every keystroke in the address fields.
+  const eur = eurIn(locale);
 
   const t = useTranslations('quote');
-  const initial = useMemo(defaultDateTime, []);
+  const initial = useMemo(() => defaultDateTime(), []);
   const headingId = useId();
 
   const [pickup, setPickup] = useState<Place | null>(null);

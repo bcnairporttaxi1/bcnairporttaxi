@@ -2,7 +2,7 @@ name: CI
 
 # Vercel deploys every push to main automatically, so without this a broken
 # commit reaches production before anyone knows. This runs the same checks
-# locally required, and marks the commit red if they fail.
+# required locally, and marks the commit red if they fail.
 on:
   push:
     branches: [main]
@@ -19,11 +19,11 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       # `npm ci` runs postinstall, which is `prisma generate` — the generated
@@ -40,13 +40,15 @@ jobs:
       - name: Unit tests
         run: npm test
 
-      # A build catches what the type checker cannot: bad imports across the
-      # server/client boundary, and pages that fail to prerender.
+      # Deliberately `build:ci`, not `build`. The Vercel build command also runs
+      # `prisma migrate deploy`, which needs a real database — correct on a
+      # deployment, impossible here, and it was what failed the first run.
+      # This step compiles the app and nothing else.
       - name: Build
-        run: npm run build
+        run: npm run build:ci
         env:
-          # Placeholders. The build must not need real credentials, and if it
-          # ever starts to, this step is where that gets caught.
+          # Never connected to; Prisma only needs a syntactically valid URL to
+          # generate a client and type-check the queries.
           DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
           AUTH_SECRET: ci-placeholder-secret-not-used-at-runtime
-          NEXT_PUBLIC_SITE_URL: https://example.invalid
+          NEXT_PUBLIC_SITE_URL: https://bcnairporttaxi.es

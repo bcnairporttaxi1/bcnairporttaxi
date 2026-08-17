@@ -5,7 +5,6 @@ import { PageHero } from '@/components/page-hero';
 import { CheckoutForm } from '@/components/checkout-form';
 import { calculateQuote, meetsLeadTime } from '@/lib/pricing';
 import { FLEET } from '@/lib/fleet';
-import { locales } from '@/i18n/routing';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
