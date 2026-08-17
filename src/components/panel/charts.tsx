@@ -14,7 +14,8 @@
 const GOLD = '#c9a227';
 const GOLD_BRIGHT = '#e3bf4a';
 const LINE = '#26262b';
-const MUTED = '#8b8b95';
+/** Kept in step with --p-muted so axis labels clear 4.5:1 like body text. */
+const MUTED = '#a3a3ad';
 
 export interface Point {
   label: string;

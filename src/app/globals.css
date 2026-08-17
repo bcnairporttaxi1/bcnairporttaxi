@@ -566,8 +566,16 @@ h4 {
   --p-line: #26262b;
   --p-line-soft: #1d1d21;
   --p-text: #ece9e3;
-  --p-muted: #8b8b95;
-  --p-faint: #5f5f68;
+  /* Secondary and tertiary text.
+   *
+   * These were #8b8b95 and #5f5f68, which measured 5.87:1 and 3.13:1 against
+   * --p-bg. The faint one failed WCAG AA outright and made whole table columns
+   * — dates, references, passenger names — unreadable. Both were raised
+   * together: lifting only the faint one would have made it brighter than the
+   * muted one and inverted the hierarchy they exist to express.
+   * Now 7.92:1 and 6.11:1. */
+  --p-muted: #a3a3ad;
+  --p-faint: #8e8e99;
   --p-gold: #c9a227;
   --p-gold-bright: #e3bf4a;
   --p-gold-dim: rgb(201 162 39 / 14%);
@@ -671,3 +679,61 @@ h4 {
 /* Table rows keep a visible hover on a dark ground, where a lighter fill
    alone is easy to miss. */
 .p-row:hover { background: rgb(255 255 255 / 3%); }
+
+/* Data tables.
+ *
+ * Column headers are the quietest thing here and the body text the loudest,
+ * which is the opposite of how these tables read before: the headers were
+ * legible and the data underneath was not.
+ */
+.p-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.p-table th {
+  padding: 0.7rem 0.75rem;
+  text-align: left;
+  font-family: var(--font-mono, ui-monospace), monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--p-faint);
+  border-bottom: 1px solid var(--p-line);
+  white-space: nowrap;
+}
+.p-table td {
+  padding: 0.75rem;
+  color: var(--p-text);
+  border-bottom: 1px solid var(--p-line-soft);
+  vertical-align: top;
+}
+.p-table tbody tr:last-child td { border-bottom: 0; }
+.p-table tbody tr[data-selected='true'] { background: var(--p-gold-dim); }
+
+/* Native controls follow color-scheme, not our tokens. Without this the OS
+   paints select popups, checkboxes and scrollbars from the light palette —
+   which is why dark option text sat on a dark field and vanished. */
+.panel { color-scheme: dark; }
+.panel input[type='checkbox'] { accent-color: var(--p-gold); width: 1rem; height: 1rem; }
+
+.p-select {
+  border: 1px solid var(--p-line);
+  background: var(--p-surface-2);
+  color: var(--p-text);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.85rem;
+}
+.p-select:focus-visible { outline: 2px solid var(--p-gold); outline-offset: 1px; }
+
+/* Live ride stepper. The current stage pulses so an in-progress ride is
+   distinguishable from a finished one at a glance, across the room. */
+.p-step-dot { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex-shrink: 0; }
+.p-step-done { background: var(--p-gold); }
+.p-step-todo { background: var(--p-line); }
+.p-step-now { background: var(--p-up); animation: p-pulse 1.8s ease-in-out infinite; }
+@keyframes p-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(74 222 128 / 55%); }
+  50% { box-shadow: 0 0 0 0.32rem rgb(74 222 128 / 0%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-step-now { animation: none; }
+}

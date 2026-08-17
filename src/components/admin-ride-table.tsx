@@ -19,6 +19,11 @@ export interface RideRow {
   fare: string;
   driverPayout: string;
   cashToCollect: string;
+  /** Plain-language stage, e.g. "Driver is waiting at the door". */
+  stage: string;
+  /** How long the ride has been in that stage, when it is in progress. */
+  stageFor: string | null;
+  live: boolean;
 }
 
 /**
@@ -27,6 +32,13 @@ export interface RideRow {
  * Selection is client state and the ids ride along in the form, so one submit
  * carries the whole batch. The destructive option is guarded twice: it only
  * appears once something is selected, and it asks before firing.
+ *
+ * Everything visual here is expressed through the panel's own tokens. The
+ * previous version reused the marketing site's classes — `text-muted`,
+ * `bg-white`, `border-hairline` — which are tuned for a white page. On the
+ * panel's near-black ground `text-muted` measured 3.74:1, below the 4.5:1 that
+ * WCAG AA asks of body text, and the dates, references, passenger names and
+ * fees were effectively invisible.
  */
 export function AdminRideTable({
   rows,
@@ -57,9 +69,9 @@ export function AdminRideTable({
 
   if (rows.length === 0) {
     return (
-      <p className="rounded-card border border-hairline bg-white p-10 text-center text-muted">
-        Nothing here.
-      </p>
+      <div className="p-card border-dashed p-10 text-center text-sm p-muted">
+        Nothing in this list.
+      </div>
     );
   }
 
@@ -71,8 +83,8 @@ export function AdminRideTable({
       ))}
 
       {selected.size > 0 && (
-        <div className="sticky top-0 z-10 mb-3 flex flex-wrap items-center gap-3 rounded-card border-2 border-accent bg-accent/10 p-4">
-          <span className="font-display text-sm font-extrabold">
+        <div className="sticky top-16 z-10 mb-3 flex flex-wrap items-center gap-3 rounded-xl border border-[var(--p-gold)] bg-[var(--p-surface-2)] p-4 shadow-lg">
+          <span className="font-display text-sm font-extrabold p-gold">
             {selected.size} selected
           </span>
 
@@ -80,7 +92,8 @@ export function AdminRideTable({
             name="op"
             value={op}
             onChange={(e) => setOp(e.target.value as typeof op)}
-            className="rounded-lg border border-hairline bg-white px-3 py-2 text-sm"
+            className="p-select"
+            aria-label="Bulk action"
           >
             <option value="status">Set status</option>
             <option value="driver">Assign driver</option>
@@ -88,23 +101,17 @@ export function AdminRideTable({
           </select>
 
           {op === 'status' && (
-            <select
-              name="status"
-              className="rounded-lg border border-hairline bg-white px-3 py-2 text-sm"
-            >
+            <select name="status" className="p-select" aria-label="New status">
               {statuses.map((s) => (
                 <option key={s} value={s}>
-                  {s}
+                  {s.replace(/_/g, ' ').toLowerCase()}
                 </option>
               ))}
             </select>
           )}
 
           {op === 'driver' && (
-            <select
-              name="driverId"
-              className="rounded-lg border border-hairline bg-white px-3 py-2 text-sm"
-            >
+            <select name="driverId" className="p-select" aria-label="Driver">
               <option value="">— unassign —</option>
               {drivers.map((d) => (
                 <option key={d.id} value={d.id}>
@@ -126,11 +133,7 @@ export function AdminRideTable({
                 e.preventDefault();
               }
             }}
-            className={`rounded-lg px-4 py-2 text-sm font-bold ${
-              op === 'delete'
-                ? 'bg-red-700 text-white hover:bg-red-800'
-                : 'bg-ink text-porcelain hover:bg-graphite'
-            }`}
+            className={`p-btn ${op === 'delete' ? 'p-btn-danger' : 'p-btn-gold'}`}
           >
             Apply
           </button>
@@ -138,18 +141,18 @@ export function AdminRideTable({
           <button
             type="button"
             onClick={() => setSelected(new Set())}
-            className="text-sm font-semibold underline underline-offset-4"
+            className="text-sm font-semibold p-muted underline underline-offset-4 hover:text-[var(--p-text)]"
           >
             Clear
           </button>
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-card border border-hairline bg-white">
-        <table className="w-full text-sm">
-          <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
+      <div className="p-card overflow-x-auto">
+        <table className="p-table">
+          <thead>
             <tr>
-              <th className="p-3">
+              <th className="w-10">
                 <input
                   type="checkbox"
                   checked={allOn}
@@ -159,25 +162,20 @@ export function AdminRideTable({
                   aria-label="Select all rides"
                 />
               </th>
-              <th className="p-3">When</th>
-              <th className="p-3">Reference</th>
-              <th className="p-3">Route</th>
-              <th className="p-3">Passenger</th>
-              <th className="p-3">Driver</th>
-              <th className="p-3">Status</th>
-              <th className="p-3 text-right">Fee</th>
-              <th className="p-3 text-right">To driver</th>
+              <th>When</th>
+              <th>Reference</th>
+              <th>Route</th>
+              <th>Passenger</th>
+              <th>Driver</th>
+              <th>Status</th>
+              <th className="text-right">Fee</th>
+              <th className="text-right">To driver</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr
-                key={r.id}
-                className={`border-b border-hairline last:border-0 ${
-                  selected.has(r.id) ? 'bg-accent/5' : ''
-                }`}
-              >
-                <td className="p-3">
+              <tr key={r.id} className="p-row" data-selected={selected.has(r.id)}>
+                <td>
                   <input
                     type="checkbox"
                     checked={selected.has(r.id)}
@@ -185,29 +183,57 @@ export function AdminRideTable({
                     aria-label={`Select ride ${r.reference}`}
                   />
                 </td>
-                <td className="whitespace-nowrap p-3">{r.pickupAt}</td>
-                <td className="p-3 font-mono">{r.reference}</td>
-                <td className="p-3 text-muted">
-                  {r.pickupLabel} → {r.dropoffLabel}
+                <td className="whitespace-nowrap font-mono text-xs">{r.pickupAt}</td>
+                <td className="whitespace-nowrap font-mono text-xs font-bold p-gold">
+                  {r.reference}
                 </td>
-                <td className="p-3">
-                  {r.contactName}
-                  <span className="block text-xs text-muted">{r.contactPhone}</span>
+                <td className="max-w-xs">
+                  <span className="line-clamp-2">
+                    {r.pickupLabel}
+                    <span className="p-faint"> → </span>
+                    {r.dropoffLabel}
+                  </span>
                 </td>
-                <td className="p-3">{r.driverName ?? <span className="text-muted">—</span>}</td>
-                <td className="p-3">
-                  <StatusPill value={r.status} />
-                  <span className="mt-1 block text-xs text-muted">
+                <td>
+                  <span className="block whitespace-nowrap">{r.contactName}</span>
+                  <a
+                    href={`tel:${r.contactPhone}`}
+                    className="font-mono text-xs p-muted hover:text-[var(--p-gold-bright)]"
+                  >
+                    {r.contactPhone}
+                  </a>
+                </td>
+                <td className="whitespace-nowrap">
+                  {r.driverName ?? <span className="p-faint">—</span>}
+                </td>
+                <td className="min-w-56">
+                  <span className="flex items-center gap-2">
+                    {r.live && <span aria-hidden="true" className="p-step-dot p-step-now" />}
+                    <StatusPill value={r.status} />
+                  </span>
+                  {/* The stage in words, because ON_BOARD tells an operator
+                      less than "Passenger is in the car" does. */}
+                  <span
+                    className={`mt-1 block text-xs ${
+                      r.live ? 'text-[var(--p-up)]' : 'p-muted'
+                    }`}
+                  >
+                    {r.stage}
+                    {r.stageFor && (
+                      <span className="ml-1 font-mono p-faint">· {r.stageFor}</span>
+                    )}
+                  </span>
+                  <span className="mt-0.5 block text-xs p-faint">
                     {r.paymentMode === 'FULL_PREPAID' ? 'prepaid' : 'fee only'} ·{' '}
                     {r.paymentStatus.toLowerCase()}
                   </span>
                 </td>
-                <td className="p-3 text-right font-mono">{r.bookingFee}</td>
-                <td className="p-3 text-right font-mono">
+                <td className="whitespace-nowrap text-right font-mono">{r.bookingFee}</td>
+                <td className="whitespace-nowrap text-right font-mono">
                   {r.driverPayout !== '—' ? (
-                    <span className="font-bold">{r.driverPayout}</span>
+                    <span className="font-bold p-gold">{r.driverPayout}</span>
                   ) : (
-                    <span className="text-muted" title="Settled in the car">
+                    <span className="p-muted" title="Settled in the car">
                       {r.cashToCollect}
                     </span>
                   )}

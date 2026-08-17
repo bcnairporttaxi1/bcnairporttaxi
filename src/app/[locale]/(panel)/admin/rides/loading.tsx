@@ -10,7 +10,7 @@ export default function Loading() {
   return (
     <LoadingRegion label="Loading rides">
       <PanelHeaderSkeleton />
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="px-5 py-6 lg:px-8 lg:py-8">
         <TableSkeleton />
       </div>
     </LoadingRegion>

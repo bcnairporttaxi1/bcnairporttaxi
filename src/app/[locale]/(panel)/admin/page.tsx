@@ -6,6 +6,8 @@ import { Card, CardHeader, Empty, MiniStat, RangeTabs, StatTile } from '@/compon
 import { AreaChart, BarChart, DonutChart, MeterRow } from '@/components/panel/charts';
 import { requireRole } from '@/lib/guards';
 import { RANGES, dashboardData, type RangeKey } from '@/lib/analytics';
+import { liveRides } from '@/lib/live-rides';
+import { LiveBoard } from '@/components/panel/live-board';
 import { adminNav } from './tabs';
 
 export const metadata: Metadata = {
@@ -33,7 +35,8 @@ export default async function OperationsCenterPage(props: {
   const user = await requireRole(['ADMIN'], locale);
 
   const range = (RANGES.find((r) => r.key === rawRange)?.key ?? '30d') as RangeKey;
-  const d = await dashboardData(range);
+  const now = new Date();
+  const [d, live] = await Promise.all([dashboardData(range), liveRides(now)]);
 
   /** Whole euros once the figures are big enough for cents to be noise. */
   const eur = (n: number) =>
@@ -51,7 +54,7 @@ export default async function OperationsCenterPage(props: {
     month: 'long',
     year: 'numeric',
     timeZone: 'Europe/Madrid',
-  }).format(new Date());
+  }).format(now);
 
   const statusMax = Math.max(...d.statusCounts.map((s) => s.value), 1);
 
@@ -137,6 +140,12 @@ export default async function OperationsCenterPage(props: {
           tone={d.abandoned > 0 ? 'urgent' : 'plain'}
           href="/admin/rides?bucket=pending"
         />
+      </div>
+
+      {/* What is happening on the road right now. This sits above the charts
+          on purpose: history can wait, a driver stuck at a door cannot. */}
+      <div className="mt-6">
+        <LiveBoard rides={live} locale={locale} now={now} limit={3} />
       </div>
 
       {/* Revenue over time, next to where it came from. */}
