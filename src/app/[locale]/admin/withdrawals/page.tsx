@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { PanelShell } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
+import { eurIn, dateIn } from '@/lib/format';
 import { requireRole } from '@/lib/guards';
 import { ADMIN_TABS } from '../tabs';
 import { decideWithdrawal } from '../actions';
@@ -26,14 +27,8 @@ export default async function WithdrawalsPage(props: {
 
   const user = await requireRole(['ADMIN'], locale);
 
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat(locale, {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const eur = eurIn(locale);
+  const when = dateIn(locale, 'medium');
 
   const withdrawals = await prisma.withdrawal.findMany({
     include: { driver: { select: { name: true, phone: true } } },

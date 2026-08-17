@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
 import { RideActions } from '@/components/driver-ride-actions';
 import { prisma } from '@/lib/db';
+import { eurIn, dateIn } from '@/lib/format';
 import { requireDriver } from '@/lib/guards';
 import { driverBalance } from '@/lib/driver-balance';
 import { ACTIVE_STATUSES } from '@/lib/rides';
@@ -22,14 +23,8 @@ export default async function DriverPage(props: {
 
   const { user, driver } = await requireDriver(locale);
 
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat(locale, {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const eur = eurIn(locale);
+  const when = dateIn(locale, 'medium');
 
   if (!driver) {
     return (

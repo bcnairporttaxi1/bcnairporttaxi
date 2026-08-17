@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { PanelShell } from '@/components/panel-shell';
 import { PayoutDetailsForm, WithdrawForm } from '@/components/driver-payout-forms';
 import { prisma } from '@/lib/db';
+import { eurIn, dateIn } from '@/lib/format';
 import { requireDriver } from '@/lib/guards';
 import { driverBalance } from '@/lib/driver-balance';
 import { requestWithdrawal, savePayoutDetails } from '../actions';
@@ -28,10 +29,8 @@ export default async function EarningsPage(props: {
 
   const { user, driver } = await requireDriver(locale);
 
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
-  const day = (d: Date) =>
-    new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: 'Europe/Madrid' }).format(d);
+  const eur = eurIn(locale);
+  const day = dateIn(locale, 'dateOnly');
 
   if (!driver) {
     return (

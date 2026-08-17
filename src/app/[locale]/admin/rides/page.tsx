@@ -4,9 +4,9 @@ import { Link } from '@/i18n/navigation';
 import { PanelShell } from '@/components/panel-shell';
 import { AdminRideTable, type RideRow } from '@/components/admin-ride-table';
 import { prisma } from '@/lib/db';
-import type { Prisma } from '@/generated/prisma/client';
+import { eurIn, dateIn } from '@/lib/format';
 import { requireRole } from '@/lib/guards';
-import { ACTIVE_STATUSES, type RideBucket } from '@/lib/rides';
+import { bucketWhere, type RideBucket } from '@/lib/rides';
 import { ADMIN_TABS } from '../tabs';
 import { bulkUpdateRides } from '../actions';
 
@@ -35,31 +35,6 @@ const ALL_STATUSES = [
   'CANCELLED',
 ];
 
-/** Turns a bucket into the database filter that fills it. */
-function whereFor(bucket: RideBucket, now: Date): Prisma.BookingWhereInput {
-  switch (bucket) {
-    case 'pending':
-      return { status: 'PENDING' };
-    case 'new':
-      // Two kinds of "needs attention": paid but nobody assigned, and anything
-      // whose pickup has already passed while still unfinished.
-      return {
-        OR: [
-          { status: 'CONFIRMED', driverId: null },
-          { status: { in: ['CONFIRMED', 'ASSIGNED'] }, pickupAt: { lt: now } },
-        ],
-      };
-    case 'upcoming':
-      return { status: 'ASSIGNED', pickupAt: { gte: now } };
-    case 'active':
-      return { status: { in: [...ACTIVE_STATUSES] } };
-    case 'completed':
-      return { status: 'COMPLETED' };
-    case 'cancelled':
-      return { status: 'CANCELLED' };
-  }
-}
-
 export default async function AdminRidesPage(props: {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ bucket?: string }>;
@@ -73,18 +48,12 @@ export default async function AdminRidesPage(props: {
   const bucket = (BUCKETS.find((b) => b.key === raw)?.key ?? 'new') as RideBucket;
   const now = new Date();
 
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat(locale, {
-      dateStyle: 'short',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const eur = eurIn(locale);
+  const when = dateIn(locale, 'short');
 
   const [bookings, drivers, counts] = await Promise.all([
     prisma.booking.findMany({
-      where: whereFor(bucket, now),
+      where: bucketWhere(bucket, now),
       include: { driver: { select: { name: true } } },
       orderBy: bucket === 'completed' || bucket === 'cancelled'
         ? { pickupAt: 'desc' }
@@ -99,7 +68,7 @@ export default async function AdminRidesPage(props: {
     // Six counts, but one round trip: the bucket predicates overlap and
     // cannot be expressed as a single groupBy, so they are batched instead.
     // Promise.all here would open six connections against the same pool.
-    prisma.$transaction(BUCKETS.map((b) => prisma.booking.count({ where: whereFor(b.key, now) }))),
+    prisma.$transaction(BUCKETS.map((b) => prisma.booking.count({ where: bucketWhere(b.key, now) }))),
   ]);
 
   const countOf = Object.fromEntries(

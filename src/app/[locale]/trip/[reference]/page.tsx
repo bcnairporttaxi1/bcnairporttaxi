@@ -9,6 +9,7 @@ import { rateMyDriver, reportMyDriver } from '@/app/[locale]/account/actions';
 import { ratePassenger, reportPassenger } from '@/app/[locale]/driver/actions';
 import { ACTIVE_STATUSES } from '@/lib/rides';
 import { prisma } from '@/lib/db';
+import { dateIn } from '@/lib/format';
 import { getSession } from '@/lib/auth';
 import { resolveTripAccess } from '@/lib/trip-access';
 
@@ -50,11 +51,7 @@ export default async function TripPage(props: {
   ]);
   if (!booking) notFound();
 
-  const when = new Intl.DateTimeFormat(locale, {
-    dateStyle: 'full',
-    timeStyle: 'short',
-    timeZone: 'Europe/Madrid',
-  }).format(booking.pickupAt);
+  const when = dateIn(locale, 'full')(booking.pickupAt);
 
   // Tracking and chat run from the moment a driver is attached until the ride
   // is closed out, which now spans four states rather than one.

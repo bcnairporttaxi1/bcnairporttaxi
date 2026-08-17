@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
+import { dateIn } from '@/lib/format';
 import { requireRole } from '@/lib/guards';
 import { ADMIN_TABS } from '../tabs';
 import { resolveReport, setUserBlocked } from '../actions';
@@ -27,12 +28,7 @@ export default async function ReportsPage(props: {
 
   const user = await requireRole(['ADMIN'], locale);
 
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat(locale, {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const when = dateIn(locale, 'medium');
 
   const reports = await prisma.report.findMany({
     include: {

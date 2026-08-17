@@ -7,6 +7,7 @@ import { EditRideForm } from '@/components/edit-ride-form';
 import { editMyRide } from './actions';
 import { isPassengerEditable, minutesLeftToEdit } from '@/lib/rides';
 import { prisma } from '@/lib/db';
+import { eurIn, dateIn } from '@/lib/format';
 import { requireRole } from '@/lib/guards';
 
 export async function generateMetadata(props: {
@@ -27,9 +28,7 @@ export default async function AccountPage(props: {
   setRequestLocale(locale);
   const t = await getTranslations('account');
 
-  // Money and dates follow the reader's locale, not a fixed English one.
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
+  const eur = eurIn(locale);
 
   const user = await requireRole(['USER', 'ADMIN', 'DRIVER'], locale);
 
@@ -56,12 +55,7 @@ export default async function AccountPage(props: {
     (b) => b.pickupAt.getTime() < now || b.status === 'CANCELLED',
   );
 
-  const when = (d: Date) =>
-    new Intl.DateTimeFormat(locale, {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-      timeZone: 'Europe/Madrid',
-    }).format(d);
+  const when = dateIn(locale, 'medium');
 
   function Card({ b }: { b: (typeof bookings)[number] }) {
     return (

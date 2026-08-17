@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { eurIn } from '@/lib/format';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
@@ -29,8 +30,7 @@ export default async function PricingPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations('pricing');
-  const eur = (n: number) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+  const eur = eurIn(locale);
 
 
   const rows: Array<[string, string]> = [

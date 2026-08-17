@@ -190,6 +190,38 @@ export type RideBucket =
   | 'completed'
   | 'cancelled';
 
+/**
+ * The database filter that fills each bucket.
+ *
+ * Kept beside `bucketFor` on purpose: one says which bucket a booking belongs
+ * to, the other says which bookings a bucket contains, and they have to be two
+ * statements of the same rule. Apart, they drifted silently — a test now
+ * asserts they agree.
+ */
+export function bucketWhere(bucket: RideBucket, now: Date): Record<string, unknown> {
+  switch (bucket) {
+    case 'pending':
+      return { status: 'PENDING' };
+    case 'new':
+      // Two kinds of needs-attention: paid with nobody assigned, and anything
+      // whose pickup has passed while still unfinished.
+      return {
+        OR: [
+          { status: 'CONFIRMED', driverId: null },
+          { status: { in: ['CONFIRMED', 'ASSIGNED'] }, pickupAt: { lt: now } },
+        ],
+      };
+    case 'upcoming':
+      return { status: 'ASSIGNED', pickupAt: { gte: now } };
+    case 'active':
+      return { status: { in: [...ACTIVE_STATUSES] } };
+    case 'completed':
+      return { status: 'COMPLETED' };
+    case 'cancelled':
+      return { status: 'CANCELLED' };
+  }
+}
+
 export function bucketFor(
   b: { status: BookingStatus; pickupAt: Date; driverId: string | null },
   now: Date = new Date(),

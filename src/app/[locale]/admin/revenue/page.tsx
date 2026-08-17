@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell } from '@/components/panel-shell';
 import { prisma } from '@/lib/db';
+import { eurIn } from '@/lib/format';
 import { requireRole } from '@/lib/guards';
 import { ADMIN_TABS } from '../tabs';
 
@@ -32,8 +33,7 @@ export default async function RevenuePage(props: {
   const since =
     period === 'all' ? undefined : new Date(Date.now() - Number(period) * 86_400_000);
 
-  const eur = (n: unknown) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(Number(n));
+  const eur = eurIn(locale);
 
   const paidWindow = {
     paymentStatus: 'PAID' as const,

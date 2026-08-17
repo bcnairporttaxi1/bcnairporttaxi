@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { prisma } from '@/lib/db';
+import { eurIn } from '@/lib/format';
 import { getCheckoutStatus } from '@/lib/payments/sumup';
 import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
 
@@ -25,8 +26,7 @@ export default async function BookingPage(props: {
 }) {
   const { locale, reference } = await props.params;
   setRequestLocale(locale);
-  const eur = (n: number) =>
-    new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
+  const eur = eurIn(locale);
 
 
   const t = await getTranslations('confirmation');

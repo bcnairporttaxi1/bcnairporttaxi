@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   bucketFor,
+  bucketWhere,
   canRoleTransition,
   canTransition,
   distanceMetres,
@@ -259,4 +260,50 @@ describe('status writes', () => {
     expect(statusWriteFor('CANCELLED', prepaid, 'ADMIN').cancelledBy).toBe('ADMIN');
     expect(statusWriteFor('CANCELLED', prepaid, 'ADMIN').cancelledAt).toBeInstanceOf(Date);
   });
+});
+
+describe('bucket definitions agree', () => {
+  // bucketFor says which bucket a booking is in; bucketWhere says which
+  // bookings a bucket holds. They are two statements of one rule, so this
+  // checks a representative booking lands in the bucket whose filter matches
+  // it — the property that quietly broke when they lived in separate files.
+  const now = new Date('2026-08-16T12:00:00Z');
+  const future = new Date('2026-08-20T09:00:00Z');
+  const past = new Date('2026-08-01T09:00:00Z');
+
+  const cases = [
+    { b: { status: 'PENDING', pickupAt: future, driverId: null }, bucket: 'pending' },
+    { b: { status: 'CONFIRMED', pickupAt: future, driverId: null }, bucket: 'new' },
+    { b: { status: 'ASSIGNED', pickupAt: future, driverId: 'd' }, bucket: 'upcoming' },
+    { b: { status: 'ASSIGNED', pickupAt: past, driverId: 'd' }, bucket: 'new' },
+    { b: { status: 'ON_BOARD', pickupAt: now, driverId: 'd' }, bucket: 'active' },
+    { b: { status: 'COMPLETED', pickupAt: past, driverId: 'd' }, bucket: 'completed' },
+    { b: { status: 'CANCELLED', pickupAt: past, driverId: null }, bucket: 'cancelled' },
+  ] as const;
+
+  /** Evaluates the Prisma-shaped predicate against one booking. */
+  function matches(where: Record<string, unknown>, b: (typeof cases)[number]['b']): boolean {
+    if (Array.isArray(where.OR)) {
+      return (where.OR as Record<string, unknown>[]).some((clause) => matches(clause, b));
+    }
+    for (const [field, cond] of Object.entries(where)) {
+      const value = (b as Record<string, unknown>)[field];
+      if (cond && typeof cond === 'object') {
+        const c = cond as Record<string, unknown>;
+        if ('in' in c && !(c.in as unknown[]).includes(value)) return false;
+        if ('lt' in c && !((value as Date) < (c.lt as Date))) return false;
+        if ('gte' in c && !((value as Date) >= (c.gte as Date))) return false;
+      } else if (value !== cond) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  for (const { b, bucket } of cases) {
+    it(`${b.status} lands in "${bucket}" by both routes`, () => {
+      expect(bucketFor(b, now)).toBe(bucket);
+      expect(matches(bucketWhere(bucket, now), b)).toBe(true);
+    });
+  }
 });
