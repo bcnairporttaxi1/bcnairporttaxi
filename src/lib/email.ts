@@ -121,6 +121,22 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
 
   const prepaid = d.paymentMode === 'FULL_PREPAID';
 
+  /**
+   * A booking sends two of these: once when it is created and payment is still
+   * outstanding, and again when payment completes. They used to share a
+   * subject, a headline and an opening line, so the second arrived looking
+   * like a duplicate of the first — and, worse, like a duplicate that
+   * contradicted it. Every line a reader uses to tell them apart now keys off
+   * `feePaid`.
+   */
+  const heading = d.feePaid ? 'Booking confirmed' : 'Booking received';
+  const subject = d.feePaid
+    ? `Payment confirmed — booking ${d.reference}`
+    : `Booking ${d.reference} — payment outstanding`;
+  const opener = d.feePaid
+    ? `Hello ${d.contactName}, your Barcelona taxi is confirmed.`
+    : `Hello ${d.contactName}, we have your booking. It is confirmed as soon as payment completes.`;
+
   const status = d.feePaid
     ? `<p style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px;font-size:14px">
          Payment of <strong>${eur(d.amountOnline)}</strong> received.
@@ -153,8 +169,8 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
        </p>`;
 
   const html = layout(
-    `Booking ${d.reference}`,
-    `<p style="font-size:15px;line-height:1.6">Hello ${d.contactName}, your Barcelona taxi is reserved.</p>
+    heading,
+    `<p style="font-size:15px;line-height:1.6">${opener}</p>
      <table style="width:100%;border-collapse:collapse;margin-top:14px;border-top:1px solid #e4e0d7">
        ${row('Pickup', d.pickupLabel)}
        ${row('Drop-off', d.dropoffLabel)}
@@ -169,8 +185,8 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
   );
 
   const text = [
-    `Booking ${d.reference}`,
-    `Hello ${d.contactName}, your Barcelona taxi is reserved.`,
+    `${heading} — ${d.reference}`,
+    opener,
     ``,
     `Pickup:   ${d.pickupLabel}`,
     `Drop-off: ${d.dropoffLabel}`,
@@ -191,7 +207,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
       : `You pay the metered fare directly to your driver. The meter decides the exact amount.`,
   ].join('\n');
 
-  return { subject: `Your Barcelona taxi — booking ${d.reference}`, html, text };
+  return { subject, html, text };
 }
 
 /**
