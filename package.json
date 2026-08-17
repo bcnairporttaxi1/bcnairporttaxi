@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
@@ -20,7 +20,8 @@
     "admin": "tsx scripts/create-admin.ts",
     "postinstall": "prisma generate",
     "verify:rides": "tsx --env-file=.env scripts/verify-ride-flow.ts",
-    "admin:reset": "tsx --env-file=.env scripts/reset-admin-password.ts"
+    "admin:reset": "tsx --env-file=.env scripts/reset-admin-password.ts",
+    "ci": "tsc --noEmit && eslint src && vitest run"
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",

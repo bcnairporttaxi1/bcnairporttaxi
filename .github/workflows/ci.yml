@@ -1,0 +1,52 @@
+name: CI
+
+# Vercel deploys every push to main automatically, so without this a broken
+# commit reaches production before anyone knows. This runs the same checks
+# locally required, and marks the commit red if they fail.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  # A newer push makes an in-flight run irrelevant.
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` runs postinstall, which is `prisma generate` — the generated
+      # client is not committed, so nothing type-checks without it.
+      - name: Install
+        run: npm ci
+
+      - name: Types
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npx eslint src
+
+      - name: Unit tests
+        run: npm test
+
+      # A build catches what the type checker cannot: bad imports across the
+      # server/client boundary, and pages that fail to prerender.
+      - name: Build
+        run: npm run build
+        env:
+          # Placeholders. The build must not need real credentials, and if it
+          # ever starts to, this step is where that gets caught.
+          DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+          AUTH_SECRET: ci-placeholder-secret-not-used-at-runtime
+          NEXT_PUBLIC_SITE_URL: https://example.invalid
