@@ -63,12 +63,34 @@ the repository root no longer looks like a Next.js app.
 A failed build does not take the site down: Vercel keeps serving the last
 successful deployment. But the window should be minutes, not hours.
 
-### Safer alternative
+### Do not change the setting first
 
-Change the Root Directory setting *first*, while `main` still has the old
-layout. The setting is ignored until a build actually needs it, so it is
-harmless in advance — and then the merge deploys cleanly with no failure window
-at all. **This is the recommended order.**
+An earlier draft of this file recommended changing Root Directory *before*
+merging, on the reasoning that the setting would be "ignored until a build needs
+it". **That is wrong, and following it would have broken production.**
+
+Root Directory applies to *every* build, including production builds from
+`main`. Set it to `apps/web` while `main` still has the app at the root and the
+next production deploy fails immediately, because there is no `apps/web` on that
+branch to build.
+
+The order above — merge, then change the setting — is the correct one. The
+failed build in the gap is harmless: Vercel keeps serving the last successful
+deployment until a new one succeeds.
+
+### Confirmed by the preview failure
+
+The `phase-0-foundation` preview build on commit `57bfd42` failed exactly as
+this file predicts:
+
+```
+Error: The file "/vercel/path0/.next/routes-manifest.json" couldn't be found.
+```
+
+Note what that message is *not* saying. The build itself succeeded — the full
+route manifest printed above the error. Vercel then looked for the output at the
+repository root while it had actually been produced in `apps/web/.next`. That is
+the Root Directory setting and nothing else.
 
 ## Rollback
 
