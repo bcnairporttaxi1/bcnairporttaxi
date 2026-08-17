@@ -35,19 +35,11 @@ function NavLink({ tab, active }: { tab: PanelTab; active: boolean }) {
     <Link
       href={tab.href}
       aria-current={active ? 'page' : undefined}
-      className={`group flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition ${
-        active
-          ? 'bg-accent font-bold text-ink'
-          : 'font-medium text-porcelain/70 hover:bg-white/10 hover:text-porcelain'
-      }`}
+      className="p-nav-item"
     >
       <span className="truncate">{tab.label}</span>
       {tab.count !== undefined && tab.count > 0 && (
-        <span
-          className={`shrink-0 rounded-full px-1.5 py-0.5 font-mono text-[10px] font-bold ${
-            active ? 'bg-ink/15 text-ink' : 'bg-accent text-ink'
-          }`}
-        >
+        <span className="shrink-0 rounded-full bg-[var(--p-gold)] px-1.5 py-0.5 font-mono text-[10px] font-bold text-[#0a0a0b]">
           {tab.count > 99 ? '99+' : tab.count}
         </span>
       )}
@@ -83,13 +75,24 @@ export function PanelShell({
   const flat = nav.flatMap((g) => g.items);
 
   return (
-    <div className="min-h-screen bg-porcelain lg:flex">
+    <div className="panel min-h-screen lg:flex">
       {/* Rail — fixed on desktop, out of the way and always available */}
       {flat.length > 0 && (
-        <aside className="shrink-0 bg-ink lg:sticky lg:top-0 lg:h-screen lg:w-60 lg:overflow-y-auto">
-          <div className="hidden items-center gap-2 px-5 py-5 lg:flex">
-            <span className="font-display text-lg font-extrabold text-porcelain">
-              BCN<span className="text-accent">AirportTaxi</span>
+        <aside className="shrink-0 border-b p-hairline bg-[var(--p-surface)] lg:sticky lg:top-0 lg:h-screen lg:w-60 lg:overflow-y-auto lg:border-b-0 lg:border-r">
+          <div className="hidden items-center gap-2.5 px-5 py-5 lg:flex">
+            <span
+              aria-hidden="true"
+              className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--p-gold)] font-display text-sm font-extrabold text-[#0a0a0b]"
+            >
+              B
+            </span>
+            <span className="leading-tight">
+              <span className="block font-display text-sm font-extrabold tracking-wide">
+                BCNAIRPORTTAXI
+              </span>
+              <span className="block text-[10px] uppercase tracking-wider p-faint">
+                Operations
+              </span>
             </span>
           </div>
 
@@ -98,7 +101,7 @@ export function PanelShell({
             {nav.map((group) => (
               <div key={group.label} className="mb-5">
                 {group.label && (
-                  <p className="px-3 pb-1.5 font-mono text-[10px] uppercase tracking-wider text-porcelain/35">
+                  <p className="px-3 pb-1.5 font-mono text-[10px] uppercase tracking-wider p-faint">
                     {group.label}
                   </p>
                 )}
@@ -131,26 +134,21 @@ export function PanelShell({
 
       <div className="min-w-0 flex-1">
         {/* Top bar — slim, sticky, everything the page needs to identify itself */}
-        <header className="sticky top-0 z-20 border-b border-hairline bg-white/95 backdrop-blur">
+        <header className="sticky top-0 z-20 border-b p-hairline bg-[rgb(10_10_11/88%)] backdrop-blur">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-3 lg:px-8">
             <div className="min-w-0">
               <h1 className="truncate font-display text-xl font-extrabold leading-tight">
                 {title}
               </h1>
-              {subtitle && (
-                <p className="mt-0.5 truncate text-sm text-muted">{subtitle}</p>
-              )}
+              {subtitle && <p className="mt-0.5 truncate text-sm p-muted">{subtitle}</p>}
             </div>
 
             <div className="flex items-center gap-3">
               {actions}
-              <span className="hidden text-sm text-muted sm:inline">{userName}</span>
+              <span className="hidden text-sm p-muted sm:inline">{userName}</span>
               <form action={logout}>
                 <input type="hidden" name="locale" value={locale} />
-                <button
-                  type="submit"
-                  className="rounded-lg border border-hairline px-3 py-1.5 text-sm font-semibold transition hover:border-ink"
-                >
+                <button type="submit" className="p-btn p-btn-ghost">
                   Sign out
                 </button>
               </form>
@@ -164,27 +162,32 @@ export function PanelShell({
   );
 }
 
+/**
+ * Status colours for a dark surface.
+ *
+ * The previous set was tuned for white cards — pale-100 backgrounds with
+ * dark-900 text — and effectively disappeared on near-black. These are tinted
+ * fills with a bright foreground, which is the same idea inverted.
+ */
 const STATUS_STYLES: Record<string, string> = {
-  PENDING: 'bg-amber-100 text-amber-900',
-  CONFIRMED: 'bg-green-100 text-green-900',
-  ASSIGNED: 'bg-blue-100 text-blue-900',
-  EN_ROUTE: 'bg-indigo-100 text-indigo-900',
-  // Added with the four-step driver flow. Without these the pills fell through
-  // to the neutral default and the two busiest live states looked inert.
-  ARRIVED: 'bg-violet-100 text-violet-900',
-  ON_BOARD: 'bg-teal-100 text-teal-900',
-  COMPLETED: 'bg-slate-200 text-slate-800',
-  CANCELLED: 'bg-red-100 text-red-900',
-  PAID: 'bg-green-100 text-green-900',
-  FAILED: 'bg-red-100 text-red-900',
-  REFUNDED: 'bg-slate-200 text-slate-800',
-  REQUESTED: 'bg-amber-100 text-amber-900',
-  APPROVED: 'bg-blue-100 text-blue-900',
-  REJECTED: 'bg-red-100 text-red-900',
-  OPEN: 'bg-red-100 text-red-900',
-  REVIEWING: 'bg-amber-100 text-amber-900',
-  RESOLVED: 'bg-green-100 text-green-900',
-  DISMISSED: 'bg-slate-200 text-slate-700',
+  PENDING: 'bg-[rgb(251_191_36/14%)] text-[#fbbf24]',
+  CONFIRMED: 'bg-[rgb(74_222_128/14%)] text-[#4ade80]',
+  ASSIGNED: 'bg-[rgb(96_165_250/14%)] text-[#60a5fa]',
+  EN_ROUTE: 'bg-[rgb(129_140_248/16%)] text-[#a5b4fc]',
+  ARRIVED: 'bg-[rgb(192_132_252/16%)] text-[#d8b4fe]',
+  ON_BOARD: 'bg-[rgb(45_212_191/16%)] text-[#5eead4]',
+  COMPLETED: 'bg-[rgb(255_255_255/8%)] text-[#b8b8c0]',
+  CANCELLED: 'bg-[rgb(248_113_113/14%)] text-[#f87171]',
+  PAID: 'bg-[rgb(74_222_128/14%)] text-[#4ade80]',
+  FAILED: 'bg-[rgb(248_113_113/14%)] text-[#f87171]',
+  REFUNDED: 'bg-[rgb(255_255_255/8%)] text-[#b8b8c0]',
+  REQUESTED: 'bg-[rgb(251_191_36/14%)] text-[#fbbf24]',
+  APPROVED: 'bg-[rgb(96_165_250/14%)] text-[#60a5fa]',
+  REJECTED: 'bg-[rgb(248_113_113/14%)] text-[#f87171]',
+  OPEN: 'bg-[rgb(248_113_113/14%)] text-[#f87171]',
+  REVIEWING: 'bg-[rgb(251_191_36/14%)] text-[#fbbf24]',
+  RESOLVED: 'bg-[rgb(74_222_128/14%)] text-[#4ade80]',
+  DISMISSED: 'bg-[rgb(255_255_255/8%)] text-[#8b8b95]',
 };
 
 /** Human wording for machine statuses — EN_ROUTE reads badly on a screen. */
@@ -198,7 +201,7 @@ export function StatusPill({ value }: { value: string }) {
   return (
     <span
       className={`inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold ${
-        STATUS_STYLES[value] ?? 'bg-slate-200 text-slate-700'
+        STATUS_STYLES[value] ?? 'bg-[rgb(255_255_255/8%)] text-[#b8b8c0]'
       }`}
     >
       {STATUS_LABELS[value] ?? value.replace(/_/g, ' ').toLowerCase()}

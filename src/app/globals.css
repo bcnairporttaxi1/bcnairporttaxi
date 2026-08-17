@@ -549,3 +549,125 @@ h4 {
   font-size: 10px;
   background: rgb(255 255 255 / 82%);
 }
+
+/* ── Panel theme ─────────────────────────────────────────────────────────
+   The signed-in panels run dark with a muted gold accent, matching the
+   operations console used across the group's other products. Scoped to
+   `.panel` so the public marketing site — which is light and stays light —
+   is untouched by any of it.
+
+   The gold here is deliberately duller than the site's #f5b301. A dashboard
+   is stared at for hours; the marketing accent is tuned to grab attention on
+   a white hero and is exhausting at that dwell time. */
+.panel {
+  --p-bg: #0a0a0b;
+  --p-surface: #121214;
+  --p-surface-2: #17171a;
+  --p-line: #26262b;
+  --p-line-soft: #1d1d21;
+  --p-text: #ece9e3;
+  --p-muted: #8b8b95;
+  --p-faint: #5f5f68;
+  --p-gold: #c9a227;
+  --p-gold-bright: #e3bf4a;
+  --p-gold-dim: rgb(201 162 39 / 14%);
+  --p-up: #4ade80;
+  --p-down: #f87171;
+  --p-info: #60a5fa;
+
+  background: var(--p-bg);
+  color: var(--p-text);
+}
+
+.panel ::selection {
+  background: var(--p-gold);
+  color: #0a0a0b;
+}
+
+/* Cards get a barely-there top highlight, which is what stops a flat dark
+   surface reading as a hole in the page. */
+.p-card {
+  background: var(--p-surface);
+  border: 1px solid var(--p-line);
+  border-radius: 0.75rem;
+  position: relative;
+}
+.p-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 7%), transparent);
+  pointer-events: none;
+}
+
+.p-hairline { border-color: var(--p-line); }
+.p-muted { color: var(--p-muted); }
+.p-faint { color: var(--p-faint); }
+.p-gold { color: var(--p-gold-bright); }
+
+/* Trend badge: direction is carried by colour AND the arrow glyph, so it
+   survives a colour-blind reader and a greyscale print. */
+.p-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem;
+}
+.p-trend-up { color: var(--p-up); background: rgb(74 222 128 / 12%); }
+.p-trend-down { color: var(--p-down); background: rgb(248 113 113 / 12%); }
+.p-trend-flat { color: var(--p-faint); background: rgb(255 255 255 / 5%); }
+
+/* Nav rail */
+.p-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.85rem;
+  color: var(--p-muted);
+  transition: background 0.15s, color 0.15s;
+}
+.p-nav-item:hover { background: rgb(255 255 255 / 4%); color: var(--p-text); }
+.p-nav-item[aria-current='page'] {
+  background: var(--p-gold-dim);
+  color: var(--p-gold-bright);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--p-gold);
+}
+
+.p-input {
+  background: var(--p-surface-2);
+  border: 1px solid var(--p-line);
+  border-radius: 0.5rem;
+  color: var(--p-text);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
+}
+.p-input::placeholder { color: var(--p-faint); }
+.p-input:focus-visible { outline: 2px solid var(--p-gold); outline-offset: 1px; }
+
+.p-btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.p-btn-gold { background: var(--p-gold); color: #0a0a0b; }
+.p-btn-gold:hover { background: var(--p-gold-bright); }
+.p-btn-ghost { border: 1px solid var(--p-line); color: var(--p-text); }
+.p-btn-ghost:hover { border-color: var(--p-gold); color: var(--p-gold-bright); }
+.p-btn-danger { border: 1px solid rgb(248 113 113 / 40%); color: var(--p-down); }
+.p-btn-danger:hover { background: rgb(248 113 113 / 12%); }
+
+/* Table rows keep a visible hover on a dark ground, where a lighter fill
+   alone is easy to miss. */
+.p-row:hover { background: rgb(255 255 255 / 3%); }
