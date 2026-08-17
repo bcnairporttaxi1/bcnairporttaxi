@@ -31,4 +31,4 @@ export const CORE_ROUTES = [
   '/refund-policy',
 ] as const;
 
-export const CONTACT_EMAIL = 'bookings@bcnairporttaxi.com';
+export const CONTACT_EMAIL = 'bookings@bcnairporttaxi.es';

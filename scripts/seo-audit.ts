@@ -8,7 +8,10 @@
  * Usage: npx tsx scripts/seo-audit.ts [baseUrl]
  */
 
-const BASE = process.argv[2] ?? 'https://bcnairporttaxi.vercel.app';
+const BASE =
+  process.argv[2] ??
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ??
+  'https://bcnairporttaxi.es';
 const LOCALE = 'en';
 
 /** The exact target keyword list. */

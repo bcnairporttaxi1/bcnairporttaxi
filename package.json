@@ -21,7 +21,8 @@
     "postinstall": "prisma generate",
     "verify:rides": "tsx --env-file=.env scripts/verify-ride-flow.ts",
     "admin:reset": "tsx --env-file=.env scripts/reset-admin-password.ts",
-    "ci": "tsc --noEmit && eslint src && vitest run"
+    "ci": "tsc --noEmit && eslint src && vitest run",
+    "verify:emails": "tsx --env-file=.env scripts/verify-emails.ts"
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",

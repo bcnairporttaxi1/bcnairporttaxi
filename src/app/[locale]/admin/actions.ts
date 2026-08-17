@@ -7,6 +7,7 @@ import { getSession, hashPassword } from '@/lib/auth';
 import { absoluteUrl } from '@/lib/site';
 import { generateTemporaryPassword } from '@/lib/passwords';
 import {
+  driverAssignedEmail,
   sendEmail,
   temporaryPasswordEmail,
   withdrawalEmail,
@@ -38,6 +39,15 @@ export async function assignDriver(formData: FormData): Promise<void> {
   const driverId = String(formData.get('driverId') || '');
   const locale = String(formData.get('locale') ?? 'en');
 
+  // Read first, then write. The status decision depends on the current value,
+  // and nesting that read inside the update object made the order of
+  // evaluation something you had to reason about rather than see.
+  const before = await prisma.booking.findUnique({
+    where: { id: bookingId },
+    select: { status: true },
+  });
+  if (!before) return;
+
   const booking = await prisma.booking.update({
     where: { id: bookingId },
     data: {
@@ -45,28 +55,32 @@ export async function assignDriver(formData: FormData): Promise<void> {
       // Attaching a driver advances the booking, but never drags a completed
       // or cancelled trip backwards.
       status:
-        driverId && ['PENDING', 'CONFIRMED'].includes(
-          (await prisma.booking.findUnique({
-            where: { id: bookingId },
-            select: { status: true },
-          }))?.status ?? '',
-        )
+        driverId && ['PENDING', 'CONFIRMED'].includes(before.status)
           ? 'ASSIGNED'
           : undefined,
     },
-    include: { driver: true },
+    include: { driver: true, vehicle: { select: { name: true } } },
   });
 
   if (driverId && booking.driver) {
-    await sendEmail({
-      to: booking.contactEmail,
-      subject: `Your driver for booking ${booking.reference}`,
-      html: `<p>Your driver for ${booking.reference} is <strong>${booking.driver.name}</strong>, reachable on ${booking.driver.phone}.</p>`,
-      text: `Your driver for ${booking.reference} is ${booking.driver.name}, reachable on ${booking.driver.phone}.`,
+    // The passenger needs to recognise the car, not just know a name — so the
+    // plate and vehicle go in the email rather than only the driver's phone.
+    const mail = driverAssignedEmail({
+      name: booking.contactName,
+      reference: booking.reference,
+      pickupAt: booking.pickupAt,
+      locale: booking.locale,
+      driverName: booking.driver.name,
+      driverPhone: booking.driver.phone,
+      plate: booking.driver.plate,
+      vehicleName: booking.vehicle?.name,
+      tripUrl: absoluteUrl(`/${booking.locale}/trip/${booking.reference}`),
     });
+    await sendEmail({ to: booking.contactEmail, ...mail });
   }
 
   revalidatePath(`/${locale}/admin`);
+  revalidatePath(`/${locale}/admin/rides`);
 }
 
 const STATUSES = [
