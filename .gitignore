@@ -1,8 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#
+# Patterns are deliberately NOT root-anchored. This is a workspace: build output
+# and generated code appear under apps/* and packages/* as well as at the root,
+# and a leading slash would only match the root copy. That is exactly what
+# happened during the Phase 0 migration — `/.next/` stopped matching once the
+# app moved to apps/web, and 3,780 build artifacts became stageable.
 
 # dependencies
 node_modules/
-/.pnp
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -19,6 +25,15 @@ out/
 
 # production
 build/
+
+# expo (future mobile workspaces)
+.expo/
+dist/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
 
 # misc
 .DS_Store
@@ -41,4 +56,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated Prisma client — output lives under apps/web, never committed
 **/generated/prisma/
