@@ -91,16 +91,16 @@ export default async function AccountPage(props: {
     const prepaid = b.paymentMode === 'FULL_PREPAID';
     return (
       <article
-        className={`overflow-hidden rounded-card border bg-white ${
-          isLive ? 'border-accent shadow-lg shadow-accent/10' : 'border-hairline'
+        className={`overflow-hidden p-card ${
+          isLive ? 'border-[var(--p-gold)] shadow-lg shadow-[var(--p-gold)]/10' : 'p-hairline'
         }`}
       >
-        <div className="flex flex-wrap items-start justify-between gap-3 border-b border-hairline bg-porcelain px-5 py-3.5">
+        <div className="flex flex-wrap items-start justify-between gap-3 border-b p-hairline bg-[var(--p-surface-2)] px-5 py-3.5">
           <div>
             <p className="font-display text-lg font-extrabold leading-tight">
               {when(b.pickupAt)}
             </p>
-            <p className="font-mono text-xs text-muted">{b.reference}</p>
+            <p className="font-mono text-xs p-muted">{b.reference}</p>
           </div>
           <StatusPill value={b.status} />
         </div>
@@ -108,44 +108,44 @@ export default async function AccountPage(props: {
         <div className="px-5 py-4">
           <div className="space-y-1.5 text-sm">
             <p className="flex gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-accent-text">
+              <span aria-hidden="true" className="mt-0.5 p-gold">
                 &#9650;
               </span>
               <span className="font-medium">{b.pickupLabel}</span>
             </p>
             <p className="flex gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-muted">
+              <span aria-hidden="true" className="mt-0.5 p-muted">
                 &#9660;
               </span>
               <span className="font-medium">{b.dropoffLabel}</span>
             </p>
           </div>
 
-          <dl className="mt-4 grid gap-x-6 gap-y-1.5 border-t border-hairline pt-3 text-sm sm:grid-cols-2">
+          <dl className="mt-4 grid gap-x-6 gap-y-1.5 border-t p-hairline pt-3 text-sm sm:grid-cols-2">
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">{t('vehicle')}</dt>
+              <dt className="shrink-0 p-muted">{t('vehicle')}</dt>
               <dd>{b.vehicle?.name ?? t('vehicleTbd')}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">{t('toPayInTaxi')}</dt>
+              <dt className="shrink-0 p-muted">{t('toPayInTaxi')}</dt>
               <dd className="font-mono font-bold">
                 {prepaid ? t('nothingToPay') : eur(b.meterEstimate)}
               </dd>
             </div>
             {b.driver && (
               <div className="flex gap-2 sm:col-span-2">
-                <dt className="shrink-0 text-muted">{t('driver')}</dt>
+                <dt className="shrink-0 p-muted">{t('driver')}</dt>
                 <dd>
                   <span className="font-semibold">{b.driver.name}</span>
                   {' · '}
                   <a
                     href={`tel:${b.driver.phone}`}
-                    className="font-semibold text-accent-text"
+                    className="font-semibold p-gold"
                   >
                     {b.driver.phone}
                   </a>
                   {b.driver.plate && (
-                    <span className="ml-2 rounded bg-ink px-1.5 py-0.5 font-mono text-[11px] font-bold text-accent">
+                    <span className="ml-2 rounded bg-[rgb(255_255_255/8%)] px-1.5 py-0.5 font-mono text-[11px] font-bold p-gold">
                       {b.driver.plate}
                     </span>
                   )}
@@ -173,18 +173,18 @@ export default async function AccountPage(props: {
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 border-t border-hairline bg-porcelain/50 px-5 py-3">
+        <div className="flex flex-wrap items-center gap-3 border-t p-hairline bg-[var(--p-surface-2)] px-5 py-3">
           {(b.status === 'ASSIGNED' || ACTIVE_STATUSES.includes(b.status)) && (
             <Link
               href={`/trip/${b.reference}`}
-              className="wave rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
+              className="wave rounded-lg bg-[var(--p-gold)] px-4 py-2 text-sm font-bold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
             >
               {t('trackChat')}
             </Link>
           )}
           <Link
             href={`/booking/${b.reference}`}
-            className="text-sm font-semibold text-accent-text underline underline-offset-4"
+            className="text-sm font-semibold p-gold underline underline-offset-4"
           >
             {t('viewDetails')}
           </Link>
@@ -211,11 +211,11 @@ export default async function AccountPage(props: {
       activeHref="/account"
     >
       {bookings.length === 0 ? (
-        <div className="rounded-card border border-hairline bg-white p-12 text-center">
-          <p className="text-muted">{t('empty')}</p>
+        <div className="p-card p-12 text-center">
+          <p className="p-muted">{t('empty')}</p>
           <Link
             href="/"
-            className="wave mt-6 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+            className="wave mt-6 inline-block rounded-xl bg-[var(--p-gold)] px-6 py-3 font-display font-extrabold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
           >
             {t('getPrice')}
           </Link>
@@ -224,12 +224,12 @@ export default async function AccountPage(props: {
         <>
           {/* The single action most people open this page to take. */}
           {mostRecent && (
-            <section className="mb-10 rounded-card border-2 border-accent/40 bg-accent/5 p-5 sm:p-6">
+            <section className="mb-10 rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-5 sm:p-6">
               <h2 className="font-display text-lg font-extrabold">{t('rebookTitle')}</h2>
-              <p className="mt-1 text-sm text-muted">{t('rebookIntro')}</p>
+              <p className="mt-1 text-sm p-muted">{t('rebookIntro')}</p>
               <p className="mt-3 text-sm">
                 <span className="font-medium">{mostRecent.pickupLabel}</span>
-                <span className="mx-2 text-muted">&rarr;</span>
+                <span className="mx-2 p-muted">&rarr;</span>
                 <span className="font-medium">{mostRecent.dropoffLabel}</span>
               </p>
               <div className="mt-4">
@@ -260,7 +260,7 @@ export default async function AccountPage(props: {
               {t('upcoming', { count: upcoming.length })}
             </h2>
             {upcoming.length === 0 ? (
-              <p className="rounded-card border border-dashed border-hairline bg-white p-8 text-center text-muted">
+              <p className="p-card border-dashed p-8 text-center p-muted">
                 {t('nothingUpcoming')}
               </p>
             ) : (

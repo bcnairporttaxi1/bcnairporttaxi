@@ -36,7 +36,7 @@ export default async function EarningsPage(props: {
   if (!driver) {
     return (
       <PanelShell title="Earnings" userName={user.name} locale={locale}>
-        <p className="rounded-card border border-hairline bg-white p-10 text-center text-muted">
+        <p className="p-card p-10 text-center p-muted">
           This account has no driver record attached yet.
         </p>
       </PanelShell>
@@ -79,7 +79,7 @@ export default async function EarningsPage(props: {
     >
       <Link
         href="/driver"
-        className="mb-8 inline-block text-sm font-bold text-accent-text underline underline-offset-4"
+        className="mb-8 inline-block text-sm font-bold p-gold underline underline-offset-4"
       >
         ← Back to my trips
       </Link>
@@ -91,8 +91,8 @@ export default async function EarningsPage(props: {
           ['Paid out', balance.paid],
           ['Earned total', balance.earned],
         ].map(([label, value]) => (
-          <div key={String(label)} className="rounded-card border border-hairline bg-white p-5">
-            <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
+          <div key={String(label)} className="p-card p-5">
+            <p className="text-xs uppercase tracking-wider p-muted">{label}</p>
             <p className="mt-1 font-mono text-2xl font-extrabold">{eur(value)}</p>
           </div>
         ))}
@@ -100,7 +100,7 @@ export default async function EarningsPage(props: {
 
       {/* Fee-only rides settle in the car, so they never reach this balance.
           Saying so here saves the same question every week. */}
-      <p className="mt-4 rounded-card border-2 border-accent/40 bg-accent/5 p-4 text-sm leading-relaxed">
+      <p className="mt-4 rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-4 text-sm leading-relaxed">
         Only <strong>prepaid</strong> rides appear here. On a fee-only ride you take the
         metered fare directly from the passenger in the car, so there is nothing for us to
         pay you afterwards.
@@ -139,13 +139,13 @@ export default async function EarningsPage(props: {
       <section className="mt-12">
         <h2 className="font-display text-xl font-extrabold">Payout history</h2>
         {withdrawals.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
+          <p className="mt-4 p-card p-8 text-center p-muted">
             No payouts requested yet.
           </p>
         ) : (
-          <div className="mt-4 overflow-x-auto rounded-card border border-hairline bg-white">
+          <div className="mt-4 overflow-x-auto p-card">
             <table className="w-full text-sm">
-              <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
+              <thead className="border-b p-hairline text-left text-xs uppercase tracking-wider p-muted">
                 <tr>
                   <th className="p-4">Requested</th>
                   <th className="p-4">Amount</th>
@@ -155,7 +155,7 @@ export default async function EarningsPage(props: {
               </thead>
               <tbody>
                 {withdrawals.map((w) => (
-                  <tr key={w.id} className="border-b border-hairline last:border-0">
+                  <tr key={w.id} className="border-b p-hairline last:border-0">
                     <td className="p-4">{day(w.requestedAt)}</td>
                     <td className="p-4 font-mono font-bold">{eur(w.amount)}</td>
                     <td className="p-4">{w.method === 'BIZUM' ? 'Bizum' : 'Bank'}</td>
@@ -168,7 +168,7 @@ export default async function EarningsPage(props: {
                         {w.status}
                       </span>
                       {w.adminNotes && (
-                        <span className="ml-2 text-xs text-muted">{w.adminNotes}</span>
+                        <span className="ml-2 text-xs p-muted">{w.adminNotes}</span>
                       )}
                     </td>
                   </tr>
@@ -182,13 +182,13 @@ export default async function EarningsPage(props: {
       <section className="mt-12">
         <h2 className="font-display text-xl font-extrabold">Completed rides</h2>
         {completed.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
+          <p className="mt-4 p-card p-8 text-center p-muted">
             No completed rides yet.
           </p>
         ) : (
-          <div className="mt-4 overflow-x-auto rounded-card border border-hairline bg-white">
+          <div className="mt-4 overflow-x-auto p-card">
             <table className="w-full text-sm">
-              <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
+              <thead className="border-b p-hairline text-left text-xs uppercase tracking-wider p-muted">
                 <tr>
                   <th className="p-4">Date</th>
                   <th className="p-4">Reference</th>
@@ -199,10 +199,10 @@ export default async function EarningsPage(props: {
               </thead>
               <tbody>
                 {completed.map((b) => (
-                  <tr key={b.id} className="border-b border-hairline last:border-0">
+                  <tr key={b.id} className="border-b p-hairline last:border-0">
                     <td className="whitespace-nowrap p-4">{day(b.completedAt ?? b.pickupAt)}</td>
                     <td className="p-4 font-mono">{b.reference}</td>
-                    <td className="p-4 text-muted">
+                    <td className="p-4 p-muted">
                       {b.pickupLabel} → {b.dropoffLabel}
                     </td>
                     <td className="p-4 font-mono">

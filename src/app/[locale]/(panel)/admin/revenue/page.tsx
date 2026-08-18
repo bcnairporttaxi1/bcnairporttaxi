@@ -104,12 +104,12 @@ export default async function RevenuePage(props: {
           ? 'border-green-200 bg-green-50'
           : tone === 'warn'
             ? 'border-amber-200 bg-amber-50'
-            : 'border-hairline bg-white'
+            : 'p-hairline bg-[var(--p-surface)]'
       }`}
     >
-      <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
+      <p className="text-xs uppercase tracking-wider p-muted">{label}</p>
       <p className="mt-1 font-mono text-2xl font-extrabold">{value}</p>
-      {hint && <p className="mt-1.5 text-xs leading-relaxed text-muted">{hint}</p>}
+      {hint && <p className="mt-1.5 text-xs leading-relaxed p-muted">{hint}</p>}
     </div>
   );
 
@@ -130,8 +130,8 @@ export default async function RevenuePage(props: {
                 href={{ pathname: '/admin/revenue', query: { period: p.key } }}
                 className={`inline-block rounded-xl px-4 py-2.5 text-sm font-bold transition ${
                   p.key === period
-                    ? 'bg-ink text-porcelain'
-                    : 'border border-hairline bg-white hover:border-ink'
+                    ? 'bg-[var(--p-gold)] text-[#0a0a0b]'
+                    : 'p-card hover:border-[var(--p-gold)]'
                 }`}
               >
                 {p.label}
@@ -209,9 +209,9 @@ export default async function RevenuePage(props: {
 
       <section className="mt-10">
         <h2 className="font-display text-xl font-extrabold">Bookings by status</h2>
-        <div className="mt-4 overflow-x-auto rounded-card border border-hairline bg-white">
+        <div className="mt-4 overflow-x-auto p-card">
           <table className="w-full text-sm">
-            <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
+            <thead className="border-b p-hairline text-left text-xs uppercase tracking-wider p-muted">
               <tr>
                 <th className="p-4">Status</th>
                 <th className="p-4 text-right">Count</th>
@@ -219,7 +219,7 @@ export default async function RevenuePage(props: {
             </thead>
             <tbody>
               {byMode.map((r) => (
-                <tr key={r.status} className="border-b border-hairline last:border-0">
+                <tr key={r.status} className="border-b p-hairline last:border-0">
                   <td className="p-4">{r.status}</td>
                   <td className="p-4 text-right font-mono font-bold">{r._count}</td>
                 </tr>

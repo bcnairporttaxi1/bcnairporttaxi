@@ -42,11 +42,11 @@ export default async function WithdrawalsPage(props: {
   function Row({ w }: { w: (typeof withdrawals)[number] }) {
     const actionable = w.status === 'REQUESTED' || w.status === 'APPROVED';
     return (
-      <article className="rounded-card border border-hairline bg-white p-5">
+      <article className="p-card p-5">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="font-mono text-xl font-extrabold">{eur(w.amount)}</p>
-            <p className="text-sm text-muted">
+            <p className="text-sm p-muted">
               {w.driver.name} · {w.driver.phone}
             </p>
           </div>
@@ -59,26 +59,26 @@ export default async function WithdrawalsPage(props: {
 
         <dl className="mt-4 space-y-1.5 text-sm">
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Method</dt>
+            <dt className="shrink-0 p-muted">Method</dt>
             <dd className="font-medium">{w.method === 'BIZUM' ? 'Bizum' : 'Bank transfer'}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Send to</dt>
+            <dt className="shrink-0 p-muted">Send to</dt>
             <dd className="font-mono">{w.destination}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Requested</dt>
+            <dt className="shrink-0 p-muted">Requested</dt>
             <dd>{when(w.requestedAt)}</dd>
           </div>
           {w.reference && (
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Reference</dt>
+              <dt className="shrink-0 p-muted">Reference</dt>
               <dd className="font-mono">{w.reference}</dd>
             </div>
           )}
           {w.adminNotes && (
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Note</dt>
+              <dt className="shrink-0 p-muted">Note</dt>
               <dd>{w.adminNotes}</dd>
             </div>
           )}
@@ -87,24 +87,24 @@ export default async function WithdrawalsPage(props: {
         {actionable && (
           <form
             action={decideWithdrawal}
-            className="mt-5 flex flex-wrap items-end gap-3 border-t border-hairline pt-4"
+            className="mt-5 flex flex-wrap items-end gap-3 border-t p-hairline pt-4"
           >
             <input type="hidden" name="withdrawalId" value={w.id} />
             <input type="hidden" name="locale" value={locale} />
 
             <label className="text-sm">
-              <span className="mb-1 block text-xs text-muted">Payment reference</span>
+              <span className="mb-1 block text-xs p-muted">Payment reference</span>
               <input
                 name="reference"
                 placeholder="optional"
-                className="rounded-lg border border-hairline px-3 py-2 text-sm"
+                className="rounded-lg border p-hairline px-3 py-2 text-sm"
               />
             </label>
             <label className="flex-1 text-sm">
-              <span className="mb-1 block text-xs text-muted">Note to driver</span>
+              <span className="mb-1 block text-xs p-muted">Note to driver</span>
               <input
                 name="note"
-                className="w-full rounded-lg border border-hairline px-3 py-2 text-sm"
+                className="w-full rounded-lg border p-hairline px-3 py-2 text-sm"
               />
             </label>
 
@@ -112,7 +112,7 @@ export default async function WithdrawalsPage(props: {
               <button
                 name="status"
                 value="APPROVED"
-                className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+                className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
               >
                 Approve
               </button>
@@ -120,7 +120,7 @@ export default async function WithdrawalsPage(props: {
             <button
               name="status"
               value="PAID"
-              className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+              className="wave rounded-lg bg-[var(--p-gold)] px-4 py-2 text-sm font-bold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
             >
               Mark sent
             </button>
@@ -149,7 +149,7 @@ export default async function WithdrawalsPage(props: {
       <section>
         <h2 className="font-display text-xl font-extrabold">To action ({open.length})</h2>
         {open.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
+          <p className="mt-4 p-card p-8 text-center p-muted">
             Nothing waiting.
           </p>
         ) : (

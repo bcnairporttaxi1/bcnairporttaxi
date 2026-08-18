@@ -16,7 +16,7 @@ function Submit({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="wave mt-4 rounded-xl bg-accent px-5 py-2.5 text-sm font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-4 rounded-xl bg-[var(--p-gold)] px-5 py-2.5 text-sm font-display font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)] disabled:opacity-60"
     >
       {pending ? 'Sending…' : label}
     </button>
@@ -63,7 +63,7 @@ function Stars({ value, onChange }: { value: number; onChange: (n: number) => vo
             <span
               aria-hidden="true"
               className={`text-3xl leading-none transition ${
-                n <= value ? 'text-accent' : 'text-slate-300'
+                n <= value ? 'p-gold' : 'text-slate-300'
               }`}
             >
               ★
@@ -93,7 +93,7 @@ export function RateForm({
   const [rating, setRating] = useState(existing?.rating ?? 0);
 
   return (
-    <form action={formAction} className="rounded-card border border-hairline bg-white p-5">
+    <form action={formAction} className="p-card p-5">
       <input type="hidden" name="bookingId" value={bookingId} />
       <input type="hidden" name="locale" value={locale} />
 
@@ -107,14 +107,14 @@ export function RateForm({
 
       <label className="mt-4 block">
         <span className="mb-1.5 block text-sm font-medium">
-          Anything to add <span className="text-muted">(optional)</span>
+          Anything to add <span className="p-muted">(optional)</span>
         </span>
         <textarea
           name="text"
           rows={3}
           maxLength={2000}
           defaultValue={existing?.text ?? ''}
-          className="w-full rounded-lg border border-hairline px-3 py-2.5 text-sm"
+          className="w-full rounded-lg border p-hairline px-3 py-2.5 text-sm"
         />
       </label>
 
@@ -145,7 +145,7 @@ export function ReportForm({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="text-sm font-semibold text-muted underline underline-offset-4 hover:text-red-800"
+        className="text-sm font-semibold p-muted underline underline-offset-4 hover:text-red-800"
       >
         Report a problem with {who}
       </button>
@@ -161,7 +161,7 @@ export function ReportForm({
       <input type="hidden" name="locale" value={locale} />
 
       <h3 className="font-display text-lg font-extrabold">Report {who}</h3>
-      <p className="mt-1 text-sm text-muted">
+      <p className="mt-1 text-sm p-muted">
         This goes to the office, not to {who}. Serious matters are always followed up.
       </p>
 
@@ -170,7 +170,7 @@ export function ReportForm({
         <select
           name="reason"
           required
-          className="w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-sm"
+          className="w-full rounded-lg p-card px-3 py-2.5 text-sm"
         >
           <option value="">Choose a reason…</option>
           {reasons.map((r) => (
@@ -187,7 +187,7 @@ export function ReportForm({
           name="details"
           rows={4}
           maxLength={4000}
-          className="w-full rounded-lg border border-hairline px-3 py-2.5 text-sm"
+          className="w-full rounded-lg border p-hairline px-3 py-2.5 text-sm"
         />
       </label>
 

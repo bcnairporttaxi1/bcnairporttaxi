@@ -44,7 +44,7 @@ export default async function AdminReviewsPage(props: {
       groups={adminNav()}
       activeHref="/admin/reviews"
     >
-      <p className="text-muted">
+      <p className="p-muted">
         {pending.length} awaiting moderation ·{' '}
         {aboutDrivers.filter((r) => r.approved).length} published
       </p>
@@ -54,20 +54,20 @@ export default async function AdminReviewsPage(props: {
       </h2>
 
       {aboutDrivers.length === 0 ? (
-        <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+        <p className="mt-4 p-card p-10 text-center p-muted">
           No ratings yet. They appear here once passengers complete trips.
         </p>
       ) : (
         <ul className="mt-4 space-y-4">
           {aboutDrivers.map((r) => (
-            <li key={r.id} className="rounded-card border border-hairline bg-white p-5">
+            <li key={r.id} className="p-card p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <p className="font-mono text-accent-text" aria-label={`${r.rating} out of 5`}>
+                  <p className="font-mono p-gold" aria-label={`${r.rating} out of 5`}>
                     {'★'.repeat(r.rating)}
-                    <span className="text-muted">{'★'.repeat(5 - r.rating)}</span>
+                    <span className="p-muted">{'★'.repeat(5 - r.rating)}</span>
                   </p>
-                  <p className="mt-1 text-sm text-muted">
+                  <p className="mt-1 text-sm p-muted">
                     {r.authorName} · booking {r.booking.reference}
                     {r.driver?.name ? ` · driver ${r.driver.name}` : ''}
                   </p>
@@ -84,14 +84,14 @@ export default async function AdminReviewsPage(props: {
               <p className="mt-3 leading-relaxed">{r.text}</p>
 
               {!r.approved && (
-                <div className="mt-4 flex gap-3 border-t border-hairline pt-4">
+                <div className="mt-4 flex gap-3 border-t p-hairline pt-4">
                   <form action={moderateReview}>
                     <input type="hidden" name="reviewId" value={r.id} />
                     <input type="hidden" name="locale" value={locale} />
                     <input type="hidden" name="approve" value="1" />
                     <button
                       type="submit"
-                      className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+                      className="wave rounded-lg bg-[var(--p-gold)] px-4 py-2 text-sm font-bold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
                     >
                       Publish
                     </button>
@@ -102,7 +102,7 @@ export default async function AdminReviewsPage(props: {
                     <input type="hidden" name="approve" value="0" />
                     <button
                       type="submit"
-                      className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+                      className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
                     >
                       Delete
                     </button>
@@ -117,25 +117,25 @@ export default async function AdminReviewsPage(props: {
       <h2 className="mt-12 font-display text-xl font-extrabold">
         Drivers on passengers ({aboutPassengers.length})
       </h2>
-      <p className="mt-1 text-sm text-muted">
+      <p className="mt-1 text-sm p-muted">
         Internal only. These never appear on the site and cannot be published.
       </p>
 
       {aboutPassengers.length === 0 ? (
-        <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+        <p className="mt-4 p-card p-10 text-center p-muted">
           Nothing yet.
         </p>
       ) : (
         <ul className="mt-4 space-y-4">
           {aboutPassengers.map((r) => (
-            <li key={r.id} className="rounded-card border border-hairline bg-white p-5">
+            <li key={r.id} className="p-card p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <p className="font-mono text-accent-text" aria-label={`${r.rating} out of 5`}>
+                  <p className="font-mono p-gold" aria-label={`${r.rating} out of 5`}>
                     {'★'.repeat(r.rating)}
-                    <span className="text-muted">{'★'.repeat(5 - r.rating)}</span>
+                    <span className="p-muted">{'★'.repeat(5 - r.rating)}</span>
                   </p>
-                  <p className="mt-1 text-sm text-muted">
+                  <p className="mt-1 text-sm p-muted">
                     {r.authorName} · booking {r.booking.reference}
                   </p>
                 </div>

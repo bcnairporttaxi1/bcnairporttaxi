@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 import type { AdminActionState } from '@/app/[locale]/(panel)/admin/actions';
 
 const field =
-  'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-slate-body';
+  'w-full p-input';
 
 function Submit() {
   const { pending } = useFormStatus();
@@ -13,7 +13,7 @@ function Submit() {
     <button
       type="submit"
       disabled={pending}
-      className="wave mt-5 w-full rounded-xl bg-accent px-5 py-3 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-5 w-full rounded-xl bg-[var(--p-gold)] px-5 py-3 font-display font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)] disabled:opacity-60"
     >
       {pending ? 'Creating…' : 'Create and email password'}
     </button>
@@ -33,7 +33,7 @@ export function NewUserForm({
   const [state, formAction] = useActionState(action, {} as AdminActionState);
 
   return (
-    <form action={formAction} className="rounded-card border border-hairline bg-white p-6">
+    <form action={formAction} className="p-card p-6">
       <input type="hidden" name="locale" value={locale} />
 
       <label className="mb-4 block">
@@ -48,7 +48,7 @@ export function NewUserForm({
 
       <label className="mb-4 block">
         <span className="mb-1.5 block text-sm font-medium">
-          Phone <span className="text-muted">(optional)</span>
+          Phone <span className="p-muted">(optional)</span>
         </span>
         <input name="phone" type="tel" className={field} />
       </label>
@@ -62,7 +62,7 @@ export function NewUserForm({
         </select>
       </label>
 
-      <p className="mt-4 rounded-lg bg-porcelain p-3 text-xs leading-relaxed text-muted">
+      <p className="mt-4 rounded-lg bg-[var(--p-surface-2)] p-3 text-xs leading-relaxed p-muted">
         We generate the password, email it, and store only its hash — so it cannot be read
         back from any screen, including this one. The account is locked to the
         change-password page until it is replaced.

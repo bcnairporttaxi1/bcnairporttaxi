@@ -65,13 +65,13 @@ export default async function UsersPage(props: {
       <section>
         <h2 className="font-display text-xl font-extrabold">All accounts ({users.length})</h2>
         {users.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+          <p className="mt-4 p-card p-10 text-center p-muted">
             No accounts yet. Open one above, or wait for a passenger to register.
           </p>
         ) : (
-        <div className="mt-4 overflow-x-auto rounded-card border border-hairline bg-white">
+        <div className="mt-4 overflow-x-auto p-card">
           <table className="w-full text-sm">
-            <thead className="border-b border-hairline text-left text-xs uppercase tracking-wider text-muted">
+            <thead className="border-b p-hairline text-left text-xs uppercase tracking-wider p-muted">
               <tr>
                 <th className="p-3">Name</th>
                 <th className="p-3">Email</th>
@@ -84,11 +84,11 @@ export default async function UsersPage(props: {
             </thead>
             <tbody>
               {users.map((u) => (
-                <tr key={u.id} className="border-b border-hairline last:border-0">
+                <tr key={u.id} className="border-b p-hairline last:border-0">
                   <td className="p-3 font-medium">{u.name}</td>
-                  <td className="p-3 text-muted">{u.email}</td>
+                  <td className="p-3 p-muted">{u.email}</td>
                   <td className="p-3">
-                    <span className="rounded-full bg-porcelain px-2 py-1 text-xs font-bold">
+                    <span className="rounded-full bg-[var(--p-surface-2)] px-2 py-1 text-xs font-bold">
                       {u.role}
                     </span>
                   </td>
@@ -107,7 +107,7 @@ export default async function UsersPage(props: {
                         Temp password
                       </span>
                     ) : (
-                      <span className="text-xs text-muted">Active</span>
+                      <span className="text-xs p-muted">Active</span>
                     )}
                   </td>
                   <td className="p-3">
@@ -115,7 +115,7 @@ export default async function UsersPage(props: {
                       <form action={resetUserPassword}>
                         <input type="hidden" name="userId" value={u.id} />
                         <input type="hidden" name="locale" value={locale} />
-                        <button className="rounded-lg border border-hairline px-3 py-1.5 text-xs font-bold hover:border-ink">
+                        <button className="rounded-lg border p-hairline px-3 py-1.5 text-xs font-bold hover:border-[var(--p-gold)]">
                           Email new password
                         </button>
                       </form>
@@ -132,7 +132,7 @@ export default async function UsersPage(props: {
                           <button
                             className={`rounded-lg border px-3 py-1.5 text-xs font-bold ${
                               u.blocked
-                                ? 'border-hairline hover:border-ink'
+                                ? 'p-hairline hover:border-[var(--p-gold)]'
                                 : 'border-red-300 text-red-800 hover:border-red-700'
                             }`}
                           >

@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 import type { AccountActionState } from '@/app/[locale]/(panel)/account/actions';
 
 const field =
-  'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-slate-body';
+  'w-full p-input';
 
 function Submit() {
   const { pending } = useFormStatus();
@@ -13,7 +13,7 @@ function Submit() {
     <button
       type="submit"
       disabled={pending}
-      className="wave mt-5 rounded-xl bg-accent px-5 py-2.5 font-display text-sm font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-5 rounded-xl bg-[var(--p-gold)] px-5 py-2.5 font-display text-sm font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)] disabled:opacity-60"
     >
       {pending ? 'Saving…' : 'Save changes'}
     </button>
@@ -61,7 +61,7 @@ export function EditRideForm({
 
   if (left <= 0) {
     return (
-      <p className="rounded-card border border-hairline bg-white p-4 text-sm text-muted">
+      <p className="p-card p-4 text-sm p-muted">
         The window for changing this ride online has closed. Message us on WhatsApp and we
         will sort it out.
       </p>
@@ -70,7 +70,7 @@ export function EditRideForm({
 
   if (!open) {
     return (
-      <div className="flex flex-wrap items-center gap-3 rounded-card border-2 border-accent/40 bg-accent/5 p-4">
+      <div className="flex flex-wrap items-center gap-3 rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-4">
         <p className="flex-1 text-sm">
           You can still change this ride for{' '}
           <strong>
@@ -81,7 +81,7 @@ export function EditRideForm({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="rounded-lg bg-ink px-4 py-2 text-sm font-bold text-porcelain hover:bg-graphite"
+          className="rounded-lg bg-[var(--p-gold)] px-4 py-2 text-sm font-bold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
         >
           Change ride
         </button>
@@ -90,11 +90,11 @@ export function EditRideForm({
   }
 
   return (
-    <form action={formAction} className="rounded-card border border-hairline bg-white p-5">
+    <form action={formAction} className="p-card p-5">
       <input type="hidden" name="bookingId" value={bookingId} />
       <input type="hidden" name="locale" value={locale} />
 
-      <p className="mb-4 text-sm text-muted">
+      <p className="mb-4 text-sm p-muted">
         {left} minute{left === 1 ? '' : 's'} left to change this ride.
       </p>
 
@@ -140,7 +140,7 @@ export function EditRideForm({
 
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium">
-          Notes for the driver <span className="text-muted">(optional)</span>
+          Notes for the driver <span className="p-muted">(optional)</span>
         </span>
         <textarea
           name="notes"
@@ -150,7 +150,7 @@ export function EditRideForm({
         />
       </label>
 
-      <p className="mt-4 rounded-lg bg-porcelain p-3 text-xs leading-relaxed text-muted">
+      <p className="mt-4 rounded-lg bg-[var(--p-surface-2)] p-3 text-xs leading-relaxed p-muted">
         Changing an address means we re-check the route. If the distance changes, the price
         changes with it and we will confirm before you travel.
       </p>

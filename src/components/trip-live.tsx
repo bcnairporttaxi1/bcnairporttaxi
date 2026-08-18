@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 
 const RouteMap = dynamic(() => import('./route-map'), {
   ssr: false,
-  loading: () => <div className="h-full min-h-[300px] w-full animate-pulse rounded-xl bg-graphite-2" />,
+  loading: () => <div className="h-full min-h-[300px] w-full animate-pulse rounded-xl bg-[var(--p-surface-2)]" />,
 });
 
 interface Point {
@@ -197,7 +197,7 @@ export function TripLive({
           )}
         </div>
 
-        <div className="mt-3 overflow-hidden rounded-card border border-hairline bg-graphite-2 p-1.5">
+        <div className="mt-3 overflow-hidden p-card bg-[var(--p-surface-2)] p-1.5">
           <RouteMap
             pickup={other ?? track?.pickup ?? null}
             dropoff={track?.dropoff ?? null}
@@ -213,13 +213,13 @@ export function TripLive({
               onClick={sharing ? stopSharing : startSharing}
               className={`rounded-lg px-4 py-2.5 text-sm font-bold transition ${
                 sharing
-                  ? 'border-2 border-ink hover:bg-ink hover:text-porcelain'
-                  : 'bg-accent text-ink hover:bg-accent-deep'
+                  ? 'border-2 border-[var(--p-gold)] hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]'
+                  : 'bg-[var(--p-gold)] text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]'
               }`}
             >
               {sharing ? t('stopSharing') : t('shareLocation')}
             </button>
-            <p className="mt-2 text-xs text-muted">
+            <p className="mt-2 text-xs p-muted">
               {t('shareNote', { role: otherLabel })}
             </p>
             {shareError && (
@@ -235,10 +235,10 @@ export function TripLive({
       <section>
         <h2 className="font-display text-lg font-extrabold">{t('messages')}</h2>
 
-        <div className="mt-3 flex h-[320px] flex-col rounded-card border border-hairline bg-white">
+        <div className="mt-3 flex h-[320px] flex-col p-card">
           <div ref={threadRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.length === 0 ? (
-              <p className="pt-10 text-center text-sm text-muted">{t('noMessages')}</p>
+              <p className="pt-10 text-center text-sm p-muted">{t('noMessages')}</p>
             ) : (
               messages.map((m) => {
                 const mine = m.senderRole === viewerRole;
@@ -249,12 +249,12 @@ export function TripLive({
                   >
                     <div
                       className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm ${
-                        mine ? 'bg-ink text-porcelain' : 'bg-porcelain text-slate-body'
+                        mine ? 'bg-[var(--p-gold)] text-[#0a0a0b]' : 'bg-[var(--p-surface-2)] text-[var(--p-text)]'
                       }`}
                     >
                       <p className="leading-relaxed">{m.body}</p>
                       <p
-                        className={`mt-1 text-[11px] ${mine ? 'text-porcelain/50' : 'text-muted'}`}
+                        className={`mt-1 text-[11px] ${mine ? 'text-[#0a0a0b]/60' : 'p-muted'}`}
                       >
                         {clock.format(new Date(m.createdAt))}
                         {m.deliveredEmail && ` · ${t('emailed')}`}
@@ -266,7 +266,7 @@ export function TripLive({
             )}
           </div>
 
-          <form onSubmit={send} className="flex gap-2 border-t border-hairline p-3">
+          <form onSubmit={send} className="flex gap-2 border-t p-hairline p-3">
             <label className="sr-only" htmlFor="chat-input">
               {t('messageLabel')}
             </label>
@@ -276,19 +276,19 @@ export function TripLive({
               onChange={(e) => setDraft(e.target.value)}
               maxLength={2000}
               placeholder={t('placeholder')}
-              className="flex-1 rounded-lg border border-hairline px-3 py-2.5 text-sm"
+              className="flex-1 rounded-lg border p-hairline px-3 py-2.5 text-sm"
             />
             <button
               type="submit"
               disabled={sending || !draft.trim()}
-              className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep disabled:opacity-50"
+              className="wave rounded-lg bg-[var(--p-gold)] px-4 py-2.5 text-sm font-bold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)] disabled:opacity-50"
             >
               {t('send')}
             </button>
           </form>
         </div>
 
-        <p className="mt-2 text-xs text-muted">{t('offlineNote', { role: otherLabel })}</p>
+        <p className="mt-2 text-xs p-muted">{t('offlineNote', { role: otherLabel })}</p>
       </section>
     </div>
   );

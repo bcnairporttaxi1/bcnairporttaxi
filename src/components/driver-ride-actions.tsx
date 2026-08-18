@@ -31,8 +31,8 @@ function StepButton({ label, tone }: { label: string; tone: 'dark' | 'gold' }) {
       disabled={pending}
       className={`rounded-lg px-5 py-2.5 text-sm font-bold transition disabled:opacity-60 ${
         tone === 'gold'
-          ? 'bg-accent text-ink hover:bg-accent-deep'
-          : 'bg-ink text-porcelain hover:bg-graphite'
+          ? 'bg-[var(--p-gold)] text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]'
+          : 'bg-[var(--p-gold)] text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]'
       }`}
     >
       {pending ? 'Saving…' : label}
@@ -65,7 +65,7 @@ export function RideActions({
   const needsCashCheck = step.next === 'COMPLETED' && !prepaid;
 
   return (
-    <div className="mt-3 border-t border-hairline pt-4">
+    <div className="mt-3 border-t p-hairline pt-4">
       {needsCashCheck && confirming ? (
         <div className="rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
           <p className="text-sm font-bold text-amber-900">
@@ -81,7 +81,7 @@ export function RideActions({
             <button
               type="button"
               onClick={() => setConfirming(false)}
-              className="rounded-lg border-2 border-ink px-5 py-2.5 text-sm font-bold hover:bg-ink hover:text-porcelain"
+              className="rounded-lg border-2 border-[var(--p-gold)] px-5 py-2.5 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
             >
               Not yet
             </button>
@@ -91,7 +91,7 @@ export function RideActions({
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="wave rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
+          className="wave rounded-lg bg-[var(--p-gold)] px-5 py-2.5 text-sm font-bold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)]"
         >
           {step.label}
         </button>

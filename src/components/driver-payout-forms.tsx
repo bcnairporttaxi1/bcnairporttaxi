@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 import type { DriverActionState } from '@/app/[locale]/(panel)/driver/actions';
 
 const field =
-  'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-slate-body';
+  'w-full p-input';
 
 type Action = (
   state: DriverActionState,
@@ -18,7 +18,7 @@ function Submit({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="wave mt-5 w-full rounded-xl bg-accent px-5 py-3 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+      className="wave mt-5 w-full rounded-xl bg-[var(--p-gold)] px-5 py-3 font-display font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)] disabled:opacity-60"
     >
       {pending ? 'Saving…' : label}
     </button>
@@ -65,7 +65,7 @@ export function PayoutDetailsForm({
   return (
     <form
       action={formAction}
-      className="rounded-card border border-hairline bg-white p-6"
+      className="p-card p-6"
     >
       <input type="hidden" name="locale" value={locale} />
 
@@ -76,7 +76,7 @@ export function PayoutDetailsForm({
             <label
               key={m}
               className={`flex-1 cursor-pointer rounded-xl border-2 p-4 text-center text-sm font-bold transition ${
-                method === m ? 'border-accent bg-accent/10' : 'border-hairline hover:border-ink'
+                method === m ? 'border-[var(--p-gold)] bg-[var(--p-gold-dim)]' : 'p-hairline hover:border-[var(--p-gold)]'
               }`}
             >
               <input
@@ -143,7 +143,7 @@ export function WithdrawForm({
 
   if (!hasDetails) {
     return (
-      <p className="rounded-card border border-hairline bg-white p-6 text-sm text-muted">
+      <p className="p-card p-6 text-sm p-muted">
         Add your Bizum or bank details first, then you can request a payout.
       </p>
     );
@@ -151,7 +151,7 @@ export function WithdrawForm({
 
   if (available <= 0) {
     return (
-      <p className="rounded-card border border-hairline bg-white p-6 text-sm text-muted">
+      <p className="p-card p-6 text-sm p-muted">
         Nothing available to withdraw right now. Prepaid rides land here once you complete
         them.
       </p>
@@ -159,7 +159,7 @@ export function WithdrawForm({
   }
 
   return (
-    <form action={formAction} className="rounded-card border border-hairline bg-white p-6">
+    <form action={formAction} className="p-card p-6">
       <input type="hidden" name="locale" value={locale} />
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium">Amount</span>
@@ -173,7 +173,7 @@ export function WithdrawForm({
           required
           className={field}
         />
-        <span className="mt-1 block text-xs text-muted">
+        <span className="mt-1 block text-xs p-muted">
           Up to {available.toFixed(2)} €.
         </span>
       </label>

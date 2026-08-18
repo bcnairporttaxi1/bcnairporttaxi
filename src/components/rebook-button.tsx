@@ -59,8 +59,8 @@ export function RebookButton({
       }}
       className={
         variant === 'primary'
-          ? 'wave inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 font-display text-sm font-extrabold text-ink transition hover:bg-accent-deep'
-          : 'inline-flex items-center gap-2 rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold transition hover:bg-ink hover:text-porcelain'
+          ? 'wave inline-flex items-center gap-2 rounded-xl bg-[var(--p-gold)] px-5 py-2.5 font-display text-sm font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)]'
+          : 'inline-flex items-center gap-2 rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold transition hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]'
       }
     >
       <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 fill-current">

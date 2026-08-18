@@ -44,23 +44,46 @@ async function main() {
   const admin = await prisma.user.findFirst({ where: { role: 'ADMIN' } });
   if (!admin) throw new Error('No admin user to sign in as.');
 
-  const token = await new SignJWT({ userId: admin.id, email: admin.email, role: 'ADMIN' })
-    .setProtectedHeader({ alg: 'HS256' })
-    .setIssuedAt()
-    .setExpirationTime('600s')
-    .sign(secret);
+  // Every panel page, each opened with a session allowed to see it.
+  const driverUser = await prisma.user.findFirst({ where: { role: 'DRIVER' } });
+  const plainUser = await prisma.user.findFirst({ where: { role: 'USER' } });
 
-  const pages = [
-    '/en/admin',
-    '/en/admin/rides?bucket=pending',
-    '/en/admin/rides?bucket=active',
+  const tokenFor = (u: { id: string; email: string; role: string }) =>
+    new SignJWT({ userId: u.id, email: u.email, role: u.role })
+      .setProtectedHeader({ alg: 'HS256' })
+      .setIssuedAt()
+      .setExpirationTime('600s')
+      .sign(secret);
+
+  const adminTok = await tokenFor(admin);
+  const driverTok = driverUser ? await tokenFor(driverUser) : null;
+  const userTok = plainUser ? await tokenFor(plainUser) : null;
+
+  const pages: Array<{ path: string; tok: string | null }> = [
+    { path: '/en/admin', tok: adminTok },
+    { path: '/en/admin/rides?bucket=pending', tok: adminTok },
+    { path: '/en/admin/rides?bucket=active', tok: adminTok },
+    { path: '/en/admin/revenue', tok: adminTok },
+    { path: '/en/admin/withdrawals', tok: adminTok },
+    { path: '/en/admin/drivers', tok: adminTok },
+    { path: '/en/admin/users', tok: adminTok },
+    { path: '/en/admin/reports', tok: adminTok },
+    { path: '/en/admin/reviews', tok: adminTok },
+    { path: '/en/driver', tok: driverTok },
+    { path: '/en/driver/earnings', tok: driverTok },
+    { path: '/en/account', tok: userTok ?? adminTok },
   ];
 
   let failures = 0;
 
-  for (const path of pages) {
+  for (const { path, tok } of pages) {
+    if (!tok) {
+      console.log(`
+${path}  skipped, no user with that role`);
+      continue;
+    }
     const res = await fetch(BASE + path, {
-      headers: { cookie: `bcn_session=${token}` },
+      headers: { cookie: `bcn_session=${tok}` },
       redirect: 'manual',
     });
     const html = await res.text();
@@ -102,6 +125,15 @@ async function main() {
       'Payment not completed',
     ].filter((s) => html.includes(s));
     console.log(`  stages rendered: ${stages.length > 0 ? stages.join(' | ') : 'none'}`);
+
+    // Gold is a light surface: off-white text on it measures under 2:1.
+    const goldBad = (html.match(/class="[^"]*bg-\[var\(--p-gold\)\][^"]*"/g) ?? []).filter(
+      (c) => !c.includes('text-[#0a0a0b]') && /p-gold(?![\w-])/.test(c),
+    );
+    if (goldBad.length > 0) {
+      console.log(`  ! gold-on-gold text x${goldBad.length}`);
+      failures++;
+    }
 
     const svg = (html.match(/<svg/g) ?? []).length;
     if (svg > 0) console.log(`  svg elements: ${svg}`);

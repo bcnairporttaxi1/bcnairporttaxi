@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const field = 'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-sm';
+const field = 'w-full rounded-lg p-card px-3 py-2.5 text-sm';
 
 export default async function AdminDriversPage(props: {
   params: Promise<{ locale: string }>;
@@ -45,7 +45,7 @@ export default async function AdminDriversPage(props: {
           </h2>
 
           {drivers.length === 0 ? (
-            <p className="mt-5 rounded-card border border-hairline bg-white p-10 text-center text-muted">
+            <p className="mt-5 p-card p-10 text-center p-muted">
               No drivers yet. Add your first one on the right.
             </p>
           ) : (
@@ -53,7 +53,7 @@ export default async function AdminDriversPage(props: {
               {drivers.map((d) => (
                 <li
                   key={d.id}
-                  className="flex flex-wrap items-center justify-between gap-3 rounded-card border border-hairline bg-white p-5"
+                  className="flex flex-wrap items-center justify-between gap-3 p-card p-5"
                 >
                   <div>
                     <p className="font-display font-bold">
@@ -64,10 +64,10 @@ export default async function AdminDriversPage(props: {
                         </span>
                       )}
                     </p>
-                    <p className="text-sm text-muted">
+                    <p className="text-sm p-muted">
                       {d.phone} · licence {d.licenseNumber}
                     </p>
-                    <p className="mt-1 text-sm text-muted">
+                    <p className="mt-1 text-sm p-muted">
                       {d.vehicle?.name ?? 'No vehicle'} · {d._count.bookings} trip
                       {d._count.bookings === 1 ? '' : 's'}
                       {d.userId ? ' · has login' : ' · no login'}
@@ -79,7 +79,7 @@ export default async function AdminDriversPage(props: {
                     <input type="hidden" name="locale" value={locale} />
                     <button
                       type="submit"
-                      className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+                      className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
                     >
                       {d.active ? 'Deactivate' : 'Reactivate'}
                     </button>
@@ -93,7 +93,7 @@ export default async function AdminDriversPage(props: {
         <aside>
           <form
             action={addDriver}
-            className="rounded-card border border-hairline bg-white p-6 lg:sticky lg:top-24"
+            className="p-card p-6 lg:sticky lg:top-24"
           >
             <h2 className="font-display text-lg font-extrabold">Add a driver</h2>
             <input type="hidden" name="locale" value={locale} />
@@ -109,7 +109,7 @@ export default async function AdminDriversPage(props: {
               </label>
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">
-                  WhatsApp <span className="text-muted">(optional)</span>
+                  WhatsApp <span className="p-muted">(optional)</span>
                 </span>
                 <input name="whatsapp" type="tel" className={field} />
               </label>
@@ -133,13 +133,13 @@ export default async function AdminDriversPage(props: {
                 </select>
               </label>
 
-              <fieldset className="rounded-lg border border-hairline p-4">
+              <fieldset className="rounded-lg border p-hairline p-4">
                 <legend className="px-1 text-sm font-medium">Panel login (optional)</legend>
                 <label className="block">
                   <span className="mb-1.5 block text-sm">Email</span>
                   <input name="email" type="email" className={field} />
                 </label>
-                <p className="mt-2 text-xs leading-relaxed text-muted">
+                <p className="mt-2 text-xs leading-relaxed p-muted">
                   Leave blank for a dispatch-only record; you can grant access later. Give an
                   address and we generate a password, email it to the driver, and require
                   them to replace it on first sign-in.
@@ -149,7 +149,7 @@ export default async function AdminDriversPage(props: {
 
             <button
               type="submit"
-              className="wave mt-6 w-full rounded-xl bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              className="wave mt-6 w-full rounded-xl bg-[var(--p-gold)] px-5 py-3.5 font-display font-extrabold text-[#0a0a0b] transition hover:bg-[var(--p-gold-bright)]"
             >
               Add driver
             </button>

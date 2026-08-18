@@ -53,11 +53,11 @@ export default async function ReportsPage(props: {
       r.reporterRole === 'DRIVER' ? r.againstUser?.blocked : r.againstDriver?.blocked;
 
     return (
-      <article className="rounded-card border border-hairline bg-white p-5">
+      <article className="p-card p-5">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="font-display font-extrabold">{r.reason}</p>
-            <p className="mt-1 text-sm text-muted">
+            <p className="mt-1 text-sm p-muted">
               {r.reporterRole === 'DRIVER' ? 'Driver' : 'Passenger'}{' '}
               <strong>{from ?? 'unknown'}</strong> about{' '}
               <strong>{about ?? 'unknown'}</strong> · {when(r.createdAt)}
@@ -69,16 +69,16 @@ export default async function ReportsPage(props: {
         </div>
 
         {r.details && (
-          <p className="mt-3 rounded-lg bg-porcelain p-3 text-sm leading-relaxed">
+          <p className="mt-3 rounded-lg bg-[var(--p-surface-2)] p-3 text-sm leading-relaxed">
             {r.details}
           </p>
         )}
 
-        <p className="mt-3 text-sm text-muted">
+        <p className="mt-3 text-sm p-muted">
           Ride{' '}
           <Link
             href={{ pathname: '/admin/rides', query: { bucket: 'completed' } }}
-            className="font-mono font-semibold text-accent-text underline underline-offset-4"
+            className="font-mono font-semibold p-gold underline underline-offset-4"
           >
             {r.booking.reference}
           </Link>
@@ -86,23 +86,23 @@ export default async function ReportsPage(props: {
 
         <form
           action={resolveReport}
-          className="mt-5 flex flex-wrap items-end gap-3 border-t border-hairline pt-4"
+          className="mt-5 flex flex-wrap items-end gap-3 border-t p-hairline pt-4"
         >
           <input type="hidden" name="reportId" value={r.id} />
           <input type="hidden" name="locale" value={locale} />
           <label className="flex-1 text-sm">
-            <span className="mb-1 block text-xs text-muted">Notes</span>
+            <span className="mb-1 block text-xs p-muted">Notes</span>
             <input
               name="notes"
               defaultValue={r.adminNotes ?? ''}
-              className="w-full rounded-lg border border-hairline px-3 py-2 text-sm"
+              className="w-full rounded-lg border p-hairline px-3 py-2 text-sm"
             />
           </label>
           {r.status === 'OPEN' && (
             <button
               name="status"
               value="REVIEWING"
-              className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+              className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
             >
               Reviewing
             </button>
@@ -110,14 +110,14 @@ export default async function ReportsPage(props: {
           <button
             name="status"
             value="RESOLVED"
-            className="wave rounded-lg bg-accent px-4 py-2 text-sm font-bold text-ink hover:bg-accent-deep"
+            className="wave rounded-lg bg-[var(--p-gold)] px-4 py-2 text-sm font-bold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
           >
             Resolve
           </button>
           <button
             name="status"
             value="DISMISSED"
-            className="rounded-lg border-2 border-hairline px-4 py-2 text-sm font-bold hover:border-ink"
+            className="rounded-lg border-2 p-hairline px-4 py-2 text-sm font-bold hover:border-[var(--p-gold)]"
           >
             Dismiss
           </button>
@@ -128,22 +128,22 @@ export default async function ReportsPage(props: {
         {r.reporterRole === 'DRIVER' && r.againstUser && (
           <form
             action={setUserBlocked}
-            className="mt-3 flex flex-wrap items-end gap-3 border-t border-hairline pt-4"
+            className="mt-3 flex flex-wrap items-end gap-3 border-t p-hairline pt-4"
           >
             <input type="hidden" name="userId" value={r.againstUser.id} />
             <input type="hidden" name="locale" value={locale} />
             <input type="hidden" name="blocked" value={blocked ? '0' : '1'} />
             <label className="flex-1 text-sm">
-              <span className="mb-1 block text-xs text-muted">Suspension reason</span>
+              <span className="mb-1 block text-xs p-muted">Suspension reason</span>
               <input
                 name="reason"
-                className="w-full rounded-lg border border-hairline px-3 py-2 text-sm"
+                className="w-full rounded-lg border p-hairline px-3 py-2 text-sm"
               />
             </label>
             <button
               className={`rounded-lg px-4 py-2 text-sm font-bold ${
                 blocked
-                  ? 'border-2 border-ink hover:bg-ink hover:text-porcelain'
+                  ? 'border-2 border-[var(--p-gold)] hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]'
                   : 'border-2 border-red-700 text-red-800 hover:bg-red-700 hover:text-white'
               }`}
             >
@@ -167,7 +167,7 @@ export default async function ReportsPage(props: {
       <section>
         <h2 className="font-display text-xl font-extrabold">Open ({open.length})</h2>
         {open.length === 0 ? (
-          <p className="mt-4 rounded-card border border-hairline bg-white p-8 text-center text-muted">
+          <p className="mt-4 p-card p-8 text-center p-muted">
             Nothing outstanding.
           </p>
         ) : (

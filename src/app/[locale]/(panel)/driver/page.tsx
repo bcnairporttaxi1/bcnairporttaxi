@@ -30,7 +30,7 @@ export default async function DriverPage(props: {
   if (!driver) {
     return (
       <PanelShell title="My trips" userName={user.name} locale={locale}>
-        <p className="rounded-card border border-hairline bg-white p-10 text-center text-muted">
+        <p className="p-card p-10 text-center p-muted">
           This account has no driver record attached yet. Ask the office to link it.
         </p>
       </PanelShell>
@@ -82,11 +82,11 @@ export default async function DriverPage(props: {
     const prepaid = b.paymentMode === 'FULL_PREPAID';
 
     return (
-      <article className="rounded-card border border-hairline bg-white p-5 sm:p-6">
+      <article className="p-card p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="font-mono text-lg font-extrabold">{when(b.pickupAt)}</p>
-            <p className="text-sm text-muted">{b.reference}</p>
+            <p className="text-sm p-muted">{b.reference}</p>
           </div>
           <StatusPill value={b.status} />
         </div>
@@ -107,18 +107,18 @@ export default async function DriverPage(props: {
 
         <dl className="mt-4 space-y-1.5 text-sm">
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Pick up</dt>
+            <dt className="shrink-0 p-muted">Pick up</dt>
             <dd className="font-medium">{b.pickupLabel}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Drop off</dt>
+            <dt className="shrink-0 p-muted">Drop off</dt>
             <dd className="font-medium">{b.dropoffLabel}</dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">Passenger</dt>
+            <dt className="shrink-0 p-muted">Passenger</dt>
             <dd>
               {b.contactName} ·{' '}
-              <a href={`tel:${b.contactPhone}`} className="font-semibold text-accent-text">
+              <a href={`tel:${b.contactPhone}`} className="font-semibold p-gold">
                 {b.contactPhone}
               </a>
               {b.user?.whatsapp && (
@@ -128,7 +128,7 @@ export default async function DriverPage(props: {
                     href={`https://wa.me/${b.user.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-accent-text"
+                    className="font-semibold p-gold"
                   >
                     WhatsApp
                   </a>
@@ -137,7 +137,7 @@ export default async function DriverPage(props: {
             </dd>
           </div>
           <div className="flex gap-2">
-            <dt className="shrink-0 text-muted">People / bags</dt>
+            <dt className="shrink-0 p-muted">People / bags</dt>
             <dd>
               {b.passengers} / {b.luggage}
             </dd>
@@ -145,21 +145,21 @@ export default async function DriverPage(props: {
         </dl>
 
         {b.notes && (
-          <p className="mt-3 rounded-lg bg-porcelain p-3 text-sm text-muted">{b.notes}</p>
+          <p className="mt-3 rounded-lg bg-[var(--p-surface-2)] p-3 text-sm p-muted">{b.notes}</p>
         )}
 
-        <div className="mt-5 flex flex-wrap gap-3 border-t border-hairline pt-4">
+        <div className="mt-5 flex flex-wrap gap-3 border-t p-hairline pt-4">
           <a
             href={`https://www.google.com/maps/dir/?api=1&origin=${b.pickupLat},${b.pickupLng}&destination=${b.dropoffLat},${b.dropoffLng}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+            className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
           >
             Navigate
           </a>
           <Link
             href={`/trip/${b.reference}`}
-            className="rounded-lg border-2 border-ink px-4 py-2 text-sm font-bold hover:bg-ink hover:text-porcelain"
+            className="rounded-lg border-2 border-[var(--p-gold)] px-4 py-2 text-sm font-bold hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]"
           >
             Track &amp; chat
           </Link>
@@ -192,43 +192,43 @@ export default async function DriverPage(props: {
     >
       {/* Today first — it is what a driver checks between rides. */}
       <div className="mb-4 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-card border-2 border-accent/40 bg-accent/5 p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Rides today</p>
+        <div className="rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Rides today</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">
             {doneToday.length}
-            <span className="ml-2 font-sans text-xs font-normal text-muted">
+            <span className="ml-2 font-sans text-xs font-normal p-muted">
               done · {today.length} to go
             </span>
           </p>
         </div>
-        <div className="rounded-card border border-hairline bg-white p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Cash taken today</p>
+        <div className="p-card p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Cash taken today</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">{eur(cashToday)}</p>
-          <p className="mt-0.5 text-xs text-muted">collected in the car</p>
+          <p className="mt-0.5 text-xs p-muted">collected in the car</p>
         </div>
-        <div className="rounded-card border border-hairline bg-white p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Owed to you today</p>
+        <div className="p-card p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Owed to you today</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">{eur(owedToday)}</p>
-          <p className="mt-0.5 text-xs text-muted">prepaid rides</p>
+          <p className="mt-0.5 text-xs p-muted">prepaid rides</p>
         </div>
       </div>
 
       {/* Earnings summary, with the detail a click away. */}
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-card border border-hairline bg-white p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Available to withdraw</p>
+        <div className="p-card p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Available to withdraw</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.available)}</p>
         </div>
-        <div className="rounded-card border border-hairline bg-white p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Awaiting payout</p>
+        <div className="p-card p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Awaiting payout</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.pending)}</p>
         </div>
-        <div className="rounded-card border border-hairline bg-white p-5">
-          <p className="text-xs uppercase tracking-wider text-muted">Your rating</p>
+        <div className="p-card p-5">
+          <p className="text-xs uppercase tracking-wider p-muted">Your rating</p>
           <p className="mt-1 font-mono text-2xl font-extrabold">
             {rated ? `${(ratingAgg._avg.rating ?? 0).toFixed(1)} ★` : '—'}
             {rated && (
-              <span className="ml-2 font-sans text-xs font-normal text-muted">
+              <span className="ml-2 font-sans text-xs font-normal p-muted">
                 {ratingAgg._count}
               </span>
             )}
@@ -238,7 +238,7 @@ export default async function DriverPage(props: {
 
       <Link
         href="/driver/earnings"
-        className="wave mb-10 inline-block rounded-xl bg-accent px-6 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+        className="wave mb-10 inline-block rounded-xl bg-[var(--p-gold)] px-6 py-3 font-display font-extrabold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
       >
         Earnings &amp; withdrawals
       </Link>
@@ -259,7 +259,7 @@ export default async function DriverPage(props: {
           <h2 className="font-display text-xl font-extrabold text-red-800">
             Pickup time passed ({overdue.length})
           </h2>
-          <p className="mt-1 text-sm text-muted">
+          <p className="mt-1 text-sm p-muted">
             These were due before today and have not been started. Call the office if
             something is wrong.
           </p>
@@ -274,7 +274,7 @@ export default async function DriverPage(props: {
       <section>
         <h2 className="font-display text-xl font-extrabold">Today ({today.length})</h2>
         {today.length === 0 ? (
-          <p className="mt-4 rounded-card border border-dashed border-hairline bg-white p-8 text-center text-muted">
+          <p className="mt-4 p-card border-dashed p-8 text-center p-muted">
             Nothing left today.
           </p>
         ) : (

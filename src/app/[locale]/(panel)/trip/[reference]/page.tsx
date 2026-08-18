@@ -84,19 +84,19 @@ export default async function TripPage(props: {
 
       {/* Who is picking you up, and how to recognise the car. */}
       {booking.driver && access.as !== 'DRIVER' && (
-        <section className="mb-8 rounded-card border-2 border-accent/40 bg-accent/5 p-5">
+        <section className="mb-8 rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-5">
           <h2 className="font-display text-lg font-extrabold">Your driver</h2>
           <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Name</dt>
+              <dt className="shrink-0 p-muted">Name</dt>
               <dd className="font-medium">{booking.driver.name}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Phone</dt>
+              <dt className="shrink-0 p-muted">Phone</dt>
               <dd>
                 <a
                   href={`tel:${booking.driver.phone}`}
-                  className="font-semibold text-accent-text"
+                  className="font-semibold p-gold"
                 >
                   {booking.driver.phone}
                 </a>
@@ -107,7 +107,7 @@ export default async function TripPage(props: {
                       href={`https://wa.me/${booking.driver.whatsapp.replace(/\D/g, '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-accent-text"
+                      className="font-semibold p-gold"
                     >
                       WhatsApp
                     </a>
@@ -117,7 +117,7 @@ export default async function TripPage(props: {
             </div>
             {booking.driver.plate && (
               <div className="flex gap-2">
-                <dt className="shrink-0 text-muted">Number plate</dt>
+                <dt className="shrink-0 p-muted">Number plate</dt>
                 <dd className="font-mono text-base font-extrabold">
                   {booking.driver.plate}
                 </dd>
@@ -125,7 +125,7 @@ export default async function TripPage(props: {
             )}
             {booking.vehicle && (
               <div className="flex gap-2">
-                <dt className="shrink-0 text-muted">Vehicle</dt>
+                <dt className="shrink-0 p-muted">Vehicle</dt>
                 <dd className="font-medium">{booking.vehicle.name}</dd>
               </div>
             )}
@@ -135,32 +135,32 @@ export default async function TripPage(props: {
 
       {/* The reverse view: who the driver is collecting. */}
       {access.as === 'DRIVER' && (
-        <section className="mb-8 rounded-card border-2 border-accent/40 bg-accent/5 p-5">
+        <section className="mb-8 rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-5">
           <h2 className="font-display text-lg font-extrabold">Your passenger</h2>
           <dl className="mt-3 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Name</dt>
+              <dt className="shrink-0 p-muted">Name</dt>
               <dd className="font-medium">{booking.contactName}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Phone</dt>
+              <dt className="shrink-0 p-muted">Phone</dt>
               <dd>
                 <a
                   href={`tel:${booking.contactPhone}`}
-                  className="font-semibold text-accent-text"
+                  className="font-semibold p-gold"
                 >
                   {booking.contactPhone}
                 </a>
               </dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">People / bags</dt>
+              <dt className="shrink-0 p-muted">People / bags</dt>
               <dd>
                 {booking.passengers} / {booking.luggage}
               </dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 text-muted">Payment</dt>
+              <dt className="shrink-0 p-muted">Payment</dt>
               <dd className="font-bold">
                 {booking.paymentMode === 'FULL_PREPAID'
                   ? 'Prepaid — collect nothing'
@@ -171,13 +171,13 @@ export default async function TripPage(props: {
         </section>
       )}
 
-      <dl className="mb-8 grid gap-x-8 gap-y-2 rounded-card border border-hairline bg-white p-5 text-sm sm:grid-cols-2">
+      <dl className="mb-8 grid gap-x-8 gap-y-2 p-card p-5 text-sm sm:grid-cols-2">
         <div className="flex gap-2">
-          <dt className="shrink-0 text-muted">From</dt>
+          <dt className="shrink-0 p-muted">From</dt>
           <dd className="font-medium">{booking.pickupLabel}</dd>
         </div>
         <div className="flex gap-2">
-          <dt className="shrink-0 text-muted">To</dt>
+          <dt className="shrink-0 p-muted">To</dt>
           <dd className="font-medium">{booking.dropoffLabel}</dd>
         </div>
       </dl>
@@ -190,7 +190,7 @@ export default async function TripPage(props: {
           canShareLocation={access.as !== 'ADMIN'}
         />
       ) : (
-        <p className="rounded-card border border-hairline bg-white p-10 text-center text-muted">
+        <p className="p-card p-10 text-center p-muted">
           Live tracking and chat open once a driver is assigned, and close when the trip is
           completed.
         </p>
@@ -210,9 +210,9 @@ export default async function TripPage(props: {
             }
             existing={existingRating}
           />
-          <div className="self-start rounded-card border border-hairline bg-white p-5">
+          <div className="self-start p-card p-5">
             <h3 className="font-display text-lg font-extrabold">Something wrong?</h3>
-            <p className="mt-1 mb-4 text-sm text-muted">
+            <p className="mt-1 mb-4 text-sm p-muted">
               Ratings are for the everyday. Anything serious should be reported so we can
               act on it.
             </p>
@@ -251,7 +251,7 @@ export default async function TripPage(props: {
       <div className="mt-8">
         <Link
           href={`/booking/${booking.reference}`}
-          className="font-semibold text-accent-text underline underline-offset-4"
+          className="font-semibold p-gold underline underline-offset-4"
         >
           View full booking details
         </Link>
