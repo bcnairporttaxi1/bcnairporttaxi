@@ -96,12 +96,12 @@ export default async function DestinationPage(props: {
         ]}
       />
 
-      <section className="bg-ink">
+      <section className="bg-void">
         <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
           <nav aria-label="Breadcrumb" className="mb-5 text-sm text-porcelain/50">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/destinations" className="hover:text-accent">
+                <Link href="/destinations" className="hover:text-gold">
                   {tHub('crumbDestinations')}
                 </Link>
               </li>
@@ -112,7 +112,7 @@ export default async function DestinationPage(props: {
             </ol>
           </nav>
 
-          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-porcelain sm:text-5xl">
+          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {t('h1', { name: d.name })}
           </h1>
           <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{d.blurb}</p>
@@ -123,13 +123,13 @@ export default async function DestinationPage(props: {
                 <dt className="text-xs uppercase tracking-wider text-porcelain/50">
                   {t('distance')}
                 </dt>
-                <dd className="font-mono text-xl font-bold text-porcelain">~{d.km} km</dd>
+                <dd className="font-mono text-xl font-bold text-ice">~{d.km} km</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-wider text-porcelain/50">
                   {t('journeyTime')}
                 </dt>
-                <dd className="font-mono text-xl font-bold text-porcelain">
+                <dd className="font-mono text-xl font-bold text-ice">
                   ~{Math.round(d.minutes / 5) * 5} min
                 </dd>
               </div>
@@ -137,7 +137,7 @@ export default async function DestinationPage(props: {
                 <dt className="text-xs uppercase tracking-wider text-porcelain/50">
                   {t('fromDaytime')}
                 </dt>
-                <dd className="font-mono text-xl font-bold text-accent">
+                <dd className="font-mono text-xl font-bold text-gold">
                   {estimate ? eur(estimate.fixedFare, locale) : t('onRequest')}
                 </dd>
               </div>
@@ -149,13 +149,13 @@ export default async function DestinationPage(props: {
               href={whatsappLink(quote)}
               target="_blank"
               rel="noopener noreferrer"
-              className="sheen rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep"
+              className="sheen rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-ice transition hover:bg-accent-deep"
             >
               {t('ctaFixedQuote')}
             </a>
             <Link
               href="/book"
-              className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain transition hover:bg-white/10"
+              className="rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-ice transition hover:bg-white/10"
             >
               {t('ctaBookInstead')}
             </Link>
@@ -174,12 +174,12 @@ export default async function DestinationPage(props: {
               />
               {/* CC BY and CC BY-SA both require the author to be credited
                   wherever the image is shown. */}
-              <figcaption className="bg-graphite px-4 py-2 text-xs text-porcelain/50">
+              <figcaption className="bg-pane px-4 py-2 text-xs text-porcelain/50">
                 <a
                   href={photo.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="hover:text-accent"
+                  className="hover:text-gold"
                 >
                   {attributionLine(photo)} · Wikimedia Commons
                 </a>
@@ -191,7 +191,7 @@ export default async function DestinationPage(props: {
 
       <article className="mx-auto max-w-3xl px-4 py-14">
         {(d.body ?? []).map((p) => (
-          <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-slate-body first:mt-0">
+          <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-ice first:mt-0">
             {p}
           </p>
         ))}
@@ -209,10 +209,10 @@ export default async function DestinationPage(props: {
           {FLEET.filter((v) => v.seats >= 4).map((v) => (
             <li
               key={v.slug}
-              className="flex items-center justify-between gap-3 rounded-xl border border-hairline bg-white px-4 py-3"
+              className="flex items-center justify-between gap-3 rounded-xl border border-line bg-raise px-4 py-3"
             >
               <span className="font-display text-sm font-bold">{v.name}</span>
-              <span className="font-mono text-xs text-muted">
+              <span className="font-mono text-xs text-dim">
                 {t('paxBags', { seats: v.seats, bags: v.bags })}
               </span>
             </li>
@@ -221,7 +221,7 @@ export default async function DestinationPage(props: {
       </article>
 
       {siblings.length > 0 && (
-        <section className="border-t border-hairline bg-white py-14">
+        <section className="border-t border-line bg-raise py-14">
           <div className="mx-auto max-w-6xl px-4">
             <Reveal>
               <h2 className="font-display text-2xl font-extrabold">
@@ -234,20 +234,20 @@ export default async function DestinationPage(props: {
                   {s.hasPage ? (
                     <Link
                       href={`/destinations/${s.slug}`}
-                      className="lift block h-full rounded-card border border-hairline p-5 hover:border-accent"
+                      className="lift block h-full rounded-card border border-line p-5 hover:border-gold"
                     >
                       <span className="font-display font-bold">{s.name}</span>
-                      <span className="mt-1.5 block text-sm text-muted">{s.blurb}</span>
+                      <span className="mt-1.5 block text-sm text-dim">{s.blurb}</span>
                     </Link>
                   ) : (
                     <a
                       href={whatsappLink(t('waQuoteSibling', { name: s.name }))}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="lift block h-full rounded-card border border-hairline p-5 hover:border-accent"
+                      className="lift block h-full rounded-card border border-line p-5 hover:border-gold"
                     >
                       <span className="font-display font-bold">{s.name}</span>
-                      <span className="mt-1.5 block text-sm text-muted">{s.blurb}</span>
+                      <span className="mt-1.5 block text-sm text-dim">{s.blurb}</span>
                     </a>
                   )}
                 </li>

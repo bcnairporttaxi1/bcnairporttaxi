@@ -28,7 +28,7 @@ export async function SiteFooter() {
   const routes = LANDING_PAGES.slice(0, 6);
 
   return (
-    <footer className="mt-24 border-t border-white/10 bg-ink text-porcelain/80">
+    <footer className="mt-24 border-t border-white/10 bg-void text-porcelain/80">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Image
@@ -42,13 +42,13 @@ export async function SiteFooter() {
         </div>
 
         <nav aria-labelledby="footer-routes">
-          <h2 id="footer-routes" className="font-display text-sm font-bold uppercase tracking-wider text-porcelain">
+          <h2 id="footer-routes" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
             {t('routes')}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {routes.map((p) => (
               <li key={p.slug}>
-                <Link href={`/${p.slug}`} className="hover:text-accent">
+                <Link href={`/${p.slug}`} className="hover:text-gold">
                   {getLandingCopy(p, locale).h1}
                 </Link>
               </li>
@@ -57,24 +57,24 @@ export async function SiteFooter() {
         </nav>
 
         <nav aria-labelledby="footer-company">
-          <h2 id="footer-company" className="font-display text-sm font-bold uppercase tracking-wider text-porcelain">
+          <h2 id="footer-company" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
             {t('company')}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {COMPANY_LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-accent">
+                <Link href={l.href} className="hover:text-gold">
                   {l.key === 'reviews' ? 'Reviews' : tn(l.key)}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/blog" className="hover:text-accent">
+              <Link href="/blog" className="hover:text-gold">
                 Guides
               </Link>
             </li>
             <li>
-              <Link href="/install" className="hover:text-accent">
+              <Link href="/install" className="hover:text-gold">
                 {t('installApp')}
               </Link>
             </li>
@@ -82,13 +82,13 @@ export async function SiteFooter() {
         </nav>
 
         <nav aria-labelledby="footer-legal">
-          <h2 id="footer-legal" className="font-display text-sm font-bold uppercase tracking-wider text-porcelain">
+          <h2 id="footer-legal" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
             {t('legal')}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {LEGAL_LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-accent">
+                <Link href={l.href} className="hover:text-gold">
                   {t(l.key)}
                 </Link>
               </li>

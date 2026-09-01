@@ -61,7 +61,7 @@ export function FleetRail({ children }: { children: React.ReactNode }) {
           onClick={() => nudge(-1)}
           disabled={atStart}
           aria-label="Show previous vehicles"
-          className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink text-ink transition hover:bg-ink hover:text-porcelain disabled:cursor-not-allowed disabled:border-hairline disabled:text-muted disabled:hover:bg-transparent"
+          className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink text-ice transition hover:bg-void hover:text-ice disabled:cursor-not-allowed disabled:border-line disabled:text-dim disabled:hover:bg-transparent"
         >
           <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current" aria-hidden="true">
             <path d="M12.5 4 6.1 10l6.4 6 1.4-1.4L9.3 10l4.6-4.6z" />
@@ -72,7 +72,7 @@ export function FleetRail({ children }: { children: React.ReactNode }) {
           onClick={() => nudge(1)}
           disabled={atEnd}
           aria-label="Show more vehicles"
-          className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink text-ink transition hover:bg-ink hover:text-porcelain disabled:cursor-not-allowed disabled:border-hairline disabled:text-muted disabled:hover:bg-transparent"
+          className="grid h-11 w-11 place-items-center rounded-full border-2 border-ink text-ice transition hover:bg-void hover:text-ice disabled:cursor-not-allowed disabled:border-line disabled:text-dim disabled:hover:bg-transparent"
         >
           <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current" aria-hidden="true">
             <path d="m7.5 4 6.4 6-6.4 6-1.4-1.4L10.7 10 6.1 5.4z" />

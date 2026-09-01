@@ -44,9 +44,9 @@ export default async function BookPage(props: {
         ]}
       />
 
-      <div className="bg-ink">
+      <div className="bg-void">
         <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
-          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-porcelain sm:text-5xl">
+          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {copy.h1}
           </h1>
           <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{copy.intro}</p>
@@ -63,7 +63,7 @@ export default async function BookPage(props: {
             <p className="mt-3 leading-relaxed">{s.body}</p>
           </section>
         ))}
-        <p className="mt-10 rounded-card border border-hairline bg-white p-5 text-sm text-muted">
+        <p className="mt-10 rounded-card border border-line bg-raise p-5 text-sm text-dim">
           {t('disclaimer')}
         </p>
       </article>

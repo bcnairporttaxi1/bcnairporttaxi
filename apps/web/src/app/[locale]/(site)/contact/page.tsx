@@ -45,18 +45,18 @@ export default async function ContactPage(props: {
           href={whatsappLink('Hi, I would like to book a Barcelona airport taxi.')}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-card border-2 border-accent/40 bg-accent/5 p-6 transition hover:border-accent"
+          className="rounded-card border-2 border-accent/40 bg-accent/5 p-6 transition hover:border-gold"
         >
           <h2 className="font-display text-lg font-extrabold">{t('whatsappTitle')}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{t('whatsappBody')}</p>
+          <p className="mt-2 text-sm leading-relaxed text-dim">{t('whatsappBody')}</p>
         </a>
 
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="rounded-card border border-hairline bg-white p-6 transition hover:border-ink"
+          className="rounded-card border border-line bg-raise p-6 transition hover:border-ink"
         >
           <h2 className="font-display text-lg font-extrabold">{t('emailTitle')}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{t('emailBody')}</p>
+          <p className="mt-2 text-sm leading-relaxed text-dim">{t('emailBody')}</p>
           <p className="mt-3 font-mono text-sm">{CONTACT_EMAIL}</p>
         </a>
       </div>

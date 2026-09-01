@@ -6,16 +6,38 @@
  * a single saffron accent carries every action, porcelain surfaces underneath.
  */
 @theme {
+  /**
+   * Surfaces, darkest to lightest. The page sits on near-OLED black so the
+   * saffron reads as lit metal rather than printed ink.
+   */
+  --color-void: #050505;
+  --color-pane: #0b0b0d;
+  --color-raise: #131316;
+  --color-raise-2: #1a1a1e;
+
+  /* Hairlines. Never a solid grey border — always a low-alpha white. */
+  --color-line: rgb(255 255 255 / 7%);
+  --color-line-2: rgb(255 255 255 / 12%);
+
+  /* Type tones on dark. ice 16.8:1, dim 5.9:1, ghost 3.6:1 (large/meta only). */
+  --color-ice: #f4f2ed;
+  --color-dim: #8b8b95;
+  --color-ghost: #5e5e68;
+
+  /* Brand. Saffron carries every action; jade only ever means live/verified. */
+  --color-gold: #f0b429;
+  --color-gold-lo: #c4901a;
+  --color-jade: #39d98a;
+
+  /**
+   * Kept for the panel (account/admin/driver), which still renders light.
+   * accent-text is 5.38:1 on white; accent/accent-deep are fills only.
+   */
   --color-ink: #0e0e10;
   --color-graphite: #17171b;
   --color-graphite-2: #202027;
   --color-accent: #f5b301;
   --color-accent-deep: #e0a000;
-  /**
-   * Amber dark enough for body text on porcelain/white.
-   * accent-deep is only 2.28:1 on white and fails WCAG AA; this is 5.38:1.
-   * Use accent/accent-deep for fills, accent-text for text on light surfaces.
-   */
   --color-accent-text: #8a6400;
   --color-porcelain: #faf8f3;
   --color-slate-body: #2a2a2e;
@@ -27,10 +49,14 @@
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
 
   --radius-card: 1.25rem;
+  --radius-shell: 2rem;
+
+  /* One easing for the whole site. Heavy, confident, never bouncy. */
+  --ease-brand: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -38,11 +64,20 @@ html {
 }
 
 body {
+  background: var(--color-void);
+  color: var(--color-ice);
+  font-family: var(--font-sans);
+  /**
+   * clip, not hidden: overflow-x:hidden on body alone does not stop the layout
+   * viewport widening, which renders phones zoomed out.
+   */
+  overflow-x: clip;
+}
+
+/* The panel keeps the light treatment until it is redesigned in its own pass. */
+.panel-light {
   background: var(--color-porcelain);
   color: var(--color-slate-body);
-  font-family: var(--font-sans);
-  /* Prevents any wide child (map, tariff table) from scrolling the whole page. */
-  overflow-x: hidden;
 }
 
 h1,

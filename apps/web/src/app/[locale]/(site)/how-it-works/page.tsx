@@ -46,7 +46,7 @@ export default async function HowItWorksPage(props: {
         <ol className="space-y-8">
           {(['one', 'two', 'three'] as const).map((step, i) => (
             <li key={step} className="flex gap-5">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-ink font-mono text-lg font-bold text-accent">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-void font-mono text-lg font-bold text-gold">
                 {i + 1}
               </span>
               <div>
@@ -59,13 +59,13 @@ export default async function HowItWorksPage(props: {
           ))}
         </ol>
 
-        <p className="mt-12 rounded-card border border-hairline bg-white p-5 text-sm text-muted">
+        <p className="mt-12 rounded-card border border-line bg-raise p-5 text-sm text-dim">
           {tq('disclaimer')}
         </p>
 
         <Link
           href="/book"
-          className="wave mt-8 inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+          className="wave mt-8 inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice hover:bg-accent-deep"
         >
           {tc('book')}
         </Link>

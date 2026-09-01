@@ -78,7 +78,7 @@ export default async function ReviewsPage(props: {
 
       <div className="mx-auto max-w-3xl px-4 py-14">
         {reviews.length === 0 ? (
-          <p className="rounded-card border border-hairline bg-white p-8 text-center text-muted">
+          <p className="rounded-card border border-line bg-raise p-8 text-center text-dim">
             No reviews published yet. Once passengers start completing trips, their
             reviews will appear here.
           </p>
@@ -89,13 +89,13 @@ export default async function ReviewsPage(props: {
             </p>
             <ul className="mt-8 space-y-5">
               {reviews.map((r) => (
-                <li key={r.id} className="rounded-card border border-hairline bg-white p-6">
-                  <p aria-label={`${r.rating} out of 5`} className="font-mono text-accent-text">
+                <li key={r.id} className="rounded-card border border-line bg-raise p-6">
+                  <p aria-label={`${r.rating} out of 5`} className="font-mono text-gold">
                     {'★'.repeat(r.rating)}
-                    <span className="text-muted">{'★'.repeat(5 - r.rating)}</span>
+                    <span className="text-dim">{'★'.repeat(5 - r.rating)}</span>
                   </p>
                   <p className="mt-3 leading-relaxed">{r.text}</p>
-                  <p className="mt-3 text-sm text-muted">{r.authorName}</p>
+                  <p className="mt-3 text-sm text-dim">{r.authorName}</p>
                 </li>
               ))}
             </ul>

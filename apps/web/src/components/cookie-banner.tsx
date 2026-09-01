@@ -39,7 +39,7 @@ export function CookieBanner() {
       role="dialog"
       aria-modal="false"
       aria-labelledby="cookie-title"
-      className="fixed inset-x-3 bottom-3 z-[60] rounded-2xl border border-white/12 bg-graphite p-5 text-porcelain shadow-2xl sm:inset-x-auto sm:right-4 sm:max-w-md"
+      className="fixed inset-x-3 bottom-3 z-[60] rounded-2xl border border-white/12 bg-pane p-5 text-ice shadow-2xl sm:inset-x-auto sm:right-4 sm:max-w-md"
     >
       <h2 id="cookie-title" className="font-display text-base font-bold">
         {t('title')}
@@ -49,14 +49,14 @@ export function CookieBanner() {
         <button
           type="button"
           onClick={() => choose('all')}
-          className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink hover:bg-accent-deep"
+          className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-ice hover:bg-accent-deep"
         >
           {t('accept')}
         </button>
         <button
           type="button"
           onClick={() => choose('essential')}
-          className="rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold text-porcelain hover:bg-white/5"
+          className="rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold text-ice hover:bg-white/5"
         >
           {t('reject')}
         </button>

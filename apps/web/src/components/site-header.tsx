@@ -97,7 +97,7 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-porcelain"
+        className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-ice"
       >
         {label}
         <svg
@@ -111,13 +111,13 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
 
       {open && (
         <div className="absolute left-0 top-full z-50 pt-2">
-          <ul className="min-w-[230px] overflow-hidden rounded-xl border border-white/12 bg-graphite py-1.5 shadow-2xl">
+          <ul className="min-w-[230px] overflow-hidden rounded-xl border border-white/12 bg-pane py-1.5 shadow-2xl">
             {item.children!.map((child) => (
               <li key={child.href + child.label}>
                 <Link
                   href={child.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2.5 text-sm text-porcelain/80 transition hover:bg-white/8 hover:text-accent"
+                  className="block px-4 py-2.5 text-sm text-porcelain/80 transition hover:bg-white/8 hover:text-gold"
                 >
                   {child.label}
                 </Link>
@@ -156,7 +156,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-porcelain"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-ice"
               >
                 {t(item.key)}
               </Link>
@@ -170,7 +170,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
           </div>
           <Link
             href={accountHref}
-            className="hidden items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-semibold text-porcelain transition hover:bg-white/10 sm:flex"
+            className="hidden items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-semibold text-ice transition hover:bg-white/10 sm:flex"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
               <path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 1.8c-3.6 0-8 1.8-8 4.2v2.2h16V18c0-2.4-4.4-4.2-8-4.2Z" />
@@ -179,7 +179,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
           </Link>
           <Link
             href="/book"
-            className="wave rounded-lg bg-accent px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-accent-deep"
+            className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-ice transition hover:bg-accent-deep"
           >
             {t('book')}
           </Link>
@@ -188,7 +188,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="rounded-lg p-2 text-porcelain lg:hidden"
+            className="rounded-lg p-2 text-ice lg:hidden"
           >
             <span className="sr-only">{open ? t('closeMenu') : t('openMenu')}</span>
             <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -202,7 +202,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="max-h-[70vh] overflow-y-auto border-t border-white/10 bg-ink px-4 py-3 lg:hidden"
+          className="max-h-[70vh] overflow-y-auto border-t border-white/10 bg-void px-4 py-3 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
             {NAV.map((item) => (
@@ -221,7 +221,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
                         <Link
                           href={child.href}
                           onClick={() => setOpen(false)}
-                          className="block rounded-lg px-3 py-2 text-sm text-porcelain/65 hover:bg-white/5 hover:text-porcelain"
+                          className="block rounded-lg px-3 py-2 text-sm text-porcelain/65 hover:bg-white/5 hover:text-ice"
                         >
                           {child.label}
                         </Link>

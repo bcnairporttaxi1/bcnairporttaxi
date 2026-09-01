@@ -59,13 +59,13 @@ export default async function PricingPage(props: {
 
       <div className="mx-auto max-w-3xl px-4 py-14">
         {/* Wide table scrolls inside its own container, never the page body. */}
-        <div className="overflow-x-auto rounded-card border border-hairline bg-white">
+        <div className="overflow-x-auto rounded-card border border-line bg-raise">
           <table className="w-full min-w-[420px] border-collapse text-left">
-            <caption className="px-5 pt-5 text-left text-sm text-muted">
+            <caption className="px-5 pt-5 text-left text-sm text-dim">
               {t('tableCaption')}
             </caption>
             <thead>
-              <tr className="border-b border-hairline">
+              <tr className="border-b border-line">
                 <th scope="col" className="px-5 py-3 font-display text-sm font-bold">
                   {t('concept')}
                 </th>
@@ -76,7 +76,7 @@ export default async function PricingPage(props: {
             </thead>
             <tbody>
               {rows.map(([key, value]) => (
-                <tr key={key} className="border-b border-hairline last:border-0">
+                <tr key={key} className="border-b border-line last:border-0">
                   <th scope="row" className="px-5 py-3 text-sm font-normal">
                     {t(`rows.${key}` as never)}
                   </th>
@@ -92,7 +92,7 @@ export default async function PricingPage(props: {
           <p className="mt-3 leading-relaxed">{t('feeBody')}</p>
         </section>
 
-        <p className="mt-8 text-sm text-muted">{t('verifyNote')}</p>
+        <p className="mt-8 text-sm text-dim">{t('verifyNote')}</p>
       </div>
     </>
   );

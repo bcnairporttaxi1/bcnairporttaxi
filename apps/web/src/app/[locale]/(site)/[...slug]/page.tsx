@@ -80,12 +80,12 @@ export default async function LandingPageRoute(props: {
         ]}
       />
 
-      <div className="bg-ink">
+      <div className="bg-void">
         <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
           <nav aria-label="Breadcrumb" className="mb-5 text-sm text-porcelain/50">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-accent">
+                <Link href="/" className="hover:text-gold">
                   {t('backHome')}
                 </Link>
               </li>
@@ -96,7 +96,7 @@ export default async function LandingPageRoute(props: {
             </ol>
           </nav>
 
-          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-porcelain sm:text-5xl">
+          <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {copy.h1}
           </h1>
           <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{copy.intro}</p>
@@ -114,12 +114,12 @@ export default async function LandingPageRoute(props: {
         {copy.sections.map((s) => (
           <section key={s.h2} className="mb-10">
             <h2 className="font-display text-2xl font-extrabold">{s.h2}</h2>
-            <p className="mt-3 leading-relaxed text-slate-body">{s.body}</p>
+            <p className="mt-3 leading-relaxed text-ice">{s.body}</p>
           </section>
         ))}
       </article>
 
-      <section className="border-t border-hairline bg-white py-14">
+      <section className="border-t border-line bg-raise py-14">
         <div className="mx-auto max-w-3xl px-4">
           <h2 className="font-display text-xl font-extrabold">{t('relatedTransfers')}</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -130,7 +130,7 @@ export default async function LandingPageRoute(props: {
                 <li key={rel}>
                   <Link
                     href={`/${rel}`}
-                    className="block rounded-xl border border-hairline p-4 transition hover:border-ink"
+                    className="block rounded-xl border border-line p-4 transition hover:border-ink"
                   >
                     <span className="font-display font-bold">
                       {getLandingCopy(target, locale).h1}

@@ -54,11 +54,11 @@ export default async function FaqPage(props: {
       <PageHero title={t('h1')} />
 
       <div className="mx-auto max-w-3xl px-4 py-14">
-        <dl className="divide-y divide-hairline">
+        <dl className="divide-y divide-line">
           {items.map((item) => (
             <div key={item.q} className="py-6">
               <dt className="font-display text-lg font-extrabold">{item.q}</dt>
-              <dd className="mt-2 leading-relaxed text-slate-body">{item.a}</dd>
+              <dd className="mt-2 leading-relaxed text-ice">{item.a}</dd>
             </div>
           ))}
         </dl>

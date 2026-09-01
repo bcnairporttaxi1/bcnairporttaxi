@@ -43,7 +43,7 @@ export default async function BookingPage(props: {
         <div className="mx-auto max-w-3xl px-4 py-14 text-center">
           <Link
             href="/"
-            className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+            className="wave inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice hover:bg-accent-deep"
           >
             {t('backHome')}
           </Link>
@@ -120,10 +120,10 @@ export default async function BookingPage(props: {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-12">
-        <div className="rounded-card border border-hairline bg-white p-6">
-          <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-hairline pb-4">
+        <div className="rounded-card border border-line bg-raise p-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-line pb-4">
             <div>
-              <p className="text-sm text-muted">{t('reference')}</p>
+              <p className="text-sm text-dim">{t('reference')}</p>
               <p className="font-mono text-2xl font-extrabold">{booking.reference}</p>
             </div>
             <span
@@ -147,32 +147,32 @@ export default async function BookingPage(props: {
               />
               <div>
                 <p className="font-display font-bold">{booking.vehicle.name}</p>
-                <p className="text-sm text-muted">{booking.vehicle.category}</p>
+                <p className="text-sm text-dim">{booking.vehicle.category}</p>
               </div>
             </div>
           )}
 
-          <dl className="mt-6 divide-y divide-hairline border-t border-hairline">
+          <dl className="mt-6 divide-y divide-line border-t border-line">
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('pickup')}</dt>
+              <dt className="text-dim">{tq('pickup')}</dt>
               <dd className="text-right font-medium">{booking.pickupLabel}</dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('dropoff')}</dt>
+              <dt className="text-dim">{tq('dropoff')}</dt>
               <dd className="text-right font-medium">{booking.dropoffLabel}</dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('date')}</dt>
+              <dt className="text-dim">{tq('date')}</dt>
               <dd className="text-right font-medium">{when}</dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('distance')}</dt>
+              <dt className="text-dim">{tq('distance')}</dt>
               <dd className="text-right font-mono">
                 {booking.roadKm} km · {booking.durationMin} min
               </dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">
+              <dt className="text-dim">
                 {prepaid ? tq('fixedFare') : tq('estimatedFare')}
               </dt>
               <dd className="text-right font-mono">
@@ -180,7 +180,7 @@ export default async function BookingPage(props: {
               </dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('bookingFee', { pct: feePct })}</dt>
+              <dt className="text-dim">{tq('bookingFee', { pct: feePct })}</dt>
               <dd className="text-right font-mono">{eur(Number(booking.bookingFee))}</dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
@@ -190,21 +190,21 @@ export default async function BookingPage(props: {
               </dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-muted">{tq('payInTaxi')}</dt>
+              <dt className="text-dim">{tq('payInTaxi')}</dt>
               <dd className="text-right font-mono">
                 {prepaid ? tq('nothingInTaxi') : eur(Number(booking.meterEstimate))}
               </dd>
             </div>
           </dl>
 
-          <p className="mt-6 rounded-lg bg-porcelain p-4 text-sm leading-relaxed text-muted">
+          <p className="mt-6 rounded-lg bg-void p-4 text-sm leading-relaxed text-dim">
             {t('driverNote')}
           </p>
-          <p className="mt-3 text-xs leading-relaxed text-muted">{tq('disclaimer')}</p>
+          <p className="mt-3 text-xs leading-relaxed text-dim">{tq('disclaimer')}</p>
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/" className="font-semibold text-accent-text underline underline-offset-4">
+          <Link href="/" className="font-semibold text-gold underline underline-offset-4">
             {t('backHome')}
           </Link>
         </div>

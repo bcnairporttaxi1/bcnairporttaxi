@@ -128,7 +128,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
         }}
         onKeyDown={onKeyDown}
         onFocus={() => results.length > 0 && setOpen(true)}
-        className="w-full rounded-lg border border-white/15 bg-ink px-3 py-2.5 text-porcelain placeholder:text-porcelain/35"
+        className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice placeholder:text-porcelain/35"
       />
 
       {busy && (
@@ -141,7 +141,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
         <ul
           id={listId}
           role="listbox"
-          className="absolute z-30 mt-1 max-h-64 w-full overflow-auto rounded-lg border border-white/15 bg-graphite-2 py-1 shadow-2xl"
+          className="absolute z-30 mt-1 max-h-64 w-full overflow-auto rounded-lg border border-white/15 bg-raise-2 py-1 shadow-2xl"
         >
           {results.length === 0 && !busy ? (
             <li className="px-3 py-2.5 text-sm text-porcelain/50">{t('noResults')}</li>
@@ -158,7 +158,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
                 }}
                 onMouseEnter={() => setActive(i)}
                 className={`cursor-pointer px-3 py-2.5 text-sm ${
-                  i === active ? 'bg-accent/20 text-porcelain' : 'text-porcelain/75'
+                  i === active ? 'bg-accent/20 text-ice' : 'text-porcelain/75'
                 }`}
               >
                 {r.label}

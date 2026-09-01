@@ -37,7 +37,7 @@ export function LegalPage({ slug, locale }: { slug: string; locale: string }) {
       />
       <PageHero title={doc.h1} intro={doc.intro} />
       <Prose>
-        <p className="text-sm text-muted">Last updated: {doc.updated}</p>
+        <p className="text-sm text-dim">Last updated: {doc.updated}</p>
         {doc.sections.map((s) => (
           <section key={s.h2}>
             <h2>{s.h2}</h2>

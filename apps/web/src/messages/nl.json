@@ -168,7 +168,9 @@
     "always": "24/7 service",
     "fleet": "Premium wagenpark",
     "emailUs": "Mail ons",
-    "callUs": "Bel ons"
+    "callUs": "Bel ons",
+    "whatsapp": "Chat via WhatsApp",
+    "waIntro": "Hallo, ik wil graag een taxi naar de luchthaven van Barcelona boeken."
   },
   "destinations": {
     "metaTitle": "Transferbestemmingen vanuit Barcelona | Privétaxi & minivan",

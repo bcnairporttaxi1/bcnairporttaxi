@@ -87,7 +87,7 @@ const ASSURANCES = [
 
 function Chip({ brand }: { brand: Brand }) {
   return (
-    <li className="flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-hairline bg-white px-4 shadow-sm">
+    <li className="flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-line bg-raise px-4 shadow-sm">
       {brand.mark}
     </li>
   );
@@ -98,7 +98,7 @@ export function PaymentMethods() {
   const strip = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="border-y border-hairline bg-porcelain py-16 sm:py-20">
+    <section className="border-y border-line bg-void py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 text-center">
         <p className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-1.5 text-sm font-bold text-green-900">
           <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current" aria-hidden="true">
@@ -110,7 +110,7 @@ export function PaymentMethods() {
         <h2 className="mt-5 font-display text-3xl font-extrabold sm:text-4xl">
           Accepted payment methods
         </h2>
-        <p className="mt-3 text-muted">
+        <p className="mt-3 text-dim">
           Secure and convenient — pay with your preferred method
         </p>
       </div>

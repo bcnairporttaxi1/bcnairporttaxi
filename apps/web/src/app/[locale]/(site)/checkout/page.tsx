@@ -86,13 +86,13 @@ export default async function CheckoutPage(props: {
       <>
         <PageHero title={t('h1')} />
         <div className="mx-auto max-w-3xl px-4 py-14">
-          <p className="rounded-card border border-hairline bg-white p-8 text-center">
+          <p className="rounded-card border border-line bg-raise p-8 text-center">
             {t('missingQuote')}
           </p>
           <div className="mt-6 text-center">
             <Link
               href="/"
-              className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+              className="wave inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice hover:bg-accent-deep"
             >
               {t('getPrice')}
             </Link>
@@ -111,13 +111,13 @@ export default async function CheckoutPage(props: {
       <>
         <PageHero title={t('h1')} />
         <div className="mx-auto max-w-3xl px-4 py-14">
-          <p className="rounded-card border border-hairline bg-white p-8 text-center">
+          <p className="rounded-card border border-line bg-raise p-8 text-center">
             {t('errors.expired')}
           </p>
           <div className="mt-6 text-center">
             <Link
               href="/"
-              className="wave inline-block rounded-lg bg-accent px-5 py-3 font-display font-extrabold text-ink hover:bg-accent-deep"
+              className="wave inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice hover:bg-accent-deep"
             >
               {t('getPrice')}
             </Link>
@@ -134,7 +134,7 @@ export default async function CheckoutPage(props: {
       <>
         <PageHero title={t('h1')} />
         <div className="mx-auto max-w-3xl px-4 py-14">
-          <p className="rounded-card border border-hairline bg-white p-8 text-center">
+          <p className="rounded-card border border-line bg-raise p-8 text-center">
             {t('errors.failed')}
           </p>
         </div>

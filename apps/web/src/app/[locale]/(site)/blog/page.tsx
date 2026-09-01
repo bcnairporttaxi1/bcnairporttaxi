@@ -49,11 +49,11 @@ export default async function BlogIndex(props: {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block rounded-card border border-hairline bg-white p-6 transition hover:border-ink"
+                className="block rounded-card border border-line bg-raise p-6 transition hover:border-ink"
               >
                 <h2 className="font-display text-xl font-extrabold">{post.title}</h2>
-                <p className="mt-2 leading-relaxed text-muted">{post.excerpt}</p>
-                <p className="mt-3 font-mono text-xs text-muted">
+                <p className="mt-2 leading-relaxed text-dim">{post.excerpt}</p>
+                <p className="mt-3 font-mono text-xs text-dim">
                   {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
                     new Date(post.published),
                   )}{' '}

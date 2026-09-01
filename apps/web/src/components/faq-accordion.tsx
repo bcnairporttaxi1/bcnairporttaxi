@@ -17,7 +17,7 @@ export function FaqAccordion({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-hairline overflow-hidden rounded-card border border-hairline bg-white">
+    <div className="divide-y divide-hairline overflow-hidden rounded-card border border-line bg-raise">
       {items.map((item, i) => (
         <details
           key={item.q}
@@ -28,11 +28,11 @@ export function FaqAccordion({
           }}
           className="group"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-display text-base font-bold transition hover:bg-porcelain sm:px-6 sm:text-lg [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-display text-base font-bold transition hover:bg-void sm:px-6 sm:text-lg [&::-webkit-details-marker]:hidden">
             {item.q}
             <span
               aria-hidden="true"
-              className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-hairline text-accent-text transition-transform duration-300 group-open:rotate-45"
+              className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line text-gold transition-transform duration-300 group-open:rotate-45"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
                 <path d="M11 5h2v14h-2z" />
@@ -40,7 +40,7 @@ export function FaqAccordion({
               </svg>
             </span>
           </summary>
-          <div className="px-5 pb-5 text-slate-body sm:px-6">
+          <div className="px-5 pb-5 text-ice sm:px-6">
             <p className="leading-relaxed">{item.a}</p>
           </div>
         </details>

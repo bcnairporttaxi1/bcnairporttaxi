@@ -40,9 +40,11 @@ export default function RouteMap({ pickup, dropoff, geometry, label }: RouteMapP
         attributionControl: true,
       });
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // Dark cartography so the map belongs to the page. Same OpenStreetMap
+      // data, rendered by CARTO; both are credited in the attribution.
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
       }).addTo(map);
 
       mapRef.current = map;
@@ -119,7 +121,7 @@ export default function RouteMap({ pickup, dropoff, geometry, label }: RouteMapP
       ref={containerRef}
       role="img"
       aria-label={label}
-      className="h-full min-h-[280px] w-full rounded-xl"
+      className="h-full min-h-[280px] w-full rounded-xl bg-pane"
     />
   );
 }

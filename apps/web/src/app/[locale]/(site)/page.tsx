@@ -41,7 +41,7 @@ export default async function HomePage(props: {
       <FaqJsonLd items={faqItems} />
 
       {/* Hero */}
-      <section className="stage relative overflow-hidden bg-ink">
+      <section className="stage relative overflow-hidden bg-void">
         {/* Shown at full strength — it is the brand image, not a texture. */}
         <Image
           src="/img/hero-banner.jpg"
@@ -81,14 +81,14 @@ export default async function HomePage(props: {
             panel first, because that is what people came to do. */}
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
           <div className="order-2 max-w-2xl lg:order-1">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
               {t('kicker')}
             </p>
             <span
               aria-hidden="true"
               className="horizon mt-3 block h-px w-40 bg-gradient-to-r from-accent to-transparent"
             />
-            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-porcelain sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-ice sm:text-5xl lg:text-6xl">
               {t('h1')}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-porcelain/75 sm:text-lg">
@@ -111,13 +111,13 @@ export default async function HomePage(props: {
                   approach, so the two never compete. */}
               <Link
                 href="/book"
-                className="wave wave-idle rounded-xl bg-accent px-6 py-3.5 font-display font-extrabold text-ink hover:bg-accent-deep"
+                className="wave wave-idle rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-ice hover:bg-accent-deep"
               >
                 {tc('book')}
               </Link>
               <Link
                 href="/destinations"
-                className="wave rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-porcelain hover:bg-white/10"
+                className="wave rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-ice hover:bg-white/10"
               >
                 {tn('destinations')}
               </Link>
@@ -140,7 +140,7 @@ export default async function HomePage(props: {
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
             {t('sections.howTitle')}
           </h2>
-          <p className="mt-3 max-w-2xl text-muted">{t('sections.howIntro')}</p>
+          <p className="mt-3 max-w-2xl text-dim">{t('sections.howIntro')}</p>
         </Reveal>
 
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
@@ -149,14 +149,14 @@ export default async function HomePage(props: {
               {/* The oversized watermark numeral was removed: at 1.31:1 on white
                   it failed contrast, and the numbered badge already carries the
                   sequence. */}
-              <div className="lift relative h-full rounded-card border border-hairline bg-white p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink font-mono text-lg font-bold text-accent">
+              <div className="lift relative h-full rounded-card border border-line bg-raise p-7">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-void font-mono text-lg font-bold text-gold">
                   {i + 1}
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold">
                   {tw(`steps.${step}.title`)}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <p className="mt-2 text-sm leading-relaxed text-dim">
                   {tw(`steps.${step}.body`)}
                 </p>
               </div>
@@ -166,22 +166,22 @@ export default async function HomePage(props: {
       </section>
 
       {/* Why book with us */}
-      <section className="border-y border-hairline bg-white py-20 sm:py-24">
+      <section className="border-y border-line bg-raise py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.whyTitle')}
             </h2>
-            <p className="mt-3 max-w-2xl text-muted">{t('sections.whyIntro')}</p>
+            <p className="mt-3 max-w-2xl text-dim">{t('sections.whyIntro')}</p>
           </Reveal>
 
           <ul className="mt-12 grid gap-6 sm:grid-cols-2">
             {(['meter', 'flight', 'licensed', 'support'] as const).map((k, i) => (
               <Reveal as="li" key={k} delay={i * 90}>
-                <div className="lift h-full rounded-card border border-hairline bg-porcelain p-7">
+                <div className="lift h-full rounded-card border border-line bg-void p-7">
                   <span
                     aria-hidden="true"
-                    className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent-text"
+                    className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-gold"
                   >
                     <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current">
                       <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
@@ -190,7 +190,7 @@ export default async function HomePage(props: {
                   <h3 className="mt-5 font-display text-lg font-bold">
                     {t(`why.${k}.title`)}
                   </h3>
-                  <p className="mt-2 leading-relaxed text-muted">{t(`why.${k}.body`)}</p>
+                  <p className="mt-2 leading-relaxed text-dim">{t(`why.${k}.body`)}</p>
                 </div>
               </Reveal>
             ))}
@@ -205,7 +205,7 @@ export default async function HomePage(props: {
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.fleetTitle')}
             </h2>
-            <p className="mt-3 max-w-2xl text-muted">{t('sections.fleetIntro')}</p>
+            <p className="mt-3 max-w-2xl text-dim">{t('sections.fleetIntro')}</p>
           </Reveal>
 
           {/* Rail rather than a grid: every card is the same size and the row
@@ -222,7 +222,7 @@ export default async function HomePage(props: {
 
           <Link
             href="/fleet"
-            className="mt-8 inline-block rounded-lg border-2 border-ink px-5 py-3 font-display font-bold transition hover:bg-ink hover:text-porcelain"
+            className="mt-8 inline-block rounded-lg border-2 border-ink px-5 py-3 font-display font-bold transition hover:bg-void hover:text-ice"
           >
             {tc('viewFleet')}
           </Link>
@@ -234,7 +234,7 @@ export default async function HomePage(props: {
         <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
           {t('sections.routesTitle')}
         </h2>
-        <p className="mt-3 max-w-2xl text-muted">{t('sections.routesIntro')}</p>
+        <p className="mt-3 max-w-2xl text-dim">{t('sections.routesIntro')}</p>
 
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {LANDING_PAGES.map((p, i) => {
@@ -243,15 +243,15 @@ export default async function HomePage(props: {
               <Reveal as="li" key={p.slug} delay={(i % 3) * 80}>
                 <Link
                   href={`/${p.slug}`}
-                  className="lift group flex h-full flex-col rounded-card border border-hairline bg-white p-6 hover:border-accent"
+                  className="lift group flex h-full flex-col rounded-card border border-line bg-raise p-6 hover:border-gold"
                 >
-                  <h3 className="font-display text-base font-bold transition-colors group-hover:text-accent-text">
+                  <h3 className="font-display text-base font-bold transition-colors group-hover:text-gold">
                     {copy.h1}
                   </h3>
-                  <p className="mt-2 line-clamp-3 text-sm text-muted">{copy.description}</p>
+                  <p className="mt-2 line-clamp-3 text-sm text-dim">{copy.description}</p>
                   <span
                     aria-hidden="true"
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-text opacity-0 transition-opacity group-hover:opacity-100"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold opacity-0 transition-opacity group-hover:opacity-100"
                   >
                     {tc('learnMore')}
                     <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current">
@@ -268,7 +268,7 @@ export default async function HomePage(props: {
       <PaymentMethods />
 
       {/* FAQ */}
-      <section className="border-t border-hairline bg-white py-20 sm:py-24">
+      <section className="border-t border-line bg-raise py-20 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
@@ -281,7 +281,7 @@ export default async function HomePage(props: {
             </div>
             <Link
               href="/faq"
-              className="link-underline mt-7 inline-block font-semibold text-accent-text"
+              className="link-underline mt-7 inline-block font-semibold text-gold"
             >
               {tc('readAllFaqs')}
             </Link>
@@ -290,9 +290,9 @@ export default async function HomePage(props: {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-ink py-20 sm:py-24">
+      <section className="bg-void py-20 sm:py-24">
         <Reveal className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-3xl font-extrabold text-porcelain sm:text-4xl">
+          <h2 className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
             {t('h1')}
           </h2>
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-porcelain/70">
@@ -300,7 +300,7 @@ export default async function HomePage(props: {
           </p>
           <Link
             href="/book"
-            className="sheen mt-8 inline-block rounded-xl bg-accent px-8 py-4 font-display text-base font-extrabold text-ink transition hover:bg-accent-deep active:scale-[0.99]"
+            className="sheen mt-8 inline-block rounded-xl bg-gold px-8 py-4 font-display text-base font-extrabold text-ice transition hover:bg-accent-deep active:scale-[0.99]"
           >
             {tc('book')}
           </Link>

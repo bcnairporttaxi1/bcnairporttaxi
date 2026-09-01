@@ -39,7 +39,7 @@ export async function VehicleCard({
   const tc = await getTranslations('common');
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-card border border-hairline bg-white">
+    <article className="flex h-full flex-col overflow-hidden rounded-card border border-line bg-raise">
       <Image
         src={vehicle.image}
         alt={vehicle.imageAlt}
@@ -47,12 +47,12 @@ export async function VehicleCard({
         height={800}
         sizes={sizes}
         priority={priority}
-        className="aspect-[3/2] w-full bg-ink object-cover"
+        className="aspect-[3/2] w-full bg-void object-cover"
       />
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-lg font-bold">{vehicle.name}</h3>
-        <p className="text-sm text-muted">{t(`categories.${vehicle.categoryKey}`)}</p>
+        <p className="text-sm text-dim">{t(`categories.${vehicle.categoryKey}`)}</p>
 
         {/* A dl's div may contain only dt and dd, so the icons live inside the
             dd rather than as siblings. */}
@@ -60,7 +60,7 @@ export async function VehicleCard({
           <div className="flex items-center gap-1.5">
             <dt className="sr-only">{t('passengersLabel')}</dt>
             <dd className="flex items-center gap-1.5 font-mono font-bold">
-              <span className="text-accent-text">
+              <span className="text-gold">
                 <PersonIcon />
               </span>
               {t('seats', { count: vehicle.seats })}
@@ -69,7 +69,7 @@ export async function VehicleCard({
           <div className="flex items-center gap-1.5">
             <dt className="sr-only">{t('luggageLabel')}</dt>
             <dd className="flex items-center gap-1.5 font-mono font-bold">
-              <span className="text-accent-text">
+              <span className="text-gold">
                 <SuitcaseIcon />
               </span>
               {t('bags', { count: vehicle.bags })}
@@ -77,13 +77,13 @@ export async function VehicleCard({
           </div>
         </dl>
 
-        <p className="mt-3 text-sm leading-relaxed text-muted">{vehicle.luggageNote}</p>
+        <p className="mt-3 text-sm leading-relaxed text-dim">{vehicle.luggageNote}</p>
 
         {/* Pushed to the bottom so every card's CTA lines up regardless of how
             long the luggage note runs. */}
         <Link
           href={{ pathname: '/book', query: { vehicle: vehicle.slug } }}
-          className="wave mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 pt-3 font-display text-sm font-bold text-porcelain transition hover:bg-accent hover:text-ink"
+          className="wave mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-void px-5 py-3 pt-3 font-display text-sm font-bold text-ice transition hover:bg-gold hover:text-ice"
         >
           {tc('book')}
           <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-current">

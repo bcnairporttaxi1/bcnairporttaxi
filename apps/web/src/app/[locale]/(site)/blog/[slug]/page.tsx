@@ -77,7 +77,7 @@ export default async function BlogPostPage(props: {
       <PageHero title={post.h1} intro={post.excerpt} />
 
       <article className="mx-auto max-w-3xl px-4 py-14">
-        <p className="font-mono text-xs text-muted">
+        <p className="font-mono text-xs text-dim">
           {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
             new Date(post.published),
           )}{' '}
@@ -88,14 +88,14 @@ export default async function BlogPostPage(props: {
           <section key={s.h2} className="mt-9">
             <h2 className="font-display text-2xl font-extrabold">{s.h2}</h2>
             {s.body.map((p) => (
-              <p key={p.slice(0, 40)} className="mt-3 leading-relaxed text-slate-body">
+              <p key={p.slice(0, 40)} className="mt-3 leading-relaxed text-ice">
                 {p}
               </p>
             ))}
           </section>
         ))}
 
-        <nav aria-labelledby="related" className="mt-14 border-t border-hairline pt-8">
+        <nav aria-labelledby="related" className="mt-14 border-t border-line pt-8">
           <h2 id="related" className="font-display text-xl font-extrabold">
             Book your transfer
           </h2>
@@ -107,7 +107,7 @@ export default async function BlogPostPage(props: {
                 <li key={rel}>
                   <Link
                     href={`/${rel}`}
-                    className="block rounded-xl border border-hairline p-4 transition hover:border-ink"
+                    className="block rounded-xl border border-line p-4 transition hover:border-ink"
                   >
                     <span className="font-display font-bold">
                       {getLandingCopy(target, locale).h1}

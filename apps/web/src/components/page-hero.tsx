@@ -6,9 +6,9 @@ export function PageHero({
   intro?: string;
 }) {
   return (
-    <div className="bg-ink">
+    <div className="bg-void">
       <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
-        <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-porcelain sm:text-5xl">
+        <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
           {title}
         </h1>
         {intro && (

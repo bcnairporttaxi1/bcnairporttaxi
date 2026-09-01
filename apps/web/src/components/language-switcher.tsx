@@ -56,7 +56,7 @@ export function LanguageSwitcher({ tone = 'dark' }: { tone?: 'dark' | 'light' })
       <span
         aria-hidden="true"
         className={`pointer-events-none absolute left-2.5 text-xs font-bold ${
-          tone === 'dark' ? 'text-accent' : 'text-accent-text'
+          tone === 'dark' ? 'text-gold' : 'text-gold'
         }`}
       >
         {SHORT[active]}
@@ -67,12 +67,12 @@ export function LanguageSwitcher({ tone = 'dark' }: { tone?: 'dark' | 'light' })
         onChange={(e) => go(e.target.value as Locale)}
         className={`cursor-pointer appearance-none rounded-full border py-2 pl-9 pr-7 text-sm transition ${
           tone === 'dark'
-            ? 'border-white/15 bg-white/5 text-porcelain hover:bg-white/10'
-            : 'border-hairline bg-white text-slate-body hover:border-ink'
+            ? 'border-white/15 bg-white/5 text-ice hover:bg-white/10'
+            : 'border-line bg-raise text-ice hover:border-ink'
         } ${pending ? 'opacity-50' : ''}`}
       >
         {locales.map((l) => (
-          <option key={l} value={l} className="bg-ink text-porcelain">
+          <option key={l} value={l} className="bg-void text-ice">
             {localeNames[l]}
           </option>
         ))}
@@ -115,7 +115,7 @@ export function LanguageGrid() {
   }
 
   return (
-    <section aria-labelledby="lang-heading" className="border-t border-hairline bg-white py-14">
+    <section aria-labelledby="lang-heading" className="border-t border-line bg-raise py-14">
       <div className="mx-auto max-w-6xl px-4">
         <h2
           id="lang-heading"
@@ -123,7 +123,7 @@ export function LanguageGrid() {
         >
           {t('languageHeading')}
         </h2>
-        <p className="mt-3 max-w-2xl leading-relaxed text-muted">{t('languageIntro')}</p>
+        <p className="mt-3 max-w-2xl leading-relaxed text-dim">{t('languageIntro')}</p>
 
         <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {locales.map((l) => {
@@ -138,14 +138,14 @@ export function LanguageGrid() {
                   disabled={pending}
                   className={`tilt group flex w-full items-center gap-3 rounded-xl border-2 p-4 text-left transition ${
                     on
-                      ? 'border-accent bg-accent/10'
-                      : 'border-hairline bg-white hover:border-ink'
+                      ? 'border-gold bg-accent/10'
+                      : 'border-line bg-raise hover:border-ink'
                   } ${loading ? 'opacity-60' : ''}`}
                 >
                   <span
                     aria-hidden="true"
                     className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg font-mono text-xs font-extrabold ${
-                      on ? 'bg-accent text-ink' : 'bg-porcelain text-muted'
+                      on ? 'bg-gold text-ice' : 'bg-void text-dim'
                     }`}
                   >
                     {SHORT[l]}

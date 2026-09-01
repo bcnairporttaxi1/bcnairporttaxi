@@ -121,7 +121,7 @@ export function CheckoutForm({
   }
 
   const field =
-    'w-full rounded-lg border border-hairline bg-white px-3 py-2.5 text-slate-body placeholder:text-muted/60';
+    'w-full rounded-lg border border-line bg-raise px-3 py-2.5 text-ice placeholder:text-muted/60';
 
   return (
     <form onSubmit={submit} className="mx-auto max-w-5xl px-4 py-12">
@@ -130,21 +130,21 @@ export function CheckoutForm({
           {/* Trip */}
           <section>
             <h2 className="font-display text-xl font-extrabold">{t('yourTrip')}</h2>
-            <dl className="mt-4 divide-y divide-hairline rounded-card border border-hairline bg-white px-5">
+            <dl className="mt-4 divide-y divide-hairline rounded-card border border-line bg-raise px-5">
               <div className="flex justify-between gap-4 py-3.5">
-                <dt className="text-muted">{tq('pickup')}</dt>
+                <dt className="text-dim">{tq('pickup')}</dt>
                 <dd className="text-right font-medium">{pickup.label}</dd>
               </div>
               <div className="flex justify-between gap-4 py-3.5">
-                <dt className="text-muted">{tq('dropoff')}</dt>
+                <dt className="text-dim">{tq('dropoff')}</dt>
                 <dd className="text-right font-medium">{dropoff.label}</dd>
               </div>
               <div className="flex justify-between gap-4 py-3.5">
-                <dt className="text-muted">{tq('date')}</dt>
+                <dt className="text-dim">{tq('date')}</dt>
                 <dd className="text-right font-medium">{when}</dd>
               </div>
               <div className="flex justify-between gap-4 py-3.5">
-                <dt className="text-muted">{tq('distance')}</dt>
+                <dt className="text-dim">{tq('distance')}</dt>
                 <dd className="text-right font-mono">
                   {quote.roadKm} km · {quote.durationMin} min
                 </dd>
@@ -163,8 +163,8 @@ export function CheckoutForm({
                   return (
                     <label
                       key={v.slug}
-                      className={`cursor-pointer overflow-hidden rounded-card border-2 bg-white transition ${
-                        selected ? 'border-accent' : 'border-hairline hover:border-ink/40'
+                      className={`cursor-pointer overflow-hidden rounded-card border-2 bg-raise transition ${
+                        selected ? 'border-gold' : 'border-line hover:border-ink/40'
                       }`}
                     >
                       <input
@@ -185,7 +185,7 @@ export function CheckoutForm({
                       />
                       <div className="p-4">
                         <p className="font-display font-bold">{v.name}</p>
-                        <p className="text-sm text-muted">
+                        <p className="text-sm text-dim">
                           {tf(`categories.${v.categoryKey}`)}
                         </p>
                         <p className="mt-2 font-mono text-sm">
@@ -199,7 +199,7 @@ export function CheckoutForm({
                               ? (quotesByVehicle[v.slug]?.payNowFull ?? 0)
                               : (quotesByVehicle[v.slug]?.payNowFeeOnly ?? 0),
                           )}{' '}
-                          <span className="font-sans text-xs font-normal text-muted">
+                          <span className="font-sans text-xs font-normal text-dim">
                             {tq('payNow').toLowerCase()}
                           </span>
                         </p>
@@ -225,7 +225,7 @@ export function CheckoutForm({
 
               <label
                 className={`cursor-pointer rounded-card border-2 p-5 transition ${
-                  mode === 'FEE_ONLY' ? 'border-accent bg-accent/5' : 'border-hairline bg-white'
+                  mode === 'FEE_ONLY' ? 'border-gold bg-accent/5' : 'border-line bg-raise'
                 }`}
               >
                 <input
@@ -239,7 +239,7 @@ export function CheckoutForm({
                   <span className="font-display font-bold">{tq('modeFeeOnlyTitle')}</span>
                   <span className="font-mono text-lg font-bold">{eur(quote.payNowFeeOnly)}</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <p className="mt-2 text-sm leading-relaxed text-dim">
                   {tq('modeFeeOnlyBody', {
                     fee: eur(quote.bookingFee),
                     fare: eur(quote.meterEstimate),
@@ -250,8 +250,8 @@ export function CheckoutForm({
               <label
                 className={`cursor-pointer rounded-card border-2 p-5 transition ${
                   mode === 'FULL_PREPAID'
-                    ? 'border-accent bg-accent/5'
-                    : 'border-hairline bg-white'
+                    ? 'border-gold bg-accent/5'
+                    : 'border-line bg-raise'
                 }`}
               >
                 <input
@@ -265,12 +265,12 @@ export function CheckoutForm({
                   <span className="font-display font-bold">{tq('modeFullTitle')}</span>
                   <span className="font-mono text-lg font-bold">{eur(quote.payNowFull)}</span>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <p className="mt-2 text-sm leading-relaxed text-dim">
                   {tq('modeFullBody', { total: eur(quote.payNowFull) })}
                 </p>
               </label>
             </fieldset>
-            <p className="mt-3 text-xs leading-relaxed text-muted">{tq('fixedFareNote')}</p>
+            <p className="mt-3 text-xs leading-relaxed text-dim">{tq('fixedFareNote')}</p>
           </section>
 
           {/* Details */}
@@ -300,12 +300,12 @@ export function CheckoutForm({
               <label className="block sm:col-span-2">
                 <span className="mb-1.5 block text-sm font-medium">{t('flight')}</span>
                 <input value={flight} onChange={(e) => setFlight(e.target.value)} className={field} placeholder="VY1234" />
-                <span className="mt-1 block text-xs text-muted">{t('flightHelp')}</span>
+                <span className="mt-1 block text-xs text-dim">{t('flightHelp')}</span>
               </label>
               <label className="block sm:col-span-2">
                 <span className="mb-1.5 block text-sm font-medium">{t('notes')}</span>
                 <textarea rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} className={field} />
-                <span className="mt-1 block text-xs text-muted">{t('notesHelp')}</span>
+                <span className="mt-1 block text-xs text-dim">{t('notesHelp')}</span>
               </label>
             </div>
           </section>
@@ -313,7 +313,7 @@ export function CheckoutForm({
 
         {/* Summary — sticky on desktop so the price stays visible while filling in details */}
         <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-card border border-hairline bg-white p-6">
+          <div className="rounded-card border border-line bg-raise p-6">
             <h2 className="font-display text-lg font-extrabold">{t('summary')}</h2>
 
             <Image
@@ -326,21 +326,21 @@ export function CheckoutForm({
             />
             <p className="mt-2 font-display font-bold">{vehicle.name}</p>
 
-            <dl className="mt-5 space-y-2.5 border-t border-hairline pt-4 text-sm">
+            <dl className="mt-5 space-y-2.5 border-t border-line pt-4 text-sm">
               <div className="flex justify-between">
-                <dt className="text-muted">{tq('tariffBadge', { tariff: quote.tariff })}</dt>
+                <dt className="text-dim">{tq('tariffBadge', { tariff: quote.tariff })}</dt>
                 <dd className="font-mono">
                   {eur(quote.perKmRateCharged)}/km
                 </dd>
               </div>
               {quote.supplementLines.map((l) => (
                 <div key={l.key} className="flex justify-between">
-                  <dt className="text-muted">{tq(`supplementNames.${l.key}` as never)}</dt>
+                  <dt className="text-dim">{tq(`supplementNames.${l.key}` as never)}</dt>
                   <dd className="font-mono">{eur(l.amount)}</dd>
                 </div>
               ))}
               <div className="flex justify-between">
-                <dt className="text-muted">
+                <dt className="text-dim">
                   {mode === 'FULL_PREPAID' ? tq('fixedFare') : tq('estimatedFare')}
                 </dt>
                 <dd className="font-mono">
@@ -348,18 +348,18 @@ export function CheckoutForm({
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-muted">{tq('bookingFee', { pct: Math.round(quote.bookingFeeRate * 100) })}</dt>
+                <dt className="text-dim">{tq('bookingFee', { pct: Math.round(quote.bookingFeeRate * 100) })}</dt>
                 <dd className="font-mono">{eur(quote.bookingFee)}</dd>
               </div>
             </dl>
 
-            <div className="mt-4 space-y-2 border-t border-hairline pt-4">
+            <div className="mt-4 space-y-2 border-t border-line pt-4">
               <div className="flex items-baseline justify-between">
                 <span className="font-display font-bold">{tq('payNow')}</span>
                 <span className="font-mono text-2xl font-extrabold">{eur(dueNow)}</span>
               </div>
               <div className="flex items-baseline justify-between text-sm">
-                <span className="text-muted">{tq('payInTaxi')}</span>
+                <span className="text-dim">{tq('payInTaxi')}</span>
                 <span className="font-mono">
                   {dueInTaxi === 0 ? tq('nothingInTaxi') : eur(dueInTaxi)}
                 </span>
@@ -375,12 +375,12 @@ export function CheckoutForm({
             <button
               type="submit"
               disabled={busy}
-              className="wave mt-5 w-full rounded-lg bg-accent px-5 py-3.5 font-display font-extrabold text-ink transition hover:bg-accent-deep disabled:opacity-60"
+              className="wave mt-5 w-full rounded-lg bg-gold px-5 py-3.5 font-display font-extrabold text-ice transition hover:bg-accent-deep disabled:opacity-60"
             >
               {busy ? t('processing') : t('payButton', { amount: eur(dueNow) })}
             </button>
 
-            <p className="mt-3 text-xs leading-relaxed text-muted">{t('agree')}</p>
+            <p className="mt-3 text-xs leading-relaxed text-dim">{t('agree')}</p>
           </div>
         </aside>
       </div>
