@@ -406,7 +406,8 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     expect(q.tariff).toBe('T6');
     expect(q.startFare).toBe(7.25);
     expect(q.perKmRate).toBe(0.82);
-    expect(q.meterEstimate).toBe(89.25); // 7.25 + 82.00
+    // 100 km out, 100 km back: the interurban meter bills the closed circuit.
+    expect(q.meterEstimate).toBe(171.25); // 7.25 + (200 x 0.82)
   });
 
   it('bills T-7 at night', () => {
@@ -421,7 +422,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     expect(q.tariff).toBe('T7');
     expect(q.startFare).toBe(7.9);
     expect(q.perKmRate).toBe(0.89);
-    expect(q.meterEstimate).toBe(96.9); // 7.90 + 89.00
+    expect(q.meterEstimate).toBe(185.9); // 7.90 + (200 x 0.89)
   });
 
   it('applies the same 10 cent markup to the prepaid fare', () => {
@@ -434,7 +435,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     });
 
     expect(q.perKmRateCharged).toBe(0.92);
-    expect(round(q.fixedFare - q.meterEstimate)).toBe(10); // 100 km x 0.10
+    expect(round(q.fixedFare - q.meterEstimate)).toBe(20); // 200 km x 0.10
   });
 
   it('adds the airport supplement on an interurban airport run', () => {
@@ -448,7 +449,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
 
     expect(q.tariff).toBe('T6');
     expect(q.supplementLines.some((l) => l.key === 'airportElPrat')).toBe(true);
-    expect(q.meterEstimate).toBe(36.45); // 7.25 + 24.60 + 4.60
+    expect(q.meterEstimate).toBe(61.05); // 7.25 + (60 x 0.82) + 4.60
   });
 
   it('does not apply the urban airport minimum to an interurban trip', () => {
@@ -464,7 +465,24 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
 
     expect(q.tariff).toBe('T6');
     expect(q.adjustment).toBeNull();
-    expect(q.meterEstimate).toBe(18.41); // 7.25 + 6.56 + 4.60
+    expect(q.meterEstimate).toBe(24.97); // 7.25 + (16 x 0.82) + 4.60
+  });
+
+  it('bills the return leg, because the interurban service is a closed circuit', () => {
+    // The driver has no licence to pick up outside their area and drives home
+    // empty, so the Generalitat meter counts the km back to the origin too.
+    const oneWay = 100;
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: oneWay,
+      durationMin: 75,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(oneWay).toBe(100);
+    expect(q.meterEstimate).toBeGreaterThan(89.25); // outbound leg alone
+    expect(q.meterEstimate).toBe(171.25); // 7.25 + (100 x 2 x 0.82)
   });
 
   it('keeps urban trips on the AMB meter', () => {

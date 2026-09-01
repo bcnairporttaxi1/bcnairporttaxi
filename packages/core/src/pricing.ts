@@ -124,9 +124,13 @@ function interurbanQuote(
 
   const supplements = round2(lines.reduce((sum, l) => sum + l.amount, 0));
 
-  const meterEstimate = round2(startFare + round2(roadKm * perKmRate) + supplements);
+  // The interurban meter runs on the closed circuit out and back, not just the
+  // outbound leg — see TARIFFS.outsideAMB.billsReturnLeg.
+  const billableKm = cfg.billsReturnLeg ? round2(roadKm * 2) : roadKm;
+
+  const meterEstimate = round2(startFare + round2(billableKm * perKmRate) + supplements);
   const fixedFare = round2(
-    startFare + round2(roadKm * perKmRateCharged) + supplements,
+    startFare + round2(billableKm * perKmRateCharged) + supplements,
   );
   const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 

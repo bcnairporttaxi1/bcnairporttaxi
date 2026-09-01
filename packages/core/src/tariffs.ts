@@ -115,6 +115,23 @@ export const TARIFFS = {
     waitPer15Min: { T6: 5.62, T7: 6.08 },
     /** Airport entry/exit, and 5–8 seat vehicles, both apply interurban too. */
     supplements: { airportElPrat: 4.6, largeVehicle: 4.6 },
+
+    /**
+     * The interurban meter bills the RETURN leg as well as the outbound one.
+     *
+     * The Generalitat defines an interurban service as "alquiler del vehiculo
+     * completo, realizandose el trayecto en circuito cerrado hasta el punto de
+     * partida" — a closed circuit back to the point of departure — because the
+     * driver has no licence to pick up a return fare outside their own area and
+     * drives home empty. The published guidance is explicit that when a client
+     * does travel back, "como el taximetro ya ha contado los kilometros de
+     * regreso, debera desactivarse el parametro kilometrico": the return km are
+     * already on the meter.
+     *
+     * So billable distance is roadKm x 2. Billing one way understated a
+     * Barcelona-Girona quote by about half (89 EUR against roughly 171 EUR).
+     */
+    billsReturnLeg: true,
   },
 } as const;
 
