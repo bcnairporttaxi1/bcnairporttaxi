@@ -9,6 +9,7 @@ import {
   isBarcelonaHoliday,
   meetsLeadTime,
   selectTariff,
+  servesTrip,
   specialNightSupplement,
 } from './pricing';
 
@@ -556,5 +557,52 @@ describe('booking fee window (Sat 08:00 to Mon 08:00)', () => {
     });
     expect(q.bookingFeeRate).toBe(0.25);
     expect(q.bookingFee).toBe(round(q.fixedFare * 0.25));
+  });
+});
+
+describe('service area — which trips we accept at all', () => {
+  const BCN = { lat: 41.3874, lng: 2.1686 };
+  const AIRPORT_PT = { lat: LANDMARKS.elPratAirport.lat, lng: LANDMARKS.elPratAirport.lng };
+  const GIRONA_AIRPORT = { lat: 41.901, lng: 2.7606 };
+  const SITGES_PT = { lat: 41.235, lng: 1.805 };
+  const MADRID = { lat: 40.4168, lng: -3.7038 };
+
+  it('accepts an outbound interurban trip', () => {
+    expect(servesTrip(BCN, GIRONA_AIRPORT)).toBe(true);
+    expect(servesTrip(AIRPORT_PT, SITGES_PT)).toBe(true);
+  });
+
+  it('accepts the return leg — the case that used to be rejected', () => {
+    // Requiring the pickup to be inside the AMB made every inbound journey
+    // from an advertised destination unbookable.
+    expect(servesTrip(GIRONA_AIRPORT, BCN)).toBe(true);
+    expect(servesTrip(SITGES_PT, AIRPORT_PT)).toBe(true);
+  });
+
+  it('still refuses a trip with neither end near Barcelona', () => {
+    expect(servesTrip(MADRID, GIRONA_AIRPORT)).toBe(false);
+  });
+
+  it('accepts a purely urban trip', () => {
+    expect(servesTrip(BCN, { lat: 41.4036, lng: 2.1744 })).toBe(true);
+  });
+});
+
+describe('Barcelona holiday calendar', () => {
+  it('treats Dilluns de Pasqua Granada as a holiday in both years', () => {
+    // Barcelona local festivity; missing from the calendar until now, which
+    // billed T-1 on a day the meter runs T-2.
+    expect(isBarcelonaHoliday(new Date('2026-05-25T12:00:00+02:00'))).toBe(true);
+    expect(isBarcelonaHoliday(new Date('2027-05-17T12:00:00+02:00'))).toBe(true);
+  });
+
+  it('bills T-2 all day on that holiday', () => {
+    expect(selectTariff(new Date('2026-05-25T13:00:00+02:00'))).toBe('T2');
+  });
+
+  it('charges the weekend booking fee on that holiday', () => {
+    expect(bookingFeeRateFor(new Date('2026-05-25T13:00:00+02:00'))).toBe(
+      TARIFFS.bookingFeeRate.weekend,
+    );
   });
 });

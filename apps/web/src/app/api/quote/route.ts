@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
 import { z } from 'zod';
-import { calculateQuote, isAirport } from '@bcn/core/pricing';
+import { calculateQuote, servesTrip } from '@bcn/core/pricing';
 
 /**
  * Road distance + fare estimate.
@@ -25,18 +25,6 @@ const bodySchema = z.object({
   pickupAt: z.iso.datetime(),
 });
 
-/** Barcelona metropolitan bounding box — pickups must start inside it. */
-const CITY_BOUNDS = { minLat: 41.2, maxLat: 41.55, minLng: 1.9, maxLng: 2.35 };
-
-function insideServiceArea(p: { lat: number; lng: number }): boolean {
-  return (
-    p.lat >= CITY_BOUNDS.minLat &&
-    p.lat <= CITY_BOUNDS.maxLat &&
-    p.lng >= CITY_BOUNDS.minLng &&
-    p.lng <= CITY_BOUNDS.maxLng
-  );
-}
-
 export async function POST(request: Request) {
   // A quote costs us an OSRM route lookup, so the ceiling protects a free
   // third-party service as much as it protects us.
@@ -58,7 +46,7 @@ export async function POST(request: Request) {
   const { pickup, dropoff, pickupAt } = parsed.data;
 
   // City pickup only at launch. Drop-off may be anywhere.
-  if (!insideServiceArea(pickup) && !isAirport(pickup)) {
+  if (!servesTrip(pickup, dropoff)) {
     return NextResponse.json({ error: 'pickup_outside_area' }, { status: 422 });
   }
 

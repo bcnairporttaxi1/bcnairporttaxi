@@ -7,7 +7,7 @@ import {
   amountDueInTaxi,
   amountDueOnline,
   calculateQuote,
-  isAirport,
+  servesTrip,
   meetsLeadTime,
 } from '@bcn/core/pricing';
 import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
@@ -36,17 +36,6 @@ const bodySchema = z.object({
   notes: z.string().trim().max(1000).optional(),
   locale: z.string().trim().max(5).default('en'),
 });
-
-const CITY_BOUNDS = { minLat: 41.2, maxLat: 41.55, minLng: 1.9, maxLng: 2.35 };
-
-function insideServiceArea(p: { lat: number; lng: number }): boolean {
-  return (
-    p.lat >= CITY_BOUNDS.minLat &&
-    p.lat <= CITY_BOUNDS.maxLat &&
-    p.lng >= CITY_BOUNDS.minLng &&
-    p.lng <= CITY_BOUNDS.maxLng
-  );
-}
 
 /** Human-quotable reference, e.g. BCN-7Q4K2M. Avoids ambiguous 0/O/1/I. */
 function makeReference(): string {
@@ -109,7 +98,7 @@ export async function POST(request: Request) {
   if (!meetsLeadTime(pickupAt)) {
     return NextResponse.json({ error: 'lead_time' }, { status: 422 });
   }
-  if (!insideServiceArea(input.pickup) && !isAirport(input.pickup)) {
+  if (!servesTrip(input.pickup, input.dropoff)) {
     return NextResponse.json({ error: 'pickup_outside_area' }, { status: 422 });
   }
 
