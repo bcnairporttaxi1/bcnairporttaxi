@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero, Prose } from '@/components/page-hero';
 import { InstallPrompt } from '@/components/install-prompt';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -12,8 +12,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/install`;
+  const languages = altLanguages(`/install`);
   const t = await getTranslations({ locale, namespace: 'install' });
   return {
     title: t('metaTitle'),

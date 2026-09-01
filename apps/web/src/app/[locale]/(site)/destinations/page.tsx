@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { DESTINATION_GROUPS, FEATURED_DESTINATIONS, type Destination } from '@bcn/core/destinations';
 import { destinationPhoto } from '@bcn/core/destination-photos';
 import { CONTACT_EMAIL, whatsappLink } from '@bcn/core/site';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -18,8 +18,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'destinations' });
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/destinations`;
+  const languages = altLanguages(`/destinations`);
   return {
     title: { absolute: t('metaTitle') },
     description: t('metaDescription'),

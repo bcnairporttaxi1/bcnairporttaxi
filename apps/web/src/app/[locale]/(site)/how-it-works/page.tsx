@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -14,8 +14,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'howItWorks' });
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/how-it-works`;
+  const languages = altLanguages(`/how-it-works`);
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),

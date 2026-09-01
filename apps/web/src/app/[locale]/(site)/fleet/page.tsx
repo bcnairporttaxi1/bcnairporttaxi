@@ -5,7 +5,7 @@ import { PageHero } from '@/components/page-hero';
 import { VehicleCard } from '@/components/vehicle-card';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { FLEET } from '@bcn/core/fleet';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -16,8 +16,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'fleet' });
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/fleet`;
+  const languages = altLanguages(`/fleet`);
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),

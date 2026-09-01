@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { QuoteWidget } from '@/components/quote-widget';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
 
 export function generateStaticParams() {
@@ -15,8 +15,7 @@ export async function generateMetadata(props: {
   const { locale } = await props.params;
   const page = getLandingPage('book-online')!;
   const copy = getLandingCopy(page, locale);
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/book`;
+  const languages = altLanguages(`/book`);
   return {
     // Absolute so the layout suffix does not push it past display length.
     title: { absolute: copy.title },

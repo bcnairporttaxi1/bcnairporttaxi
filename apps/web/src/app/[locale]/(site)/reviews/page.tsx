@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 import { prisma } from '@/lib/db';
 
 export function generateStaticParams() {
@@ -13,8 +13,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/reviews`;
+  const languages = altLanguages(`/reviews`);
   return {
     title: 'Barcelona Airport Taxi Reviews',
     description:

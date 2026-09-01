@@ -4,7 +4,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter, Sora, Space_Mono } from 'next/font/google';
 
-import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
+import { altLanguages, localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 import { OrganizationJsonLd } from '@/components/json-ld';
 import '../globals.css';
@@ -51,12 +51,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: 'home' });
 
-  // hreflang for every language, plus x-default pointing at English.
-  const languages: Record<string, string> = {};
-  for (const l of locales) {
-    languages[localeHrefLang[l]] = `/${l}`;
-  }
-  languages['x-default'] = '/en';
+  const languages = altLanguages();
 
   return {
     metadataBase: new URL(SITE_URL),

@@ -6,7 +6,7 @@ import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS, getBlogPost } from '@bcn/core/blog';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 
 export function generateStaticParams() {
@@ -22,8 +22,7 @@ export async function generateMetadata(props: {
   const post = getBlogPost(slug);
   if (!post) return {};
 
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/blog/${slug}`;
+  const languages = altLanguages(`/blog/${slug}`);
 
   return {
     title: { absolute: post.title },

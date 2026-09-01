@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { TARIFFS } from '@bcn/core/tariffs';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -15,8 +15,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'pricing' });
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/pricing`;
+  const languages = altLanguages(`/pricing`);
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),

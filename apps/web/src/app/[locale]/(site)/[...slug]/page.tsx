@@ -9,7 +9,7 @@ import {
   getLandingCopy,
   getLandingPage,
 } from '@bcn/core/landing-pages';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 /**
  * Catch-all so nested keyword routes such as `/neighborhoods/eixample` resolve
@@ -31,8 +31,7 @@ export async function generateMetadata(props: {
   if (!page) return {};
 
   const copy = getLandingCopy(page, locale);
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/${path}`;
+  const languages = altLanguages(`/${path}`);
 
   return {
     // Absolute so the layout's "| BCNAirportTaxi" suffix does not push these

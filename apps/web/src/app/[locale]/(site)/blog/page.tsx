@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS } from '@bcn/core/blog';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -14,8 +14,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/blog`;
+  const languages = altLanguages(`/blog`);
   return {
     title: { absolute: 'Barcelona Airport Taxi Guides & Tips' },
     description:

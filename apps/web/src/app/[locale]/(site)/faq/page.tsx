@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/json-ld';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 const KEYS = [
   'fareAccurate',
@@ -24,8 +24,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'faq' });
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/faq`;
+  const languages = altLanguages(`/faq`);
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),

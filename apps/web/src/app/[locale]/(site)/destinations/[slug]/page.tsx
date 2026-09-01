@@ -14,7 +14,7 @@ import {
 } from '@bcn/core/destinations';
 import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
 import { whatsappLink } from '@bcn/core/site';
-import { locales } from '@/i18n/routing';
+import { altLanguages, locales } from '@/i18n/routing';
 
 const eur = (n: number, locale: string) =>
   new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
@@ -32,8 +32,7 @@ export async function generateMetadata(props: {
   const d = getDestination(slug);
   if (!d) return {};
 
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/destinations/${slug}`;
+  const languages = altLanguages(`/destinations/${slug}`);
 
   const t = await getTranslations({ locale, namespace: 'destinationRoute' });
 
