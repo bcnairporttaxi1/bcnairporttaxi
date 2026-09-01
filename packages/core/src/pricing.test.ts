@@ -9,6 +9,7 @@ import {
   isBarcelonaHoliday,
   meetsLeadTime,
   selectTariff,
+  servesTrip,
   specialNightSupplement,
 } from './pricing';
 
@@ -406,7 +407,8 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     expect(q.tariff).toBe('T6');
     expect(q.startFare).toBe(7.25);
     expect(q.perKmRate).toBe(0.82);
-    expect(q.meterEstimate).toBe(89.25); // 7.25 + 82.00
+    // 100 km out, 100 km back: the interurban meter bills the closed circuit.
+    expect(q.meterEstimate).toBe(171.25); // 7.25 + (200 x 0.82)
   });
 
   it('bills T-7 at night', () => {
@@ -421,7 +423,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     expect(q.tariff).toBe('T7');
     expect(q.startFare).toBe(7.9);
     expect(q.perKmRate).toBe(0.89);
-    expect(q.meterEstimate).toBe(96.9); // 7.90 + 89.00
+    expect(q.meterEstimate).toBe(185.9); // 7.90 + (200 x 0.89)
   });
 
   it('applies the same 10 cent markup to the prepaid fare', () => {
@@ -434,7 +436,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     });
 
     expect(q.perKmRateCharged).toBe(0.92);
-    expect(round(q.fixedFare - q.meterEstimate)).toBe(10); // 100 km x 0.10
+    expect(round(q.fixedFare - q.meterEstimate)).toBe(20); // 200 km x 0.10
   });
 
   it('adds the airport supplement on an interurban airport run', () => {
@@ -448,7 +450,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
 
     expect(q.tariff).toBe('T6');
     expect(q.supplementLines.some((l) => l.key === 'airportElPrat')).toBe(true);
-    expect(q.meterEstimate).toBe(36.45); // 7.25 + 24.60 + 4.60
+    expect(q.meterEstimate).toBe(61.05); // 7.25 + (60 x 0.82) + 4.60
   });
 
   it('does not apply the urban airport minimum to an interurban trip', () => {
@@ -464,7 +466,24 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
 
     expect(q.tariff).toBe('T6');
     expect(q.adjustment).toBeNull();
-    expect(q.meterEstimate).toBe(18.41); // 7.25 + 6.56 + 4.60
+    expect(q.meterEstimate).toBe(24.97); // 7.25 + (16 x 0.82) + 4.60
+  });
+
+  it('bills the return leg, because the interurban service is a closed circuit', () => {
+    // The driver has no licence to pick up outside their area and drives home
+    // empty, so the Generalitat meter counts the km back to the origin too.
+    const oneWay = 100;
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: oneWay,
+      durationMin: 75,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(oneWay).toBe(100);
+    expect(q.meterEstimate).toBeGreaterThan(89.25); // outbound leg alone
+    expect(q.meterEstimate).toBe(171.25); // 7.25 + (100 x 2 x 0.82)
   });
 
   it('keeps urban trips on the AMB meter', () => {
@@ -538,5 +557,52 @@ describe('booking fee window (Sat 08:00 to Mon 08:00)', () => {
     });
     expect(q.bookingFeeRate).toBe(0.25);
     expect(q.bookingFee).toBe(round(q.fixedFare * 0.25));
+  });
+});
+
+describe('service area — which trips we accept at all', () => {
+  const BCN = { lat: 41.3874, lng: 2.1686 };
+  const AIRPORT_PT = { lat: LANDMARKS.elPratAirport.lat, lng: LANDMARKS.elPratAirport.lng };
+  const GIRONA_AIRPORT = { lat: 41.901, lng: 2.7606 };
+  const SITGES_PT = { lat: 41.235, lng: 1.805 };
+  const MADRID = { lat: 40.4168, lng: -3.7038 };
+
+  it('accepts an outbound interurban trip', () => {
+    expect(servesTrip(BCN, GIRONA_AIRPORT)).toBe(true);
+    expect(servesTrip(AIRPORT_PT, SITGES_PT)).toBe(true);
+  });
+
+  it('accepts the return leg — the case that used to be rejected', () => {
+    // Requiring the pickup to be inside the AMB made every inbound journey
+    // from an advertised destination unbookable.
+    expect(servesTrip(GIRONA_AIRPORT, BCN)).toBe(true);
+    expect(servesTrip(SITGES_PT, AIRPORT_PT)).toBe(true);
+  });
+
+  it('still refuses a trip with neither end near Barcelona', () => {
+    expect(servesTrip(MADRID, GIRONA_AIRPORT)).toBe(false);
+  });
+
+  it('accepts a purely urban trip', () => {
+    expect(servesTrip(BCN, { lat: 41.4036, lng: 2.1744 })).toBe(true);
+  });
+});
+
+describe('Barcelona holiday calendar', () => {
+  it('treats Dilluns de Pasqua Granada as a holiday in both years', () => {
+    // Barcelona local festivity; missing from the calendar until now, which
+    // billed T-1 on a day the meter runs T-2.
+    expect(isBarcelonaHoliday(new Date('2026-05-25T12:00:00+02:00'))).toBe(true);
+    expect(isBarcelonaHoliday(new Date('2027-05-17T12:00:00+02:00'))).toBe(true);
+  });
+
+  it('bills T-2 all day on that holiday', () => {
+    expect(selectTariff(new Date('2026-05-25T13:00:00+02:00'))).toBe('T2');
+  });
+
+  it('charges the weekend booking fee on that holiday', () => {
+    expect(bookingFeeRateFor(new Date('2026-05-25T13:00:00+02:00'))).toBe(
+      TARIFFS.bookingFeeRate.weekend,
+    );
   });
 });

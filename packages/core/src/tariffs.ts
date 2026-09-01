@@ -115,14 +115,50 @@ export const TARIFFS = {
     waitPer15Min: { T6: 5.62, T7: 6.08 },
     /** Airport entry/exit, and 5–8 seat vehicles, both apply interurban too. */
     supplements: { airportElPrat: 4.6, largeVehicle: 4.6 },
+
+    /**
+     * The interurban meter bills the RETURN leg as well as the outbound one.
+     *
+     * The Generalitat defines an interurban service as "alquiler del vehiculo
+     * completo, realizandose el trayecto en circuito cerrado hasta el punto de
+     * partida" — a closed circuit back to the point of departure — because the
+     * driver has no licence to pick up a return fare outside their own area and
+     * drives home empty. The published guidance is explicit that when a client
+     * does travel back, "como el taximetro ya ha contado los kilometros de
+     * regreso, debera desactivarse el parametro kilometrico": the return km are
+     * already on the meter.
+     *
+     * So billable distance is roadKm x 2. Billing one way understated a
+     * Barcelona-Girona quote by about half (89 EUR against roughly 171 EUR).
+     */
+    billsReturnLeg: true,
   },
 } as const;
 
 /**
- * Bounding box for the AMB metropolitan area.
+ * Bounding box approximating the AMB metropolitan area.
  *
  * A trip is interurban when either end falls outside this box, which switches
  * the whole journey to the T-6/T-7 tariff rather than the urban meter.
+ *
+ * KNOWN LIMITATION — the AMB is 36 municipalities, not a rectangle, so the box
+ * over-includes at the edges. Verified misclassifications, both of which quote
+ * the cheaper urban meter for a journey that is legally interurban:
+ *
+ *   Sabadell    41.5463, 2.1086  — not in the AMB, inside this box
+ *   Vallirana   41.3878, 1.9300  — not in the AMB, inside this box
+ *
+ * Sabadell alone is a city of ~215,000, and the gap widens now that interurban
+ * bills the return leg: Barcelona-Sabadell quotes about 30 EUR urban against
+ * roughly 40 EUR interurban. Correctly fixed by resolving the pickup and
+ * dropoff to a municipality and testing membership of the real 36-member AMB
+ * list, rather than by tuning these four numbers — moving maxLat to exclude
+ * Sabadell also risks clipping Barbera del Valles and Badia del Valles, which
+ * genuinely are AMB.
+ *
+ * Spot-checked correct: Terrassa, Mataro, Granollers and Sitges all fall
+ * outside; Castelldefels, Sant Cugat, Badalona, Ripollet, Badia del Valles and
+ * Begues all fall inside.
  */
 export const AMB_BOUNDS = {
   minLat: 41.2,
@@ -157,6 +193,7 @@ export const BARCELONA_HOLIDAYS: readonly string[] = [
   '2026-04-03', // Divendres Sant
   '2026-04-06', // Dilluns de Pasqua Florida
   '2026-05-01', // Festa del Treball
+  '2026-05-25', // Dilluns de Pasqua Granada (Barcelona local)
   '2026-06-24', // Sant Joan
   '2026-08-15', // L'Assumpció
   '2026-09-11', // Diada Nacional de Catalunya
@@ -172,6 +209,7 @@ export const BARCELONA_HOLIDAYS: readonly string[] = [
   '2027-03-26', // Divendres Sant
   '2027-03-29', // Dilluns de Pasqua Florida
   '2027-05-01',
+  '2027-05-17', // Dilluns de Pasqua Granada (Barcelona local)
   '2027-06-24',
   '2027-08-15',
   '2027-09-11',

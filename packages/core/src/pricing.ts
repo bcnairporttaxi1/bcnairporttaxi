@@ -124,9 +124,13 @@ function interurbanQuote(
 
   const supplements = round2(lines.reduce((sum, l) => sum + l.amount, 0));
 
-  const meterEstimate = round2(startFare + round2(roadKm * perKmRate) + supplements);
+  // The interurban meter runs on the closed circuit out and back, not just the
+  // outbound leg — see TARIFFS.outsideAMB.billsReturnLeg.
+  const billableKm = cfg.billsReturnLeg ? round2(roadKm * 2) : roadKm;
+
+  const meterEstimate = round2(startFare + round2(billableKm * perKmRate) + supplements);
   const fixedFare = round2(
-    startFare + round2(roadKm * perKmRateCharged) + supplements,
+    startFare + round2(billableKm * perKmRateCharged) + supplements,
   );
   const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 
@@ -311,6 +315,24 @@ export function insideAMB(p: Coords): boolean {
  */
 export function isInterurban(pickup: Coords, dropoff: Coords): boolean {
   return !insideAMB(pickup) || !insideAMB(dropoff);
+}
+
+/**
+ * Whether we serve a trip at all.
+ *
+ * The business is Barcelona-centred, so ONE end must sit inside the AMB or at
+ * El Prat — but either end will do. That is what makes the return leg of an
+ * interurban transfer bookable: Girona to Barcelona is as valid a job as
+ * Barcelona to Girona, and T-6/T-7 already prices both.
+ *
+ * The API routes previously demanded that the PICKUP be inside the area, which
+ * rejected every inbound journey from the destinations the site actually
+ * sells — Girona, Sitges, Costa Brava, Tarragona, Andorra — with
+ * `pickup_outside_area`. Half of every advertised route was unbookable.
+ */
+export function servesTrip(pickup: Coords, dropoff: Coords): boolean {
+  const served = (p: Coords) => insideAMB(p) || isAirport(p);
+  return served(pickup) || served(dropoff);
 }
 
 /** True when the pickup is at least MIN_LEAD_HOURS away. */
