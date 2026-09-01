@@ -168,7 +168,9 @@
     "always": "Serviço 24/7",
     "fleet": "Frota premium",
     "emailUs": "Escreva-nos",
-    "callUs": "Ligue-nos"
+    "callUs": "Ligue-nos",
+    "whatsapp": "Fale no WhatsApp",
+    "waIntro": "Ola, gostaria de reservar um taxi para o aeroporto de Barcelona."
   },
   "destinations": {
     "metaTitle": "Destinos de transfer a partir de Barcelona | Táxi e minivan privados",

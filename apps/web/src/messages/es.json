@@ -229,7 +229,9 @@
     "always": "Servicio 24/7",
     "fleet": "Flota premium",
     "emailUs": "Escríbenos",
-    "callUs": "Llámanos"
+    "callUs": "Llámanos",
+    "whatsapp": "Chatea por WhatsApp",
+    "waIntro": "Hola, quiero reservar un taxi al aeropuerto de Barcelona."
   },
   "destinations": {
     "metaTitle": "Destinos de traslado desde Barcelona | Taxi y minivan privados",

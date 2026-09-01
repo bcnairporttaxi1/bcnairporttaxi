@@ -343,7 +343,9 @@
     "always": "24/7 service",
     "fleet": "Premium fleet",
     "emailUs": "Email us",
-    "callUs": "Call us"
+    "callUs": "Call us",
+    "whatsapp": "Chat on WhatsApp",
+    "waIntro": "Hi, I would like to book a Barcelona airport taxi."
   },
   "destinations": {
     "metaTitle": "Barcelona Transfer Destinations | Private Taxi & Minivan",

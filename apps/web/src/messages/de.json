@@ -168,7 +168,9 @@
     "always": "24/7 Service",
     "fleet": "Premium-Fuhrpark",
     "emailUs": "E-Mail an uns",
-    "callUs": "Rufen Sie uns an"
+    "callUs": "Rufen Sie uns an",
+    "whatsapp": "Per WhatsApp chatten",
+    "waIntro": "Hallo, ich moechte ein Taxi zum Flughafen Barcelona buchen."
   },
   "destinations": {
     "metaTitle": "Transferziele ab Barcelona | Privates Taxi & Minivan",

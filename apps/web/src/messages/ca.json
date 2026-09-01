@@ -168,7 +168,9 @@
     "always": "Servei 24/7",
     "fleet": "Flota premium",
     "emailUs": "Escriu-nos",
-    "callUs": "Truca'ns"
+    "callUs": "Truca'ns",
+    "whatsapp": "Xateja per WhatsApp",
+    "waIntro": "Hola, voldria reservar un taxi a l aeroport de Barcelona."
   },
   "destinations": {
     "metaTitle": "Destinacions de trasllat des de Barcelona | Taxi i minivan privats",
