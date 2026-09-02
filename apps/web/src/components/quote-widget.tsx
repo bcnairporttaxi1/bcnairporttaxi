@@ -217,14 +217,21 @@ export function QuoteWidget({
       }
     >
       {isPanel && (
-        <div className="bg-gradient-to-r from-accent to-accent-deep px-6 py-5">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink/70">
+        <div className="relative border-b border-line bg-pane px-6 py-5">
+          {/* A hairline of saffron along the top edge rather than a solid slab:
+              the panel reads as an instrument, and the heading keeps full
+              contrast on dark instead of sitting white on amber. */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"
+          />
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
             {t('panelKicker')}
           </p>
-          <h2 id={headingId} className="mt-1 font-display text-2xl font-extrabold text-ice">
+          <h2 id={headingId} className="mt-1.5 font-display text-2xl font-extrabold text-ice">
             {t('panelTitle')}
           </h2>
-          <p className="mt-1 text-sm font-medium text-ink/70">{t('panelSub')}</p>
+          <p className="mt-1 text-sm text-dim">{t('panelSub')}</p>
         </div>
       )}
 
@@ -242,7 +249,7 @@ export function QuoteWidget({
               <h2 id={headingId} className="font-display text-xl font-extrabold text-ice">
                 {t('title')}
               </h2>
-              <p className="mt-1 text-xs text-porcelain/50">{t('instantPrice')}</p>
+              <p className="mt-1 text-xs text-ghost">{t('instantPrice')}</p>
             </div>
             <span className="hidden shrink-0 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-bold text-gold sm:block">
               24/7
@@ -261,8 +268,8 @@ export function QuoteWidget({
                   key={v}
                   className={`cursor-pointer rounded-lg px-3 py-2.5 text-center text-sm font-bold transition ${
                     active
-                      ? 'bg-gold text-ice'
-                      : 'text-porcelain/65 hover:bg-white/5 hover:text-ice'
+                      ? 'bg-gold text-void'
+                      : 'text-dim hover:bg-white/5 hover:text-ice'
                   }`}
                 >
                   <input
@@ -298,7 +305,7 @@ export function QuoteWidget({
 
           <div className="grid grid-cols-2 gap-3">
             <label className="block">
-              <span className="mb-1.5 block text-sm font-medium text-porcelain/80">
+              <span className="mb-1.5 block text-sm font-medium text-dim">
                 {t('date')}
               </span>
               <input
@@ -310,7 +317,7 @@ export function QuoteWidget({
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-sm font-medium text-porcelain/80">
+              <span className="mb-1.5 block text-sm font-medium text-dim">
                 {t('time')}
               </span>
               <input
@@ -325,7 +332,7 @@ export function QuoteWidget({
         </div>
 
         {tripType === 'RETURN' && (
-          <p className="mt-3 rounded-lg border border-white/12 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-porcelain/65">
+          <p className="mt-3 rounded-lg border border-white/12 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-dim">
             {t('returnNote')}
           </p>
         )}
@@ -333,7 +340,7 @@ export function QuoteWidget({
         <button
           type="submit"
           disabled={loading}
-          className="sheen mt-5 w-full rounded-xl bg-gold px-5 py-4 font-display text-base font-extrabold text-ice shadow-lg shadow-accent/20 transition hover:bg-accent-deep hover:shadow-accent/30 active:scale-[0.99] disabled:opacity-60"
+          className="sheen mt-5 w-full rounded-xl bg-gold px-5 py-4 font-display text-base font-extrabold text-void shadow-lg shadow-accent/20 transition hover:bg-accent-deep hover:shadow-accent/30 active:scale-[0.99] disabled:opacity-60"
         >
           {loading ? t('calculating') : t('calculate')}
         </button>
@@ -351,7 +358,7 @@ export function QuoteWidget({
         {tooSoon && (
           <div role="alert" className="mt-4 rounded-xl border border-accent/40 bg-accent/10 p-4">
             <h3 className="font-display font-bold text-gold">{t('urgent.title')}</h3>
-            <p className="mt-1.5 text-sm text-porcelain/80">{t('urgent.body')}</p>
+            <p className="mt-1.5 text-sm text-dim">{t('urgent.body')}</p>
             <a
               href={whatsappLink(
                 t('urgent.prefill', {
@@ -362,7 +369,7 @@ export function QuoteWidget({
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="wave mt-3 inline-block rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-ice hover:bg-accent-deep"
+              className="wave mt-3 inline-block rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void hover:bg-accent-deep"
             >
               {t('urgent.cta')}
             </a>
@@ -373,7 +380,7 @@ export function QuoteWidget({
       <div className={isPanel ? 'px-5 pb-5 sm:px-6 sm:pb-6' : 'grid gap-4'}>
         <div className={`taximeter rounded-card p-5 ${isPanel ? '' : 'sm:p-6'}`}>
           <div className="flex items-baseline justify-between gap-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-porcelain/55">
+            <p className="text-xs font-semibold uppercase tracking-widest text-ghost">
               {t('estimatedFare')}
             </p>
             {q && (
@@ -390,15 +397,15 @@ export function QuoteWidget({
             {q ? eur(q.meterEstimate) : '— . —'}
           </p>
 
-          {q && <p className="mt-1 text-xs text-porcelain/50">{tariffLabel}</p>}
+          {q && <p className="mt-1 text-xs text-ghost">{tariffLabel}</p>}
 
           <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-white/10 pt-4 text-sm">
             <div>
-              <dt className="text-porcelain/50">{t('distance')}</dt>
+              <dt className="text-ghost">{t('distance')}</dt>
               <dd className="font-mono text-ice">{q ? `${q.roadKm} km` : '—'}</dd>
             </div>
             <div>
-              <dt className="text-porcelain/50">{t('duration')}</dt>
+              <dt className="text-ghost">{t('duration')}</dt>
               <dd className="font-mono text-ice">{q ? `${q.durationMin} min` : '—'}</dd>
             </div>
           </dl>
@@ -407,10 +414,10 @@ export function QuoteWidget({
             <dl className="mt-3 space-y-1 border-t border-white/10 pt-3 text-sm">
               {q.supplementLines.map((line) => (
                 <div key={line.key} className="flex justify-between">
-                  <dt className="text-porcelain/50">
+                  <dt className="text-ghost">
                     {t(`supplementNames.${line.key}` as never)}
                   </dt>
-                  <dd className="font-mono text-porcelain/80">+{eur(line.amount)}</dd>
+                  <dd className="font-mono text-dim">+{eur(line.amount)}</dd>
                 </div>
               ))}
             </dl>
@@ -429,7 +436,7 @@ export function QuoteWidget({
               preferred by default styling — only the actual selection is lit. */}
           {q && (
             <fieldset className="mt-5">
-              <legend className="mb-2 text-xs font-semibold uppercase tracking-widest text-porcelain/55">
+              <legend className="mb-2 text-xs font-semibold uppercase tracking-widest text-ghost">
                 {t('chooseHowToPay')}
               </legend>
               <div className="grid gap-2 sm:grid-cols-2">
@@ -478,7 +485,7 @@ export function QuoteWidget({
                         </span>
                         <span
                           className={`text-xs font-semibold uppercase tracking-wide ${
-                            selected ? 'text-gold' : 'text-porcelain/60'
+                            selected ? 'text-gold' : 'text-dim'
                           }`}
                         >
                           {opt.title}
@@ -487,7 +494,7 @@ export function QuoteWidget({
                       <span className="mt-1.5 block font-mono text-xl font-bold text-ice">
                         {eur(opt.amount)}
                       </span>
-                      <span className="mt-1 block text-xs text-porcelain/50">{opt.sub}</span>
+                      <span className="mt-1 block text-xs text-ghost">{opt.sub}</span>
                     </label>
                   );
                 })}
@@ -498,20 +505,20 @@ export function QuoteWidget({
           {q && (
             <Link
               href={checkoutHref}
-              className="wave mt-4 block rounded-lg bg-gold px-5 py-3.5 text-center font-display font-extrabold text-ice transition hover:bg-accent-deep"
+              className="wave mt-4 block rounded-lg bg-gold px-5 py-3.5 text-center font-display font-extrabold text-void transition hover:bg-accent-deep"
             >
               {t('bookNow')}
             </Link>
           )}
 
           {q && (
-            <p className="mt-3 text-xs text-porcelain/50">
+            <p className="mt-3 text-xs text-ghost">
               {t('bookingFee', { pct: Math.round(q.bookingFeeRate * 100) })} ·{' '}
               {eur(q.bookingFee)}
             </p>
           )}
 
-          <p className="mt-4 text-xs leading-relaxed text-porcelain/45">{t('disclaimer')}</p>
+          <p className="mt-4 text-xs leading-relaxed text-ghost">{t('disclaimer')}</p>
         </div>
 
         {/* Leaflet is ~150KB of JS for a panel that is usually below the fold on

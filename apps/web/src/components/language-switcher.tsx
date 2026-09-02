@@ -145,7 +145,7 @@ export function LanguageGrid() {
                   <span
                     aria-hidden="true"
                     className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg font-mono text-xs font-extrabold ${
-                      on ? 'bg-gold text-ice' : 'bg-void text-dim'
+                      on ? 'bg-gold text-void' : 'bg-void text-dim'
                     }`}
                   >
                     {SHORT[l]}

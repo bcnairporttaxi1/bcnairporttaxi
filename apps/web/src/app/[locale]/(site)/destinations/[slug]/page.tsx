@@ -98,7 +98,7 @@ export default async function DestinationPage(props: {
 
       <section className="bg-void">
         <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
-          <nav aria-label="Breadcrumb" className="mb-5 text-sm text-porcelain/50">
+          <nav aria-label="Breadcrumb" className="mb-5 text-sm text-ghost">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/destinations" className="hover:text-gold">
@@ -106,7 +106,7 @@ export default async function DestinationPage(props: {
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-porcelain/80">
+              <li aria-current="page" className="text-dim">
                 {d.name}
               </li>
             </ol>
@@ -115,18 +115,18 @@ export default async function DestinationPage(props: {
           <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {t('h1', { name: d.name })}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{d.blurb}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{d.blurb}</p>
 
           {d.km && d.minutes && (
             <dl className="mt-7 flex flex-wrap gap-x-10 gap-y-3">
               <div>
-                <dt className="text-xs uppercase tracking-wider text-porcelain/50">
+                <dt className="text-xs uppercase tracking-wider text-ghost">
                   {t('distance')}
                 </dt>
                 <dd className="font-mono text-xl font-bold text-ice">~{d.km} km</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-porcelain/50">
+                <dt className="text-xs uppercase tracking-wider text-ghost">
                   {t('journeyTime')}
                 </dt>
                 <dd className="font-mono text-xl font-bold text-ice">
@@ -134,7 +134,7 @@ export default async function DestinationPage(props: {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-porcelain/50">
+                <dt className="text-xs uppercase tracking-wider text-ghost">
                   {t('fromDaytime')}
                 </dt>
                 <dd className="font-mono text-xl font-bold text-gold">
@@ -149,7 +149,7 @@ export default async function DestinationPage(props: {
               href={whatsappLink(quote)}
               target="_blank"
               rel="noopener noreferrer"
-              className="sheen rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-ice transition hover:bg-accent-deep"
+              className="sheen rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-void transition hover:bg-accent-deep"
             >
               {t('ctaFixedQuote')}
             </a>
@@ -174,7 +174,7 @@ export default async function DestinationPage(props: {
               />
               {/* CC BY and CC BY-SA both require the author to be credited
                   wherever the image is shown. */}
-              <figcaption className="bg-pane px-4 py-2 text-xs text-porcelain/50">
+              <figcaption className="bg-pane px-4 py-2 text-xs text-ghost">
                 <a
                   href={photo.sourceUrl}
                   target="_blank"

@@ -44,12 +44,12 @@ export function CookieBanner() {
       <h2 id="cookie-title" className="font-display text-base font-bold">
         {t('title')}
       </h2>
-      <p className="mt-2 text-sm leading-relaxed text-porcelain/75">{t('body')}</p>
+      <p className="mt-2 text-sm leading-relaxed text-dim">{t('body')}</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
           onClick={() => choose('all')}
-          className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-ice hover:bg-accent-deep"
+          className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void hover:bg-accent-deep"
         >
           {t('accept')}
         </button>

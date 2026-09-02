@@ -58,7 +58,7 @@ export default async function FleetPage(props: {
 
         <Link
           href="/book"
-          className="wave mt-10 inline-block rounded-lg bg-gold px-6 py-3.5 font-display font-extrabold text-ice transition hover:bg-accent-deep"
+          className="wave mt-10 inline-block rounded-lg bg-gold px-6 py-3.5 font-display font-extrabold text-void transition hover:bg-accent-deep"
         >
           {tc('book')}
         </Link>

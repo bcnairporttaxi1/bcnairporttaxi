@@ -97,7 +97,7 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-ice"
+        className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-dim transition hover:bg-white/5 hover:text-ice"
       >
         {label}
         <svg
@@ -117,7 +117,7 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
                 <Link
                   href={child.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2.5 text-sm text-porcelain/80 transition hover:bg-white/8 hover:text-gold"
+                  className="block px-4 py-2.5 text-sm text-dim transition hover:bg-white/8 hover:text-gold"
                 >
                   {child.label}
                 </Link>
@@ -156,7 +156,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-porcelain/80 transition hover:bg-white/5 hover:text-ice"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-dim transition hover:bg-white/5 hover:text-ice"
               >
                 {t(item.key)}
               </Link>
@@ -179,7 +179,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
           </Link>
           <Link
             href="/book"
-            className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-ice transition hover:bg-accent-deep"
+            className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void transition hover:bg-accent-deep"
           >
             {t('book')}
           </Link>
@@ -210,7 +210,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 font-semibold text-porcelain/90 hover:bg-white/5"
+                  className="block rounded-lg px-3 py-2.5 font-semibold text-dim hover:bg-white/5"
                 >
                   {t(item.key)}
                 </Link>
@@ -221,7 +221,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
                         <Link
                           href={child.href}
                           onClick={() => setOpen(false)}
-                          className="block rounded-lg px-3 py-2 text-sm text-porcelain/65 hover:bg-white/5 hover:text-ice"
+                          className="block rounded-lg px-3 py-2 text-sm text-dim hover:bg-white/5 hover:text-ice"
                         >
                           {child.label}
                         </Link>
@@ -237,7 +237,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
             <Link
               href={accountHref}
               onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-2.5 text-porcelain/90 hover:bg-white/5"
+              className="block rounded-lg px-3 py-2.5 text-dim hover:bg-white/5"
             >
               {t('signIn')}
             </Link>

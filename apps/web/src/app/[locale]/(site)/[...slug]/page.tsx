@@ -82,7 +82,7 @@ export default async function LandingPageRoute(props: {
 
       <div className="bg-void">
         <div className="mx-auto max-w-6xl px-4 pb-14 pt-12">
-          <nav aria-label="Breadcrumb" className="mb-5 text-sm text-porcelain/50">
+          <nav aria-label="Breadcrumb" className="mb-5 text-sm text-ghost">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/" className="hover:text-gold">
@@ -90,7 +90,7 @@ export default async function LandingPageRoute(props: {
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-porcelain/80">
+              <li aria-current="page" className="text-dim">
                 {copy.h1}
               </li>
             </ol>
@@ -99,7 +99,7 @@ export default async function LandingPageRoute(props: {
           <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {copy.h1}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{copy.intro}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{copy.intro}</p>
 
           <div className="mt-10">
             <QuoteWidget

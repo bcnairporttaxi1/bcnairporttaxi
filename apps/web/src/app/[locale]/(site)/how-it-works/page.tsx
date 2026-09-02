@@ -65,7 +65,7 @@ export default async function HowItWorksPage(props: {
 
         <Link
           href="/book"
-          className="wave mt-8 inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice hover:bg-accent-deep"
+          className="wave mt-8 inline-block rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-void hover:bg-accent-deep"
         >
           {tc('book')}
         </Link>

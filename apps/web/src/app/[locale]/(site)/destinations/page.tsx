@@ -139,14 +139,14 @@ export default async function DestinationsPage(props: {
           <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {t('h1')}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{t('intro')}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{t('intro')}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={whatsappLink(t('waQuoteGeneric'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="wave rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-ice transition hover:bg-accent-deep"
+              className="wave rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-void transition hover:bg-accent-deep"
             >
               {t('askWhatsapp')}
             </a>

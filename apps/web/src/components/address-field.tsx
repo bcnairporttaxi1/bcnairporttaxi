@@ -108,7 +108,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
 
   return (
     <div ref={boxRef} className="relative">
-      <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-porcelain/80">
+      <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-dim">
         {label}
       </label>
       <input
@@ -128,11 +128,11 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
         }}
         onKeyDown={onKeyDown}
         onFocus={() => results.length > 0 && setOpen(true)}
-        className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice placeholder:text-porcelain/35"
+        className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice placeholder:text-ghost"
       />
 
       {busy && (
-        <span className="absolute right-3 top-9 text-xs text-porcelain/40">
+        <span className="absolute right-3 top-9 text-xs text-ghost">
           {t('searching')}
         </span>
       )}
@@ -144,7 +144,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
           className="absolute z-30 mt-1 max-h-64 w-full overflow-auto rounded-lg border border-white/15 bg-raise-2 py-1 shadow-2xl"
         >
           {results.length === 0 && !busy ? (
-            <li className="px-3 py-2.5 text-sm text-porcelain/50">{t('noResults')}</li>
+            <li className="px-3 py-2.5 text-sm text-ghost">{t('noResults')}</li>
           ) : (
             results.map((r, i) => (
               <li
@@ -158,7 +158,7 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
                 }}
                 onMouseEnter={() => setActive(i)}
                 className={`cursor-pointer px-3 py-2.5 text-sm ${
-                  i === active ? 'bg-accent/20 text-ice' : 'text-porcelain/75'
+                  i === active ? 'bg-accent/20 text-ice' : 'text-dim'
                 }`}
               >
                 {r.label}

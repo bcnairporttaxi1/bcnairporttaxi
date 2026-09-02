@@ -12,7 +12,7 @@ export function PageHero({
           {title}
         </h1>
         {intro && (
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{intro}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{intro}</p>
         )}
       </div>
     </div>

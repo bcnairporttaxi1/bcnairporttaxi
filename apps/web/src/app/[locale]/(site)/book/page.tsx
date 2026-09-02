@@ -49,7 +49,7 @@ export default async function BookPage(props: {
           <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
             {copy.h1}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-porcelain/75">{copy.intro}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{copy.intro}</p>
           <div className="mt-10">
             <QuoteWidget />
           </div>

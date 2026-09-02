@@ -87,7 +87,10 @@ const ASSURANCES = [
 
 function Chip({ brand }: { brand: Brand }) {
   return (
-    <li className="flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-line bg-raise px-4 shadow-sm">
+    /* Deliberately a light tile on a dark page: card marks are drawn for white
+       backgrounds, and the Visa/Mastercard discs use mix-blend-multiply, which
+       only composites correctly over a light surface. */
+    <li className="flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-line bg-porcelain px-4 shadow-sm">
       {brand.mark}
     </li>
   );

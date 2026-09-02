@@ -18,7 +18,7 @@ export default function GlobalNotFound() {
           </p>
           <a
             href="/en"
-            className="wave mt-8 rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-ice"
+            className="wave mt-8 rounded-lg bg-gold px-5 py-3 font-display font-extrabold text-void"
           >
             Back to home
           </a>

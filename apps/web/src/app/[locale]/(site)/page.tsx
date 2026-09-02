@@ -81,23 +81,23 @@ export default async function HomePage(props: {
             panel first, because that is what people came to do. */}
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
           <div className="order-2 max-w-2xl lg:order-1">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-gold/20 bg-gold/[0.07] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              <span
+                aria-hidden="true"
+                className="h-[5px] w-[5px] rounded-full bg-jade shadow-[0_0_0_0_rgba(57,217,138,0.6)] motion-safe:animate-ping-slow"
+              />
               {t('kicker')}
             </p>
-            <span
-              aria-hidden="true"
-              className="horizon mt-3 block h-px w-40 bg-gradient-to-r from-accent to-transparent"
-            />
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-ice sm:text-5xl lg:text-6xl">
               {t('h1')}
             </h1>
-            <p className="mt-5 text-base leading-relaxed text-porcelain/75 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-dim sm:text-lg">
               {t('intro')}
             </p>
-            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-porcelain/70">
+            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-dim">
               {(['licensed', 'meter', 'noSurge', 'support'] as const).map((k) => (
                 <li key={k} className="flex items-center gap-2">
-                  <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-accent">
+                  <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-jade">
                     <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
                   </svg>
                   {t(`trust.${k}`)}
@@ -109,17 +109,21 @@ export default async function HomePage(props: {
               {/* The primary CTA carries a permanent slow swell so it reads as
                   live before anyone points at it; the secondary only waves on
                   approach, so the two never compete. */}
-              <Link
-                href="/book"
-                className="wave wave-idle rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-ice hover:bg-accent-deep"
-              >
+              <Link href="/book" className="cta cta-gold group">
                 {tc('book')}
+                <span className="cta-pip" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                    <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+                  </svg>
+                </span>
               </Link>
-              <Link
-                href="/destinations"
-                className="wave rounded-xl border-2 border-white/25 px-6 py-3.5 font-display font-bold text-ice hover:bg-white/10"
-              >
+              <Link href="/destinations" className="cta cta-ghost group">
                 {tn('destinations')}
+                <span className="cta-pip" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                    <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+                  </svg>
+                </span>
               </Link>
             </div>
           </div>
@@ -309,12 +313,12 @@ export default async function HomePage(props: {
           <h2 className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
             {t('h1')}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-porcelain/70">
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-dim">
             {t('sections.howIntro')}
           </p>
           <Link
             href="/book"
-            className="sheen mt-8 inline-block rounded-xl bg-gold px-8 py-4 font-display text-base font-extrabold text-ice transition hover:bg-accent-deep active:scale-[0.99]"
+            className="sheen mt-8 inline-block rounded-xl bg-gold px-8 py-4 font-display text-base font-extrabold text-void transition hover:bg-accent-deep active:scale-[0.99]"
           >
             {tc('book')}
           </Link>

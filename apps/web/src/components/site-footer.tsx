@@ -28,7 +28,7 @@ export async function SiteFooter() {
   const routes = LANDING_PAGES.slice(0, 6);
 
   return (
-    <footer className="mt-24 border-t border-white/10 bg-void text-porcelain/80">
+    <footer className="mt-24 border-t border-white/10 bg-void text-dim">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Image
@@ -38,7 +38,7 @@ export async function SiteFooter() {
             height={120}
             className="h-11 w-auto"
           />
-          <p className="mt-4 text-sm leading-relaxed text-porcelain/65">{t('about')}</p>
+          <p className="mt-4 text-sm leading-relaxed text-dim">{t('about')}</p>
         </div>
 
         <nav aria-labelledby="footer-routes">
@@ -98,7 +98,7 @@ export async function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10 px-4 py-6">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 text-xs text-porcelain/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 text-xs text-ghost sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} BCNAirportTaxi. {t('rights')}</p>
           <p className="max-w-xl sm:text-right">{t('disclaimerShort')}</p>
         </div>
