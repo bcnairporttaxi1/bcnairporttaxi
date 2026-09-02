@@ -57,6 +57,13 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /**
+   * Pointing at the trigger already opens the panel, so a plain toggle on click
+   * shut it again the instant the user clicked what they were pointing at.
+   * Track whether the pointer is over the trigger and only toggle when it is
+   * not — which leaves keyboard and touch, where nothing opened it on approach.
+   */
+  const hovering = useRef(false);
 
   // Closing on a short delay stops the menu vanishing while the pointer
   // crosses the gap between the trigger and the panel.
@@ -87,16 +94,20 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
       ref={wrapRef}
       className="relative"
       onMouseEnter={() => {
+        hovering.current = true;
         cancelClose();
         setOpen(true);
       }}
-      onMouseLeave={scheduleClose}
+      onMouseLeave={() => {
+        hovering.current = false;
+        scheduleClose();
+      }}
     >
       <button
         type="button"
         aria-expanded={open}
         aria-haspopup="true"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen((v) => (hovering.current ? true : !v))}
         className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-dim transition hover:bg-white/5 hover:text-ice"
       >
         {label}
@@ -135,8 +146,11 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
+    /* An island rather than a bar glued to the viewport edge: it floats clear of
+       the top, so the page reads as sitting underneath it rather than being cut
+       off by it. */
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="mx-auto flex max-w-6xl items-center gap-4 rounded-full border border-line bg-pane/80 px-4 py-2.5 shadow-[inset_0_1px_0_rgb(255_255_255/6%),0_20px_50px_-24px_#000] backdrop-blur-2xl backdrop-saturate-150 sm:px-5">
         <Link href="/" className="flex shrink-0 items-center" aria-label="BCNAirportTaxi — home">
           <Image
             src="/img/logo.png"
@@ -202,7 +216,7 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="max-h-[70vh] overflow-y-auto border-t border-white/10 bg-void px-4 py-3 lg:hidden"
+          className="mx-auto mt-2 max-h-[70vh] max-w-6xl overflow-y-auto rounded-3xl border border-line bg-pane/95 px-4 py-3 shadow-2xl backdrop-blur-2xl lg:hidden"
         >
           <ul className="flex flex-col gap-1">
             {NAV.map((item) => (
