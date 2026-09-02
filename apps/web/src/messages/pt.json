@@ -60,6 +60,7 @@
     "pickupPlaceholder": "Hotel, rua ou aeroporto de Barcelona",
     "dropoff": "Destino",
     "dropoffPlaceholder": "Para onde vai?",
+    "swap": "Trocar origem e destino",
     "date": "Data",
     "time": "Hora",
     "passengers": "Passageiros",

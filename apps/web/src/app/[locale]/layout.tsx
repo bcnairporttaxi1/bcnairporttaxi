@@ -9,8 +9,6 @@ import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 import { OrganizationJsonLd } from '@/components/json-ld';
 import '../globals.css';
 
-// Omitting `weight` loads the variable font: one file covering every weight,
-// instead of one file per weight. Sora and Inter both ship variable versions.
 /**
  * Geist carries both display and body. It is a single variable file across the
  * whole weight range, so using it twice costs nothing extra, and its tight
@@ -37,8 +35,10 @@ const instrument = Instrument_Serif({
 
 
 
-// Space Mono has no variable version. It is used only for figures, so the
-// regular weight alone is loaded and bold is synthesised.
+/**
+ * Figures only — fares, distances, durations, the tariff codes — where the
+ * even advance width is what stops a price jittering as it updates.
+ */
 const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-geist-mono',

@@ -122,7 +122,7 @@ export default async function HomePage(props: {
             headline fails contrast against the sunset. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-ink/92 via-ink/78 to-ink/92 md:bg-gradient-to-r md:from-ink md:via-ink/88 md:to-ink/25"
+          className="absolute inset-0 bg-gradient-to-b from-void/90 via-void/72 to-void/95 md:bg-gradient-to-r md:from-ink md:via-ink/88 md:to-ink/25"
         />
         <div
           aria-hidden="true"
@@ -136,11 +136,14 @@ export default async function HomePage(props: {
           <span className="aurora left-[-10%] top-[-15%] h-[420px] w-[420px] bg-accent/25" />
           <span className="aurora aurora-slow bottom-[-25%] right-[-5%] h-[520px] w-[520px] bg-accent/15" />
         </div>
-        {/* Copy left, booking panel right on desktop; stacked on mobile with the
-            panel first, because that is what people came to do. */}
+        {/* Copy left, booking panel right on desktop. On a phone they stack in
+            source order — headline first. The panel used to lead there, which
+            meant the first thing on the site was a form for a service the
+            visitor had not yet been told anything about; the h1 was pushed a
+            full screen down and the page opened on an empty price readout. */}
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
-          <div className="order-2 max-w-2xl lg:order-1">
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-gold/20 bg-gold/[0.07] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+          <div className="max-w-2xl">
+            <p className="inline-flex items-center gap-2.5 text-balance rounded-2xl border border-gold/20 bg-gold/[0.07] px-3 py-1.5 font-mono text-[9.5px] uppercase leading-[1.7] tracking-[0.13em] text-gold sm:rounded-full sm:px-3.5 sm:text-[10px] sm:tracking-[0.2em]">
               <span
                 aria-hidden="true"
                 className="h-[5px] w-[5px] rounded-full bg-jade shadow-[0_0_0_0_rgba(57,217,138,0.6)] motion-safe:animate-ping-slow"
@@ -150,10 +153,10 @@ export default async function HomePage(props: {
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-ice sm:text-5xl lg:text-6xl">
               {t('h1')}
             </h1>
-            <p className="mt-5 text-base leading-relaxed text-dim sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-ice/85 sm:text-lg">
               {t('intro')}
             </p>
-            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-dim">
+            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ice/85">
               {(['licensed', 'meter', 'noSurge', 'support'] as const).map((k) => (
                 <li key={k} className="flex items-center gap-2">
                   <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-jade">
@@ -187,7 +190,7 @@ export default async function HomePage(props: {
             </div>
           </div>
 
-          <div className="plinth order-1 animate-fade-rise rounded-card lg:order-2">
+          <div id="book" className="plinth animate-fade-rise rounded-shell scroll-mt-28">
             <QuoteWidget variant="panel" />
           </div>
         </div>
@@ -298,11 +301,13 @@ export default async function HomePage(props: {
             />
           </div>
 
-          <Link
-            href="/fleet"
-            className="mt-8 inline-block rounded-lg border-2 border-ink px-5 py-3 font-display font-bold transition hover:bg-void hover:text-ice"
-          >
+          <Link href="/fleet" className="cta cta-ghost group mt-8">
             {tc('viewFleet')}
+            <span className="cta-pip" aria-hidden="true">
+              <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+              </svg>
+            </span>
           </Link>
         </div>
       </section>
@@ -505,11 +510,13 @@ export default async function HomePage(props: {
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-dim">
             {t('sections.howIntro')}
           </p>
-          <Link
-            href="/book"
-            className="sheen mt-8 inline-block rounded-xl bg-gold px-8 py-4 font-display text-base font-extrabold text-void transition hover:bg-accent-deep active:scale-[0.99]"
-          >
+          <Link href="/book" className="cta cta-gold group mt-8">
             {tc('book')}
+            <span className="cta-pip" aria-hidden="true">
+              <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+              </svg>
+            </span>
           </Link>
         </Reveal>
       </section>

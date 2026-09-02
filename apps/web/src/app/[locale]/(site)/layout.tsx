@@ -2,6 +2,7 @@ import { TopBar } from '@/components/top-bar';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { CookieBanner } from '@/components/cookie-banner';
+import { WhatsAppFab } from '@/components/whatsapp-fab';
 
 /**
  * The public website: marketing, booking funnel, legal, blog.
@@ -21,6 +22,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <SiteHeader accountHref="/account" />
       <main id="main">{children}</main>
       <SiteFooter />
+      <WhatsAppFab />
       <CookieBanner />
     </>
   );

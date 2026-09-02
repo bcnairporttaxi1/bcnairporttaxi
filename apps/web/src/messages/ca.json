@@ -60,6 +60,7 @@
     "pickupPlaceholder": "Hotel, carrer o aeroport de Barcelona",
     "dropoff": "Destinació",
     "dropoffPlaceholder": "On vas?",
+    "swap": "Intercanvia origen i destinació",
     "date": "Data",
     "time": "Hora",
     "passengers": "Passatgers",

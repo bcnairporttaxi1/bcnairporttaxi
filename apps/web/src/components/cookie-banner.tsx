@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const STORAGE_KEY = 'bcn-cookie-consent';
@@ -23,7 +23,26 @@ export function CookieBanner() {
     }
   }, []);
 
+  /**
+   * The banner is full-width at the bottom on a phone, exactly where the
+   * WhatsApp action floats. Rather than hard-coding a clearance that goes
+   * stale the moment the copy wraps to another line in another language, the
+   * banner measures itself and publishes its height; `.fab` reads it as
+   * `--fab-lift` and slides up out of the way.
+   */
+  const measure = useCallback((el: HTMLDivElement | null) => {
+    if (!el) return;
+    document.documentElement.style.setProperty('--fab-lift', `${el.offsetHeight + 12}px`);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      document.documentElement.style.removeProperty('--fab-lift');
+    };
+  }, []);
+
   function choose(value: 'all' | 'essential') {
+    document.documentElement.style.removeProperty('--fab-lift');
     try {
       localStorage.setItem(STORAGE_KEY, value);
     } catch {
@@ -36,6 +55,7 @@ export function CookieBanner() {
 
   return (
     <div
+      ref={measure}
       role="dialog"
       aria-modal="false"
       aria-labelledby="cookie-title"
@@ -49,14 +69,14 @@ export function CookieBanner() {
         <button
           type="button"
           onClick={() => choose('all')}
-          className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void hover:bg-accent-deep"
+          className="cta cta-gold cta-sm"
         >
           {t('accept')}
         </button>
         <button
           type="button"
           onClick={() => choose('essential')}
-          className="rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold text-ice hover:bg-white/5"
+          className="cta cta-ghost cta-sm"
         >
           {t('reject')}
         </button>

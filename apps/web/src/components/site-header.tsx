@@ -144,13 +144,69 @@ function Dropdown({ item, label }: { item: NavItem; label: string }) {
 export function SiteHeader({ accountHref }: { accountHref: string }) {
   const t = useTranslations('nav');
   const [open, setOpen] = useState(false);
+  /**
+   * Two things ride the scroll position: the island contracts a little once the
+   * page has moved, so it stops competing with the hero it is floating over,
+   * and a saffron hairline along its top edge reports progress through the
+   * page. Both are written straight to a CSS custom property from a passive
+   * listener inside rAF — no state, so scrolling never schedules a React
+   * render.
+   */
+  const [condensed, setCondensed] = useState(false);
+  const barRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+    const read = () => {
+      frame = 0;
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      barRef.current?.style.setProperty(
+        '--progress',
+        String(max > 0 ? Math.min(1, y / max) : 0),
+      );
+      setCondensed((was) => {
+        // Hysteresis: without it a header that shrinks by 4px oscillates
+        // forever at exactly the threshold, because shrinking moves the page.
+        if (!was && y > 28) return true;
+        if (was && y < 12) return false;
+        return was;
+      });
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(read);
+    };
+    read();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
 
   return (
     /* An island rather than a bar glued to the viewport edge: it floats clear of
        the top, so the page reads as sitting underneath it rather than being cut
        off by it. */
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="mx-auto flex max-w-6xl items-center gap-4 rounded-full border border-line bg-pane/80 px-4 py-2.5 shadow-[inset_0_1px_0_rgb(255_255_255/6%),0_20px_50px_-24px_#000] backdrop-blur-2xl backdrop-saturate-150 sm:px-5">
+    <header
+      className={`sticky top-0 z-50 px-3 transition-[padding] duration-700 ease-brand sm:px-4 ${
+        condensed ? 'pt-1.5 sm:pt-2' : 'pt-3 sm:pt-4'
+      }`}
+    >
+      <div
+        className={`relative mx-auto flex max-w-6xl items-center gap-4 rounded-full border border-line px-4 backdrop-blur-2xl backdrop-saturate-150 transition-all duration-700 ease-brand sm:px-5 ${
+          condensed
+            ? 'bg-pane/92 py-1.5 shadow-[inset_0_1px_0_rgb(255_255_255/8%),0_24px_60px_-26px_#000]'
+            : 'bg-pane/80 py-2.5 shadow-[inset_0_1px_0_rgb(255_255_255/6%),0_20px_50px_-24px_#000]'
+        }`}
+      >
+        <span
+          ref={barRef}
+          aria-hidden="true"
+          className="progress-rail absolute inset-x-8 top-0 h-px rounded-full bg-gradient-to-r from-gold/0 via-gold to-gold/0"
+        />
         <Link href="/" className="flex shrink-0 items-center" aria-label="BCNAirportTaxi — home">
           <Image
             src="/img/logo.png"
@@ -158,7 +214,9 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
             width={258}
             height={120}
             priority
-            className="h-9 w-auto sm:h-11"
+            className={`w-auto transition-all duration-700 ease-brand ${
+              condensed ? 'h-8 sm:h-9' : 'h-9 sm:h-11'
+            }`}
           />
         </Link>
 
@@ -191,11 +249,13 @@ export function SiteHeader({ accountHref }: { accountHref: string }) {
             </svg>
             {t('signIn')}
           </Link>
-          <Link
-            href="/book"
-            className="wave rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void transition hover:bg-accent-deep"
-          >
+          <Link href="/book" className="cta cta-gold cta-sm group">
             {t('book')}
+            <span className="cta-pip" aria-hidden="true">
+              <svg viewBox="0 0 20 20" className="h-2.5 w-2.5 fill-current">
+                <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+              </svg>
+            </span>
           </Link>
           <button
             type="button"

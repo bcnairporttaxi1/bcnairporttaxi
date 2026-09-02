@@ -130,7 +130,7 @@ export default async function LandingPageRoute(props: {
                 <li key={rel}>
                   <Link
                     href={`/${rel}`}
-                    className="block rounded-xl border border-line p-4 transition hover:border-ink"
+                    className="block rounded-xl border border-line p-4 transition hover:border-gold/60"
                   >
                     <span className="font-display font-bold">
                       {getLandingCopy(target, locale).h1}

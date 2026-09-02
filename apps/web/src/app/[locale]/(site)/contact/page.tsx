@@ -53,7 +53,7 @@ export default async function ContactPage(props: {
 
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="rounded-card border border-line bg-raise p-6 transition hover:border-ink"
+          className="rounded-card border border-line bg-raise p-6 transition hover:border-gold/60"
         >
           <h2 className="font-display text-lg font-extrabold">{t('emailTitle')}</h2>
           <p className="mt-2 text-sm leading-relaxed text-dim">{t('emailBody')}</p>

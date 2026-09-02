@@ -15,6 +15,12 @@ interface Props {
   value: Place | null;
   onChange: (place: Place | null) => void;
   initialQuery?: string;
+  /**
+   * `bare` drops the field's own border and background so it can sit inside a
+   * shared well — used by the booking panel, where pickup and drop-off are one
+   * object with a route spine between them rather than two separate controls.
+   */
+  bare?: boolean;
 }
 
 /**
@@ -24,7 +30,14 @@ interface Props {
  * move an `aria-activedescendant` through the list, so it works with a
  * keyboard and a screen reader as well as a pointer.
  */
-export function AddressField({ label, placeholder, value, onChange, initialQuery = '' }: Props) {
+export function AddressField({
+  label,
+  placeholder,
+  value,
+  onChange,
+  initialQuery = '',
+  bare = false,
+}: Props) {
   const t = useTranslations('quote');
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<Place[]>([]);
@@ -108,7 +121,14 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
 
   return (
     <div ref={boxRef} className="relative">
-      <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-dim">
+      <label
+        htmlFor={inputId}
+        className={
+          bare
+            ? 'block font-mono text-[10px] uppercase tracking-[0.16em] text-ghost'
+            : 'mb-1.5 block text-sm font-medium text-dim'
+        }
+      >
         {label}
       </label>
       <input
@@ -128,11 +148,17 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
         }}
         onKeyDown={onKeyDown}
         onFocus={() => results.length > 0 && setOpen(true)}
-        className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice placeholder:text-ghost"
+        className={
+          bare
+            ? 'bare-input mt-1 font-medium'
+            : 'w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice placeholder:text-ghost'
+        }
       />
 
       {busy && (
-        <span className="absolute right-3 top-9 text-xs text-ghost">
+        <span
+          className={`absolute text-xs text-ghost ${bare ? 'right-0 top-0' : 'right-3 top-9'}`}
+        >
           {t('searching')}
         </span>
       )}
@@ -141,7 +167,9 @@ export function AddressField({ label, placeholder, value, onChange, initialQuery
         <ul
           id={listId}
           role="listbox"
-          className="absolute z-30 mt-1 max-h-64 w-full overflow-auto rounded-lg border border-white/15 bg-raise-2 py-1 shadow-2xl"
+          className={`absolute z-30 max-h-64 overflow-auto rounded-xl border border-white/15 bg-raise-2 py-1 shadow-2xl ${
+            bare ? 'inset-x-0 top-full mt-3' : 'mt-1 w-full'
+          }`}
         >
           {results.length === 0 && !busy ? (
             <li className="px-3 py-2.5 text-sm text-ghost">{t('noResults')}</li>

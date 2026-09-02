@@ -930,3 +930,225 @@ h4 {
 :where(:lang(zh), :lang(ja), :lang(ko)) .editorial {
   font-style: normal;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Booking instrument — the "search engine"
+   The panel people came for. It is styled as one machined object rather than
+   a stack of form controls: a single route group with a spine running down
+   the left, then the schedule, then the action.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* A compact CTA for the header island, where the full pill is too tall. */
+.cta-sm {
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+  font-size: 0.84rem;
+  gap: 0.55rem;
+}
+.cta-sm .cta-pip {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* Full-width action, same skin as .cta-gold. */
+.cta-block {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.6s var(--ease-brand),
+    box-shadow 0.6s var(--ease-brand);
+}
+.cta-block:active {
+  transform: scale(0.988);
+}
+.cta-block:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/**
+ * Field wells. Inputs sit *below* the surface rather than on top of it — an
+ * inset shadow with no outer border. On a near-black ground a drawn border
+ * reads as a sticker; a well reads as machined.
+ */
+.well {
+  background: rgb(0 0 0 / 38%);
+  border: 1px solid rgb(255 255 255 / 8%);
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 55%);
+  transition:
+    border-color 0.4s var(--ease-brand),
+    box-shadow 0.4s var(--ease-brand);
+}
+.well:focus-within {
+  border-color: rgb(240 180 41 / 45%);
+  box-shadow:
+    inset 0 1px 3px rgb(0 0 0 / 55%),
+    0 0 0 3px rgb(240 180 41 / 12%);
+}
+
+/* Inputs inside a well carry no chrome of their own. */
+.bare-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--color-ice);
+  font-size: 0.95rem;
+  padding: 0;
+}
+.bare-input:focus {
+  outline: none;
+}
+.bare-input::placeholder {
+  color: var(--color-ghost);
+}
+
+/**
+ * The route spine: origin dot, dashed run, destination square. It is the one
+ * piece of ornament in the panel that is also information — it says these two
+ * fields are the ends of a single journey, not two unrelated questions.
+ */
+.spine-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--color-jade);
+  box-shadow: 0 0 0 3px rgb(57 217 138 / 16%);
+}
+.spine-run {
+  width: 0;
+  align-self: stretch;
+  border-left: 2px dotted rgb(255 255 255 / 22%);
+  margin: 3px 0;
+}
+.spine-end {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 3px rgb(240 180 41 / 16%);
+}
+
+/* Segmented control with a single travelling indicator, rather than two
+   independently coloured halves — the movement is what tells you a choice
+   was registered. */
+.seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+}
+.seg-thumb {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  border-radius: 0.55rem;
+  background: linear-gradient(145deg, var(--color-gold), var(--color-gold-lo));
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 18%),
+    0 6px 16px -8px rgb(240 180 41 / 70%);
+  transition: transform 0.55s var(--ease-brand);
+}
+
+/**
+ * Floating WhatsApp action.
+ *
+ * Bottom-right on every viewport, but it is the phone that needs it: the top
+ * bar's WhatsApp link scrolls away and never comes back, and a traveller with
+ * a delayed flight should never have to hunt for it. `--fab-lift` is raised by
+ * the cookie banner so the two never overlap.
+ */
+.fab {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + var(--fab-lift, 0px));
+  z-index: 55;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: linear-gradient(150deg, #4ade80, #17a34a);
+  color: #04120a;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 26%),
+    0 16px 34px -12px rgb(0 0 0 / 80%),
+    0 0 0 0 rgb(74 222 128 / 45%);
+  transition:
+    transform 0.5s var(--ease-brand),
+    bottom 0.5s var(--ease-brand),
+    box-shadow 0.5s var(--ease-brand);
+}
+.fab:hover {
+  transform: scale(1.07);
+}
+.fab:active {
+  transform: scale(0.96);
+}
+
+/* One slow halo, so it is noticed once and then forgotten about. */
+@keyframes fab-halo {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 26%),
+      0 16px 34px -12px rgb(0 0 0 / 80%),
+      0 0 0 0 rgb(74 222 128 / 45%);
+  }
+  60% {
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 26%),
+      0 16px 34px -12px rgb(0 0 0 / 80%),
+      0 0 0 14px rgb(74 222 128 / 0%);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fab {
+    animation: fab-halo 3.4s var(--ease-brand) infinite;
+  }
+}
+
+/* The label only unfurls on a pointer device; on a phone the mark is enough. */
+.fab-label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    max-width 0.55s var(--ease-brand),
+    opacity 0.4s var(--ease-brand),
+    margin 0.55s var(--ease-brand);
+}
+@media (hover: hover) and (min-width: 640px) {
+  .fab {
+    width: auto;
+    height: 3.25rem;
+    padding: 0 1.05rem;
+    grid-auto-flow: column;
+    gap: 0;
+  }
+  .fab:hover .fab-label,
+  .fab:focus-visible .fab-label {
+    max-width: 11rem;
+    opacity: 1;
+    margin-left: 0.55rem;
+  }
+}
+
+/* Reading-progress hairline along the top of the header island. */
+.progress-rail {
+  transform-origin: left center;
+  transform: scaleX(var(--progress, 0));
+  transition: transform 120ms linear;
+}

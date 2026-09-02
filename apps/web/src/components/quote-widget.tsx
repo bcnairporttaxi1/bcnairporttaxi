@@ -93,6 +93,19 @@ export function QuoteWidget({
   /** Chosen here on the home screen and carried into checkout preselected. */
   const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
   const [tripType, setTripType] = useState<'ONE_WAY' | 'RETURN'>('ONE_WAY');
+  /**
+   * Bumped on every swap. AddressField keeps its own text state, seeded once
+   * from `initialQuery`, so exchanging the two places has to remount them —
+   * otherwise the labels stay put while the coordinates cross over, which is
+   * the worst of both.
+   */
+  const [swapSeq, setSwapSeq] = useState(0);
+
+  const swap = useCallback(() => {
+    setPickup(dropoff);
+    setDropoff(pickup);
+    setSwapSeq((n) => n + 1);
+  }, [pickup, dropoff]);
 
   const mapSlotRef = useRef<HTMLDivElement>(null);
   const [mapInView, setMapInView] = useState(false);
@@ -212,7 +225,7 @@ export function QuoteWidget({
       aria-labelledby={headingId}
       className={
         isPanel
-          ? 'overflow-hidden rounded-card border border-white/12 bg-graphite/95 shadow-2xl backdrop-blur'
+          ? 'overflow-hidden rounded-shell border border-line-2 bg-pane/85 shadow-[0_40px_90px_-40px_#000] backdrop-blur-2xl backdrop-saturate-150'
           : 'grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]'
       }
     >
@@ -240,7 +253,7 @@ export function QuoteWidget({
         className={
           isPanel
             ? 'p-5 sm:p-6'
-            : 'rounded-card border border-white/12 bg-graphite/95 p-5 shadow-2xl backdrop-blur sm:p-7'
+            : 'rounded-shell border border-line-2 bg-pane/85 p-5 shadow-[0_40px_90px_-40px_#000] backdrop-blur-2xl sm:p-7'
         }
       >
         {!isPanel && (
@@ -257,19 +270,25 @@ export function QuoteWidget({
           </div>
         )}
 
-        {/* Trip type — one way is the overwhelming majority, so it leads. */}
+        {/* Trip type. The indicator travels rather than the two halves
+            recolouring — the movement is what confirms the choice landed. */}
         <fieldset className={isPanel ? '' : 'mt-5'}>
           <legend className="sr-only">{t('tripType')}</legend>
-          <div className="grid grid-cols-2 gap-1.5 rounded-xl border border-white/12 bg-ink/60 p-1.5">
+          <div className="seg well">
+            <span
+              aria-hidden="true"
+              className="seg-thumb"
+              style={{
+                transform: `translateX(${tripType === 'RETURN' ? '100%' : '0%'})`,
+              }}
+            />
             {(['ONE_WAY', 'RETURN'] as const).map((v) => {
               const active = tripType === v;
               return (
                 <label
                   key={v}
-                  className={`cursor-pointer rounded-lg px-3 py-2.5 text-center text-sm font-bold transition ${
-                    active
-                      ? 'bg-gold text-void'
-                      : 'text-dim hover:bg-white/5 hover:text-ice'
+                  className={`relative cursor-pointer rounded-[0.55rem] px-3 py-2.5 text-center text-sm font-bold transition-colors duration-500 ease-brand ${
+                    active ? 'text-void' : 'text-dim hover:text-ice'
                   }`}
                 >
                   <input
@@ -287,52 +306,86 @@ export function QuoteWidget({
           </div>
         </fieldset>
 
-        <div className="mt-5 space-y-4">
-          <AddressField
-            label={t('pickup')}
-            placeholder={t('pickupPlaceholder')}
-            value={pickup}
-            onChange={setPickup}
-            initialQuery={presetPickup}
-          />
-          <AddressField
-            label={t('dropoff')}
-            placeholder={t('dropoffPlaceholder')}
-            value={dropoff}
-            onChange={setDropoff}
-            initialQuery={presetDropoff}
-          />
+        {/* Pickup and drop-off are one object, not two questions. The spine
+            down the left says so: an origin dot, a dotted run, a destination
+            square — ornament that happens to also be information. */}
+        <div className="well relative mt-4 rounded-2xl p-4">
+          <div className="grid grid-cols-[14px_minmax(0,1fr)] gap-x-3">
+            <span aria-hidden="true" className="spine-dot mt-[1.45rem] justify-self-center" />
+            <div className="pr-10">
+              <AddressField
+                key={`pickup-${swapSeq}`}
+                bare
+                label={t('pickup')}
+                placeholder={t('pickupPlaceholder')}
+                value={pickup}
+                onChange={setPickup}
+                initialQuery={swapSeq === 0 ? presetPickup : (pickup?.label ?? '')}
+              />
+            </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <label className="block">
-              <span className="mb-1.5 block text-sm font-medium text-dim">
-                {t('date')}
-              </span>
-              <input
-                type="date"
-                value={date}
-                required
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice [color-scheme:dark]"
+            <span aria-hidden="true" className="spine-run justify-self-center" />
+            <div aria-hidden="true" className="my-3 h-px bg-line" />
+
+            <span aria-hidden="true" className="spine-end mt-[1.45rem] justify-self-center" />
+            <div className="pr-10">
+              <AddressField
+                key={`dropoff-${swapSeq}`}
+                bare
+                label={t('dropoff')}
+                placeholder={t('dropoffPlaceholder')}
+                value={dropoff}
+                onChange={setDropoff}
+                initialQuery={swapSeq === 0 ? presetDropoff : (dropoff?.label ?? '')}
               />
-            </label>
-            <label className="block">
-              <span className="mb-1.5 block text-sm font-medium text-dim">
-                {t('time')}
-              </span>
-              <input
-                type="time"
-                value={time}
-                required
-                onChange={(e) => setTime(e.target.value)}
-                className="w-full rounded-lg border border-white/15 bg-void px-3 py-2.5 text-ice [color-scheme:dark]"
-              />
-            </label>
+            </div>
           </div>
+
+          {/* Sits on the divider, so it reads as the hinge the two ends turn
+              around. Disabled until there is actually something to exchange. */}
+          <button
+            type="button"
+            onClick={swap}
+            disabled={!pickup && !dropoff}
+            aria-label={t('swap')}
+            title={t('swap')}
+            className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-line-2 bg-raise-2 text-dim transition-all duration-500 ease-brand hover:rotate-180 hover:border-gold/50 hover:text-gold disabled:pointer-events-none disabled:opacity-35"
+          >
+            <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-none stroke-current stroke-[1.6]">
+              <path d="M6.5 3.5 3.5 6.5l3 3M3.5 6.5h13M13.5 16.5l3-3-3-3M16.5 13.5h-13" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="mt-3 grid grid-cols-2 gap-3">
+          <label className="well block rounded-2xl px-4 py-3">
+            <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+              {t('date')}
+            </span>
+            <input
+              type="date"
+              value={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+              className="bare-input mt-1 font-medium [color-scheme:dark]"
+            />
+          </label>
+          <label className="well block rounded-2xl px-4 py-3">
+            <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+              {t('time')}
+            </span>
+            <input
+              type="time"
+              value={time}
+              required
+              onChange={(e) => setTime(e.target.value)}
+              className="bare-input mt-1 font-medium [color-scheme:dark]"
+            />
+          </label>
         </div>
 
         {tripType === 'RETURN' && (
-          <p className="mt-3 rounded-lg border border-white/12 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-dim">
+          <p className="mt-3 rounded-xl border border-line-2 bg-white/5 px-3.5 py-2.5 text-xs leading-relaxed text-dim">
             {t('returnNote')}
           </p>
         )}
@@ -340,8 +393,14 @@ export function QuoteWidget({
         <button
           type="submit"
           disabled={loading}
-          className="sheen mt-5 w-full rounded-xl bg-gold px-5 py-4 font-display text-base font-extrabold text-void shadow-lg shadow-accent/20 transition hover:bg-accent-deep hover:shadow-accent/30 active:scale-[0.99] disabled:opacity-60"
+          className="cta-block cta-gold mt-4 gap-2.5"
         >
+          {loading && (
+            <span
+              aria-hidden="true"
+              className="h-4 w-4 animate-spin rounded-full border-2 border-void/25 border-t-void"
+            />
+          )}
           {loading ? t('calculating') : t('calculate')}
         </button>
 
@@ -369,7 +428,7 @@ export function QuoteWidget({
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="wave mt-3 inline-block rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-void hover:bg-accent-deep"
+              className="cta cta-gold cta-sm group mt-3"
             >
               {t('urgent.cta')}
             </a>
@@ -503,10 +562,7 @@ export function QuoteWidget({
           )}
 
           {q && (
-            <Link
-              href={checkoutHref}
-              className="wave mt-4 block rounded-lg bg-gold px-5 py-3.5 text-center font-display font-extrabold text-void transition hover:bg-accent-deep"
-            >
+            <Link href={checkoutHref} className="cta-block cta-gold mt-4">
               {t('bookNow')}
             </Link>
           )}

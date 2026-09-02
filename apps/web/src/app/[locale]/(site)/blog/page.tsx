@@ -49,7 +49,7 @@ export default async function BlogIndex(props: {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block rounded-card border border-line bg-raise p-6 transition hover:border-ink"
+                className="block rounded-card border border-line bg-raise p-6 transition hover:border-gold/60"
               >
                 <h2 className="font-display text-xl font-extrabold">{post.title}</h2>
                 <p className="mt-2 leading-relaxed text-dim">{post.excerpt}</p>
