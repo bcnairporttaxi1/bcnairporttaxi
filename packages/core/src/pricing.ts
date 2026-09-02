@@ -58,28 +58,36 @@ export interface Quote {
   adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
 
   /**
-   * What the taxi meter is expected to read. Paid to the driver in the car
-   * under FEE_ONLY. Uses official AMB rates only — never the markup.
+   * What the taxi meter is expected to read, on official rates only.
+   *
+   * INTERNAL. Never presented to the passenger as an amount to pay — they
+   * prepay `total` and owe the driver nothing. It is what the driver is
+   * settled against, and the evidence that `total` is a fair price.
    */
   meterEstimate: number;
 
-  /**
-   * Our locked, pay-in-advance fare. Official rates plus the per-km markup.
-   * Under FULL_PREPAID this is what the passenger pays and nothing is owed
-   * in the taxi.
-   */
+  /** Fare component of the total: official rates plus our per-km markup. */
   fixedFare: number;
 
-  /** Service charge, derived from the fixed fare. */
+  /** Service charge. INTERNAL — folded into `total`, never itemised. */
   bookingFee: number;
   /** Which rate applied: 0.20 on weekdays, 0.25 at weekends and special days. */
   bookingFeeRate: number;
 
-  /** Charged online when paying the booking fee only. */
-  payNowFeeOnly: number;
-  /** Charged online when prepaying everything. */
+  /**
+   * THE PRICE. Fare plus service charge, everything included, paid online in
+   * full. The only figure the passenger is ever shown or charged.
+   */
+  total: number;
+
+  /**
+   * Charged online. Equal to `total` — retained so anything written before
+   * the all-inclusive changeover still reads consistently.
+   */
   payNowFull: number;
-  /** Still owed to the driver under FEE_ONLY. */
+  /** RETIRED with FEE_ONLY. Always the service charge; nothing writes it now. */
+  payNowFeeOnly: number;
+  /** RETIRED with FEE_ONLY. Nothing is owed in the taxi any more. */
   payInTaxiFeeOnly: number;
 
   currency: string;
@@ -109,7 +117,7 @@ function interurbanQuote(
 
   const startFare = cfg.startFare[band];
   const perKmRate = cfg.perKm[band];
-  const perKmRateCharged = round2(perKmRate + TARIFFS.perKmMarkup);
+  const perKmRateCharged = cfg.perKmCharged[band];
 
   const lines: SupplementLine[] = [];
   if (ends.pickupAirport || ends.dropoffAirport) {
@@ -129,8 +137,10 @@ function interurbanQuote(
   const billableKm = cfg.billsReturnLeg ? round2(roadKm * 2) : roadKm;
 
   const meterEstimate = round2(startFare + round2(billableKm * perKmRate) + supplements);
+  // perKmCharged is quoted per kilometre ACTUALLY travelled and already has
+  // the return leg inside it, so it multiplies roadKm, not billableKm.
   const fixedFare = round2(
-    startFare + round2(billableKm * perKmRateCharged) + supplements,
+    startFare + round2(roadKm * perKmRateCharged) + supplements,
   );
   const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
 
@@ -148,10 +158,26 @@ function interurbanQuote(
     fixedFare,
     bookingFee,
     bookingFeeRate: bookingFeeRateFor(pickupAt),
-    payNowFeeOnly: bookingFee,
-    payNowFull: round2(fixedFare + bookingFee),
-    payInTaxiFeeOnly: meterEstimate,
+    ...allInclusive(fixedFare, bookingFee, meterEstimate),
     currency: TARIFFS.currency,
+  };
+}
+
+/**
+ * The passenger-facing money, in one place.
+ *
+ * Fare plus service charge is the total, it is what is taken online, and
+ * nothing is owed in the taxi. The retired FEE_ONLY fields are still filled so
+ * that anything reading a booking taken before the changeover — the panel, the
+ * emails, the admin revenue view — keeps type-checking and rendering.
+ */
+function allInclusive(fixedFare: number, bookingFee: number, meterEstimate: number) {
+  const total = round2(fixedFare + bookingFee);
+  return {
+    total,
+    payNowFull: total,
+    payNowFeeOnly: bookingFee,
+    payInTaxiFeeOnly: meterEstimate,
   };
 }
 
@@ -340,12 +366,17 @@ export function meetsLeadTime(pickupAt: Date, now: Date = new Date()): boolean {
   return pickupAt.getTime() - now.getTime() >= MIN_LEAD_HOURS * 3600_000;
 }
 
-/** What the passenger pays online for a given mode. */
+/**
+ * What the passenger pays online.
+ *
+ * Every new booking is FULL_PREPAID, so this is `total`. The FEE_ONLY branch
+ * survives only for bookings taken before the changeover.
+ */
 export function amountDueOnline(quote: Quote, mode: PaymentMode): number {
-  return mode === 'FULL_PREPAID' ? quote.payNowFull : quote.payNowFeeOnly;
+  return mode === 'FULL_PREPAID' ? quote.total : quote.payNowFeeOnly;
 }
 
-/** What is still owed to the driver in the taxi for a given mode. */
+/** What is still owed to the driver in the taxi. Zero for every new booking. */
 export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
   return mode === 'FULL_PREPAID' ? 0 : quote.payInTaxiFeeOnly;
 }
@@ -353,9 +384,9 @@ export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
 /**
  * Build a full fare estimate.
  *
- * Produces two fare figures from one set of inputs: the official meter estimate
- * and our marked-up fixed prepaid fare. Supplements and the airport minimum
- * apply to both; only the per-km rate differs.
+ * Produces the meter estimate on official rates, our marked-up fare, and the
+ * all-inclusive `total` the passenger is quoted. Supplements and the airport
+ * minimum apply to the meter and the fare alike; only the per-km rate differs.
  */
 export function calculateQuote(input: QuoteInput): Quote {
   const { pickup, dropoff, roadKm, durationMin, pickupAt, vehicleSeats } = input;
@@ -390,9 +421,7 @@ export function calculateQuote(input: QuoteInput): Quote {
       fixedFare,
       bookingFee,
       bookingFeeRate: bookingFeeRateFor(pickupAt),
-      payNowFeeOnly: bookingFee,
-      payNowFull: round2(fixedFare + bookingFee),
-      payInTaxiFeeOnly: meterEstimate,
+      ...allInclusive(fixedFare, bookingFee, meterEstimate),
       currency: TARIFFS.currency,
     };
   }
@@ -472,9 +501,7 @@ export function calculateQuote(input: QuoteInput): Quote {
     fixedFare,
     bookingFee,
     bookingFeeRate: bookingFeeRateFor(pickupAt),
-    payNowFeeOnly: bookingFee,
-    payNowFull: round2(fixedFare + bookingFee),
-    payInTaxiFeeOnly: meterEstimate,
+    ...allInclusive(fixedFare, bookingFee, meterEstimate),
     currency: TARIFFS.currency,
   };
 }

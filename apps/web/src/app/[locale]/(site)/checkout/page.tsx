@@ -169,7 +169,6 @@ export default async function CheckoutPage(props: {
         dropoff={{ ...dropoff, label: dlabel }}
         pickupAtIso={pickupAt.toISOString()}
         fleet={FLEET}
-        initialMode={one('mode') === 'FULL_PREPAID' ? 'FULL_PREPAID' : 'FEE_ONLY'}
         // Carried over by the rebook link so a repeat trip opens as it was.
         initialPassengers={clamp(num(one('pax')), 1, 8)}
         initialLuggage={clamp(num(one('bags')), 0, 16)}

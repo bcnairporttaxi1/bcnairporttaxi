@@ -1,21 +1,30 @@
 /**
  * AMB official urban taxi tariffs — valid 19 Jan 2026 – 17 Jan 2027.
+ * Verified against the printed TARIFES URBANES 2026 board.
  *
  * VERIFY YEARLY at https://taxi.amb.cat before each January changeover.
  * This file is the single source of truth for pricing; nothing else should
  * hardcode a rate.
  *
- * Two distinct numbers come out of this config, and they must never be
- * conflated:
+ * THE PASSENGER SEES ONE NUMBER. They pay it online, in full, before the
+ * journey, and owe the driver nothing in the car. That number is
+ * `Quote.total`. Everything else below exists to build it or to settle up
+ * with the driver afterwards, and none of it is ever itemised to the
+ * passenger — the service charge in particular is inside the total, not
+ * alongside it.
  *
- *  1. METER ESTIMATE — built from the official AMB rates below. This is what
- *     the taxi meter will actually read, and what the passenger pays the driver
- *     when they choose to settle in the car.
+ * Three figures come out of this config. They must never be conflated:
  *
- *  2. FIXED PREPAID FARE — the official rates plus `perKmMarkup`. This is our
- *     own locked, pay-in-advance price. It is deliberately a little above the
- *     meter because we absorb the traffic and routing variance when we
- *     guarantee a price up front.
+ *  1. METER ESTIMATE — the official rates below, exactly as the taxi meter
+ *     would read them. Never shown as a price to pay; it is what we settle
+ *     with the driver against, and what proves the total is fair.
+ *
+ *  2. FARE — the official rates plus `perKmMarkup`, or for interurban the
+ *     flat `outsideAMB.perKmCharged` rate. Above the meter because a locked
+ *     price up front means we absorb the traffic and routing variance.
+ *
+ *  3. TOTAL — the fare plus our service charge, which is the single price the
+ *     passenger is quoted and charged.
  */
 
 export const TARIFFS = {
@@ -28,11 +37,11 @@ export const TARIFFS = {
   perKm: { T1: 1.35, T2: 1.66 },
 
   /**
-   * Our surcharge per kilometre on the FIXED PREPAID fare only.
-   * e.g. T-1 1.35 -> 1.45 charged. Never applied to the meter estimate,
-   * because we cannot change what the taxi meter reads.
+   * Our surcharge per kilometre on the fare only.
+   * T-1 1.35 -> 1.50 charged, T-2 1.66 -> 1.81. Never applied to the meter
+   * estimate, because we cannot change what the taxi meter reads.
    */
-  perKmMarkup: 0.1,
+  perKmMarkup: 0.15,
 
   waitPerHour: 27.75,
 
@@ -78,7 +87,8 @@ export const TARIFFS = {
   },
 
   /**
-   * OUR booking fee, charged online. Never part of the meter.
+   * OUR service charge. Never part of the meter, and never itemised to the
+   * passenger — it is folded into `Quote.total` and quoted as one price.
    *
    * Weekends and special days cost more to staff, so they carry the higher
    * rate. This is decided by the calendar day of the pickup, not by which
@@ -109,7 +119,21 @@ export const TARIFFS = {
   outsideAMB: {
     enabled: true,
     startFare: { T6: 7.25, T7: 7.9 },
+    /** Official Generalitat rates, one way — what the meter counts per km. */
     perKm: { T6: 0.82, T7: 0.89 },
+    /**
+     * What we charge the passenger per kilometre of ACTUAL journey.
+     *
+     * These already contain the closed circuit. The meter counts the return
+     * leg too (see `billsReturnLeg`), so a T-6 kilometre driven costs
+     * 0.82 x 2 = 1.64 on the meter; 1.80 is that plus the same ~0.15 markup
+     * the urban tariffs carry. T-7: 0.89 x 2 = 1.78, charged 1.98.
+     *
+     * Because the doubling is baked in, these multiply `roadKm`, NOT
+     * `billableKm` — multiplying the doubled distance would charge the return
+     * leg twice.
+     */
+    perKmCharged: { T6: 1.8, T7: 1.98 },
     waitPerHour: { T6: 22.47, T7: 24.32 },
     /** Waiting is billed in quarter-hour blocks. */
     waitPer15Min: { T6: 5.62, T7: 6.08 },
@@ -172,12 +196,16 @@ export type TariffCode = 'T1' | 'T2' | 'T4' | 'T6' | 'T7';
 /**
  * How the passenger settles the trip.
  *
- * FEE_ONLY      — pay our 20% booking fee online now, pay the metered fare to
- *                 the driver in the taxi.
- * FULL_PREPAID  — pay the fixed fare plus the booking fee online now, and
- *                 nothing at all in the taxi.
+ * FULL_PREPAID — the only mode offered. One all-inclusive price paid online,
+ *                nothing owed in the taxi.
+ * FEE_ONLY     — RETIRED. Kept in the type (and in the database enum) so that
+ *                bookings taken before the changeover still load and still
+ *                render correctly in the panel. Never write it again.
  */
 export type PaymentMode = 'FEE_ONLY' | 'FULL_PREPAID';
+
+/** The mode every new booking is taken on. */
+export const DEFAULT_PAYMENT_MODE: PaymentMode = 'FULL_PREPAID';
 
 /**
  * Official Barcelona public holidays (Catalonia + Barcelona local festivities).

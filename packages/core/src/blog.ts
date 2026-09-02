@@ -64,8 +64,8 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h2: 'Is booking ahead more expensive?',
         body: [
-          'The metered fare is identical whether you book ahead or join the rank — it has to be, because the rate is regulated.',
-          'What differs is our booking fee, a separate service charge for reserving the car, assigning a driver and supporting the trip. You see it as its own line before you pay, and it never appears on the taxi meter.',
+          'The regulated tariff is identical whether you book ahead or join the rank — it has to be, because the rate is set by the AMB.',
+          'What differs is that a booked car is a fixed all-inclusive price, agreed before you travel and paid online. That price covers the journey, every official supplement and our service in reserving the car, assigning a driver and supporting the trip. At the rank you take whatever the meter reads at the end.',
           'You can also choose to prepay the entire journey at a fixed price. That price sits slightly above the expected meter reading, because fixing it in advance means we absorb the traffic risk rather than you. In exchange nothing at all is owed in the taxi.',
         ],
       },

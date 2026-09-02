@@ -2,8 +2,9 @@
  * Legal page content.
  *
  * Written to match how the service actually operates: we are a booking
- * intermediary, the metered fare is a contract between passenger and driver,
- * and the only sum we take is the booking fee. Have a Spanish lawyer review
+ * intermediary, the transport itself is performed by an independent licensed
+ * driver, and we collect one all-inclusive price for the booking. Have a
+ * Spanish lawyer review
  * these before launch — they are drafted, not certified.
  */
 export interface LegalSection {
@@ -29,7 +30,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
     slug: 'terms',
     title: 'Terms of Service',
     description:
-      'The terms governing bookings made through BCNAirportTaxi, including the booking fee, the metered fare, and cancellation.',
+      'The terms governing bookings made through BCNAirportTaxi, including how the price is set, how it is paid, and cancellation.',
     h1: 'Terms of service',
     updated: '10 August 2026',
     intro: OPERATOR_NOTE,
@@ -37,16 +38,16 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
       {
         h2: 'What we provide',
         paragraphs: [
-          'We provide an online service that lets you reserve a licensed Barcelona taxi in advance, gives you a fare estimate calculated from the official AMB tariff, and assigns a driver to your journey.',
+          'We provide an online service that lets you reserve a licensed Barcelona taxi in advance, gives you a fixed all-inclusive price calculated from the official AMB tariff, and assigns a driver to your journey.',
           'The transport itself is provided by an independent licensed taxi driver. Your contract for the journey is with that driver, under the regulated conditions that apply to all Barcelona taxis.',
         ],
       },
       {
-        h2: 'Fares and our booking fee',
+        h2: 'Prices and payment',
         paragraphs: [
-          'The fare for the journey is determined by the official taxi meter and is paid directly to the driver in the vehicle, by cash or card. We never collect the fare and cannot alter it.',
-          'The figure shown on this site before you book is an estimate. It is calculated from the official AMB tariff and the real road distance of your route, but the amount you pay is whatever the meter shows on completion, which may vary with traffic and the route taken.',
-          'Separately from the fare, we charge a booking fee of 20% of the estimated fare. This is a service charge for arranging, confirming and supporting your reservation. It is displayed to you as a distinct line before payment, is collected online at the time of booking, and is receipted separately by email. It is not a surcharge on the fare and never appears on the taxi meter.',
+          'You pay a single all-inclusive price, quoted before you book and collected by us online at the time of booking. It covers the journey, every official supplement that applies to your route, and our service in arranging, confirming and supporting the reservation. Nothing further is owed to the driver in the vehicle.',
+          'The price is calculated from the official AMB tariff and the real road distance of your route, and is fixed once your booking is confirmed. Variations in traffic or routing do not change what you pay.',
+          'We settle the journey with the licensed driver ourselves. You receive a receipt for the full amount by email with your confirmation; the official taxi meter invoice for the journey remains available from the driver on request.',
         ],
       },
       {
@@ -54,13 +55,13 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
         paragraphs: [
           'Bookings require at least three hours notice before the pickup time. For journeys sooner than that, contact us on WhatsApp and we will confirm a vehicle directly if one is available.',
           'At launch, pickups must be within Barcelona city or at El Prat airport. Destinations may be anywhere.',
-          'Your booking is confirmed once the booking fee is paid. You will receive a confirmation email with your route, vehicle, estimate and booking reference.',
+          'Your booking is confirmed once payment is complete. You will receive a confirmation email with your route, vehicle, price and booking reference.',
         ],
       },
       {
         h2: 'Cancellation',
         paragraphs: [
-          'You may cancel free of charge up to 24 hours before your pickup time, and the booking fee is refunded in full.',
+          'You may cancel free of charge up to 24 hours before your pickup time, and you are refunded in full.',
           'Cancellations within 24 hours of pickup, and no-shows, are not refunded, because a driver has been committed to your journey. See our refund policy for the full detail.',
         ],
       },
@@ -74,7 +75,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
       {
         h2: 'Liability',
         paragraphs: [
-          'Our responsibility is limited to arranging your booking correctly. Where we fail to do so — for example a driver is not assigned — we refund the booking fee in full.',
+          'Our responsibility is limited to arranging your booking correctly. Where we fail to do so — for example a driver is not assigned — we refund your payment in full.',
           'Liability for the journey itself, including punctuality, conduct and property, rests with the licensed taxi operator, who carries the insurance required by Barcelona taxi regulations.',
         ],
       },

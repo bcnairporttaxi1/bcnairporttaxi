@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import type { FleetVehicle } from '@bcn/core/fleet';
 import type { Quote } from '@bcn/core/pricing';
-import type { PaymentMode } from '@bcn/core/tariffs';
+import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
 
 interface Props {
   locale: string;
@@ -16,7 +16,6 @@ interface Props {
   pickupAtIso: string;
   fleet: FleetVehicle[];
   /** Preselected from the home-screen choice. */
-  initialMode: PaymentMode;
   /** Carried over when rebooking a previous trip. Defaults to a couple. */
   initialPassengers?: number;
   initialLuggage?: number;
@@ -29,7 +28,6 @@ export function CheckoutForm({
   dropoff,
   pickupAtIso,
   fleet,
-  initialMode,
   initialPassengers,
   initialLuggage,
 }: Props) {
@@ -45,7 +43,6 @@ export function CheckoutForm({
   const tf = useTranslations('fleet');
 
   const [vehicleSlug, setVehicleSlug] = useState(fleet[1]?.slug ?? fleet[0].slug);
-  const [mode, setMode] = useState<PaymentMode>(initialMode);
   const [passengers, setPassengers] = useState(initialPassengers ?? 2);
   const [luggage, setLuggage] = useState(initialLuggage ?? 2);
   const [name, setName] = useState('');
@@ -61,8 +58,12 @@ export function CheckoutForm({
 
   const quote = quotesByVehicle[vehicle.slug] ?? Object.values(quotesByVehicle)[0];
 
-  const dueNow = mode === 'FULL_PREPAID' ? quote.payNowFull : quote.payNowFeeOnly;
-  const dueInTaxi = mode === 'FULL_PREPAID' ? 0 : quote.payInTaxiFeeOnly;
+  /**
+   * One number, and it is the whole transaction. There is no mode to choose
+   * any more and nothing is settled with the driver, so the summary has a
+   * total and nothing else to reconcile against it.
+   */
+  const dueNow = quote.total;
 
   const when = useMemo(
     () =>
@@ -93,7 +94,7 @@ export function CheckoutForm({
           passengers,
           luggage,
           vehicleSlug,
-          paymentMode: mode,
+          paymentMode: DEFAULT_PAYMENT_MODE,
           notes: [flight && `Flight: ${flight}`, notes].filter(Boolean).join(' — '),
           locale,
         }),
@@ -194,13 +195,9 @@ export function CheckoutForm({
                         {/* Larger vehicles carry an official supplement, so the
                             total differs per vehicle and must be visible here. */}
                         <p className="mt-2 font-mono text-sm font-bold">
-                          {eur(
-                            mode === 'FULL_PREPAID'
-                              ? (quotesByVehicle[v.slug]?.payNowFull ?? 0)
-                              : (quotesByVehicle[v.slug]?.payNowFeeOnly ?? 0),
-                          )}{' '}
+                          {eur(quotesByVehicle[v.slug]?.total ?? 0)}{' '}
                           <span className="font-sans text-xs font-normal text-dim">
-                            {tq('payNow').toLowerCase()}
+                            {tq('allInclusive').toLowerCase()}
                           </span>
                         </p>
                       </div>
@@ -215,62 +212,6 @@ export function CheckoutForm({
                 {t('capacityWarning', { seats: vehicle.seats, bags: vehicle.bags })}
               </p>
             )}
-          </section>
-
-          {/* Payment choice */}
-          <section>
-            <h2 className="font-display text-xl font-extrabold">{tq('chooseHowToPay')}</h2>
-            <fieldset className="mt-4 grid gap-3">
-              <legend className="sr-only">{tq('chooseHowToPay')}</legend>
-
-              <label
-                className={`cursor-pointer rounded-card border-2 p-5 transition ${
-                  mode === 'FEE_ONLY' ? 'border-gold bg-accent/5' : 'border-line bg-raise'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="mode"
-                  checked={mode === 'FEE_ONLY'}
-                  onChange={() => setMode('FEE_ONLY')}
-                  className="sr-only"
-                />
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="font-display font-bold">{tq('modeFeeOnlyTitle')}</span>
-                  <span className="font-mono text-lg font-bold">{eur(quote.payNowFeeOnly)}</span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-dim">
-                  {tq('modeFeeOnlyBody', {
-                    fee: eur(quote.bookingFee),
-                    fare: eur(quote.meterEstimate),
-                  })}
-                </p>
-              </label>
-
-              <label
-                className={`cursor-pointer rounded-card border-2 p-5 transition ${
-                  mode === 'FULL_PREPAID'
-                    ? 'border-gold bg-accent/5'
-                    : 'border-line bg-raise'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="mode"
-                  checked={mode === 'FULL_PREPAID'}
-                  onChange={() => setMode('FULL_PREPAID')}
-                  className="sr-only"
-                />
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="font-display font-bold">{tq('modeFullTitle')}</span>
-                  <span className="font-mono text-lg font-bold">{eur(quote.payNowFull)}</span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-dim">
-                  {tq('modeFullBody', { total: eur(quote.payNowFull) })}
-                </p>
-              </label>
-            </fieldset>
-            <p className="mt-3 text-xs leading-relaxed text-dim">{tq('fixedFareNote')}</p>
           </section>
 
           {/* Details */}
@@ -329,41 +270,22 @@ export function CheckoutForm({
             <dl className="mt-5 space-y-2.5 border-t border-line pt-4 text-sm">
               <div className="flex justify-between">
                 <dt className="text-dim">{tq('tariffBadge', { tariff: quote.tariff })}</dt>
-                <dd className="font-mono">
-                  {eur(quote.perKmRateCharged)}/km
-                </dd>
-              </div>
-              {quote.supplementLines.map((l) => (
-                <div key={l.key} className="flex justify-between">
-                  <dt className="text-dim">{tq(`supplementNames.${l.key}` as never)}</dt>
-                  <dd className="font-mono">{eur(l.amount)}</dd>
-                </div>
-              ))}
-              <div className="flex justify-between">
-                <dt className="text-dim">
-                  {mode === 'FULL_PREPAID' ? tq('fixedFare') : tq('estimatedFare')}
-                </dt>
-                <dd className="font-mono">
-                  {eur(mode === 'FULL_PREPAID' ? quote.fixedFare : quote.meterEstimate)}
-                </dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-dim">{tq('bookingFee', { pct: Math.round(quote.bookingFeeRate * 100) })}</dt>
-                <dd className="font-mono">{eur(quote.bookingFee)}</dd>
+                <dd className="font-mono">{quote.roadKm} km</dd>
               </div>
             </dl>
 
-            <div className="mt-4 space-y-2 border-t border-line pt-4">
+            <div className="mt-4 border-t border-line pt-4">
               <div className="flex items-baseline justify-between">
-                <span className="font-display font-bold">{tq('payNow')}</span>
+                <span className="font-display font-bold">{t('totalDue')}</span>
                 <span className="font-mono text-2xl font-extrabold">{eur(dueNow)}</span>
               </div>
-              <div className="flex items-baseline justify-between text-sm">
-                <span className="text-dim">{tq('payInTaxi')}</span>
-                <span className="font-mono">
-                  {dueInTaxi === 0 ? tq('nothingInTaxi') : eur(dueInTaxi)}
-                </span>
-              </div>
+              <p className="mt-2 flex items-center gap-2 text-sm text-jade">
+                <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 flex-none fill-current">
+                  <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
+                </svg>
+                {tq('allInclusive')}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-dim">{tq('includedNote')}</p>
             </div>
 
             {error && (

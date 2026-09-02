@@ -7,7 +7,8 @@ import { FleetSwiper } from '@/components/fleet-swiper';
 import { DestinationStrip } from '@/components/destination-strip';
 import { FEATURED_DESTINATIONS, ALL_DESTINATIONS } from '@bcn/core/destinations';
 import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
-import { TARIFFS } from '@bcn/core/tariffs';
+import { LANDMARKS, TARIFFS } from '@bcn/core/tariffs';
+import { calculateQuote } from '@bcn/core/pricing';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
 import { LanguageGrid } from '@/components/language-switcher';
@@ -31,28 +32,37 @@ export default async function HomePage(props: {
   const td = await getTranslations('destinations');
   const tfare = await getTranslations('fares');
 
-  /* Derived from TARIFFS at render time rather than typed in, so the table
-     cannot drift from what the booking form quotes. Urban rows use the AMB
-     meter; interurban rows bill the closed circuit out and back, exactly as
-     interurbanQuote does. */
-  const urban = (km: number) =>
-    TARIFFS.startFare + km * TARIFFS.perKm.T1 + TARIFFS.supplements.airportElPrat;
-  const inter = (km: number) =>
-    TARIFFS.outsideAMB.startFare.T6 + km * 2 * TARIFFS.outsideAMB.perKm.T6;
+  /* Every figure below comes out of calculateQuote — the same function the
+     booking form calls — rather than a formula retyped here. Hand-written
+     copies of the tariff arithmetic are exactly how a published price ends up
+     disagreeing with the one the customer is actually charged.
+
+     A fixed weekday noon keeps the table stable: Wed 10 June 2026 is not a
+     holiday, so it lands on T-1 and T-6 rather than flipping to the night
+     tariff depending on when the page happens to be rendered. */
+  const SAMPLE_AT = new Date('2026-06-10T12:00:00+02:00');
+  const BCN_CENTRE = { lat: 41.387, lng: 2.1701 }; // Placa de Catalunya
+  const SITGES = { lat: 41.2351, lng: 1.8117 };
+  const TARRAGONA = { lat: 41.1189, lng: 1.2445 };
+  const GIRONA_AIRPORT = { lat: 41.901, lng: 2.7606 };
+
+  const sample = (pickup: { lat: number; lng: number }, dropoff: { lat: number; lng: number }, km: number) =>
+    calculateQuote({ pickup, dropoff, roadKm: km, durationMin: Math.round(km * 1.2), pickupAt: SAMPLE_AT });
+
   const eur = (n: number) => `€${n.toFixed(2)}`;
+  const airport = { lat: LANDMARKS.elPratAirport.lat, lng: LANDMARKS.elPratAirport.lng };
+  const moll = { lat: LANDMARKS.mollAdossat.lat, lng: LANDMARKS.mollAdossat.lng };
 
   const fareRows = [
-    { route: tfare('rowAirportCity'), distance: '14.2 km', tariff: 'T-1', fare: eur(urban(14.2)) },
-    { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: 'T-4', fare: eur(TARIFFS.t4FixedAirportMollAdossat) },
-    { route: tfare('rowAirportSitges'), distance: '32.8 km', tariff: 'T-6', fare: eur(inter(32.8) + TARIFFS.outsideAMB.supplements.airportElPrat) },
-    { route: tfare('rowBcnTarragona'), distance: '97.3 km', tariff: 'T-6', fare: eur(inter(97.3)) },
-    { route: tfare('rowBcnGirona'), distance: '97.0 km', tariff: 'T-6', fare: eur(inter(97.0)) },
+    { route: tfare('rowAirportCity'), distance: '14.2 km', tariff: 'T-1', fare: eur(sample(airport, BCN_CENTRE, 14.2).total) },
+    { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: 'T-4', fare: eur(sample(airport, moll, 12.4).total) },
+    { route: tfare('rowAirportSitges'), distance: '32.8 km', tariff: 'T-6', fare: eur(sample(airport, SITGES, 32.8).total) },
+    { route: tfare('rowBcnTarragona'), distance: '97.3 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, TARRAGONA, 97.3).total) },
+    { route: tfare('rowBcnGirona'), distance: '97.0 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, GIRONA_AIRPORT, 97.0).total) },
   ];
 
   /* Cards that carry a photograph read far better than ones that do not, so
-     the strip prefers featured destinations that have one. The fare mirrors
-     interurbanQuote exactly — flag-drop plus the closed circuit out and back —
-     so a card never quotes lower than the booking form. */
+     the strip prefers featured destinations that have one. */
   const stripSource = [...FEATURED_DESTINATIONS, ...ALL_DESTINATIONS]
     .filter((d, i, a) => a.findIndex((x) => x.slug === d.slug) === i)
     .filter((d) => d.hasPage && d.km != null && destinationPhoto(d.slug))
@@ -61,9 +71,12 @@ export default async function HomePage(props: {
   const stripItems = stripSource.map((d) => {
     const photo = destinationPhoto(d.slug);
     const place = d.name.replace('Barcelona Airport to ', '').replace('Barcelona to ', '');
-    const fare =
-      TARIFFS.outsideAMB.startFare.T6 +
-      (d.km as number) * 2 * TARIFFS.outsideAMB.perKm.T6;
+    /* Also straight from the engine. Every one of these destinations lies
+       outside the AMB and none is within the El Prat supplement radius, so the
+       quote turns only on the distance — but running it through calculateQuote
+       rather than reimplementing T-6 is what keeps the card and the booking
+       form agreeing after the next tariff change. */
+    const fare = sample(BCN_CENTRE, GIRONA_AIRPORT, d.km as number).total;
     return {
       slug: d.slug,
       place,
@@ -407,7 +420,7 @@ export default async function HomePage(props: {
                         {tfare('tariff')}
                       </th>
                       <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
-                        {tfare('meterFare')}
+                        {tfare('totalPrice')}
                       </th>
                     </tr>
                   </thead>

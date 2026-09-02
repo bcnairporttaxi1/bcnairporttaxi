@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LANDMARKS, TARIFFS } from './tariffs';
+import { DEFAULT_PAYMENT_MODE, LANDMARKS, TARIFFS } from './tariffs';
 import {
   isInterurban,
   bookingFeeRateFor,
@@ -134,25 +134,30 @@ describe('calculateQuote — meter vs fixed fare', () => {
     expect(q.meterEstimate).toBe(16.3); // 2.80 + 13.50
   });
 
-  it('adds exactly 10 cents per km to the charged rate', () => {
-    expect(q.perKmRateCharged).toBe(1.45);
-    // Rounded, not raw float addition: 1.35 + 0.10 is 1.4500000000000002.
+  it('adds exactly 15 cents per km to the charged rate', () => {
+    expect(q.perKmRateCharged).toBe(1.5);
+    // Rounded, not raw float addition: 1.35 + 0.15 is 1.4999999999999998.
     expect(q.perKmRateCharged).toBe(round(q.perKmRate + TARIFFS.perKmMarkup));
   });
 
-  it('bills the fixed prepaid fare at the marked-up rate', () => {
-    expect(q.fixedFare).toBe(17.3); // 2.80 + 14.50
+  it('bills the fare at the marked-up rate', () => {
+    expect(q.fixedFare).toBe(17.8); // 2.80 + 15.00
   });
 
-  it('keeps the fixed fare above the meter by exactly markup x km', () => {
-    expect(round(q.fixedFare - q.meterEstimate)).toBe(1.0); // 10 km x 0.10
+  it('keeps the fare above the meter by exactly markup x km', () => {
+    expect(round(q.fixedFare - q.meterEstimate)).toBe(1.5); // 10 km x 0.15
   });
 
-  it('derives the booking fee from the fixed fare', () => {
-    expect(q.bookingFee).toBe(3.46); // 17.30 * 0.20
+  it('derives the service charge from the fare', () => {
+    expect(q.bookingFee).toBe(3.56); // 17.80 * 0.20
   });
 
-  it('uses the higher T2 rate at night, markup still 10 cents', () => {
+  it('quotes one all-inclusive total: fare plus service charge', () => {
+    expect(q.total).toBe(21.36); // 17.80 + 3.56
+    expect(q.total).toBe(round(q.fixedFare + q.bookingFee));
+  });
+
+  it('uses the higher T2 rate at night, markup still 15 cents', () => {
     const n = calculateQuote({
       pickup: EIXAMPLE,
       dropoff: GRACIA,
@@ -162,9 +167,9 @@ describe('calculateQuote — meter vs fixed fare', () => {
     });
     expect(n.tariff).toBe('T2');
     expect(n.perKmRate).toBe(1.66);
-    expect(n.perKmRateCharged).toBe(1.76);
+    expect(n.perKmRateCharged).toBe(1.81);
     expect(n.meterEstimate).toBe(19.4); // 2.80 + 16.60
-    expect(n.fixedFare).toBe(20.4); // 2.80 + 17.60
+    expect(n.fixedFare).toBe(20.9); // 2.80 + 18.10
   });
 });
 
@@ -177,23 +182,27 @@ describe('calculateQuote — payment modes', () => {
     pickupAt: summer('13:00'),
   });
 
-  it('FEE_ONLY charges just the booking fee online', () => {
+  it('takes the whole all-inclusive total online', () => {
+    expect(amountDueOnline(q, DEFAULT_PAYMENT_MODE)).toBe(q.total);
+    expect(amountDueOnline(q, DEFAULT_PAYMENT_MODE)).toBe(21.36);
+  });
+
+  it('leaves nothing to pay in the taxi', () => {
+    expect(amountDueInTaxi(q, DEFAULT_PAYMENT_MODE)).toBe(0);
+  });
+
+  it('never quotes the service charge as a separate amount', () => {
+    // The passenger sees `total` and nothing else. The charge is inside it,
+    // so total minus fare is exactly the charge and there is no third figure.
+    expect(round(q.total - q.fixedFare)).toBe(q.bookingFee);
+    expect(q.payNowFull).toBe(q.total);
+  });
+
+  it('still resolves bookings taken on the retired FEE_ONLY mode', () => {
+    // The enum survives in the database for historical rows; the panel and the
+    // emails must keep rendering them correctly.
     expect(amountDueOnline(q, 'FEE_ONLY')).toBe(q.bookingFee);
-    expect(amountDueOnline(q, 'FEE_ONLY')).toBe(3.46);
-  });
-
-  it('FEE_ONLY leaves the metered fare owed to the driver', () => {
     expect(amountDueInTaxi(q, 'FEE_ONLY')).toBe(q.meterEstimate);
-    expect(amountDueInTaxi(q, 'FEE_ONLY')).toBe(16.3);
-  });
-
-  it('FULL_PREPAID charges fixed fare plus fee online', () => {
-    expect(amountDueOnline(q, 'FULL_PREPAID')).toBe(20.76); // 17.30 + 3.46
-    expect(q.payNowFull).toBe(round(q.fixedFare + q.bookingFee));
-  });
-
-  it('FULL_PREPAID leaves nothing to pay in the taxi', () => {
-    expect(amountDueInTaxi(q, 'FULL_PREPAID')).toBe(0);
   });
 });
 
@@ -224,7 +233,7 @@ describe('calculateQuote — airport rules', () => {
     });
 
     expect(q.meterEstimate).toBe(27.65); // 2.80 + 20.25 + 4.60
-    expect(q.fixedFare).toBe(29.15); // 2.80 + 21.75 + 4.60
+    expect(q.fixedFare).toBe(29.9); // 2.80 + 22.50 + 4.60
     expect(q.adjustment).toBeNull();
   });
 
@@ -426,7 +435,7 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     expect(q.meterEstimate).toBe(185.9); // 7.90 + (200 x 0.89)
   });
 
-  it('applies the same 10 cent markup to the prepaid fare', () => {
+  it('charges the flat T-6 rate per kilometre actually travelled', () => {
     const q = calculateQuote({
       pickup: EIXAMPLE,
       dropoff: GIRONA,
@@ -435,8 +444,41 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
       pickupAt: summer('13:00'),
     });
 
-    expect(q.perKmRateCharged).toBe(0.92);
-    expect(round(q.fixedFare - q.meterEstimate)).toBe(20); // 200 km x 0.10
+    expect(q.perKmRateCharged).toBe(1.8);
+    // 1.80 already contains the closed circuit (0.82 x 2 = 1.64, plus the
+    // markup), so it multiplies the 100 km driven, NOT the 200 billable km.
+    // Against billableKm this would read 187.25 + 180 = 367.25.
+    expect(q.fixedFare).toBe(187.25); // 7.25 + (100 x 1.80)
+    expect(q.meterEstimate).toBe(171.25); // 7.25 + (200 x 0.82)
+    expect(q.total).toBe(224.7); // 187.25 + 20%
+  });
+
+  it('charges the flat T-7 rate at night', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: GIRONA,
+      roadKm: 100,
+      durationMin: 75,
+      pickupAt: summer('22:00'),
+    });
+
+    expect(q.tariff).toBe('T7');
+    expect(q.perKmRateCharged).toBe(1.98);
+    expect(q.fixedFare).toBe(205.9); // 7.90 + (100 x 1.98)
+  });
+
+  it('keeps the interurban fare above the meter it replaces', () => {
+    for (const km of [12, 33, 97, 210]) {
+      const q = calculateQuote({
+        pickup: EIXAMPLE,
+        dropoff: GIRONA,
+        roadKm: km,
+        durationMin: km,
+        pickupAt: summer('13:00'),
+      });
+      expect(q.fixedFare).toBeGreaterThan(q.meterEstimate);
+      expect(q.total).toBeGreaterThan(q.fixedFare);
+    }
   });
 
   it('adds the airport supplement on an interurban airport run', () => {

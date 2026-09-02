@@ -58,14 +58,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport to City Taxi | Book Online',
         description:
-          'Book a taxi from Barcelona airport to the city centre. Official AMB meter fare, El Prat supplement included in your estimate, driver waiting at arrivals.',
+          'Book a taxi from Barcelona airport to the city centre. One all-inclusive price from the official AMB tariff, El Prat supplement included, driver waiting at arrivals.',
         h1: 'Taxi from Barcelona airport to the city',
         intro:
           'A taxi from Barcelona El Prat to the city centre takes roughly 25 to 35 minutes depending on traffic and which terminal you land at. Booking ahead means a driver is already assigned when you land, holding a name sign in arrivals, instead of joining the rank queue at T1 or T2.',
         sections: [
           {
             h2: 'What a Barcelona airport transfer taxi costs',
-            body: 'The fare runs on the official AMB meter. From El Prat you pay the metered amount plus the fixed airport supplement, and there is a minimum airport fare that applies to very short trips. In practice a ride from the airport into central Barcelona typically lands in the mid-thirties to low-forties in euros, higher at night and at weekends when the T-2 tariff applies. Enter your exact destination above for a precise estimate.',
+            body: 'Your price is built from the official AMB tariff and the real road distance, with the fixed airport supplement and the airport minimum fare already inside it. In practice a ride from the airport into central Barcelona typically lands in the mid-thirties in euros, higher at night and at weekends when the T-2 tariff applies. Enter your exact destination above to see your own all-inclusive price.',
           },
           {
             h2: 'Where your driver meets you at arrivals',
@@ -87,7 +87,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi from Barcelona to the Airport | Book Online',
         description:
-          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, official meter fare, and a driver who knows the terminal drop-off points.',
+          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, one all-inclusive price from the official AMB tariff, and a driver who knows the terminal drop-off points.',
         h1: 'Taxi from Barcelona to the airport',
         intro:
           'Going the other way is the trip worth booking in advance. A pre-booked taxi to Barcelona airport arrives at your hotel or apartment at a set time, which matters far more when you have a flight to catch than when you are arriving.',
@@ -122,7 +122,7 @@ export const LANDING_PAGES: LandingPage[] = [
         sections: [
           {
             h2: 'Booking a taxi to Barcelona airport versus the rank',
-            body: 'The official rank at El Prat is well run and usually moves quickly. It backs up at predictable moments: mid-morning arrival banks, Sunday evenings, and whenever several long-haul flights land together. Booking ahead removes that risk entirely and fixes your driver in advance, at the same metered fare.',
+            body: 'The official rank at El Prat is well run and usually moves quickly. It backs up at predictable moments: mid-morning arrival banks, Sunday evenings, and whenever several long-haul flights land together. Booking ahead removes that risk entirely, fixes your driver in advance, and fixes your price before you travel.',
           },
           {
             h2: 'The El Prat airport supplement',
@@ -143,7 +143,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport Taxi Price | 2026 AMB Fares',
         description:
-          'What a Barcelona airport taxi actually costs: the official AMB tariff table, the El Prat supplement, the airport minimum fare, and our separate 20% booking fee.',
+          'What a Barcelona airport taxi actually costs: the official AMB tariff table, the El Prat supplement, the airport minimum fare, and how your all-inclusive price is built.',
         h1: 'Barcelona airport taxi price',
         intro:
           'Barcelona taxi prices are regulated. No licensed taxi can charge more or less than the official AMB meter, which means the honest answer to "what does it cost" is a calculation rather than a sales figure. Here is exactly how that calculation works.',
@@ -162,7 +162,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What we charge on top',
-            body: 'Our booking fee is 20% of the fare, paid online when you reserve. It is a service charge for arranging the ride, not a surcharge on the fare, and it never appears on the taxi meter. You see it as a separate line before you pay and receive its own receipt by email. You can also choose to prepay the whole journey at a fixed price, in which case nothing at all is owed in the taxi.',
+            body: 'You pay one all-inclusive price online when you reserve. It covers the journey on the official AMB tariff, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. There is no second amount to settle: nothing at all is owed in the taxi, and you receive a receipt for the full price by email.',
           },
         ],
       },
@@ -204,14 +204,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Sants Station to Barcelona Airport',
         description:
-          'Book a taxi from Barcelona Sants railway station to El Prat airport. Around 15 minutes, official meter fare including the Sants station supplement.',
+          'Book a taxi from Barcelona Sants railway station to El Prat airport. Around 15 minutes, one all-inclusive price including the Sants station supplement.',
         h1: 'Taxi from Sants station to Barcelona airport',
         intro:
           'Sants is Barcelona\'s main railway station and the arrival point for AVE high-speed trains from Madrid, Valencia and Seville. It is also the closest major transport hub to El Prat: the taxi run takes around 15 minutes outside rush hour.',
         sections: [
           {
             h2: 'The Sants station supplement',
-            body: 'Journeys starting or ending at Sants station carry a small fixed supplement set by the AMB, on top of the metered fare. Combined with the airport supplement, both are included in the estimate you see before booking, and the total supplement is capped per service.',
+            body: 'Journeys starting or ending at Sants station carry a small fixed supplement set by the AMB. Combined with the airport supplement, both are already inside the price you see before booking — there is nothing to add on afterwards.',
           },
           {
             h2: 'Where to meet your driver at Sants',
@@ -344,7 +344,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Barcelona City Centre to Airport',
         description:
-          'Book a taxi from Barcelona city centre to El Prat airport. Pickup from any central address, official meter fare, driver confirmed in advance.',
+          'Book a taxi from Barcelona city centre to El Prat airport. Pickup from any central address, one all-inclusive price, driver confirmed in advance.',
         h1: 'Taxi from Barcelona city centre to the airport',
         intro:
           'From anywhere central — the Rambla, Plaça de Catalunya, El Born, the Raval or Passeig de Gràcia — El Prat is a 20 to 35 minute drive. Booking ahead fixes the pickup time and the car, which matters most on the outbound leg.',
@@ -359,7 +359,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What a city centre to airport taxi costs',
-            body: 'The metered fare from the centre to El Prat, plus the fixed airport supplement. Nights and weekends run on the higher T-2 rate. Enter your address for an exact estimate before you commit.',
+            body: 'The official tariff from the centre to El Prat, plus the fixed airport supplement, all inside one price. Nights and weekends run on the higher T-2 rate. Enter your address to see your exact price before you commit.',
           },
         ],
       },
@@ -375,7 +375,7 @@ export const LANDING_PAGES: LandingPage[] = [
           'Book a Barcelona airport taxi online in minutes. Instant fare estimate from official AMB tariffs, secure payment, instant email confirmation.',
         h1: 'Book an airport taxi in Barcelona online',
         intro:
-          'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. Pay just the 20% booking fee now and settle the meter with your driver, or prepay the whole journey at a fixed price and owe nothing in the taxi.',
+          'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. You pay one all-inclusive price online, and owe nothing at all in the taxi.',
         sections: [
           {
             h2: 'What you need to book a taxi to Barcelona airport',
@@ -387,7 +387,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'Changes and cancellations',
-            body: 'Plans change. Cancel at least 24 hours before pickup and the booking fee is refunded in full. To move a booking, reply to your confirmation email and we will reschedule it.',
+            body: 'Plans change. Cancel at least 24 hours before pickup and you are refunded in full. To move a booking, reply to your confirmation email and we will reschedule it.',
           },
         ],
       },

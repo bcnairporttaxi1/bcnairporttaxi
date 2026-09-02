@@ -107,18 +107,18 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
       currency: 'EUR',
     }).format(n);
 
-  // The fee is 20% or 25% depending on when the pickup falls, so the label has
-  // to follow the booking rather than assume the weekday rate. It was computed
-  // as a share of the fixed fare, so dividing recovers it — and the two rates
-  // are far enough apart that rounding to a whole percent is safe.
-  const feePct = d.fixedFare > 0 ? Math.round((d.bookingFee / d.fixedFare) * 100) : 20;
-
   const when = new Intl.DateTimeFormat(d.locale ?? 'en', {
     dateStyle: 'full',
     timeStyle: 'short',
     timeZone: 'Europe/Madrid',
   }).format(d.pickupAt);
 
+  /**
+   * All-inclusive prepaid is the only mode now: one amount, paid online, with
+   * the service charge inside it rather than beside it. Bookings taken before
+   * the changeover were settled partly in the car and their emails still have
+   * to say so, hence the branch rather than a rewrite.
+   */
   const prepaid = d.paymentMode === 'FULL_PREPAID';
 
   /**
@@ -141,7 +141,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     ? `<p style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px;font-size:14px">
          Payment of <strong>${eur(d.amountOnline)}</strong> received.
          ${prepaid
-           ? 'Your fare is fully paid — there is nothing to pay in the taxi.'
+           ? 'Your journey is paid in full — there is nothing to pay in the taxi.'
            : `You still pay the metered fare of about <strong>${eur(d.amountInTaxi)}</strong> to your driver.`}
        </p>`
     : `<p style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:14px">
@@ -150,18 +150,17 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
        </p>`;
 
   const fareRows = prepaid
-    ? `${row('Fixed price (paid online)', eur(d.fixedFare), true)}
-       ${row(`Booking fee (${feePct}%)`, eur(d.bookingFee), true)}
-       ${row('Total paid online', eur(d.amountOnline), true)}
+    ? `${row('Total price (paid online)', eur(d.amountOnline), true)}
        ${row('To pay in the taxi', 'Nothing')}`
     : `${row('Estimated meter fare', eur(d.meterEstimate), true)}
-       ${row(`Booking fee (${feePct}%), paid online`, eur(d.bookingFee), true)}
+       ${row('Paid online', eur(d.amountOnline), true)}
        ${row('To pay your driver', `about ${eur(d.amountInTaxi)}`, true)}`;
 
   const closing = prepaid
     ? `<p style="font-size:14px;line-height:1.6">
-         Your price is <strong>locked</strong>. Whatever the traffic does, you owe nothing further
-         in the taxi.
+         Your price is <strong>locked and all-inclusive</strong> — the fare, every official
+         supplement and the booking itself. Whatever the traffic does, you owe nothing
+         further in the taxi.
        </p>`
     : `<p style="font-size:14px;line-height:1.6">
          You pay the <strong>metered fare</strong> directly to your driver in the taxi, by cash or card.
@@ -195,17 +194,19 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     `Distance: ${d.roadKm} km, approx ${d.durationMin} min`,
     `Tariff:   ${d.tariff}`,
     ``,
-    prepaid
-      ? `Fixed price:       ${eur(d.fixedFare)}`
-      : `Est. meter fare:   ${eur(d.meterEstimate)}`,
-    `Booking fee (${feePct}%): ${eur(d.bookingFee)}`,
-    `Paid online:       ${eur(d.amountOnline)} ${d.feePaid ? '(received)' : '(pending)'}`,
+    prepaid ? null : `Est. meter fare:   ${eur(d.meterEstimate)}`,
+    `${prepaid ? 'Total price' : 'Paid online'}:       ${eur(d.amountOnline)} ${
+      d.feePaid ? '(received)' : '(pending)'
+    }`,
     `Pay in the taxi:   ${prepaid ? 'Nothing' : `about ${eur(d.amountInTaxi)}`}`,
     ``,
     prepaid
-      ? `Your price is locked. Nothing further is owed in the taxi.`
+      ? `Your price is locked and all-inclusive. Nothing further is owed in the taxi.`
       : `You pay the metered fare directly to your driver. The meter decides the exact amount.`,
-  ].join('\n');
+  ]
+    // A prepaid booking drops the meter line, so the array can hold a null.
+    .filter((line): line is string => line !== null)
+    .join('\n');
 
   return { subject, html, text };
 }

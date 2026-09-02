@@ -101,11 +101,13 @@ export default async function BookingPage(props: {
     }
   }
 
+  /**
+   * Every new booking is all-inclusive and prepaid, so the confirmation shows
+   * one amount. Bookings taken before the changeover were settled partly with
+   * the driver, and those still have to say so — `prepaid` is what separates
+   * them, read from the stored mode rather than assumed.
+   */
   const prepaid = booking.paymentMode === 'FULL_PREPAID';
-  // Derived from the stored amounts rather than recomputed, so a historic
-  // booking always shows the rate it was actually charged.
-  const fixed = Number(booking.fixedFare);
-  const feePct = fixed > 0 ? Math.round((Number(booking.bookingFee) / fixed) * 100) : 20;
   const when = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
     dateStyle: 'full',
     timeStyle: 'short',
@@ -172,29 +174,28 @@ export default async function BookingPage(props: {
               </dd>
             </div>
             <div className="flex justify-between gap-4 py-3">
-              <dt className="text-dim">
-                {prepaid ? tq('fixedFare') : tq('estimatedFare')}
+              <dt className="font-display font-bold">
+                {prepaid ? tq('totalPrice') : tq('payNow')}
               </dt>
-              <dd className="text-right font-mono">
-                {eur(Number(prepaid ? booking.fixedFare : booking.meterEstimate))}
-              </dd>
-            </div>
-            <div className="flex justify-between gap-4 py-3">
-              <dt className="text-dim">{tq('bookingFee', { pct: feePct })}</dt>
-              <dd className="text-right font-mono">{eur(Number(booking.bookingFee))}</dd>
-            </div>
-            <div className="flex justify-between gap-4 py-3">
-              <dt className="font-display font-bold">{tq('payNow')}</dt>
               <dd className="text-right font-mono text-lg font-extrabold">
                 {eur(Number(booking.amountOnline))}
               </dd>
             </div>
-            <div className="flex justify-between gap-4 py-3">
-              <dt className="text-dim">{tq('payInTaxi')}</dt>
-              <dd className="text-right font-mono">
-                {prepaid ? tq('nothingInTaxi') : eur(Number(booking.meterEstimate))}
-              </dd>
-            </div>
+            {prepaid ? (
+              <div className="flex justify-between gap-4 py-3">
+                <dt className="text-dim">{tq('allInclusive')}</dt>
+                <dd className="text-right font-medium text-jade">
+                  {tq('nothingInTaxi')}
+                </dd>
+              </div>
+            ) : (
+              <div className="flex justify-between gap-4 py-3">
+                <dt className="text-dim">{tq('payInTaxi')}</dt>
+                <dd className="text-right font-mono">
+                  {eur(Number(booking.meterEstimate))}
+                </dd>
+              </div>
+            )}
           </dl>
 
           <p className="mt-6 rounded-lg bg-void p-4 text-sm leading-relaxed text-dim">

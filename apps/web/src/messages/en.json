@@ -25,12 +25,12 @@
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
-    "metaDescription": "Book a Barcelona airport taxi online in advance. Official AMB metered fares, fixed 20% booking fee, licensed black-and-yellow taxis to and from El Prat. 24 hours.",
+    "metaDescription": "Book a Barcelona airport taxi online in advance. One all-inclusive price paid online, built from the official AMB tariff. Licensed black-and-yellow taxis to and from El Prat, 24 hours.",
     "h1": "Barcelona airport taxi, booked before you land",
-    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. You see an accurate fare estimate from the official AMB tariff before you book, and you pay the driver the metered fare in the car — exactly as you would at the rank, but with a car already waiting for you.",
+    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. You see one all-inclusive price before you book — built from the official AMB tariff and the real road distance — you pay it online, and there is nothing to settle with the driver.",
     "trust": {
       "licensed": "Licensed AMB taxis",
-      "meter": "Official meter fare",
+      "meter": "Official AMB tariff",
       "noSurge": "No surge pricing",
       "support": "24 h booking"
     },
@@ -46,20 +46,20 @@
       "whyTitle": "Why book with us",
       "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes.",
       "destTitle": "Where else we go",
-      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one metered fare, however far it runs.",
+      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one all-inclusive price, however far it runs.",
       "fleetLede": "one swipe apart.",
       "destLede": "priced before you go.",
       "faresLede": "from the real tariff.",
       "closingLede": "drive off.",
       "faresTitle": "Real prices",
-      "faresIntro": "Every figure below comes from the official schedule, not a number we invented.",
+      "faresIntro": "Every figure below is an all-inclusive price built from the official schedule — the same one the booking form quotes.",
       "closingTitle": "Land, walk out,",
-      "closingIntro": "An exact meter estimate in seconds. No account needed to see your price."
+      "closingIntro": "One all-inclusive price in seconds. No account needed to see it."
     },
     "why": {
       "meter": {
         "title": "The official meter, nothing added",
-        "body": "Barcelona fares are set by the AMB and identical in every licensed taxi. We show you an accurate estimate from the real road distance, and you pay the meter — or lock a fixed price in advance if you prefer certainty."
+        "body": "Barcelona fares are set by the AMB and identical in every licensed taxi. We build your price from the official tariff and the real road distance, then lock it — so the figure you are quoted is the figure you pay, whatever the traffic does."
       },
       "flight": {
         "title": "We watch your flight",
@@ -92,7 +92,7 @@
     "searching": "Searching…",
     "noResults": "No matching address found",
     "estimatedFare": "Estimated meter fare",
-    "fixedFare": "Fixed price, paid online",
+    "fixedFare": "Total price, paid online",
     "bookingFee": "Booking fee ({pct}%)",
     "distance": "Distance",
     "duration": "Est. time",
@@ -119,6 +119,8 @@
     "tariffT1": "T-1 · weekday daytime",
     "tariffT2": "T-2 · night, weekend or holiday",
     "tariffT4": "T-4 · fixed airport–cruise port price",
+    "tariffT6": "T-6 · interurban, weekday daytime",
+    "tariffT7": "T-7 · interurban, night, weekend or holiday",
     "airportMinimumApplied": "Minimum airport fare of {amount} applied.",
     "t4Applied": "Fixed price for airport ↔ cruise terminal.",
     "supplements": "Supplements",
@@ -132,7 +134,7 @@
       "santJoan": "Sant Joan night supplement",
       "largeVehicle": "Large vehicle (5-8 seats)"
     },
-    "disclaimer": "Final fare is set by the official taxi meter. An invoice is provided in the taxi on request. The booking fee is a separate service charge for arranging your ride.",
+    "disclaimer": "Your price is locked when you book and covers the whole journey, including every official supplement. Nothing is owed to the driver in the taxi. A receipt is emailed with your confirmation.",
     "fixedFareNote": "Our fixed price is a little above the meter because we lock it in advance and absorb any traffic or routing variance. Choose to pay in the taxi instead and you simply pay the meter.",
     "continue": "Continue to booking",
     "errors": {
@@ -150,14 +152,17 @@
     },
     "panelKicker": "Reservation",
     "panelTitle": "Plan your transfer",
-    "panelSub": "Instant price · Official meter · 24/7",
-    "bookingFeeNote": "Weekday bookings carry a 20% fee. Weekends, holidays and special nights carry 25%."
+    "panelSub": "Instant price · All-inclusive · 24/7",
+    "bookingFeeNote": "Your price is all-inclusive and fixed at booking. Weekend, holiday and special-night journeys are priced a little higher.",
+    "totalPrice": "Total price",
+    "allInclusive": "All-inclusive · pay online",
+    "includedNote": "One price for the whole journey — fare, official supplements and booking all included. Nothing to pay your driver."
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",
     "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van. Seats and luggage capacity for every group.",
     "h1": "Our Barcelona taxi fleet",
-    "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage — the price estimate is the same regardless of vehicle, because the meter rate is set by the AMB.",
+    "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage: vehicles carrying five to eight passengers attract the official AMB supplement, which is already inside the price you are shown.",
     "seats": "{count, plural, one {# passenger} other {# passengers}}",
     "bags": "{count, plural, one {# suitcase} other {# suitcases}}",
     "select": "Select {name}",
@@ -173,15 +178,15 @@
     "passengersCol": "Passengers",
     "luggageCol": "Luggage",
     "comfortCol": "Comfort",
-    "supplement": "Official large-vehicle supplement {amount}, set by the AMB — never a private markup.",
-    "noSupplement": "No supplement. The standard metered fare applies.",
+    "supplement": "Official large-vehicle supplement {amount}, set by the AMB — already inside your price.",
+    "noSupplement": "No large-vehicle supplement on this one.",
     "prevVehicle": "Previous vehicle",
     "nextVehicle": "Next vehicle",
     "chooseVehicle": "Choose a vehicle"
   },
   "pricing": {
     "metaTitle": "Barcelona Airport Taxi Price 2026 | AMB Fares",
-    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum and our 20% booking fee.",
+    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum, and how your all-inclusive price is built.",
     "h1": "Barcelona airport taxi prices",
     "intro": "Barcelona taxi fares are not set by us. They are fixed by the Àrea Metropolitana de Barcelona (AMB) and run on the official meter in every licensed taxi. The table below is the current tariff, valid 19 January 2026 to 17 January 2027.",
     "tableCaption": "Official AMB urban taxi tariffs, valid 19 Jan 2026 – 17 Jan 2027",
@@ -200,26 +205,26 @@
       "minFromAirport": "Minimum fare from the airport",
       "t4Fixed": "Fixed price: airport ↔ Moll Adossat (T-4)"
     },
-    "feeTitle": "Our booking fee",
-    "feeBody": "We charge a booking fee of 20% of the estimated fare. It is paid online when you reserve, it is shown separately before you pay, and it is never added to the taxi meter. It covers arranging, confirming and tracking your ride. You receive a separate receipt for it by email.",
+    "feeTitle": "What your price includes",
+    "feeBody": "Our service is included in the price you are quoted. You pay one all-inclusive amount online when you book — the fare, every official supplement and our booking service together — and nothing at all to the driver. You receive a full receipt by email.",
     "verifyNote": "Tariffs are reviewed by the AMB each January. We verify them at taxi.amb.cat at every changeover."
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
-    "metaDescription": "Book a Barcelona airport taxi in three steps: get an instant fare estimate, pay the 20% booking fee online, and pay the metered fare to your driver.",
+    "metaDescription": "Book a Barcelona airport taxi in three steps: get an instant all-inclusive price, pay online, and meet your driver. Nothing to pay in the taxi.",
     "h1": "How it works",
     "steps": {
       "one": {
-        "title": "Get your estimate",
-        "body": "Enter pickup and drop-off. We measure the real road distance and apply the official AMB tariff for your travel time to produce an accurate fare estimate."
+        "title": "Get your price",
+        "body": "Enter pickup and drop-off. We measure the real road distance and apply the official AMB tariff for your travel time to build one all-inclusive price."
       },
       "two": {
         "title": "Reserve the car",
-        "body": "Choose your vehicle and pay the 20% booking fee online. Your booking is confirmed instantly by email, and a driver is assigned to you."
+        "body": "Choose your vehicle and pay the full price online. Your booking is confirmed instantly by email, and a driver is assigned to you."
       },
       "three": {
-        "title": "Pay the meter in the taxi",
-        "body": "Your driver meets you at the agreed time. You pay the metered fare directly in the car, by cash or card, and can ask for the official taxi invoice."
+        "title": "Meet your driver",
+        "body": "Your driver meets you at the agreed time. Everything is already paid, so there is nothing to settle in the car."
       }
     }
   },
@@ -230,15 +235,15 @@
     "items": {
       "fareAccurate": {
         "q": "Is the price I see the price I pay?",
-        "a": "The figure we show is an accurate estimate built from the official AMB tariff and the real road distance of your route. The amount you actually pay is whatever the taxi meter shows at the end of the trip, which can vary slightly with traffic and the exact route taken. Our 20% booking fee is separate and is paid online when you reserve."
+        "a": "Yes. The price you are shown is the price you pay. It is built from the official AMB tariff and the real road distance of your route, it already contains every official supplement, and it is fixed the moment you book. Traffic and routing are our risk, not yours: nothing is added afterwards and nothing is owed to the driver."
       },
       "whyFee": {
-        "q": "Why is there a 20% booking fee?",
-        "a": "Barcelona taxi fares are fixed by the AMB, so no taxi can charge more or less than the meter. Our booking fee is a separate service charge for reserving and guaranteeing your car in advance, assigning a driver, and giving you tracking and support. It is shown to you before you pay and receipted separately."
+        "q": "What is included in the price?",
+        "a": "Everything. The fare itself, every official supplement that applies to your route — the El Prat airport charge, the cruise-port charge, the five-to-eight-passenger vehicle charge — and our service for reserving and guaranteeing the car, assigning a driver and supporting you on the day. It is one amount, paid online when you book, with nothing separate to pay and nothing owed in the taxi."
       },
       "invoice": {
         "q": "Can I get an invoice?",
-        "a": "Yes. The official invoice for the journey is the taxi meter invoice, which your driver will give you in the car on request. We email you a separate receipt for the booking fee."
+        "a": "Yes. We email you a full receipt for the whole amount with your confirmation. If you also want the official taxi meter invoice for the journey itself, your driver can provide it in the car on request."
       },
       "meetDriver": {
         "q": "Where do I meet my driver at El Prat?",
@@ -254,7 +259,7 @@
       },
       "cancel": {
         "q": "Can I cancel?",
-        "a": "Yes. Cancel at least 24 hours before pickup and the booking fee is refunded in full. See our refund policy for the details."
+        "a": "Yes. Cancel at least 24 hours before pickup and you are refunded in full. See our refund policy for the details."
       },
       "outsideBarcelona": {
         "q": "Do you pick up outside Barcelona?",
@@ -298,7 +303,8 @@
     "errors": {
       "failed": "We could not complete your booking. You have not been charged. Please try again.",
       "expired": "This quote has expired. Please get a fresh price."
-    }
+    },
+    "totalDue": "Total to pay"
   },
   "confirmation": {
     "metaTitle": "Booking Confirmed",
@@ -327,7 +333,7 @@
     "relatedTransfers": "Related transfers"
   },
   "footer": {
-    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: fares are set by the official AMB meter and paid to your driver.",
+    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: prices follow the official AMB tariff, and you pay one all-inclusive amount to us when you book.",
     "routes": "Popular routes",
     "company": "Company",
     "legal": "Legal",
@@ -337,7 +343,7 @@
     "refunds": "Refund policy",
     "installApp": "Install the app",
     "rights": "All rights reserved.",
-    "disclaimerShort": "Fare estimates follow official AMB tariffs. The final fare is the taxi meter."
+    "disclaimerShort": "Prices follow the official AMB tariff and are fixed when you book."
   },
   "cookies": {
     "title": "We use cookies",
@@ -527,6 +533,7 @@
     "rowAirportSitges": "El Prat airport to Sitges",
     "rowBcnTarragona": "Barcelona to Tarragona",
     "rowBcnGirona": "Barcelona to Girona airport",
-    "note": "Night, weekend and holiday journeys bill on T-2 or T-7. Interurban routes include the driver's return leg, as the tariff requires."
+    "note": "Night, weekend and holiday journeys bill on T-2 or T-7. Every price shown is all-inclusive: the fare, the official supplements and the booking, with nothing to pay in the taxi.",
+    "totalPrice": "Total price"
   }
 }

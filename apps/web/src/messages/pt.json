@@ -21,12 +21,12 @@
   },
   "home": {
     "metaTitle": "Táxi Aeroporto Barcelona | Transferes El Prat Online",
-    "metaDescription": "Reserve online um táxi para o aeroporto de Barcelona. Tarifas oficiais AMB, taxa de reserva de 20%, táxis pretos e amarelos licenciados de e para El Prat. 24 horas.",
+    "metaDescription": "Reserve online um táxi para o aeroporto de Barcelona. Um único preço com tudo incluído pago online, calculado com a tarifa oficial do AMB. Táxis licenciados de e para El Prat, 24 horas.",
     "h1": "Táxi para o aeroporto de Barcelona, reservado antes de aterrar",
-    "intro": "Reserve um táxi licenciado de Barcelona de ou para o aeroporto de El Prat. Vê uma estimativa precisa segundo a tarifa oficial AMB antes de reservar e paga ao motorista o valor do taxímetro no carro, tal como na praça, mas com o carro já à sua espera.",
+    "intro": "Reserve um táxi licenciado de Barcelona de ou para o aeroporto de El Prat. Vê um único preço com tudo incluído antes de reservar, calculado com a tarifa oficial do AMB e a distância real por estrada. Paga online e não tem nada a pagar ao motorista.",
     "trust": {
       "licensed": "Táxis licenciados AMB",
-      "meter": "Tarifa oficial do taxímetro",
+      "meter": "Tarifa oficial do AMB",
       "noSurge": "Sem preços dinâmicos",
       "support": "Reservas 24 h"
     },
@@ -42,15 +42,15 @@
       "whyTitle": "Porquê reservar connosco",
       "whyIntro": "Tarifas reguladas, um carro reservado para si e alguém para contactar se algo mudar.",
       "destTitle": "Para onde mais vamos",
-      "destIntro": "Para além do aeroporto: a costa, a montanha e as estradas a sul. Um carro licenciado, uma tarifa de taxímetro, por mais longe que seja.",
+      "destIntro": "Para além do aeroporto: a costa, a montanha e as estradas a sul. Um carro licenciado, um preço com tudo incluído, por mais longe que seja.",
       "fleetLede": "a um gesto de distância.",
       "destLede": "com preço antes de partir.",
       "faresLede": "da tarifa real.",
       "closingLede": "e siga viagem.",
       "faresTitle": "Precos reais",
-      "faresIntro": "Cada valor vem da tabela oficial, nao de um numero inventado por nos.",
+      "faresIntro": "Cada valor abaixo é um preço com tudo incluído calculado com a tabela oficial, o mesmo que o formulário de reserva indica.",
       "closingTitle": "Aterre, saia",
-      "closingIntro": "Uma estimativa exata do taximetro em segundos. Nao precisa de conta para ver o preco."
+      "closingIntro": "Um preço com tudo incluído em segundos. Não precisa de conta para o ver."
     },
     "kicker": "Serviço de táxi licenciado para o aeroporto de Barcelona"
   },
@@ -70,7 +70,7 @@
     "searching": "A procurar…",
     "noResults": "Nenhuma morada encontrada",
     "estimatedFare": "Tarifa estimada do taxímetro",
-    "fixedFare": "Preço fixo, pago online",
+    "fixedFare": "Preço total, pago online",
     "bookingFee": "Taxa de reserva ({pct}%)",
     "distance": "Distância",
     "duration": "Tempo est.",
@@ -92,6 +92,8 @@
     "tariffT1": "T-1 · dia útil diurno",
     "tariffT2": "T-2 · noite, fim de semana ou feriado",
     "tariffT4": "T-4 · preço fixo aeroporto–porto",
+    "tariffT6": "T-6 · interurbano, dia útil",
+    "tariffT7": "T-7 · interurbano, noite, fim de semana ou feriado",
     "supplements": "Suplementos",
     "supplementNames": {
       "airportElPrat": "Aeroporto de El Prat",
@@ -103,7 +105,7 @@
       "santJoan": "Suplemento noite de São João",
       "largeVehicle": "Veículo grande (5-8 lugares)"
     },
-    "disclaimer": "A tarifa final é definida pelo taxímetro oficial. É entregue fatura no táxi mediante pedido. A taxa de reserva é um serviço cobrado à parte.",
+    "disclaimer": "O preço fica fixado ao reservar e cobre todo o percurso, incluindo todos os suplementos oficiais. Não há nada a pagar no táxi. O recibo é enviado por e-mail com a sua confirmação.",
     "errors": {
       "pickupRequired": "Escolha um ponto de recolha.",
       "dropoffRequired": "Escolha um destino.",
@@ -118,8 +120,11 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planeie o seu transfer",
-    "panelSub": "Preço imediato · Taxímetro oficial · 24/7",
-    "bookingFeeNote": "As reservas em dias úteis têm 20% de taxa. Fins de semana, feriados e noites especiais: 25%."
+    "panelSub": "Preço imediato · Tudo incluído · 24/7",
+    "bookingFeeNote": "O seu preço é com tudo incluído e fica fixado ao reservar. As viagens ao fim de semana, em feriados e em noites especiais têm um preço um pouco mais alto.",
+    "totalPrice": "Preço total",
+    "allInclusive": "Tudo incluído · pagamento online",
+    "includedNote": "Um só preço para todo o percurso: tarifa, suplementos oficiais e reserva incluídos. Não paga nada ao motorista."
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",
@@ -137,8 +142,8 @@
     "passengersCol": "Passageiros",
     "luggageCol": "Bagagem",
     "comfortCol": "Conforto",
-    "supplement": "Suplemento oficial de veículo grande {amount}, definido pela AMB, nunca uma margem privada.",
-    "noSupplement": "Sem suplemento. Aplica-se a tarifa do taxímetro.",
+    "supplement": "Suplemento oficial de veículo grande de {amount}, fixado pelo AMB, já incluído no seu preço.",
+    "noSupplement": "Este veículo não tem suplemento de veículo grande.",
     "prevVehicle": "Veículo anterior",
     "nextVehicle": "Veículo seguinte",
     "chooseVehicle": "Escolha um veículo"
@@ -153,7 +158,7 @@
     "relatedTransfers": "Transferes relacionados"
   },
   "footer": {
-    "about": "A BCNAirportTaxi é um serviço de reservas de táxis licenciados de Barcelona. Somos intermediários, não uma empresa de táxis: as tarifas são definidas pelo taxímetro oficial AMB e pagas ao motorista.",
+    "about": "A BCNAirportTaxi é um serviço de reservas de táxis licenciados de Barcelona. Somos um intermediário, não um operador de táxis: os preços seguem a tarifa oficial do AMB e paga-nos um único valor com tudo incluído ao reservar.",
     "routes": "Rotas populares",
     "company": "Empresa",
     "legal": "Legal",
@@ -163,7 +168,7 @@
     "refunds": "Reembolsos",
     "installApp": "Instalar a app",
     "rights": "Todos os direitos reservados.",
-    "disclaimerShort": "As estimativas seguem as tarifas oficiais AMB. A tarifa final é o taxímetro."
+    "disclaimerShort": "Os preços seguem a tarifa oficial do AMB e ficam fixados ao reservar."
   },
   "cookies": {
     "title": "Utilizamos cookies",
@@ -353,6 +358,13 @@
     "rowAirportSitges": "Aeroporto El Prat a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona ao aeroporto de Girona",
-    "note": "As viagens noturnas, de fim de semana e feriados aplicam T-2 ou T-7. As rotas interurbanas incluem o regresso do motorista, como exige a tarifa."
+    "note": "As viagens à noite, ao fim de semana e em feriados são cobradas em T-2 ou T-7. Todos os preços apresentados são tudo incluído: tarifa, suplementos oficiais e reserva, sem nada a pagar no táxi.",
+    "totalPrice": "Preço total"
+  },
+  "checkout": {
+    "totalDue": "Total a pagar"
+  },
+  "pricing": {
+    "feeBody": "O nosso serviço está incluído no preço apresentado. Paga online um único valor com tudo incluído — a tarifa, todos os suplementos oficiais e o nosso serviço de reserva — e nada ao motorista. Recebe um recibo completo por e-mail."
   }
 }

@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { eurIn } from '@bcn/core/format';
 import { Link } from '@/i18n/navigation';
 import { meetsLeadTime } from '@bcn/core/pricing';
-import type { PaymentMode } from '@bcn/core/tariffs';
+import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
 import { whatsappLink } from '@bcn/core/site';
 import { AddressField, type Place } from './address-field';
 
@@ -18,7 +18,7 @@ const RouteMap = dynamic(() => import('./route-map'), {
 });
 
 export interface QuotePayload {
-  tariff: 'T1' | 'T2' | 'T4';
+  tariff: 'T1' | 'T2' | 'T4' | 'T6' | 'T7';
   roadKm: number;
   durationMin: number;
   perKmRate: number;
@@ -31,6 +31,11 @@ export interface QuotePayload {
   bookingFee: number;
   /** 0.20 on weekdays, 0.25 at weekends and on special days. */
   bookingFeeRate: number;
+  /**
+   * The only figure this widget shows. Fare, official supplements and our
+   * service charge, all in, paid online — see `Quote.total`.
+   */
+  total: number;
   payNowFeeOnly: number;
   payNowFull: number;
   payInTaxiFeeOnly: number;
@@ -90,8 +95,6 @@ export function QuoteWidget({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tooSoon, setTooSoon] = useState(false);
-  /** Chosen here on the home screen and carried into checkout preselected. */
-  const [mode, setMode] = useState<PaymentMode>('FEE_ONLY');
   const [tripType, setTripType] = useState<'ONE_WAY' | 'RETURN'>('ONE_WAY');
   /**
    * Bumped on every swap. AddressField keeps its own text state, seeded once
@@ -191,13 +194,14 @@ export function QuoteWidget({
 
   const q = result?.quote;
 
-  const tariffLabel = q
-    ? q.tariff === 'T1'
-      ? t('tariffT1')
-      : q.tariff === 'T2'
-        ? t('tariffT2')
-        : t('tariffT4')
-    : '';
+  const TARIFF_LABELS = {
+    T1: 'tariffT1',
+    T2: 'tariffT2',
+    T4: 'tariffT4',
+    T6: 'tariffT6',
+    T7: 'tariffT7',
+  } as const;
+  const tariffLabel = q ? t(TARIFF_LABELS[q.tariff]) : '';
 
   /**
    * Carries only the trip inputs to checkout, never the price. Checkout
@@ -214,7 +218,7 @@ export function QuoteWidget({
           dlng: String(dropoff.lng),
           dlabel: dropoff.label,
           at: pickupAt.toISOString(),
-          mode,
+          mode: DEFAULT_PAYMENT_MODE,
         }).toString()}`
       : '/book';
 
@@ -405,7 +409,7 @@ export function QuoteWidget({
         </button>
 
         <p aria-live="polite" className="sr-only">
-          {q ? `${t('estimatedFare')} ${eur(q.meterEstimate)}` : ''}
+          {q ? `${t('totalPrice')} ${eur(q.total)}` : ''}
         </p>
 
         {error && (
@@ -440,7 +444,7 @@ export function QuoteWidget({
         <div className={`taximeter rounded-card p-5 ${isPanel ? '' : 'sm:p-6'}`}>
           <div className="flex items-baseline justify-between gap-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-ghost">
-              {t('estimatedFare')}
+              {t('totalPrice')}
             </p>
             {q && (
               <span className="rounded-md border border-accent/40 bg-accent/10 px-2 py-0.5 font-mono text-xs text-gold">
@@ -450,10 +454,17 @@ export function QuoteWidget({
           </div>
 
           <p
-            key={q?.meterEstimate ?? 'idle'}
+            key={q?.total ?? 'idle'}
             className="taximeter-digits animate-digit-roll mt-2 text-5xl font-bold sm:text-6xl"
           >
-            {q ? eur(q.meterEstimate) : '— . —'}
+            {q ? eur(q.total) : '— . —'}
+          </p>
+
+          <p className="mt-1.5 flex items-center gap-2 text-xs text-jade">
+            <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5 flex-none fill-current">
+              <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
+            </svg>
+            {t('allInclusive')}
           </p>
 
           {q && <p className="mt-1 text-xs text-ghost">{tariffLabel}</p>}
@@ -469,96 +480,13 @@ export function QuoteWidget({
             </div>
           </dl>
 
-          {q && q.supplementLines.length > 0 && (
-            <dl className="mt-3 space-y-1 border-t border-white/10 pt-3 text-sm">
-              {q.supplementLines.map((line) => (
-                <div key={line.key} className="flex justify-between">
-                  <dt className="text-ghost">
-                    {t(`supplementNames.${line.key}` as never)}
-                  </dt>
-                  <dd className="font-mono text-dim">+{eur(line.amount)}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-
           {q?.adjustment === 'AIRPORT_MINIMUM' && (
             <p className="mt-3 text-xs text-gold">
-              {t('airportMinimumApplied', { amount: eur(q.meterEstimate) })}
+              {t('airportMinimumApplied', { amount: eur(q.total) })}
             </p>
           )}
           {q?.adjustment === 'T4_FIXED' && (
             <p className="mt-3 text-xs text-gold">{t('t4Applied')}</p>
-          )}
-
-          {/* Real radio choice, carried through to checkout. Neither option is
-              preferred by default styling — only the actual selection is lit. */}
-          {q && (
-            <fieldset className="mt-5">
-              <legend className="mb-2 text-xs font-semibold uppercase tracking-widest text-ghost">
-                {t('chooseHowToPay')}
-              </legend>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {(
-                  [
-                    {
-                      value: 'FEE_ONLY' as const,
-                      title: t('modeFeeOnlyTitle'),
-                      amount: q.payNowFeeOnly,
-                      sub: `+ ${eur(q.payInTaxiFeeOnly)} ${t('payInTaxi').toLowerCase()}`,
-                    },
-                    {
-                      value: 'FULL_PREPAID' as const,
-                      title: t('modeFullTitle'),
-                      amount: q.payNowFull,
-                      sub: t('nothingInTaxi'),
-                    },
-                  ]
-                ).map((opt) => {
-                  const selected = mode === opt.value;
-                  return (
-                    <label
-                      key={opt.value}
-                      className={`cursor-pointer rounded-lg border p-3 transition ${
-                        selected
-                          ? 'border-gold bg-accent/15'
-                          : 'border-white/12 bg-white/5 hover:border-white/25'
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="paymentMode"
-                        value={opt.value}
-                        checked={selected}
-                        onChange={() => setMode(opt.value)}
-                        className="sr-only"
-                      />
-                      <span className="flex items-center gap-2">
-                        <span
-                          aria-hidden="true"
-                          className={`grid h-4 w-4 shrink-0 place-items-center rounded-full border-2 ${
-                            selected ? 'border-gold' : 'border-porcelain/40'
-                          }`}
-                        >
-                          {selected && <span className="h-2 w-2 rounded-full bg-gold" />}
-                        </span>
-                        <span
-                          className={`text-xs font-semibold uppercase tracking-wide ${
-                            selected ? 'text-gold' : 'text-dim'
-                          }`}
-                        >
-                          {opt.title}
-                        </span>
-                      </span>
-                      <span className="mt-1.5 block font-mono text-xl font-bold text-ice">
-                        {eur(opt.amount)}
-                      </span>
-                      <span className="mt-1 block text-xs text-ghost">{opt.sub}</span>
-                    </label>
-                  );
-                })}
-              </div>
-            </fieldset>
           )}
 
           {q && (
@@ -568,10 +496,7 @@ export function QuoteWidget({
           )}
 
           {q && (
-            <p className="mt-3 text-xs text-ghost">
-              {t('bookingFee', { pct: Math.round(q.bookingFeeRate * 100) })} ·{' '}
-              {eur(q.bookingFee)}
-            </p>
+            <p className="mt-3 text-xs leading-relaxed text-dim">{t('includedNote')}</p>
           )}
 
           <p className="mt-4 text-xs leading-relaxed text-ghost">{t('disclaimer')}</p>

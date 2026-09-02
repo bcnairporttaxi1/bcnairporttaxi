@@ -21,12 +21,12 @@
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
-    "metaDescription": "Boek online een taxi naar de luchthaven van Barcelona. Officiële AMB-tarieven, 20% boekingskosten, vergunde zwart-gele taxi's van en naar El Prat. 24 uur.",
+    "metaDescription": "Boek online vooraf een taxi naar de luchthaven van Barcelona. Eén all-in prijs, online betaald en berekend met het officiële AMB-tarief. Vergunde taxi’s van en naar El Prat, 24 uur per dag.",
     "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
-    "intro": "Reserveer een vergunde taxi in Barcelona van of naar luchthaven El Prat. U ziet vóór het boeken een nauwkeurige schatting op basis van het officiële AMB-tarief en betaalt de chauffeur het metertarief in de auto — precies zoals op de standplaats, maar met een auto die al op u wacht.",
+    "intro": "Reserveer een vergunde zwart-gele taxi in Barcelona van of naar de luchthaven El Prat. U ziet vóór het boeken één all-in prijs, berekend met het officiële AMB-tarief en de werkelijke wegafstand. U betaalt online en hoeft de chauffeur niets te betalen.",
     "trust": {
       "licensed": "Vergunde AMB-taxi's",
-      "meter": "Officieel metertarief",
+      "meter": "Officieel AMB-tarief",
       "noSurge": "Geen piektarieven",
       "support": "24 uur boeken"
     },
@@ -42,15 +42,15 @@
       "whyTitle": "Waarom bij ons boeken",
       "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert.",
       "destTitle": "Waar we nog meer heen gaan",
-      "destIntro": "Voorbij de luchthaven: de kust, de bergen en de wegen naar het zuiden. Eén vergunde wagen, één metertarief, hoe ver ook.",
+      "destIntro": "Meer dan alleen de luchthavenrit: de kust, de bergen en de wegen naar het zuiden. Eén vergunde auto, één all-in prijs, hoe ver het ook is.",
       "fleetLede": "één veeg verderop.",
       "destLede": "met de prijs vooraf.",
       "faresLede": "uit het echte tarief.",
       "closingLede": "en wegwezen.",
       "faresTitle": "Echte prijzen",
-      "faresIntro": "Elk bedrag komt uit het officiele tarief, niet uit een zelfbedacht getal.",
+      "faresIntro": "Elk bedrag hieronder is een all-in prijs op basis van het officiële tarief — dezelfde die het boekingsformulier noemt.",
       "closingTitle": "Land, loop naar buiten,",
-      "closingIntro": "Een exacte meterschatting in seconden. Geen account nodig om je prijs te zien."
+      "closingIntro": "Eén all-in prijs in enkele seconden. Geen account nodig om hem te zien."
     },
     "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
   },
@@ -70,7 +70,7 @@
     "searching": "Zoeken…",
     "noResults": "Geen adres gevonden",
     "estimatedFare": "Geschat metertarief",
-    "fixedFare": "Vaste prijs, online betaald",
+    "fixedFare": "Totaalprijs, online betaald",
     "bookingFee": "Boekingskosten ({pct}%)",
     "distance": "Afstand",
     "duration": "Reistijd ca.",
@@ -92,6 +92,8 @@
     "tariffT1": "T-1 · doordeweeks overdag",
     "tariffT2": "T-2 · nacht, weekend of feestdag",
     "tariffT4": "T-4 · vaste prijs luchthaven–haven",
+    "tariffT6": "T-6 · interlokaal, doordeweeks overdag",
+    "tariffT7": "T-7 · interlokaal, nacht, weekend of feestdag",
     "supplements": "Toeslagen",
     "supplementNames": {
       "airportElPrat": "Luchthaven El Prat",
@@ -103,7 +105,7 @@
       "santJoan": "Toeslag Sant Joan-nacht",
       "largeVehicle": "Groot voertuig (5-8 plaatsen)"
     },
-    "disclaimer": "Het eindtarief wordt bepaald door de officiële taxameter. Een factuur krijgt u op verzoek in de taxi. De boekingskosten zijn een aparte servicevergoeding.",
+    "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. In de taxi betaalt u niets. De bon ontvangt u per e-mail bij uw bevestiging.",
     "errors": {
       "pickupRequired": "Kies een ophaalpunt.",
       "dropoffRequired": "Kies een bestemming.",
@@ -118,8 +120,11 @@
     },
     "panelKicker": "Reservering",
     "panelTitle": "Plan uw transfer",
-    "panelSub": "Direct een prijs · Officiële meter · 24/7",
-    "bookingFeeNote": "Boekingen doordeweeks kosten 20% aan kosten. Weekenden, feestdagen en bijzondere nachten 25%."
+    "panelSub": "Direct een prijs · Alles inbegrepen · 24/7",
+    "bookingFeeNote": "Uw prijs is all-in en staat vast bij het boeken. Ritten in het weekend, op feestdagen en tijdens speciale nachten liggen iets hoger.",
+    "totalPrice": "Totaalprijs",
+    "allInclusive": "Alles inbegrepen · online betalen",
+    "includedNote": "Eén prijs voor de hele rit: tarief, officiële toeslagen en reservering inbegrepen. U betaalt de chauffeur niets."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -137,8 +142,8 @@
     "passengersCol": "Passagiers",
     "luggageCol": "Bagage",
     "comfortCol": "Comfort",
-    "supplement": "Officiële toeslag grote wagen {amount}, vastgesteld door de AMB, nooit een private opslag.",
-    "noSupplement": "Geen toeslag. Het metertarief geldt.",
+    "supplement": "Officiële toeslag voor grote voertuigen van {amount}, vastgesteld door de AMB — al inbegrepen in uw prijs.",
+    "noSupplement": "Op deze wagen geldt geen toeslag voor grote voertuigen.",
     "prevVehicle": "Vorig voertuig",
     "nextVehicle": "Volgend voertuig",
     "chooseVehicle": "Kies een voertuig"
@@ -153,7 +158,7 @@
     "relatedTransfers": "Vergelijkbare transfers"
   },
   "footer": {
-    "about": "BCNAirportTaxi is een boekingsdienst voor vergunde taxi's in Barcelona. Wij zijn bemiddelaar, geen taxibedrijf: tarieven worden bepaald door de officiële AMB-taxameter en aan de chauffeur betaald.",
+    "about": "BCNAirportTaxi is een boekingsdienst voor vergunde taxi’s in Barcelona. Wij zijn een tussenpersoon, geen taxibedrijf: prijzen volgen het officiële AMB-tarief en u betaalt ons bij het boeken één all-in bedrag.",
     "routes": "Populaire routes",
     "company": "Bedrijf",
     "legal": "Juridisch",
@@ -163,7 +168,7 @@
     "refunds": "Terugbetalingen",
     "installApp": "App installeren",
     "rights": "Alle rechten voorbehouden.",
-    "disclaimerShort": "Schattingen volgen de officiële AMB-tarieven. Het eindtarief is de taxameter."
+    "disclaimerShort": "Prijzen volgen het officiële AMB-tarief en staan vast zodra u boekt."
   },
   "cookies": {
     "title": "We gebruiken cookies",
@@ -353,6 +358,13 @@
     "rowAirportSitges": "Luchthaven El Prat naar Sitges",
     "rowBcnTarragona": "Barcelona naar Tarragona",
     "rowBcnGirona": "Barcelona naar luchthaven Girona",
-    "note": "Ritten s nachts, in het weekend en op feestdagen vallen onder T-2 of T-7. Interlokale ritten omvatten de terugrit van de chauffeur, zoals het tarief voorschrijft."
+    "note": "Ritten 's nachts, in het weekend en op feestdagen worden afgerekend op T-2 of T-7. Alle getoonde prijzen zijn all-in: tarief, officiële toeslagen en reservering, zonder iets te betalen in de taxi.",
+    "totalPrice": "Totaalprijs"
+  },
+  "checkout": {
+    "totalDue": "Totaal te betalen"
+  },
+  "pricing": {
+    "feeBody": "Onze service zit in de getoonde prijs. U betaalt bij het online boeken één all-in bedrag — het tarief, alle officiële toeslagen en onze reserveringsservice — en niets aan de chauffeur. U ontvangt een volledige bon per e-mail."
   }
 }

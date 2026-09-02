@@ -10,6 +10,7 @@ import {
   servesTrip,
   meetsLeadTime,
 } from '@bcn/core/pricing';
+import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
 import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
 import { createCheckout } from '@/lib/payments/sumup';
 import { SITE_URL } from '@bcn/core/site';
@@ -32,7 +33,9 @@ const bodySchema = z.object({
   passengers: z.number().int().min(1).max(8),
   luggage: z.number().int().min(0).max(12),
   vehicleSlug: z.string().trim().max(60).optional(),
-  paymentMode: z.enum(['FEE_ONLY', 'FULL_PREPAID']).default('FEE_ONLY'),
+  /* Accepted for backward compatibility with in-flight clients and ignored:
+     the server decides the mode. See paymentMode below. */
+  paymentMode: z.enum(['FEE_ONLY', 'FULL_PREPAID']).optional(),
   notes: z.string().trim().max(1000).optional(),
   locale: z.string().trim().max(5).default('en'),
 });
@@ -124,8 +127,11 @@ export async function POST(request: Request) {
     vehicleSeats: vehicle?.seats,
   });
 
-  const amountOnline = amountDueOnline(quote, input.paymentMode);
-  const amountInTaxi = amountDueInTaxi(quote, input.paymentMode);
+  /* Every booking is all-inclusive and prepaid. Fixed here rather than taken
+     from the request so the amount charged online is always the whole price. */
+  const paymentMode = DEFAULT_PAYMENT_MODE;
+  const amountOnline = amountDueOnline(quote, paymentMode);
+  const amountInTaxi = amountDueInTaxi(quote, paymentMode);
 
   const reference = makeReference();
 
@@ -153,7 +159,7 @@ export async function POST(request: Request) {
         fixedFare: quote.fixedFare,
         bookingFee: quote.bookingFee,
         amountOnline,
-        paymentMode: input.paymentMode,
+        paymentMode,
         pickupAt,
         passengers: input.passengers,
         luggage: input.luggage,
@@ -170,7 +176,7 @@ export async function POST(request: Request) {
       currency: quote.currency,
       reference,
       description:
-        input.paymentMode === 'FULL_PREPAID'
+        paymentMode === 'FULL_PREPAID'
           ? `Barcelona taxi ${reference} — fare and booking fee`
           : `Booking fee for Barcelona taxi ${reference}`,
       returnUrl: `${SITE_URL}/${input.locale}/booking/${reference}`,
@@ -191,7 +197,7 @@ export async function POST(request: Request) {
       roadKm: quote.roadKm,
       durationMin: quote.durationMin,
       tariff: quote.tariff,
-      paymentMode: input.paymentMode,
+      paymentMode,
       meterEstimate: quote.meterEstimate,
       fixedFare: quote.fixedFare,
       bookingFee: quote.bookingFee,

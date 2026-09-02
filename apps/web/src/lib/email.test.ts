@@ -45,8 +45,10 @@ describe('booking confirmation email', () => {
     expect(paid.subject).toContain(base.reference);
   });
 
-  it('states the fee percentage actually charged, not a hardcoded 20%', () => {
-    // 25% weekend rate: fee is a quarter of the fixed fare.
+  it('never itemises the service charge to the passenger', () => {
+    // The charge is inside the price now. A 25% weekend booking must read as
+    // one number: quoting the percentage, or the fare it was derived from,
+    // invites the passenger to add the two together and find a third total.
     const weekend = bookingConfirmationEmail({
       ...base,
       paymentMode: 'FULL_PREPAID',
@@ -56,8 +58,13 @@ describe('booking confirmation email', () => {
       amountInTaxi: 0,
       feePaid: true,
     });
-    expect(weekend.text).toContain('25%');
+    expect(weekend.text).toContain('54.50');
+    expect(weekend.text).not.toContain('25%');
     expect(weekend.text).not.toContain('20%');
+    expect(weekend.text).not.toContain('43.60');
+    expect(weekend.text).not.toContain('10.90');
+    expect(weekend.html).not.toContain('43.60');
+    expect(weekend.html).not.toContain('10.90');
   });
 
   it('tells a prepaid passenger nothing is owed in the taxi', () => {

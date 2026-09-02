@@ -21,12 +21,12 @@
   },
   "home": {
     "metaTitle": "巴塞罗那机场出租车 | 在线预订埃尔普拉特接送",
-    "metaDescription": "在线预订巴塞罗那机场出租车。官方 AMB 计价器费率，20% 预订服务费，往返埃尔普拉特机场的持牌黑黄出租车，24 小时服务。",
+    "metaDescription": "在线提前预订巴塞罗那机场出租车。一口全包价，在线支付，依据 AMB 官方费率计算。持牌出租车往返埃尔普拉特机场，24 小时服务。",
     "h1": "巴塞罗那机场出租车，落地前就订好",
-    "intro": "预订持牌巴塞罗那出租车，往返埃尔普拉特机场。预订前即可看到依据官方 AMB 费率计算的准确估价，车费按计价器在车上支付给司机——与在出租车站相同，但车已在等您。",
+    "intro": "预订巴塞罗那持牌黑黄出租车，往返埃尔普拉特机场。预订前即可看到一口全包价——依据 AMB 官方费率与实际道路距离计算——在线支付后，无需再向司机支付任何费用。",
     "trust": {
       "licensed": "持牌 AMB 出租车",
-      "meter": "官方计价器费率",
+      "meter": "AMB 官方费率",
       "noSurge": "无高峰加价",
       "support": "24 小时预订"
     },
@@ -42,15 +42,15 @@
       "whyTitle": "为什么选择我们",
       "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。",
       "destTitle": "我们还去哪里",
-      "destIntro": "不止机场接送：海岸、山区以及南部公路。一辆持照车辆，一个计价器价格，无论多远。",
+      "destIntro": "不止机场接送：海岸、山区，以及南下的公路。一辆持牌车，一口全包价，无论多远。",
       "fleetLede": "一滑即见。",
       "destLede": "出发前就知道价格。",
       "faresLede": "来自真实计价。",
       "closingLede": "即刻出发。",
       "faresTitle": "真实价格",
-      "faresIntro": "下列每一个数字都来自官方费率表，而非我们自行设定。",
+      "faresIntro": "下方每个金额都是依据官方费率表计算的全包价，与预订表单给出的价格一致。",
       "closingTitle": "落地，出关，",
-      "closingIntro": "几秒内得到精确的计价器预估。无需注册即可查看价格。"
+      "closingIntro": "几秒钟得到全包价。无需注册即可查看。"
     },
     "kicker": "巴塞罗那持牌机场出租车服务"
   },
@@ -70,7 +70,7 @@
     "searching": "搜索中…",
     "noResults": "未找到匹配地址",
     "estimatedFare": "计价器预估车费",
-    "fixedFare": "固定价格，在线支付",
+    "fixedFare": "总价，已在线支付",
     "bookingFee": "预订服务费（{pct}%）",
     "distance": "距离",
     "duration": "预计时间",
@@ -92,6 +92,8 @@
     "tariffT1": "T-1 · 工作日白天",
     "tariffT2": "T-2 · 夜间、周末或节假日",
     "tariffT4": "T-4 · 机场至邮轮港固定价",
+    "tariffT6": "T-6 · 城际，工作日白天",
+    "tariffT7": "T-7 · 城际，夜间、周末或节假日",
     "supplements": "附加费",
     "supplementNames": {
       "airportElPrat": "埃尔普拉特机场",
@@ -103,7 +105,7 @@
       "santJoan": "圣约翰之夜附加费",
       "largeVehicle": "大型车辆（5-8 座）"
     },
-    "disclaimer": "最终车费以官方计价器为准。可在车上索取发票。预订服务费为独立的服务收费。",
+    "disclaimer": "价格在预订时即已锁定，涵盖全程及所有官方附加费。车上无需再付任何费用。收据将随确认邮件一同发送。",
     "errors": {
       "pickupRequired": "请选择上车地点。",
       "dropoffRequired": "请选择目的地。",
@@ -118,8 +120,11 @@
     },
     "panelKicker": "预订",
     "panelTitle": "规划您的接送",
-    "panelSub": "即时报价 · 官方计价器 · 24/7",
-    "bookingFeeNote": "工作日预订收取 20% 服务费。周末、节假日及特殊夜晚为 25%。"
+    "panelSub": "即时报价 · 全包价 · 24/7",
+    "bookingFeeNote": "您的价格为全包价，并在预订时锁定。周末、节假日及特殊夜间的行程价格略高。",
+    "totalPrice": "总价",
+    "allInclusive": "全包价 · 在线支付",
+    "includedNote": "全程一口价：车费、官方附加费与预订费全部包含，无需再向司机付款。"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",
@@ -137,8 +142,8 @@
     "passengersCol": "乘客",
     "luggageCol": "行李",
     "comfortCol": "舒适度",
-    "supplement": "大型车官方附加费 {amount}，由 AMB 制定，绝非私自加价。",
-    "noSupplement": "无附加费，按计价器标准收费。",
+    "supplement": "AMB 规定的大型车辆官方附加费 {amount}，已包含在您的价格中。",
+    "noSupplement": "此车型不收取大型车辆附加费。",
     "prevVehicle": "上一辆车",
     "nextVehicle": "下一辆车",
     "chooseVehicle": "选择车型"
@@ -153,7 +158,7 @@
     "relatedTransfers": "相关接送服务"
   },
   "footer": {
-    "about": "BCNAirportTaxi 是持牌巴塞罗那出租车的预订服务平台。我们是中介，而非出租车运营商：车费由官方 AMB 计价器决定，并支付给司机。",
+    "about": "BCNAirportTaxi 是巴塞罗那持牌出租车的预订服务。我们是中介，而非出租车运营商：价格依据 AMB 官方费率，您在预订时向我们支付一笔全包金额。",
     "routes": "热门路线",
     "company": "公司",
     "legal": "法律信息",
@@ -163,7 +168,7 @@
     "refunds": "退款政策",
     "installApp": "安装应用",
     "rights": "版权所有。",
-    "disclaimerShort": "估价依据官方 AMB 费率。最终车费以计价器为准。"
+    "disclaimerShort": "价格依据 AMB 官方费率，并在预订时锁定。"
   },
   "cookies": {
     "title": "我们使用 Cookie",
@@ -353,6 +358,13 @@
     "rowAirportSitges": "埃尔普拉特机场至锡切斯",
     "rowBcnTarragona": "巴塞罗那至塔拉戈纳",
     "rowBcnGirona": "巴塞罗那至赫罗纳机场",
-    "note": "夜间、周末及节假日按 T-2 或 T-7 计价。城际路线依规定包含司机返程。"
+    "note": "夜间、周末及节假日行程按 T-2 或 T-7 计价。所示价格均为全包价：车费、官方附加费与预订费均已包含，车上无需再付款。",
+    "totalPrice": "总价"
+  },
+  "checkout": {
+    "totalDue": "应付总额"
+  },
+  "pricing": {
+    "feeBody": "我们的服务已包含在您看到的价格中。预订时在线支付一笔全包金额——车费、所有官方附加费以及我们的预订服务——无需再向司机支付任何费用。完整收据将通过电子邮件发送。"
   }
 }

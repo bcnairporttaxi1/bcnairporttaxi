@@ -21,12 +21,12 @@
   },
   "home": {
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
-    "metaDescription": "Reserva online un taxi al aeropuerto de Barcelona. Tarifas oficiales del AMB, gestión del 20%, taxis negros y amarillos con licencia hacia y desde El Prat. 24 horas.",
+    "metaDescription": "Reserva online un taxi al aeropuerto de Barcelona. Un único precio con todo incluido pagado online, calculado con la tarifa oficial del AMB. Taxis con licencia hacia y desde El Prat, 24 horas.",
     "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
-    "intro": "Reserva un taxi con licencia de Barcelona hacia o desde el aeropuerto de El Prat. Verás una estimación precisa según la tarifa oficial del AMB antes de reservar, y pagarás al conductor el importe del taxímetro en el coche, igual que en la parada, pero con el coche ya esperándote.",
+    "intro": "Reserva un taxi con licencia de Barcelona hacia o desde el aeropuerto de El Prat. Ves un único precio con todo incluido antes de reservar, calculado con la tarifa oficial del AMB y la distancia real por carretera. Lo pagas online y no tienes que pagar nada al conductor.",
     "trust": {
       "licensed": "Taxis con licencia AMB",
-      "meter": "Tarifa oficial del taxímetro",
+      "meter": "Tarifa oficial del AMB",
       "noSurge": "Sin precios dinámicos",
       "support": "Reservas 24 h"
     },
@@ -42,15 +42,15 @@
       "whyTitle": "Por qué reservar con nosotros",
       "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia.",
       "destTitle": "A dónde más vamos",
-      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, una tarifa de taxímetro, por lejos que sea.",
+      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, un precio con todo incluido, por lejos que sea.",
       "fleetLede": "a un gesto de distancia.",
       "destLede": "con precio antes de salir.",
       "faresLede": "de la tarifa real.",
       "closingLede": "y en marcha.",
       "faresTitle": "Precios reales",
-      "faresIntro": "Cada cifra procede del cuadro oficial, no de un numero inventado por nosotros.",
+      "faresIntro": "Cada importe de abajo es un precio con todo incluido calculado con el cuadro oficial, el mismo que te da el formulario de reserva.",
       "closingTitle": "Aterriza, sal",
-      "closingIntro": "Una estimacion exacta del taximetro en segundos. No hace falta cuenta para ver tu precio."
+      "closingIntro": "Un precio con todo incluido en segundos. No necesitas cuenta para verlo."
     },
     "why": {
       "meter": {
@@ -88,7 +88,7 @@
     "searching": "Buscando…",
     "noResults": "No se encontró ninguna dirección",
     "estimatedFare": "Tarifa estimada del taxímetro",
-    "fixedFare": "Precio cerrado, pagado online",
+    "fixedFare": "Precio total, pagado online",
     "bookingFee": "Gastos de gestión ({pct}%)",
     "distance": "Distancia",
     "duration": "Tiempo est.",
@@ -110,6 +110,8 @@
     "tariffT1": "T-1 · laborable de día",
     "tariffT2": "T-2 · noche, fin de semana o festivo",
     "tariffT4": "T-4 · precio fijo aeropuerto–puerto",
+    "tariffT6": "T-6 · interurbano, día laborable",
+    "tariffT7": "T-7 · interurbano, noche, fin de semana o festivo",
     "airportMinimumApplied": "Se aplica la tarifa mínima de aeropuerto de {amount}.",
     "t4Applied": "Precio fijo aeropuerto ↔ terminal de cruceros.",
     "supplements": "Suplementos",
@@ -123,7 +125,7 @@
       "santJoan": "Suplemento noche de San Juan",
       "largeVehicle": "Vehículo grande (5-8 plazas)"
     },
-    "disclaimer": "La tarifa final la marca el taxímetro oficial. Se entrega factura en el taxi si la solicitas. Los gastos de gestión son un cargo de servicio independiente.",
+    "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. No se paga nada al conductor en el taxi. Recibirás el recibo por correo con tu confirmación.",
     "fixedFareNote": "Nuestro precio cerrado está algo por encima del taxímetro porque lo fijamos por adelantado y asumimos la variación del tráfico. Si prefieres pagar en el taxi, pagas simplemente el taxímetro.",
     "errors": {
       "pickupRequired": "Elige un punto de recogida.",
@@ -140,8 +142,11 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planifica tu traslado",
-    "panelSub": "Precio al instante · Taxímetro oficial · 24/7",
-    "bookingFeeNote": "Las reservas de lunes a viernes tienen un 20% de gestión. Fines de semana, festivos y noches especiales, un 25%."
+    "panelSub": "Precio al instante · Todo incluido · 24/7",
+    "bookingFeeNote": "Tu precio es con todo incluido y queda fijado al reservar. Los trayectos en fin de semana, festivos y noches especiales tienen un precio algo más alto.",
+    "totalPrice": "Precio total",
+    "allInclusive": "Todo incluido · pago online",
+    "includedNote": "Un solo precio para todo el trayecto: tarifa, suplementos oficiales y reserva incluidos. No pagas nada al conductor."
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -162,8 +167,8 @@
     "passengersCol": "Pasajeros",
     "luggageCol": "Equipaje",
     "comfortCol": "Confort",
-    "supplement": "Suplemento oficial de vehículo grande {amount}, fijado por el AMB, nunca un recargo privado.",
-    "noSupplement": "Sin suplemento. Se aplica la tarifa del taxímetro.",
+    "supplement": "Suplemento oficial por vehículo grande de {amount}, fijado por el AMB, ya incluido en tu precio.",
+    "noSupplement": "Este vehículo no lleva suplemento por vehículo grande.",
     "prevVehicle": "Vehículo anterior",
     "nextVehicle": "Vehículo siguiente",
     "chooseVehicle": "Elige un vehículo"
@@ -183,7 +188,7 @@
     "relatedTransfers": "Traslados relacionados"
   },
   "footer": {
-    "about": "BCNAirportTaxi es un servicio de reservas de taxis con licencia de Barcelona. Somos intermediarios, no una empresa de taxis: las tarifas las marca el taxímetro oficial del AMB y se pagan al conductor.",
+    "about": "BCNAirportTaxi es un servicio de reservas de taxis con licencia de Barcelona. Somos intermediarios, no una empresa de taxis: los precios siguen la tarifa oficial del AMB y nos pagas un único importe con todo incluido al reservar.",
     "routes": "Rutas populares",
     "company": "Empresa",
     "legal": "Legal",
@@ -193,7 +198,7 @@
     "refunds": "Reembolsos",
     "installApp": "Instalar la app",
     "rights": "Todos los derechos reservados.",
-    "disclaimerShort": "Las estimaciones siguen las tarifas oficiales del AMB. La tarifa final es el taxímetro."
+    "disclaimerShort": "Los precios siguen la tarifa oficial del AMB y quedan fijados al reservar."
   },
   "cookies": {
     "title": "Usamos cookies",
@@ -221,7 +226,8 @@
     "processing": "Procesando…",
     "agree": "Al reservar aceptas nuestros términos y la política de reembolsos.",
     "missingQuote": "Empieza pidiendo un precio en la página principal y vuelve para completar la reserva.",
-    "getPrice": "Ver precio"
+    "getPrice": "Ver precio",
+    "totalDue": "Total a pagar"
   },
   "confirmation": {
     "titlePaid": "Reserva confirmada",
@@ -414,6 +420,10 @@
     "rowAirportSitges": "Aeropuerto El Prat a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona al aeropuerto de Girona",
-    "note": "Los trayectos nocturnos, de fin de semana y festivos aplican T-2 o T-7. Las rutas interurbanas incluyen el regreso del taxista, como exige la tarifa."
+    "note": "Los trayectos nocturnos, de fin de semana y festivos se facturan con T-2 o T-7. Todos los precios mostrados son con todo incluido: tarifa, suplementos oficiales y reserva, sin nada que pagar en el taxi.",
+    "totalPrice": "Precio total"
+  },
+  "pricing": {
+    "feeBody": "Nuestro servicio está incluido en el precio que ves. Pagas un único importe con todo incluido al reservar online — la tarifa, todos los suplementos oficiales y nuestro servicio de reserva — y nada al conductor. Recibirás un recibo completo por correo."
   }
 }
