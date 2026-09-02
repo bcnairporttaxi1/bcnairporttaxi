@@ -122,7 +122,15 @@
       "estate": "Kombi-Taxi",
       "minivan": "Minivan-Taxi",
       "premium": "Premium-Van"
-    }
+    },
+    "passengersCol": "Passagiere",
+    "luggageCol": "Gepäck",
+    "comfortCol": "Komfort",
+    "supplement": "Offizieller Großraumzuschlag {amount}, von der AMB festgelegt, nie ein privater Aufschlag.",
+    "noSupplement": "Kein Zuschlag. Es gilt der Taxameter-Tarif.",
+    "prevVehicle": "Vorheriges Fahrzeug",
+    "nextVehicle": "Nächstes Fahrzeug",
+    "chooseVehicle": "Fahrzeug wählen"
   },
   "common": {
     "book": "Jetzt buchen",

@@ -122,7 +122,15 @@
       "estate": "Taxi station wagon",
       "minivan": "Taxi minivan",
       "premium": "Van premium"
-    }
+    },
+    "passengersCol": "Passeggeri",
+    "luggageCol": "Bagagli",
+    "comfortCol": "Comfort",
+    "supplement": "Supplemento ufficiale veicolo grande {amount}, fissato dall'AMB, mai una maggiorazione privata.",
+    "noSupplement": "Nessun supplemento. Si applica la tariffa del tassametro.",
+    "prevVehicle": "Veicolo precedente",
+    "nextVehicle": "Veicolo successivo",
+    "chooseVehicle": "Scegli un veicolo"
   },
   "common": {
     "book": "Prenota ora",

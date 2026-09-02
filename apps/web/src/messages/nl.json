@@ -122,7 +122,15 @@
       "estate": "Stationwagen-taxi",
       "minivan": "Minivan-taxi",
       "premium": "Premium bus"
-    }
+    },
+    "passengersCol": "Passagiers",
+    "luggageCol": "Bagage",
+    "comfortCol": "Comfort",
+    "supplement": "Officiële toeslag grote wagen {amount}, vastgesteld door de AMB, nooit een private opslag.",
+    "noSupplement": "Geen toeslag. Het metertarief geldt.",
+    "prevVehicle": "Vorig voertuig",
+    "nextVehicle": "Volgend voertuig",
+    "chooseVehicle": "Kies een voertuig"
   },
   "common": {
     "book": "Nu boeken",

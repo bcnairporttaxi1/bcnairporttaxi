@@ -159,7 +159,15 @@
       "estate": "Estate taxi",
       "minivan": "Minivan taxi",
       "premium": "Premium van taxi"
-    }
+    },
+    "passengersCol": "Passengers",
+    "luggageCol": "Luggage",
+    "comfortCol": "Comfort",
+    "supplement": "Official large-vehicle supplement {amount}, set by the AMB — never a private markup.",
+    "noSupplement": "No supplement. The standard metered fare applies.",
+    "prevVehicle": "Previous vehicle",
+    "nextVehicle": "Next vehicle",
+    "chooseVehicle": "Choose a vehicle"
   },
   "pricing": {
     "metaTitle": "Barcelona Airport Taxi Price 2026 | AMB Fares",

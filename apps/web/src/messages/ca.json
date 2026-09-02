@@ -122,7 +122,15 @@
       "estate": "Taxi familiar",
       "minivan": "Taxi minivan",
       "premium": "Furgoneta premium"
-    }
+    },
+    "passengersCol": "Passatgers",
+    "luggageCol": "Equipatge",
+    "comfortCol": "Confort",
+    "supplement": "Suplement oficial de vehicle gran {amount}, fixat per l'AMB, mai un recàrrec privat.",
+    "noSupplement": "Sense suplement. S'aplica la tarifa del taxímetre.",
+    "prevVehicle": "Vehicle anterior",
+    "nextVehicle": "Vehicle següent",
+    "chooseVehicle": "Tria un vehicle"
   },
   "common": {
     "book": "Reservar ara",

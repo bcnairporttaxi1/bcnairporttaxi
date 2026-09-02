@@ -122,7 +122,15 @@
       "estate": "旅行版出租车",
       "minivan": "小型商务车",
       "premium": "豪华商务车"
-    }
+    },
+    "passengersCol": "乘客",
+    "luggageCol": "行李",
+    "comfortCol": "舒适度",
+    "supplement": "大型车官方附加费 {amount}，由 AMB 制定，绝非私自加价。",
+    "noSupplement": "无附加费，按计价器标准收费。",
+    "prevVehicle": "上一辆车",
+    "nextVehicle": "下一辆车",
+    "chooseVehicle": "选择车型"
   },
   "common": {
     "book": "立即预订",

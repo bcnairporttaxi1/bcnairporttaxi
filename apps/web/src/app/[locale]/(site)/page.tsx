@@ -2,14 +2,13 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
-import { VehicleCard } from '@/components/vehicle-card';
 import { FaqAccordion } from '@/components/faq-accordion';
-import { FleetRail } from '@/components/fleet-rail';
+import { FleetSwiper } from '@/components/fleet-swiper';
+import { TARIFFS } from '@bcn/core/tariffs';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
 import { LanguageGrid } from '@/components/language-switcher';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
-import { FLEET } from '@bcn/core/fleet';
 import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
 
 const FAQ_KEYS = ['fareAccurate', 'whyFee', 'invoice', 'meetDriver', 'urgent', 'cancel'] as const;
@@ -25,6 +24,7 @@ export default async function HomePage(props: {
   const tfaq = await getTranslations('faq');
   const tc = await getTranslations('common');
   const tn = await getTranslations('nav');
+  const tf = await getTranslations('fleet');
 
   const faqItems = FAQ_KEYS.map((k) => ({
     q: tfaq(`items.${k}.q`),
@@ -208,16 +208,30 @@ export default async function HomePage(props: {
             <p className="mt-3 max-w-2xl text-dim">{t('sections.fleetIntro')}</p>
           </Reveal>
 
-          {/* Rail rather than a grid: every card is the same size and the row
-              scrolls both ways on touch and desktop. */}
+          {/* One window rather than a rail: a single vehicle fills the frame,
+              so two sets of specs never compete to be compared. */}
           <div className="mt-12">
-            <FleetRail>
-              {FLEET.map((v) => (
-                <div key={v.slug} data-rail-item className="flex w-[300px] sm:w-[340px]">
-                  <VehicleCard vehicle={v} sizes="340px" />
-                </div>
-              ))}
-            </FleetRail>
+            <FleetSwiper
+              labels={{
+                passengers: tf('passengersCol'),
+                luggage: tf('luggageCol'),
+                comfort: tf('comfortCol'),
+                supplement: tf('supplement', {
+                  amount: `€${TARIFFS.supplements.largeVehicle.toFixed(2)}`,
+                }),
+                noSupplement: tf('noSupplement'),
+                prev: tf('prevVehicle'),
+                next: tf('nextVehicle'),
+                choose: tf('chooseVehicle'),
+                categories: {
+                  eco: tf('categories.eco'),
+                  standard: tf('categories.standard'),
+                  estate: tf('categories.estate'),
+                  minivan: tf('categories.minivan'),
+                  premium: tf('categories.premium'),
+                },
+              }}
+            />
           </div>
 
           <Link

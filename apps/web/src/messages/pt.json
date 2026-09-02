@@ -122,7 +122,15 @@
       "estate": "Táxi carrinha",
       "minivan": "Táxi minivan",
       "premium": "Carrinha premium"
-    }
+    },
+    "passengersCol": "Passageiros",
+    "luggageCol": "Bagagem",
+    "comfortCol": "Conforto",
+    "supplement": "Suplemento oficial de veículo grande {amount}, definido pela AMB, nunca uma margem privada.",
+    "noSupplement": "Sem suplemento. Aplica-se a tarifa do taxímetro.",
+    "prevVehicle": "Veículo anterior",
+    "nextVehicle": "Veículo seguinte",
+    "chooseVehicle": "Escolha um veículo"
   },
   "common": {
     "book": "Reservar agora",

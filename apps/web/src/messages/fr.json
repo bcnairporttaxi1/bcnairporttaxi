@@ -122,7 +122,15 @@
       "estate": "Taxi break",
       "minivan": "Taxi monospace",
       "premium": "Van premium"
-    }
+    },
+    "passengersCol": "Passagers",
+    "luggageCol": "Bagages",
+    "comfortCol": "Confort",
+    "supplement": "Supplément officiel grand véhicule {amount}, fixé par l'AMB, jamais une majoration privée.",
+    "noSupplement": "Sans supplément. Le tarif au compteur s'applique.",
+    "prevVehicle": "Véhicule précédent",
+    "nextVehicle": "Véhicule suivant",
+    "chooseVehicle": "Choisir un véhicule"
   },
   "common": {
     "book": "Réserver",

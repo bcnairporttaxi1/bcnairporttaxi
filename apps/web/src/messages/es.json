@@ -147,7 +147,15 @@
       "estate": "Taxi familiar",
       "minivan": "Taxi minivan",
       "premium": "Furgoneta premium"
-    }
+    },
+    "passengersCol": "Pasajeros",
+    "luggageCol": "Equipaje",
+    "comfortCol": "Confort",
+    "supplement": "Suplemento oficial de vehículo grande {amount}, fijado por el AMB, nunca un recargo privado.",
+    "noSupplement": "Sin suplemento. Se aplica la tarifa del taxímetro.",
+    "prevVehicle": "Vehículo anterior",
+    "nextVehicle": "Vehículo siguiente",
+    "chooseVehicle": "Elige un vehículo"
   },
   "common": {
     "from": "desde",
