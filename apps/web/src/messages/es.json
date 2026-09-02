@@ -42,7 +42,15 @@
       "whyTitle": "Por qué reservar con nosotros",
       "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia.",
       "destTitle": "A dónde más vamos",
-      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, una tarifa de taxímetro, por lejos que sea."
+      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, una tarifa de taxímetro, por lejos que sea.",
+      "fleetLede": "a un gesto de distancia.",
+      "destLede": "con precio antes de salir.",
+      "faresLede": "de la tarifa real.",
+      "closingLede": "y en marcha.",
+      "faresTitle": "Precios reales",
+      "faresIntro": "Cada cifra procede del cuadro oficial, no de un numero inventado por nosotros.",
+      "closingTitle": "Aterriza, sal",
+      "closingIntro": "Una estimacion exacta del taximetro en segundos. No hace falta cuenta para ver tu precio."
     },
     "why": {
       "meter": {
@@ -393,5 +401,18 @@
     "hint": "Mínimo 8 caracteres.",
     "save": "Guardar contraseña",
     "saving": "Guardando…"
+  },
+  "fares": {
+    "route": "Ruta",
+    "distance": "Distancia",
+    "tariff": "Tarifa",
+    "meterFare": "Taximetro",
+    "fixed": "fijo",
+    "rowAirportCity": "Aeropuerto El Prat al centro de Barcelona",
+    "rowAirportPort": "Aeropuerto El Prat a Moll Adossat",
+    "rowAirportSitges": "Aeropuerto El Prat a Sitges",
+    "rowBcnTarragona": "Barcelona a Tarragona",
+    "rowBcnGirona": "Barcelona al aeropuerto de Girona",
+    "note": "Los trayectos nocturnos, de fin de semana y festivos aplican T-2 o T-7. Las rutas interurbanas incluyen el regreso del taxista, como exige la tarifa."
   }
 }

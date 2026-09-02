@@ -42,7 +42,15 @@
       "whyTitle": "Warum bei uns buchen",
       "whyIntro": "Regulierte Tarife, ein reservierter Wagen und jemand, den Sie anrufen können, wenn sich etwas ändert.",
       "destTitle": "Wohin wir sonst fahren",
-      "destIntro": "Über den Flughafen hinaus: die Küste, die Berge und die Straßen nach Süden. Ein lizenziertes Auto, ein Taxameter-Tarif, wie weit auch immer."
+      "destIntro": "Über den Flughafen hinaus: die Küste, die Berge und die Straßen nach Süden. Ein lizenziertes Auto, ein Taxameter-Tarif, wie weit auch immer.",
+      "fleetLede": "nur einen Wisch entfernt.",
+      "destLede": "Preis vorab bekannt.",
+      "faresLede": "aus dem echten Tarif.",
+      "closingLede": "und losfahren.",
+      "faresTitle": "Echte Preise",
+      "faresIntro": "Jede Zahl stammt aus dem offiziellen Tarif, nicht aus einer eigenen Erfindung.",
+      "closingTitle": "Landen, rausgehen,",
+      "closingIntro": "Eine exakte Taxameter-Schaetzung in Sekunden. Kein Konto noetig, um den Preis zu sehen."
     },
     "kicker": "Lizenzierter Taxi-Service zum Flughafen Barcelona"
   },
@@ -332,5 +340,18 @@
     "hint": "Mindestens 8 Zeichen.",
     "save": "Passwort speichern",
     "saving": "Wird gespeichert…"
+  },
+  "fares": {
+    "route": "Strecke",
+    "distance": "Entfernung",
+    "tariff": "Tarif",
+    "meterFare": "Taxameter",
+    "fixed": "fest",
+    "rowAirportCity": "Flughafen El Prat ins Zentrum Barcelona",
+    "rowAirportPort": "Flughafen El Prat nach Moll Adossat",
+    "rowAirportSitges": "Flughafen El Prat nach Sitges",
+    "rowBcnTarragona": "Barcelona nach Tarragona",
+    "rowBcnGirona": "Barcelona zum Flughafen Girona",
+    "note": "Nacht-, Wochenend- und Feiertagsfahrten rechnen nach T-2 oder T-7 ab. Ueberlandfahrten enthalten die Rueckfahrt des Fahrers, wie der Tarif es vorschreibt."
   }
 }

@@ -45,9 +45,11 @@
   --color-muted: #6b6b72;
   --color-hairline: #e4e0d7;
 
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  /* Editorial accent. Italic saffron on a heading's second line, nowhere else. */
+  --font-editorial: var(--font-editorial), Georgia, 'Times New Roman', serif;
 
   --radius-card: 1.25rem;
   --radius-shell: 2rem;
@@ -86,8 +88,23 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  /* Geist is already tightly fitted; Sora's -0.02em over-tightened it. */
+  letter-spacing: -0.032em;
+  font-weight: 600;
   text-wrap: balance;
+}
+
+/**
+ * The editorial line. Sits under a heading's first line, italic and in
+ * saffron, and carries most of the page's character on its own.
+ */
+.editorial {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--color-gold);
+  display: block;
 }
 
 /* Visible, high-contrast focus ring on every interactive element. */
@@ -885,4 +902,31 @@ h4 {
 }
 .motion-safe\:animate-ping-slow {
   animation: ping-slow 2.6s var(--ease-brand) infinite;
+}
+
+/**
+ * Film grain.
+ *
+ * Fixed and pointer-events-none, so it never rides a scrolling container —
+ * attaching noise to scrolling content forces a repaint on every frame. At 3.5%
+ * it is felt rather than seen: it breaks up the flat black and stops large dark
+ * areas banding on cheaper panels.
+ */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/**
+ * CJK has no italic tradition. Instrument Serif carries no CJK glyphs, so the
+ * browser falls back and then mechanically slants the substitute — which reads
+ * as a rendering fault to a native reader rather than as emphasis. Keep the
+ * colour and the change of voice; drop the slant.
+ */
+:where(:lang(zh), :lang(ja), :lang(ko)) .editorial {
+  font-style: normal;
 }

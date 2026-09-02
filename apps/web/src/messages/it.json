@@ -42,7 +42,15 @@
       "whyTitle": "Perché prenotare con noi",
       "whyIntro": "Tariffe regolamentate, un'auto riservata per te e qualcuno da chiamare se qualcosa cambia.",
       "destTitle": "Dove andiamo anche",
-      "destIntro": "Oltre l'aeroporto: la costa, la montagna e le strade verso sud. Un'auto con licenza, una tariffa a tassametro, per quanto lontano."
+      "destIntro": "Oltre l'aeroporto: la costa, la montagna e le strade verso sud. Un'auto con licenza, una tariffa a tassametro, per quanto lontano.",
+      "fleetLede": "a uno swipe di distanza.",
+      "destLede": "con il prezzo già noto.",
+      "faresLede": "dalla tariffa reale.",
+      "closingLede": "e si parte.",
+      "faresTitle": "Prezzi reali",
+      "faresIntro": "Ogni cifra viene dal tariffario ufficiale, non da un numero inventato da noi.",
+      "closingTitle": "Atterra, esci",
+      "closingIntro": "Una stima esatta del tassametro in pochi secondi. Nessun account per vedere il prezzo."
     },
     "kicker": "Servizio taxi autorizzato per l'aeroporto di Barcellona"
   },
@@ -332,5 +340,18 @@
     "hint": "Almeno 8 caratteri.",
     "save": "Salva password",
     "saving": "Salvataggio…"
+  },
+  "fares": {
+    "route": "Percorso",
+    "distance": "Distanza",
+    "tariff": "Tariffa",
+    "meterFare": "Tassametro",
+    "fixed": "fisso",
+    "rowAirportCity": "Aeroporto El Prat al centro di Barcellona",
+    "rowAirportPort": "Aeroporto El Prat a Moll Adossat",
+    "rowAirportSitges": "Aeroporto El Prat a Sitges",
+    "rowBcnTarragona": "Barcellona a Tarragona",
+    "rowBcnGirona": "Barcellona all aeroporto di Girona",
+    "note": "I viaggi notturni, nei weekend e nei festivi applicano T-2 o T-7. Le tratte interurbane includono il ritorno del conducente, come richiede la tariffa."
   }
 }

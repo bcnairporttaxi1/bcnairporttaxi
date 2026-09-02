@@ -46,7 +46,15 @@
       "whyTitle": "Why book with us",
       "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes.",
       "destTitle": "Where else we go",
-      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one metered fare, however far it runs."
+      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one metered fare, however far it runs.",
+      "fleetLede": "one swipe apart.",
+      "destLede": "priced before you go.",
+      "faresLede": "from the real tariff.",
+      "closingLede": "drive off.",
+      "faresTitle": "Real prices",
+      "faresIntro": "Every figure below comes from the official schedule, not a number we invented.",
+      "closingTitle": "Land, walk out,",
+      "closingIntro": "An exact meter estimate in seconds. No account needed to see your price."
     },
     "why": {
       "meter": {
@@ -507,5 +515,18 @@
     "hint": "At least 8 characters.",
     "save": "Save password",
     "saving": "Saving…"
+  },
+  "fares": {
+    "route": "Route",
+    "distance": "Distance",
+    "tariff": "Tariff",
+    "meterFare": "Meter fare",
+    "fixed": "fixed",
+    "rowAirportCity": "El Prat airport to Barcelona centre",
+    "rowAirportPort": "El Prat airport to Moll Adossat cruise port",
+    "rowAirportSitges": "El Prat airport to Sitges",
+    "rowBcnTarragona": "Barcelona to Tarragona",
+    "rowBcnGirona": "Barcelona to Girona airport",
+    "note": "Night, weekend and holiday journeys bill on T-2 or T-7. Interurban routes include the driver's return leg, as the tariff requires."
   }
 }

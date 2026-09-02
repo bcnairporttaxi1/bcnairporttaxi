@@ -29,6 +29,25 @@ export default async function HomePage(props: {
   const tn = await getTranslations('nav');
   const tf = await getTranslations('fleet');
   const td = await getTranslations('destinations');
+  const tfare = await getTranslations('fares');
+
+  /* Derived from TARIFFS at render time rather than typed in, so the table
+     cannot drift from what the booking form quotes. Urban rows use the AMB
+     meter; interurban rows bill the closed circuit out and back, exactly as
+     interurbanQuote does. */
+  const urban = (km: number) =>
+    TARIFFS.startFare + km * TARIFFS.perKm.T1 + TARIFFS.supplements.airportElPrat;
+  const inter = (km: number) =>
+    TARIFFS.outsideAMB.startFare.T6 + km * 2 * TARIFFS.outsideAMB.perKm.T6;
+  const eur = (n: number) => `€${n.toFixed(2)}`;
+
+  const fareRows = [
+    { route: tfare('rowAirportCity'), distance: '14.2 km', tariff: 'T-1', fare: eur(urban(14.2)) },
+    { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: 'T-4', fare: eur(TARIFFS.t4FixedAirportMollAdossat) },
+    { route: tfare('rowAirportSitges'), distance: '32.8 km', tariff: 'T-6', fare: eur(inter(32.8) + TARIFFS.outsideAMB.supplements.airportElPrat) },
+    { route: tfare('rowBcnTarragona'), distance: '97.3 km', tariff: 'T-6', fare: eur(inter(97.3)) },
+    { route: tfare('rowBcnGirona'), distance: '97.0 km', tariff: 'T-6', fare: eur(inter(97.0)) },
+  ];
 
   /* Cards that carry a photograph read far better than ones that do not, so
      the strip prefers featured destinations that have one. The fare mirrors
@@ -248,6 +267,7 @@ export default async function HomePage(props: {
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.fleetTitle')}
+              <span className="editorial text-[1.08em]">{t('sections.fleetLede')}</span>
             </h2>
             <p className="mt-3 max-w-2xl text-dim">{t('sections.fleetIntro')}</p>
           </Reveal>
@@ -294,6 +314,7 @@ export default async function HomePage(props: {
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.destTitle')}
+              <span className="editorial text-[1.08em]">{t('sections.destLede')}</span>
             </h2>
             <p className="mt-3 max-w-2xl text-dim">{t('sections.destIntro')}</p>
           </Reveal>
@@ -349,6 +370,106 @@ export default async function HomePage(props: {
             );
           })}
         </ul>
+      </section>
+
+      {/* Fares — the differentiator is that these are the real schedule, not a
+          markup, so they are shown rather than described. Every figure is
+          derived from TARIFFS at render time so the table cannot drift. */}
+      <section className="border-y border-line bg-raise py-20 sm:py-24">
+        <div className="mx-auto max-w-4xl px-4">
+          <Reveal>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.faresTitle')}
+              <span className="editorial text-[1.08em]">{t('sections.faresLede')}</span>
+            </h2>
+            <p className="mt-3 max-w-2xl text-dim">{t('sections.faresIntro')}</p>
+          </Reveal>
+
+          <Reveal>
+            <div className="mt-10 overflow-hidden rounded-[2rem] border border-line bg-white/[0.038] p-1.5">
+              <div className="overflow-x-auto rounded-[calc(2rem-0.375rem)] bg-gradient-to-b from-raise to-pane shadow-[inset_0_1px_1px_rgba(255,255,255,0.09)]">
+                <table className="w-full min-w-[520px] border-collapse text-left">
+                  <caption className="sr-only">{t('sections.faresTitle')}</caption>
+                  <thead>
+                    <tr className="border-b border-line">
+                      <th scope="col" className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('route')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('distance')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('tariff')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('meterFare')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {fareRows.map((r) => (
+                      <tr key={r.route} className="border-b border-line/60 transition-colors last:border-0 hover:bg-white/[0.022]">
+                        <td className="px-6 py-4">
+                          <span className="flex items-center gap-3.5 text-[15px]">
+                            <span aria-hidden="true" className="h-[7px] w-[7px] flex-none rounded-full bg-gold shadow-[0_0_12px_rgb(240_180_41/50%)]" />
+                            {r.route}
+                          </span>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
+                          {r.distance}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
+                          {r.tariff}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-display text-[17px] font-semibold tabular-nums text-gold">
+                          {r.fare}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-ghost">{tfare('note')}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Closing band */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[22px] border border-gold/25 px-6 py-14 text-center sm:px-16">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_100%_at_50%_0%,rgb(240_180_41/16%),transparent_70%)]"
+            />
+            <div className="relative">
+              <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+                {t('sections.closingTitle')}
+                <span className="editorial text-[1.08em]">{t('sections.closingLede')}</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-[44ch] text-dim">{t('sections.closingIntro')}</p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link href="/book" className="cta cta-gold group">
+                  {tc('book')}
+                  <span className="cta-pip" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                      <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+                    </svg>
+                  </span>
+                </Link>
+                <Link href="/pricing" className="cta cta-ghost group">
+                  {tn('pricing')}
+                  <span className="cta-pip" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                      <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+                    </svg>
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <PaymentMethods />

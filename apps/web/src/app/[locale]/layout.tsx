@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Inter, Sora, Space_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
@@ -11,24 +11,37 @@ import '../globals.css';
 
 // Omitting `weight` loads the variable font: one file covering every weight,
 // instead of one file per weight. Sora and Inter both ship variable versions.
-const sora = Sora({
+/**
+ * Geist carries both display and body. It is a single variable file across the
+ * whole weight range, so using it twice costs nothing extra, and its tight
+ * apertures hold up at the headline sizes this page uses.
+ */
+const geist = Geist({
   subsets: ['latin'],
-  variable: '--font-sora',
+  variable: '--font-geist',
   display: 'swap',
 });
 
-const inter = Inter({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter',
+/**
+ * The one editorial note. Used italic, in saffron, on the second line of a
+ * heading — never for body copy, where its low x-height would cost legibility
+ * for the tired traveller this site is actually for.
+ */
+const instrument = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['italic', 'normal'],
+  variable: '--font-editorial',
   display: 'swap',
 });
+
+
 
 // Space Mono has no variable version. It is used only for figures, so the
 // regular weight alone is loaded and bold is synthesised.
-const spaceMono = Space_Mono({
+const geistMono = Geist_Mono({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-space-mono',
+  variable: '--font-geist-mono',
   display: 'swap',
 });
 
@@ -116,9 +129,10 @@ export default async function LocaleLayout(props: {
   return (
     <html
       lang={localeHrefLang[locale as Locale]}
-      className={`${sora.variable} ${inter.variable} ${spaceMono.variable}`}
+      className={`${geist.variable} ${instrument.variable} ${geistMono.variable}`}
     >
       <body>
+        <div className="grain-overlay" aria-hidden="true" />
         <NextIntlClientProvider>
           <a href="#main" className="skip-link">
             {t('skipToContent')}

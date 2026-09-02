@@ -42,7 +42,15 @@
       "whyTitle": "为什么选择我们",
       "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。",
       "destTitle": "我们还去哪里",
-      "destIntro": "不止机场接送：海岸、山区以及南部公路。一辆持照车辆，一个计价器价格，无论多远。"
+      "destIntro": "不止机场接送：海岸、山区以及南部公路。一辆持照车辆，一个计价器价格，无论多远。",
+      "fleetLede": "一滑即见。",
+      "destLede": "出发前就知道价格。",
+      "faresLede": "来自真实计价。",
+      "closingLede": "即刻出发。",
+      "faresTitle": "真实价格",
+      "faresIntro": "下列每一个数字都来自官方费率表，而非我们自行设定。",
+      "closingTitle": "落地，出关，",
+      "closingIntro": "几秒内得到精确的计价器预估。无需注册即可查看价格。"
     },
     "kicker": "巴塞罗那持牌机场出租车服务"
   },
@@ -332,5 +340,18 @@
     "hint": "至少 8 个字符。",
     "save": "保存密码",
     "saving": "保存中…"
+  },
+  "fares": {
+    "route": "路线",
+    "distance": "距离",
+    "tariff": "计价",
+    "meterFare": "计价器车费",
+    "fixed": "固定",
+    "rowAirportCity": "埃尔普拉特机场至巴塞罗那市中心",
+    "rowAirportPort": "埃尔普拉特机场至 Moll Adossat 邮轮码头",
+    "rowAirportSitges": "埃尔普拉特机场至锡切斯",
+    "rowBcnTarragona": "巴塞罗那至塔拉戈纳",
+    "rowBcnGirona": "巴塞罗那至赫罗纳机场",
+    "note": "夜间、周末及节假日按 T-2 或 T-7 计价。城际路线依规定包含司机返程。"
   }
 }

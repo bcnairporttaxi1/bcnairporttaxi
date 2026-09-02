@@ -42,7 +42,15 @@
       "whyTitle": "Waarom bij ons boeken",
       "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert.",
       "destTitle": "Waar we nog meer heen gaan",
-      "destIntro": "Voorbij de luchthaven: de kust, de bergen en de wegen naar het zuiden. Eén vergunde wagen, één metertarief, hoe ver ook."
+      "destIntro": "Voorbij de luchthaven: de kust, de bergen en de wegen naar het zuiden. Eén vergunde wagen, één metertarief, hoe ver ook.",
+      "fleetLede": "één veeg verderop.",
+      "destLede": "met de prijs vooraf.",
+      "faresLede": "uit het echte tarief.",
+      "closingLede": "en wegwezen.",
+      "faresTitle": "Echte prijzen",
+      "faresIntro": "Elk bedrag komt uit het officiele tarief, niet uit een zelfbedacht getal.",
+      "closingTitle": "Land, loop naar buiten,",
+      "closingIntro": "Een exacte meterschatting in seconden. Geen account nodig om je prijs te zien."
     },
     "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
   },
@@ -332,5 +340,18 @@
     "hint": "Minstens 8 tekens.",
     "save": "Wachtwoord opslaan",
     "saving": "Opslaan…"
+  },
+  "fares": {
+    "route": "Route",
+    "distance": "Afstand",
+    "tariff": "Tarief",
+    "meterFare": "Meter",
+    "fixed": "vast",
+    "rowAirportCity": "Luchthaven El Prat naar centrum Barcelona",
+    "rowAirportPort": "Luchthaven El Prat naar Moll Adossat",
+    "rowAirportSitges": "Luchthaven El Prat naar Sitges",
+    "rowBcnTarragona": "Barcelona naar Tarragona",
+    "rowBcnGirona": "Barcelona naar luchthaven Girona",
+    "note": "Ritten s nachts, in het weekend en op feestdagen vallen onder T-2 of T-7. Interlokale ritten omvatten de terugrit van de chauffeur, zoals het tarief voorschrijft."
   }
 }

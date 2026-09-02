@@ -42,7 +42,15 @@
       "whyTitle": "Pourquoi réserver chez nous",
       "whyIntro": "Des tarifs réglementés, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change.",
       "destTitle": "Où nous allons aussi",
-      "destIntro": "Au-delà de l'aéroport : la côte, la montagne et les routes du sud. Une voiture licenciée, un tarif au compteur, quelle que soit la distance."
+      "destIntro": "Au-delà de l'aéroport : la côte, la montagne et les routes du sud. Une voiture licenciée, un tarif au compteur, quelle que soit la distance.",
+      "fleetLede": "à un geste près.",
+      "destLede": "au prix connu d'avance.",
+      "faresLede": "du tarif réel.",
+      "closingLede": "et c'est parti.",
+      "faresTitle": "Prix reels",
+      "faresIntro": "Chaque chiffre vient du bareme officiel, pas d un nombre invente.",
+      "closingTitle": "Atterrissez, sortez",
+      "closingIntro": "Une estimation exacte du compteur en quelques secondes. Aucun compte requis pour voir votre prix."
     },
     "kicker": "Service de taxi agréé vers l'aéroport de Barcelone"
   },
@@ -332,5 +340,18 @@
     "hint": "8 caractères minimum.",
     "save": "Enregistrer",
     "saving": "Enregistrement…"
+  },
+  "fares": {
+    "route": "Trajet",
+    "distance": "Distance",
+    "tariff": "Tarif",
+    "meterFare": "Compteur",
+    "fixed": "fixe",
+    "rowAirportCity": "Aeroport El Prat vers le centre de Barcelone",
+    "rowAirportPort": "Aeroport El Prat vers Moll Adossat",
+    "rowAirportSitges": "Aeroport El Prat vers Sitges",
+    "rowBcnTarragona": "Barcelone vers Tarragone",
+    "rowBcnGirona": "Barcelone vers l aeroport de Gerone",
+    "note": "Les trajets de nuit, de week-end et de jours feries relevent du T-2 ou T-7. Les trajets interurbains incluent le retour du chauffeur, comme l exige le tarif."
   }
 }
