@@ -40,7 +40,9 @@
       "faqTitle": "Vragen over de luchthaventaxi",
       "reviewsTitle": "Wat passagiers zeggen",
       "whyTitle": "Waarom bij ons boeken",
-      "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert."
+      "whyIntro": "Gereguleerde tarieven, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert.",
+      "destTitle": "Waar we nog meer heen gaan",
+      "destIntro": "Voorbij de luchthaven: de kust, de bergen en de wegen naar het zuiden. Eén vergunde wagen, één metertarief, hoe ver ook."
     },
     "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "Hallo, ik wil graag een prijsopgave voor een transfer vanuit Barcelona naar {place}.",
     "waQuoteGeneric": "Hallo, ik wil graag een prijsopgave voor een transfer vanuit Barcelona.",
     "crumbHome": "Home",
-    "crumbDestinations": "Bestemmingen"
+    "crumbDestinations": "Bestemmingen",
+    "stripPrev": "Vorige bestemmingen",
+    "stripNext": "Volgende bestemmingen",
+    "stripFrom": "vanaf",
+    "photoCreditsPrefix": "Fotografie:"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Privétaxi & minivan",

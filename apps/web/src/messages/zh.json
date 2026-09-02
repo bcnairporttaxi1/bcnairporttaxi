@@ -40,7 +40,9 @@
       "faqTitle": "机场出租车常见问题",
       "reviewsTitle": "乘客评价",
       "whyTitle": "为什么选择我们",
-      "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。"
+      "whyIntro": "受监管的费率、为您保留的车辆，以及有变动时可以联系到的人。",
+      "destTitle": "我们还去哪里",
+      "destIntro": "不止机场接送：海岸、山区以及南部公路。一辆持照车辆，一个计价器价格，无论多远。"
     },
     "kicker": "巴塞罗那持牌机场出租车服务"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "您好，我想咨询从巴塞罗那前往{place}的接送报价。",
     "waQuoteGeneric": "您好，我想咨询从巴塞罗那出发的接送报价。",
     "crumbHome": "首页",
-    "crumbDestinations": "目的地"
+    "crumbDestinations": "目的地",
+    "stripPrev": "上一批目的地",
+    "stripNext": "下一批目的地",
+    "stripFrom": "起",
+    "photoCreditsPrefix": "图片来源："
   },
   "destinationRoute": {
     "metaTitle": "{name} 接送 | 专车出租车与商务车",

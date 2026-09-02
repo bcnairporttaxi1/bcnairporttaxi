@@ -40,7 +40,9 @@
       "faqTitle": "Preguntes sobre el taxi a l'aeroport",
       "reviewsTitle": "Què diuen els passatgers",
       "whyTitle": "Per què reservar amb nosaltres",
-      "whyIntro": "Tarifes regulades, un cotxe reservat per a tu i algú a qui trucar si alguna cosa canvia."
+      "whyIntro": "Tarifes regulades, un cotxe reservat per a tu i algú a qui trucar si alguna cosa canvia.",
+      "destTitle": "On més anem",
+      "destIntro": "Més enllà de l'aeroport: la costa, la muntanya i les carreteres del sud. Un cotxe amb llicència, una tarifa de taxímetre, per lluny que sigui."
     },
     "kicker": "Servei de taxi amb llicència a l'aeroport de Barcelona"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "Hola, volia un pressupost per a un trasllat des de Barcelona a {place}.",
     "waQuoteGeneric": "Hola, volia un pressupost per a un trasllat des de Barcelona.",
     "crumbHome": "Inici",
-    "crumbDestinations": "Destinacions"
+    "crumbDestinations": "Destinacions",
+    "stripPrev": "Destinacions anteriors",
+    "stripNext": "Destinacions següents",
+    "stripFrom": "des de",
+    "photoCreditsPrefix": "Fotografies:"
   },
   "destinationRoute": {
     "metaTitle": "Trasllat a {name} | Taxi i minivan privats",

@@ -4,6 +4,9 @@ import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { FaqAccordion } from '@/components/faq-accordion';
 import { FleetSwiper } from '@/components/fleet-swiper';
+import { DestinationStrip } from '@/components/destination-strip';
+import { FEATURED_DESTINATIONS, ALL_DESTINATIONS } from '@bcn/core/destinations';
+import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
 import { TARIFFS } from '@bcn/core/tariffs';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
@@ -25,6 +28,43 @@ export default async function HomePage(props: {
   const tc = await getTranslations('common');
   const tn = await getTranslations('nav');
   const tf = await getTranslations('fleet');
+  const td = await getTranslations('destinations');
+
+  /* Cards that carry a photograph read far better than ones that do not, so
+     the strip prefers featured destinations that have one. The fare mirrors
+     interurbanQuote exactly — flag-drop plus the closed circuit out and back —
+     so a card never quotes lower than the booking form. */
+  const stripSource = [...FEATURED_DESTINATIONS, ...ALL_DESTINATIONS]
+    .filter((d, i, a) => a.findIndex((x) => x.slug === d.slug) === i)
+    .filter((d) => d.hasPage && d.km != null && destinationPhoto(d.slug))
+    .slice(0, 12);
+
+  const stripItems = stripSource.map((d) => {
+    const photo = destinationPhoto(d.slug);
+    const place = d.name.replace('Barcelona Airport to ', '').replace('Barcelona to ', '');
+    const fare =
+      TARIFFS.outsideAMB.startFare.T6 +
+      (d.km as number) * 2 * TARIFFS.outsideAMB.perKm.T6;
+    return {
+      slug: d.slug,
+      place,
+      href: `/destinations/${d.slug}`,
+      km: d.km,
+      minutes: d.minutes,
+      fare: `€${Math.round(fare)}`,
+      photo: photo ? { file: photo.file, alt: td('photoAlt', { place }) } : null,
+    };
+  });
+
+  const photoCredits =
+    td('photoCreditsPrefix') +
+    ' ' +
+    stripSource
+      .map((d) => destinationPhoto(d.slug))
+      .filter((c): c is NonNullable<typeof c> => Boolean(c))
+      .map((c) => attributionLine(c).replace('Photo: ', ''))
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .join(' · ');
 
   const faqItems = FAQ_KEYS.map((k) => ({
     q: tfaq(`items.${k}.q`),
@@ -244,6 +284,34 @@ export default async function HomePage(props: {
           >
             {tc('viewFleet')}
           </Link>
+        </div>
+      </section>
+
+      {/* Destinations — the photography is the argument here, so the strip
+          leads and the text hub follows. */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <Reveal>
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.destTitle')}
+            </h2>
+            <p className="mt-3 max-w-2xl text-dim">{t('sections.destIntro')}</p>
+          </Reveal>
+          <div className="mt-12">
+            <DestinationStrip
+              items={stripItems}
+              labels={{
+                prev: td('stripPrev'),
+                next: td('stripNext'),
+                from: td('stripFrom'),
+              }}
+            />
+          </div>
+          {/* CC BY and CC BY-SA both require the author be named wherever the
+              photograph appears, so the credits travel with the strip. */}
+          <p className="mt-4 text-xs leading-relaxed text-ghost">
+            {photoCredits}
+          </p>
         </div>
       </section>
 

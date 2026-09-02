@@ -40,7 +40,9 @@
       "faqTitle": "Preguntas sobre el taxi al aeropuerto",
       "reviewsTitle": "Lo que dicen los pasajeros",
       "whyTitle": "Por qué reservar con nosotros",
-      "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia."
+      "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia.",
+      "destTitle": "A dónde más vamos",
+      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, una tarifa de taxímetro, por lejos que sea."
     },
     "why": {
       "meter": {
@@ -272,7 +274,11 @@
     "waQuoteTo": "Hola, quería un presupuesto para un traslado desde Barcelona a {place}.",
     "waQuoteGeneric": "Hola, quería un presupuesto para un traslado desde Barcelona.",
     "crumbHome": "Inicio",
-    "crumbDestinations": "Destinos"
+    "crumbDestinations": "Destinos",
+    "stripPrev": "Destinos anteriores",
+    "stripNext": "Destinos siguientes",
+    "stripFrom": "desde",
+    "photoCreditsPrefix": "Fotografías:"
   },
   "destinationRoute": {
     "metaTitle": "Traslado a {name} | Taxi y minivan privados",

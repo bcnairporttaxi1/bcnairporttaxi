@@ -44,7 +44,9 @@
       "faqTitle": "Barcelona airport taxi questions",
       "reviewsTitle": "What passengers say",
       "whyTitle": "Why book with us",
-      "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes."
+      "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes.",
+      "destTitle": "Where else we go",
+      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one metered fare, however far it runs."
     },
     "why": {
       "meter": {
@@ -386,7 +388,11 @@
     "waQuoteTo": "Hi, I would like a quote for a Barcelona transfer to {place}.",
     "waQuoteGeneric": "Hi, I would like a quote for a Barcelona transfer.",
     "crumbHome": "Home",
-    "crumbDestinations": "Destinations"
+    "crumbDestinations": "Destinations",
+    "stripPrev": "Previous destinations",
+    "stripNext": "Next destinations",
+    "stripFrom": "from",
+    "photoCreditsPrefix": "Photography:"
   },
   "destinationRoute": {
     "metaTitle": "{name} Transfer | Private Taxi & Minivan",

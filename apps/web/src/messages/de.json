@@ -40,7 +40,9 @@
       "faqTitle": "Fragen zum Flughafentaxi",
       "reviewsTitle": "Was Fahrgäste sagen",
       "whyTitle": "Warum bei uns buchen",
-      "whyIntro": "Regulierte Tarife, ein reservierter Wagen und jemand, den Sie anrufen können, wenn sich etwas ändert."
+      "whyIntro": "Regulierte Tarife, ein reservierter Wagen und jemand, den Sie anrufen können, wenn sich etwas ändert.",
+      "destTitle": "Wohin wir sonst fahren",
+      "destIntro": "Über den Flughafen hinaus: die Küste, die Berge und die Straßen nach Süden. Ein lizenziertes Auto, ein Taxameter-Tarif, wie weit auch immer."
     },
     "kicker": "Lizenzierter Taxi-Service zum Flughafen Barcelona"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "Hallo, ich hätte gern ein Angebot für einen Transfer von Barcelona nach {place}.",
     "waQuoteGeneric": "Hallo, ich hätte gern ein Angebot für einen Transfer ab Barcelona.",
     "crumbHome": "Startseite",
-    "crumbDestinations": "Ziele"
+    "crumbDestinations": "Ziele",
+    "stripPrev": "Vorherige Ziele",
+    "stripNext": "Weitere Ziele",
+    "stripFrom": "ab",
+    "photoCreditsPrefix": "Fotografien:"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Privates Taxi & Minivan",

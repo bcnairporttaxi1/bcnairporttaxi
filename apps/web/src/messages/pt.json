@@ -40,7 +40,9 @@
       "faqTitle": "Perguntas sobre o táxi para o aeroporto",
       "reviewsTitle": "O que dizem os passageiros",
       "whyTitle": "Porquê reservar connosco",
-      "whyIntro": "Tarifas reguladas, um carro reservado para si e alguém para contactar se algo mudar."
+      "whyIntro": "Tarifas reguladas, um carro reservado para si e alguém para contactar se algo mudar.",
+      "destTitle": "Para onde mais vamos",
+      "destIntro": "Para além do aeroporto: a costa, a montanha e as estradas a sul. Um carro licenciado, uma tarifa de taxímetro, por mais longe que seja."
     },
     "kicker": "Serviço de táxi licenciado para o aeroporto de Barcelona"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "Olá, gostaria de um orçamento para um transfer de Barcelona para {place}.",
     "waQuoteGeneric": "Olá, gostaria de um orçamento para um transfer a partir de Barcelona.",
     "crumbHome": "Início",
-    "crumbDestinations": "Destinos"
+    "crumbDestinations": "Destinos",
+    "stripPrev": "Destinos anteriores",
+    "stripNext": "Destinos seguintes",
+    "stripFrom": "a partir de",
+    "photoCreditsPrefix": "Fotografias:"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Táxi e minivan privados",

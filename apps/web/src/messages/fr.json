@@ -40,7 +40,9 @@
       "faqTitle": "Questions sur le taxi aéroport",
       "reviewsTitle": "Ce que disent les passagers",
       "whyTitle": "Pourquoi réserver chez nous",
-      "whyIntro": "Des tarifs réglementés, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change."
+      "whyIntro": "Des tarifs réglementés, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change.",
+      "destTitle": "Où nous allons aussi",
+      "destIntro": "Au-delà de l'aéroport : la côte, la montagne et les routes du sud. Une voiture licenciée, un tarif au compteur, quelle que soit la distance."
     },
     "kicker": "Service de taxi agréé vers l'aéroport de Barcelone"
   },
@@ -211,7 +213,11 @@
     "waQuoteTo": "Bonjour, je souhaite un devis pour un transfert depuis Barcelone vers {place}.",
     "waQuoteGeneric": "Bonjour, je souhaite un devis pour un transfert depuis Barcelone.",
     "crumbHome": "Accueil",
-    "crumbDestinations": "Destinations"
+    "crumbDestinations": "Destinations",
+    "stripPrev": "Destinations précédentes",
+    "stripNext": "Destinations suivantes",
+    "stripFrom": "à partir de",
+    "photoCreditsPrefix": "Photographies :"
   },
   "destinationRoute": {
     "metaTitle": "Transfert {name} | Taxi et minivan privés",
