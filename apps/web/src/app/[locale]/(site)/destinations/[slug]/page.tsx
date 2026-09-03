@@ -154,7 +154,7 @@ export default async function DestinationPage(props: {
               href={whatsappLink(quote)}
               target="_blank"
               rel="noopener noreferrer"
-              className="sheen rounded-xl bg-gold px-6 py-3.5 font-display font-extrabold text-void transition hover:bg-accent-deep"
+              className="cta-block cta-gold sm:w-auto sm:px-8"
             >
               {t('ctaFixedQuote')}
             </a>

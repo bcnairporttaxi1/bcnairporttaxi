@@ -165,7 +165,7 @@ export default async function HomePage(props: {
       <FaqJsonLd items={faqItems} />
 
       {/* Hero */}
-      <section className="stage relative overflow-hidden bg-void">
+      <section className="relative overflow-hidden bg-void">
         {/* Shown at full strength — it is the brand image, not a texture. */}
         <Image
           src="/img/hero-banner.jpg"

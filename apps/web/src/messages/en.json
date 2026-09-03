@@ -1,7 +1,6 @@
 {
   "site": {
-    "name": "BCNAirportTaxi",
-    "tagline": "Barcelona airport taxi, booked in advance"
+    "name": "BCNAirportTaxi"
   },
   "nav": {
     "home": "Home",
@@ -42,7 +41,6 @@
       "routesTitle": "Popular Barcelona airport routes",
       "routesIntro": "The transfers we are booked for most often.",
       "faqTitle": "Barcelona airport taxi questions",
-      "reviewsTitle": "What passengers say",
       "whyTitle": "Why book with us",
       "whyIntro": "Regulated fares, a car held for you, and someone to call if anything changes.",
       "destTitle": "Where else we go",
@@ -94,7 +92,6 @@
     "calculating": "Calculating…",
     "searching": "Searching…",
     "noResults": "No matching address found",
-    "estimatedFare": "Estimated meter fare",
     "fixedFare": "Total price, paid online",
     "bookingFee": "Booking fee ({pct}%)",
     "distance": "Distance",
@@ -102,21 +99,11 @@
     "payNow": "Pay now",
     "payInTaxi": "Pay in the taxi",
     "nothingInTaxi": "Nothing to pay in the taxi",
-    "modeFeeOnlyTitle": "Pay booking fee now",
-    "modeFeeOnlyBody": "Pay the {fee} booking fee online. You pay the metered fare of about {fare} to your driver in the taxi, by cash or card.",
-    "modeFullTitle": "Pay everything now",
-    "modeFullBody": "Pay {total} online and nothing at all in the taxi. Your price is locked in, whatever the traffic does.",
-    "chooseHowToPay": "Choose how to pay",
     "bookNow": "Book now",
     "tripType": "Trip type",
     "oneWay": "One way",
     "return": "Return",
-    "returnDate": "Return date",
-    "returnTime": "Return time",
     "returnNote": "Return legs are quoted separately and confirmed by email.",
-    "step1": "Where to?",
-    "step2": "When?",
-    "step3": "Your price",
     "instantPrice": "Instant price, no account needed",
     "tariffBadge": "Tariff {tariff}",
     "tariffT1": "T-1 · weekday daytime",
@@ -138,14 +125,11 @@
       "largeVehicle": "Large vehicle (5-8 seats)"
     },
     "disclaimer": "Your price is locked when you book and covers the whole journey, including every official supplement. Nothing is owed to the driver in the taxi. A receipt is emailed with your confirmation.",
-    "fixedFareNote": "Our fixed price is a little above the meter because we lock it in advance and absorb any traffic or routing variance. Choose to pay in the taxi instead and you simply pay the meter.",
-    "continue": "Continue to booking",
     "errors": {
       "pickupRequired": "Choose a pickup point.",
       "dropoffRequired": "Choose a destination.",
       "pickupOutsideCity": "Pickup must be inside Barcelona or at El Prat airport. Drop-off can be anywhere.",
-      "routeFailed": "We could not calculate that route. Please check both addresses.",
-      "geocodeFailed": "Address lookup is unavailable right now. Please try again."
+      "routeFailed": "We could not calculate that route. Please check both addresses."
     },
     "urgent": {
       "title": "Leaving in less than 3 hours?",
@@ -156,7 +140,6 @@
     "panelKicker": "Reservation",
     "panelTitle": "Plan your transfer",
     "panelSub": "Instant price · All-inclusive · 24/7",
-    "bookingFeeNote": "Your price is all-inclusive and fixed at booking. Weekend, holiday and special-night journeys are priced a little higher.",
     "totalPrice": "Total price",
     "allInclusive": "All-inclusive · pay online",
     "includedNote": "One price for the whole journey — fare, official supplements and booking all included. Nothing to pay your driver.",
@@ -331,12 +314,10 @@
     "km": "km",
     "min": "min",
     "book": "Book now",
-    "learnMore": "Learn more",
     "viewFleet": "See the full Barcelona taxi fleet",
     "readAllFaqs": "Read all airport taxi questions",
     "backHome": "Back to home",
     "loading": "Loading…",
-    "required": "required",
     "relatedTransfers": "Related transfers"
   },
   "footer": {
@@ -356,8 +337,7 @@
     "title": "We use cookies",
     "body": "We use essential cookies to run the site. With your consent we also use analytics cookies to understand how the site is used.",
     "accept": "Accept all",
-    "reject": "Essential only",
-    "settings": "Cookie settings"
+    "reject": "Essential only"
   },
   "notFound": {
     "title": "Page not found",
@@ -535,7 +515,6 @@
     "route": "Route",
     "distance": "Distance",
     "tariff": "Tariff",
-    "meterFare": "Meter fare",
     "fixed": "fixed",
     "rowAirportCity": "El Prat airport to Barcelona centre",
     "rowAirportPort": "El Prat airport to Moll Adossat cruise port",

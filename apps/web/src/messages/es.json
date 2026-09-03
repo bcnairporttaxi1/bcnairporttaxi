@@ -38,7 +38,6 @@
       "routesTitle": "Rutas populares al aeropuerto de Barcelona",
       "routesIntro": "Los traslados que más nos reservan.",
       "faqTitle": "Preguntas sobre el taxi al aeropuerto",
-      "reviewsTitle": "Lo que dicen los pasajeros",
       "whyTitle": "Por qué reservar con nosotros",
       "whyIntro": "Tarifas reguladas, un coche reservado para ti y alguien a quien llamar si algo cambia.",
       "destTitle": "A dónde más vamos",
@@ -90,7 +89,6 @@
     "calculating": "Calculando…",
     "searching": "Buscando…",
     "noResults": "No se encontró ninguna dirección",
-    "estimatedFare": "Tarifa estimada del taxímetro",
     "fixedFare": "Precio total, pagado online",
     "bookingFee": "Gastos de gestión ({pct}%)",
     "distance": "Distancia",
@@ -98,11 +96,6 @@
     "payNow": "Pagar ahora",
     "payInTaxi": "Pagar en el taxi",
     "nothingInTaxi": "Nada que pagar en el taxi",
-    "modeFeeOnlyTitle": "Pagar solo la gestión",
-    "modeFeeOnlyBody": "Paga {fee} de gestión online. Al conductor le pagas la tarifa del taxímetro, unos {fare}, en efectivo o con tarjeta.",
-    "modeFullTitle": "Pagar todo ahora",
-    "modeFullBody": "Paga {total} online y nada en el taxi. Tu precio queda fijado, pase lo que pase con el tráfico.",
-    "chooseHowToPay": "Elige cómo pagar",
     "bookNow": "Reservar ahora",
     "tripType": "Tipo de trayecto",
     "oneWay": "Solo ida",
@@ -129,13 +122,11 @@
       "largeVehicle": "Vehículo grande (5-8 plazas)"
     },
     "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. No se paga nada al conductor en el taxi. Recibirás el recibo por correo con tu confirmación.",
-    "fixedFareNote": "Nuestro precio cerrado está algo por encima del taxímetro porque lo fijamos por adelantado y asumimos la variación del tráfico. Si prefieres pagar en el taxi, pagas simplemente el taxímetro.",
     "errors": {
       "pickupRequired": "Elige un punto de recogida.",
       "dropoffRequired": "Elige un destino.",
       "pickupOutsideCity": "La recogida debe ser en Barcelona o en el aeropuerto de El Prat. El destino puede ser cualquiera.",
-      "routeFailed": "No hemos podido calcular esa ruta. Revisa ambas direcciones.",
-      "geocodeFailed": "La búsqueda de direcciones no está disponible. Inténtalo de nuevo."
+      "routeFailed": "No hemos podido calcular esa ruta. Revisa ambas direcciones."
     },
     "urgent": {
       "title": "¿Sales en menos de 3 horas?",
@@ -146,7 +137,6 @@
     "panelKicker": "Reserva",
     "panelTitle": "Planifica tu traslado",
     "panelSub": "Precio al instante · Todo incluido · 24/7",
-    "bookingFeeNote": "Tu precio es con todo incluido y queda fijado al reservar. Los trayectos en fin de semana, festivos y noches especiales tienen un precio algo más alto.",
     "totalPrice": "Precio total",
     "allInclusive": "Todo incluido · pago online",
     "includedNote": "Un solo precio para todo el trayecto: tarifa, suplementos oficiales y reserva incluidos. No pagas nada al conductor.",
@@ -186,12 +176,10 @@
     "km": "km",
     "min": "min",
     "book": "Reservar ahora",
-    "learnMore": "Saber más",
     "viewFleet": "Ver toda la flota de taxis",
     "readAllFaqs": "Ver todas las preguntas",
     "backHome": "Volver al inicio",
     "loading": "Cargando…",
-    "required": "obligatorio",
     "relatedTransfers": "Traslados relacionados"
   },
   "footer": {
@@ -211,8 +199,7 @@
     "title": "Usamos cookies",
     "body": "Usamos cookies esenciales para que la web funcione. Con tu consentimiento, también usamos cookies de análisis para entender cómo se usa el sitio.",
     "accept": "Aceptar todas",
-    "reject": "Solo esenciales",
-    "settings": "Configuración"
+    "reject": "Solo esenciales"
   },
   "checkout": {
     "h1": "Completa tu reserva",
@@ -422,7 +409,6 @@
     "route": "Ruta",
     "distance": "Distancia",
     "tariff": "Tarifa",
-    "meterFare": "Taximetro",
     "fixed": "fijo",
     "rowAirportCity": "Aeropuerto El Prat al centro de Barcelona",
     "rowAirportPort": "Aeropuerto El Prat a Moll Adossat",

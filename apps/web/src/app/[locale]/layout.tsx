@@ -104,6 +104,15 @@ export async function generateMetadata(props: {
       card: 'summary_large_image',
       title: t('metaTitle'),
       description: t('metaDescription'),
+      // Most parsers fall back to og:image, but not all of them do, and the
+      // ones that do not render a bare text card.
+      images: ['/img/hero-banner.jpg'],
+    },
+    // iOS looks for this when a visitor adds the site to their home screen.
+    // The file was already in the repo but nothing ever linked to it, so the
+    // shortcut fell back to a screenshot of the page.
+    icons: {
+      apple: '/icons/apple-touch-icon.png',
     },
     appleWebApp: {
       capable: true,
