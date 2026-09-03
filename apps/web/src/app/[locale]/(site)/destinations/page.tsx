@@ -21,6 +21,9 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: 'destinations' });
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `/${l}/destinations`;
+  // x-default tells Google which version to serve a language we do not
+  // publish. Without it the ten alternates describe a set with no default.
+  languages['x-default'] = `/en/destinations`;
   return {
     title: { absolute: t('metaTitle') },
     description: t('metaDescription'),

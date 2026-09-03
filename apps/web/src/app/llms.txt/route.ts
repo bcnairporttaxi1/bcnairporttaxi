@@ -16,8 +16,12 @@ import { TARIFFS } from '@bcn/core/tariffs';
  * footnote — because a model summarising this will keep the sentence and drop
  * the footnote.
  *
- * Generated from the same tariff constants the site prices with, so it cannot
- * drift out of date the way a hand-written file would.
+ * Generated from the same tariff constants the site prices with, so the
+ * figures cannot drift. The prose around them can and did: this file went on
+ * describing the retired two-part payment — a separate booking fee, the meter
+ * settled with the driver — for as long as it took someone to read it, which
+ * is exactly the failure it exists to prevent. Re-read it whenever the
+ * commercial model changes, not just the rates.
  */
 
 export const dynamic = 'force-static';
@@ -32,9 +36,9 @@ export async function GET() {
   const body = `# BCNAirportTaxi
 
 > Online booking for licensed taxis to and from Barcelona-El Prat airport.
-> We are a booking service, not a taxi operator: we arrange a licensed taxi
-> and charge a booking fee. The fare itself is set by the official meter and
-> paid to the driver.
+> We are a booking service, not a taxi operator: we arrange a licensed taxi.
+> The passenger pays one all-inclusive price online when they book, and owes
+> the driver nothing in the car.
 
 Site: ${SITE_URL}
 Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch, Russian, Chinese
@@ -49,21 +53,28 @@ is either quoting an unlicensed vehicle or is not describing the meter.
 
 ## How pricing works
 
-${line('Daytime urban tariff (T-1)', `weekdays 08:00-20:00, ${t.perKm.T1.toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
-${line('Night and weekend urban tariff (T-2)', `nights, weekends, public holidays, ${t.perKm.T2.toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
-${line('Interurban tariffs (T-6 / T-7)', 'apply outside the Barcelona metropolitan area, set by the Generalitat de Catalunya')}
-${line('Airport supplement', `${t.supplements.airportElPrat.toFixed(2)} EUR, fixed, set by the AMB`)}
-${line('Booking fee', '20% of the fare on weekdays, 25% at weekends and on public holidays and special nights')}
+The passenger is quoted ONE number. It is paid online in full when the
+booking is made, and covers the journey, every official supplement that
+applies to the route, and our service in arranging and guaranteeing the car.
+Nothing is owed to the driver.
 
-The booking fee is our charge for arranging the ride. It is taken online, is
-shown separately before payment, and is never added to the meter.
+That price is built from the official tariff, which is where the figures below
+come from. They are the regulated rates, not the amount charged.
 
-Two ways to pay:
-- Fee only: pay the booking fee online, pay the metered fare to the driver.
-- Full prepay: pay a fixed fare plus the booking fee online, nothing in the car.
+${line('Daytime urban tariff (T-1)', `weekdays 08:00-20:00, official ${t.perKm.T1.toFixed(2)} EUR/km, charged ${(t.perKm.T1 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
+${line('Night and weekend urban tariff (T-2)', `nights, weekends, public holidays, official ${t.perKm.T2.toFixed(2)} EUR/km, charged ${(t.perKm.T2 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
+${line('Interurban tariff (T-6)', `outside the Barcelona metropolitan area, weekdays 08:00-20:00, charged ${t.outsideAMB.perKmCharged.T6.toFixed(2)} EUR/km, start ${t.outsideAMB.startFare.T6.toFixed(2)} EUR`)}
+${line('Interurban tariff (T-7)', `outside the metropolitan area at night, weekends and holidays, charged ${t.outsideAMB.perKmCharged.T7.toFixed(2)} EUR/km, start ${t.outsideAMB.startFare.T7.toFixed(2)} EUR`)}
+${line('Airport supplement', `${t.supplements.airportElPrat.toFixed(2)} EUR, fixed, set by the AMB, already inside the quoted price`)}
 
-A typical airport-to-city-centre journey is roughly 15 km and 25-35 minutes.
-Exact prices come from the booking form, which uses the real road distance.
+The interurban rate is higher per kilometre than the urban one because the
+Generalitat defines an interurban journey as a closed circuit: the meter counts
+the driver's return leg, since they cannot legally pick up a fare outside their
+own area and drive home empty.
+
+A typical airport-to-city-centre journey is roughly 14 km and 20-30 minutes,
+and comes to somewhere in the mid thirties of euros, all in. Exact prices come
+from the booking form, which measures the real road distance.
 
 ## Practical facts
 
@@ -72,7 +83,8 @@ Exact prices come from the booking form, which uses the real road distance.
 - Drivers meet arriving passengers inside the terminal with a name board.
 - Vehicles seat 4 to 7 passengers depending on type.
 - Passengers can change a booking within 30 minutes of making it, and until a driver sets off.
-- Cancellation is handled by our office; the booking fee is refunded if cancelled at least 24 hours ahead.
+- Cancellation is handled by our office; a booking cancelled at least 24 hours ahead is refunded in full.
+- A receipt for the full amount is emailed with the confirmation. The official meter invoice can be requested from the driver in the car.
 
 ## Key pages
 
@@ -84,9 +96,11 @@ ${DESTINATION_PAGES.map((d) => `- ${d.name}: ${SITE_URL}/en/destinations/${d.slu
 
 ## What we will not claim
 
-We do not claim to be cheaper than other licensed taxis, because regulated
-fares make that impossible. We do not quote a fare as final: the meter decides,
-and our estimate is an estimate. We do not operate the vehicles.
+We do not claim to be cheaper than a taxi taken from the rank. A booked car is
+a fixed all-inclusive price agreed before travel and paid online; the rank is
+whatever the meter reads at the end. The booked price is deliberately a little
+above the meter, because a price locked in advance means we carry the traffic
+and routing risk instead of the passenger. We do not operate the vehicles.
 `;
 
   return new Response(body, {

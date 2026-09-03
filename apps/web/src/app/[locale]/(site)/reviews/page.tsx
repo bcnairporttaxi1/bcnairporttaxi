@@ -15,6 +15,9 @@ export async function generateMetadata(props: {
   const { locale } = await props.params;
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `/${l}/reviews`;
+  // x-default tells Google which version to serve a language we do not
+  // publish. Without it the ten alternates describe a set with no default.
+  languages['x-default'] = `/en/reviews`;
   return {
     title: 'Barcelona Airport Taxi Reviews',
     description:

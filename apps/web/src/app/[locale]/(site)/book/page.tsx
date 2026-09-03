@@ -21,6 +21,9 @@ export async function generateMetadata(props: {
   const copy = getLandingCopy(page, locale);
   const languages: Record<string, string> = {};
   for (const l of locales) languages[l] = `/${l}/book`;
+  // x-default tells Google which version to serve a language we do not
+  // publish. Without it the ten alternates describe a set with no default.
+  languages['x-default'] = `/en/book`;
   return {
     // Absolute so the layout suffix does not push it past display length.
     title: { absolute: copy.title },
