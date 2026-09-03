@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
+import { BlogCover, coverFor } from '@/components/blog-cover';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS, getBlogPost } from '@bcn/core/blog';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
@@ -77,6 +78,12 @@ export default async function BlogPostPage(props: {
       <PageHero title={post.h1} intro={post.excerpt} />
 
       <article className="mx-auto max-w-3xl px-4 py-14">
+        {/* The same cover the index card carries, so arriving from the shelf
+            feels continuous rather than like a different page. */}
+        <BlogCover
+          motif={coverFor(post.slug)}
+          className="mb-10 aspect-[16/7] w-full rounded-[1.4rem] border border-line"
+        />
         <p className="font-mono text-xs text-dim">
           {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
             new Date(post.published),

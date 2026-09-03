@@ -115,17 +115,20 @@ export function LanguageGrid() {
   }
 
   return (
+    /* Ten bordered cards in a five-across grid was as much furniture as the
+       fleet section, for a control most visitors use once or never. It is a
+       row of chips now: the same ten choices, a fifth of the height, and the
+       copy beside them rather than stacked above. */
     <section aria-labelledby="lang-heading" className="border-t border-line bg-raise py-14">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2
-          id="lang-heading"
-          className="font-display text-2xl font-extrabold sm:text-3xl"
-        >
-          {t('languageHeading')}
-        </h2>
-        <p className="mt-3 max-w-2xl leading-relaxed text-dim">{t('languageIntro')}</p>
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:items-center lg:gap-14">
+        <div>
+          <h2 id="lang-heading" className="font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
+            {t('languageHeading')}
+          </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-dim">{t('languageIntro')}</p>
+        </div>
 
-        <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <ul className="flex flex-wrap gap-2.5">
           {locales.map((l) => {
             const on = l === active;
             const loading = pending && target === l;
@@ -136,21 +139,27 @@ export function LanguageGrid() {
                   onClick={() => go(l)}
                   aria-current={on ? 'true' : undefined}
                   disabled={pending}
-                  className={`tilt group flex w-full items-center gap-3 rounded-xl border-2 p-4 text-left transition ${
+                  className={`flex items-center gap-2.5 rounded-full border py-2 pl-2 pr-4 transition-all duration-500 ease-brand disabled:cursor-default ${
                     on
-                      ? 'border-gold bg-accent/10'
-                      : 'border-line bg-raise hover:border-ink'
-                  } ${loading ? 'opacity-60' : ''}`}
+                      ? 'border-gold/50 bg-gold/[0.09]'
+                      : 'border-line bg-void hover:-translate-y-0.5 hover:border-line-2 hover:bg-white/[0.045]'
+                  } ${loading ? 'opacity-50' : ''}`}
                 >
                   <span
                     aria-hidden="true"
-                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg font-mono text-xs font-extrabold ${
-                      on ? 'bg-gold text-void' : 'bg-void text-dim'
+                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full font-mono text-[11px] font-bold ${
+                      on ? 'bg-gold text-void' : 'bg-white/[0.06] text-dim'
                     }`}
                   >
                     {SHORT[l]}
                   </span>
-                  <span className="font-display text-sm font-bold">{localeNames[l]}</span>
+                  <span
+                    className={`whitespace-nowrap text-[13.5px] font-semibold ${
+                      on ? 'text-gold' : 'text-dim'
+                    }`}
+                  >
+                    {localeNames[l]}
+                  </span>
                 </button>
               </li>
             );

@@ -21,7 +21,7 @@
     "blog": "Guides",
     "signIn": "Sign in",
     "languageHeading": "Read this site in your language",
-    "languageIntro": "Everything — prices, routes, the booking form and your confirmation email — is written in all ten. Pick one and the whole site follows."
+    "languageIntro": "Prices, routes, the booking form and your confirmation email — all ten languages, in full. Pick one and the whole site follows."
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
@@ -54,11 +54,14 @@
       "faresTitle": "Real prices",
       "faresIntro": "Every figure below is an all-inclusive price built from the official schedule — the same one the booking form quotes.",
       "closingTitle": "Land, walk out,",
-      "closingIntro": "One all-inclusive price in seconds. No account needed to see it."
+      "closingIntro": "One all-inclusive price in seconds. No account needed to see it.",
+      "howLede": "in three moves.",
+      "whyLede": "and why it holds.",
+      "routesLede": "the ones people take."
     },
     "why": {
       "meter": {
-        "title": "The official meter, nothing added",
+        "title": "One price, locked before you travel",
         "body": "Barcelona fares are set by the AMB and identical in every licensed taxi. We build your price from the official tariff and the real road distance, then lock it — so the figure you are quoted is the figure you pay, whatever the traffic does."
       },
       "flight": {

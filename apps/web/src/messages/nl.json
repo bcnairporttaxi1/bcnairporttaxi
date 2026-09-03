@@ -16,8 +16,8 @@
     "services": "Diensten",
     "blog": "Gidsen",
     "signIn": "Inloggen",
-    "languageHeading": "Lees deze site in uw taal",
-    "languageIntro": "Alles — prijzen, routes, het boekingsformulier en uw bevestigingsmail — staat er in alle tien. Kies er een en de hele site volgt."
+    "languageHeading": "Deze site in uw taal",
+    "languageIntro": "Prijzen, routes, het boekingsformulier en uw bevestigingsmail — alle tien de talen, volledig. Kies er één en de hele site volgt."
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
@@ -50,7 +50,10 @@
       "faresTitle": "Echte prijzen",
       "faresIntro": "Elk bedrag hieronder is een all-in prijs op basis van het officiële tarief — dezelfde die het boekingsformulier noemt.",
       "closingTitle": "Land, loop naar buiten,",
-      "closingIntro": "Eén all-in prijs in enkele seconden. Geen account nodig om hem te zien."
+      "closingIntro": "Eén all-in prijs in enkele seconden. Geen account nodig om hem te zien.",
+      "howLede": "in drie stappen.",
+      "whyLede": "en waarom het klopt.",
+      "routesLede": "de meest geboekte."
     },
     "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
   },

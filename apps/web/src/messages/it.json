@@ -16,8 +16,8 @@
     "services": "Servizi",
     "blog": "Guide",
     "signIn": "Accedi",
-    "languageHeading": "Leggi questo sito nella tua lingua",
-    "languageIntro": "Tutto — prezzi, tratte, il modulo di prenotazione e l'email di conferma — è scritto in tutte e dieci. Scegline una e il sito intero ti segue."
+    "languageHeading": "Questo sito nella tua lingua",
+    "languageIntro": "Prezzi, tragitti, il modulo di prenotazione e la tua e-mail di conferma: tutte e dieci le lingue, per intero. Scegline una e tutto il sito ti segue."
   },
   "home": {
     "metaTitle": "Taxi Aeroporto Barcellona | Transfer El Prat Online",
@@ -50,7 +50,10 @@
       "faresTitle": "Prezzi reali",
       "faresIntro": "Ogni importo qui sotto è un prezzo tutto incluso calcolato sul tariffario ufficiale, lo stesso che indica il modulo di prenotazione.",
       "closingTitle": "Atterra, esci",
-      "closingIntro": "Un prezzo tutto incluso in pochi secondi. Non serve un account per vederlo."
+      "closingIntro": "Un prezzo tutto incluso in pochi secondi. Non serve un account per vederlo.",
+      "howLede": "in tre mosse.",
+      "whyLede": "e perché regge.",
+      "routesLede": "i più richiesti."
     },
     "kicker": "Servizio taxi autorizzato per l'aeroporto di Barcellona"
   },

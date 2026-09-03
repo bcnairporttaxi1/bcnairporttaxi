@@ -16,8 +16,8 @@
     "services": "Servicios",
     "blog": "Guías",
     "signIn": "Entrar",
-    "languageHeading": "Lee esta web en tu idioma",
-    "languageIntro": "Todo (precios, rutas, el formulario de reserva y tu correo de confirmación) está escrito en los diez. Elige uno y toda la web te sigue."
+    "languageHeading": "Esta web, en tu idioma",
+    "languageIntro": "Precios, rutas, el formulario de reserva y tu correo de confirmación: los diez idiomas, completos. Elige uno y la web entera te sigue."
   },
   "home": {
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
@@ -50,12 +50,15 @@
       "faresTitle": "Precios reales",
       "faresIntro": "Cada importe de abajo es un precio con todo incluido calculado con el cuadro oficial, el mismo que te da el formulario de reserva.",
       "closingTitle": "Aterriza, sal",
-      "closingIntro": "Un precio con todo incluido en segundos. No necesitas cuenta para verlo."
+      "closingIntro": "Un precio con todo incluido en segundos. No necesitas cuenta para verlo.",
+      "howLede": "en tres pasos.",
+      "whyLede": "y por qué se sostiene.",
+      "routesLede": "las que más se piden."
     },
     "why": {
       "meter": {
-        "title": "El taxímetro oficial, sin añadidos",
-        "body": "Las tarifas de Barcelona las fija el AMB y son idénticas en todos los taxis con licencia. Te mostramos una estimación precisa según la distancia real por carretera y pagas el taxímetro, o fijas un precio cerrado por adelantado si prefieres seguridad."
+        "title": "Un precio, cerrado antes de viajar",
+        "body": "Las tarifas de Barcelona las fija el AMB y son idénticas en todos los taxis con licencia. Calculamos tu precio con la tarifa oficial y la distancia real por carretera, y lo dejamos cerrado: lo que te decimos es lo que pagas, pase lo que pase con el tráfico."
       },
       "flight": {
         "title": "Seguimos tu vuelo",
@@ -152,7 +155,7 @@
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
     "metaDescription": "Taxis con licencia para el aeropuerto de Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito y Mercedes V-Class. Plazas y equipaje para cada grupo.",
     "h1": "Nuestra flota de taxis en Barcelona",
-    "intro": "Cada vehículo es un taxi con licencia de Barcelona con taxímetro. Elige según el tamaño del grupo y el equipaje: la estimación es la misma en todos, porque la tarifa la fija el AMB.",
+    "intro": "Cada vehículo es un taxi con licencia de Barcelona. Elige por tamaño del grupo y equipaje: los vehículos de cinco a ocho plazas llevan el suplemento oficial del AMB, que ya va incluido en el precio que ves.",
     "seats": "{count, plural, one {# pasajero} other {# pasajeros}}",
     "bags": "{count, plural, one {# maleta} other {# maletas}}",
     "passengersLabel": "Pasajeros",

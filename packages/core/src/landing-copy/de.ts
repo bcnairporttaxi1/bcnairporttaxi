@@ -12,7 +12,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Was ein Transfer vom Flughafen Barcelona kostet',
-        body: 'Der Preis richtet sich nach dem offiziellen AMB-Taxameter. Ab El Prat zahlen Sie den Taxameterbetrag plus den festen Flughafenzuschlag, und für sehr kurze Fahrten ab dem Flughafen gilt ein Mindestpreis. In der Praxis liegt eine Fahrt vom Flughafen ins Zentrum meist zwischen fünfunddreißig und fünfundvierzig Euro, nachts und am Wochenende höher, wenn der Tarif T-2 greift. Geben Sie oben Ihr genaues Ziel ein für eine präzise Schätzung.',
+        body: 'Der Preis wird aus dem offiziellen AMB-Tarif und der tatsächlichen Straßenentfernung gebildet; der feste Flughafenzuschlag und der Mindestpreis ab Flughafen stecken bereits darin. In der Praxis liegt eine Fahrt vom Flughafen ins Zentrum meist bei Mitte dreißig Euro, nachts und am Wochenende höher, wenn der T-2-Tarif gilt. Geben Sie oben Ihr genaues Ziel ein, um Ihren Komplettpreis zu sehen.',
       },
       {
         h2: 'Wo Ihr Fahrer auf Sie wartet',
@@ -74,7 +74,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Taxipreis Flughafen Barcelona | AMB-Tarife 2026',
     description:
-      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: die offizielle AMB-Tariftabelle, der El-Prat-Zuschlag, der Mindestpreis ab Flughafen und unsere Buchungsgebühr.',
+      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: die offizielle AMB-Tariftabelle, der El-Prat-Zuschlag, der Mindestpreis ab Flughafen und wie Ihr Komplettpreis zustande kommt.',
     h1: 'Taxipreis zum Flughafen Barcelona',
     intro:
       'Taxipreise in Barcelona sind reguliert. Kein lizenziertes Taxi darf mehr oder weniger verlangen als das offizielle AMB-Taxameter. Die ehrliche Antwort auf „Was kostet das?" ist deshalb eine Rechnung, keine Verkaufszahl. So funktioniert diese Rechnung genau.',
@@ -92,8 +92,8 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Für Fahrten, die in El Prat beginnen, gilt ein Mindestpreis. Liegt der Taxameterbetrag bei einer kurzen Fahrt darunter, zahlen Sie den Mindestpreis. Das betrifft vor allem Fahrten nach El Prat Ort oder zu nahegelegenen Hotels, nicht Fahrten nach Barcelona.',
       },
       {
-        h2: 'Was wir berechnen',
-        body: 'Unsere Buchungsgebühr ist ein Prozentsatz des Fahrpreises, online bei der Reservierung fällig: 20% von Montag bis Freitag, 25% an Wochenenden, Feiertagen und in besonderen Nächten. Sie ist ein Serviceentgelt für die Vermittlung, kein Aufschlag auf den Fahrpreis, und erscheint nie auf dem Taxameter. Sie sehen sie vor der Zahlung als eigene Position und erhalten dafür eine separate Quittung. Alternativ zahlen Sie die gesamte Fahrt zum Festpreis im Voraus — dann ist im Taxi nichts mehr offen.',
+        h2: 'Was Ihr Preis enthält',
+        body: 'Sie zahlen bei der Onlinebuchung einen einzigen Komplettpreis. Er deckt die Fahrt nach dem offiziellen AMB-Tarif ab, jeden offiziellen Zuschlag Ihrer Route und unseren Service für Reservierung und Zusage des Wagens. Es gibt keinen zweiten Betrag: Im Taxi ist nichts zu zahlen.',
       },
     ],
   },
@@ -162,7 +162,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Geschäftsreisen',
-        body: 'Für Geschäftsreisen können wir die V-Class einsetzen und die Taxirechnung für Ihre Spesenabrechnung bereitstellen. Bitten Sie Ihren Fahrer im Wagen um die Taxameterrechnung; die Quittung für die Buchungsgebühr senden wir separat per E-Mail.',
+        body: 'Für Geschäftsreisen können wir die V-Class Premium zuweisen. Die Quittung über den vollen Betrag erhalten Sie per E-Mail mit Ihrer Bestätigung; brauchen Sie zusätzlich die offizielle Taxameterrechnung, fragen Sie Ihren Fahrer im Wagen danach.',
       },
     ],
   },
@@ -265,7 +265,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       'Buchen Sie in Minuten ein Taxi zum Flughafen Barcelona. Sofortige Schätzung nach offiziellen AMB-Tarifen, sichere Zahlung, sofortige Bestätigung per E-Mail.',
     h1: 'Taxi zum Flughafen Barcelona online buchen',
     intro:
-      'Die Onlinebuchung dauert zwei Minuten und sichert Ihnen einen bestätigten Wagen mit zugeteiltem Fahrer. Zahlen Sie jetzt nur die Buchungsgebühr und den Taxameterbetrag beim Fahrer — oder zahlen Sie die ganze Fahrt zum Festpreis vorab und schulden im Taxi nichts mehr.',
+      'Die Onlinebuchung dauert ein paar Minuten und sichert Ihnen einen bestätigten Wagen mit zugeteiltem Fahrer. Sie zahlen einen Komplettpreis online und schulden im Taxi nichts.',
     sections: [
       {
         h2: 'Was Sie für die Buchung brauchen',
@@ -277,7 +277,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Änderungen und Stornierungen',
-        body: 'Pläne ändern sich. Stornieren Sie mindestens 24 Stunden vor der Abholung, und die Buchungsgebühr wird vollständig erstattet. Zum Verschieben antworten Sie einfach auf die Bestätigungsmail, dann legen wir den Termin neu.',
+        body: 'Pläne ändern sich. Stornieren Sie mindestens 24 Stunden vor der Abholung, und Sie erhalten den vollen Betrag zurück. Zum Verschieben antworten Sie einfach auf die Bestätigungsmail.',
       },
     ],
   },

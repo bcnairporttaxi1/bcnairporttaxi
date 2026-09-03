@@ -17,7 +17,7 @@
     "blog": "Ratgeber",
     "signIn": "Anmelden",
     "languageHeading": "Diese Seite in Ihrer Sprache",
-    "languageIntro": "Alles — Preise, Strecken, das Buchungsformular und Ihre Bestätigungsmail — gibt es in allen zehn. Wählen Sie eine, und die ganze Seite folgt."
+    "languageIntro": "Preise, Strecken, das Buchungsformular und Ihre Bestätigungsmail — alle zehn Sprachen, vollständig. Wählen Sie eine, und die ganze Seite folgt."
   },
   "home": {
     "metaTitle": "Taxi Flughafen Barcelona | El Prat Transfers online",
@@ -50,7 +50,10 @@
       "faresTitle": "Echte Preise",
       "faresIntro": "Jeder Betrag unten ist ein Komplettpreis nach dem offiziellen Tarif — genau der, den auch das Buchungsformular nennt.",
       "closingTitle": "Landen, rausgehen,",
-      "closingIntro": "Ein Komplettpreis in Sekunden. Kein Konto nötig, um ihn zu sehen."
+      "closingIntro": "Ein Komplettpreis in Sekunden. Kein Konto nötig, um ihn zu sehen.",
+      "howLede": "in drei Schritten.",
+      "whyLede": "und warum es hält.",
+      "routesLede": "die meistgebuchten."
     },
     "kicker": "Lizenzierter Taxi-Service zum Flughafen Barcelona"
   },

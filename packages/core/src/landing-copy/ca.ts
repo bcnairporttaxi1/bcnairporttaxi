@@ -80,7 +80,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preu Taxi Aeroport Barcelona | Tarifes AMB 2026',
     description:
-      'El que costa realment un taxi a l\'aeroport de Barcelona: la taula oficial de tarifes AMB, el suplement del Prat, la tarifa mínima d\'aeroport i les nostres despeses de gestió.',
+      'El que costa realment un taxi a l\'aeroport de Barcelona: la taula oficial de tarifes AMB, el suplement del Prat, la tarifa mínima d\'aeroport i com es calcula el teu preu amb tot inclòs.',
     h1: 'Preu del taxi a l\'aeroport de Barcelona',
     intro:
       'Els preus del taxi a Barcelona estan regulats. Cap taxi amb llicència pot cobrar més ni menys que el taxímetre oficial de l\'AMB, cosa que significa que la resposta honesta a "quant costa" és un càlcul, no una xifra comercial. Així funciona exactament aquest càlcul.',
@@ -98,8 +98,8 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Els trajectes que comencen al Prat tenen una tarifa mínima. Si l\'import del taxímetre per a un trajecte curt queda per sota d\'aquest mínim, pagues el mínim. Això afecta sobretot els viatges al Prat poble o a hotels propers, no els trajectes cap a Barcelona.',
       },
       {
-        h2: 'El que cobrem nosaltres',
-        body: 'Les nostres despeses de gestió són un percentatge de la tarifa, pagades online en reservar: un 20% de dilluns a divendres i un 25% els caps de setmana, festius i nits especials. És un càrrec pel servei de gestionar el trajecte, no un recàrrec sobre la tarifa, i mai no apareix al taxímetre. El veus com una línia separada abans de pagar i en reps el rebut per correu. També pots prepagar el trajecte sencer a preu tancat, i llavors no queda res per pagar al taxi.',
+        h2: 'Què inclou el teu preu',
+        body: 'Pagues un únic preu amb tot inclòs en reservar en línia. Cobreix el trajecte segons la tarifa oficial de l\'AMB, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. No hi ha cap segon import: al taxi no es paga res.',
       },
     ],
   },
@@ -168,7 +168,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Viatges d\'empresa i factures',
-        body: 'Per a viatges de feina podem assignar la V-Class premium i facilitar la factura del taxi per a despeses. Demana la factura del taxímetre al teu conductor dins del cotxe; el rebut de les despeses de gestió te l\'enviem per correu a part.',
+        body: 'Per a viatges de feina podem assignar la V-Class premium. T\'enviem per correu el rebut de l\'import complet amb la confirmació; si a més necessites la factura oficial del taxímetre, demana-la al teu conductor dins del cotxe.',
       },
     ],
   },
@@ -271,7 +271,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       'Reserva un taxi a l\'aeroport de Barcelona online en minuts. Estimació immediata amb tarifes oficials AMB, pagament segur i confirmació instantània per correu.',
     h1: 'Reservar un taxi a l\'aeroport de Barcelona online',
     intro:
-      'Reservar online triga un parell de minuts i et deixa un cotxe confirmat amb conductor assignat. Pots pagar només les despeses de gestió ara i liquidar el taxímetre amb el teu conductor, o prepagar el trajecte sencer a preu tancat i no deure res al taxi.',
+      'Reservar en línia dura un parell de minuts i et deixa un cotxe confirmat amb conductor assignat. Pagues un únic preu amb tot inclòs i no deus res al taxi.',
     sections: [
       {
         h2: 'Què necessites per reservar un taxi a l\'aeroport de Barcelona',
@@ -283,7 +283,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Canvis i cancel·lacions',
-        body: 'Els plans canvien. Cancel·la amb un mínim de 24 hores d\'antelació i et retornem íntegrament les despeses de gestió. Per moure una reserva, respon al correu de confirmació i la reprogramem.',
+        body: 'Els plans canvien. Cancel·la amb un mínim de 24 hores d\'antelació i et retornem l\'import íntegre. Per moure una reserva, respon al correu de confirmació i la reprogramem.',
       },
     ],
   },

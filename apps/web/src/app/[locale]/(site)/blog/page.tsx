@@ -4,6 +4,8 @@ import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS } from '@bcn/core/blog';
+import { BlogCover, coverFor } from '@/components/blog-cover';
+import { Stagger, StaggerItem } from '@/components/motion';
 import { locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
@@ -43,26 +45,39 @@ export default async function BlogIndex(props: {
         intro="Straight answers on getting to and from El Prat — what things cost, how long they take, and when a taxi is genuinely the right call."
       />
 
-      <div className="mx-auto max-w-3xl px-4 py-14">
-        <ul className="space-y-6">
+      <div className="mx-auto max-w-5xl px-4 py-14">
+        {/* Cards rather than a stack of paragraphs: every post now leads with
+            its own drawn cover, so the index scans as a shelf instead of a
+            wall of grey text. */}
+        <Stagger as="ul" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {BLOG_POSTS.map((post) => (
-            <li key={post.slug}>
+            <StaggerItem as="li" key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block rounded-card border border-line bg-raise p-6 transition hover:border-gold/60"
+                className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-line bg-raise transition-all duration-500 ease-brand hover:-translate-y-1.5 hover:border-gold/50"
               >
-                <h2 className="font-display text-xl font-extrabold">{post.title}</h2>
-                <p className="mt-2 leading-relaxed text-dim">{post.excerpt}</p>
-                <p className="mt-3 font-mono text-xs text-dim">
-                  {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
-                    new Date(post.published),
-                  )}{' '}
-                  · {post.readingMinutes} min read
-                </p>
+                <BlogCover
+                  motif={coverFor(post.slug)}
+                  className="aspect-[16/9] w-full border-b border-line transition-transform duration-700 ease-brand group-hover:scale-[1.03]"
+                />
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                    {new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(
+                      new Date(post.published),
+                    )}{' '}
+                    · {post.readingMinutes} min
+                  </p>
+                  <h2 className="mt-2.5 font-display text-lg font-bold leading-snug transition-colors duration-500 group-hover:text-gold">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-dim">
+                    {post.excerpt}
+                  </p>
+                </div>
               </Link>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </>
   );

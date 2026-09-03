@@ -12,7 +12,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: "Quanto costa un transfer dall'aeroporto di Barcellona",
-        body: "La tariffa è quella del tassametro ufficiale dell'AMB. Da El Prat paghi l'importo del tassametro più il supplemento fisso aeroportuale, e per le corse molto brevi in partenza dall'aeroporto vale una tariffa minima. In pratica una corsa dall'aeroporto al centro di Barcellona si aggira di solito tra i trentacinque e i quarantacinque euro, di più di notte e nei fine settimana quando si applica la tariffa T-2. Inserisci sopra la destinazione esatta per una stima precisa.",
+        body: "Il prezzo si costruisce sulla tariffa ufficiale AMB e sulla distanza stradale reale, con il supplemento aeroportuale fisso e la tariffa minima già inclusi. In pratica una corsa dall'aeroporto al centro di Barcellona si aggira sui trentacinque euro, di più di notte e nei fine settimana quando vale la tariffa T-2. Inserisci sopra la destinazione esatta per vedere il tuo prezzo tutto incluso.",
       },
       {
         h2: 'Dove ti aspetta il tuo autista',
@@ -74,7 +74,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prezzo Taxi Aeroporto Barcellona | Tariffe AMB 2026',
     description:
-      "Quanto costa davvero un taxi per l'aeroporto di Barcellona: tabella ufficiale AMB, supplemento El Prat, tariffa minima aeroportuale e la nostra commissione.",
+      "Quanto costa davvero un taxi per l'aeroporto di Barcellona: tabella ufficiale AMB, supplemento El Prat, tariffa minima aeroportuale e come si compone il tuo prezzo tutto incluso.",
     h1: "Prezzo del taxi per l'aeroporto di Barcellona",
     intro:
       "I prezzi dei taxi a Barcellona sono regolamentati. Nessun taxi autorizzato può chiedere più o meno del tassametro ufficiale dell'AMB, il che significa che la risposta onesta a «quanto costa» è un calcolo, non una cifra commerciale. Ecco come funziona esattamente quel calcolo.",
@@ -92,8 +92,8 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
         body: "Le corse che partono da El Prat hanno una tariffa minima. Se su un tragitto breve il tassametro segna meno di quel minimo, paghi il minimo. Riguarda soprattutto gli spostamenti verso El Prat paese o gli hotel vicini, non le corse verso Barcellona.",
       },
       {
-        h2: 'Quello che addebitiamo noi',
-        body: "La nostra commissione di prenotazione è una percentuale della corsa, pagata online al momento della prenotazione: 20% dal lunedì al venerdì e 25% nei fine settimana, nei festivi e nelle notti speciali. È un corrispettivo per il servizio di organizzare il viaggio, non una maggiorazione della tariffa, e non compare mai sul tassametro. La vedi come voce separata prima di pagare e ne ricevi ricevuta a parte. Puoi anche prepagare l'intero viaggio a prezzo chiuso: in quel caso in taxi non resta nulla da pagare.",
+        h2: 'Cosa comprende il tuo prezzo',
+        body: "Paghi online un unico prezzo tutto incluso al momento della prenotazione. Copre il tragitto secondo la tariffa ufficiale AMB, ogni supplemento ufficiale previsto per il tuo percorso e il nostro servizio di prenotazione e garanzia dell'auto. Non c'è un secondo importo: in taxi non si paga nulla.",
       },
     ],
   },
@@ -162,7 +162,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Viaggi di lavoro',
-        body: "Per le trasferte possiamo assegnare la V-Class e fornire la fattura del taxi per la nota spese. Chiedi la fattura del tassametro al tuo autista in auto; la ricevuta della commissione di prenotazione ti arriva separatamente via email.",
+        body: "Per le trasferte possiamo assegnare la V-Class premium. La ricevuta dell'importo completo ti arriva via e-mail con la conferma; se ti serve anche la fattura ufficiale del tassametro, chiedila all'autista in auto.",
       },
     ],
   },
@@ -265,7 +265,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       "Prenota in pochi minuti un taxi per l'aeroporto di Barcellona. Stima immediata con tariffe ufficiali AMB, pagamento sicuro e conferma istantanea via email.",
     h1: "Prenotare un taxi per l'aeroporto di Barcellona online",
     intro:
-      "Prenotare online richiede un paio di minuti e ti garantisce un'auto confermata con autista assegnato. Paga adesso solo la commissione di prenotazione e salda il tassametro con l'autista, oppure prepaga l'intero viaggio a prezzo chiuso e in taxi non dovrai nulla.",
+      "Prenotare online richiede un paio di minuti e ti garantisce un'auto confermata con autista assegnato. Paghi online un unico prezzo tutto incluso e non devi nulla in taxi.",
     sections: [
       {
         h2: 'Cosa serve per prenotare',
@@ -277,7 +277,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Modifiche e cancellazioni',
-        body: "I piani cambiano. Cancella con almeno 24 ore di anticipo e la commissione di prenotazione viene rimborsata per intero. Per spostare una prenotazione rispondi all'email di conferma e la riprogrammiamo.",
+        body: "I piani cambiano. Cancella con almeno 24 ore di anticipo e ti rimborsiamo per intero. Per spostare una prenotazione rispondi all'email di conferma e la riprogrammiamo.",
       },
     ],
   },

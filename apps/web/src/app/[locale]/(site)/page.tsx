@@ -11,11 +11,63 @@ import { LANDMARKS, TARIFFS } from '@bcn/core/tariffs';
 import { calculateQuote } from '@bcn/core/pricing';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
+import { Rise, Stagger, StaggerItem, LiftCard, DrawLine } from '@/components/motion';
+import { StepArt } from '@/components/step-art';
 import { LanguageGrid } from '@/components/language-switcher';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
 
 const FAQ_KEYS = ['fareAccurate', 'whyFee', 'invoice', 'meetDriver', 'urgent', 'cancel'] as const;
+
+/**
+ * The four reasons, each with its own mark.
+ *
+ * They previously shared one tick icon four times over, which told the reader
+ * nothing and made the grid read as filler. `wide` gives the price guarantee —
+ * the only one of the four that is a promise rather than a fact — the tall
+ * cell on desktop.
+ */
+const WHY = [
+  {
+    key: 'meter' as const,
+    wide: true,
+    // A tag: a fixed price, attached.
+    icon: (
+      <>
+        <path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l7.5 7.5-9 9z" />
+        <circle cx="8" cy="8" r="1.4" />
+      </>
+    ),
+  },
+  {
+    key: 'flight' as const,
+    wide: false,
+    // A plane on approach.
+    icon: <path d="M3 15.5l18-7-4.5 12-3.5-4.5-4 2.5-1-4.5-5-1.5z" />,
+  },
+  {
+    key: 'licensed' as const,
+    wide: false,
+    // A shield.
+    icon: (
+      <>
+        <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.9-7.5 10-4.3-1.1-7.5-5.4-7.5-10V6z" />
+        <path d="M9 12l2.2 2.2L15.5 10" />
+      </>
+    ),
+  },
+  {
+    key: 'support' as const,
+    wide: false,
+    // A conversation, not a queue.
+    icon: (
+      <>
+        <path d="M20.5 12.5a7.5 7.5 0 0 1-10.9 6.7L4 20.5l1.4-5.3A7.5 7.5 0 1 1 20.5 12.5z" />
+        <path d="M9 12h.01M12 12h.01M15 12h.01" />
+      </>
+    ),
+  },
+];
 
 export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
@@ -209,71 +261,107 @@ export default async function HomePage(props: {
         </div>
       </section>
 
-      {/* Right under the fold: an arriving visitor should be able to see their
-          own language without opening anything. */}
-      <LanguageGrid />
-
-      {/* How it works */}
-      <section className="stage mx-auto max-w-6xl px-4 py-20 sm:py-24">
-        <Reveal>
+      {/* How it works. Each step leads with a drawing of what it describes and
+          a hairline threads the three together, so the sequence is legible
+          before a word of it is read. */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+        <Rise>
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
             {t('sections.howTitle')}
+            <span className="editorial text-[1.08em]">{t('sections.howLede')}</span>
           </h2>
           <p className="mt-3 max-w-2xl text-dim">{t('sections.howIntro')}</p>
-        </Reveal>
+        </Rise>
 
-        <ol className="mt-12 grid gap-6 md:grid-cols-3">
-          {(['one', 'two', 'three'] as const).map((step, i) => (
-            <Reveal as="li" key={step} delay={i * 110}>
-              {/* The oversized watermark numeral was removed: at 1.31:1 on white
-                  it failed contrast, and the numbered badge already carries the
-                  sequence. */}
-              <div className="lift relative h-full rounded-card border border-line bg-raise p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-void font-mono text-lg font-bold text-gold">
-                  {i + 1}
-                </span>
-                <h3 className="mt-5 font-display text-lg font-bold">
-                  {tw(`steps.${step}.title`)}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-dim">
-                  {tw(`steps.${step}.body`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </ol>
+        <div className="relative mt-14">
+          {/* The spine sits behind the cards and only exists on the three-across
+              layout; stacked on a phone there is nothing to thread. */}
+          <DrawLine className="pointer-events-none absolute inset-x-0 top-[104px] hidden h-px md:block" />
+
+          <Stagger as="ol" className="relative grid gap-6 md:grid-cols-3">
+            {(['one', 'two', 'three'] as const).map((step, i) => (
+              <LiftCard as="li" key={step} className="h-full">
+                <div className="flex h-full flex-col rounded-[1.4rem] border border-line bg-raise p-5 transition-colors duration-500 ease-brand hover:border-gold/40">
+                  <StepArt step={(i + 1) as 1 | 2 | 3} />
+                  <div className="mt-5 flex items-center gap-3">
+                    <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-gold font-mono text-sm font-bold text-void">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-display text-lg font-bold tracking-tight">
+                      {tw(`steps.${step}.title`)}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-dim">
+                    {tw(`steps.${step}.body`)}
+                  </p>
+                </div>
+              </LiftCard>
+            ))}
+          </Stagger>
+        </div>
       </section>
 
-      {/* Why book with us */}
+      {/* Why book with us. Four identical cards under four identical ticks
+          said nothing about which reason matters most. The price guarantee —
+          the only promise among four facts — now takes the tall cell, and each
+          claim carries its own mark. */}
       <section className="border-y border-line bg-raise py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <Reveal>
+          <Rise>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.whyTitle')}
+              <span className="editorial text-[1.08em]">{t('sections.whyLede')}</span>
             </h2>
             <p className="mt-3 max-w-2xl text-dim">{t('sections.whyIntro')}</p>
-          </Reveal>
+          </Rise>
 
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-            {(['meter', 'flight', 'licensed', 'support'] as const).map((k, i) => (
-              <Reveal as="li" key={k} delay={i * 90}>
-                <div className="lift h-full rounded-card border border-line bg-void p-7">
+          <Stagger as="ul" className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY.map(({ key, icon, wide }) => (
+              <LiftCard as="li" key={key} className={wide ? 'sm:col-span-2 lg:col-span-3' : ''}>
+                <div
+                  className={`relative h-full overflow-hidden rounded-[1.4rem] border border-line bg-void p-7 transition-colors duration-500 ease-brand hover:border-gold/40 ${
+                    wide
+                      ? 'lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:content-center lg:gap-x-12 lg:gap-y-0 lg:p-9'
+                      : 'flex flex-col'
+                  }`}
+                >
+                  {wide && (
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-10 -top-12 h-48 w-48 rounded-full bg-gold/[0.12] blur-[60px]"
+                    />
+                  )}
                   <span
                     aria-hidden="true"
-                    className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-gold"
+                    className="relative grid h-11 w-11 place-items-center rounded-xl border border-gold/20 bg-gold/[0.08] text-gold"
                   >
-                    <svg viewBox="0 0 20 20" className="h-5 w-5 fill-current">
-                      <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5 fill-none stroke-current stroke-[1.6]"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      {icon}
                     </svg>
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-bold">
-                    {t(`why.${k}.title`)}
+                  <h3
+                    className={`relative mt-5 font-display font-bold tracking-tight ${
+                      wide ? 'text-2xl sm:text-3xl lg:mt-4' : 'text-lg'
+                    }`}
+                  >
+                    {t(`why.${key}.title`)}
                   </h3>
-                  <p className="mt-2 leading-relaxed text-dim">{t(`why.${k}.body`)}</p>
+                  <p
+                    className={`relative mt-2.5 leading-relaxed text-dim ${
+                      wide ? 'text-base lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-center lg:text-[17px]' : 'text-[15px]'
+                    }`}
+                  >
+                    {t(`why.${key}.body`)}
+                  </p>
                 </div>
-              </Reveal>
+              </LiftCard>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </section>
 
@@ -354,40 +442,51 @@ export default async function HomePage(props: {
         </div>
       </section>
 
-      {/* Popular routes — internal linking hub */}
+      {/* Popular routes — the internal-linking hub. Every card repeated a
+          three-line meta description, which made this the densest block of
+          prose on the page for the least reward. A route name and a direction
+          is what anyone reads here; the description still lives on the page it
+          belongs to. */}
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-          {t('sections.routesTitle')}
-        </h2>
-        <p className="mt-3 max-w-2xl text-dim">{t('sections.routesIntro')}</p>
+        <Rise>
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+            {t('sections.routesTitle')}
+            <span className="editorial text-[1.08em]">{t('sections.routesLede')}</span>
+          </h2>
+          <p className="mt-3 max-w-2xl text-dim">{t('sections.routesIntro')}</p>
+        </Rise>
 
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {LANDING_PAGES.map((p, i) => {
+        <Stagger
+          as="ul"
+          className="mt-12 grid gap-px overflow-hidden rounded-[1.4rem] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {LANDING_PAGES.map((p) => {
             const copy = getLandingCopy(p, locale);
             return (
-              <Reveal as="li" key={p.slug} delay={(i % 3) * 80}>
+              <StaggerItem as="li" key={p.slug}>
                 <Link
                   href={`/${p.slug}`}
-                  className="lift group flex h-full flex-col rounded-card border border-line bg-raise p-6 hover:border-gold"
+                  className="group flex h-full items-center gap-4 bg-raise px-6 py-5 transition-colors duration-500 ease-brand hover:bg-white/[0.035]"
                 >
-                  <h3 className="font-display text-base font-bold transition-colors group-hover:text-gold">
-                    {copy.h1}
-                  </h3>
-                  <p className="mt-2 line-clamp-3 text-sm text-dim">{copy.description}</p>
                   <span
                     aria-hidden="true"
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold opacity-0 transition-opacity group-hover:opacity-100"
-                  >
-                    {tc('learnMore')}
-                    <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current">
-                      <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
-                    </svg>
+                    className="h-1.5 w-1.5 flex-none rounded-full bg-gold/40 transition-all duration-500 ease-brand group-hover:w-5 group-hover:bg-gold"
+                  />
+                  <span className="flex-1 font-display text-[15px] font-semibold leading-snug tracking-tight transition-colors duration-500 group-hover:text-gold">
+                    {copy.h1}
                   </span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    className="h-4 w-4 flex-none fill-current text-ghost transition-all duration-500 ease-brand group-hover:translate-x-1 group-hover:text-gold"
+                  >
+                    <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+                  </svg>
                 </Link>
-              </Reveal>
+              </StaggerItem>
             );
           })}
-        </ul>
+        </Stagger>
       </section>
 
       {/* Fares — the differentiator is that these are the real schedule, not a
@@ -489,6 +588,10 @@ export default async function HomePage(props: {
           </div>
         </Reveal>
       </section>
+
+      {/* Language choice belongs down here, not between the hero and the
+          first explanation of the service. */}
+      <LanguageGrid />
 
       <PaymentMethods />
 

@@ -1064,85 +1064,117 @@ h4 {
 /**
  * Floating WhatsApp action.
  *
- * Bottom-right on every viewport, but it is the phone that needs it: the top
- * bar's WhatsApp link scrolls away and never comes back, and a traveller with
- * a delayed flight should never have to hunt for it. `--fab-lift` is raised by
- * the cookie banner so the two never overlap.
+ * The top bar's WhatsApp link scrolls away on the first flick and hides its
+ * label on a phone, so this is the one contact route reachable from anywhere.
+ *
+ * It is a FLEX row, not a grid. As a grid with the default row flow the icon
+ * and the label became two stacked tracks, so the icon sat in the upper half
+ * of the circle with an invisible zero-width label reserving a row beneath it
+ * — the mark looked knocked off-centre on every phone. The label is now
+ * display:none until there is both a pointer and the width to unfurl into.
+ *
+ * `--fab-lift` is raised by the cookie banner so the two never overlap.
  */
 .fab {
   position: fixed;
   right: 1rem;
   bottom: calc(1rem + var(--fab-lift, 0px));
   z-index: 55;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3.5rem;
   height: 3.5rem;
+  padding: 0;
   border-radius: 999px;
-  background: linear-gradient(150deg, #4ade80, #17a34a);
-  color: #04120a;
+  /* WhatsApp's own green, kept recognisable, but ringed in the page's own
+     hairline so it reads as part of this interface rather than pasted on. */
+  background: linear-gradient(155deg, #4be07f 0%, #25d366 42%, #128c47 100%);
+  color: #04140b;
   box-shadow:
-    inset 0 0 0 1px rgb(255 255 255 / 26%),
-    0 16px 34px -12px rgb(0 0 0 / 80%),
-    0 0 0 0 rgb(74 222 128 / 45%);
+    inset 0 1px 0 rgb(255 255 255 / 45%),
+    0 0 0 1px rgb(0 0 0 / 55%),
+    0 14px 30px -10px rgb(0 0 0 / 85%),
+    0 4px 14px -6px rgb(37 211 102 / 45%);
   transition:
     transform 0.5s var(--ease-brand),
     bottom 0.5s var(--ease-brand),
     box-shadow 0.5s var(--ease-brand);
 }
 .fab:hover {
-  transform: scale(1.07);
+  transform: scale(1.06);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 55%),
+    0 0 0 1px rgb(0 0 0 / 55%),
+    0 18px 38px -10px rgb(0 0 0 / 85%),
+    0 6px 22px -6px rgb(37 211 102 / 65%);
 }
 .fab:active {
   transform: scale(0.96);
 }
 
-/* One slow halo, so it is noticed once and then forgotten about. */
+/**
+ * The halo is a pseudo-element rather than an animated box-shadow.
+ *
+ * Animating the shadow meant the keyframes owned that property outright, so
+ * every hover state was overwritten mid-cycle and the button flickered between
+ * two shadows on touch — which is what read as the glitch. A separate ring
+ * scales behind the button and leaves the shadow alone.
+ */
+.fab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid rgb(37 211 102 / 55%);
+  opacity: 0;
+  pointer-events: none;
+}
 @keyframes fab-halo {
-  0%,
-  100% {
-    box-shadow:
-      inset 0 0 0 1px rgb(255 255 255 / 26%),
-      0 16px 34px -12px rgb(0 0 0 / 80%),
-      0 0 0 0 rgb(74 222 128 / 45%);
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
   }
-  60% {
-    box-shadow:
-      inset 0 0 0 1px rgb(255 255 255 / 26%),
-      0 16px 34px -12px rgb(0 0 0 / 80%),
-      0 0 0 14px rgb(74 222 128 / 0%);
+  70%,
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .fab {
-    animation: fab-halo 3.4s var(--ease-brand) infinite;
+  .fab::before {
+    animation: fab-halo 3.6s var(--ease-brand) infinite;
   }
 }
 
-/* The label only unfurls on a pointer device; on a phone the mark is enough. */
+/* The label only exists where there is a pointer and room to unfurl into. */
 .fab-label {
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transition:
-    max-width 0.55s var(--ease-brand),
-    opacity 0.4s var(--ease-brand),
-    margin 0.55s var(--ease-brand);
+  display: none;
 }
 @media (hover: hover) and (min-width: 640px) {
   .fab {
     width: auto;
+    min-width: 3.25rem;
     height: 3.25rem;
     padding: 0 1.05rem;
-    grid-auto-flow: column;
-    gap: 0;
+  }
+  .fab-label {
+    display: block;
+    max-width: 0;
+    margin-left: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition:
+      max-width 0.55s var(--ease-brand),
+      opacity 0.4s var(--ease-brand),
+      margin 0.55s var(--ease-brand);
   }
   .fab:hover .fab-label,
   .fab:focus-visible .fab-label {
     max-width: 11rem;
-    opacity: 1;
     margin-left: 0.55rem;
+    opacity: 1;
   }
 }
 

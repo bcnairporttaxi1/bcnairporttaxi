@@ -74,7 +74,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prix Taxi Aéroport Barcelone | Tarifs AMB 2026',
     description:
-      "Ce que coûte réellement un taxi vers l'aéroport de Barcelone : grille officielle AMB, supplément El Prat, tarif minimum aéroport et nos frais de réservation.",
+      "Ce que coûte réellement un taxi pour l'aéroport de Barcelone : la grille officielle AMB, le supplément El Prat, le tarif minimum aéroport et la façon dont votre prix tout compris est construit.",
     h1: "Prix d'un taxi pour l'aéroport de Barcelone",
     intro:
       "Les prix des taxis à Barcelone sont réglementés. Aucun taxi agréé ne peut facturer plus ou moins que le compteur officiel de l'AMB, ce qui veut dire que la réponse honnête à « combien ça coûte » est un calcul, pas un argument commercial. Voici exactement comment ce calcul fonctionne.",
@@ -92,8 +92,8 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
         body: "Les courses au départ d'El Prat comportent un tarif minimum. Si le compteur affiche moins que ce minimum sur un trajet court, c'est le minimum qui s'applique. Cela concerne surtout les trajets vers El Prat village ou les hôtels voisins, pas les courses vers Barcelone.",
       },
       {
-        h2: 'Ce que nous facturons',
-        body: "Nos frais de réservation représentent un pourcentage de la course, réglé en ligne : 20% du lundi au vendredi, 25% le week-end, les jours fériés et les nuits spéciales. C'est une prestation de mise en relation, pas une majoration du tarif, et cela n'apparaît jamais au compteur. Vous le voyez sur une ligne distincte avant paiement et recevez un reçu séparé. Vous pouvez aussi prépayer l'intégralité à prix fixe : plus rien n'est dû dans le taxi.",
+        h2: 'Ce que votre prix comprend',
+        body: "Vous réglez en ligne un prix unique tout compris au moment de la réservation. Il couvre le trajet au tarif officiel AMB, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Il n'y a pas de second montant : rien à payer dans le taxi.",
       },
     ],
   },
@@ -162,7 +162,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Déplacements professionnels',
-        body: "Pour les voyages d'affaires nous pouvons affecter la V-Class et fournir la facture du taxi pour vos notes de frais. Demandez la facture au compteur à votre chauffeur ; le reçu des frais de réservation vous parvient séparément par e-mail.",
+        body: "Pour les déplacements professionnels, nous pouvons affecter la V-Class premium. Le reçu du montant total vous est envoyé par e-mail avec votre confirmation ; si vous avez aussi besoin de la facture officielle au compteur, demandez-la à votre chauffeur dans la voiture.",
       },
     ],
   },
@@ -265,7 +265,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       "Réservez un taxi pour l'aéroport de Barcelone en quelques minutes. Estimation immédiate aux tarifs officiels AMB, paiement sécurisé, confirmation instantanée par e-mail.",
     h1: "Réserver un taxi pour l'aéroport de Barcelone en ligne",
     intro:
-      "La réservation en ligne prend deux minutes et vous garantit une voiture confirmée avec chauffeur affecté. Payez seulement les frais de réservation maintenant et réglez le compteur à votre chauffeur, ou prépayez l'intégralité à prix fixe et ne devez plus rien dans le taxi.",
+      "Réserver en ligne prend quelques minutes et vous garantit une voiture confirmée avec chauffeur affecté. Vous réglez un prix unique tout compris en ligne et ne devez rien dans le taxi.",
     sections: [
       {
         h2: 'Ce qu’il faut pour réserver',
@@ -277,7 +277,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Modifications et annulations',
-        body: "Les plans changent. Annulez au moins 24 heures avant la prise en charge et les frais de réservation sont intégralement remboursés. Pour décaler une réservation, répondez à l'e-mail de confirmation et nous la reprogrammons.",
+        body: "Les plans changent. Annulez au moins 24 heures avant la prise en charge et vous êtes intégralement remboursé. Pour décaler une réservation, répondez à l'e-mail de confirmation.",
       },
     ],
   },

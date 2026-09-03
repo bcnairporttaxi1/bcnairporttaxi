@@ -12,7 +12,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Wat een transfer vanaf de luchthaven kost',
-        body: 'Het tarief volgt de officiële AMB-taxameter. Vanaf El Prat betaalt u het meterbedrag plus de vaste luchthaventoeslag, en voor zeer korte ritten vanaf de luchthaven geldt een minimumtarief. In de praktijk komt een rit van de luchthaven naar het centrum meestal tussen de vijfendertig en vijfenveertig euro uit, hoger \'s nachts en in het weekend wanneer tarief T-2 geldt. Vul hierboven uw exacte bestemming in voor een nauwkeurige schatting.',
+        body: 'De prijs wordt opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand, met de vaste luchthaventoeslag en het minimumtarief er al in. In de praktijk komt een rit van de luchthaven naar het centrum van Barcelona rond de vijfendertig euro uit, hoger ’s nachts en in het weekend wanneer het T-2-tarief geldt. Voer hierboven uw exacte bestemming in om uw all-in prijs te zien.',
       },
       {
         h2: 'Waar uw chauffeur op u wacht',
@@ -74,7 +74,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Taxiprijs Luchthaven Barcelona | AMB-tarieven 2026',
     description:
-      'Wat een taxi naar de luchthaven van Barcelona werkelijk kost: de officiële AMB-tarieftabel, de El Prat-toeslag, het minimumtarief en onze boekingskosten.',
+      'Wat een taxi naar de luchthaven van Barcelona werkelijk kost: de officiële AMB-tarieftabel, de El Prat-toeslag, het minimumtarief en hoe uw all-in prijs is opgebouwd.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
       'Taxiprijzen in Barcelona zijn gereguleerd. Geen enkele vergunde taxi mag meer of minder rekenen dan de officiële AMB-taxameter, wat betekent dat het eerlijke antwoord op "wat kost het" een berekening is en geen verkooppraatje. Zo werkt die berekening precies.',
@@ -92,8 +92,8 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Voor ritten die op El Prat beginnen geldt een minimumtarief. Komt de meter bij een korte rit onder dat minimum uit, dan betaalt u het minimum. Dat raakt vooral ritten naar het dorp El Prat of nabijgelegen hotels, niet ritten naar Barcelona.',
       },
       {
-        h2: 'Wat wij in rekening brengen',
-        body: 'Onze boekingskosten zijn een percentage van de rit, online betaald bij reservering: 20% van maandag tot en met vrijdag en 25% in het weekend, op feestdagen en tijdens bijzondere nachten. Het is een vergoeding voor het regelen van de rit, geen opslag op het tarief, en het verschijnt nooit op de taxameter. U ziet het vóór betaling als aparte regel en krijgt er een eigen bon voor. U kunt ook de hele rit vooraf tegen vaste prijs betalen; dan is er in de taxi niets meer verschuldigd.',
+        h2: 'Wat uw prijs omvat',
+        body: 'U betaalt bij het online boeken één all-in prijs. Die dekt de rit volgens het officiële AMB-tarief, elke officiële toeslag die op uw route van toepassing is, en onze service om de auto te reserveren en te garanderen. Er is geen tweede bedrag: in de taxi betaalt u niets.',
       },
     ],
   },
@@ -162,7 +162,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Zakenreizen',
-        body: 'Voor zakelijke ritten kunnen we de V-Class inzetten en de taxifactuur voor uw declaratie leveren. Vraag uw chauffeur in de auto om de meterfactuur; de bon voor de boekingskosten sturen we apart per e-mail.',
+        body: 'Voor zakelijke ritten kunnen we de V-Class inzetten. De bon voor het volledige bedrag ontvangt u per e-mail bij uw bevestiging; hebt u daarnaast de officiële taxameterfactuur nodig, vraag die dan in de auto aan uw chauffeur.',
       },
     ],
   },
@@ -265,7 +265,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       'Boek in enkele minuten een taxi naar de luchthaven van Barcelona. Directe schatting op officiële AMB-tarieven, veilige betaling en directe bevestiging per e-mail.',
     h1: 'Een taxi naar de luchthaven van Barcelona online boeken',
     intro:
-      'Online boeken kost twee minuten en levert u een bevestigde wagen met toegewezen chauffeur op. Betaal nu alleen de boekingskosten en reken de meter af met uw chauffeur, of betaal de hele rit vooraf tegen vaste prijs en bent u in de taxi niets meer verschuldigd.',
+      'Online boeken kost twee minuten en levert u een bevestigde wagen met toegewezen chauffeur op. U betaalt online één all-in prijs en bent in de taxi niets verschuldigd.',
     sections: [
       {
         h2: 'Wat u nodig heeft om te boeken',
@@ -277,7 +277,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wijzigen en annuleren',
-        body: 'Plannen veranderen. Annuleer minimaal 24 uur vóór het ophalen en de boekingskosten worden volledig terugbetaald. Wilt u een boeking verzetten, beantwoord dan de bevestigingsmail en wij plannen hem opnieuw in.',
+        body: 'Plannen veranderen. Annuleer minimaal 24 uur vóór het ophalen en u krijgt het volledige bedrag terug. Wilt u een boeking verzetten, beantwoord dan de bevestigingsmail.',
       },
     ],
   },

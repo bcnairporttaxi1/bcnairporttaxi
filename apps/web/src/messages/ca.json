@@ -16,8 +16,8 @@
     "services": "Serveis",
     "blog": "Guies",
     "signIn": "Entrar",
-    "languageHeading": "Llegeix aquest web en la teva llengua",
-    "languageIntro": "Tot (preus, rutes, el formulari de reserva i el correu de confirmació) està escrit en els deu. Tria'n un i tot el web et segueix."
+    "languageHeading": "Aquest web, en el teu idioma",
+    "languageIntro": "Preus, rutes, el formulari de reserva i el teu correu de confirmació: els deu idiomes, complets. Tria’n un i tot el web et segueix."
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
@@ -50,7 +50,10 @@
       "faresTitle": "Preus reals",
       "faresIntro": "Cada import de sota és un preu amb tot inclòs calculat amb el quadre oficial, el mateix que et dona el formulari de reserva.",
       "closingTitle": "Aterra, surt",
-      "closingIntro": "Un preu amb tot inclòs en segons. No cal cap compte per veure’l."
+      "closingIntro": "Un preu amb tot inclòs en segons. No cal cap compte per veure’l.",
+      "howLede": "en tres passos.",
+      "whyLede": "i per què es manté.",
+      "routesLede": "les que més es demanen."
     },
     "kicker": "Servei de taxi amb llicència a l'aeroport de Barcelona"
   },

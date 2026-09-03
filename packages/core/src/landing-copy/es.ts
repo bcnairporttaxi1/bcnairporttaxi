@@ -81,7 +81,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Precio Taxi Aeropuerto Barcelona | Tarifas AMB 2026',
     description:
-      'Lo que cuesta realmente un taxi al aeropuerto de Barcelona: la tabla oficial de tarifas AMB, el suplemento de El Prat, la tarifa mínima de aeropuerto y nuestros gastos de gestión.',
+      'Lo que cuesta realmente un taxi al aeropuerto de Barcelona: la tabla oficial de tarifas AMB, el suplemento de El Prat, la tarifa mínima de aeropuerto y cómo se calcula tu precio con todo incluido.',
     h1: 'Precio del taxi al aeropuerto de Barcelona',
     intro:
       'Los precios del taxi en Barcelona están regulados. Ningún taxi con licencia puede cobrar más ni menos que el taxímetro oficial del AMB, lo que significa que la respuesta honesta a "cuánto cuesta" es un cálculo, no una cifra comercial. Así funciona exactamente ese cálculo.',
@@ -99,8 +99,8 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Los trayectos que empiezan en El Prat tienen una tarifa mínima. Si el importe del taxímetro para un trayecto corto queda por debajo de ese mínimo, pagas el mínimo. Esto afecta sobre todo a los viajes a El Prat pueblo o a hoteles cercanos, no a los trayectos hacia Barcelona.',
       },
       {
-        h2: 'Lo que cobramos nosotros',
-        body: 'Nuestros gastos de gestión son un porcentaje de la tarifa, pagados online al reservar: un 20% de lunes a viernes y un 25% los fines de semana, festivos y noches especiales. Es un cargo por el servicio de gestionar el trayecto, no un recargo sobre la tarifa, y nunca aparece en el taxímetro. Lo ves como una línea separada antes de pagar y recibes su propio recibo por correo. También puedes prepagar el trayecto completo a precio cerrado, en cuyo caso no queda nada por pagar en el taxi.',
+        h2: 'Qué incluye tu precio',
+        body: 'Pagas un único precio con todo incluido al reservar online. Cubre el trayecto según la tarifa oficial del AMB, todos los suplementos oficiales que correspondan a tu ruta y nuestro servicio de reservar y garantizar el coche. No hay un segundo importe: en el taxi no se paga nada.',
       },
     ],
   },
@@ -169,7 +169,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Viajes de empresa y facturas',
-        body: 'Para viajes de trabajo podemos asignar la V-Class premium y facilitar la factura del taxi para gastos. Pide la factura del taxímetro a tu conductor en el coche; el recibo de los gastos de gestión te lo enviamos por correo aparte.',
+        body: 'Para viajes de trabajo podemos asignar la V-Class premium. Te enviamos por correo el recibo del importe completo con la confirmación; si además necesitas la factura oficial del taxímetro, pídesela a tu conductor en el coche.',
       },
     ],
   },
@@ -272,7 +272,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       'Reserva un taxi al aeropuerto de Barcelona online en minutos. Estimación inmediata con tarifas oficiales AMB, pago seguro y confirmación instantánea por correo.',
     h1: 'Reservar un taxi al aeropuerto de Barcelona online',
     intro:
-      'Reservar online lleva un par de minutos y te deja un coche confirmado con conductor asignado. Puedes pagar solo los gastos de gestión ahora y liquidar el taxímetro con tu conductor, o prepagar el trayecto completo a precio cerrado y no deber nada en el taxi.',
+      'Reservar online lleva un par de minutos y te deja un coche confirmado con conductor asignado. Pagas un único precio con todo incluido y no debes nada en el taxi.',
     sections: [
       {
         h2: 'Qué necesitas para reservar un taxi al aeropuerto de Barcelona',
@@ -284,7 +284,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cambios y cancelaciones',
-        body: 'Los planes cambian. Cancela con al menos 24 horas de antelación y te devolvemos íntegros los gastos de gestión. Para mover una reserva, responde al correo de confirmación y la reprogramamos.',
+        body: 'Los planes cambian. Cancela con al menos 24 horas de antelación y te devolvemos el importe íntegro. Para mover una reserva, responde al correo de confirmación y la reprogramamos.',
       },
     ],
   },

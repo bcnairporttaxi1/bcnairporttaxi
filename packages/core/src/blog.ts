@@ -155,6 +155,21 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
+/**
+ * Cover artwork per post.
+ *
+ * Kept as a slug->motif map rather than a field on BlogPost so the content
+ * stays free of presentation, and so a post added without a motif still
+ * renders a cover instead of a hole in the grid.
+ */
+export type BlogMotif = 'meter' | 'compare' | 'terminal';
+
+export const BLOG_COVERS: Record<string, BlogMotif> = {
+  'how-much-is-a-taxi-from-barcelona-airport': 'meter',
+  'taxi-or-aerobus-from-barcelona-airport': 'compare',
+  'barcelona-airport-terminals-t1-t2-guide': 'terminal',
+};
+
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }

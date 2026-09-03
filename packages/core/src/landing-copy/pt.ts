@@ -74,7 +74,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preço Táxi Aeroporto Barcelona | Tarifas AMB 2026',
     description:
-      'O que custa realmente um táxi para o aeroporto de Barcelona: tabela oficial AMB, suplemento de El Prat, tarifa mínima de aeroporto e a nossa taxa de reserva.',
+      'O que custa realmente um táxi para o aeroporto de Barcelona: a tabela oficial de tarifas AMB, o suplemento de El Prat, a tarifa mínima de aeroporto e como é construído o seu preço com tudo incluído.',
     h1: 'Preço do táxi para o aeroporto de Barcelona',
     intro:
       'Os preços dos táxis em Barcelona são regulados. Nenhum táxi licenciado pode cobrar mais nem menos do que o taxímetro oficial da AMB, o que significa que a resposta honesta a «quanto custa» é uma conta, não um número comercial. É assim que essa conta funciona.',
@@ -92,8 +92,8 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'As viagens que começam em El Prat têm tarifa mínima. Se o taxímetro marcar menos do que esse mínimo num percurso curto, paga o mínimo. Afeta sobretudo as deslocações para El Prat vila ou hotéis próximos, não as viagens para Barcelona.',
       },
       {
-        h2: 'O que cobramos',
-        body: 'A nossa taxa de reserva é uma percentagem da corrida, paga online no momento da reserva: 20% de segunda a sexta e 25% aos fins de semana, feriados e noites especiais. É um serviço de organização da viagem, não um agravamento da tarifa, e nunca aparece no taxímetro. Vê-a como linha separada antes de pagar e recebe recibo próprio. Também pode pré-pagar a viagem completa a preço fechado, ficando sem nada a pagar no táxi.',
+        h2: 'O que o seu preço inclui',
+        body: 'Paga online um único preço com tudo incluído no momento da reserva. Cobre a viagem segundo a tarifa oficial do AMB, todos os suplementos oficiais aplicáveis ao seu percurso e o nosso serviço de reservar e garantir o carro. Não há um segundo valor: no táxi não paga nada.',
       },
     ],
   },
@@ -162,7 +162,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Viagens de trabalho',
-        body: 'Para deslocações profissionais podemos atribuir a V-Class e fornecer a fatura do táxi para despesas. Peça a fatura do taxímetro ao motorista dentro do carro; o recibo da taxa de reserva segue à parte por email.',
+        body: 'Para viagens de trabalho podemos atribuir a V-Class premium. O recibo do valor total segue por email com a sua confirmação; se precisar também da fatura oficial do taxímetro, peça-a ao motorista no carro.',
       },
     ],
   },
@@ -265,7 +265,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       'Reserve um táxi para o aeroporto de Barcelona em minutos. Estimativa imediata com tarifas oficiais AMB, pagamento seguro e confirmação instantânea por email.',
     h1: 'Reservar um táxi para o aeroporto de Barcelona online',
     intro:
-      'Reservar online demora dois minutos e garante-lhe um carro confirmado com motorista atribuído. Pague agora apenas a taxa de reserva e acerte o taxímetro com o motorista, ou pré-pague a viagem completa a preço fechado e não deva nada no táxi.',
+      'Reservar online demora um par de minutos e garante-lhe um carro confirmado com motorista atribuído. Paga um único preço com tudo incluído e não deve nada no táxi.',
     sections: [
       {
         h2: 'O que precisa para reservar',
@@ -277,7 +277,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Alterações e cancelamentos',
-        body: 'Os planos mudam. Cancele com pelo menos 24 horas de antecedência e a taxa de reserva é devolvida na íntegra. Para mudar uma reserva, responda ao email de confirmação e reagendamos.',
+        body: 'Os planos mudam. Cancele com pelo menos 24 horas de antecedência e é reembolsado na íntegra. Para mudar uma reserva, responda ao email de confirmação.',
       },
     ],
   },
