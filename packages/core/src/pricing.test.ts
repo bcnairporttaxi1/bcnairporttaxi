@@ -24,6 +24,8 @@ const FIRA = { lat: LANDMARKS.firaGranVia.lat, lng: LANDMARKS.firaGranVia.lng };
 /** Plain city points away from any supplement landmark. */
 const EIXAMPLE = { lat: 41.3915, lng: 2.1649 };
 const GRACIA = { lat: 41.4036, lng: 2.1744 };
+/** Real, and really outside the AMB — see municipalities.ts. */
+const VALLIRANA = { lat: 41.3878, lng: 1.93 };
 
 describe('selectTariff', () => {
   it('picks T1 on a weekday inside 08:00-20:00 Barcelona time', () => {
@@ -498,9 +500,15 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
   it('does not apply the urban airport minimum to an interurban trip', () => {
     // Short hop from the airport to just outside the AMB: the 21 EUR urban
     // minimum is an AMB rule and must not leak into the Generalitat tariff.
+    //
+    // The dropoff was 41.19, 1.95 — a point in the sea south of Castelldefels,
+    // chosen only because it fell under the old bounding box's minLat. Once
+    // membership was resolved by municipality it landed in Castelldefels,
+    // which IS in the AMB, so the test had been passing for the wrong reason.
+    // Vallirana is a real municipality and really is outside.
     const q = calculateQuote({
       pickup: AIRPORT,
-      dropoff: { lat: 41.19, lng: 1.95 },
+      dropoff: VALLIRANA,
       roadKm: 8,
       durationMin: 12,
       pickupAt: summer('13:00'),

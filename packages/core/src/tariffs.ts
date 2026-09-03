@@ -160,29 +160,18 @@ export const TARIFFS = {
 } as const;
 
 /**
- * Bounding box approximating the AMB metropolitan area.
+ * Coarse rectangle around the AMB. RETIRED as the tariff boundary.
  *
- * A trip is interurban when either end falls outside this box, which switches
- * the whole journey to the T-6/T-7 tariff rather than the urban meter.
- *
- * KNOWN LIMITATION — the AMB is 36 municipalities, not a rectangle, so the box
- * over-includes at the edges. Verified misclassifications, both of which quote
- * the cheaper urban meter for a journey that is legally interurban:
- *
- *   Sabadell    41.5463, 2.1086  — not in the AMB, inside this box
- *   Vallirana   41.3878, 1.9300  — not in the AMB, inside this box
- *
- * Sabadell alone is a city of ~215,000, and the gap widens now that interurban
- * bills the return leg: Barcelona-Sabadell quotes about 30 EUR urban against
- * roughly 40 EUR interurban. Correctly fixed by resolving the pickup and
- * dropoff to a municipality and testing membership of the real 36-member AMB
- * list, rather than by tuning these four numbers — moving maxLat to exclude
- * Sabadell also risks clipping Barbera del Valles and Badia del Valles, which
+ * It was the interurban test until the municipality table replaced it. A
+ * rectangle cannot describe 36 irregular municipalities: it over-included at
+ * the edges and billed the cheap urban meter for journeys that are legally
+ * interurban — Sabadell, a city of ~215,000, and Vallirana among them. Nudging
+ * the four numbers could not fix that, because pulling maxLat down far enough
+ * to drop Sabadell also clips Barbera del Valles and Badia del Valles, which
  * genuinely are AMB.
  *
- * Spot-checked correct: Terrassa, Mataro, Granollers and Sitges all fall
- * outside; Castelldefels, Sant Cugat, Badalona, Ripollet, Badia del Valles and
- * Begues all fall inside.
+ * See `municipalities.ts`; `insideAMB` resolves through that. Kept only as a
+ * quick sanity bound for tooling, and deliberately not used in pricing.
  */
 export const AMB_BOUNDS = {
   minLat: 41.2,

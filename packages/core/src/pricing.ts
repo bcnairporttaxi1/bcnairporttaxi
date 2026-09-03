@@ -1,6 +1,6 @@
 import { TZDate } from '@date-fns/tz';
+import { nearestMunicipality } from './municipalities';
 import {
-  AMB_BOUNDS,
   BARCELONA_HOLIDAYS,
   LANDMARKS,
   SPECIAL_NIGHTS,
@@ -325,14 +325,19 @@ function specialNightDateKey(at: Date): string | null {
   return (SPECIAL_NIGHTS as Record<string, string | undefined>)[mmdd] ?? null;
 }
 
-/** True when a point lies inside the AMB metropolitan area. */
+/**
+ * True when a point lies inside the AMB metropolitan area.
+ *
+ * Resolved through the municipality table, not a bounding box. The AMB is 36
+ * municipalities in an irregular shape; a rectangle around them over-included
+ * at the edges and billed the cheap urban meter for journeys that are legally
+ * interurban — Sabadell and Vallirana among them.
+ *
+ * A point outside the ring entirely resolves to no municipality, which is not
+ * in the AMB: correct for everywhere in Catalonia beyond it.
+ */
 export function insideAMB(p: Coords): boolean {
-  return (
-    p.lat >= AMB_BOUNDS.minLat &&
-    p.lat <= AMB_BOUNDS.maxLat &&
-    p.lng >= AMB_BOUNDS.minLng &&
-    p.lng <= AMB_BOUNDS.maxLng
-  );
+  return nearestMunicipality(p)?.amb ?? false;
 }
 
 /**
