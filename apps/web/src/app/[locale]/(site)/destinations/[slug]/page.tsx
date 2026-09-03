@@ -12,7 +12,12 @@ import {
   getDestination,
   groupOf,
 } from '@bcn/core/destinations';
-import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
+import {
+  attributionLine,
+  destinationMotif,
+  destinationPhoto,
+} from '@bcn/core/destination-photos';
+import { DestinationCover } from '@/components/destination-cover';
 import { whatsappLink } from '@bcn/core/site';
 import { locales } from '@/i18n/routing';
 
@@ -160,6 +165,20 @@ export default async function DestinationPage(props: {
               {t('ctaBookInstead')}
             </Link>
           </div>
+
+          {/* Cadaqués is the one page with a route but no licensed photo, so
+              it opened on nothing at all below the CTA. It gets the drawn
+              cover instead — the image on disk carries no attribution record,
+              and CC BY / CC BY-SA both require the author be named. */}
+          {!photo && (
+            <DestinationCover
+              motif={destinationMotif(slug)}
+              km={d.km}
+              minutes={d.minutes}
+              labels={{ km: tHub('km'), min: tHub('min') }}
+              className="mt-10 aspect-[16/9] max-h-[380px] w-full rounded-card border border-white/10"
+            />
+          )}
 
           {photo && (
             <figure className="mt-10 overflow-hidden rounded-card border border-white/10">

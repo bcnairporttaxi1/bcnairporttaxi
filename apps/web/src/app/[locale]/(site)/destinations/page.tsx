@@ -5,7 +5,8 @@ import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/reveal';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { DESTINATION_GROUPS, FEATURED_DESTINATIONS, type Destination } from '@bcn/core/destinations';
-import { destinationPhoto } from '@bcn/core/destination-photos';
+import { destinationMotif, destinationPhoto } from '@bcn/core/destination-photos';
+import { DestinationCover } from '@/components/destination-cover';
 import { CONTACT_EMAIL, whatsappLink } from '@bcn/core/site';
 import { locales } from '@/i18n/routing';
 
@@ -39,8 +40,12 @@ function DestinationCard({ d, t }: { d: Destination; t: Copy }) {
 
   const inner = (
     <>
-      {photo && (
-        <div className="zoom-frame -mx-6 -mt-6 mb-5 overflow-hidden">
+      {/* Every card leads with something. Only eleven destinations have a
+          licensed photograph; the rest get a drawn cover carrying the distance
+          and drive time, rather than opening straight on a badge and looking
+          unfinished next to the ones that do. */}
+      <div className="zoom-frame -mx-6 -mt-6 mb-5 overflow-hidden">
+        {photo ? (
           <Image
             src={photo.file}
             alt={t('photoAlt', { place })}
@@ -49,13 +54,20 @@ function DestinationCard({ d, t }: { d: Destination; t: Copy }) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="aspect-[3/2] w-full object-cover"
           />
-        </div>
-      )}
+        ) : (
+          <DestinationCover
+            motif={destinationMotif(d.slug)}
+            className="aspect-[3/2] w-full"
+          />
+        )}
+      </div>
 
       <div className="flex items-center justify-between gap-3">
         <span
           className={`rounded-full px-2.5 py-1 text-xs font-bold ${
-            d.hasPage ? 'bg-accent/15 text-gold' : 'bg-slate-200 text-slate-700'
+            d.hasPage
+              ? 'border border-gold/25 bg-gold/[0.09] text-gold'
+              : 'border border-line-2 bg-white/[0.05] text-dim'
           }`}
         >
           {d.hasPage ? t('badgeRoutePage') : t('badgeOnRequest')}

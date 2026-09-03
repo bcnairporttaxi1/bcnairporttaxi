@@ -149,7 +149,11 @@
     "bookingFeeNote": "Tu precio es con todo incluido y queda fijado al reservar. Los trayectos en fin de semana, festivos y noches especiales tienen un precio algo más alto.",
     "totalPrice": "Precio total",
     "allInclusive": "Todo incluido · pago online",
-    "includedNote": "Un solo precio para todo el trayecto: tarifa, suplementos oficiales y reserva incluidos. No pagas nada al conductor."
+    "includedNote": "Un solo precio para todo el trayecto: tarifa, suplementos oficiales y reserva incluidos. No pagas nada al conductor.",
+    "sections": {
+      "nextTitle": "Qué pasa después",
+      "nextLede": "una vez has pagado."
+    }
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -296,7 +300,9 @@
     "stripPrev": "Destinos anteriores",
     "stripNext": "Destinos siguientes",
     "stripFrom": "desde",
-    "photoCreditsPrefix": "Fotografías:"
+    "photoCreditsPrefix": "Fotografías:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "Traslado a {name} | Taxi y minivan privados",

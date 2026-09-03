@@ -159,7 +159,11 @@
     "bookingFeeNote": "Your price is all-inclusive and fixed at booking. Weekend, holiday and special-night journeys are priced a little higher.",
     "totalPrice": "Total price",
     "allInclusive": "All-inclusive · pay online",
-    "includedNote": "One price for the whole journey — fare, official supplements and booking all included. Nothing to pay your driver."
+    "includedNote": "One price for the whole journey — fare, official supplements and booking all included. Nothing to pay your driver.",
+    "sections": {
+      "nextTitle": "What happens next",
+      "nextLede": "once you have paid."
+    }
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",
@@ -409,7 +413,9 @@
     "stripPrev": "Previous destinations",
     "stripNext": "Next destinations",
     "stripFrom": "from",
-    "photoCreditsPrefix": "Photography:"
+    "photoCreditsPrefix": "Photography:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "{name} Transfer | Private Taxi & Minivan",

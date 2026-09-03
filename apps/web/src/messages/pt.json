@@ -127,7 +127,11 @@
     "bookingFeeNote": "O seu preço é com tudo incluído e fica fixado ao reservar. As viagens ao fim de semana, em feriados e em noites especiais têm um preço um pouco mais alto.",
     "totalPrice": "Preço total",
     "allInclusive": "Tudo incluído · pagamento online",
-    "includedNote": "Um só preço para todo o percurso: tarifa, suplementos oficiais e reserva incluídos. Não paga nada ao motorista."
+    "includedNote": "Um só preço para todo o percurso: tarifa, suplementos oficiais e reserva incluídos. Não paga nada ao motorista.",
+    "sections": {
+      "nextTitle": "O que acontece a seguir",
+      "nextLede": "assim que pagar."
+    }
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",
@@ -234,7 +238,9 @@
     "stripPrev": "Destinos anteriores",
     "stripNext": "Destinos seguintes",
     "stripFrom": "a partir de",
-    "photoCreditsPrefix": "Fotografias:"
+    "photoCreditsPrefix": "Fotografias:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Táxi e minivan privados",

@@ -127,7 +127,11 @@
     "bookingFeeNote": "Il tuo prezzo è tutto incluso ed è fissato al momento della prenotazione. I tragitti nel fine settimana, nei festivi e nelle notti speciali costano un po’ di più.",
     "totalPrice": "Prezzo totale",
     "allInclusive": "Tutto incluso · pagamento online",
-    "includedNote": "Un solo prezzo per l'intero tragitto: tariffa, supplementi ufficiali e prenotazione inclusi. Non paghi nulla al conducente."
+    "includedNote": "Un solo prezzo per l'intero tragitto: tariffa, supplementi ufficiali e prenotazione inclusi. Non paghi nulla al conducente.",
+    "sections": {
+      "nextTitle": "Cosa succede dopo",
+      "nextLede": "una volta pagato."
+    }
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",
@@ -234,7 +238,9 @@
     "stripPrev": "Destinazioni precedenti",
     "stripNext": "Destinazioni successive",
     "stripFrom": "da",
-    "photoCreditsPrefix": "Fotografie:"
+    "photoCreditsPrefix": "Fotografie:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Taxi e minivan privati",

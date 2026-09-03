@@ -127,7 +127,11 @@
     "bookingFeeNote": "Uw prijs is all-in en staat vast bij het boeken. Ritten in het weekend, op feestdagen en tijdens speciale nachten liggen iets hoger.",
     "totalPrice": "Totaalprijs",
     "allInclusive": "Alles inbegrepen · online betalen",
-    "includedNote": "Eén prijs voor de hele rit: tarief, officiële toeslagen en reservering inbegrepen. U betaalt de chauffeur niets."
+    "includedNote": "Eén prijs voor de hele rit: tarief, officiële toeslagen en reservering inbegrepen. U betaalt de chauffeur niets.",
+    "sections": {
+      "nextTitle": "Wat er daarna gebeurt",
+      "nextLede": "zodra u betaald hebt."
+    }
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -234,7 +238,9 @@
     "stripPrev": "Vorige bestemmingen",
     "stripNext": "Volgende bestemmingen",
     "stripFrom": "vanaf",
-    "photoCreditsPrefix": "Fotografie:"
+    "photoCreditsPrefix": "Fotografie:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Privétaxi & minivan",

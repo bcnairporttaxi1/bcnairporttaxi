@@ -592,6 +592,12 @@ h4 {
   }
 }
 
+/* Esri's dark canvas sits a shade lighter than the page; knock it down so the
+   map reads as part of the surface rather than a bright panel cut into it. */
+.leaflet-tile-pane {
+  filter: brightness(0.72) saturate(0.9);
+}
+
 /* Leaflet: neutralise the default blue focus and keep tiles inside the card. */
 .leaflet-container {
   background: var(--color-graphite-2);

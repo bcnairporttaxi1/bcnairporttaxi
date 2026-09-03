@@ -127,7 +127,11 @@
     "bookingFeeNote": "Ihr Preis ist ein Komplettpreis und steht mit der Buchung fest. Fahrten am Wochenende, an Feiertagen und in besonderen Nächten sind etwas teurer.",
     "totalPrice": "Gesamtpreis",
     "allInclusive": "Alles inklusive · online bezahlen",
-    "includedNote": "Ein Preis für die gesamte Fahrt — Tarif, offizielle Zuschläge und Buchung inklusive. Sie zahlen dem Fahrer nichts."
+    "includedNote": "Ein Preis für die gesamte Fahrt — Tarif, offizielle Zuschläge und Buchung inklusive. Sie zahlen dem Fahrer nichts.",
+    "sections": {
+      "nextTitle": "Wie es weitergeht",
+      "nextLede": "sobald bezahlt ist."
+    }
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -234,7 +238,9 @@
     "stripPrev": "Vorherige Ziele",
     "stripNext": "Weitere Ziele",
     "stripFrom": "ab",
-    "photoCreditsPrefix": "Fotografien:"
+    "photoCreditsPrefix": "Fotografien:",
+    "km": "km",
+    "min": "Min"
   },
   "destinationRoute": {
     "metaTitle": "Transfer {name} | Privates Taxi & Minivan",

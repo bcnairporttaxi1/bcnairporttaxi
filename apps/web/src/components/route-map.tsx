@@ -40,12 +40,27 @@ export default function RouteMap({ pickup, dropoff, geometry, label }: RouteMapP
         attributionControl: true,
       });
 
-      // Dark cartography so the map belongs to the page. Same OpenStreetMap
-      // data, rendered by CARTO; both are credited in the attribution.
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-      }).addTo(map);
+      /*
+       * Dark cartography so the map belongs to the page.
+       *
+       * This was CARTO's dark_all. CARTO now gates that behind an API key and
+       * — worse — serves the refusal as a normal 200 with a tile that reads
+       * "API KEY REQUIRED" stamped across it, so nothing errored and the
+       * booking map quietly filled with watermarks instead of streets.
+       *
+       * Esri's World Dark Gray Canvas is free for basemap use, needs no key,
+       * and its terms are met by the attribution below. It renders a touch
+       * lighter than the page, so a small brightness knock in CSS settles it
+       * onto the near-black ground.
+       */
+      L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+        {
+          maxZoom: 16,
+          attribution:
+            'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+        },
+      ).addTo(map);
 
       mapRef.current = map;
     })();

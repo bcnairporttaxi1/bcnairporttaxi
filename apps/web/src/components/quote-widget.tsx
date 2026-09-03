@@ -257,7 +257,7 @@ export function QuoteWidget({
         className={
           isPanel
             ? 'p-5 sm:p-6'
-            : 'rounded-shell border border-line-2 bg-pane/85 p-5 shadow-[0_40px_90px_-40px_#000] backdrop-blur-2xl sm:p-7'
+            : 'self-start rounded-shell border border-line-2 bg-pane/85 p-5 shadow-[0_40px_90px_-40px_#000] backdrop-blur-2xl sm:p-7'
         }
       >
         {!isPanel && (

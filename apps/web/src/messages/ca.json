@@ -127,7 +127,11 @@
     "bookingFeeNote": "El teu preu és amb tot inclòs i queda fixat en reservar. Els trajectes en cap de setmana, festius i nits especials tenen un preu una mica més alt.",
     "totalPrice": "Preu total",
     "allInclusive": "Tot inclòs · pagament en línia",
-    "includedNote": "Un sol preu per a tot el trajecte: tarifa, suplements oficials i reserva inclosos. No pagues res al conductor."
+    "includedNote": "Un sol preu per a tot el trajecte: tarifa, suplements oficials i reserva inclosos. No pagues res al conductor.",
+    "sections": {
+      "nextTitle": "Què passa després",
+      "nextLede": "un cop has pagat."
+    }
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -234,7 +238,9 @@
     "stripPrev": "Destinacions anteriors",
     "stripNext": "Destinacions següents",
     "stripFrom": "des de",
-    "photoCreditsPrefix": "Fotografies:"
+    "photoCreditsPrefix": "Fotografies:",
+    "km": "km",
+    "min": "min"
   },
   "destinationRoute": {
     "metaTitle": "Trasllat a {name} | Taxi i minivan privats",

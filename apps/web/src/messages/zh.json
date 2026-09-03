@@ -127,7 +127,11 @@
     "bookingFeeNote": "您的价格为全包价，并在预订时锁定。周末、节假日及特殊夜间的行程价格略高。",
     "totalPrice": "总价",
     "allInclusive": "全包价 · 在线支付",
-    "includedNote": "全程一口价：车费、官方附加费与预订费全部包含，无需再向司机付款。"
+    "includedNote": "全程一口价：车费、官方附加费与预订费全部包含，无需再向司机付款。",
+    "sections": {
+      "nextTitle": "付款之后",
+      "nextLede": "接下来会发生什么。"
+    }
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",
@@ -234,7 +238,9 @@
     "stripPrev": "上一批目的地",
     "stripNext": "下一批目的地",
     "stripFrom": "起",
-    "photoCreditsPrefix": "图片来源："
+    "photoCreditsPrefix": "图片来源：",
+    "km": "公里",
+    "min": "分钟"
   },
   "destinationRoute": {
     "metaTitle": "{name} 接送 | 专车出租车与商务车",
