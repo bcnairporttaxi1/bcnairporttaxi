@@ -28,7 +28,10 @@ const geist = Geist({
 const instrument = Instrument_Serif({
   subsets: ['latin'],
   weight: ['400'],
-  style: ['italic', 'normal'],
+  // Italic only. `.editorial` is always italic, and the :lang(zh|ja|ko) rule
+  // that sets it upright applies to scripts this face has no glyphs for — so
+  // the upright file was downloaded on every page and never painted.
+  style: ['italic'],
   variable: '--font-editorial',
   display: 'swap',
 });
