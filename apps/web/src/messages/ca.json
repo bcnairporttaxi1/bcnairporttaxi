@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
-    "metaDescription": "Reserva en línia un taxi a l'aeroport de Barcelona. Un únic preu amb tot inclòs pagat en línia, calculat amb la tarifa oficial de l'AMB. Taxis amb llicència cap a i des del Prat, 24 hores.",
+    "metaDescription": "Reserva en línia un taxi a l'aeroport de Barcelona. Un únic preu amb tot inclòs pagat en línia, calculat amb la tarifa oficial de l'AMB.",
     "h1": "Taxi a l'aeroport de Barcelona, reservat abans d'aterrar",
     "intro": "Reserva un taxi amb llicència de Barcelona cap a o des de l'aeroport del Prat. Veus un únic preu amb tot inclòs abans de reservar, calculat amb la tarifa oficial de l'AMB i la distància real per carretera. El pagues en línia i no has de pagar res al conductor.",
     "trust": {
@@ -54,7 +54,25 @@
       "whyLede": "i per què es manté.",
       "routesLede": "les que més es demanen."
     },
-    "kicker": "Servei de taxi amb llicència a l'aeroport de Barcelona"
+    "kicker": "Servei de taxi amb llicència a l'aeroport de Barcelona",
+    "why": {
+      "meter": {
+        "title": "Un preu, tancat abans de viatjar",
+        "body": "Les tarifes de Barcelona les fixa l'AMB i són idèntiques a tots els taxis amb llicència. Calculem el teu preu amb la tarifa oficial i la distància real per carretera, i el deixem tancat: el que et diem és el que pagues, passi el que passi amb el trànsit."
+      },
+      "flight": {
+        "title": "Seguim el teu vol",
+        "body": "El teu conductor segueix el número de vol. Si aterres tard, el cotxe continua allà sense cost addicional. El punt de trobada és al teu correu de confirmació abans d’enlairar-te."
+      },
+      "licensed": {
+        "title": "Només conductors amb llicència",
+        "body": "Cada vehicle és un taxi amb llicència de Barcelona, amb taxímetre i l’assegurança que exigeix la ciutat. Mai cotxes sense llicència."
+      },
+      "support": {
+        "title": "Una persona, no una cua",
+        "body": "Escriu-nos per WhatsApp i parlaràs amb algú que pot canviar la teva reserva. Amb menys de tres hores d'antelació, és la manera més ràpida d'aconseguir un cotxe."
+      }
+    }
   },
   "quote": {
     "title": "Preu a l'instant",
@@ -123,7 +141,9 @@
     "sections": {
       "nextTitle": "Què passa després",
       "nextLede": "un cop has pagat."
-    }
+    },
+    "airportMinimumApplied": "S'aplica la tarifa mínima d'aeroport de {amount}.",
+    "t4Applied": "Preu tancat aeroport ↔ terminal de creuers."
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -145,7 +165,11 @@
     "noSupplement": "Aquest vehicle no porta suplement per vehicle gran.",
     "prevVehicle": "Vehicle anterior",
     "nextVehicle": "Vehicle següent",
-    "chooseVehicle": "Tria un vehicle"
+    "chooseVehicle": "Tria un vehicle",
+    "metaTitle": "Flota de taxis a Barcelona | Cotxes, monovolums i furgonetes",
+    "metaDescription": "Taxis amb llicència a l'aeroport de Barcelona: Toyota Prius+, Toyota Corolla, monovolum Mercedes Vito i furgoneta premium Mercedes V-Class.",
+    "intro": "Cada vehicle és un taxi amb llicència de Barcelona. Tria per mida del grup i equipatge: els vehicles de cinc a vuit places porten el suplement oficial de l'AMB, que ja va inclòs en el preu que veus.",
+    "select": "Selecciona {name}"
   },
   "common": {
     "book": "Reservar ara",
@@ -153,7 +177,11 @@
     "readAllFaqs": "Veure totes les preguntes",
     "backHome": "Tornar a l'inici",
     "loading": "Carregant…",
-    "relatedTransfers": "Trasllats relacionats"
+    "relatedTransfers": "Trasllats relacionats",
+    "from": "des de",
+    "to": "fins a",
+    "km": "km",
+    "min": "min"
   },
   "footer": {
     "about": "BCNAirportTaxi és un servei de reserves de taxis amb llicència de Barcelona. Som intermediaris, no una empresa de taxis: els preus segueixen la tarifa oficial de l'AMB i ens pagues un únic import amb tot inclòs en reservar.",
@@ -195,7 +223,7 @@
   },
   "destinations": {
     "metaTitle": "Destinacions de trasllat des de Barcelona | Taxi i minivan privats",
-    "metaDescription": "Trasllats privats en taxi i minivan des de l'aeroport de Barcelona, la ciutat, el port de creuers i els hotels cap a la Costa Brava, Sitges, Tarragona, Montserrat, Andorra, València i més enllà.",
+    "metaDescription": "Trasllats privats en taxi i minivan des de l'aeroport de Barcelona, la ciutat, el port de creuers i els hotels cap a la Costa Brava, Sitges, Tarragona.",
     "eyebrow": "Centre de rutes",
     "h1": "Destinacions de trasllat des de Barcelona",
     "intro": "Trasllats privats en taxi i minivan des de l'aeroport de Barcelona, la ciutat, el port de creuers, hotels i domicilis particulars cap a destinacions de tot Catalunya, Andorra i Espanya.",
@@ -255,7 +283,7 @@
   },
   "install": {
     "metaTitle": "Instal·la BCNAirportTaxi com a aplicació",
-    "metaDescription": "Afegeix BCNAirportTaxi a la pantalla d'inici del teu iPhone o Android per reservar amb un toc, consultar el viatge sense connexió i seguir el conductor en directe.",
+    "metaDescription": "Afegeix BCNAirportTaxi a la pantalla d'inici del teu iPhone o Android per reservar amb un toc.",
     "title": "Instal·la l'aplicació",
     "intro": "BCNAirportTaxi s'instal·la directament des del navegador: sense botiga d'aplicacions i sense descàrregues. Un cop afegida, s'obre a pantalla completa i manté les dades de la teva reserva disponibles sense connexió.",
     "iphoneH2": "iPhone i iPad",
@@ -360,9 +388,140 @@
     "totalPrice": "Preu total"
   },
   "checkout": {
-    "totalDue": "Total a pagar"
+    "totalDue": "Total a pagar",
+    "metaTitle": "Completa la teva reserva de taxi a Barcelona",
+    "metaDescription": "Confirma la teva reserva de taxi a l'aeroport de Barcelona: tria vehicle, introdueix les teves dades i paga de manera segura.",
+    "h1": "Completa la teva reserva",
+    "yourTrip": "El teu viatge",
+    "chooseVehicle": "Tria el teu vehicle",
+    "yourDetails": "Les teves dades",
+    "name": "Nom complet",
+    "email": "Correu electrònic",
+    "phone": "Telèfon (amb prefix del país)",
+    "flight": "Número de vol",
+    "flightHelp": "Opcional. Permet al teu conductor seguir el teu aterratge.",
+    "notes": "Notes per al teu conductor",
+    "notesHelp": "Opcional. Codis de portal, equipatge extra, cadiretes infantils.",
+    "passengers": "Passatgers",
+    "luggage": "Equipatge",
+    "summary": "Resum del preu",
+    "payButton": "Paga {amount} i confirma",
+    "processing": "Processant…",
+    "capacityWarning": "Aquest vehicle admet {seats} passatgers i {bags} maletes. Tria’n un de més gran per al teu grup.",
+    "agree": "En reservar acceptes els nostres termes i la política de reemborsaments.",
+    "missingQuote": "Comença obtenint un preu a la pàgina d'inici i torna per completar la reserva.",
+    "getPrice": "Obtenir preu",
+    "errors": {
+      "failed": "No hem pogut completar la teva reserva. No se t'ha cobrat res. Torna-ho a provar.",
+      "expired": "Aquest preu ha caducat. Demana’n un de nou."
+    }
   },
   "pricing": {
-    "feeBody": "El nostre servei està inclòs en el preu que veus. Pagues un únic import amb tot inclòs en reservar en línia — la tarifa, tots els suplements oficials i el nostre servei de reserva — i res al conductor. Rebràs un rebut complet per correu."
+    "feeBody": "El nostre servei està inclòs en el preu que veus. Pagues un únic import amb tot inclòs en reservar en línia — la tarifa, tots els suplements oficials i el nostre servei de reserva — i res al conductor. Rebràs un rebut complet per correu.",
+    "metaTitle": "Preu del taxi a l'aeroport de Barcelona 2026 | Tarifes AMB",
+    "metaDescription": "Preus del taxi a l'aeroport de Barcelona: tarifes oficials AMB T-1 i T-2, suplement del Prat, mínim de 21 € i com es calcula el teu preu amb tot inclòs.",
+    "h1": "Preus del taxi a l'aeroport de Barcelona",
+    "intro": "Les tarifes de taxi a Barcelona no les fixem nosaltres. Les estableix l'Àrea Metropolitana de Barcelona (AMB) i corren al taxímetre oficial de tots els taxis amb llicència. La taula següent és la tarifa vigent, del 19 de gener de 2026 al 17 de gener de 2027.",
+    "tableCaption": "Tarifes urbanes oficials de l'AMB, vigents del 19 gen 2026 al 17 gen 2027",
+    "concept": "Concepte",
+    "amount": "Import",
+    "rows": {
+      "startFare": "Baixada de bandera",
+      "perKmT1": "Per km — T-1 (dl–dv 08:00–20:00)",
+      "perKmT2": "Per km — T-2 (nits, caps de setmana, festius)",
+      "waitPerHour": "Temps d'espera, per hora",
+      "airportSupplement": "Suplement de l'aeroport del Prat",
+      "mollSupplement": "Suplement del port de creuers Moll Adossat",
+      "santsSupplement": "Suplement de l'estació de Sants",
+      "firaSupplement": "Suplement de Fira Gran Via",
+      "maxSupplement": "Màxim de suplements per servei",
+      "minFromAirport": "Tarifa mínima des de l'aeroport",
+      "t4Fixed": "Preu tancat: aeroport ↔ Moll Adossat (T-4)"
+    },
+    "feeTitle": "Què inclou el teu preu",
+    "verifyNote": "L'AMB revisa les tarifes cada gener. Nosaltres les verifiquem a taxi.amb.cat a cada canvi."
+  },
+  "site": {
+    "name": "BCNAirportTaxi"
+  },
+  "howItWorks": {
+    "metaTitle": "Com funciona reservar un taxi a l'aeroport de Barcelona",
+    "metaDescription": "Reserva un taxi a l'aeroport de Barcelona en tres passos: preu immediat amb tot inclòs, pagament en línia i trobada amb el conductor. Res a pagar al taxi.",
+    "h1": "Com funciona",
+    "steps": {
+      "one": {
+        "title": "Aconsegueix el teu preu",
+        "body": "Indica recollida i destinació. Mesurem la distància real per carretera i apliquem la tarifa oficial de l'AMB segons el teu horari per formar un únic preu amb tot inclòs."
+      },
+      "two": {
+        "title": "Reserva el cotxe",
+        "body": "Tria el teu vehicle i paga el preu complet en línia. La reserva es confirma a l'instant per correu i se t'assigna un conductor."
+      },
+      "three": {
+        "title": "Troba el teu conductor",
+        "body": "El teu conductor t'espera a l'hora acordada. Tot està ja pagat, així que no hi ha res a liquidar al cotxe."
+      }
+    }
+  },
+  "faq": {
+    "metaTitle": "Preguntes freqüents | Taxi a l'aeroport de Barcelona",
+    "metaDescription": "Respostes sobre les reserves de taxi a l'aeroport de Barcelona: com es calcula el preu, on trobar el conductor al Prat, equipatge.",
+    "h1": "Preguntes freqüents",
+    "items": {
+      "fareAccurate": {
+        "q": "El preu que veig és el que pago?",
+        "a": "Sí. El preu que veus és el que pagues. Es calcula amb la tarifa oficial de l'AMB i la distància real per carretera de la teva ruta, ja inclou tots els suplements oficials i queda fixat en el moment de reservar. El trànsit i el recorregut són risc nostre, no teu: no s'hi afegeix res després ni es deu res al conductor."
+      },
+      "whyFee": {
+        "q": "Què inclou el preu?",
+        "a": "Tot. El trajecte, tots els suplements oficials que corresponguin a la teva ruta —el de l'aeroport del Prat, el del port de creuers, el de vehicles de cinc a vuit places— i el nostre servei de reservar i garantir el cotxe, assignar conductor i donar-te suport el dia del viatge. És un únic import, pagat en línia en reservar, sense res a part i sense deure res al taxi."
+      },
+      "invoice": {
+        "q": "Puc rebre factura?",
+        "a": "Sí. T'enviem per correu un rebut de l'import complet juntament amb la confirmació. Si a més vols la factura oficial del taxímetre del trajecte, el teu conductor te la pot facilitar al cotxe si l'hi demanes."
+      },
+      "meetDriver": {
+        "q": "On trobo el meu conductor al Prat?",
+        "a": "El teu conductor t'espera a la sala d'arribades de la teva terminal amb un cartell amb el teu nom, i segueix el teu vol perquè un retard no et deixi sense cotxe. El punt de trobada exacte és al teu correu de confirmació."
+      },
+      "urgent": {
+        "q": "Puc reservar per d'aquí a una hora?",
+        "a": "Les reserves en línia necessiten com a mínim tres hores d'antelació per poder assignar un conductor amb garanties. Per a res més immediat, escriu-nos per WhatsApp i et confirmarem un cotxe directament si n'hi ha de disponible."
+      },
+      "luggage": {
+        "q": "Quant equipatge puc portar?",
+        "a": "Cada vehicle indica la seva capacitat de passatgers i maletes. Un taxi estàndard admet fins a 4 passatgers i 3 maletes; el Mercedes V-Class admet 7 passatgers i 7 maletes. Si portes objectes voluminosos com bicicletes o esquís, indica-ho a les notes de la reserva."
+      },
+      "cancel": {
+        "q": "Puc cancel·lar?",
+        "a": "Sí. Cancel·la amb un mínim de 24 hores d'antelació i et retornem l'import íntegre. Consulta la nostra política de reemborsaments per als detalls."
+      },
+      "outsideBarcelona": {
+        "q": "Recolliu fora de Barcelona?",
+        "a": "Encara no. De moment les recollides han de ser dins la ciutat de Barcelona o a l'aeroport del Prat. La destinació, en canvi, pot ser qualsevol."
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contacte | Reserves de taxi a l'aeroport de Barcelona",
+    "metaDescription": "Contacta amb BCNAirportTaxi per reservar trasllats a l'aeroport de Barcelona, viatges urgents per WhatsApp i ajuda amb una reserva existent.",
+    "h1": "Contacta amb nosaltres",
+    "intro": "Dubtes sobre reserves, viatges urgents i canvis en una reserva existent.",
+    "whatsappTitle": "WhatsApp — el més ràpid",
+    "whatsappBody": "Per a viatges urgents en menys de 3 hores i qualsevol cosa que no pugui esperar.",
+    "emailTitle": "Correu electrònic",
+    "emailBody": "Per a pressupostos, factures i canvis en la reserva."
+  },
+  "confirmation": {
+    "metaTitle": "Reserva confirmada",
+    "titlePaid": "Reserva confirmada",
+    "titlePending": "Reserva rebuda",
+    "bodyPaid": "El teu taxi està reservat. T'hem enviat la confirmació i el rebut per correu.",
+    "bodyPending": "La teva reserva està desada. Es confirma tan bon punt es completi el pagament.",
+    "reference": "Referència de la reserva",
+    "status": "Estat",
+    "driverNote": "T’enviarem les dades del teu conductor abans de la recollida.",
+    "notFound": "No hem trobat aquesta reserva.",
+    "backHome": "Tornar a l'inici"
   }
 }

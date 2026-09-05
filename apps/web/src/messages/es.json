@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
-    "metaDescription": "Reserva online un taxi al aeropuerto de Barcelona. Un único precio con todo incluido pagado online, calculado con la tarifa oficial del AMB. Taxis con licencia hacia y desde El Prat, 24 horas.",
+    "metaDescription": "Reserva online un taxi al aeropuerto de Barcelona. Un único precio con todo incluido pagado online, calculado con la tarifa oficial del AMB.",
     "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
     "intro": "Reserva un taxi con licencia de Barcelona hacia o desde el aeropuerto de El Prat. Ves un único precio con todo incluido antes de reservar, calculado con la tarifa oficial del AMB y la distancia real por carretera. Lo pagas online y no tienes que pagar nada al conductor.",
     "trust": {
@@ -168,7 +168,8 @@
     "noSupplement": "Este vehículo no lleva suplemento por vehículo grande.",
     "prevVehicle": "Vehículo anterior",
     "nextVehicle": "Vehículo siguiente",
-    "chooseVehicle": "Elige un vehículo"
+    "chooseVehicle": "Elige un vehículo",
+    "select": "Seleccionar {name}"
   },
   "common": {
     "from": "desde",
@@ -221,7 +222,14 @@
     "agree": "Al reservar aceptas nuestros términos y la política de reembolsos.",
     "missingQuote": "Empieza pidiendo un precio en la página principal y vuelve para completar la reserva.",
     "getPrice": "Ver precio",
-    "totalDue": "Total a pagar"
+    "totalDue": "Total a pagar",
+    "metaTitle": "Completa tu reserva de taxi en Barcelona",
+    "metaDescription": "Confirma tu reserva de taxi al aeropuerto de Barcelona: elige vehículo, introduce tus datos y paga de forma segura.",
+    "capacityWarning": "Este vehículo admite {seats} pasajeros y {bags} maletas. Elige uno más grande para tu grupo.",
+    "errors": {
+      "failed": "No hemos podido completar tu reserva. No se te ha cobrado nada. Inténtalo de nuevo.",
+      "expired": "Este precio ha caducado. Solicita uno nuevo."
+    }
   },
   "confirmation": {
     "titlePaid": "Reserva confirmada",
@@ -231,7 +239,9 @@
     "reference": "Referencia de reserva",
     "driverNote": "Te enviaremos los datos de tu conductor antes de la recogida.",
     "notFound": "No hemos encontrado esa reserva.",
-    "backHome": "Volver al inicio"
+    "backHome": "Volver al inicio",
+    "metaTitle": "Reserva confirmada",
+    "status": "Estado"
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -254,7 +264,7 @@
   },
   "destinations": {
     "metaTitle": "Destinos de traslado desde Barcelona | Taxi y minivan privados",
-    "metaDescription": "Traslados privados en taxi y minivan desde el aeropuerto de Barcelona, la ciudad, el puerto de cruceros y los hoteles hacia la Costa Brava, Sitges, Tarragona, Montserrat, Andorra, Valencia y más allá.",
+    "metaDescription": "Traslados privados en taxi y minivan desde el aeropuerto de Barcelona, la ciudad, el puerto de cruceros y los hoteles hacia la Costa Brava, Sitges.",
     "eyebrow": "Centro de rutas",
     "h1": "Destinos de traslado desde Barcelona",
     "intro": "Traslados privados en taxi y minivan desde el aeropuerto de Barcelona, la ciudad, el puerto de cruceros, hoteles y domicilios particulares hacia destinos de toda Cataluña, Andorra y España.",
@@ -314,7 +324,7 @@
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",
-    "metaDescription": "Añade BCNAirportTaxi a la pantalla de inicio de tu iPhone o Android para reservar con un toque, consultar tu viaje sin conexión y seguir al conductor en directo.",
+    "metaDescription": "Añade BCNAirportTaxi a la pantalla de inicio de tu iPhone o Android para reservar con un toque.",
     "title": "Instala la aplicación",
     "intro": "BCNAirportTaxi se instala directamente desde el navegador: sin tienda de aplicaciones y sin descargas. Una vez añadida, se abre a pantalla completa y mantiene los datos de tu reserva disponibles sin conexión.",
     "iphoneH2": "iPhone y iPad",
@@ -419,6 +429,99 @@
     "totalPrice": "Precio total"
   },
   "pricing": {
-    "feeBody": "Nuestro servicio está incluido en el precio que ves. Pagas un único importe con todo incluido al reservar online — la tarifa, todos los suplementos oficiales y nuestro servicio de reserva — y nada al conductor. Recibirás un recibo completo por correo."
+    "feeBody": "Nuestro servicio está incluido en el precio que ves. Pagas un único importe con todo incluido al reservar online — la tarifa, todos los suplementos oficiales y nuestro servicio de reserva — y nada al conductor. Recibirás un recibo completo por correo.",
+    "metaTitle": "Precio del taxi al aeropuerto de Barcelona 2026 | Tarifas AMB",
+    "metaDescription": "Precios del taxi al aeropuerto de Barcelona: tarifas oficiales AMB T-1 y T-2, suplemento de El Prat.",
+    "h1": "Precios del taxi al aeropuerto de Barcelona",
+    "intro": "Las tarifas de taxi en Barcelona no las fijamos nosotros. Las establece el Àrea Metropolitana de Barcelona (AMB) y corren en el taxímetro oficial de todos los taxis con licencia. La tabla siguiente es la tarifa vigente, del 19 de enero de 2026 al 17 de enero de 2027.",
+    "tableCaption": "Tarifas urbanas oficiales del AMB, vigentes del 19 ene 2026 al 17 ene 2027",
+    "concept": "Concepto",
+    "amount": "Importe",
+    "rows": {
+      "startFare": "Bajada de bandera",
+      "perKmT1": "Por km — T-1 (lun–vie 08:00–20:00)",
+      "perKmT2": "Por km — T-2 (noches, fines de semana, festivos)",
+      "waitPerHour": "Tiempo de espera, por hora",
+      "airportSupplement": "Suplemento del aeropuerto de El Prat",
+      "mollSupplement": "Suplemento del puerto de cruceros Moll Adossat",
+      "santsSupplement": "Suplemento de la estación de Sants",
+      "firaSupplement": "Suplemento de Fira Gran Via",
+      "maxSupplement": "Máximo de suplementos por servicio",
+      "minFromAirport": "Tarifa mínima desde el aeropuerto",
+      "t4Fixed": "Precio cerrado: aeropuerto ↔ Moll Adossat (T-4)"
+    },
+    "feeTitle": "Qué incluye tu precio",
+    "verifyNote": "El AMB revisa las tarifas cada enero. Nosotros las verificamos en taxi.amb.cat en cada cambio."
+  },
+  "site": {
+    "name": "BCNAirportTaxi"
+  },
+  "howItWorks": {
+    "metaTitle": "Cómo funciona reservar un taxi al aeropuerto de Barcelona",
+    "metaDescription": "Reserva un taxi al aeropuerto de Barcelona en tres pasos: precio inmediato con todo incluido, pago online y encuentro con tu conductor.",
+    "h1": "Cómo funciona",
+    "steps": {
+      "one": {
+        "title": "Consigue tu precio",
+        "body": "Indica recogida y destino. Medimos la distancia real por carretera y aplicamos la tarifa oficial del AMB según tu horario para formar un único precio con todo incluido."
+      },
+      "two": {
+        "title": "Reserva el coche",
+        "body": "Elige tu vehículo y paga el precio completo online. Tu reserva se confirma al instante por correo y se te asigna un conductor."
+      },
+      "three": {
+        "title": "Encuentra a tu conductor",
+        "body": "Tu conductor te espera a la hora acordada. Todo está ya pagado, así que no hay nada que liquidar en el coche."
+      }
+    }
+  },
+  "faq": {
+    "metaTitle": "Preguntas frecuentes | Taxi al aeropuerto de Barcelona",
+    "metaDescription": "Respuestas sobre las reservas de taxi al aeropuerto de Barcelona: cómo se calcula el precio, dónde encontrar a tu conductor en El Prat, equipaje.",
+    "h1": "Preguntas frecuentes",
+    "items": {
+      "fareAccurate": {
+        "q": "¿El precio que veo es el que pago?",
+        "a": "Sí. El precio que ves es el que pagas. Se calcula con la tarifa oficial del AMB y la distancia real por carretera de tu ruta, ya incluye todos los suplementos oficiales y queda fijado en el momento de reservar. El tráfico y el recorrido son riesgo nuestro, no tuyo: no se añade nada después ni se debe nada al conductor."
+      },
+      "whyFee": {
+        "q": "¿Qué incluye el precio?",
+        "a": "Todo. El trayecto en sí, todos los suplementos oficiales que correspondan a tu ruta —el del aeropuerto de El Prat, el del puerto de cruceros, el de vehículos de cinco a ocho plazas— y nuestro servicio de reservar y garantizar el coche, asignar conductor y darte soporte el día del viaje. Es un único importe, pagado online al reservar, sin nada aparte y sin deber nada en el taxi."
+      },
+      "invoice": {
+        "q": "¿Puedo recibir factura?",
+        "a": "Sí. Te enviamos por correo un recibo del importe completo junto con la confirmación. Si además quieres la factura oficial del taxímetro del trayecto, tu conductor puede facilitártela en el coche si se la pides."
+      },
+      "meetDriver": {
+        "q": "¿Dónde encuentro a mi conductor en El Prat?",
+        "a": "Tu conductor te espera en la sala de llegadas de tu terminal con un cartel con tu nombre, y sigue tu vuelo para que un retraso no te deje sin coche. El punto de encuentro exacto está en tu correo de confirmación."
+      },
+      "urgent": {
+        "q": "¿Puedo reservar para dentro de una hora?",
+        "a": "Las reservas online necesitan al menos tres horas de antelación para poder asignar un conductor con garantías. Para algo más inmediato, escríbenos por WhatsApp y te confirmaremos un coche directamente si hay disponibilidad."
+      },
+      "luggage": {
+        "q": "¿Cuánto equipaje puedo llevar?",
+        "a": "Cada vehículo indica su capacidad de pasajeros y maletas. Un taxi estándar admite hasta 4 pasajeros y 3 maletas; el Mercedes V-Class admite 7 pasajeros y 7 maletas. Si llevas objetos voluminosos como bicicletas o esquís, indícalo en las notas de la reserva."
+      },
+      "cancel": {
+        "q": "¿Puedo cancelar?",
+        "a": "Sí. Cancela con al menos 24 horas de antelación y te devolvemos el importe íntegro. Consulta nuestra política de reembolsos para los detalles."
+      },
+      "outsideBarcelona": {
+        "q": "¿Recogéis fuera de Barcelona?",
+        "a": "Todavía no. De momento las recogidas deben ser dentro de la ciudad de Barcelona o en el aeropuerto de El Prat. El destino, en cambio, puede ser cualquiera."
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contacto | Reservas de taxi al aeropuerto de Barcelona",
+    "metaDescription": "Contacta con BCNAirportTaxi para reservar traslados al aeropuerto de Barcelona, viajes urgentes por WhatsApp y ayuda con una reserva existente.",
+    "h1": "Contacta con nosotros",
+    "intro": "Dudas sobre reservas, viajes urgentes y cambios en una reserva existente.",
+    "whatsappTitle": "WhatsApp — lo más rápido",
+    "whatsappBody": "Para viajes urgentes en menos de 3 horas y cualquier cosa que no pueda esperar.",
+    "emailTitle": "Correo electrónico",
+    "emailBody": "Para presupuestos, facturas y cambios en la reserva."
   }
 }

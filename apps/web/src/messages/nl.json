@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
-    "metaDescription": "Boek online vooraf een taxi naar de luchthaven van Barcelona. Eén all-in prijs, online betaald en berekend met het officiële AMB-tarief. Vergunde taxi’s van en naar El Prat, 24 uur per dag.",
+    "metaDescription": "Boek online vooraf een taxi naar de luchthaven van Barcelona. Eén all-in prijs, online betaald en berekend met het officiële AMB-tarief.",
     "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
     "intro": "Reserveer een vergunde zwart-gele taxi in Barcelona van of naar de luchthaven El Prat. U ziet vóór het boeken één all-in prijs, berekend met het officiële AMB-tarief en de werkelijke wegafstand. U betaalt online en hoeft de chauffeur niets te betalen.",
     "trust": {
@@ -54,7 +54,25 @@
       "whyLede": "en waarom het klopt.",
       "routesLede": "de meest geboekte."
     },
-    "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona"
+    "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona",
+    "why": {
+      "meter": {
+        "title": "Eén prijs, vast voordat u vertrekt",
+        "body": "De tarieven in Barcelona worden door de AMB vastgesteld en zijn in elke vergunde taxi identiek. Wij bouwen uw prijs op uit het officiële tarief en de werkelijke wegafstand en zetten hem daarna vast: het bedrag dat u hoort is het bedrag dat u betaalt, wat het verkeer ook doet."
+      },
+      "flight": {
+        "title": "Wij volgen uw vlucht",
+        "body": "Uw chauffeur volgt uw vluchtnummer. Landt u later, dan staat de auto er nog steeds, zonder extra kosten. Het ontmoetingspunt staat al vóór vertrek in uw bevestigingsmail."
+      },
+      "licensed": {
+        "title": "Alleen vergunde chauffeurs",
+        "body": "Elk voertuig is een vergunde Barcelona-taxi met werkende taxameter en de verzekering die de stad eist. Nooit auto’s zonder vergunning."
+      },
+      "support": {
+        "title": "Een mens, geen wachtrij",
+        "body": "Stuur ons een bericht op WhatsApp en u bereikt iemand die uw boeking daadwerkelijk kan wijzigen. Binnen drie uur is dat de snelste manier om een auto te krijgen."
+      }
+    }
   },
   "quote": {
     "title": "Direct een prijs",
@@ -123,7 +141,9 @@
     "sections": {
       "nextTitle": "Wat er daarna gebeurt",
       "nextLede": "zodra u betaald hebt."
-    }
+    },
+    "airportMinimumApplied": "Minimumtarief luchthaven van {amount} toegepast.",
+    "t4Applied": "Vaste prijs luchthaven ↔ cruiseterminal."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -145,7 +165,11 @@
     "noSupplement": "Op deze wagen geldt geen toeslag voor grote voertuigen.",
     "prevVehicle": "Vorig voertuig",
     "nextVehicle": "Volgend voertuig",
-    "chooseVehicle": "Kies een voertuig"
+    "chooseVehicle": "Kies een voertuig",
+    "metaTitle": "Taxivloot Barcelona | Auto’s, monovolumes en bussen",
+    "metaDescription": "Vergunde taxi’s naar de luchthaven van Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito monovolume en Mercedes V-Class premium bus.",
+    "intro": "Elk voertuig is een vergunde Barcelona-taxi met werkende taxameter. Kies op groepsgrootte en bagage: voertuigen voor vijf tot acht passagiers brengen de officiële AMB-toeslag met zich mee, die al in de getoonde prijs zit.",
+    "select": "{name} selecteren"
   },
   "common": {
     "book": "Nu boeken",
@@ -153,7 +177,11 @@
     "readAllFaqs": "Alle vragen bekijken",
     "backHome": "Terug naar home",
     "loading": "Laden…",
-    "relatedTransfers": "Vergelijkbare transfers"
+    "relatedTransfers": "Vergelijkbare transfers",
+    "from": "van",
+    "to": "naar",
+    "km": "km",
+    "min": "min"
   },
   "footer": {
     "about": "BCNAirportTaxi is een boekingsdienst voor vergunde taxi’s in Barcelona. Wij zijn een tussenpersoon, geen taxibedrijf: prijzen volgen het officiële AMB-tarief en u betaalt ons bij het boeken één all-in bedrag.",
@@ -195,7 +223,7 @@
   },
   "destinations": {
     "metaTitle": "Transferbestemmingen vanuit Barcelona | Privétaxi & minivan",
-    "metaDescription": "Privétransfers per taxi en minivan vanaf de luchthaven van Barcelona, de stad, de cruiseterminal en hotels naar de Costa Brava, Sitges, Tarragona, Montserrat, Andorra, Valencia en verder.",
+    "metaDescription": "Privétransfers per taxi en minivan vanaf de luchthaven van Barcelona, de stad, de cruiseterminal en hotels naar de Costa Brava, Sitges, Tarragona.",
     "eyebrow": "Alle routes",
     "h1": "Transferbestemmingen vanuit Barcelona",
     "intro": "Privétransfers per taxi en minivan vanaf de luchthaven van Barcelona, de stad, de cruiseterminal, hotels en privéadressen naar bestemmingen in heel Catalonië, Andorra en Spanje.",
@@ -360,9 +388,140 @@
     "totalPrice": "Totaalprijs"
   },
   "checkout": {
-    "totalDue": "Totaal te betalen"
+    "totalDue": "Totaal te betalen",
+    "metaTitle": "Rond uw taxiboeking in Barcelona af",
+    "metaDescription": "Bevestig uw taxiboeking naar de luchthaven van Barcelona: kies uw voertuig, vul uw gegevens in en betaal veilig.",
+    "h1": "Rond uw boeking af",
+    "yourTrip": "Uw rit",
+    "chooseVehicle": "Kies uw voertuig",
+    "yourDetails": "Uw gegevens",
+    "name": "Volledige naam",
+    "email": "E-mail",
+    "phone": "Telefoon (met landnummer)",
+    "flight": "Vluchtnummer",
+    "flightHelp": "Optioneel. Zo kan uw chauffeur uw landing volgen.",
+    "notes": "Opmerkingen voor uw chauffeur",
+    "notesHelp": "Optioneel. Deurcodes, extra bagage, kinderzitjes.",
+    "passengers": "Passagiers",
+    "luggage": "Bagage",
+    "summary": "Prijsoverzicht",
+    "payButton": "Betaal {amount} en bevestig",
+    "processing": "Bezig…",
+    "capacityWarning": "Dit voertuig biedt plaats aan {seats} passagiers en {bags} stuks bagage. Kies een groter voertuig voor uw groep.",
+    "agree": "Door te boeken accepteert u onze voorwaarden en ons restitutiebeleid.",
+    "missingQuote": "Vraag eerst een prijs op de startpagina op en kom dan terug om uw boeking af te ronden.",
+    "getPrice": "Prijs opvragen",
+    "errors": {
+      "failed": "We konden uw boeking niet afronden. Er is niets afgeschreven. Probeer het opnieuw.",
+      "expired": "Deze prijs is verlopen. Vraag een nieuwe op."
+    }
   },
   "pricing": {
-    "feeBody": "Onze service zit in de getoonde prijs. U betaalt bij het online boeken één all-in bedrag — het tarief, alle officiële toeslagen en onze reserveringsservice — en niets aan de chauffeur. U ontvangt een volledige bon per e-mail."
+    "feeBody": "Onze service zit in de getoonde prijs. U betaalt bij het online boeken één all-in bedrag — het tarief, alle officiële toeslagen en onze reserveringsservice — en niets aan de chauffeur. U ontvangt een volledige bon per e-mail.",
+    "metaTitle": "Taxiprijs luchthaven Barcelona 2026 | AMB-tarieven",
+    "metaDescription": "Taxiprijzen naar de luchthaven van Barcelona uitgelegd: officiële AMB-tarieven T-1 en T-2, de El Prat-toeslag.",
+    "h1": "Taxiprijzen naar de luchthaven van Barcelona",
+    "intro": "De taxitarieven in Barcelona stellen wij niet vast. Ze worden bepaald door de Àrea Metropolitana de Barcelona (AMB) en lopen op de officiële taxameter van elke vergunde taxi. De tabel hieronder is het geldende tarief, van 19 januari 2026 tot 17 januari 2027.",
+    "tableCaption": "Officiële stedelijke AMB-taxitarieven, geldig 19 jan. 2026 – 17 jan. 2027",
+    "concept": "Post",
+    "amount": "Bedrag",
+    "rows": {
+      "startFare": "Starttarief",
+      "perKmT1": "Per km — T-1 (ma–vr 08:00–20:00)",
+      "perKmT2": "Per km — T-2 (nacht, weekend, feestdagen)",
+      "waitPerHour": "Wachttijd, per uur",
+      "airportSupplement": "Toeslag luchthaven El Prat",
+      "mollSupplement": "Toeslag cruisehaven Moll Adossat",
+      "santsSupplement": "Toeslag station Sants",
+      "firaSupplement": "Toeslag Fira Gran Via",
+      "maxSupplement": "Maximum aan toeslagen per rit",
+      "minFromAirport": "Minimumtarief vanaf de luchthaven",
+      "t4Fixed": "Vaste prijs: luchthaven ↔ Moll Adossat (T-4)"
+    },
+    "feeTitle": "Wat uw prijs omvat",
+    "verifyNote": "De AMB herziet de tarieven elke januari. Wij controleren ze bij elke wijziging op taxi.amb.cat."
+  },
+  "site": {
+    "name": "BCNAirportTaxi"
+  },
+  "howItWorks": {
+    "metaTitle": "Zo werkt het boeken van een taxi naar de luchthaven van Barcelona",
+    "metaDescription": "Boek een taxi naar de luchthaven van Barcelona in drie stappen: direct een all-in prijs, online betalen en uw chauffeur ontmoeten.",
+    "h1": "Hoe het werkt",
+    "steps": {
+      "one": {
+        "title": "Vraag uw prijs op",
+        "body": "Vul ophaal- en afzetpunt in. Wij meten de werkelijke wegafstand en passen het officiële AMB-tarief van uw reistijd toe om één all-in prijs te vormen."
+      },
+      "two": {
+        "title": "Reserveer de auto",
+        "body": "Kies uw voertuig en betaal de volledige prijs online. Uw boeking wordt direct per e-mail bevestigd en er wordt een chauffeur aan u toegewezen."
+      },
+      "three": {
+        "title": "Ontmoet uw chauffeur",
+        "body": "Uw chauffeur staat op de afgesproken tijd klaar. Alles is al betaald, dus in de auto hoeft niets meer te worden afgerekend."
+      }
+    }
+  },
+  "faq": {
+    "metaTitle": "FAQ taxi luchthaven Barcelona | Tarieven en ophalen",
+    "metaDescription": "Antwoorden over taxiboekingen naar de luchthaven van Barcelona: hoe de prijs wordt berekend, waar u uw chauffeur op El Prat ontmoet, bagage.",
+    "h1": "Veelgestelde vragen",
+    "items": {
+      "fareAccurate": {
+        "q": "Is de prijs die ik zie de prijs die ik betaal?",
+        "a": "Ja. De getoonde prijs is de prijs die u betaalt. Hij is opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand van uw route, bevat al elke officiële toeslag en staat vast op het moment dat u boekt. Verkeer en route zijn ons risico, niet dat van u: er komt achteraf niets bij en de chauffeur hoeft niets te ontvangen."
+      },
+      "whyFee": {
+        "q": "Wat zit er in de prijs?",
+        "a": "Alles. De rit zelf, elke officiële toeslag die op uw route van toepassing is — de luchthaventoeslag El Prat, de cruisehaventoeslag, de toeslag voor voertuigen met vijf tot acht plaatsen — en onze service om de auto te reserveren en te garanderen, een chauffeur toe te wijzen en u op de dag zelf te ondersteunen. Eén bedrag, online betaald bij het boeken, zonder iets aparts en zonder iets verschuldigd in de taxi."
+      },
+      "invoice": {
+        "q": "Kan ik een factuur krijgen?",
+        "a": "Ja. Wij mailen u bij de bevestiging een bon voor het volledige bedrag. Wilt u daarnaast de officiële taxameterfactuur voor de rit zelf, dan kan uw chauffeur die op verzoek in de auto verstrekken."
+      },
+      "meetDriver": {
+        "q": "Waar ontmoet ik mijn chauffeur op El Prat?",
+        "a": "Uw chauffeur wacht in de aankomsthal van uw terminal met een naambordje en volgt uw vlucht, zodat vertraging u de auto niet kost. Het exacte ontmoetingspunt staat in uw bevestigingsmail."
+      },
+      "urgent": {
+        "q": "Kan ik voor het komende uur boeken?",
+        "a": "Online boekingen hebben minstens drie uur nodig om betrouwbaar een chauffeur toe te wijzen. Voor iets eerder kunt u ons op WhatsApp berichten; we bevestigen dan direct een auto als er één beschikbaar is."
+      },
+      "luggage": {
+        "q": "Hoeveel bagage mag ik meenemen?",
+        "a": "Bij elk voertuig staat de passagiers- en bagagecapaciteit. Een standaardtaxi neemt tot 4 passagiers en 3 stuks bagage; de Mercedes V-Class neemt 7 passagiers en 7 stuks bagage. Hebt u volumineuze spullen zoals fietsen of ski’s, vermeld dat dan in de opmerkingen bij de boeking."
+      },
+      "cancel": {
+        "q": "Kan ik annuleren?",
+        "a": "Ja. Annuleer minstens 24 uur vóór het ophalen en u krijgt het volledige bedrag terug. Zie ons restitutiebeleid voor de details."
+      },
+      "outsideBarcelona": {
+        "q": "Haalt u ook buiten Barcelona op?",
+        "a": "Nog niet. Op dit moment moet het ophaalpunt binnen de stad Barcelona of op de luchthaven El Prat liggen. Uw bestemming mag echter overal zijn."
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact | Taxi luchthaven Barcelona boeken",
+    "metaDescription": "Neem contact op met BCNAirportTaxi voor transfers naar de luchthaven van Barcelona, spoedritten via WhatsApp en hulp bij een bestaande boeking.",
+    "h1": "Neem contact op",
+    "intro": "Vragen over boeken, spoedritten en wijzigingen aan een bestaande reservering.",
+    "whatsappTitle": "WhatsApp — het snelst",
+    "whatsappBody": "Voor spoedritten binnen 3 uur en alles wat niet kan wachten.",
+    "emailTitle": "E-mail",
+    "emailBody": "Voor offertes, facturen en wijzigingen aan de boeking."
+  },
+  "confirmation": {
+    "metaTitle": "Boeking bevestigd",
+    "titlePaid": "Boeking bevestigd",
+    "titlePending": "Boeking ontvangen",
+    "bodyPaid": "Uw taxi is gereserveerd. We hebben u de bevestiging en de bon gemaild.",
+    "bodyPending": "Uw boeking is opgeslagen. Zij wordt bevestigd zodra de betaling is afgerond.",
+    "reference": "Boekingsreferentie",
+    "status": "Status",
+    "driverNote": "De gegevens van uw chauffeur sturen we u vóór het ophalen.",
+    "notFound": "We konden die boeking niet vinden.",
+    "backHome": "Terug naar de startpagina"
   }
 }

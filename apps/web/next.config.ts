@@ -39,6 +39,44 @@ const nextConfig: NextConfig = {
           },
           { key: 'X-Frame-Options', value: 'DENY' },
           {
+            /**
+             * Content-Security-Policy.
+             *
+             * Every third-party call the app makes — OSRM routing, SumUp,
+             * geocoding — runs server-side, so the browser only ever reaches
+             * our own origin and the Esri tile server. That makes a tight
+             * connect-src and img-src possible without breaking anything.
+             *
+             * script-src carries 'unsafe-inline' and 'unsafe-eval' because
+             * Next inlines its hydration bootstrap and a nonce would have to
+             * be threaded through the proxy on every request. That is worth
+             * doing later; it is not a reason to ship no policy at all,
+             * because the directives that stop the highest-impact attacks do
+             * not depend on it: base-uri blocks base-tag injection,
+             * object-src blocks plugin embedding, frame-ancestors blocks
+             * clickjacking, and form-action stops a form being repointed at
+             * an attacker — which matters most on a site that takes payments.
+             */
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "base-uri 'self'",
+              "object-src 'none'",
+              "frame-ancestors 'none'",
+              // SumUp hosts the card form and we navigate to it.
+              "form-action 'self' https://api.sumup.com https://pay.sumup.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline'",
+              "font-src 'self' data:",
+              // next/font self-hosts, so the only remote images are map tiles.
+              "img-src 'self' data: blob: https://server.arcgisonline.com",
+              "connect-src 'self' https://server.arcgisonline.com",
+              "worker-src 'self' blob:",
+              "manifest-src 'self'",
+              'upgrade-insecure-requests',
+            ].join('; '),
+          },
+          {
             key: 'Permissions-Policy',
             // Geolocation stays enabled: drivers and passengers share position
             // during a live trip.

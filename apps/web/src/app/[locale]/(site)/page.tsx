@@ -2,9 +2,26 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
+import dynamic from 'next/dynamic';
 import { FaqAccordion } from '@/components/faq-accordion';
-import { FleetSwiper } from '@/components/fleet-swiper';
-import { DestinationStrip } from '@/components/destination-strip';
+
+/**
+ * The two heaviest interactive blocks on the page, both well below the fold.
+ *
+ * Loaded eagerly they sat in the initial bundle, and the homepage shipped 212
+ * KB of script against 167 KB for a landing page — measured LCP 5.4s against
+ * 2.6s on a throttled phone. Neither is reachable without scrolling past the
+ * hero and the booking panel, so neither needs to be parsed before first
+ * paint. `ssr: true` is the default and is kept: the markup still renders on
+ * the server, so the content is in the HTML for crawlers and for a reader
+ * with JavaScript off — only the interactivity is deferred.
+ */
+const FleetSwiper = dynamic(() =>
+  import('@/components/fleet-swiper').then((m) => m.FleetSwiper),
+);
+const DestinationStrip = dynamic(() =>
+  import('@/components/destination-strip').then((m) => m.DestinationStrip),
+);
 import { FEATURED_DESTINATIONS, ALL_DESTINATIONS } from '@bcn/core/destinations';
 import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
 import { LANDMARKS, TARIFFS } from '@bcn/core/tariffs';

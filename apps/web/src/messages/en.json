@@ -24,7 +24,7 @@
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
-    "metaDescription": "Book a Barcelona airport taxi online in advance. One all-inclusive price paid online, built from the official AMB tariff. Licensed black-and-yellow taxis to and from El Prat, 24 hours.",
+    "metaDescription": "Book a Barcelona airport taxi online in advance. One all-inclusive price paid online, built from the official AMB tariff.",
     "h1": "Barcelona airport taxi, booked before you land",
     "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. You see one all-inclusive price before you book — built from the official AMB tariff and the real road distance — you pay it online, and there is nothing to settle with the driver.",
     "trust": {
@@ -150,7 +150,7 @@
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",
-    "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van. Seats and luggage capacity for every group.",
+    "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van.",
     "h1": "Our Barcelona taxi fleet",
     "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage: vehicles carrying five to eight passengers attract the official AMB supplement, which is already inside the price you are shown.",
     "seats": "{count, plural, one {# passenger} other {# passengers}}",
@@ -176,7 +176,7 @@
   },
   "pricing": {
     "metaTitle": "Barcelona Airport Taxi Price 2026 | AMB Fares",
-    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum, and how your all-inclusive price is built.",
+    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum.",
     "h1": "Barcelona airport taxi prices",
     "intro": "Barcelona taxi fares are not set by us. They are fixed by the Àrea Metropolitana de Barcelona (AMB) and run on the official meter in every licensed taxi. The table below is the current tariff, valid 19 January 2026 to 17 January 2027.",
     "tableCaption": "Official AMB urban taxi tariffs, valid 19 Jan 2026 – 17 Jan 2027",
@@ -360,7 +360,7 @@
   },
   "destinations": {
     "metaTitle": "Barcelona Transfer Destinations | Private Taxi & Minivan",
-    "metaDescription": "Private taxi and minivan transfers from Barcelona airport, city, cruise port and hotels to Costa Brava, Sitges, Tarragona, Montserrat, Andorra, Valencia and beyond.",
+    "metaDescription": "Private taxi and minivan transfers from Barcelona airport, city, cruise port and hotels to Costa Brava, Sitges, Tarragona, Montserrat, Andorra.",
     "eyebrow": "Route hub",
     "h1": "Barcelona transfer destinations",
     "intro": "Private taxi and minivan transfers from Barcelona airport, the city, the cruise port, hotels and private addresses to destinations across Catalonia, Andorra and Spain.",

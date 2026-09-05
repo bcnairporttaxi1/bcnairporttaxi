@@ -1,6 +1,9 @@
 // BCNAirportTaxi — data model
-// Booking intermediary: we collect a 20% booking fee online; the metered fare is
-// settled with the driver in the taxi. Nothing here stores card data.
+// Booking intermediary: the passenger pays one all-inclusive price online when
+// they book and owes the driver nothing in the car. The fare, the official
+// supplements and our service charge are all inside that single amount, and
+// each component is stored per booking so a historic price stays reproducible.
+// Nothing here stores card data.
 
 generator client {
   provider = "prisma-client"
@@ -21,8 +24,8 @@ enum Role {
 /// buttons in the driver panel, so each transition is a real event with a
 /// timestamp rather than a status someone set by hand.
 enum BookingStatus {
-  PENDING // created, booking fee not yet paid
-  CONFIRMED // booking fee paid
+  PENDING // created, payment not yet taken
+  CONFIRMED // paid in full
   ASSIGNED // driver attached
   EN_ROUTE // driver on the way
   ARRIVED // driver waiting at the pickup point
@@ -64,8 +67,10 @@ enum PaymentStatus {
   REFUNDED
 }
 
-/// FEE_ONLY: 20% booking fee online, metered fare paid to the driver in the car.
-/// FULL_PREPAID: fixed fare + booking fee online, nothing owed in the taxi.
+/// FULL_PREPAID: the only mode taken. One all-inclusive price online, nothing
+/// owed in the taxi.
+/// FEE_ONLY: RETIRED. Kept so bookings taken before the changeover still load
+/// and still render correctly in the panel. Never written again.
 enum PaymentMode {
   FEE_ONLY
   FULL_PREPAID
@@ -213,7 +218,8 @@ model Booking {
   startFare       Decimal @db.Decimal(10, 2)
   /// Official AMB rate used for the meter estimate.
   perKmRate       Decimal @db.Decimal(10, 4)
-  /// Rate we actually charged on the fixed fare (official + markup).
+  /// Rate we actually charged per km (official + markup, or the flat
+  /// interurban rate which already contains the closed circuit).
   perKmRateCharged Decimal @db.Decimal(10, 4)
   supplements     Decimal @db.Decimal(10, 2)
   /// What the taxi meter is expected to read.
