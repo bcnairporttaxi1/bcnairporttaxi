@@ -58,3 +58,7 @@ next-env.d.ts
 
 # generated Prisma client — output lives under apps/web, never committed
 **/generated/prisma/
+
+# Ad-hoc verification scripts belong in the scratchpad, not the repo.
+*.py
+!scripts/**/*.py
