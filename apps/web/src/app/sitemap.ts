@@ -47,10 +47,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: priorityFor(path),
       // Every URL declares the full alternate set, so search engines can map
       // the same page across all ten languages.
+      //
+      // x-default names the version to serve a searcher whose language is not
+      // one of the ten. Without it the set describes ten equals and no
+      // fallback, and Google picks one itself. Every page metadata block has
+      // always declared it, so until now the sitemap and the pages disagreed.
       alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [localeHrefLang[l], `${SITE_URL}/${l}${path}`]),
-        ),
+        languages: {
+          ...Object.fromEntries(
+            locales.map((l) => [localeHrefLang[l], `${SITE_URL}/${l}${path}`]),
+          ),
+          'x-default': `${SITE_URL}/en${path}`,
+        },
       },
     })),
   );
