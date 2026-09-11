@@ -37,12 +37,27 @@ export async function generateMetadata(props: {
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/${path}`;
 
+  /**
+   * /book renders this page's copy verbatim — same title, same description,
+   * same h1, same sections — so /book-online and /book were byte-identical
+   * documents at two URLs, each declaring itself canonical. Search Console
+   * shows the cost: 177 impressions on one and 122 on the other, both stuck
+   * around position 80, because the two were competing for the same intent
+   * with the same words.
+   *
+   * /book wins the consolidation. Not because it is the better page — they
+   * are the same page — but because the header CTA links to it from every
+   * page on the site, so it already holds nearly all of the internal link
+   * equity. A keyword in a slug does not come close to that.
+   */
+  const canonical = path === 'book-online' ? `/${locale}/book` : `/${locale}/${path}`;
+
   return {
     // Absolute so the layout's "| BCNAirportTaxi" suffix does not push these
     // past the length Google will display.
     title: { absolute: copy.title },
     description: copy.description,
-    alternates: { canonical: `/${locale}/${path}`, languages },
+    alternates: { canonical, languages },
     openGraph: {
       title: copy.title,
       description: copy.description,

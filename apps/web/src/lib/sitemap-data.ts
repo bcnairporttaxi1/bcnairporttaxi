@@ -46,10 +46,20 @@ function priorityFor(path: string): number {
   return 0.7;
 }
 
+/**
+ * Landing slugs that are canonicalised to another URL and therefore must not
+ * be submitted. A sitemap entry asks Google to index a page; a canonical
+ * pointing elsewhere asks it not to. Listing both says both.
+ *
+ * book-online: /book renders this page's exact copy and holds the site-wide
+ * header link, so it is the canonical of the pair.
+ */
+const CANONICALISED_ELSEWHERE = new Set(['book-online']);
+
 export function sitemapPaths(): string[] {
   return [
     ...STATIC_PATHS,
-    ...LANDING_SLUGS.map((s) => `/${s}`),
+    ...LANDING_SLUGS.filter((s) => !CANONICALISED_ELSEWHERE.has(s)).map((s) => `/${s}`),
     ...BLOG_SLUGS.map((s) => `/blog/${s}`),
     ...DESTINATION_PAGES.map((d) => `/destinations/${d.slug}`),
     ...LEGAL_SLUGS.map((s) => `/${s}`),
