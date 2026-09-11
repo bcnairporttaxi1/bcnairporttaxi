@@ -12,6 +12,7 @@
     "gen:images": "tsx scripts/generate-images.ts",
     "gen:art": "tsx scripts/make-fleet-art.ts",
     "seo:audit": "tsx scripts/seo-audit.ts",
+    "indexnow": "tsx scripts/indexnow.ts",
     "verify:payment": "tsx scripts/verify-payment-flow.ts",
     "verify:rides": "tsx --env-file=../../.env scripts/verify-ride-flow.ts",
     "verify:emails": "tsx --env-file=../../.env scripts/verify-emails.ts",

@@ -251,3 +251,8 @@ main().catch((e) => {
   console.error(e);
   process.exit(1);
 });
+
+/* Every other script in this directory is a module by virtue of an import.
+   This one had neither, so it sat in global scope and collided with the next
+   script that declared a `BASE` or a `main`. */
+export {};
