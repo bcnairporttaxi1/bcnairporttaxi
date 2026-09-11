@@ -1,10 +1,19 @@
-import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@bcn/core/site';
 import { LANDING_SLUGS } from '@bcn/core/landing-pages';
 import { LEGAL_SLUGS } from '@bcn/core/legal';
 import { BLOG_SLUGS } from '@bcn/core/blog';
 import { DESTINATION_PAGES } from '@bcn/core/destinations';
 import { localeHrefLang, locales } from '@/i18n/routing';
+
+/**
+ * Every URL in the sitemap, and the alternates for each.
+ *
+ * This used to live in `app/sitemap.ts`, the Next file convention. It moved
+ * out so the XML can be serialised by hand: the convention gives no way to
+ * emit an `<?xml-stylesheet?>` processing instruction, and without one a
+ * browser shows the sitemap as an unreadable run-on wall of text. The data is
+ * unchanged — only who writes the angle brackets.
+ */
 
 /** Routes that exist as their own page files, relative to a locale prefix. */
 const STATIC_PATHS = [
@@ -21,6 +30,15 @@ const STATIC_PATHS = [
   '/destinations',
 ];
 
+export interface SitemapEntry {
+  url: string;
+  lastModified: string;
+  changeFrequency: 'weekly';
+  priority: number;
+  /** hreflang -> absolute URL, including x-default. */
+  alternates: Array<[string, string]>;
+}
+
 function priorityFor(path: string): number {
   if (path === '') return 1;
   if (path === '/book' || path === '/pricing') return 0.9;
@@ -28,21 +46,23 @@ function priorityFor(path: string): number {
   return 0.7;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [
+export function sitemapPaths(): string[] {
+  return [
     ...STATIC_PATHS,
     ...LANDING_SLUGS.map((s) => `/${s}`),
     ...BLOG_SLUGS.map((s) => `/blog/${s}`),
     ...DESTINATION_PAGES.map((d) => `/destinations/${d.slug}`),
     ...LEGAL_SLUGS.map((s) => `/${s}`),
   ];
+}
 
-  const now = new Date();
+export function sitemapEntries(now: Date = new Date()): SitemapEntry[] {
+  const lastModified = now.toISOString();
 
-  return paths.flatMap((path) =>
+  return sitemapPaths().flatMap((path) =>
     locales.map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
-      lastModified: now,
+      lastModified,
       changeFrequency: 'weekly' as const,
       priority: priorityFor(path),
       // Every URL declares the full alternate set, so search engines can map
@@ -50,16 +70,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       //
       // x-default names the version to serve a searcher whose language is not
       // one of the ten. Without it the set describes ten equals and no
-      // fallback, and Google picks one itself. Every page metadata block has
-      // always declared it, so until now the sitemap and the pages disagreed.
-      alternates: {
-        languages: {
-          ...Object.fromEntries(
-            locales.map((l) => [localeHrefLang[l], `${SITE_URL}/${l}${path}`]),
-          ),
-          'x-default': `${SITE_URL}/en${path}`,
-        },
-      },
+      // fallback, and Google picks one itself.
+      alternates: [
+        ...locales.map(
+          (l) => [localeHrefLang[l], `${SITE_URL}/${l}${path}`] as [string, string],
+        ),
+        ['x-default', `${SITE_URL}/en${path}`] as [string, string],
+      ],
     })),
   );
 }

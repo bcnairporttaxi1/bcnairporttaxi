@@ -85,6 +85,25 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        /**
+         * The sitemap's XSLT stylesheet.
+         *
+         * Two headers on this site conspire against it. `nosniff` means the
+         * browser will not guess a type, and the static file server hands .xsl
+         * out as application/octet-stream — which a browser refuses to apply,
+         * leaving the raw wall of XML the stylesheet exists to fix. Naming the
+         * type explicitly is what makes the transform run.
+         *
+         * (CSP governs XSLT under script-src, not style-src, because a
+         * stylesheet is executable. 'self' already covers this file.)
+         */
+        source: '/sitemap.xsl',
+        headers: [
+          { key: 'Content-Type', value: 'text/xsl; charset=utf-8' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+        ],
+      },
+      {
         source: '/sw.js',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
