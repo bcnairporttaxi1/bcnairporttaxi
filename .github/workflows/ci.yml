@@ -31,11 +31,23 @@ jobs:
       - name: Install
         run: npm ci
 
+      # Every step below runs the package script rather than the tool.
+      #
+      # These were `npx tsc --noEmit` and `npx eslint src`, written when this
+      # was a single package with a tsconfig and a src/ at the root. The
+      # monorepo migration moved both into apps/web and deleted the originals,
+      # so tsc found no project and printed its help text, and eslint was
+      # pointed at a directory that no longer existed. CI had been red on
+      # every run since.
+      #
+      # Going through npm means the workflow reads the paths out of
+      # package.json instead of restating them, so the next layout change
+      # cannot desynchronise the two.
       - name: Types
-        run: npx tsc --noEmit
+        run: npm run typecheck
 
       - name: Lint
-        run: npx eslint src
+        run: npm run lint
 
       - name: Unit tests
         run: npm test
