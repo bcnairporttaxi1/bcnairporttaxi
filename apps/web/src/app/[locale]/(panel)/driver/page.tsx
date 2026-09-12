@@ -190,59 +190,10 @@ export default async function DriverPage(props: {
       tabs={DRIVER_TABS}
       activeHref="/driver"
     >
-      {/* Today first — it is what a driver checks between rides. */}
-      <div className="mb-4 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-card border-2 border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Rides today</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">
-            {doneToday.length}
-            <span className="ml-2 font-sans text-xs font-normal p-muted">
-              done · {today.length} to go
-            </span>
-          </p>
-        </div>
-        <div className="p-card p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Cash taken today</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(cashToday)}</p>
-          <p className="mt-0.5 text-xs p-muted">collected in the car</p>
-        </div>
-        <div className="p-card p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Owed to you today</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(owedToday)}</p>
-          <p className="mt-0.5 text-xs p-muted">prepaid rides</p>
-        </div>
-      </div>
-
-      {/* Earnings summary, with the detail a click away. */}
-      <div className="mb-8 grid gap-3 sm:grid-cols-3">
-        <div className="p-card p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Available to withdraw</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.available)}</p>
-        </div>
-        <div className="p-card p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Awaiting payout</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">{eur(balance.pending)}</p>
-        </div>
-        <div className="p-card p-5">
-          <p className="text-xs uppercase tracking-wider p-muted">Your rating</p>
-          <p className="mt-1 font-mono text-2xl font-extrabold">
-            {rated ? `${(ratingAgg._avg.rating ?? 0).toFixed(1)} ★` : '—'}
-            {rated && (
-              <span className="ml-2 font-sans text-xs font-normal p-muted">
-                {ratingAgg._count}
-              </span>
-            )}
-          </p>
-        </div>
-      </div>
-
-      <Link
-        href="/driver/earnings"
-        className="wave mb-10 inline-block rounded-xl bg-[var(--p-gold)] px-6 py-3 font-display font-extrabold text-[#0a0a0b] hover:bg-[var(--p-gold-bright)]"
-      >
-        Earnings &amp; withdrawals
-      </Link>
-
+      {/* A ride in progress comes before everything. This page is opened on a
+          phone at the rank or at a door, and the six full-height figure tiles
+          that used to sit here pushed the live ride — the only thing the
+          driver needs in that moment — eight hundred pixels below the fold. */}
       {active.length > 0 && (
         <section className="mb-10">
           <h2 className="font-display text-xl font-extrabold">In progress ({active.length})</h2>
@@ -270,6 +221,63 @@ export default async function DriverPage(props: {
           </div>
         </section>
       )}
+
+
+      {/* The figures, in one strip. Two across on a phone, so all of them fit
+          in the height one tile used to take. */}
+      <div className="mb-3 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="rounded-xl border border-[var(--p-gold)]/40 bg-[var(--p-gold-dim)] p-3.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-wider p-muted">Rides today</p>
+          <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">
+            {doneToday.length}
+            <span className="ml-1.5 font-sans text-[11px] font-normal p-muted">
+              done · {today.length} to go
+            </span>
+          </p>
+        </div>
+        <div className="p-card p-3.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-wider p-muted">Earned today</p>
+          <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(owedToday)}</p>
+        </div>
+        <div className="p-card p-3.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-wider p-muted">Available</p>
+          <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(balance.available)}</p>
+        </div>
+        <div className="p-card p-3.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-wider p-muted">Awaiting payout</p>
+          <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(balance.pending)}</p>
+        </div>
+        <div className="p-card p-3.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-wider p-muted">Rating</p>
+          <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">
+            {rated ? `${(ratingAgg._avg.rating ?? 0).toFixed(1)} ★` : '—'}
+            {rated && (
+              <span className="ml-1.5 font-sans text-[11px] font-normal p-muted">
+                {ratingAgg._count}
+              </span>
+            )}
+          </p>
+        </div>
+        {/* Every new booking is prepaid, so cash in the car is a thing of the
+            past — the tile only appears on a day it is actually non-zero,
+            which means a legacy fee-only ride was worked. */}
+        {cashToday > 0 && (
+          <div className="p-card p-3.5 sm:p-4">
+            <p className="text-[10px] uppercase tracking-wider p-muted">Cash taken</p>
+            <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(cashToday)}</p>
+          </div>
+        )}
+      </div>
+
+      <Link
+        href="/driver/earnings"
+        className="mb-10 inline-flex items-center gap-2 text-sm font-semibold p-gold underline decoration-[rgb(201_162_39/35%)] underline-offset-4 hover:decoration-[var(--p-gold-bright)]"
+      >
+        Earnings &amp; withdrawals
+        <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current" aria-hidden="true">
+          <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+        </svg>
+      </Link>
 
       <section>
         <h2 className="font-display text-xl font-extrabold">Today ({today.length})</h2>

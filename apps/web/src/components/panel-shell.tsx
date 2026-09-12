@@ -141,7 +141,7 @@ export function PanelShell({
               <h1 className="truncate font-display text-xl font-extrabold leading-tight">
                 {title}
               </h1>
-              {subtitle && <p className="mt-0.5 truncate text-sm p-muted">{subtitle}</p>}
+              {subtitle && <p className="mt-0.5 text-sm p-muted sm:truncate">{subtitle}</p>}
             </div>
 
             <div className="flex items-center gap-3">

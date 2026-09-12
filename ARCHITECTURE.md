@@ -56,7 +56,7 @@ src/
     db.ts               server· Prisma client
 ```
 
-**The pure modules never import Prisma or React.** That is what makes the 95
+**The pure modules never import Prisma or React.** That is what makes the 124
 tests possible without a database or a renderer, and it is the constraint most
 worth defending — every rule that has ever broken in this codebase broke
 because it lived in a page component where nothing could test it.
@@ -91,8 +91,7 @@ because it lived in a page component where nothing could test it.
                         ├── location pings drive the at-door email
                         └── COMPLETED freezes the settlement  ← see below
 
-6. Settle     prepaid  → driverPayout = fixed fare, collect nothing
-              fee-only → driverPayout = 0, driver takes the meter in the car
+6. Settle     driverPayout = the fare; nothing is collected in the car
 ```
 
 Step 6 is the part that has already broken once. Settlement used to live in the
@@ -101,18 +100,25 @@ lives in `statusWriteFor`, and every path that writes a status goes through it �
 there is no way to set `COMPLETED` without settling, because the settlement is
 part of what the status *means*.
 
-## The two money paths
+## The money
 
-| | Fee-only | Full prepaid |
+One price, paid online, in full. It is built from three figures that are
+stored separately on every booking and must never be conflated:
+
+| Figure | What it is | Who sees it |
 |---|---|---|
-| Taken online | booking fee | fare + booking fee |
-| Paid in the car | metered fare | nothing |
-| Platform owes driver | nothing | the fare |
-| Our income | the fee | the fee |
+| Meter estimate | The official AMB rates, as the taxi meter would read them | Internal — what the driver is settled against |
+| Fare | Official rates plus our per-km markup | Internal |
+| Total | Fare plus our service charge | The passenger, and only this |
 
-Only the fee is ever revenue. A prepaid fare passes through our account on its
-way to a driver, which is why the revenue panel separates "what we earn" from
+Our income is the service charge. The fare passes through our account on its
+way to the driver, which is why the revenue panel separates "what we earn" from
 "money passing through" rather than showing one total.
+
+The two-part model this replaced — a booking fee taken online, the metered
+fare settled in the car — was retired on 3 September 2026. Its enum value
+`FEE_ONLY` survives in the schema so bookings taken before then still load;
+nothing writes it.
 
 ## Database
 

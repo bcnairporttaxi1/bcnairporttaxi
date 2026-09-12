@@ -8,6 +8,7 @@ import { RideProgress, STAGE_SENTENCE } from '@/components/panel/ride-progress';
 import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
 import { eurIn, dateIn } from '@bcn/core/format';
+import { toBarcelonaInput } from '@bcn/core/barcelona-time';
 import { adminNav } from '../../tabs';
 import { assignDriver, cancelRide, editRide, setBookingStatus } from '../../actions';
 
@@ -41,12 +42,6 @@ const STATUSES = [
   'COMPLETED',
   'CANCELLED',
 ] as const;
-
-/** `datetime-local` wants local wall time with no zone, to the minute. */
-function toLocalInput(d: Date): string {
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
-}
 
 function Row({ label, children, mono = false }: { label: string; children: React.ReactNode; mono?: boolean }) {
   return (
@@ -412,11 +407,11 @@ export default async function AdminRideDetailPage(props: {
             <input name="dropoffLabel" defaultValue={b.dropoffLabel} required className="p-input w-full" />
           </label>
           <label className="block">
-            <span className="mb-1 block text-xs p-muted">Pickup time</span>
+            <span className="mb-1 block text-xs p-muted">Pickup time (Barcelona)</span>
             <input
               name="pickupAt"
               type="datetime-local"
-              defaultValue={toLocalInput(b.pickupAt)}
+              defaultValue={toBarcelonaInput(b.pickupAt)}
               required
               className="p-input w-full"
             />

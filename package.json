@@ -20,6 +20,9 @@
     "db:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "db:seed": "tsx prisma/seed.ts",
+    "db:dev": "prisma dev --name bcn --db-port 5433 --port 51213 --detach",
+    "db:dev:stop": "prisma dev stop bcn",
+    "db:seed:dev": "npm run seed:dev --workspace=@bcn/web",
     "postinstall": "prisma generate"
   },
   "devDependencies": {

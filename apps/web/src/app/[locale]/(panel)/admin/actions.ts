@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
+import { fromBarcelonaInput } from '@bcn/core/barcelona-time';
 import { prisma } from '@/lib/db';
 import { getSession, hashPassword } from '@/lib/auth';
 import { absoluteUrl } from '@bcn/core/site';
@@ -351,12 +352,18 @@ export async function editRide(formData: FormData): Promise<void> {
   });
   if (!parsed.success) return;
 
+  // The form value is Barcelona wall-clock time with no zone attached.
+  // `new Date(string)` would read it in the server's zone — UTC in
+  // production — and an admin correcting a pickup to 14:00 would save 16:00.
+  const pickupAt = fromBarcelonaInput(parsed.data.pickupAt);
+  if (!pickupAt) return;
+
   await prisma.booking.update({
     where: { id: bookingId },
     data: {
       pickupLabel: parsed.data.pickupLabel,
       dropoffLabel: parsed.data.dropoffLabel,
-      pickupAt: new Date(parsed.data.pickupAt),
+      pickupAt,
       passengers: parsed.data.passengers,
       luggage: parsed.data.luggage,
       notes: parsed.data.notes ?? null,

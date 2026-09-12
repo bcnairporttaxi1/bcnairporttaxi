@@ -92,7 +92,7 @@ export default async function OperationsCenterPage(props: {
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <StatTile
           icon="€"
-          label="Booking fee revenue"
+          label="Service revenue"
           value={eur(d.revenue)}
           sub={`vs ${eur(d.revenuePrev)} previous ${range}`}
           trend={d.revenueTrend}
@@ -153,7 +153,7 @@ export default async function OperationsCenterPage(props: {
         <Card>
           <CardHeader
             title="Revenue & bookings"
-            hint={`${eur2(d.revenue)} in booking fees this period`}
+            hint={`${eur2(d.revenue)} in service charges this period`}
             actions={
               <RangeTabs
                 options={RANGES.map((r) => ({ key: r.key, label: r.label }))}
@@ -165,12 +165,12 @@ export default async function OperationsCenterPage(props: {
           <AreaChart
             data={d.revenueSeries}
             format={axisMoney}
-            label={`Booking fee revenue over the last ${range}`}
+            label={`Service revenue over the last ${range}`}
           />
         </Card>
 
         <Card>
-          <CardHeader title="Revenue by vehicle" hint="booking fees, this period" />
+          <CardHeader title="Revenue by vehicle" hint="service charges, this period" />
           {d.byVehicle.length === 0 ? (
             <Empty message="No paid bookings in this period." />
           ) : (
@@ -179,7 +179,7 @@ export default async function OperationsCenterPage(props: {
                 data={d.byVehicle}
                 total={d.byVehicle.length}
                 centreLabel={eur(d.revenue)}
-                label="Booking fee revenue split by vehicle class"
+                label="Service revenue split by vehicle class"
               />
               <ul className="mt-4 space-y-2">
                 {d.byVehicle.map((v) => (

@@ -1,142 +1,146 @@
 # BCNAirportTaxi
 
-Premium Barcelona airport taxi booking site and installable PWA.
+Barcelona airport taxi booking — [bcnairporttaxi.es](https://bcnairporttaxi.es).
+Ten languages, an installable PWA, and an operations panel for the desk and
+the drivers.
 
-We are a **booking intermediary**, not a taxi operator. The site shows a km-based
-fare estimate built from official AMB tariffs; the fare the passenger actually
-pays is the **taxi meter**, settled with the driver in the car. We collect a
-separate **20% booking fee** online, receipted separately.
+We are a **booking intermediary**, not a taxi operator. The passenger is quoted
+**one all-inclusive price**, built from the official AMB tariff and the real
+road distance, and pays it online in full. Nothing is owed to the driver in the
+car. The service charge is inside that price, never itemised beside it.
 
 ## Stack
 
 | Concern | Choice |
 |---|---|
 | Framework | Next.js 16 (App Router, TypeScript, Turbopack) |
-| Styling | Tailwind CSS 4 |
-| Database | Neon Postgres via Prisma 7 (`@prisma/adapter-neon`) |
-| i18n | next-intl, 10 locales, localized routes |
-| Maps | Leaflet + OpenStreetMap tiles |
-| Geocoding | Nominatim (proxied server-side, throttled + cached) |
-| Routing | OSRM (road distance, not straight-line) |
+| Styling | Tailwind CSS 4 · `motion/react` for entrances |
+| Database | Postgres via Prisma 7 — Neon in production, `prisma dev` locally |
+| i18n | next-intl, 10 locales, all at 100% |
+| Maps | Leaflet + CARTO tiles |
+| Geocoding / routing | Nominatim / OSRM, proxied and rate-limited server-side |
+| Payments | SumUp hosted checkout |
 | Email | Resend |
-| Images | Gemini `gemini-2.5-flash-image`, generated at build time |
 
-## Getting started
+## Running it locally
+
+There is no need for a Neon account or anyone's production database. Prisma 7
+ships a local Postgres, and a seed builds the whole cast — admin, drivers,
+customers, rides in every state — so every panel renders with real data.
 
 ```bash
 npm install
-cp .env.example .env      # fill in the values
-npm run db:migrate        # apply the schema to Neon
+npm run db:dev            # local Postgres; prints its URL, keep it running
+```
+
+Put that URL in a `.env` at the repository root:
+
+```bash
+DATABASE_URL="postgres://postgres:postgres@localhost:51214/template1?sslmode=disable"
+AUTH_SECRET="any-string-at-least-32-characters-long-for-dev"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+NEXT_PUBLIC_WHATSAPP_NUMBER="34632414610"
+```
+
+Then:
+
+```bash
+npm run db:deploy         # apply the migrations
+npm run db:seed:dev       # admin, 2 drivers, 3 customers, 16 rides
 npm run dev
 ```
+
+Sign in at `/en/login` — every seeded account uses the password
+`password123`:
+
+| Account | Sees |
+|---|---|
+| `admin@local.test` | the operations panel |
+| `driver@local.test` | a driver with rides in progress right now |
+| `ana@local.test` | a customer with a ride on board |
+
+The seed is idempotent and refuses to run against anything but localhost.
+`npm run db:dev:stop` shuts the database down.
+
+Local development uses the standard `pg` adapter; production uses Neon's
+serverless one. `src/lib/db.ts` picks by the URL's host, so nothing changes
+between the two beyond `DATABASE_URL`.
 
 ## Scripts
 
 | Command | What it does |
 |---|---|
 | `npm run dev` | Dev server |
-| `npm run build` | `prisma generate` then a production build |
-| `npm test` | Pricing engine unit tests (Vitest) |
-| `npm run db:migrate` | Create + apply a migration |
-| `npm run db:deploy` | Apply migrations in CI/production |
-| `npm run gen:images` | Regenerate hero + fleet imagery via Gemini |
+| `npm run build` | `prisma generate`, `prisma migrate deploy`, `next build` — what Vercel runs |
+| `npm run build:ci` | The same without the migration, for a runner with no database |
+| `npm run ci` | typecheck + lint + tests, what CI runs |
+| `npm test` | 140 tests across the pricing engine, ride rules, emails and time handling |
+| `npm run db:dev` / `db:dev:stop` | Start / stop the local Postgres |
+| `npm run db:seed:dev` | Rebuild the development dataset |
+| `npm run db:migrate` | Create and apply a migration (needs a database) |
+| `npm run indexnow --workspace=@bcn/web` | Push every sitemap URL to Bing, Yandex, Seznam, Naver |
+| `npm run admin:reset -- <email> <siteUrl>` | Email someone a temporary password from the terminal |
 
-### Regenerating imagery
-
-`npm run gen:images` calls Gemini once per image and writes the results to
-`public/img/`. Commit the output — images are **never** generated per request,
-so the site always serves static optimized assets.
-
-The script rotates across `GEMINI_API_KEY_1..3`, moving to the next key on a
-429 / `RESOURCE_EXHAUSTED` response. If every key is exhausted it logs clearly
-and leaves the committed artwork in place, so a build never breaks.
-
-> **Current state:** all three supplied keys report `limit: 0` for image
-> generation — the projects behind them have no image quota, which is a billing
-> setting rather than a rate limit. The committed `public/img/*.svg` files are
-> styled placeholders in the brand palette. Enable billing on the Google Cloud
-> project (or supply keys from one that has image quota) and re-run the script.
-
-### Regenerating icons
-
-`npx tsx scripts/make-icons.ts` rasterises the PWA icons and favicon from a
-single inline SVG source via `sharp`.
-
-## Deployment
-
-Live at **https://bcnairporttaxi.vercel.app** — Vercel project `bcnairporttaxi`,
-linked to this repo, so pushes to `main` deploy automatically.
-
-To sync environment variables from a local `.env` into the Vercel project:
-
-```bash
-VERCEL_TOKEN=... VERCEL_PROJECT_ID=... npx tsx scripts/sync-vercel-env.ts
-```
-
-Values are upserted across production/preview/development and never printed.
-`NEXT_PUBLIC_*` are stored as plain (they are inlined into the client bundle
-anyway); everything else is encrypted. Pass `KEY=value` arguments to override a
-`.env` entry for production — this is how `AUTH_SECRET` and
-`NEXT_PUBLIC_SITE_URL` get production-specific values.
-
-Empty variables are skipped, so `SUMUP_API_KEY` and `SUMUP_MERCHANT_CODE` are
-not yet set — add them and re-run to switch payments from stub to live.
+Customers reset their own passwords at `/forgot-password`; the CLI is for
+when email is the thing that is broken.
 
 ## Pricing engine
 
-All rates live in [`src/lib/tariffs.ts`](src/lib/tariffs.ts) — **the only place
-a rate is hardcoded**. Verify them at [taxi.amb.cat](https://taxi.amb.cat) every
-January when the AMB publishes the new tariff.
+All rates live in [`packages/core/src/tariffs.ts`](packages/core/src/tariffs.ts)
+— **the only place a rate is hardcoded**. Verify against
+[taxi.amb.cat](https://taxi.amb.cat) every January.
 
-[`src/lib/pricing.ts`](src/lib/pricing.ts) implements:
+[`packages/core/src/pricing.ts`](packages/core/src/pricing.ts) produces three
+figures from one route, and they must never be conflated:
 
-- **Tariff selection** evaluated in `Europe/Madrid`, not server time. T-1 is
-  Mon–Fri 08:00–20:00; T-2 covers nights, weekends and Barcelona holidays.
-- **Supplements** for El Prat, Moll Adossat, Sants and Fira, capped per service.
-- **Airport minimum fare**, applied to the whole metered total, origin only.
-- **Fixed T-4 price** for airport ↔ Moll Adossat, in both directions.
-- **Booking fee** derived from the final estimate, always reported separately.
+1. **Meter estimate** — the official rates, exactly as the taxi meter would
+   read them. Internal: what the driver is settled against.
+2. **Fare** — official rates plus a per-km markup, or the flat interurban rate.
+3. **Total** — fare plus service charge. The only figure the passenger sees.
 
-Covered by 20 unit tests including DST boundaries and UTC-vs-local edge cases:
+Tariff selection runs in `Europe/Madrid`, never server time. Interurban trips
+(either end outside the 36 AMB municipalities, resolved by nearest municipality
+rather than a bounding box) bill the closed circuit out and back, as the
+Generalitat tariff requires.
 
-```bash
-npm test
-```
+Every component of a quote is stored on the booking, so a fare quoted in
+August is still explicable in December after the tariff has moved.
 
 ## Project layout
 
 ```
-src/
-  app/[locale]/       localized routes (10 languages)
-    [slug]/           SEO keyword landing pages, data-driven
-  app/api/            geocode + quote endpoints
-  components/         UI, incl. the taximeter readout and route map
-  i18n/               routing, navigation helpers, request config
-  lib/                tariffs, pricing, fleet, landing copy, legal, db
-  messages/           translation catalogues
-prisma/               schema + migrations
-scripts/              image + icon generation
+apps/web/src/
+  app/[locale]/(site)/     public pages — marketing, landing, booking, legal
+  app/[locale]/(panel)/    admin · driver · account, behind a session
+  app/api/                 quote, geocode, bookings, trips, health
+  components/              UI — motion primitives in motion.tsx
+  lib/                     auth, guards, email, payments, db
+  messages/                ten catalogues, all complete
+packages/core/src/         pricing, tariffs, municipalities, rides, content
+prisma/                    schema + migrations
 ```
 
-## Internationalization
+The pure modules in `packages/core` never import Prisma or React. That is what
+makes 124 of the tests runnable without a database or a renderer, and it is the
+constraint most worth defending.
 
-Ten locales: `en es ca fr de it pt nl ru zh`, each on its own URL prefix with
-full `hreflang` and per-locale canonicals.
+## Deployment
 
-`src/i18n/request.ts` deep-merges each catalogue over English, so a partially
-translated locale renders its translated strings and falls back to English for
-the rest rather than erroring or showing blanks.
+Pushes to `main` deploy to Vercel. CI runs typecheck, lint, tests and a build
+first and marks the commit red if any fail. Functions are pinned to `fra1`,
+next to the database.
 
-> **Current state:** `en.json` is complete. The other nine catalogues are not
-> yet written, so those locales currently render English. Add
-> `src/messages/<locale>.json` and the merge picks it up with no code change.
+Environment variables are set in the Vercel project. `ADMIN_NOTIFY_EMAIL`
+overrides where booking notices go; it defaults to the public contact address.
 
-## Things to confirm before launch
+## Things worth knowing
 
-- WhatsApp business number (`NEXT_PUBLIC_WHATSAPP_NUMBER`) — currently a placeholder.
-- SumUp merchant credentials, and who receives the booking-fee payout.
-- A verified Resend sending domain (the current key can only send from
-  `onboarding@resend.dev` to the account owner).
-- Exact fleet seat/bag counts.
-- Legal review of `src/lib/legal.ts` by a Spanish lawyer.
-- Re-verify AMB tariffs at go-live and each January.
+- **There is no payment webhook.** A booking is marked paid when the passenger
+  returns to the site from SumUp. One who pays and closes the tab stays
+  `PENDING`; the desk gets a notice on creation for exactly this reason.
+- **Times in forms are Barcelona wall-clock.** `packages/core/src/barcelona-time.ts`
+  is the only place a `datetime-local` value is converted either way. Do not
+  `new Date(string)` one — that reads it in the server's zone.
+- The terms in `packages/core/src/legal.ts` describe the current model but
+  have not been reviewed by a Spanish lawyer since the switch from
+  intermediary fee to full collection. They should be.
