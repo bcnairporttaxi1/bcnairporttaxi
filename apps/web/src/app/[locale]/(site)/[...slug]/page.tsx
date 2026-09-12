@@ -158,7 +158,12 @@ export default async function LandingPageRoute(props: {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-start lg:gap-12">
             <div className="max-w-2xl">
-              <Rise>
+              {/* The hero is not wrapped in <Rise>. Rise renders opacity:0 on the
+                  server and fades in after hydration, which on a phone left the
+                  largest text block invisible for two seconds after its bytes
+                  had arrived — Lighthouse called it a 2.35 s LCP render delay.
+                  Entrances belong below the fold, where they are seen. */}
+              <div>
                 <p className="inline-flex items-center gap-2.5 text-balance rounded-2xl border border-gold/20 bg-gold/[0.07] px-3 py-1.5 font-mono text-[9.5px] uppercase leading-[1.7] tracking-[0.13em] text-gold sm:rounded-full sm:px-3.5 sm:text-[10px] sm:tracking-[0.2em]">
                   <span
                     aria-hidden="true"
@@ -189,13 +194,13 @@ export default async function LandingPageRoute(props: {
                     </li>
                   ))}
                 </ul>
-              </Rise>
+              </div>
 
               {/* Jump links earn their space on a long page: they give the
                   reader the shape of the answer before committing to it, and
                   they give Google addressable passages. */}
               {sections.length >= 3 && (
-                <Rise delay={0.08}>
+                <div>
                   <nav
                     aria-label={copy.h1}
                     className="mt-9 rounded-[1.2rem] border border-line bg-raise p-5"
@@ -205,7 +210,7 @@ export default async function LandingPageRoute(props: {
                         <li key={s.id} className="flex gap-3">
                           <span
                             aria-hidden="true"
-                            className="mt-[3px] font-mono text-[11px] tabular-nums text-gold/60"
+                            className="mt-[3px] font-mono text-[11px] tabular-nums text-gold/80"
                           >
                             {String(i + 1).padStart(2, '0')}
                           </span>
@@ -219,7 +224,7 @@ export default async function LandingPageRoute(props: {
                       ))}
                     </ol>
                   </nav>
-                </Rise>
+                </div>
               )}
             </div>
 
