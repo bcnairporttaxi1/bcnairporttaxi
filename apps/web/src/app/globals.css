@@ -83,24 +83,23 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  /* Bricolage Grotesque at its large optical size. The opsz axis is what
-     makes it a display face rather than a text face wearing a big size:
-     tighter apertures, sharper terminals, the ink traps closing up. */
+  /* Bricolage Grotesque. Its optical-size axis is what
+     makes it a display face rather than a text face wearing a big size;
+     the note below explains why the axis is not set by hand. */
   letter-spacing: -0.028em;
   font-weight: 600;
   text-wrap: balance;
 }
 
-/* Only the two large levels take the display cut. An h3 at 18px set at
-   opsz 96 gets the tight, high-contrast drawing meant for a poster and
-   loses legibility; the axis is left on auto for h3 and h4. */
-h1,
-h2 {
-  font-variation-settings: 'opsz' 96;
-}
+/* The optical size is left to the browser (font-optical-sizing: auto is
+   the default), which sets the opsz axis from the font size: a 60px h1
+   gets the display cut, an 18px h3 the text cut. Setting the axis by hand
+   with font-variation-settings looked equivalent and was not: an explicit
+   axis value defeats Chrome's font shaping cache, and under text-wrap:
+   balance — which lays a heading out several times to even its lines —
+   the homepage spent 7.5 s in layout before first paint. */
 h3,
 h4 {
-  font-optical-sizing: auto;
   letter-spacing: -0.018em;
 }
 
@@ -114,7 +113,6 @@ h4 {
      typographic move that reads as borrowed rather than designed; contrast
      of weight and colour within one face does the same job with more poise. */
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 96;
   font-style: normal;
   font-weight: 300;
   letter-spacing: -0.018em;
