@@ -8,7 +8,9 @@ import { Resend } from 'resend';
  * Failures are logged and surfaced through the return value instead.
  */
 
-const FROM = process.env.RESEND_FROM ?? 'BCNAirportTaxi <onboarding@resend.dev>';
+// bcnairporttaxi.es is verified in Resend (SPF, DKIM, DMARC at IONOS), so the
+// default sender is our own domain. RESEND_FROM only exists to override it.
+const FROM = process.env.RESEND_FROM ?? 'BCNAirportTaxi <bookings@bcnairporttaxi.es>';
 
 function client(): Resend | null {
   const key = process.env.RESEND_API_KEY;
@@ -80,7 +82,21 @@ export interface BookingEmailData {
   locale?: string;
 }
 
-function layout(title: string, body: string): string {
+/**
+ * The footer used to describe the two-part model — "the final fare is set by
+ * the meter and paid in the car" — on every email, including the receipt for
+ * a ride paid in full and the desk's own notices. A passenger who had just
+ * paid €44 read, three lines below "nothing to pay in the taxi", that they
+ * would pay the driver. The default is now a plain sign-off; the receipt for
+ * a legacy fee-only booking passes the old wording itself.
+ */
+const SIGN_OFF = `BCNAirportTaxi · <a href="https://bcnairporttaxi.es" style="color:#6b6b72">bcnairporttaxi.es</a> · Questions? Reply to this email or WhatsApp <a href="https://wa.me/34632414610" style="color:#6b6b72">+34 632 414 610</a>.`;
+
+const METER_FOOTER = `The final fare is set by the official taxi meter and paid to your driver in the car.
+    An invoice is available in the taxi on request. The booking fee is a separate service
+    charge for arranging your ride.`;
+
+function layout(title: string, body: string, footer: string = SIGN_OFF): string {
   return `<!doctype html><html><body style="margin:0;background:#faf8f3;font-family:-apple-system,Segoe UI,Inter,sans-serif;color:#2a2a2e">
 <div style="max-width:560px;margin:0 auto;padding:24px">
   <div style="background:#0e0e10;border-radius:14px;padding:22px">
@@ -89,9 +105,7 @@ function layout(title: string, body: string): string {
   <h1 style="font-size:22px;margin:26px 0 10px">${title}</h1>
   ${body}
   <p style="margin-top:28px;font-size:12px;line-height:1.6;color:#6b6b72">
-    The final fare is set by the official taxi meter and paid to your driver in the car.
-    An invoice is available in the taxi on request. The booking fee is a separate service
-    charge for arranging your ride.
+    ${footer}
   </p>
 </div></body></html>`;
 }
@@ -184,6 +198,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
      </table>
      ${status}
      ${closing}`,
+    prepaid ? SIGN_OFF : METER_FOOTER,
   );
 
   const text = [
@@ -488,6 +503,92 @@ export function driverAssignedEmail(d: {
     `Your trip: ${d.tripUrl}`,
   ]
     .filter(Boolean)
+    .join('\n');
+
+  return { subject, html, text };
+}
+
+/**
+ * To the driver, the moment the desk puts a ride on them.
+ *
+ * Until now assignment only told the passenger; the driver found out by
+ * opening the panel, which on a busy day means they did not. The subject is
+ * the pickup time and the route so it reads whole in a lock-screen preview,
+ * and the phone number is a tel: link — the one action a driver takes from
+ * this email is calling the passenger from the rank.
+ *
+ * Always English: it is a work message to a Barcelona driver, not a receipt
+ * in the passenger's language.
+ */
+export function driverJobEmail(d: {
+  driverName: string;
+  reference: string;
+  pickupAt: Date;
+  pickupLabel: string;
+  dropoffLabel: string;
+  roadKm: number;
+  durationMin: number;
+  passengers: number;
+  luggage: number;
+  contactName: string;
+  contactPhone: string;
+  vehicleName?: string | null;
+  notes?: string | null;
+  panelUrl: string;
+}) {
+  const when = new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Madrid',
+  }).format(d.pickupAt);
+
+  const short = (s: string) => (s.length > 42 ? s.slice(0, 40) + '…' : s);
+
+  const subject = `New ride ${when} · ${short(d.pickupLabel)} → ${short(d.dropoffLabel)} · ${d.reference}`;
+
+  const html = layout(
+    'You have a new ride',
+    `<p style="font-size:15px;line-height:1.7">${d.driverName}, the desk has assigned <strong>${d.reference}</strong> to you. <strong>The passenger has already paid in full</strong> — nothing to collect in the car.</p>
+     <table style="width:100%;border-collapse:collapse;margin-top:14px;border-top:1px solid #e4e0d7">
+       ${row('Pickup time', `<strong>${when}</strong>`, true)}
+       ${row('From', d.pickupLabel)}
+       ${row('To', d.dropoffLabel)}
+       ${row('Distance', `${d.roadKm} km · about ${d.durationMin} min`)}
+       ${row('Group', `${d.passengers} passengers · ${d.luggage} bags`)}
+       ${d.vehicleName ? row('Vehicle booked', d.vehicleName) : ''}
+       ${row('Passenger', `<strong>${d.contactName}</strong>`)}
+       ${row('Phone', `<a href="tel:${d.contactPhone}">${d.contactPhone}</a>`, true)}
+     </table>
+     ${
+       d.notes
+         ? `<p style="margin-top:16px;font-size:13px;color:#6b6b72">Notes from the passenger</p><p style="background:#faf8f3;border:1px solid #e4e0d7;border-radius:10px;padding:12px;font-size:14px;line-height:1.6;white-space:pre-wrap">${d.notes}</p>`
+         : ''
+     }
+     <p style="margin-top:18px"><a href="${d.panelUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Open in the driver panel</a></p>
+     <p style="font-size:12px;color:#9a9aa4;margin-top:18px">Press <em>On my way</em> in the panel when you leave — the passenger is told when you are outside.</p>`,
+  );
+
+  const text = [
+    `${d.driverName}, you have a new ride: ${d.reference}`,
+    `Paid in full online — nothing to collect in the car.`,
+    ``,
+    `Pickup:    ${when}`,
+    `From:      ${d.pickupLabel}`,
+    `To:        ${d.dropoffLabel}`,
+    `Distance:  ${d.roadKm} km, about ${d.durationMin} min`,
+    `Group:     ${d.passengers} pax, ${d.luggage} bags`,
+    d.vehicleName ? `Vehicle:   ${d.vehicleName}` : null,
+    ``,
+    `Passenger: ${d.contactName}`,
+    `Phone:     ${d.contactPhone}`,
+    d.notes ? `\nNotes:\n${d.notes}` : null,
+    ``,
+    `Driver panel: ${d.panelUrl}`,
+  ]
+    .filter((l): l is string => l !== null)
     .join('\n');
 
   return { subject, html, text };

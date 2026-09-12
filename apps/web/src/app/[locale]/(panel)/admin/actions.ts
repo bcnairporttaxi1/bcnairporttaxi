@@ -9,6 +9,7 @@ import { absoluteUrl } from '@bcn/core/site';
 import { generateTemporaryPassword } from '@/lib/passwords';
 import {
   driverAssignedEmail,
+  driverJobEmail,
   sendEmail,
   temporaryPasswordEmail,
   withdrawalEmail,
@@ -60,7 +61,10 @@ export async function assignDriver(formData: FormData): Promise<void> {
           ? 'ASSIGNED'
           : undefined,
     },
-    include: { driver: true, vehicle: { select: { name: true } } },
+    include: {
+      driver: { include: { user: { select: { email: true } } } },
+      vehicle: { select: { name: true } },
+    },
   });
 
   if (driverId && booking.driver) {
@@ -78,6 +82,30 @@ export async function assignDriver(formData: FormData): Promise<void> {
       tripUrl: absoluteUrl(`/${booking.locale}/trip/${booking.reference}`),
     });
     await sendEmail({ to: booking.contactEmail, ...mail });
+
+    // And the driver. A driver row can exist without a login (created from
+    // the desk before the person has an account), in which case there is no
+    // address to send to and the desk phones them as before.
+    const driverEmail = booking.driver.user?.email;
+    if (driverEmail) {
+      const job = driverJobEmail({
+        driverName: booking.driver.name,
+        reference: booking.reference,
+        pickupAt: booking.pickupAt,
+        pickupLabel: booking.pickupLabel,
+        dropoffLabel: booking.dropoffLabel,
+        roadKm: booking.roadKm,
+        durationMin: booking.durationMin,
+        passengers: booking.passengers,
+        luggage: booking.luggage,
+        contactName: booking.contactName,
+        contactPhone: booking.contactPhone,
+        vehicleName: booking.vehicle?.name,
+        notes: booking.notes,
+        panelUrl: absoluteUrl('/en/driver'),
+      });
+      await sendEmail({ to: driverEmail, ...job });
+    }
   }
 
   revalidatePath(`/${locale}/admin`);

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { adminBookingEmail, bookingConfirmationEmail } from './email';
+import { adminBookingEmail, bookingConfirmationEmail, driverJobEmail } from './email';
 
 const base = {
   reference: 'BCN-TEST01',
@@ -131,5 +131,84 @@ describe('admin booking notice', () => {
     const { text, html } = adminBookingEmail({ ...ride, paid: true, notes: null });
     expect(text).not.toContain('Notes');
     expect(html).not.toContain('Notes for the driver');
+  });
+});
+
+describe('email footer', () => {
+  it('never tells a prepaid passenger to pay the meter in the car', () => {
+    const { html } = bookingConfirmationEmail({
+      reference: 'BCN-1', contactName: 'Ana', pickupLabel: 'T1', dropoffLabel: 'Hotel',
+      pickupAt: new Date('2026-09-20T08:30:00Z'), roadKm: 16, durationMin: 24, tariff: 'T1',
+      paymentMode: 'FULL_PREPAID', meterEstimate: 38, fixedFare: 40, bookingFee: 4,
+      amountOnline: 44, amountInTaxi: 0, feePaid: true,
+    });
+    expect(html).not.toContain('paid to your driver in the car');
+    expect(html).toContain('wa.me/34632414610');
+  });
+
+  it('keeps the meter wording for a legacy fee-only receipt', () => {
+    const { html } = bookingConfirmationEmail({
+      reference: 'BCN-1', contactName: 'Ana', pickupLabel: 'T1', dropoffLabel: 'Hotel',
+      pickupAt: new Date('2026-09-20T08:30:00Z'), roadKm: 16, durationMin: 24, tariff: 'T1',
+      paymentMode: 'FEE_ONLY', meterEstimate: 38, fixedFare: 40, bookingFee: 4,
+      amountOnline: 4, amountInTaxi: 38, feePaid: true,
+    });
+    expect(html).toContain('paid to your driver in the car');
+  });
+
+  it('signs desk and driver notices off plainly', () => {
+    const { html } = driverJobEmail({
+      driverName: 'J', reference: 'BCN-1', pickupAt: new Date(), pickupLabel: 'T1', dropoffLabel: 'H',
+      roadKm: 1, durationMin: 1, passengers: 1, luggage: 0, contactName: 'A', contactPhone: '+34600000000',
+      panelUrl: 'https://bcnairporttaxi.es/en/driver',
+    });
+    expect(html).not.toContain('booking fee is a separate');
+  });
+});
+
+describe('driver job notice', () => {
+  const job = {
+    driverName: 'Jordi Puig',
+    reference: 'BCN-7K2QX',
+    pickupAt: new Date('2026-09-20T08:30:00Z'), // 10:30 in Barcelona
+    pickupLabel: 'Aeroport T1, El Prat',
+    dropoffLabel: 'Hotel Arts, Carrer de la Marina 19',
+    roadKm: 16.2,
+    durationMin: 24,
+    passengers: 3,
+    luggage: 4,
+    contactName: 'Marta Vidal',
+    contactPhone: '+34600111222',
+    vehicleName: 'Mercedes Vito',
+    notes: 'Flight VY8301 — child seat please',
+    panelUrl: 'https://bcnairporttaxi.es/en/driver',
+  };
+
+  it('puts the pickup time and route in the subject so it reads from a lock screen', () => {
+    expect(driverJobEmail(job).subject).toBe(
+      'New ride Sun 20 Sept, 10:30 · Aeroport T1, El Prat → Hotel Arts, Carrer de la Marina 19 · BCN-7K2QX',
+    );
+  });
+
+  it('gives the driver everything but the money', () => {
+    const { text, html } = driverJobEmail(job);
+    for (const s of ['Marta Vidal', '+34600111222', 'Aeroport T1', 'Hotel Arts', '16.2 km', '3 pax, 4 bags', 'Mercedes Vito', 'VY8301']) {
+      expect(text).toContain(s);
+    }
+    expect(html).toContain('href="tel:+34600111222"');
+    expect(html).toContain('href="https://bcnairporttaxi.es/en/driver"');
+    // The passenger's email and what they paid are the desk's business.
+    expect(text).not.toContain('@');
+    expect(text).not.toMatch(/€\d/);
+  });
+
+  it('says plainly that there is nothing to collect', () => {
+    expect(driverJobEmail(job).text).toContain('nothing to collect in the car');
+  });
+
+  it('omits the notes block when there are none', () => {
+    const { text, html } = driverJobEmail({ ...job, notes: null });
+    expect(text).not.toContain('Notes');
+    expect(html).not.toContain('Notes from the passenger');
   });
 });
