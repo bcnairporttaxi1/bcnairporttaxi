@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Link } from '@/i18n/navigation';
 import { StatusPill } from '@/components/panel-shell';
 
 export interface RideRow {
@@ -170,6 +171,7 @@ export function AdminRideTable({
               <th>Status</th>
               <th className="text-right">Fee</th>
               <th className="text-right">To driver</th>
+              <th className="w-10"><span className="sr-only">Open</span></th>
             </tr>
           </thead>
           <tbody>
@@ -184,8 +186,13 @@ export function AdminRideTable({
                   />
                 </td>
                 <td className="whitespace-nowrap font-mono text-xs">{r.pickupAt}</td>
-                <td className="whitespace-nowrap font-mono text-xs font-bold p-gold">
-                  {r.reference}
+                <td className="whitespace-nowrap font-mono text-xs font-bold">
+                  <Link
+                    href={`/admin/rides/${r.reference}`}
+                    className="p-gold underline decoration-[rgb(201_162_39/35%)] underline-offset-4 transition hover:decoration-[var(--p-gold-bright)] hover:text-[var(--p-gold-bright)]"
+                  >
+                    {r.reference}
+                  </Link>
                 </td>
                 <td className="max-w-xs">
                   <span className="line-clamp-2">
@@ -195,7 +202,12 @@ export function AdminRideTable({
                   </span>
                 </td>
                 <td>
-                  <span className="block whitespace-nowrap">{r.contactName}</span>
+                  <Link
+                    href={`/admin/rides/${r.reference}`}
+                    className="block whitespace-nowrap hover:text-[var(--p-gold-bright)]"
+                  >
+                    {r.contactName}
+                  </Link>
                   <a
                     href={`tel:${r.contactPhone}`}
                     className="font-mono text-xs p-muted hover:text-[var(--p-gold-bright)]"
@@ -237,6 +249,17 @@ export function AdminRideTable({
                       {r.cashToCollect}
                     </span>
                   )}
+                </td>
+                <td className="text-right">
+                  <Link
+                    href={`/admin/rides/${r.reference}`}
+                    aria-label={`Open ride ${r.reference}`}
+                    className="inline-grid h-8 w-8 place-items-center rounded-lg p-muted transition hover:bg-[rgb(255_255_255/6%)] hover:text-[var(--p-gold-bright)]"
+                  >
+                    <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current" aria-hidden="true">
+                      <path d="m7.5 4 6 6-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+                    </svg>
+                  </Link>
                 </td>
               </tr>
             ))}
