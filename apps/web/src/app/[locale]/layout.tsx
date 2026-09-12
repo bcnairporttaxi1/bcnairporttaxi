@@ -33,7 +33,13 @@ const geist = Geist({
  */
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin', 'latin-ext'],
-  axes: ['opsz', 'wdth'],
+  // opsz only. Adding the width axis doubled the file to 129 KB, and with
+  // latin-ext preloaded beside it the two fonts were ahead of the hero image
+  // in the queue — mobile LCP went from 3.2 s to 3.8 s. Not preloaded for
+  // the same reason: headings paint in Geist and swap when this arrives,
+  // which is invisible on a fast line and a fair trade on a slow one.
+  axes: ['opsz'],
+  preload: false,
   variable: '--font-bricolage',
   display: 'swap',
 });
