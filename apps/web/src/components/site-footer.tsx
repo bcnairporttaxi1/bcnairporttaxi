@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CONTACT_EMAIL, LEGAL } from '@bcn/core/site';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
@@ -99,7 +100,21 @@ export async function SiteFooter() {
 
       <div className="border-t border-white/10 px-4 py-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 text-xs text-ghost sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} BCNAirportTaxi. {t('rights')}</p>
+          <p>
+            © {new Date().getFullYear()} BCNAirportTaxi. {t('rights')}
+            {LEGAL.company && (
+              <>
+                <br />
+                {[LEGAL.company, LEGAL.vatId && `NIF ${LEGAL.vatId}`, LEGAL.address]
+                  .filter(Boolean)
+                  .join(' · ')}
+                {' · '}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="underline-offset-2 hover:underline">
+                  {CONTACT_EMAIL}
+                </a>
+              </>
+            )}
+          </p>
           <p className="max-w-xl sm:text-right">{t('disclaimerShort')}</p>
         </div>
       </div>

@@ -86,6 +86,14 @@ from the booking form, which measures the real road distance.
 - Cancellation is handled by our office; a booking cancelled at least 24 hours ahead is refunded in full.
 - A receipt for the full amount is emailed with the confirmation. The official meter invoice can be requested from the driver in the car.
 
+## Prices and guides
+
+- Prices, with the official tariff explained: ${SITE_URL}/en/pricing
+- How much a taxi from Barcelona airport costs: ${SITE_URL}/en/blog/how-much-is-a-taxi-from-barcelona-airport
+- Taxi or Aerobús from the airport, compared: ${SITE_URL}/en/blog/taxi-or-aerobus-from-barcelona-airport
+- Terminals T1 and T2, where the taxi ranks are: ${SITE_URL}/en/blog/barcelona-airport-terminals-t1-t2-guide
+- Vehicles and seat counts: ${SITE_URL}/en/fleet
+
 ## Key pages
 
 ${LANDING_PAGES.slice(0, 12).map((p) => `- ${SITE_URL}/en/${p.slug}`).join('\n')}

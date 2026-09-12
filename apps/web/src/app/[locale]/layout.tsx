@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
+import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
@@ -21,18 +21,20 @@ const geist = Geist({
 });
 
 /**
- * The one editorial note. Used italic, in saffron, on the second line of a
- * heading — never for body copy, where its low x-height would cost legibility
- * for the tired traveller this site is actually for.
+ * Bricolage Grotesque carries every heading. It is a variable face with an
+ * optical-size axis, so the same file serves a 13px eyebrow and a 64px
+ * headline and each gets the cut drawn for it — that axis is the reason to
+ * choose it over another grotesque. The saffron second line of a heading is
+ * the same face at weight 300, not a second family.
+ *
+ * latin-ext covers the Catalan, French, German, Italian, Dutch and
+ * Portuguese diacritics. Russian and Chinese headings fall through to the
+ * system stack, as they already did with Geist.
  */
-const instrument = Instrument_Serif({
-  subsets: ['latin'],
-  weight: ['400'],
-  // Italic only. `.editorial` is always italic, and the :lang(zh|ja|ko) rule
-  // that sets it upright applies to scripts this face has no glyphs for — so
-  // the upright file was downloaded on every page and never painted.
-  style: ['italic'],
-  variable: '--font-editorial',
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin', 'latin-ext'],
+  axes: ['opsz', 'wdth'],
+  variable: '--font-bricolage',
   display: 'swap',
 });
 
@@ -141,7 +143,7 @@ export default async function LocaleLayout(props: {
   return (
     <html
       lang={localeHrefLang[locale as Locale]}
-      className={`${geist.variable} ${instrument.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${bricolage.variable} ${geistMono.variable}`}
     >
       <body>
         <div className="grain-overlay" aria-hidden="true" />

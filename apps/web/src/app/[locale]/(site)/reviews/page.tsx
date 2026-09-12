@@ -18,8 +18,15 @@ export async function generateMetadata(props: {
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/reviews`;
+  // An empty reviews page is thin content, and there are ten of them. Keep
+  // them out of the index until the first approved review exists; the tag
+  // lifts itself on the next build after that.
+  const approved = await prisma.review
+    .count({ where: { approved: true, direction: 'USER_TO_DRIVER' } })
+    .catch(() => 0);
   return {
     title: 'Barcelona Airport Taxi Reviews',
+    robots: approved > 0 ? undefined : { index: false, follow: true },
     description:
       'Reviews from passengers who booked a Barcelona airport taxi with BCNAirportTaxi. Every review comes from a completed, verified booking.',
     alternates: { canonical: `/${locale}/reviews`, languages },

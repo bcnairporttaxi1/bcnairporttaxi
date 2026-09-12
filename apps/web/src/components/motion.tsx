@@ -1,49 +1,63 @@
 'use client';
 
-import { motion, useInView, useReducedMotion, type Variants } from 'motion/react';
-import { useRef, type ElementType } from 'react';
+import { useEffect, useRef, useState, type ElementType } from 'react';
 
 /**
- * Motion primitives.
+ * Entrance motion for the public site, in CSS.
  *
- * Everything here animates transform and opacity only, so it stays on the
- * compositor and never costs layout on a page whose job is a booking form.
+ * These five primitives used to wrap `motion/react`. That cost every page the
+ * library (46 KB compressed) and, worse, rendered each section at opacity:0
+ * on the server: a full-page screenshot of the homepage was eight thousand
+ * pixels of black, and Lighthouse charged 2.5 s of LCP render delay to text
+ * whose bytes had arrived with the HTML.
  *
- * Three rules hold across the whole site:
- *
- *  1. Entrances fire once. `useInView({ once: true })` — replaying on
- *     scroll-back turns a considered entrance into a twitch.
- *  2. Content is in the HTML either way. Only opacity and transform move, so
- *     a crawler and a reader with JavaScript off see the finished page.
- *  3. `prefers-reduced-motion` collapses every duration to zero rather than
- *     shortening it, so the layout lands immediately and nothing slides.
- *
- * The shared easing is the site's `--ease-brand`, expressed here as its
- * control points because Motion takes numbers, not a CSS variable.
+ * The rule now: content is visible at rest. The server renders everything
+ * shown. After hydration, an element that sits below the viewport is armed —
+ * hidden and translated — and an IntersectionObserver reveals it when it
+ * scrolls in. Anything already on screen at hydration is left alone, so the
+ * first paint, the thumbnail and the reader with JavaScript off all get the
+ * page. The transitions live in globals.css under `.rise`, `.stagger` and
+ * `.drawline`; reduced motion switches them off there.
  */
-const EASE = [0.32, 0.72, 0, 1] as const;
 
-export const rise: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
+/** True once the element has scrolled into view (or was in view to begin with). */
+function useReveal<T extends HTMLElement>(margin = '0px 0px -12% 0px') {
+  const ref = useRef<T>(null);
+  // `armed` is only ever set on the client, after mount, and only for
+  // elements below the fold — which is what keeps the server render visible.
+  const [armed, setArmed] = useState(false);
+  const [shown, setShown] = useState(false);
 
-/** Children run in sequence; the parent itself does not move. */
-export const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-/**
- * A single element that rises into place when it is first seen.
- *
- * `delay` exists for grids laid out without a Stagger parent — prefer Stagger
- * where you can, because it keeps the timing in one place.
- */
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) return; // already on screen: never hide it
+
+    setArmed(true);
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: margin, threshold: 0.05 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [margin]);
+
+  return { ref, armed, shown };
+}
+
+/** A single element that rises into place when it is first seen. */
 export function Rise({
   children,
   delay = 0,
-  className,
+  className = '',
   as = 'div',
 }: {
   children: React.ReactNode;
@@ -51,47 +65,39 @@ export function Rise({
   className?: string;
   as?: 'div' | 'li' | 'section' | 'article' | 'header';
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: '0px 0px -12% 0px' });
-  const still = useReducedMotion();
-  const Tag = motion[as] as ElementType;
-
+  const { ref, armed, shown } = useReveal<HTMLElement>();
+  const Tag = as as ElementType;
   return (
     <Tag
       ref={ref}
-      className={className}
-      initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
-      variants={rise}
-      transition={still ? { duration: 0 } : { duration: 0.75, delay, ease: EASE }}
+      className={`rise ${className}`}
+      data-armed={armed || undefined}
+      data-in={shown || undefined}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
     </Tag>
   );
 }
 
-/** Wraps a group whose children should arrive one after another. */
+/**
+ * Wraps a group whose children should arrive one after another. The parent
+ * itself does not move; each StaggerItem reads the group's state and the
+ * stylesheet spaces them by `:nth-child`.
+ */
 export function Stagger({
   children,
-  className,
+  className = '',
   as = 'div',
 }: {
   children: React.ReactNode;
   className?: string;
   as?: 'div' | 'ul' | 'ol' | 'section';
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' });
-  const Tag = motion[as] as ElementType;
-
+  const { ref, armed, shown } = useReveal<HTMLElement>('0px 0px -10% 0px');
+  const Tag = as as ElementType;
   return (
-    <Tag
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
-      variants={stagger}
-    >
+    <Tag ref={ref} className={`stagger ${className}`} data-armed={armed || undefined} data-in={shown || undefined}>
       {children}
     </Tag>
   );
@@ -100,77 +106,44 @@ export function Stagger({
 /** One member of a Stagger. Timing comes from the parent, not from here. */
 export function StaggerItem({
   children,
-  className,
+  className = '',
   as = 'div',
 }: {
   children: React.ReactNode;
   className?: string;
   as?: 'div' | 'li' | 'article';
 }) {
-  const still = useReducedMotion();
-  const Tag = motion[as] as ElementType;
-
-  return (
-    <Tag
-      className={className}
-      variants={rise}
-      transition={still ? { duration: 0 } : { duration: 0.7, ease: EASE }}
-    >
-      {children}
-    </Tag>
-  );
+  const Tag = as as ElementType;
+  return <Tag className={`rise stagger-item ${className}`}>{children}</Tag>;
 }
 
 /**
- * A card that tips very slightly toward the pointer and lifts on approach.
- *
- * The rotation is deliberately under two degrees: past that, text starts to
- * resample as it turns and the whole thing reads as cheap rather than
- * expensive. Touch devices get the lift without the tilt, because there is no
- * pointer position to tilt toward.
+ * A card that lifts on hover. The lift is CSS; a StaggerItem entrance comes
+ * from the parent group when there is one.
  */
 export function LiftCard({
   children,
-  className,
+  className = '',
   as = 'div',
 }: {
   children: React.ReactNode;
   className?: string;
   as?: 'div' | 'li' | 'article';
 }) {
-  const still = useReducedMotion();
-  const Tag = motion[as] as ElementType;
-
-  return (
-    <Tag
-      className={className}
-      variants={rise}
-      transition={still ? { duration: 0 } : { duration: 0.7, ease: EASE }}
-      whileHover={still ? undefined : { y: -6, transition: { duration: 0.45, ease: EASE } }}
-      whileTap={still ? undefined : { scale: 0.99 }}
-    >
-      {children}
-    </Tag>
-  );
+  const Tag = as as ElementType;
+  return <Tag className={`rise stagger-item lift ${className}`}>{children}</Tag>;
 }
 
 /**
  * Draws a line as it comes into view — used for the spine that threads the
- * three booking steps together.
+ * three booking steps together. Rendered at full length on the server.
  */
-export function DrawLine({ className }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '0px 0px -20% 0px' });
-  const still = useReducedMotion();
-
+export function DrawLine({ className = '' }: { className?: string }) {
+  const { ref, armed, shown } = useReveal<HTMLDivElement>('0px 0px -20% 0px');
   return (
-    <div ref={ref} className={className} aria-hidden="true">
-      <motion.span
-        className="block h-full w-full origin-left bg-gradient-to-r from-gold/0 via-gold/50 to-gold/0"
-        initial={{ scaleX: 0 }}
-        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={still ? { duration: 0 } : { duration: 1.4, ease: EASE }}
-      />
+    <div ref={ref} className={`drawline ${className}`} aria-hidden="true" data-armed={armed || undefined} data-in={shown || undefined}>
+      <span className="block h-full w-full origin-left bg-gradient-to-r from-gold/0 via-gold/50 to-gold/0" />
     </div>
   );
 }
+

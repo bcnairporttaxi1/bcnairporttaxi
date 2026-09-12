@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, SITE_URL, WHATSAPP_NUMBER, absoluteUrl } from '@bcn/core/site';
+import { CONTACT_EMAIL, LEGAL, SITE_URL, WHATSAPP_NUMBER, absoluteUrl } from '@bcn/core/site';
 
 /**
  * Structured data. Rendered as a plain script tag rather than via a library so
@@ -35,6 +35,17 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
         '@id': `${SITE_URL}/#organization`,
         name: 'BCNAirportTaxi',
         url: absoluteUrl(`/${locale}`),
+        image: absoluteUrl('/img/hero-banner.jpg'),
+        ...(WHATSAPP_NUMBER ? { telephone: `+${WHATSAPP_NUMBER}` } : {}),
+        ...(LEGAL.company
+          ? {
+              legalName: LEGAL.company,
+              ...(LEGAL.vatId ? { vatID: LEGAL.vatId } : {}),
+              ...(LEGAL.address
+                ? { address: { '@type': 'PostalAddress', streetAddress: LEGAL.address, addressLocality: 'Barcelona', addressCountry: 'ES' } }
+                : {}),
+            }
+          : {}),
         description:
           'Online booking service for licensed Barcelona airport taxis to and from El Prat, priced on official AMB tariffs.',
         // A search engine deciding whether we serve a given query needs to

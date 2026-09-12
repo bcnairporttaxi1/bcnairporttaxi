@@ -149,7 +149,7 @@
     }
   },
   "fleet": {
-    "metaTitle": "Barcelona Taxi Fleet | Cars, Minivans & Vans",
+    "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",
     "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van.",
     "h1": "Our Barcelona taxi fleet",
     "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage: vehicles carrying five to eight passengers attract the official AMB supplement, which is already inside the price you are shown.",
@@ -175,7 +175,7 @@
     "chooseVehicle": "Choose a vehicle"
   },
   "pricing": {
-    "metaTitle": "Barcelona Airport Taxi Price 2026 | AMB Fares",
+    "metaTitle": "Barcelona Airport Taxi Prices 2026",
     "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum.",
     "h1": "Barcelona airport taxi prices",
     "intro": "Barcelona taxi fares are not set by us. They are fixed by the Àrea Metropolitana de Barcelona (AMB) and run on the official meter in every licensed taxi. The table below is the current tariff, valid 19 January 2026 to 17 January 2027.",
@@ -219,7 +219,7 @@
     }
   },
   "faq": {
-    "metaTitle": "Barcelona Airport Taxi FAQ | Fares & Pickup",
+    "metaTitle": "Barcelona Airport Taxi FAQ: Fares, Pickup",
     "metaDescription": "Answers about Barcelona airport taxi bookings: how the fare is calculated, where to meet your driver at El Prat, luggage, invoices and cancellations.",
     "h1": "Frequently asked questions",
     "items": {
@@ -359,7 +359,7 @@
     "waIntro": "Hi, I would like to book a Barcelona airport taxi."
   },
   "destinations": {
-    "metaTitle": "Barcelona Transfer Destinations | Private Taxi & Minivan",
+    "metaTitle": "Barcelona Transfer Destinations by Taxi",
     "metaDescription": "Private taxi and minivan transfers from Barcelona airport, city, cruise port and hotels to Costa Brava, Sitges, Tarragona, Montserrat, Andorra.",
     "eyebrow": "Route hub",
     "h1": "Barcelona transfer destinations",

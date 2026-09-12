@@ -25,16 +25,19 @@ export function Reveal({
   as?: 'div' | 'li' | 'section' | 'article';
 }) {
   const ref = useRef<HTMLElement>(null);
+  // Server-rendered visible. Only an element below the fold at hydration is
+  // hidden, and only until it scrolls in — the same rule as motion.tsx.
+  const [armed, setArmed] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    if (typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
-      return;
-    }
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    setArmed(true);
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -54,7 +57,7 @@ export function Reveal({
     <Tag
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ref={ref as any}
-      data-visible={visible ? 'true' : 'false'}
+      data-visible={armed ? (visible ? 'true' : 'false') : undefined}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={`reveal ${className}`}
     >

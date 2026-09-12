@@ -45,11 +45,11 @@
   --color-muted: #6b6b72;
   --color-hairline: #e4e0d7;
 
-  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   /* Editorial accent. Italic saffron on a heading's second line, nowhere else. */
-  --font-editorial: var(--font-editorial), Georgia, 'Times New Roman', serif;
+  --font-editorial: var(--font-bricolage), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 1.25rem;
   --radius-shell: 2rem;
@@ -83,10 +83,25 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  /* Geist is already tightly fitted; Sora's -0.02em over-tightened it. */
-  letter-spacing: -0.032em;
+  /* Bricolage Grotesque at its large optical size. The opsz axis is what
+     makes it a display face rather than a text face wearing a big size:
+     tighter apertures, sharper terminals, the ink traps closing up. */
+  letter-spacing: -0.028em;
   font-weight: 600;
   text-wrap: balance;
+}
+
+/* Only the two large levels take the display cut. An h3 at 18px set at
+   opsz 96 gets the tight, high-contrast drawing meant for a poster and
+   loses legibility; the axis is left on auto for h3 and h4. */
+h1,
+h2 {
+  font-variation-settings: 'opsz' 96;
+}
+h3,
+h4 {
+  font-optical-sizing: auto;
+  letter-spacing: -0.018em;
 }
 
 /**
@@ -94,10 +109,15 @@ h4 {
  * saffron, and carries most of the page's character on its own.
  */
 .editorial {
-  font-family: var(--font-editorial);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.012em;
+  /* Same family as the heading above it, at a light weight and in saffron.
+     It used to be a serif italic from a second family, which is the one
+     typographic move that reads as borrowed rather than designed; contrast
+     of weight and colour within one face does the same job with more poise. */
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.018em;
   color: var(--color-gold);
   display: block;
 }
@@ -183,12 +203,65 @@ h4 {
  * and costs nothing in layout.
  */
 .reveal {
-  opacity: 0;
-  transform: translateY(22px);
   transition:
     opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+}
+
+.reveal[data-visible='false'] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Entrance motion (components/motion.tsx).
+
+   Nothing here hides content by default. An element is only hidden once the
+   client has marked it [data-armed] — and it only does that for elements
+   below the viewport at hydration — then [data-in] brings it up. The server
+   render, the thumbnail and a reader without JavaScript see the page at rest.
+   ───────────────────────────────────────────────────────────────────────── */
+.rise {
+  transition:
+    opacity 0.75s var(--ease-brand),
+    transform 0.75s var(--ease-brand);
+}
+.rise[data-armed]:not([data-in]) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+/* Children of an armed group inherit the hidden state from the group. */
+.stagger[data-armed]:not([data-in]) > .stagger-item {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.stagger[data-in] > .stagger-item:nth-child(2) { transition-delay: 0.09s; }
+.stagger[data-in] > .stagger-item:nth-child(3) { transition-delay: 0.18s; }
+.stagger[data-in] > .stagger-item:nth-child(4) { transition-delay: 0.27s; }
+.stagger[data-in] > .stagger-item:nth-child(5) { transition-delay: 0.36s; }
+.stagger[data-in] > .stagger-item:nth-child(6) { transition-delay: 0.45s; }
+.stagger[data-in] > .stagger-item:nth-child(n + 7) { transition-delay: 0.54s; }
+.lift {
+  transition:
+    transform 0.45s var(--ease-brand),
+    opacity 0.75s var(--ease-brand);
+}
+@media (hover: hover) {
+  .lift:hover { transform: translateY(-6px); }
+}
+.lift:active { transform: scale(0.99); }
+.drawline > span { transition: transform 1.4s var(--ease-brand); }
+.drawline[data-armed]:not([data-in]) > span { transform: scaleX(0); }
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .stagger > .stagger-item,
+  .lift,
+  .drawline > span {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .reveal[data-visible='true'] {
@@ -749,7 +822,7 @@ a > .p-card:hover {
   gap: 0.75rem;
   padding: 0.44rem 0.44rem 0.44rem 1.35rem;
   border-radius: 999px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -866,16 +939,6 @@ a > .p-card:hover {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/**
- * CJK has no italic tradition. Instrument Serif carries no CJK glyphs, so the
- * browser falls back and then mechanically slants the substitute — which reads
- * as a rendering fault to a native reader rather than as emphasis. Keep the
- * colour and the change of voice; drop the slant.
- */
-:where(:lang(zh), :lang(ja), :lang(ko)) .editorial {
-  font-style: normal;
-}
-
 /* ─────────────────────────────────────────────────────────────────────────
    Booking instrument — the "search engine"
    The panel people came for. It is styled as one machined object rather than
@@ -901,7 +964,7 @@ a > .p-card:hover {
   justify-content: center;
   padding: 0.95rem 1.25rem;
   border-radius: 0.9rem;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;

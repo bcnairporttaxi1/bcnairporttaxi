@@ -14,6 +14,7 @@ import { Reveal } from '@/components/reveal';
 import { Rise, Stagger, StaggerItem, LiftCard, DrawLine } from '@/components/motion';
 import { StepArt } from '@/components/step-art';
 import { LanguageGrid } from '@/components/language-switcher';
+import { TrustBand } from '@/components/trust-band';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
 
@@ -209,10 +210,6 @@ export default async function HomePage(props: {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(400px,440px)] lg:items-center lg:gap-12 lg:pt-16">
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2.5 text-balance rounded-2xl border border-gold/20 bg-gold/[0.07] px-3 py-1.5 font-mono text-[9.5px] uppercase leading-[1.7] tracking-[0.13em] text-gold sm:rounded-full sm:px-3.5 sm:text-[10px] sm:tracking-[0.2em]">
-              <span
-                aria-hidden="true"
-                className="h-[5px] w-[5px] rounded-full bg-jade shadow-[0_0_0_0_rgba(57,217,138,0.6)] motion-safe:animate-ping-slow"
-              />
               {t('kicker')}
             </p>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-ice sm:text-5xl lg:text-6xl">
@@ -221,16 +218,6 @@ export default async function HomePage(props: {
             <p className="mt-5 text-base leading-relaxed text-ice/85 sm:text-lg">
               {t('intro')}
             </p>
-            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ice/85">
-              {(['licensed', 'meter', 'noSurge', 'support'] as const).map((k) => (
-                <li key={k} className="flex items-center gap-2">
-                  <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-jade">
-                    <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
-                  </svg>
-                  {t(`trust.${k}`)}
-                </li>
-              ))}
-            </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
               {/* The primary CTA carries a permanent slow swell so it reads as
@@ -260,6 +247,8 @@ export default async function HomePage(props: {
           </div>
         </div>
       </section>
+
+      <TrustBand />
 
       {/* How it works. Each step leads with a drawing of what it describes and
           a hairline threads the three together, so the sequence is legible

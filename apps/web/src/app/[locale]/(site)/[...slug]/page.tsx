@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { Rise, Stagger, StaggerItem } from '@/components/motion';
+import { TrustBand } from '@/components/trust-band';
 import {
   LANDING_PAGES,
   getLandingCopy,
@@ -165,10 +166,6 @@ export default async function LandingPageRoute(props: {
                   Entrances belong below the fold, where they are seen. */}
               <div>
                 <p className="inline-flex items-center gap-2.5 text-balance rounded-2xl border border-gold/20 bg-gold/[0.07] px-3 py-1.5 font-mono text-[9.5px] uppercase leading-[1.7] tracking-[0.13em] text-gold sm:rounded-full sm:px-3.5 sm:text-[10px] sm:tracking-[0.2em]">
-                  <span
-                    aria-hidden="true"
-                    className="h-[5px] w-[5px] flex-none rounded-full bg-jade shadow-[0_0_0_0_rgba(57,217,138,0.6)] motion-safe:animate-ping-slow"
-                  />
                   {tq('allInclusive')}
                 </p>
 
@@ -180,20 +177,6 @@ export default async function LandingPageRoute(props: {
                   {copy.intro}
                 </p>
 
-                <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ice/85">
-                  {(['licensed', 'meter', 'noSurge', 'support'] as const).map((k) => (
-                    <li key={k} className="flex items-center gap-2">
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 20 20"
-                        className="h-4 w-4 flex-none fill-jade"
-                      >
-                        <path d="M8 14.5 3.5 10l1.4-1.4L8 11.7l7.1-7.1L16.5 6z" />
-                      </svg>
-                      {th(`trust.${k}`)}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               {/* Jump links earn their space on a long page: they give the
@@ -238,6 +221,8 @@ export default async function LandingPageRoute(props: {
           </div>
         </div>
       </section>
+
+      <TrustBand />
 
       {/* ── The answer ─────────────────────────────────────────────────── */}
       <article className="mx-auto max-w-3xl px-4 py-16 sm:py-20">

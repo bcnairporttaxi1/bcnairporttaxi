@@ -38,6 +38,22 @@ export const CORE_ROUTES = [
 export const CONTACT_EMAIL = 'bcnairporttaxi1@gmail.com';
 
 /**
+ * Who is legally behind the site. Spanish LSSI requires a commercial site
+ * to state the company name, tax id and address; it is also the first thing
+ * a search-quality rater looks for on a page that takes money.
+ *
+ * Deliberately sourced from the environment and empty by default: this is
+ * not something to guess at. Set NEXT_PUBLIC_LEGAL_COMPANY,
+ * NEXT_PUBLIC_LEGAL_VAT_ID and NEXT_PUBLIC_LEGAL_ADDRESS in Vercel and the
+ * footer notice and the schema address appear on the next build.
+ */
+export const LEGAL = {
+  company: process.env.NEXT_PUBLIC_LEGAL_COMPANY ?? '',
+  vatId: process.env.NEXT_PUBLIC_LEGAL_VAT_ID ?? '',
+  address: process.env.NEXT_PUBLIC_LEGAL_ADDRESS ?? '',
+};
+
+/**
  * Where the dispatch desk is told about bookings. Overridable per environment
  * without a deploy; defaults to the same inbox as enquiries.
  */
