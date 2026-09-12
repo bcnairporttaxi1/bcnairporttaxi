@@ -91,7 +91,7 @@ export function StatTile({
         {trend !== undefined && <Trend pct={trend ?? null} />}
       </div>
       <p
-        className={`mt-3 font-mono text-2xl font-extrabold leading-none ${
+        className={`mt-3 font-mono text-2xl font-extrabold leading-none tabular-nums ${
           tone === 'gold' ? 'p-gold' : ''
         }`}
       >

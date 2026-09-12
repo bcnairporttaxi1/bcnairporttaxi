@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import { logout } from '@/app/[locale]/(auth)/actions';
+import { Rise } from '@/components/motion';
 
 export interface PanelTab {
   href: string;
@@ -119,7 +120,7 @@ export function PanelShell({
           {/* Mobile: one scrolling strip, no drawer to open */}
           <nav
             aria-label="Sections"
-            className="overflow-x-auto px-3 py-2.5 lg:hidden"
+            className="p-strip overflow-x-auto px-3 py-2.5 lg:hidden"
           >
             <ul className="flex gap-1.5">
               {flat.map((tab) => (
@@ -156,7 +157,13 @@ export function PanelShell({
           </div>
         </header>
 
-        <main className="px-5 py-6 lg:px-8 lg:py-8">{children}</main>
+        {/* One entrance for every panel page. The motion primitive is the
+            same one the public site uses, so the two halves of the product
+            move the same way; it fires once and collapses to nothing under
+            reduced-motion. */}
+        <Rise className="px-5 py-6 lg:px-8 lg:py-8">
+          <main>{children}</main>
+        </Rise>
       </div>
     </div>
   );

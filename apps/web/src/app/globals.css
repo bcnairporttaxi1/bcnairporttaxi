@@ -533,6 +533,18 @@ h4 {
   border: 1px solid var(--p-line);
   border-radius: 0.75rem;
   position: relative;
+  transition:
+    border-color 0.4s var(--ease-brand),
+    transform 0.4s var(--ease-brand),
+    box-shadow 0.4s var(--ease-brand);
+}
+/* A card that is a link, or wraps one, lifts on approach — the same cue the
+   public site uses, so an operator's hand learns one rule for both. */
+a.p-card:hover,
+a > .p-card:hover {
+  border-color: var(--p-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -18px rgb(0 0 0 / 80%);
 }
 .p-card::before {
   content: '';
@@ -578,6 +590,7 @@ h4 {
   transition: background 0.15s, color 0.15s;
 }
 .p-nav-item:hover { background: rgb(255 255 255 / 4%); color: var(--p-text); }
+.p-nav-item { transition: background 0.3s var(--ease-brand), color 0.3s var(--ease-brand), box-shadow 0.3s var(--ease-brand); }
 .p-nav-item[aria-current='page'] {
   background: var(--p-gold-dim);
   color: var(--p-gold-bright);
@@ -601,8 +614,16 @@ h4 {
   padding: 0.5rem 0.9rem;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition:
+    background 0.25s var(--ease-brand),
+    border-color 0.25s var(--ease-brand),
+    color 0.25s var(--ease-brand),
+    transform 0.25s var(--ease-brand);
 }
+/* Press feedback. A button that does not move under the finger reads as
+   unresponsive on a phone, which for a driver mid-ride is the wrong signal. */
+.p-btn:active { transform: scale(0.97); }
+.p-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 .p-btn-gold { background: var(--p-gold); color: #0a0a0b; }
 .p-btn-gold:hover { background: var(--p-gold-bright); }
 .p-btn-ghost { border: 1px solid var(--p-line); color: var(--p-text); }
@@ -612,7 +633,23 @@ h4 {
 
 /* Table rows keep a visible hover on a dark ground, where a lighter fill
    alone is easy to miss. */
+.p-row { transition: background 0.25s var(--ease-brand); }
 .p-row:hover { background: rgb(255 255 255 / 3%); }
+
+/* The mobile section strip scrolls sideways. Without an edge fade there is
+   nothing to say so, and the last tab looks like the last tab. */
+.p-strip {
+  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 28px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 28px), transparent);
+  scrollbar-width: none;
+}
+.p-strip::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .p-card, .p-btn, .p-nav-item, .p-row { transition: none; }
+  a.p-card:hover, a > .p-card:hover { transform: none; }
+  .p-btn:active { transform: none; }
+}
 
 /* Data tables.
  *
