@@ -516,6 +516,19 @@ h4 {
   --p-up: #4ade80;
   --p-down: #f87171;
   --p-info: #60a5fa;
+  --p-warn: #fbbf24;
+  /* Tinted surfaces for status: a 12% wash of the tone over the dark ground
+     with the tone itself as the text, so the pair stays above 7:1. The panel
+     used to borrow Tailwind's light-mode tints (bg-green-50, text-amber-900)
+     for these — pale cards holding pale text on a near-black page. */
+  --p-up-dim: rgb(74 222 128 / 12%);
+  --p-up-line: rgb(74 222 128 / 32%);
+  --p-warn-dim: rgb(251 191 36 / 12%);
+  --p-warn-line: rgb(251 191 36 / 32%);
+  --p-down-dim: rgb(248 113 113 / 12%);
+  --p-down-line: rgb(248 113 113 / 32%);
+  --p-info-dim: rgb(96 165 250 / 12%);
+  --p-info-line: rgb(96 165 250 / 32%);
 
   background: var(--p-bg);
   color: var(--p-text);
@@ -628,8 +641,22 @@ a > .p-card:hover {
 .p-btn-gold:hover { background: var(--p-gold-bright); }
 .p-btn-ghost { border: 1px solid var(--p-line); color: var(--p-text); }
 .p-btn-ghost:hover { border-color: var(--p-gold); color: var(--p-gold-bright); }
-.p-btn-danger { border: 1px solid rgb(248 113 113 / 40%); color: var(--p-down); }
-.p-btn-danger:hover { background: rgb(248 113 113 / 12%); }
+.p-btn-danger { border: 1px solid var(--p-down-line); color: var(--p-down); }
+.p-btn-danger:hover { background: var(--p-down-dim); border-color: var(--p-down); }
+
+/* Status tones. One class carries the wash, the border and the text colour
+   together, so a pill or a callout can never end up with a light background
+   and light text — the combination that made the revenue cards unreadable.
+   Direction is also carried by the words inside, never by colour alone. */
+.p-tone-good { background: var(--p-up-dim); border-color: var(--p-up-line); color: var(--p-up); }
+.p-tone-warn { background: var(--p-warn-dim); border-color: var(--p-warn-line); color: var(--p-warn); }
+.p-tone-bad { background: var(--p-down-dim); border-color: var(--p-down-line); color: var(--p-down); }
+.p-tone-info { background: var(--p-info-dim); border-color: var(--p-info-line); color: var(--p-info); }
+.p-tone-neutral { background: var(--p-surface-2); border-color: var(--p-line); color: var(--p-muted); }
+/* A toned card keeps the panel's normal text; only the frame and the label
+   take the tone, so a €9.80 figure is still white-on-dark, not green-on-green. */
+.p-card-good { background: var(--p-up-dim); border-color: var(--p-up-line); }
+.p-card-warn { background: var(--p-warn-dim); border-color: var(--p-warn-line); }
 
 /* Table rows keep a visible hover on a dark ground, where a lighter fill
    alone is easy to miss. */

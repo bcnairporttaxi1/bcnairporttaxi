@@ -74,7 +74,7 @@ export default async function AdminReviewsPage(props: {
                 </div>
                 <span
                   className={`rounded-full px-2.5 py-1 text-xs font-bold ${
-                    r.approved ? 'bg-green-100 text-green-900' : 'bg-amber-100 text-amber-900'
+                    r.approved ? 'border p-tone-good' : 'border p-tone-warn'
                   }`}
                 >
                   {r.approved ? 'published' : 'pending'}
@@ -139,7 +139,7 @@ export default async function AdminReviewsPage(props: {
                     {r.authorName} · booking {r.booking.reference}
                   </p>
                 </div>
-                <span className="rounded-full bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-700">
+                <span className="rounded-full border p-tone-neutral px-2.5 py-1 text-xs font-bold">
                   internal
                 </span>
               </div>

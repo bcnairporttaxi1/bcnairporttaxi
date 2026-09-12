@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const STATUS_TONE: Record<string, string> = {
-  REQUESTED: 'bg-amber-100 text-amber-900',
-  APPROVED: 'bg-blue-100 text-blue-900',
-  PAID: 'bg-green-100 text-green-900',
-  REJECTED: 'bg-red-100 text-red-900',
+  REQUESTED: 'border p-tone-warn',
+  APPROVED: 'border p-tone-info',
+  PAID: 'border p-tone-good',
+  REJECTED: 'border p-tone-bad',
 };
 
 export default async function EarningsPage(props: {
@@ -162,7 +162,7 @@ export default async function EarningsPage(props: {
                     <td className="p-4">
                       <span
                         className={`rounded-full px-2.5 py-1 text-xs font-bold ${
-                          STATUS_TONE[w.status] ?? 'bg-slate-200 text-slate-700'
+                          STATUS_TONE[w.status] ?? 'border p-tone-neutral'
                         }`}
                       >
                         {w.status}

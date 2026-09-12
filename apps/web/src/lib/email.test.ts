@@ -206,6 +206,16 @@ describe('driver job notice', () => {
     expect(driverJobEmail(job).text).toContain('nothing to collect in the car');
   });
 
+  it('shows the pay the desk set, and only that figure', () => {
+    const { text } = driverJobEmail({ ...job, pay: 32 });
+    expect(text).toContain('Your pay:  €32.00');
+    expect(text).not.toContain('44');
+  });
+
+  it('shows no amount at all when the desk has not set one', () => {
+    expect(driverJobEmail(job).text).not.toContain('Your pay');
+  });
+
   it('omits the notes block when there are none', () => {
     const { text, html } = driverJobEmail({ ...job, notes: null });
     expect(text).not.toContain('Notes');

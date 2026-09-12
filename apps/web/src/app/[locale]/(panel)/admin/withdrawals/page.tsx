@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const TONE: Record<string, string> = {
-  REQUESTED: 'bg-amber-100 text-amber-900',
-  APPROVED: 'bg-blue-100 text-blue-900',
-  PAID: 'bg-green-100 text-green-900',
-  REJECTED: 'bg-red-100 text-red-900',
+  REQUESTED: 'border p-tone-warn',
+  APPROVED: 'border p-tone-info',
+  PAID: 'border p-tone-good',
+  REJECTED: 'border p-tone-bad',
 };
 
 export default async function WithdrawalsPage(props: {
@@ -127,7 +127,7 @@ export default async function WithdrawalsPage(props: {
             <button
               name="status"
               value="REJECTED"
-              className="rounded-lg border-2 border-red-700 px-4 py-2 text-sm font-bold text-red-800 hover:bg-red-700 hover:text-white"
+              className="p-btn p-btn-danger"
             >
               Decline
             </button>

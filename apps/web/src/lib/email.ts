@@ -534,8 +534,12 @@ export function driverJobEmail(d: {
   contactPhone: string;
   vehicleName?: string | null;
   notes?: string | null;
+  /** The desk's agreed figure. Omitted from the email when not yet set. */
+  pay?: number | null;
   panelUrl: string;
 }) {
+  const eur = (n: number) =>
+    new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(n);
   const when = new Intl.DateTimeFormat('en-GB', {
     weekday: 'short',
     day: 'numeric',
@@ -561,6 +565,7 @@ export function driverJobEmail(d: {
        ${d.vehicleName ? row('Vehicle booked', d.vehicleName) : ''}
        ${row('Passenger', `<strong>${d.contactName}</strong>`)}
        ${row('Phone', `<a href="tel:${d.contactPhone}">${d.contactPhone}</a>`, true)}
+       ${d.pay != null ? row('Your pay for this ride', eur(d.pay), true) : ''}
      </table>
      ${
        d.notes
@@ -584,6 +589,7 @@ export function driverJobEmail(d: {
     ``,
     `Passenger: ${d.contactName}`,
     `Phone:     ${d.contactPhone}`,
+    d.pay != null ? `\nYour pay:  ${eur(d.pay)}` : null,
     d.notes ? `\nNotes:\n${d.notes}` : null,
     ``,
     `Driver panel: ${d.panelUrl}`,

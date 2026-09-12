@@ -121,6 +121,8 @@ export interface MoneyInput {
   paymentMode: PaymentMode;
   meterEstimate: number;
   fixedFare: number;
+  /** The desk's agreed figure for the driver; the fare stands in when unset. */
+  driverPay?: number | null;
 }
 
 /**
@@ -129,8 +131,10 @@ export interface MoneyInput {
  *
  * Fee-only rides are settled entirely in the taxi — we already took our fee
  * online, so the meter belongs to the driver and the platform owes nothing.
- * Prepaid rides are the reverse: nothing changes hands in the car, and the
- * fare sits in the driver's balance until they withdraw it.
+ * Prepaid rides are the reverse: nothing changes hands in the car, and what
+ * the desk agreed to pay sits in the driver's balance until they withdraw it.
+ * The desk sets that figure per ride; a ride where it was never set pays the
+ * fare, which is what every ride did before the figure existed.
  */
 export function settlementFor(b: MoneyInput): {
   cashToCollect: number;
@@ -141,7 +145,7 @@ export function settlementFor(b: MoneyInput): {
   return {
     prepaid,
     cashToCollect: prepaid ? 0 : b.meterEstimate,
-    driverPayout: prepaid ? b.fixedFare : 0,
+    driverPayout: prepaid ? (b.driverPay ?? b.fixedFare) : 0,
   };
 }
 
@@ -245,7 +249,7 @@ export function bucketFor(
  */
 export function statusWriteFor(
   status: BookingStatus,
-  booking: { paymentMode: PaymentMode; meterEstimate: number; fixedFare: number },
+  booking: MoneyInput,
   actor: Role,
 ): Record<string, unknown> {
   const stamp = timestampFieldFor(status);

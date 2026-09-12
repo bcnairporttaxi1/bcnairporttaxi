@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const TONE: Record<string, string> = {
-  OPEN: 'bg-red-100 text-red-900',
-  REVIEWING: 'bg-amber-100 text-amber-900',
-  RESOLVED: 'bg-green-100 text-green-900',
-  DISMISSED: 'bg-slate-200 text-slate-700',
+  OPEN: 'border p-tone-bad',
+  REVIEWING: 'border p-tone-warn',
+  RESOLVED: 'border p-tone-good',
+  DISMISSED: 'border p-tone-neutral',
 };
 
 export default async function ReportsPage(props: {
@@ -144,7 +144,7 @@ export default async function ReportsPage(props: {
               className={`rounded-lg px-4 py-2 text-sm font-bold ${
                 blocked
                   ? 'border-2 border-[var(--p-gold)] hover:bg-[var(--p-gold)] hover:text-[#0a0a0b]'
-                  : 'border-2 border-red-700 text-red-800 hover:bg-red-700 hover:text-white'
+                  : 'p-btn p-btn-danger'
               }`}
             >
               {blocked ? 'Restore passenger account' : 'Suspend passenger account'}

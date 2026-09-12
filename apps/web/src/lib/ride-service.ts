@@ -14,11 +14,17 @@ import type { BookingStatus, Role } from '@/generated/prisma/enums';
  */
 
 /** Prisma Decimals arrive as objects; the rules work in plain numbers. */
-function toMoney(b: { paymentMode: 'FEE_ONLY' | 'FULL_PREPAID'; meterEstimate: unknown; fixedFare: unknown }) {
+function toMoney(b: {
+  paymentMode: 'FEE_ONLY' | 'FULL_PREPAID';
+  meterEstimate: unknown;
+  fixedFare: unknown;
+  driverPay: unknown;
+}) {
   return {
     paymentMode: b.paymentMode,
     meterEstimate: Number(b.meterEstimate),
     fixedFare: Number(b.fixedFare),
+    driverPay: b.driverPay == null ? null : Number(b.driverPay),
   };
 }
 
@@ -30,7 +36,7 @@ export async function applyRideStatus(
 ): Promise<boolean> {
   const booking = await prisma.booking.findUnique({
     where: { id: bookingId },
-    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true },
+    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true },
   });
   if (!booking) return false;
 
@@ -57,7 +63,7 @@ export async function applyRideStatusBulk(
 
   const bookings = await prisma.booking.findMany({
     where: { id: { in: ids } },
-    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true },
+    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true },
   });
 
   await prisma.$transaction(

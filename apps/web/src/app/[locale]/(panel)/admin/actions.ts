@@ -41,19 +41,39 @@ export async function assignDriver(formData: FormData): Promise<void> {
   const driverId = String(formData.get('driverId') || '');
   const locale = String(formData.get('locale') ?? 'en');
 
+  // What the driver will be paid for this ride. Optional: an empty field
+  // leaves the current value alone, so re-assigning does not wipe a figure
+  // the desk already agreed. Zero is a legitimate amount (a favour, a redo).
+  const payRaw = String(formData.get('driverPay') ?? '').trim().replace(',', '.');
+  const payParsed = payRaw === '' ? null : z.coerce.number().min(0).max(9999).safeParse(payRaw);
+  if (payParsed && !payParsed.success) return;
+  const driverPay = payParsed ? Math.round(payParsed.data * 100) / 100 : undefined;
+
   // Read first, then write. The status decision depends on the current value,
   // and nesting that read inside the update object made the order of
   // evaluation something you had to reason about rather than see.
-  const before = await prisma.booking.findUnique({
-    where: { id: bookingId },
-    select: { status: true },
-  });
+  const [before, chosen] = await Promise.all([
+    prisma.booking.findUnique({
+      where: { id: bookingId },
+      select: { status: true },
+    }),
+    driverId
+      ? prisma.driver.findUnique({ where: { id: driverId }, select: { vehicleId: true } })
+      : Promise.resolve(null),
+  ]);
   if (!before) return;
 
   const booking = await prisma.booking.update({
     where: { id: bookingId },
     data: {
       driverId: driverId || null,
+      driverPay,
+      // The passenger booked a vehicle class; the driver arrives in a specific
+      // car. Once a driver is chosen, the booking shows that car — the trip
+      // page, the account page and the "your driver" email all read
+      // booking.vehicle, and a Prius assigned to a booking that still said
+      // Vito had passengers looking for the wrong car at the rank.
+      ...(chosen?.vehicleId ? { vehicleId: chosen.vehicleId } : {}),
       // Attaching a driver advances the booking, but never drags a completed
       // or cancelled trip backwards.
       status:
@@ -102,6 +122,7 @@ export async function assignDriver(formData: FormData): Promise<void> {
         contactPhone: booking.contactPhone,
         vehicleName: booking.vehicle?.name,
         notes: booking.notes,
+        pay: booking.driverPay == null ? null : Number(booking.driverPay),
         panelUrl: absoluteUrl('/en/driver'),
       });
       await sendEmail({ to: driverEmail, ...job });
@@ -339,9 +360,15 @@ export async function bulkUpdateRides(formData: FormData): Promise<void> {
 
   if (op === 'driver') {
     const driverId = String(formData.get('driverId') || '');
+    const chosen = driverId
+      ? await prisma.driver.findUnique({ where: { id: driverId }, select: { vehicleId: true } })
+      : null;
     await prisma.booking.updateMany({
       where: { id: { in: ids } },
-      data: { driverId: driverId || null },
+      data: {
+        driverId: driverId || null,
+        ...(chosen?.vehicleId ? { vehicleId: chosen.vehicleId } : {}),
+      },
     });
     // Only nudge rides forward that were waiting for someone.
     if (driverId) {

@@ -96,14 +96,28 @@ export default async function DriverPage(props: {
         <p
           className={`mt-4 rounded-xl px-4 py-3 font-display text-sm font-extrabold ${
             prepaid
-              ? 'bg-green-50 text-green-900 ring-1 ring-green-200'
-              : 'bg-amber-50 text-amber-900 ring-1 ring-amber-200'
+              ? 'border p-tone-good'
+              : 'border p-tone-warn'
           }`}
         >
           {prepaid
             ? 'PAID ONLINE — collect nothing'
             : `COLLECT IN CAR — ${eur(b.meterEstimate)} on the meter`}
         </p>
+
+        {/* The one money line a driver gets: what the desk agreed to pay them.
+            The fare and the service charge are the business's figures and do
+            not appear anywhere in this panel. */}
+        {prepaid && (
+          <p className="mt-2 flex items-baseline justify-between rounded-xl bg-[var(--p-surface-2)] px-4 py-2.5 text-sm">
+            <span className="p-muted">Your pay</span>
+            {b.driverPay != null ? (
+              <span className="font-mono text-base font-extrabold tabular-nums">{eur(b.driverPay)}</span>
+            ) : (
+              <span className="p-faint">to be confirmed by the desk</span>
+            )}
+          </p>
+        )}
 
         <dl className="mt-4 space-y-1.5 text-sm">
           <div className="flex gap-2">
@@ -207,7 +221,7 @@ export default async function DriverPage(props: {
 
       {overdue.length > 0 && (
         <section className="mb-10">
-          <h2 className="font-display text-xl font-extrabold text-red-800">
+          <h2 className="font-display text-xl font-extrabold text-[var(--p-down)]">
             Pickup time passed ({overdue.length})
           </h2>
           <p className="mt-1 text-sm p-muted">

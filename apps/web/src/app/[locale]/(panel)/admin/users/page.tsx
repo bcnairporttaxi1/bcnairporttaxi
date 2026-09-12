@@ -97,13 +97,13 @@ export default async function UsersPage(props: {
                   <td className="p-3">
                     {u.blocked ? (
                       <span
-                        className="rounded-full bg-red-100 px-2 py-1 text-xs font-bold text-red-900"
+                        className="rounded-full border p-tone-bad px-2 py-1 text-xs font-bold"
                         title={u.blockedReason ?? undefined}
                       >
                         Suspended
                       </span>
                     ) : u.mustChangePassword ? (
-                      <span className="rounded-full bg-amber-100 px-2 py-1 text-xs font-bold text-amber-900">
+                      <span className="rounded-full border p-tone-warn px-2 py-1 text-xs font-bold">
                         Temp password
                       </span>
                     ) : (
@@ -133,7 +133,7 @@ export default async function UsersPage(props: {
                             className={`rounded-lg border px-3 py-1.5 text-xs font-bold ${
                               u.blocked
                                 ? 'p-hairline hover:border-[var(--p-gold)]'
-                                : 'border-red-300 text-red-800 hover:border-red-700'
+                                : 'p-btn-danger'
                             }`}
                           >
                             {u.blocked ? 'Restore' : 'Suspend'}

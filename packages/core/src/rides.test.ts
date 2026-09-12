@@ -122,6 +122,36 @@ describe('settlement', () => {
     });
     expect(s).toEqual({ prepaid: true, cashToCollect: 0, driverPayout: 48.9 });
   });
+
+  it('pays the figure the desk set, not the fare, when there is one', () => {
+    const s = settlementFor({
+      paymentMode: 'FULL_PREPAID',
+      meterEstimate: 42.5,
+      fixedFare: 48.9,
+      driverPay: 35,
+    });
+    expect(s.driverPayout).toBe(35);
+  });
+
+  it('treats an explicit null the same as never set', () => {
+    const s = settlementFor({
+      paymentMode: 'FULL_PREPAID',
+      meterEstimate: 42.5,
+      fixedFare: 48.9,
+      driverPay: null,
+    });
+    expect(s.driverPayout).toBe(48.9);
+  });
+
+  it('never pays out on a fee-only ride whatever the desk typed', () => {
+    const s = settlementFor({
+      paymentMode: 'FEE_ONLY',
+      meterEstimate: 42.5,
+      fixedFare: 48.9,
+      driverPay: 35,
+    });
+    expect(s.driverPayout).toBe(0);
+  });
 });
 
 describe('at-door notification', () => {

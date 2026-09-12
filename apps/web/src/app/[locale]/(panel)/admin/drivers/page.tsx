@@ -59,7 +59,7 @@ export default async function AdminDriversPage(props: {
                     <p className="font-display font-bold">
                       {d.name}
                       {!d.active && (
-                        <span className="ml-2 rounded-full bg-slate-200 px-2 py-0.5 text-xs font-bold text-slate-700">
+                        <span className="ml-2 rounded-full border p-tone-neutral px-2 py-0.5 text-xs font-bold">
                           inactive
                         </span>
                       )}

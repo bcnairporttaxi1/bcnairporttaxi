@@ -67,8 +67,8 @@ export function RideActions({
   return (
     <div className="mt-3 border-t p-hairline pt-4">
       {needsCashCheck && confirming ? (
-        <div className="rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
-          <p className="text-sm font-bold text-amber-900">
+        <div className="rounded-xl border p-tone-warn p-4">
+          <p className="text-sm font-bold">
             Have you collected {cashDue} from the passenger?
           </p>
           <div className="mt-3 flex flex-wrap gap-3">

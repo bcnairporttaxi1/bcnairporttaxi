@@ -101,9 +101,9 @@ export default async function RevenuePage(props: {
     <div
       className={`rounded-card border p-5 ${
         tone === 'good'
-          ? 'border-green-200 bg-green-50'
+          ? 'p-card-good'
           : tone === 'warn'
-            ? 'border-amber-200 bg-amber-50'
+            ? 'p-card-warn'
             : 'p-hairline bg-[var(--p-surface)]'
       }`}
     >
@@ -116,7 +116,7 @@ export default async function RevenuePage(props: {
   return (
     <PanelShell
       title="Revenue"
-      subtitle="Booking fees are the business's income. Everything else is money passing through."
+      subtitle="The service charge is the business's income. Everything else is money passing through."
       userName={user.name}
       locale={locale}
       groups={adminNav()}
@@ -145,7 +145,7 @@ export default async function RevenuePage(props: {
         <h2 className="font-display text-xl font-extrabold">What we earn</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           <Card
-            label="Booking fees"
+            label="Service revenue"
             value={eur(bookingFees)}
             tone="good"
             hint="Our service charge. This is the only figure on this page that is income."
@@ -156,7 +156,7 @@ export default async function RevenuePage(props: {
             hint="Bookings whose online payment completed."
           />
           <Card
-            label="Average fee"
+            label="Average per booking"
             value={eur(fees._count ? bookingFees / fees._count : 0)}
           />
         </div>
@@ -168,7 +168,7 @@ export default async function RevenuePage(props: {
           <Card
             label="Taken online"
             value={eur(takenOnline)}
-            hint="Fees plus prepaid fares. The fare part is not ours — it is owed onward to drivers."
+            hint="Service charge plus fares. The fare part is not ours — it is owed onward to drivers."
           />
           <Card
             label="Prepaid fares"

@@ -275,8 +275,13 @@ model Booking {
   /// check cannot send it twice.
   atDoorNotifiedAt DateTime?
 
-  /// What the platform owes this driver for the ride. Non-zero only when the
-  /// passenger prepaid, because otherwise the driver takes the fare in the car.
+  /// What the desk has agreed to pay the driver for this ride, set when the
+  /// ride is assigned. It is the only figure the driver ever sees — the fare
+  /// and the service charge are the business's. Null until the desk sets it;
+  /// settlement then falls back to the fare so an unset ride still pays out.
+  driverPay     Decimal? @db.Decimal(10, 2)
+  /// What the platform owes this driver for the ride, frozen on completion.
+  /// Non-zero only when the passenger prepaid.
   driverPayout  Decimal  @default(0) @db.Decimal(10, 2)
   /// What the driver must still collect in the taxi. Zero when fully prepaid.
   cashToCollect Decimal  @default(0) @db.Decimal(10, 2)

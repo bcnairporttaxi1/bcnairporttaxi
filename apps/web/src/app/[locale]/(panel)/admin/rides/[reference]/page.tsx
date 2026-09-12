@@ -72,7 +72,7 @@ export default async function AdminRideDetailPage(props: {
     }),
     prisma.driver.findMany({
       where: { active: true, blocked: false },
-      select: { id: true, name: true },
+      select: { id: true, name: true, vehicle: { select: { name: true } } },
       orderBy: { name: 'asc' },
     }),
   ]);
@@ -270,7 +270,14 @@ export default async function AdminRideDetailPage(props: {
               <span className="font-bold p-gold">{eur(b.amountOnline)}</span>
               <span className="p-faint"> · {b.paymentStatus.toLowerCase()}</span>
             </Row>
-            <Row label="Driver payout" mono>
+            <Row label="Driver pay" mono>
+              {b.driverPay != null ? (
+                eur(b.driverPay)
+              ) : (
+                <span className="p-faint">not set · fare on completion</span>
+              )}
+            </Row>
+            <Row label="Paid out" mono>
               {Number(b.driverPayout) > 0 ? eur(b.driverPayout) : <span className="p-faint">—</span>}
             </Row>
             <Row label="Cash in car" mono>
@@ -338,18 +345,41 @@ export default async function AdminRideDetailPage(props: {
           status select is the only sensible thing left to touch on them. */}
       <div className="mt-5 grid gap-5 lg:grid-cols-3">
         <Card>
-          <CardHeader title="Driver" hint="Emails the passenger the plate and phone" />
-          <form action={assignDriver} className="flex gap-2">
+          <CardHeader
+            title="Driver"
+            hint="The driver sees only the pay figure — never the fare. Emails both sides."
+          />
+          <form action={assignDriver} className="flex flex-wrap gap-2">
             <input type="hidden" name="bookingId" value={b.id} />
             <input type="hidden" name="locale" value={locale} />
-            <select name="driverId" defaultValue={b.driverId ?? ''} className="p-select flex-1" aria-label="Driver">
+            <select
+              name="driverId"
+              defaultValue={b.driverId ?? ''}
+              className="p-select min-w-0 flex-1 basis-40"
+              aria-label="Driver"
+            >
               <option value="">— unassign —</option>
               {drivers.map((d) => (
                 <option key={d.id} value={d.id}>
                   {d.name}
+                  {d.vehicle ? ` · ${d.vehicle.name}` : ''}
                 </option>
               ))}
             </select>
+            <label className="relative basis-28">
+              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm p-muted">
+                €
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                name="driverPay"
+                defaultValue={b.driverPay != null ? Number(b.driverPay).toFixed(2) : ''}
+                placeholder="pay"
+                aria-label="Driver pay in euros"
+                className="p-input w-full pl-7 font-mono"
+              />
+            </label>
             <button type="submit" className="p-btn p-btn-gold" disabled={closed}>
               Assign
             </button>
