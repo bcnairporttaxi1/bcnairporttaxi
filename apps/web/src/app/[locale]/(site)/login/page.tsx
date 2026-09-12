@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { AuthForm } from '@/components/auth-form';
 import { login } from '../../(auth)/actions';
@@ -13,9 +13,12 @@ export const metadata: Metadata = {
 
 export default async function LoginPage(props: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ reset?: string }>;
 }) {
   const { locale } = await props.params;
+  const { reset } = await props.searchParams;
   setRequestLocale(locale);
+  const t = await getTranslations('auth');
 
   // Already signed in — send them to their panel rather than a dead form.
   const session = await getSession();
@@ -32,7 +35,12 @@ export default async function LoginPage(props: {
         intro="Manage your bookings, rebook a past trip, and track your driver."
       />
       <div className="mx-auto max-w-md px-4 py-14">
-        <AuthForm mode="login" locale={locale} action={login} />
+        <AuthForm
+          mode="login"
+          locale={locale}
+          action={login}
+          notice={reset === 'done' ? t('passwordUpdated') : undefined}
+        />
       </div>
     </>
   );

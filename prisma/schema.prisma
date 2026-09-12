@@ -107,6 +107,13 @@ model User {
   mustChangePassword Boolean   @default(false)
   passwordChangedAt  DateTime?
 
+  /// Self-service password reset. Only the SHA-256 of the emailed token is
+  /// stored, so a read of this table cannot be turned into a login. The
+  /// current password keeps working until the link is used — requesting a
+  /// reset for someone else's address locks nobody out.
+  passwordResetTokenHash String?   @unique
+  passwordResetExpiresAt DateTime?
+
   /// Set by an admin after an upheld report. Blocks login.
   blocked       Boolean @default(false)
   blockedReason String?

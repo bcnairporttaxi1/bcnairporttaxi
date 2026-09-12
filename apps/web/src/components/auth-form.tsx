@@ -26,10 +26,13 @@ export function AuthForm({
   mode,
   locale,
   action,
+  notice,
 }: {
   mode: 'login' | 'register';
   locale: string;
   action: (state: AuthState, formData: FormData) => Promise<AuthState>;
+  /** A one-line confirmation shown above the fields, e.g. after a reset. */
+  notice?: string;
 }) {
   const [state, formAction] = useActionState(action, {} as AuthState);
   const t = useTranslations('auth');
@@ -38,6 +41,15 @@ export function AuthForm({
   return (
     <form action={formAction} className="rounded-card border border-hairline bg-white p-6 sm:p-8">
       <input type="hidden" name="locale" value={locale} />
+
+      {notice && (
+        <p
+          role="status"
+          className="mb-5 rounded-lg border border-green-200 bg-green-50 px-3 py-2.5 text-sm text-green-900"
+        >
+          {notice}
+        </p>
+      )}
 
       {isRegister && (
         <>
@@ -69,8 +81,17 @@ export function AuthForm({
           autoComplete={isRegister ? 'new-password' : 'current-password'}
           className={field}
         />
-        {isRegister && (
+        {isRegister ? (
           <span className="mt-1 block text-xs text-muted">{t('passwordHint')}</span>
+        ) : (
+          <span className="mt-2 block text-right text-xs">
+            <Link
+              href="/forgot-password"
+              className="font-semibold text-accent-text underline underline-offset-4"
+            >
+              {t('forgotPassword')}
+            </Link>
+          </span>
         )}
       </label>
 

@@ -1,8 +1,18 @@
 'use server';
 
 import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
+import { absoluteUrl } from '@bcn/core/site';
+import { passwordResetEmail, sendEmail } from '@/lib/email';
+import { rateLimit } from '@/lib/rate-limit';
+import {
+  RESET_TTL_MINUTES,
+  generateResetToken,
+  hashResetToken,
+  resetExpiry,
+} from '@/lib/password-reset';
 import {
   createSession,
   destroySession,
@@ -14,6 +24,8 @@ import { passwordProblem } from '@/lib/passwords';
 
 export interface AuthState {
   error?: string;
+  /** Set once a reset link has been requested — see requestPasswordReset. */
+  sent?: boolean;
 }
 
 const credentials = z.object({
@@ -174,4 +186,111 @@ export async function changePassword(
   });
 
   redirect(`/${locale}${homeFor(user.role)}`);
+}
+
+/**
+ * Step one of a self-service reset: email a single-use link.
+ *
+ * Answers identically whether or not the address has an account, whether or
+ * not the account is blocked, and whether or not the rate limit was hit. Any
+ * difference in the response would let the form be used to discover which
+ * addresses are customers — and the admin addresses are the interesting ones.
+ *
+ * The token is only stored if the email actually went. A bounce would
+ * otherwise leave a live token in the table that nobody received, which is a
+ * credential with no owner.
+ */
+export async function requestPasswordReset(
+  _prev: AuthState,
+  formData: FormData,
+): Promise<AuthState> {
+  const locale = String(formData.get('locale') ?? 'en');
+
+  const parsed = z.email().max(200).safeParse(formData.get('email'));
+  if (!parsed.success) {
+    return { error: 'Enter a valid email address.' };
+  }
+  const email = parsed.data.toLowerCase();
+
+  // Two limits: per address, so one inbox cannot be flooded, and per client,
+  // so one script cannot walk a list of addresses. Both fail silently —
+  // a 429 here would be an oracle for which addresses exist.
+  const h = await headers();
+  const ip = h.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const allowed =
+    rateLimit(`reset:ip:${ip}`, 5, 15 * 60).ok &&
+    rateLimit(`reset:email:${email}`, 3, 15 * 60).ok;
+
+  if (allowed) {
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (user && !user.blocked) {
+      const { token, hash } = generateResetToken();
+      const mail = passwordResetEmail({
+        name: user.name,
+        url: absoluteUrl(`/${locale}/reset-password?token=${token}`),
+        minutes: RESET_TTL_MINUTES,
+      });
+      const outcome = await sendEmail({ to: user.email, ...mail });
+
+      if (outcome.sent) {
+        await prisma.user.update({
+          where: { id: user.id },
+          data: {
+            passwordResetTokenHash: hash,
+            passwordResetExpiresAt: resetExpiry(),
+          },
+        });
+      }
+    }
+  }
+
+  return { sent: true };
+}
+
+/**
+ * Step two: the link was followed, set the new password.
+ *
+ * The token is looked up by its hash and must be unexpired. It is cleared in
+ * the same write that sets the password, so it cannot be used twice — and
+ * cannot be used at all once the password has changed by any other route.
+ */
+export async function resetPassword(
+  _prev: AuthState,
+  formData: FormData,
+): Promise<AuthState> {
+  const locale = String(formData.get('locale') ?? 'en');
+  const token = String(formData.get('token') ?? '');
+  const next = String(formData.get('newPassword') ?? '');
+  const confirm = String(formData.get('confirmPassword') ?? '');
+
+  const stale = 'This link has expired or already been used. Request a new one.';
+
+  if (!token) return { error: stale };
+
+  const user = await prisma.user.findUnique({
+    where: { passwordResetTokenHash: hashResetToken(token) },
+  });
+  if (!user || !user.passwordResetExpiresAt || user.passwordResetExpiresAt < new Date()) {
+    return { error: stale };
+  }
+
+  if (next !== confirm) {
+    return { error: 'The two passwords do not match.' };
+  }
+  const problem = passwordProblem(next, user.email);
+  if (problem) return { error: problem };
+
+  await prisma.user.update({
+    where: { id: user.id },
+    data: {
+      passwordHash: await hashPassword(next),
+      passwordResetTokenHash: null,
+      passwordResetExpiresAt: null,
+      mustChangePassword: false,
+      passwordChangedAt: new Date(),
+    },
+  });
+
+  redirect(`/${locale}/login?reset=done`);
 }

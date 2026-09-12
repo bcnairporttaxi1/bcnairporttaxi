@@ -256,6 +256,41 @@ export function temporaryPasswordEmail(d: {
 }
 
 /**
+ * The self-service password reset link.
+ *
+ * Carries no password. The link is the credential, it works once, and it
+ * expires — all three are stated in the message, because the reader is very
+ * often someone who did not request it and needs to know that ignoring it is
+ * the right thing to do.
+ */
+export function passwordResetEmail(d: { name: string; url: string; minutes: number }) {
+  const subject = 'Reset your BCNAirportTaxi password';
+
+  const html = layout(
+    'Reset your password',
+    `<p style="font-size:15px;line-height:1.7">Hello ${d.name}, someone asked to reset the password for this account. If that was you, use the button below.</p>
+     <p style="margin-top:18px"><a href="${d.url}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Choose a new password</a></p>
+     <p style="font-size:14px;line-height:1.7;color:#6b6b72;margin-top:18px">
+       The link works once and expires in ${d.minutes} minutes. If you did not ask for this, ignore it — your password has not changed and nothing else needs doing.
+     </p>
+     <p style="font-size:12px;line-height:1.6;color:#9a9aa4;margin-top:14px;word-break:break-all">If the button does not work, paste this into your browser:<br>${d.url}</p>`,
+  );
+
+  const text = [
+    `Hello ${d.name},`,
+    ``,
+    `Someone asked to reset the password for this account. If that was you, open this link to choose a new one:`,
+    ``,
+    d.url,
+    ``,
+    `It works once and expires in ${d.minutes} minutes.`,
+    `If you did not ask for this, ignore it — your password has not changed.`,
+  ].join('\n');
+
+  return { subject, html, text };
+}
+
+/**
  * Sent once, when the car is essentially outside.
  *
  * Triggered by the driver's location rather than by them pressing a button, so
