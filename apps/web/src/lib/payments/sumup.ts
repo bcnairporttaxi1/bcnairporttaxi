@@ -1,10 +1,11 @@
 import { randomUUID } from 'node:crypto';
 
 /**
- * SumUp booking-fee checkout.
+ * SumUp checkout.
  *
- * Only ever charges OUR booking fee. The metered fare is settled with the
- * driver in the taxi and must never pass through here.
+ * Charges the passenger's full all-inclusive price — fare, supplements and
+ * service charge in one amount. (It used to take only a booking fee, with the
+ * fare settled in the car; that model was retired on 3 September 2026.)
  *
  * SumUp credentials have not been supplied yet, so the provider runs in stub
  * mode: it mints a local reference and reports `configured: false`, letting the

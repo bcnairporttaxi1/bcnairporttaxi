@@ -31,4 +31,15 @@ export const CORE_ROUTES = [
   '/refund-policy',
 ] as const;
 
-export const CONTACT_EMAIL = 'bookings@bcnairporttaxi.es';
+/**
+ * Where enquiries go. Shown on the contact page, the top bar and in the
+ * Organization schema — so it must be a mailbox somebody actually reads.
+ */
+export const CONTACT_EMAIL = 'bcnairporttaxi1@gmail.com';
+
+/**
+ * Where the dispatch desk is told about bookings. Overridable per environment
+ * without a deploy; defaults to the same inbox as enquiries.
+ */
+export const ADMIN_NOTIFY_EMAIL =
+  process.env.ADMIN_NOTIFY_EMAIL ?? 'bcnairporttaxi1@gmail.com';

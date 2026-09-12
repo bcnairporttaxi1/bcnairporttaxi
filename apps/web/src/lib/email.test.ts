@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { bookingConfirmationEmail } from './email';
+import { adminBookingEmail, bookingConfirmationEmail } from './email';
 
 const base = {
   reference: 'BCN-TEST01',
@@ -75,5 +75,61 @@ describe('booking confirmation email', () => {
       feePaid: true,
     });
     expect(prepaid.text).toMatch(/Nothing/);
+  });
+});
+
+describe('admin booking notice', () => {
+  const ride = {
+    reference: 'BCN-7K2QX',
+    contactName: 'Marta Vidal',
+    contactEmail: 'marta@example.com',
+    contactPhone: '+34600111222',
+    pickupLabel: 'Aeroport T1, El Prat',
+    dropoffLabel: 'Hotel Arts, Carrer de la Marina 19',
+    pickupAt: new Date('2026-09-20T08:30:00Z'), // 10:30 in Barcelona
+    roadKm: 16.2,
+    durationMin: 24,
+    passengers: 3,
+    luggage: 4,
+    vehicleName: 'Mercedes Vito',
+    notes: 'Flight VY8301 — child seat please',
+    amountOnline: 44.04,
+    locale: 'es',
+    rideUrl: 'https://bcnairporttaxi.es/en/admin/rides/BCN-7K2QX',
+  };
+
+  it('leads the subject with the state, then the pickup time and route', () => {
+    const paid = adminBookingEmail({ ...ride, paid: true });
+    expect(paid.subject).toMatch(/^PAID BCN-7K2QX · Sun 20 Sept, 10:30 ·/);
+    const pending = adminBookingEmail({ ...ride, paid: false });
+    expect(pending.subject).toMatch(/^New booking BCN-7K2QX · .* · awaiting payment$/);
+  });
+
+  it('tells the desk what to do first', () => {
+    expect(adminBookingEmail({ ...ride, paid: true }).text).toMatch(/^PAID — assign a driver/);
+    expect(adminBookingEmail({ ...ride, paid: false }).text).toMatch(/^New booking — payment not yet confirmed/);
+  });
+
+  it('carries everything needed to run the ride without opening the panel', () => {
+    const { text, html } = adminBookingEmail({ ...ride, paid: true });
+    for (const s of ['Marta Vidal', '+34600111222', 'marta@example.com', 'Aeroport T1', 'Hotel Arts', '16.2 km', '3 pax, 4 bags', 'Mercedes Vito', 'VY8301', '€44.04']) {
+      expect(text).toContain(s);
+    }
+    expect(html).toContain('href="https://bcnairporttaxi.es/en/admin/rides/BCN-7K2QX"');
+    expect(html).toContain('href="tel:+34600111222"');
+  });
+
+  it('is written in English whatever language the passenger booked in', () => {
+    // locale: 'es' above. The desk reads English; the receipt to the
+    // passenger is the one that follows their locale.
+    const { text } = adminBookingEmail({ ...ride, paid: true });
+    expect(text).toContain('Passenger:');
+    expect(text).not.toContain('Pasajero');
+  });
+
+  it('omits the notes block when there are none', () => {
+    const { text, html } = adminBookingEmail({ ...ride, paid: true, notes: null });
+    expect(text).not.toContain('Notes');
+    expect(html).not.toContain('Notes for the driver');
   });
 });

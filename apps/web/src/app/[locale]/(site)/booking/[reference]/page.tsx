@@ -6,7 +6,8 @@ import { PageHero } from '@/components/page-hero';
 import { prisma } from '@/lib/db';
 import { eurIn } from '@bcn/core/format';
 import { getCheckoutStatus } from '@/lib/payments/sumup';
-import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
+import { adminBookingEmail, bookingConfirmationEmail, sendEmail } from '@/lib/email';
+import { ADMIN_NOTIFY_EMAIL, absoluteUrl } from '@bcn/core/site';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -93,6 +94,28 @@ export default async function BookingPage(props: {
         html: mail.html,
         text: mail.text,
       });
+
+      // And the desk: this is the moment a driver needs assigning.
+      const notice = adminBookingEmail({
+        reference: booking.reference,
+        paid: true,
+        contactName: booking.contactName,
+        contactEmail: booking.contactEmail,
+        contactPhone: booking.contactPhone,
+        pickupLabel: booking.pickupLabel,
+        dropoffLabel: booking.dropoffLabel,
+        pickupAt: booking.pickupAt,
+        roadKm: booking.roadKm,
+        durationMin: booking.durationMin,
+        passengers: booking.passengers,
+        luggage: booking.luggage,
+        vehicleName: booking.vehicle?.name,
+        notes: booking.notes,
+        amountOnline: Number(booking.amountOnline),
+        locale: booking.locale,
+        rideUrl: absoluteUrl(`/en/admin/rides/${booking.reference}`),
+      });
+      await sendEmail({ to: ADMIN_NOTIFY_EMAIL, replyTo: booking.contactEmail, ...notice });
     } else if (status === 'FAILED') {
       await prisma.booking.update({
         where: { id: booking.id },

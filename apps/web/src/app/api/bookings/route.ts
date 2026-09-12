@@ -11,9 +11,9 @@ import {
   meetsLeadTime,
 } from '@bcn/core/pricing';
 import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
-import { bookingConfirmationEmail, sendEmail } from '@/lib/email';
+import { adminBookingEmail, bookingConfirmationEmail, sendEmail } from '@/lib/email';
 import { createCheckout } from '@/lib/payments/sumup';
-import { SITE_URL } from '@bcn/core/site';
+import { ADMIN_NOTIFY_EMAIL, SITE_URL, absoluteUrl } from '@bcn/core/site';
 
 const OSRM = process.env.OSRM_BASE_URL ?? 'https://router.project-osrm.org';
 
@@ -214,6 +214,32 @@ export async function POST(request: Request) {
       html: mail.html,
       text: mail.text,
     });
+
+    // The desk hears about every booking the moment it exists. Not awaited
+    // on the same promise as the receipt so a failure here cannot fail the
+    // booking — the passenger has already been charged or is about to be.
+    const notice = adminBookingEmail({
+      reference,
+      paid: false,
+      contactName: input.contactName,
+      contactEmail: input.contactEmail,
+      contactPhone: input.contactPhone,
+      pickupLabel: input.pickup.label,
+      dropoffLabel: input.dropoff.label,
+      pickupAt,
+      roadKm: route.roadKm,
+      durationMin: route.durationMin,
+      passengers: input.passengers,
+      luggage: input.luggage,
+      vehicleName: vehicle?.name,
+      notes: input.notes,
+      amountOnline,
+      locale: input.locale,
+      rideUrl: absoluteUrl(`/en/admin/rides/${reference}`),
+    });
+    sendEmail({ to: ADMIN_NOTIFY_EMAIL, replyTo: input.contactEmail, ...notice }).catch(
+      (err) => console.error('Admin booking notice failed:', err),
+    );
 
     return NextResponse.json(
       {

@@ -26,6 +26,8 @@ export async function sendEmail(opts: {
   subject: string;
   html: string;
   text: string;
+  /** Set on notices to the desk, so a reply goes to the passenger. */
+  replyTo?: string;
 }): Promise<SendResult> {
   const resend = client();
   if (!resend) {
@@ -37,6 +39,7 @@ export async function sendEmail(opts: {
     const { data, error } = await resend.emails.send({
       from: FROM,
       to: [opts.to],
+      replyTo: opts.replyTo,
       subject: opts.subject,
       html: opts.html,
       text: opts.text,
@@ -286,6 +289,110 @@ export function passwordResetEmail(d: { name: string; url: string; minutes: numb
     `It works once and expires in ${d.minutes} minutes.`,
     `If you did not ask for this, ignore it — your password has not changed.`,
   ].join('\n');
+
+  return { subject, html, text };
+}
+
+/**
+ * What the dispatch desk sees when a booking arrives or is paid.
+ *
+ * Written for someone who will act on it in the next minute, not read it:
+ * the subject carries the pickup time and the route, the first line says
+ * what to do, and the body is the record laid out for a phone call. The link
+ * lands on the ride's own page in the panel.
+ *
+ * Two moments send it. Creation, because there is no payment webhook — a
+ * passenger who pays and closes the tab never triggers the paid path, and the
+ * creation notice is the only signal the desk would get. And payment, because
+ * that is when a driver needs assigning.
+ */
+export function adminBookingEmail(d: {
+  reference: string;
+  paid: boolean;
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  pickupLabel: string;
+  dropoffLabel: string;
+  pickupAt: Date;
+  roadKm: number;
+  durationMin: number;
+  passengers: number;
+  luggage: number;
+  vehicleName?: string;
+  notes?: string | null;
+  amountOnline: number;
+  locale: string;
+  rideUrl: string;
+}) {
+  const eur = (n: number) =>
+    new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(n);
+  const when = new Intl.DateTimeFormat('en-GB', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Madrid',
+  }).format(d.pickupAt);
+
+  const short = (s: string) => (s.length > 42 ? s.slice(0, 40) + '…' : s);
+
+  const subject = d.paid
+    ? `PAID ${d.reference} · ${when} · ${short(d.pickupLabel)} → ${short(d.dropoffLabel)}`
+    : `New booking ${d.reference} · ${when} · awaiting payment`;
+
+  const lead = d.paid
+    ? `<strong>Paid — assign a driver.</strong> ${eur(d.amountOnline)} taken online; nothing to collect in the car.`
+    : `<strong>Booking received, payment not yet confirmed.</strong> The passenger has been sent to pay ${eur(d.amountOnline)}. If it stays pending, chase them — there is no webhook, so a passenger who pays and closes the tab is only marked paid when they return to the site.`;
+
+  const html = layout(
+    d.paid ? 'Paid booking' : 'New booking',
+    `<p style="font-size:15px;line-height:1.7">${lead}</p>
+     <p style="margin-top:14px"><a href="${d.rideUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Open ride ${d.reference}</a></p>
+     <table style="width:100%;border-collapse:collapse;margin-top:18px;border-top:1px solid #e4e0d7">
+       ${row('Pickup time', `<strong>${when}</strong>`, true)}
+       ${row('From', d.pickupLabel)}
+       ${row('To', d.dropoffLabel)}
+       ${row('Distance', `${d.roadKm} km · about ${d.durationMin} min`)}
+       ${row('Group', `${d.passengers} passengers · ${d.luggage} bags`)}
+       ${row('Vehicle', d.vehicleName ?? 'Not chosen')}
+       ${row('Passenger', `<strong>${d.contactName}</strong>`)}
+       ${row('Phone', `<a href="tel:${d.contactPhone}">${d.contactPhone}</a>`)}
+       ${row('Email', `<a href="mailto:${d.contactEmail}">${d.contactEmail}</a>`)}
+       ${row('Language', d.locale.toUpperCase())}
+       ${row('Online', `${eur(d.amountOnline)} · ${d.paid ? 'paid' : 'pending'}`, true)}
+     </table>
+     ${
+       d.notes
+         ? `<p style="margin-top:16px;font-size:13px;color:#6b6b72">Notes for the driver</p><p style="background:#faf8f3;border:1px solid #e4e0d7;border-radius:10px;padding:12px;font-size:14px;line-height:1.6;white-space:pre-wrap">${d.notes}</p>`
+         : ''
+     }
+     <p style="font-size:12px;color:#9a9aa4;margin-top:18px">Reply to this email to reach the passenger directly.</p>`,
+  );
+
+  const text = [
+    d.paid ? `PAID — assign a driver` : `New booking — payment not yet confirmed`,
+    ``,
+    `Ride:      ${d.rideUrl}`,
+    ``,
+    `Pickup:    ${when}`,
+    `From:      ${d.pickupLabel}`,
+    `To:        ${d.dropoffLabel}`,
+    `Distance:  ${d.roadKm} km, about ${d.durationMin} min`,
+    `Group:     ${d.passengers} pax, ${d.luggage} bags`,
+    `Vehicle:   ${d.vehicleName ?? 'Not chosen'}`,
+    ``,
+    `Passenger: ${d.contactName}`,
+    `Phone:     ${d.contactPhone}`,
+    `Email:     ${d.contactEmail}`,
+    `Language:  ${d.locale.toUpperCase()}`,
+    ``,
+    `Online:    ${eur(d.amountOnline)} (${d.paid ? 'paid' : 'pending'})`,
+    d.notes ? `\nNotes:\n${d.notes}` : null,
+  ]
+    .filter((l): l is string => l !== null)
+    .join('\n');
 
   return { subject, html, text };
 }
