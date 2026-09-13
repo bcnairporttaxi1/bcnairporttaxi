@@ -240,22 +240,19 @@ h4 {
 .stagger[data-in] > .stagger-item:nth-child(5) { transition-delay: 0.36s; }
 .stagger[data-in] > .stagger-item:nth-child(6) { transition-delay: 0.45s; }
 .stagger[data-in] > .stagger-item:nth-child(n + 7) { transition-delay: 0.54s; }
-.lift {
+.lift-card {
   transition:
     transform 0.45s var(--ease-brand),
     opacity 0.75s var(--ease-brand);
 }
 @media (hover: hover) {
-  .lift:hover { transform: translateY(-6px); }
+  .lift-card:hover { transform: translateY(-6px); }
 }
-.lift:active { transform: scale(0.99); }
-.drawline > span { transition: transform 1.4s var(--ease-brand); }
-.drawline[data-armed]:not([data-in]) > span { transform: scaleX(0); }
+.lift-card:active { transform: scale(0.99); }
 @media (prefers-reduced-motion: reduce) {
   .rise,
   .stagger > .stagger-item,
-  .lift,
-  .drawline > span {
+  .lift-card {
     transition: none;
     opacity: 1;
     transform: none;
@@ -1189,4 +1186,104 @@ a > .p-card:hover {
   transform-origin: left center;
   transform: scaleX(var(--progress, 0));
   transition: transform 120ms linear;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   The booking journey (components/booking-journey.tsx).
+
+   One route, three moments on it, in order: measured (the line draws and
+   the price lands), reserved (the car appears with its tick and drives the
+   route), met (the driver's board rises, the live dot breathes). The step
+   list on the left lights in the same rhythm. Timings below are the one
+   place the sequence is defined.
+
+   The server renders the finished scene. While the section is armed but
+   not yet in view, every animation is paused at its first frame; reduced
+   motion removes the animations and shows the end state.
+   ───────────────────────────────────────────────────────────────────────── */
+.journey-stage svg * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.j-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: j-draw 1.4s var(--ease-brand) 0.2s both;
+}
+.j-dots { animation: j-fade 0.6s ease-out 1.3s both; }
+.j-pin-from { animation: j-pop 0.5s var(--ease-brand) 0.1s both; }
+.j-pin-to { animation: j-pop 0.5s var(--ease-brand) 1.5s both; }
+.j-price { animation: j-pop 0.55s var(--ease-brand) 1.7s both; }
+.j-ring { animation: j-ring 2.4s ease-out 0.4s 2; }
+
+.j-car {
+  offset-rotate: auto;
+  offset-distance: 93%;
+  animation:
+    j-pop 0.5s var(--ease-brand) 2.3s both,
+    j-drive 2.2s cubic-bezier(0.45, 0, 0.2, 1) 2.9s both;
+}
+.j-tick { animation: j-pop 0.4s var(--ease-brand) 2.6s both; }
+@supports not (offset-path: path('M0 0')) {
+  .j-car { transform: translate(556px, 96px); animation: j-pop 0.5s var(--ease-brand) 2.3s both; }
+}
+
+.j-driver { animation: j-rise 0.7s var(--ease-brand) 5s both; }
+.j-live-ring { animation: j-ring 1.8s ease-out 5.4s infinite; }
+
+/* The list: numerals in the display face at a light weight, a hairline
+   spine, and a marker that fills gold when its moment arrives. */
+.journey-steps { display: grid; gap: 1.75rem; }
+.journey-step {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  position: relative;
+}
+.journey-num {
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  color: var(--color-ghost);
+  animation: j-light 0.6s var(--ease-brand) both;
+  animation-delay: calc(0.3s + var(--i) * 2.3s);
+}
+
+@keyframes j-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes j-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes j-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes j-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+/* Parks a little short of the pin so the destination stays readable. */
+@keyframes j-drive { from { offset-distance: 0%; } to { offset-distance: 93%; } }
+@keyframes j-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes j-light {
+  from { color: var(--color-ghost); }
+  to { color: var(--color-gold); }
+}
+
+/* Armed but not yet on screen: hold the first frame. */
+.journey[data-armed]:not([data-in]) .journey-stage *,
+.journey[data-armed]:not([data-in]) .journey-num {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-stage *,
+  .journey-num {
+    animation: none !important;
+  }
+  .journey-num { color: var(--color-gold); }
+  .j-car { offset-distance: 93%; }
 }

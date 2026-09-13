@@ -11,10 +11,10 @@ import { LANDMARKS, TARIFFS } from '@bcn/core/tariffs';
 import { calculateQuote } from '@bcn/core/pricing';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
-import { Rise, Stagger, StaggerItem, LiftCard, DrawLine } from '@/components/motion';
-import { StepArt } from '@/components/step-art';
+import { Rise, Stagger, StaggerItem, LiftCard } from '@/components/motion';
 import { LanguageGrid } from '@/components/language-switcher';
 import { TrustBand } from '@/components/trust-band';
+import { BookingJourney } from '@/components/booking-journey';
 import { FaqJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
 
@@ -77,7 +77,6 @@ export default async function HomePage(props: {
   setRequestLocale(locale);
 
   const t = await getTranslations('home');
-  const tw = await getTranslations('howItWorks');
   const tfaq = await getTranslations('faq');
   const tc = await getTranslations('common');
   const tn = await getTranslations('nav');
@@ -250,45 +249,7 @@ export default async function HomePage(props: {
 
       <TrustBand />
 
-      {/* How it works. Each step leads with a drawing of what it describes and
-          a hairline threads the three together, so the sequence is legible
-          before a word of it is read. */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
-        <Rise>
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            {t('sections.howTitle')}
-            <span className="editorial text-[1.08em]">{t('sections.howLede')}</span>
-          </h2>
-          <p className="mt-3 max-w-2xl text-dim">{t('sections.howIntro')}</p>
-        </Rise>
-
-        <div className="relative mt-14">
-          {/* The spine sits behind the cards and only exists on the three-across
-              layout; stacked on a phone there is nothing to thread. */}
-          <DrawLine className="pointer-events-none absolute inset-x-0 top-[104px] hidden h-px md:block" />
-
-          <Stagger as="ol" className="relative grid gap-6 md:grid-cols-3">
-            {(['one', 'two', 'three'] as const).map((step, i) => (
-              <LiftCard as="li" key={step} className="h-full">
-                <div className="flex h-full flex-col rounded-[1.4rem] border border-line bg-raise p-5 transition-colors duration-500 ease-brand hover:border-gold/40">
-                  <StepArt step={(i + 1) as 1 | 2 | 3} />
-                  <div className="mt-5 flex items-center gap-3">
-                    <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-gold font-mono text-sm font-bold text-void">
-                      {i + 1}
-                    </span>
-                    <h3 className="font-display text-lg font-bold tracking-tight">
-                      {tw(`steps.${step}.title`)}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-dim">
-                    {tw(`steps.${step}.body`)}
-                  </p>
-                </div>
-              </LiftCard>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+      <BookingJourney />
 
       {/* Why book with us. Four identical cards under four identical ticks
           said nothing about which reason matters most. The price guarantee —

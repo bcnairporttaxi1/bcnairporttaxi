@@ -131,19 +131,7 @@ export function LiftCard({
   as?: 'div' | 'li' | 'article';
 }) {
   const Tag = as as ElementType;
-  return <Tag className={`rise stagger-item lift ${className}`}>{children}</Tag>;
+  return <Tag className={`rise stagger-item lift-card ${className}`}>{children}</Tag>;
 }
 
-/**
- * Draws a line as it comes into view — used for the spine that threads the
- * three booking steps together. Rendered at full length on the server.
- */
-export function DrawLine({ className = '' }: { className?: string }) {
-  const { ref, armed, shown } = useReveal<HTMLDivElement>('0px 0px -20% 0px');
-  return (
-    <div ref={ref} className={`drawline ${className}`} aria-hidden="true" data-armed={armed || undefined} data-in={shown || undefined}>
-      <span className="block h-full w-full origin-left bg-gradient-to-r from-gold/0 via-gold/50 to-gold/0" />
-    </div>
-  );
-}
 
