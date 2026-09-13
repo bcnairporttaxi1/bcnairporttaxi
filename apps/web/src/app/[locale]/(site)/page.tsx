@@ -33,13 +33,17 @@ const FAQ_KEYS = ['fareAccurate', 'whyFee', 'invoice', 'meetDriver', 'urgent', '
  * meter that sets the fare, the tablet tracking the flight, the licensed
  * driver at the door, the desk on WhatsApp. Photographs are in
  * public/img/why; the copy keys are unchanged. `wide` gives the price
- * guarantee — the one promise among four facts — the full row.
+ * guarantee — the one promise among four facts — the full row. `from` is
+ * the side each photograph is revealed from as the section scrolls in: the
+ * wide one wipes in the reading direction while its copy arrives from the
+ * right, and the three below come from the left, from below and from the
+ * right, closing on the centre. See `.why-grid` in globals.css.
  */
 const WHY = [
-  { key: 'meter' as const, wide: true, alt: 'Driver beside a black-and-yellow Barcelona taxi at the airport, with the taximeter showing the official tariff' },
-  { key: 'flight' as const, wide: false, alt: 'Driver at the terminal checking an arriving flight on a tablet, the plane landing behind' },
-  { key: 'licensed' as const, wide: false, alt: 'Licensed driver holding the taxi door open for a passenger at Terminal 1, the meter visible inside' },
-  { key: 'support' as const, wide: false, alt: 'Booking desk agent on a headset answering a WhatsApp message, a taxi waiting at the terminal' },
+  { key: 'meter' as const, wide: true, from: 'left' as const, alt: 'Driver beside a black-and-yellow Barcelona taxi at the airport, with the taximeter showing the official tariff' },
+  { key: 'flight' as const, wide: false, from: 'left' as const, alt: 'Driver at the terminal checking an arriving flight on a tablet, the plane landing behind' },
+  { key: 'licensed' as const, wide: false, from: 'below' as const, alt: 'Licensed driver holding the taxi door open for a passenger at Terminal 1, the meter visible inside' },
+  { key: 'support' as const, wide: false, from: 'right' as const, alt: 'Booking desk agent on a headset answering a WhatsApp message, a taxi waiting at the terminal' },
 ];
 
 export default async function HomePage(props: {
@@ -237,8 +241,8 @@ export default async function HomePage(props: {
             <p className="mt-3 max-w-2xl text-dim">{t('sections.whyIntro')}</p>
           </Rise>
 
-          <Stagger as="ul" className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY.map(({ key, wide, alt }) => (
+          <Stagger as="ul" className="why-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY.map(({ key, wide, alt, from }) => (
               <LiftCard as="li" key={key} className={wide ? 'sm:col-span-2 lg:col-span-3' : ''}>
                 <div
                   className={`group relative h-full overflow-hidden rounded-[1.4rem] border border-line bg-void transition-colors duration-500 ease-brand hover:border-gold/40 ${
@@ -248,7 +252,7 @@ export default async function HomePage(props: {
                   {/* The photograph. On the wide card it takes the left column
                       at full height; on the others it is the card's top. The
                       slow zoom on hover is the card's only motion. */}
-                  <div className={`relative overflow-hidden ${wide ? 'aspect-[16/10] lg:aspect-auto lg:min-h-[22rem]' : 'aspect-[16/10]'}`}>
+                  <div className={`why-photo why-from-${from} relative overflow-hidden ${wide ? 'aspect-[16/10] lg:aspect-auto lg:min-h-[22rem]' : 'aspect-[16/10]'}`}>
                     <Image
                       src={`/img/why/${key}.jpg`}
                       alt={alt}
@@ -268,7 +272,7 @@ export default async function HomePage(props: {
                     />
                   </div>
 
-                  <div className={`relative ${wide ? 'p-7 lg:flex lg:flex-col lg:justify-center lg:p-10' : 'p-6 pt-5'}`}>
+                  <div className={`why-text relative ${wide ? 'p-7 lg:flex lg:flex-col lg:justify-center lg:p-10' : 'p-6 pt-5'}`}>
                     <h3
                       className={`font-display font-bold tracking-tight ${
                         wide ? 'text-2xl sm:text-3xl' : 'text-lg'

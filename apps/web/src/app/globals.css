@@ -1312,3 +1312,54 @@ a > .p-card:hover {
   .lr-live::after, .lr-arrived .lr-dot-to::after { animation: none; }
   .journey .journey-num { color: var(--color-gold); }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   "Why book with us" — the photographs are revealed, not faded.
+
+   Each card's photo is wiped in from the side its `why-from-*` class names
+   while the image itself settles from a slight zoom, and the copy beside or
+   beneath it arrives a beat later. The group's [data-armed]/[data-in] comes
+   from the Stagger wrapper, so this plays once as the section scrolls in
+   and is simply the finished layout for the server render and for anyone
+   who prefers reduced motion. Delays are by card position; the wide card
+   goes first and its text answers it from the right.
+   ───────────────────────────────────────────────────────────────────────── */
+.why-photo {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.1s var(--ease-brand);
+}
+.why-photo > img {
+  /* `scale` is what Tailwind's hover zoom sets; `transform` is the settle. */
+  transition:
+    transform 1.6s var(--ease-brand),
+    scale 1.2s var(--ease-brand),
+    opacity 0.6s ease-out;
+}
+.why-text {
+  transition:
+    opacity 0.8s var(--ease-brand),
+    transform 0.9s var(--ease-brand);
+}
+/* Armed and not yet in view: photos closed, copy displaced. */
+.why-grid[data-armed]:not([data-in]) .why-from-left { clip-path: inset(0 100% 0 0); }
+.why-grid[data-armed]:not([data-in]) .why-from-right { clip-path: inset(0 0 0 100%); }
+.why-grid[data-armed]:not([data-in]) .why-from-below { clip-path: inset(100% 0 0 0); }
+.why-grid[data-armed]:not([data-in]) .why-photo > img { transform: scale(1.12); }
+.why-grid[data-armed]:not([data-in]) .why-text { opacity: 0; transform: translateX(36px); }
+.why-grid[data-armed]:not([data-in]) .stagger-item:nth-child(n + 2) .why-text { transform: translateY(18px); }
+/* The cards themselves keep their rise from .stagger; the inner reveals
+   are timed to follow it. */
+.why-grid[data-in] .stagger-item:nth-child(1) .why-photo { transition-delay: 0.1s; }
+.why-grid[data-in] .stagger-item:nth-child(1) .why-text { transition-delay: 0.55s; }
+.why-grid[data-in] .stagger-item:nth-child(2) .why-photo { transition-delay: 0.35s; }
+.why-grid[data-in] .stagger-item:nth-child(2) .why-text { transition-delay: 0.8s; }
+.why-grid[data-in] .stagger-item:nth-child(3) .why-photo { transition-delay: 0.5s; }
+.why-grid[data-in] .stagger-item:nth-child(3) .why-text { transition-delay: 0.95s; }
+.why-grid[data-in] .stagger-item:nth-child(4) .why-photo { transition-delay: 0.65s; }
+.why-grid[data-in] .stagger-item:nth-child(4) .why-text { transition-delay: 1.1s; }
+@media (prefers-reduced-motion: reduce) {
+  .why-photo, .why-photo > img, .why-text { transition: none; }
+  .why-grid[data-armed]:not([data-in]) .why-photo { clip-path: inset(0 0 0 0); }
+  .why-grid[data-armed]:not([data-in]) .why-photo > img { transform: none; }
+  .why-grid[data-armed]:not([data-in]) .why-text { opacity: 1; transform: none; }
+}
