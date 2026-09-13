@@ -428,10 +428,19 @@ export default async function HomePage(props: {
             />
           </div>
           {/* CC BY and CC BY-SA both require the author be named wherever the
-              photograph appears, so the credits travel with the strip. */}
-          <p className="mt-4 text-xs leading-relaxed text-ghost">
-            {photoCredits}
-          </p>
+              photograph appears, so the credits travel with the strip — but
+              folded: eleven names and licences as a paragraph under the
+              carousel read like a legal notice, not a website. One quiet
+              line opens them on request, which the licences allow. */}
+          <details className="group mt-4 text-xs text-ghost">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors hover:text-dim [&::-webkit-details-marker]:hidden">
+              <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current transition-transform group-open:rotate-90" aria-hidden="true">
+                <path d="M7.5 4 13.5 10l-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+              </svg>
+              {td('photoCreditsPrefix').replace(/[:：]s*$/, '')}
+            </summary>
+            <p className="mt-2 max-w-3xl leading-relaxed">{photoCredits.replace(td('photoCreditsPrefix') + ' ', '')}</p>
+          </details>
         </div>
       </section>
 
