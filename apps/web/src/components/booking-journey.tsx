@@ -44,7 +44,7 @@ export async function BookingJourney({ locale }: { locale: string }) {
           stage sits between the heading and the list — where it is on screen
           when the sequence starts — and on a wide screen it spans both rows
           beside them. */}
-      <Rise className="journey grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-8">
+      <Rise className="journey grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-8">
         <div className="lg:col-start-1 lg:row-start-1">
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
             {t('sections.howTitle')}

@@ -299,7 +299,7 @@ export default async function HomePage(props: {
           markup, so they are shown rather than described. Every figure is
           derived from TARIFFS at render time so the table cannot drift. */}
       <section className="py-20 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
           <Reveal className="lg:sticky lg:top-28">
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.faresTitle')}
@@ -495,7 +495,7 @@ export default async function HomePage(props: {
 
       {/* FAQ */}
       <section className="py-20 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
           <Reveal className="lg:sticky lg:top-28">
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
               {t('sections.faqTitle')}
