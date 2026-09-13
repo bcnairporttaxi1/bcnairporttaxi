@@ -478,6 +478,11 @@
         "title": "Ontmoet uw chauffeur",
         "body": "Uw chauffeur staat op de afgesproken tijd klaar. Alles is al betaald, dus in de auto hoeft niets meer te worden afgerekend."
       }
+    },
+    "live": {
+      "reserved": "Gereserveerd · online betaald",
+      "arrived": "Aangekomen · niets te betalen in de taxi",
+      "live": "Chauffeur live"
     }
   },
   "faq": {

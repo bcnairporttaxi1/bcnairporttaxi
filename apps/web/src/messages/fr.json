@@ -478,6 +478,11 @@
         "title": "Retrouvez votre chauffeur",
         "body": "Votre chauffeur vous attend à l'heure convenue. Tout est déjà réglé, il n'y a donc rien à payer dans la voiture."
       }
+    },
+    "live": {
+      "reserved": "Réservé · payé en ligne",
+      "arrived": "Arrivé · rien à payer dans le taxi",
+      "live": "Chauffeur en direct"
     }
   },
   "faq": {

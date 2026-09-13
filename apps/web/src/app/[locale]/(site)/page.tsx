@@ -249,7 +249,7 @@ export default async function HomePage(props: {
 
       <TrustBand />
 
-      <BookingJourney />
+      <BookingJourney locale={locale} />
 
       {/* Why book with us. Four identical cards under four identical ticks
           said nothing about which reason matters most. The price guarantee —

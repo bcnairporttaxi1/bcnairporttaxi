@@ -478,6 +478,11 @@
         "title": "Fahrer treffen",
         "body": "Ihr Fahrer erwartet Sie zur vereinbarten Zeit. Alles ist bereits bezahlt, im Wagen ist also nichts mehr zu regeln."
       }
+    },
+    "live": {
+      "reserved": "Reserviert · online bezahlt",
+      "arrived": "Angekommen · nichts im Taxi zu zahlen",
+      "live": "Fahrer live"
     }
   },
   "faq": {

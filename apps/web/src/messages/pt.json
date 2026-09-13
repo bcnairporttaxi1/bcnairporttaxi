@@ -478,6 +478,11 @@
         "title": "Encontre o seu motorista",
         "body": "O seu motorista espera por si à hora combinada. Está tudo já pago, por isso não há nada a acertar no carro."
       }
+    },
+    "live": {
+      "reserved": "Reservado · pago online",
+      "arrived": "Chegou · nada a pagar no táxi",
+      "live": "Motorista ao vivo"
     }
   },
   "faq": {

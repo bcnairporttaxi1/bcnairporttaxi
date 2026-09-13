@@ -490,6 +490,11 @@
         "title": "Encuentra a tu conductor",
         "body": "Tu conductor te espera a la hora acordada. Todo está ya pagado, así que no hay nada que liquidar en el coche."
       }
+    },
+    "live": {
+      "reserved": "Reservado · pagado online",
+      "arrived": "Ha llegado · nada que pagar en el taxi",
+      "live": "Conductor en directo"
     }
   },
   "faq": {

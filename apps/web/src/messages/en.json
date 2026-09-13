@@ -216,6 +216,11 @@
         "title": "Meet your driver",
         "body": "Your driver meets you at the agreed time. Everything is already paid, so there is nothing to settle in the car."
       }
+    },
+    "live": {
+      "reserved": "Reserved · paid online",
+      "arrived": "Arrived · nothing to pay in the car",
+      "live": "Driver live"
     }
   },
   "faq": {

@@ -1189,58 +1189,19 @@ a > .p-card:hover {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   The booking journey (components/booking-journey.tsx).
+   The booking journey (components/booking-journey.tsx, live-route.tsx).
 
-   One route, three moments on it, in order: measured (the line draws and
-   the price lands), reserved (the car appears with its tick and drives the
-   route), met (the driver's board rises, the live dot breathes). The step
-   list on the left lights in the same rhythm. Timings below are the one
-   place the sequence is defined.
-
-   The server renders the finished scene. While the section is armed but
-   not yet in view, every animation is paused at its first frame; reduced
-   motion removes the animations and shows the end state.
+   A real map with the real road, and a taxi that drives it. The client
+   component sets data-phase on .journey as the three moments play; the
+   numerals in the list light up in step. Everything the map draws is a
+   Leaflet layer; these rules only dress the markers, the line and the chrome.
    ───────────────────────────────────────────────────────────────────────── */
-.journey-stage svg * {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.j-draw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  animation: j-draw 1.4s var(--ease-brand) 0.2s both;
-}
-.j-dots { animation: j-fade 0.6s ease-out 1.3s both; }
-.j-pin-from { animation: j-pop 0.5s var(--ease-brand) 0.1s both; }
-.j-pin-to { animation: j-pop 0.5s var(--ease-brand) 1.5s both; }
-.j-price { animation: j-pop 0.55s var(--ease-brand) 1.7s both; }
-.j-ring { animation: j-ring 2.4s ease-out 0.4s 2; }
-
-.j-car {
-  offset-rotate: auto;
-  offset-distance: 93%;
-  animation:
-    j-pop 0.5s var(--ease-brand) 2.3s both,
-    j-drive 2.2s cubic-bezier(0.45, 0, 0.2, 1) 2.9s both;
-}
-.j-tick { animation: j-pop 0.4s var(--ease-brand) 2.6s both; }
-@supports not (offset-path: path('M0 0')) {
-  .j-car { transform: translate(556px, 96px); animation: j-pop 0.5s var(--ease-brand) 2.3s both; }
-}
-
-.j-driver { animation: j-rise 0.7s var(--ease-brand) 5s both; }
-.j-live-ring { animation: j-ring 1.8s ease-out 5.4s infinite; }
-
-/* The list: numerals in the display face at a light weight, a hairline
-   spine, and a marker that fills gold when its moment arrives. */
 .journey-steps { display: grid; gap: 1.75rem; }
 .journey-step {
   display: grid;
   grid-template-columns: 3.25rem 1fr;
   gap: 0.75rem;
   align-items: start;
-  position: relative;
 }
 .journey-num {
   font-size: 2.6rem;
@@ -1248,42 +1209,106 @@ a > .p-card:hover {
   font-weight: 200;
   letter-spacing: -0.04em;
   color: var(--color-ghost);
-  animation: j-light 0.6s var(--ease-brand) both;
-  animation-delay: calc(0.3s + var(--i) * 2.3s);
+  transition: color 0.6s var(--ease-brand);
+}
+.journey[data-phase='1'] .journey-step:nth-child(1) .journey-num,
+.journey[data-phase='2'] .journey-step:nth-child(-n + 2) .journey-num,
+.journey[data-phase='3'] .journey-step .journey-num {
+  color: var(--color-gold);
 }
 
-@keyframes j-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes j-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes j-pop {
-  from { opacity: 0; transform: scale(0.6); }
-  to { opacity: 1; transform: scale(1); }
+/* The map sits a touch below the page's black; the same knock the trip
+   page applies. Attribution stays, small and quiet. */
+.lr-map { background: #0c0c0f; }
+.lr-map .leaflet-tile-pane { filter: brightness(0.82) saturate(0.9); }
+.lr-map .leaflet-control-attribution {
+  background: rgb(12 12 15 / 0.7);
+  color: rgb(255 255 255 / 0.45);
+  font-size: 9px;
+  padding: 2px 6px;
 }
-@keyframes j-rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
+.lr-map .leaflet-control-attribution a { color: rgb(255 255 255 / 0.6); }
+
+.lr-line { filter: drop-shadow(0 0 6px rgb(240 180 41 / 0.55)); }
+
+.lr-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid #0e0e10;
+  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.12);
 }
-/* Parks a little short of the pin so the destination stays readable. */
-@keyframes j-drive { from { offset-distance: 0%; } to { offset-distance: 93%; } }
-@keyframes j-ring {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(2.6); opacity: 0; }
-}
-@keyframes j-light {
-  from { color: var(--color-ghost); }
-  to { color: var(--color-gold); }
+.lr-dot-from { background: #39d98a; }
+.lr-dot-to { background: #f4f2ed; position: relative; }
+.lr-arrived .lr-dot-to::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #39d98a;
+  animation: lr-ring 1.8s ease-out infinite;
 }
 
-/* Armed but not yet on screen: hold the first frame. */
-.journey[data-armed]:not([data-in]) .journey-stage *,
-.journey[data-armed]:not([data-in]) .journey-num {
-  animation-play-state: paused;
+.lr-taxi-wrap { background: none; border: 0; }
+.lr-taxi {
+  display: block;
+  width: 34px;
+  height: 34px;
+  transform: rotate(var(--r, 0deg));
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.6));
+}
+.lr-go .lr-taxi { opacity: 1; }
+
+.lr-price {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.96);
+  transition:
+    opacity 0.5s var(--ease-brand),
+    transform 0.5s var(--ease-brand);
+}
+.lr-price-in { opacity: 1; transform: none; }
+
+.lr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-line-2);
+  background: rgb(12 12 15 / 0.88);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ice);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s var(--ease-brand),
+    transform 0.5s var(--ease-brand);
+}
+.lr-chip-in { opacity: 1; transform: none; }
+.lr-chip-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; position: relative; }
+.lr-live::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #39d98a;
+  animation: lr-ring 1.8s ease-out infinite;
+}
+@keyframes lr-ring {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .journey-stage *,
-  .journey-num {
-    animation: none !important;
-  }
-  .journey-num { color: var(--color-gold); }
-  .j-car { offset-distance: 93%; }
+  .lr-taxi, .lr-price, .lr-chip, .journey-num { transition: none; }
+  .lr-live::after, .lr-arrived .lr-dot-to::after { animation: none; }
+  .journey .journey-num { color: var(--color-gold); }
 }

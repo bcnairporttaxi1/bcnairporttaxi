@@ -478,6 +478,11 @@
         "title": "Troba el teu conductor",
         "body": "El teu conductor t'espera a l'hora acordada. Tot està ja pagat, així que no hi ha res a liquidar al cotxe."
       }
+    },
+    "live": {
+      "reserved": "Reservat · pagat en línia",
+      "arrived": "Ha arribat · res a pagar al taxi",
+      "live": "Conductor en directe"
     }
   },
   "faq": {

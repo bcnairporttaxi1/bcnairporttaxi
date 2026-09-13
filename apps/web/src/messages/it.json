@@ -478,6 +478,11 @@
         "title": "Incontra il tuo autista",
         "body": "Il tuo autista ti aspetta all'orario concordato. È già tutto pagato, quindi in auto non c'è nulla da saldare."
       }
+    },
+    "live": {
+      "reserved": "Prenotato · pagato online",
+      "arrived": "Arrivato · niente da pagare in taxi",
+      "live": "Autista in diretta"
     }
   },
   "faq": {
