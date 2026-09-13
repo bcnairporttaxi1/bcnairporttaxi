@@ -1,15 +1,10 @@
-import "server-only";
-import { prisma } from "@/lib/db";
-import { getCheckoutStatus } from "@/lib/payments/sumup";
-import {
-  adminBookingEmail,
-  bookingConfirmationEmail,
-  sendEmail,
-} from "@/lib/email";
-import { ADMIN_NOTIFY_EMAIL, absoluteUrl } from "@bcn/core/site";
+import 'server-only';
+import { prisma } from '@/lib/db';
+import { getCheckoutStatus } from '@/lib/payments/sumup';
+import { adminBookingEmail, bookingConfirmationEmail, sendEmail } from '@/lib/email';
+import { ADMIN_NOTIFY_EMAIL, absoluteUrl } from '@bcn/core/site';
 
-export type ConfirmOutcome =
-  "paid" | "already-paid" | "failed" | "pending" | "unknown";
+export type ConfirmOutcome = 'paid' | 'already-paid' | 'failed' | 'pending' | 'unknown';
 
 /**
  * Settles a booking's payment state against SumUp and, on the transition to
@@ -24,36 +19,34 @@ export type ConfirmOutcome =
  * The status is always re-read from SumUp's API. Neither a return URL nor a
  * webhook body is evidence of payment; both are inputs an attacker controls.
  */
-export async function confirmBookingPayment(
-  reference: string,
-): Promise<ConfirmOutcome> {
+export async function confirmBookingPayment(reference: string): Promise<ConfirmOutcome> {
   const booking = await prisma.booking
     .findUnique({
       where: { reference },
       include: { vehicle: { select: { name: true } } },
     })
     .catch(() => null);
-  if (!booking) return "unknown";
-  if (booking.paymentStatus === "PAID") return "already-paid";
-  if (!booking.sumupCheckoutId) return "pending";
+  if (!booking) return 'unknown';
+  if (booking.paymentStatus === 'PAID') return 'already-paid';
+  if (!booking.sumupCheckoutId) return 'pending';
 
   const status = await getCheckoutStatus(booking.sumupCheckoutId);
 
-  if (status === "FAILED") {
+  if (status === 'FAILED') {
     await prisma.booking.updateMany({
-      where: { id: booking.id, paymentStatus: { not: "PAID" } },
-      data: { paymentStatus: "FAILED" },
+      where: { id: booking.id, paymentStatus: { not: 'PAID' } },
+      data: { paymentStatus: 'FAILED' },
     });
-    return "failed";
+    return 'failed';
   }
-  if (status !== "PAID") return "pending";
+  if (status !== 'PAID') return 'pending';
 
   // The guard: only the call that performs the flip continues to the emails.
   const flipped = await prisma.booking.updateMany({
-    where: { id: booking.id, paymentStatus: { not: "PAID" } },
-    data: { paymentStatus: "PAID", status: "CONFIRMED" },
+    where: { id: booking.id, paymentStatus: { not: 'PAID' } },
+    data: { paymentStatus: 'PAID', status: 'CONFIRMED' },
   });
-  if (flipped.count === 0) return "already-paid";
+  if (flipped.count === 0) return 'already-paid';
 
   const receipt = bookingConfirmationEmail({
     reference: booking.reference,
@@ -69,10 +62,7 @@ export async function confirmBookingPayment(
     fixedFare: Number(booking.fixedFare),
     bookingFee: Number(booking.bookingFee),
     amountOnline: Number(booking.amountOnline),
-    amountInTaxi:
-      booking.paymentMode === "FULL_PREPAID"
-        ? 0
-        : Number(booking.meterEstimate),
+    amountInTaxi: booking.paymentMode === 'FULL_PREPAID' ? 0 : Number(booking.meterEstimate),
     vehicleName: booking.vehicle?.name,
     feePaid: true,
     locale: booking.locale,
@@ -105,5 +95,5 @@ export async function confirmBookingPayment(
     ...notice,
   });
 
-  return "paid";
+  return 'paid';
 }
