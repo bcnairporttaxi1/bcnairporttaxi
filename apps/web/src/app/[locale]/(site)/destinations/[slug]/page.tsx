@@ -195,16 +195,25 @@ export default async function DestinationPage(props: {
                 className="aspect-[16/9] w-full object-cover"
               />
               {/* CC BY and CC BY-SA both require the author to be credited
-                  wherever the image is shown. */}
+                  wherever the image is shown — folded behind one small line,
+                  as on the homepage strip, rather than a bar under the photo. */}
               <figcaption className="bg-pane px-4 py-2 text-xs text-ghost">
-                <a
-                  href={photo.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="hover:text-gold"
-                >
-                  {attributionLine(photo)} · Wikimedia Commons
-                </a>
+                <details className="group">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors hover:text-dim [&::-webkit-details-marker]:hidden">
+                    <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current transition-transform group-open:rotate-90" aria-hidden="true">
+                      <path d="M7.5 4 13.5 10l-6 6-1.4-1.4L10.7 10 6.1 5.4z" />
+                    </svg>
+                    {tHub('photoCreditsPrefix').replace(/[:：]\s*$/, '')}
+                  </summary>
+                  <a
+                    href={photo.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="mt-1.5 inline-block hover:text-gold"
+                  >
+                    {attributionLine(photo)} · Wikimedia Commons
+                  </a>
+                </details>
               </figcaption>
             </figure>
           )}
