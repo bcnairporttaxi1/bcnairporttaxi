@@ -1,13 +1,14 @@
+import { getTranslations } from 'next-intl/server';
+
 /**
- * Accepted-payment marquee.
+ * How the passenger pays: the card marks, one line of copy, nothing else.
  *
- * Purely decorative reassurance: nothing here is a link or a button, and the
- * whole strip is hidden from assistive tech behind a single summary label,
- * because a screen-reader user gains nothing from hearing the card list twice
- * over as it loops.
- *
- * The row is duplicated and translated by exactly -50%, so the loop is
- * seamless: the second copy reaches the start position as the first leaves.
+ * This was a marquee under a "Secure & trusted" pill with emoji
+ * assurances, a Stripe chip (checkout is SumUp) and a Cash chip (nothing is
+ * paid in the car). It now says the one true thing — pay online, once, in
+ * full — and shows the four marks a traveller looks for. The marks are
+ * inline so the strip costs no requests, and they sit on light tiles
+ * because card marks are drawn for white.
  */
 
 interface Brand {
@@ -61,28 +62,6 @@ const BRANDS: Brand[] = [
       </Wordmark>
     ),
   },
-  {
-    label: 'Stripe',
-    mark: <Wordmark className="text-[#635BFF]">stripe</Wordmark>,
-  },
-  {
-    label: 'Cash',
-    mark: (
-      <span className="flex items-center gap-1 text-[#1F7A4D]" aria-hidden="true">
-        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-          <path d="M2 6h20v12H2z" opacity=".18" />
-          <path d="M2 6h20v12H2V6Zm2 2v8h16V8H4Zm8 1.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" />
-        </svg>
-        <Wordmark className="text-[#1F7A4D]">CASH</Wordmark>
-      </span>
-    ),
-  },
-];
-
-const ASSURANCES = [
-  { icon: '🔒', label: 'SSL encrypted' },
-  { icon: '🛡️', label: 'PCI compliant' },
-  { icon: '⚡', label: 'Instant processing' },
 ];
 
 function Chip({ brand }: { brand: Brand }) {
@@ -90,55 +69,28 @@ function Chip({ brand }: { brand: Brand }) {
     /* Deliberately a light tile on a dark page: card marks are drawn for white
        backgrounds, and the Visa/Mastercard discs use mix-blend-multiply, which
        only composites correctly over a light surface. */
-    <li className="flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-line bg-porcelain px-4 shadow-sm">
+    <li className="flex h-12 w-24 shrink-0 items-center justify-center rounded-xl border border-line bg-porcelain px-3 shadow-sm">
       {brand.mark}
     </li>
   );
 }
 
-export function PaymentMethods() {
-  // Two identical passes make the -50% loop seamless.
-  const strip = [...BRANDS, ...BRANDS];
+export async function PaymentMethods() {
+  const t = await getTranslations('home');
 
   return (
-    <section className="border-y border-line bg-void py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 text-center">
-        <p className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-1.5 text-sm font-bold text-green-900">
-          <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current" aria-hidden="true">
-            <path d="M10 1.7 3 4.6v4.6c0 4.3 3 8.3 7 9.1 4-.8 7-4.8 7-9.1V4.6L10 1.7Zm-1 12L5.6 10.3 7 8.9l2 2 4-4 1.4 1.4L9 13.7Z" />
-          </svg>
-          Secure &amp; trusted
-        </p>
-
-        <h2 className="mt-5 font-display text-3xl font-extrabold sm:text-4xl">
-          Accepted payment methods
-        </h2>
-        <p className="mt-3 text-dim">
-          Secure and convenient — pay with your preferred method
-        </p>
-      </div>
-
-      {/* Edges fade so chips enter and leave rather than being clipped. */}
-      <div
-        className="marquee relative mt-10 [--marquee-duration:38s]"
-        role="img"
-        aria-label="We accept Visa, Mastercard, Maestro, American Express, Stripe and cash."
-      >
-        <ul className="marquee-track flex w-max gap-4">
-          {strip.map((brand, i) => (
-            <Chip key={`${brand.label}-${i}`} brand={brand} />
+    <section className="py-14 sm:py-16">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+        <div className="max-w-md">
+          <h2 className="font-display text-xl font-bold tracking-tight sm:text-2xl">{t('payment.title')}</h2>
+          <p className="mt-1.5 text-sm text-dim">{t('payment.note')}</p>
+        </div>
+        <ul className="flex flex-wrap gap-3" role="img" aria-label={BRANDS.map((b) => b.label).join(', ')}>
+          {BRANDS.map((brand) => (
+            <Chip key={brand.label} brand={brand} />
           ))}
         </ul>
       </div>
-
-      <ul className="mx-auto mt-10 flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 text-sm font-semibold">
-        {ASSURANCES.map((a) => (
-          <li key={a.label} className="flex items-center gap-2">
-            <span aria-hidden="true">{a.icon}</span>
-            {a.label}
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

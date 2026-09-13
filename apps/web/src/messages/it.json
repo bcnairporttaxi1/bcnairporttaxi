@@ -72,6 +72,10 @@
         "title": "Una persona, non una coda",
         "body": "Scrivici su WhatsApp e parli con qualcuno che può davvero modificare la tua prenotazione. Con meno di tre ore di preavviso è il modo più rapido per avere un'auto."
       }
+    },
+    "payment": {
+      "title": "Paga online, una volta, per intero",
+      "note": "Pagamento sicuro con SumUp. In taxi non si deve nulla all’autista."
     }
   },
   "quote": {

@@ -72,6 +72,10 @@
         "title": "Uma pessoa, não uma fila",
         "body": "Escreva-nos no WhatsApp e fala com alguém que pode realmente alterar a sua reserva. Com menos de três horas de antecedência, é a forma mais rápida de conseguir um carro."
       }
+    },
+    "payment": {
+      "title": "Pague online, uma vez, na totalidade",
+      "note": "Pagamento seguro pela SumUp. Nada a pagar ao motorista no táxi."
     }
   },
   "quote": {

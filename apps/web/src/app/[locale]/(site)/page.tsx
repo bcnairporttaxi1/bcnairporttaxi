@@ -295,8 +295,71 @@ export default async function HomePage(props: {
         </div>
       </section>
 
-      {/* Fleet */}
+      {/* Fares — the differentiator is that these are the real schedule, not a
+          markup, so they are shown rather than described. Every figure is
+          derived from TARIFFS at render time so the table cannot drift. */}
       <section className="py-20 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
+          <Reveal className="lg:sticky lg:top-28">
+            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+              {t('sections.faresTitle')}
+              <span className="editorial text-[1.08em]">{t('sections.faresLede')}</span>
+            </h2>
+            <p className="mt-3 max-w-md text-dim">{t('sections.faresIntro')}</p>
+            <p className="mt-6 max-w-md text-xs leading-relaxed text-ghost">{tfare('note')}</p>
+          </Reveal>
+
+          <Reveal>
+            <div className="overflow-hidden rounded-[2rem] border border-line bg-white/[0.038] p-1.5">
+              <div className="overflow-x-auto rounded-[calc(2rem-0.375rem)] bg-gradient-to-b from-raise to-pane shadow-[inset_0_1px_1px_rgba(255,255,255,0.09)]">
+                <table className="w-full min-w-[520px] border-collapse text-left">
+                  <caption className="sr-only">{t('sections.faresTitle')}</caption>
+                  <thead>
+                    <tr className="border-b border-line">
+                      <th scope="col" className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('route')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('distance')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('tariff')}
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                        {tfare('totalPrice')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {fareRows.map((r) => (
+                      <tr key={r.route} className="border-b border-line/60 transition-colors last:border-0 hover:bg-white/[0.022]">
+                        <td className="px-6 py-4">
+                          <span className="flex items-center gap-3.5 text-[15px]">
+                            <span aria-hidden="true" className="h-[7px] w-[7px] flex-none rounded-full bg-gold shadow-[0_0_12px_rgb(240_180_41/50%)]" />
+                            {r.route}
+                          </span>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
+                          {r.distance}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
+                          {r.tariff}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 text-right font-display text-[17px] font-semibold tabular-nums text-gold">
+                          {r.fare}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Fleet */}
+      <section className="border-y border-line bg-raise py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
@@ -377,7 +440,8 @@ export default async function HomePage(props: {
           prose on the page for the least reward. A route name and a direction
           is what anyone reads here; the description still lives on the page it
           belongs to. */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
+      <section className="border-y border-line bg-raise py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
         <Rise>
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
             {t('sections.routesTitle')}
@@ -417,72 +481,36 @@ export default async function HomePage(props: {
             );
           })}
         </Stagger>
+        </div>
       </section>
 
-      {/* Fares — the differentiator is that these are the real schedule, not a
-          markup, so they are shown rather than described. Every figure is
-          derived from TARIFFS at render time so the table cannot drift. */}
-      <section className="border-y border-line bg-raise py-20 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4">
-          <Reveal>
+      {/* FAQ */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-16">
+          <Reveal className="lg:sticky lg:top-28">
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-              {t('sections.faresTitle')}
-              <span className="editorial text-[1.08em]">{t('sections.faresLede')}</span>
+              {t('sections.faqTitle')}
             </h2>
-            <p className="mt-3 max-w-2xl text-dim">{t('sections.faresIntro')}</p>
+            <Link
+              href="/faq"
+              className="link-underline mt-6 inline-block font-semibold text-gold"
+            >
+              {tc('readAllFaqs')}
+            </Link>
           </Reveal>
-
-          <Reveal>
-            <div className="mt-10 overflow-hidden rounded-[2rem] border border-line bg-white/[0.038] p-1.5">
-              <div className="overflow-x-auto rounded-[calc(2rem-0.375rem)] bg-gradient-to-b from-raise to-pane shadow-[inset_0_1px_1px_rgba(255,255,255,0.09)]">
-                <table className="w-full min-w-[520px] border-collapse text-left">
-                  <caption className="sr-only">{t('sections.faresTitle')}</caption>
-                  <thead>
-                    <tr className="border-b border-line">
-                      <th scope="col" className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
-                        {tfare('route')}
-                      </th>
-                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
-                        {tfare('distance')}
-                      </th>
-                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
-                        {tfare('tariff')}
-                      </th>
-                      <th scope="col" className="px-6 py-4 text-right font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
-                        {tfare('totalPrice')}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {fareRows.map((r) => (
-                      <tr key={r.route} className="border-b border-line/60 transition-colors last:border-0 hover:bg-white/[0.022]">
-                        <td className="px-6 py-4">
-                          <span className="flex items-center gap-3.5 text-[15px]">
-                            <span aria-hidden="true" className="h-[7px] w-[7px] flex-none rounded-full bg-gold shadow-[0_0_12px_rgb(240_180_41/50%)]" />
-                            {r.route}
-                          </span>
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
-                          {r.distance}
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4 text-right font-mono text-[13.5px] tabular-nums text-dim">
-                          {r.tariff}
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4 text-right font-display text-[17px] font-semibold tabular-nums text-gold">
-                          {r.fare}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <p className="mt-4 text-xs leading-relaxed text-ghost">{tfare('note')}</p>
+          <Reveal delay={90}>
+            <FaqAccordion items={faqItems} />
           </Reveal>
         </div>
       </section>
 
-      {/* Closing band */}
+      {/* Language choice belongs down here, not between the hero and the
+          first explanation of the service. */}
+      <LanguageGrid />
+
+      <PaymentMethods />
+
+      {/* Closing band — the page's one closing call to action. */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
         <Reveal>
           <div className="relative overflow-hidden rounded-[22px] border border-gold/25 px-6 py-14 text-center sm:px-16">
@@ -516,54 +544,6 @@ export default async function HomePage(props: {
               </div>
             </div>
           </div>
-        </Reveal>
-      </section>
-
-      {/* Language choice belongs down here, not between the hero and the
-          first explanation of the service. */}
-      <LanguageGrid />
-
-      <PaymentMethods />
-
-      {/* FAQ */}
-      <section className="border-t border-line bg-raise py-20 sm:py-24">
-        <div className="mx-auto max-w-3xl px-4">
-          <Reveal>
-            <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-              {t('sections.faqTitle')}
-            </h2>
-          </Reveal>
-          <Reveal delay={90}>
-            <div className="mt-10">
-              <FaqAccordion items={faqItems} />
-            </div>
-            <Link
-              href="/faq"
-              className="link-underline mt-7 inline-block font-semibold text-gold"
-            >
-              {tc('readAllFaqs')}
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="bg-void py-20 sm:py-24">
-        <Reveal className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-3xl font-extrabold text-ice sm:text-4xl">
-            {t('h1')}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-dim">
-            {t('sections.howIntro')}
-          </p>
-          <Link href="/book" className="cta cta-gold group mt-8">
-            {tc('book')}
-            <span className="cta-pip" aria-hidden="true">
-              <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
-                <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
-              </svg>
-            </span>
-          </Link>
         </Reveal>
       </section>
     </>

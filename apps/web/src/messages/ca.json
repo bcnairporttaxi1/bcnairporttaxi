@@ -72,6 +72,10 @@
         "title": "Una persona, no una cua",
         "body": "Escriu-nos per WhatsApp i parlaràs amb algú que pot canviar la teva reserva. Amb menys de tres hores d'antelació, és la manera més ràpida d'aconseguir un cotxe."
       }
+    },
+    "payment": {
+      "title": "Paga en línia, un cop, l’import complet",
+      "note": "Pagament segur amb SumUp. No es deu res al conductor al taxi."
     }
   },
   "quote": {

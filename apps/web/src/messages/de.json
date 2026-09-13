@@ -72,6 +72,10 @@
         "title": "Ein Mensch, keine Warteschlange",
         "body": "Schreiben Sie uns auf WhatsApp und Sie erreichen jemanden, der Ihre Buchung tatsächlich ändern kann. Unter drei Stunden Vorlauf ist das der schnellste Weg zu einem Wagen."
       }
+    },
+    "payment": {
+      "title": "Online zahlen, einmal, in voller Höhe",
+      "note": "Sichere Zahlung über SumUp. Im Taxi ist dem Fahrer nichts zu zahlen."
     }
   },
   "quote": {

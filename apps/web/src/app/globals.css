@@ -298,40 +298,6 @@ h4 {
   background-size: 100% 2px;
 }
 
-/**
- * Marquee. The track holds two identical passes and slides exactly one pass
- * width, so the loop has no visible seam.
- */
-@keyframes marquee-slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee {
-  overflow: hidden;
-  /* Chips fade at the edges instead of being cut off mid-shape. */
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-}
-
-.marquee-track {
-  animation: marquee-slide var(--marquee-duration, 38s) linear infinite;
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-
 .rail > * {
   scroll-snap-align: start;
   flex: 0 0 auto;
@@ -515,9 +481,6 @@ h4 {
   }
   .zoom-frame:hover img {
     transform: none;
-  }
-  .marquee-track {
-    animation: none;
   }
   /* Depth and wave effects: keep the colour and the focus ring, drop every
      transform and travelling highlight. The buttons still respond to hover,

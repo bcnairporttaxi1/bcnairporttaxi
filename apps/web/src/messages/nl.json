@@ -72,6 +72,10 @@
         "title": "Een mens, geen wachtrij",
         "body": "Stuur ons een bericht op WhatsApp en u bereikt iemand die uw boeking daadwerkelijk kan wijzigen. Binnen drie uur is dat de snelste manier om een auto te krijgen."
       }
+    },
+    "payment": {
+      "title": "Betaal online, één keer, volledig",
+      "note": "Veilig afrekenen via SumUp. In de taxi is de chauffeur niets verschuldigd."
     }
   },
   "quote": {

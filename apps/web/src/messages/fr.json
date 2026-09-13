@@ -72,6 +72,10 @@
         "title": "Une personne, pas une file",
         "body": "Écrivez-nous sur WhatsApp et vous joignez quelqu'un qui peut réellement modifier votre réservation. À moins de trois heures, c'est le moyen le plus rapide d'obtenir une voiture."
       }
+    },
+    "payment": {
+      "title": "Payez en ligne, une fois, en totalité",
+      "note": "Paiement sécurisé par SumUp. Rien à régler au chauffeur dans le taxi."
     }
   },
   "quote": {

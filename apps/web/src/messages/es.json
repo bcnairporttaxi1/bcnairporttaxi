@@ -72,7 +72,11 @@
         "body": "Escríbenos por WhatsApp y hablarás con alguien que puede cambiar tu reserva. Con menos de tres horas de antelación, es la forma más rápida de conseguir un coche."
       }
     },
-    "kicker": "Servicio de taxi con licencia al aeropuerto de Barcelona"
+    "kicker": "Servicio de taxi con licencia al aeropuerto de Barcelona",
+    "payment": {
+      "title": "Paga online, una vez, el importe completo",
+      "note": "Pago seguro con SumUp. No se debe nada al conductor en el taxi."
+    }
   },
   "quote": {
     "title": "Precio al instante",

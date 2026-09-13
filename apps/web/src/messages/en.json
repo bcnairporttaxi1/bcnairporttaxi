@@ -75,7 +75,11 @@
         "body": "Message us on WhatsApp and you reach someone who can actually move your booking. Under three hours' notice, that is the fastest way to get a car."
       }
     },
-    "kicker": "Barcelona's licensed airport taxi service"
+    "kicker": "Barcelona's licensed airport taxi service",
+    "payment": {
+      "title": "Pay online, once, in full",
+      "note": "Secure checkout by SumUp. Nothing is owed to the driver in the car."
+    }
   },
   "quote": {
     "title": "Get an instant price",
