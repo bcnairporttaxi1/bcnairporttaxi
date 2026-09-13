@@ -1,28 +1,28 @@
-import Image from 'next/image';
-import { CONTACT_EMAIL, LEGAL } from '@bcn/core/site';
-import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
-import { LANDING_PAGES, getLandingCopy } from '@bcn/core/landing-pages';
-import { getLocale } from 'next-intl/server';
+import Image from "next/image";
+import { CONTACT_EMAIL, LEGAL } from "@bcn/core/site";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { LANDING_PAGES, getLandingCopy } from "@bcn/core/landing-pages";
+import { getLocale } from "next-intl/server";
 
 const COMPANY_LINKS = [
-  { href: '/how-it-works', key: 'howItWorks' },
-  { href: '/fleet', key: 'fleet' },
-  { href: '/pricing', key: 'pricing' },
-  { href: '/reviews', key: 'reviews' },
-  { href: '/contact', key: 'contact' },
+  { href: "/how-it-works", key: "howItWorks" },
+  { href: "/fleet", key: "fleet" },
+  { href: "/pricing", key: "pricing" },
+  { href: "/reviews", key: "reviews" },
+  { href: "/contact", key: "contact" },
 ] as const;
 
 const LEGAL_LINKS = [
-  { href: '/terms', key: 'terms' },
-  { href: '/privacy', key: 'privacy' },
-  { href: '/cookies', key: 'cookies' },
-  { href: '/refund-policy', key: 'refunds' },
+  { href: "/terms", key: "terms" },
+  { href: "/privacy", key: "privacy" },
+  { href: "/cookies", key: "cookies" },
+  { href: "/refund-policy", key: "refunds" },
 ] as const;
 
 export async function SiteFooter() {
-  const t = await getTranslations('footer');
-  const tn = await getTranslations('nav');
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
   const locale = await getLocale();
 
   // Link the six strongest landing pages; the rest are reachable from each other.
@@ -39,17 +39,27 @@ export async function SiteFooter() {
             height={120}
             className="h-11 w-auto"
           />
-          <p className="mt-4 text-sm leading-relaxed text-dim">{t('about')}</p>
+          <p className="mt-4 text-sm leading-relaxed text-dim">{t("about")}</p>
         </div>
 
         <nav aria-labelledby="footer-routes">
-          <h2 id="footer-routes" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
-            {t('routes')}
+          <h2
+            id="footer-routes"
+            className="font-display text-sm font-bold uppercase tracking-wider text-ice"
+          >
+            {t("routes")}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {routes.map((p) => (
               <li key={p.slug}>
-                <Link href={`/${p.slug}`} className="hover:text-gold">
+                {/* prefetch={false} on every footer link: the sitemap footer
+                    alone was twenty-one RSC prefetches on homepage load, for
+                    pages almost nobody navigates to from here. */}
+                <Link
+                  prefetch={false}
+                  href={`/${p.slug}`}
+                  className="hover:text-gold"
+                >
                   {getLandingCopy(p, locale).h1}
                 </Link>
               </li>
@@ -58,38 +68,56 @@ export async function SiteFooter() {
         </nav>
 
         <nav aria-labelledby="footer-company">
-          <h2 id="footer-company" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
-            {t('company')}
+          <h2
+            id="footer-company"
+            className="font-display text-sm font-bold uppercase tracking-wider text-ice"
+          >
+            {t("company")}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {COMPANY_LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-gold">
-                  {l.key === 'reviews' ? 'Reviews' : tn(l.key)}
+                <Link
+                  prefetch={false}
+                  href={l.href}
+                  className="hover:text-gold"
+                >
+                  {l.key === "reviews" ? "Reviews" : tn(l.key)}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/blog" className="hover:text-gold">
+              <Link prefetch={false} href="/blog" className="hover:text-gold">
                 Guides
               </Link>
             </li>
             <li>
-              <Link href="/install" className="hover:text-gold">
-                {t('installApp')}
+              <Link
+                prefetch={false}
+                href="/install"
+                className="hover:text-gold"
+              >
+                {t("installApp")}
               </Link>
             </li>
           </ul>
         </nav>
 
         <nav aria-labelledby="footer-legal">
-          <h2 id="footer-legal" className="font-display text-sm font-bold uppercase tracking-wider text-ice">
-            {t('legal')}
+          <h2
+            id="footer-legal"
+            className="font-display text-sm font-bold uppercase tracking-wider text-ice"
+          >
+            {t("legal")}
           </h2>
           <ul className="mt-4 space-y-2 text-sm">
             {LEGAL_LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-gold">
+                <Link
+                  prefetch={false}
+                  href={l.href}
+                  className="hover:text-gold"
+                >
                   {t(l.key)}
                 </Link>
               </li>
@@ -101,21 +129,28 @@ export async function SiteFooter() {
       <div className="border-t border-white/10 px-4 py-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 text-xs text-ghost sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} BCNAirportTaxi. {t('rights')}
+            © {new Date().getFullYear()} BCNAirportTaxi. {t("rights")}
             {LEGAL.company && (
               <>
                 <br />
-                {[LEGAL.company, LEGAL.vatId && `NIF ${LEGAL.vatId}`, LEGAL.address]
+                {[
+                  LEGAL.company,
+                  LEGAL.vatId && `NIF ${LEGAL.vatId}`,
+                  LEGAL.address,
+                ]
                   .filter(Boolean)
-                  .join(' · ')}
-                {' · '}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="underline-offset-2 hover:underline">
+                  .join(" · ")}
+                {" · "}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="underline-offset-2 hover:underline"
+                >
                   {CONTACT_EMAIL}
                 </a>
               </>
             )}
           </p>
-          <p className="max-w-xl sm:text-right">{t('disclaimerShort')}</p>
+          <p className="max-w-xl sm:text-right">{t("disclaimerShort")}</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import { absoluteUrl } from '@bcn/core/site';
 
 /**
  * SumUp checkout.
@@ -59,6 +60,9 @@ export async function createCheckout(req: CheckoutRequest): Promise<CheckoutResu
       description: req.description,
       return_url: req.returnUrl,
       redirect_url: req.returnUrl,
+      // Server-to-server notification on status change. This is what marks a
+      // booking paid when the passenger closes the tab instead of returning.
+      hooks: [{ event: 'checkout.status.updated', url: absoluteUrl('/api/payments/sumup') }],
       // Without this SumUp returns a bare checkout intended for their widget;
       // we want the hosted page so card data never touches our origin.
       hosted_checkout: { enabled: true },
