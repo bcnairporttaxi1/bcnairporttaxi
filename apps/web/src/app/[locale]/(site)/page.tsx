@@ -28,46 +28,18 @@ const FAQ_KEYS = ['fareAccurate', 'whyFee', 'invoice', 'meetDriver', 'urgent', '
  * the only one of the four that is a promise rather than a fact — the tall
  * cell on desktop.
  */
+/**
+ * The four reasons, each with a photograph of the thing it claims: the
+ * meter that sets the fare, the tablet tracking the flight, the licensed
+ * driver at the door, the desk on WhatsApp. Photographs are in
+ * public/img/why; the copy keys are unchanged. `wide` gives the price
+ * guarantee — the one promise among four facts — the full row.
+ */
 const WHY = [
-  {
-    key: 'meter' as const,
-    wide: true,
-    // A tag: a fixed price, attached.
-    icon: (
-      <>
-        <path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l7.5 7.5-9 9z" />
-        <circle cx="8" cy="8" r="1.4" />
-      </>
-    ),
-  },
-  {
-    key: 'flight' as const,
-    wide: false,
-    // A plane on approach.
-    icon: <path d="M3 15.5l18-7-4.5 12-3.5-4.5-4 2.5-1-4.5-5-1.5z" />,
-  },
-  {
-    key: 'licensed' as const,
-    wide: false,
-    // A shield.
-    icon: (
-      <>
-        <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.9-7.5 10-4.3-1.1-7.5-5.4-7.5-10V6z" />
-        <path d="M9 12l2.2 2.2L15.5 10" />
-      </>
-    ),
-  },
-  {
-    key: 'support' as const,
-    wide: false,
-    // A conversation, not a queue.
-    icon: (
-      <>
-        <path d="M20.5 12.5a7.5 7.5 0 0 1-10.9 6.7L4 20.5l1.4-5.3A7.5 7.5 0 1 1 20.5 12.5z" />
-        <path d="M9 12h.01M12 12h.01M15 12h.01" />
-      </>
-    ),
-  },
+  { key: 'meter' as const, wide: true, alt: 'Driver beside a black-and-yellow Barcelona taxi at the airport, with the taximeter showing the official tariff' },
+  { key: 'flight' as const, wide: false, alt: 'Driver at the terminal checking an arriving flight on a tablet, the plane landing behind' },
+  { key: 'licensed' as const, wide: false, alt: 'Licensed driver holding the taxi door open for a passenger at Terminal 1, the meter visible inside' },
+  { key: 'support' as const, wide: false, alt: 'Booking desk agent on a headset answering a WhatsApp message, a taxi waiting at the terminal' },
 ];
 
 export default async function HomePage(props: {
@@ -251,10 +223,10 @@ export default async function HomePage(props: {
 
       <BookingJourney locale={locale} />
 
-      {/* Why book with us. Four identical cards under four identical ticks
-          said nothing about which reason matters most. The price guarantee —
-          the only promise among four facts — now takes the tall cell, and each
-          claim carries its own mark. */}
+      {/* Why book with us. Each reason now shows the thing it claims — the
+          meter, the flight on the tablet, the driver at the door, the desk
+          on WhatsApp — rather than an icon standing in for it. The price
+          guarantee, the one promise among four facts, keeps the full row. */}
       <section className="border-y border-line bg-raise py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <Rise>
@@ -266,48 +238,52 @@ export default async function HomePage(props: {
           </Rise>
 
           <Stagger as="ul" className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY.map(({ key, icon, wide }) => (
+            {WHY.map(({ key, wide, alt }) => (
               <LiftCard as="li" key={key} className={wide ? 'sm:col-span-2 lg:col-span-3' : ''}>
                 <div
-                  className={`relative h-full overflow-hidden rounded-[1.4rem] border border-line bg-void p-7 transition-colors duration-500 ease-brand hover:border-gold/40 ${
-                    wide
-                      ? 'lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:content-center lg:gap-x-12 lg:gap-y-0 lg:p-9'
-                      : 'flex flex-col'
+                  className={`group relative h-full overflow-hidden rounded-[1.4rem] border border-line bg-void transition-colors duration-500 ease-brand hover:border-gold/40 ${
+                    wide ? 'lg:grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : 'flex flex-col'
                   }`}
                 >
-                  {wide && (
+                  {/* The photograph. On the wide card it takes the left column
+                      at full height; on the others it is the card's top. The
+                      slow zoom on hover is the card's only motion. */}
+                  <div className={`relative overflow-hidden ${wide ? 'aspect-[16/10] lg:aspect-auto lg:min-h-[22rem]' : 'aspect-[16/10]'}`}>
+                    <Image
+                      src={`/img/why/${key}.jpg`}
+                      alt={alt}
+                      fill
+                      sizes={wide ? '(min-width: 1024px) 60vw, 100vw' : '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'}
+                      className="object-cover transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.04]"
+                    />
+                    {/* A fade into the card's ground so the photo and the text
+                        read as one surface, not a picture with a caption. */}
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute -right-10 -top-12 h-48 w-48 rounded-full bg-gold/[0.12] blur-[60px]"
+                      className={`pointer-events-none absolute inset-0 ${
+                        wide
+                          ? 'bg-gradient-to-t from-void via-void/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-void'
+                          : 'bg-gradient-to-t from-void via-void/20 to-transparent'
+                      }`}
                     />
-                  )}
-                  <span
-                    aria-hidden="true"
-                    className="relative grid h-11 w-11 place-items-center rounded-xl border border-gold/20 bg-gold/[0.08] text-gold"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-5 w-5 fill-none stroke-current stroke-[1.6]"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  </div>
+
+                  <div className={`relative ${wide ? 'p-7 lg:flex lg:flex-col lg:justify-center lg:p-10' : 'p-6 pt-5'}`}>
+                    <h3
+                      className={`font-display font-bold tracking-tight ${
+                        wide ? 'text-2xl sm:text-3xl' : 'text-lg'
+                      }`}
                     >
-                      {icon}
-                    </svg>
-                  </span>
-                  <h3
-                    className={`relative mt-5 font-display font-bold tracking-tight ${
-                      wide ? 'text-2xl sm:text-3xl lg:mt-4' : 'text-lg'
-                    }`}
-                  >
-                    {t(`why.${key}.title`)}
-                  </h3>
-                  <p
-                    className={`relative mt-2.5 leading-relaxed text-dim ${
-                      wide ? 'text-base lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-center lg:text-[17px]' : 'text-[15px]'
-                    }`}
-                  >
-                    {t(`why.${key}.body`)}
-                  </p>
+                      {t(`why.${key}.title`)}
+                    </h3>
+                    <p
+                      className={`mt-2.5 leading-relaxed text-dim ${
+                        wide ? 'text-base lg:text-[17px]' : 'text-[15px]'
+                      }`}
+                    >
+                      {t(`why.${key}.body`)}
+                    </p>
+                  </div>
                 </div>
               </LiftCard>
             ))}
