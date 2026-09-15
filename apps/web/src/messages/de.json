@@ -549,5 +549,16 @@
     "driverNote": "Die Daten Ihres Fahrers senden wir Ihnen vor der Abholung.",
     "notFound": "Diese Buchung konnten wir nicht finden.",
     "backHome": "Zurück zur Startseite"
+  },
+  "findBooking": {
+    "title": "Meine Buchung finden",
+    "intro": "Geben Sie Ihre Buchungsreferenz und die bei der Buchung verwendete E-Mail ein, um Ihre Fahrtseite zu öffnen: Fahrerdaten, Live-Standort und Nachrichten.",
+    "reference": "Buchungsreferenz",
+    "email": "Bei der Buchung verwendete E-Mail",
+    "submit": "Meine Fahrt öffnen",
+    "notFound": "Zu dieser Referenz und E-Mail wurde keine Buchung gefunden. Prüfen Sie beides in Ihrer Bestätigungs-E-Mail.",
+    "hint": "Die Referenz sieht aus wie BCN-7Q4K2M und steht im Betreff Ihrer Bestätigungs-E-Mail.",
+    "trackLink": "Ihre Fahrtseite öffnen",
+    "findLink": "Meine Buchung finden"
   }
 }

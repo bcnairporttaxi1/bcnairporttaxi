@@ -549,5 +549,16 @@
     "driverNote": "De gegevens van uw chauffeur sturen we u vóór het ophalen.",
     "notFound": "We konden die boeking niet vinden.",
     "backHome": "Terug naar de startpagina"
+  },
+  "findBooking": {
+    "title": "Mijn boeking vinden",
+    "intro": "Vul je boekingsreferentie en het e-mailadres van de boeking in om je ritpagina te openen: chauffeursgegevens, live locatie en berichten.",
+    "reference": "Boekingsreferentie",
+    "email": "E-mailadres van de boeking",
+    "submit": "Mijn rit openen",
+    "notFound": "Geen boeking gevonden met deze referentie en dit e-mailadres. Controleer beide in je bevestigingsmail.",
+    "hint": "De referentie ziet eruit als BCN-7Q4K2M en staat in het onderwerp van je bevestigingsmail.",
+    "trackLink": "Je ritpagina openen",
+    "findLink": "Mijn boeking vinden"
   }
 }

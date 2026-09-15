@@ -57,6 +57,7 @@ export function PanelShell({
   groups,
   activeHref,
   actions,
+  guest = false,
   children,
 }: {
   title: string;
@@ -70,6 +71,8 @@ export function PanelShell({
   activeHref?: string;
   /** Page-level controls, rendered in the top bar beside the title. */
   actions?: React.ReactNode;
+  /** A passenger on a signed trip link has no session to sign out of. */
+  guest?: boolean;
   children: React.ReactNode;
 }) {
   const nav: PanelGroup[] = groups ?? (tabs.length > 0 ? [{ label: '', items: tabs }] : []);
@@ -147,12 +150,14 @@ export function PanelShell({
             <div className="flex items-center gap-3">
               {actions}
               <span className="hidden text-sm p-muted sm:inline">{userName}</span>
-              <form action={logout}>
-                <input type="hidden" name="locale" value={locale} />
-                <button type="submit" className="p-btn p-btn-ghost">
-                  Sign out
-                </button>
-              </form>
+              {!guest && (
+                <form action={logout}>
+                  <input type="hidden" name="locale" value={locale} />
+                  <button type="submit" className="p-btn p-btn-ghost">
+                    Sign out
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </header>

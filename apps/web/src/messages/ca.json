@@ -549,5 +549,16 @@
     "driverNote": "T’enviarem les dades del teu conductor abans de la recollida.",
     "notFound": "No hem trobat aquesta reserva.",
     "backHome": "Tornar a l'inici"
+  },
+  "findBooking": {
+    "title": "Trobar la meva reserva",
+    "intro": "Introdueix la referència de la reserva i el correu amb què vas reservar per obrir la pàgina del teu viatge: dades del conductor, ubicació en directe i missatges.",
+    "reference": "Referència de la reserva",
+    "email": "Correu utilitzat a la reserva",
+    "submit": "Obrir el meu viatge",
+    "notFound": "No hem trobat cap reserva amb aquesta referència i aquest correu. Comprova-ho al correu de confirmació.",
+    "hint": "La referència té el format BCN-7Q4K2M i és a l’assumpte del correu de confirmació.",
+    "trackLink": "Obrir la pàgina del teu viatge",
+    "findLink": "Trobar la meva reserva"
   }
 }

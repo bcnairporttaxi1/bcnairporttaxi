@@ -549,5 +549,16 @@
     "driverNote": "Os dados do seu motorista serão enviados antes da recolha.",
     "notFound": "Não encontrámos essa reserva.",
     "backHome": "Voltar ao início"
+  },
+  "findBooking": {
+    "title": "Encontrar a minha reserva",
+    "intro": "Introduza a referência da reserva e o email usado para reservar para abrir a página da viagem: dados do motorista, localização em direto e mensagens.",
+    "reference": "Referência da reserva",
+    "email": "Email usado na reserva",
+    "submit": "Abrir a minha viagem",
+    "notFound": "Não encontrámos nenhuma reserva com essa referência e esse email. Verifique ambos no email de confirmação.",
+    "hint": "A referência tem o formato BCN-7Q4K2M e está no assunto do email de confirmação.",
+    "trackLink": "Abrir a página da sua viagem",
+    "findLink": "Encontrar a minha reserva"
   }
 }

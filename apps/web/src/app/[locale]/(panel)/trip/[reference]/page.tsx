@@ -12,6 +12,8 @@ import { prisma } from '@/lib/db';
 import { dateIn } from '@bcn/core/format';
 import { getSession } from '@/lib/auth';
 import { resolveTripAccess } from '@/lib/trip-access';
+import { cookies } from 'next/headers';
+import { tripCookieName, verifyTripToken } from '@/lib/trip-token';
 
 export const metadata: Metadata = {
   title: { absolute: 'Live trip | BCNAirportTaxi' },
@@ -20,12 +22,26 @@ export const metadata: Metadata = {
 
 export default async function TripPage(props: {
   params: Promise<{ locale: string; reference: string }>;
+  searchParams: Promise<{ k?: string }>;
 }) {
   const { locale, reference } = await props.params;
   setRequestLocale(locale);
 
   const session = await getSession();
-  if (!session) redirect(`/${locale}/login`);
+  if (!session) {
+    // A guest with a signed link: hand it to the route that sets the trip
+    // cookie, which sends them straight back here without the key in the
+    // URL. Anyone else goes to the booking finder, not a login page for an
+    // account they never made.
+    const { k } = await props.searchParams;
+    if (k && verifyTripToken(reference, k)) {
+      redirect(`/api/trips/${reference}/access?k=${k}&locale=${locale}`);
+    }
+    const jar = await cookies();
+    if (!verifyTripToken(reference, jar.get(tripCookieName(reference))?.value)) {
+      redirect(`/${locale}/find-booking`);
+    }
+  }
 
   // Same resolver the APIs use, so the page and the endpoints cannot disagree
   // about who is allowed to see a trip.
@@ -40,14 +56,13 @@ export default async function TripPage(props: {
       where: { id: access.bookingId },
       include: { driver: true, vehicle: true },
     }),
-    prisma.user.findUnique({
-      where: { id: session.userId },
-      select: { name: true },
-    }),
-    prisma.user.update({
-      where: { id: session.userId },
-      data: { lastSeenAt: new Date() },
-    }),
+    // A guest has no user row: nothing to look up, nothing to stamp.
+    session
+      ? prisma.user.findUnique({ where: { id: session.userId }, select: { name: true } })
+      : Promise.resolve(null),
+    session
+      ? prisma.user.update({ where: { id: session.userId }, data: { lastSeenAt: new Date() } })
+      : Promise.resolve(null),
   ]);
   if (!booking) notFound();
 
@@ -75,8 +90,9 @@ export default async function TripPage(props: {
     <PanelShell
       title={`Trip ${booking.reference}`}
       subtitle={when}
-      userName={user?.name ?? session.email}
+      userName={user?.name ?? session?.email ?? booking.contactName}
       locale={locale}
+      guest={!session}
     >
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <StatusPill value={booking.status} />

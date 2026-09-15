@@ -1,10 +1,10 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
 import { getSession } from '@/lib/auth';
-import { absoluteUrl } from '@bcn/core/site';
 import { sendEmail, rideCompletedEmail, withdrawalEmail } from '@/lib/email';
 import { DRIVER_FLOW, canTransition, settlementFor } from '@bcn/core/rides';
 import { applyRideStatus } from '@/lib/ride-service';
@@ -74,7 +74,7 @@ export async function advanceRide(formData: FormData): Promise<void> {
     const mail = rideCompletedEmail({
       name: booking.contactName,
       reference: booking.reference,
-      reviewUrl: absoluteUrl(`/${booking.locale}/trip/${booking.reference}`),
+      reviewUrl: tripLink(booking.locale, booking.reference),
       paidInCar: money.prepaid ? null : money.cashToCollect,
       locale: booking.locale,
     });

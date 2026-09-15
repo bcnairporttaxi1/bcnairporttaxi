@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
+import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
 import { resolveTripAccess } from '@/lib/trip-access';
 import { sendEmail } from '@/lib/email';
-import { SITE_URL } from '@bcn/core/site';
 
 /**
  * Trip chat between passenger and driver.
@@ -117,7 +117,7 @@ export async function POST(
 
   let mirrored = false;
   if (recipient.email && !recipient.online) {
-    const url = `${SITE_URL}/${booking.locale}/trip/${booking.reference}`;
+    const url = tripLink(booking.locale, booking.reference);
     const result = await sendEmail({
       to: recipient.email,
       subject: `New message about booking ${booking.reference}`,

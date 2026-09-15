@@ -549,5 +549,16 @@
     "rowBcnGirona": "Barcelona to Girona airport",
     "note": "Night, weekend and holiday journeys bill on T-2 or T-7. Every price shown is all-inclusive: the fare, the official supplements and the booking, with nothing to pay in the taxi.",
     "totalPrice": "Total price"
+  },
+  "findBooking": {
+    "title": "Find my booking",
+    "intro": "Enter your booking reference and the email you booked with to open your trip page: driver details, live location and messages.",
+    "reference": "Booking reference",
+    "email": "Email used for the booking",
+    "submit": "Open my trip",
+    "notFound": "We could not find a booking with that reference and email. Check both against your confirmation email.",
+    "hint": "The reference looks like BCN-7Q4K2M and is in the subject of your confirmation email.",
+    "trackLink": "Open your trip page",
+    "findLink": "Find my booking"
   }
 }

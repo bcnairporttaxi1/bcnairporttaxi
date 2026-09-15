@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
 import { fromBarcelonaInput } from '@bcn/core/barcelona-time';
 import { prisma } from '@/lib/db';
@@ -99,7 +100,7 @@ export async function assignDriver(formData: FormData): Promise<void> {
       driverPhone: booking.driver.phone,
       plate: booking.driver.plate,
       vehicleName: booking.vehicle?.name,
-      tripUrl: absoluteUrl(`/${booking.locale}/trip/${booking.reference}`),
+      tripUrl: tripLink(booking.locale, booking.reference),
     });
     await sendEmail({ to: booking.contactEmail, ...mail });
 

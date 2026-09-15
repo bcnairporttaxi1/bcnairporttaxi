@@ -549,5 +549,16 @@
     "driverNote": "I dati del tuo autista ti saranno inviati prima del ritiro.",
     "notFound": "Non abbiamo trovato questa prenotazione.",
     "backHome": "Torna alla home"
+  },
+  "findBooking": {
+    "title": "Trova la mia prenotazione",
+    "intro": "Inserisci il riferimento della prenotazione e l’email usata per prenotare per aprire la pagina del viaggio: dati dell’autista, posizione in tempo reale e messaggi.",
+    "reference": "Riferimento della prenotazione",
+    "email": "Email usata per la prenotazione",
+    "submit": "Apri il mio viaggio",
+    "notFound": "Nessuna prenotazione trovata con questo riferimento e questa email. Controllali nell’email di conferma.",
+    "hint": "Il riferimento ha la forma BCN-7Q4K2M ed è nell’oggetto dell’email di conferma.",
+    "trackLink": "Apri la pagina del tuo viaggio",
+    "findLink": "Trova la mia prenotazione"
   }
 }

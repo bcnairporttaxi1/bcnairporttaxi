@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
+import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
 import { resolveTripAccess } from '@/lib/trip-access';
 import { shouldNotifyAtDoor } from '@bcn/core/rides';
-import { absoluteUrl } from '@bcn/core/site';
 import { driverAtDoorEmail, sendEmail } from '@/lib/email';
 
 /**
@@ -104,7 +104,7 @@ export async function POST(
         driverPhone: booking.driver.phone,
         plate: booking.driver.plate,
         vehicleName: booking.vehicle?.name,
-        tripUrl: absoluteUrl(`/${booking.locale}/trip/${booking.reference}`),
+        tripUrl: tripLink(booking.locale, booking.reference),
       });
       await sendEmail({ to: booking.contactEmail, ...mail });
     }

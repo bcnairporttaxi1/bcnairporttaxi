@@ -1,6 +1,8 @@
 import 'server-only';
 import { prisma } from '@/lib/db';
 import { getSession } from '@/lib/auth';
+import { cookies } from 'next/headers';
+import { tripCookieName, verifyTripToken } from '@/lib/trip-token';
 import type { Role } from '@/generated/prisma/enums';
 
 export interface TripAccess {
@@ -27,7 +29,22 @@ export async function resolveTripAccess(
   reference: string,
 ): Promise<TripAccess | null> {
   const session = await getSession();
-  if (!session) return null;
+
+  // A guest holds the trip cookie set from their signed link (see
+  // lib/trip-token.ts). It grants exactly what the passenger's own session
+  // would: this one trip, as its customer.
+  if (!session) {
+    const jar = await cookies();
+    const held = jar.get(tripCookieName(reference))?.value;
+    if (!verifyTripToken(reference, held)) return null;
+    const guest = await prisma.booking.findUnique({
+      where: { reference },
+      select: { id: true, reference: true, driverId: true },
+    });
+    return guest
+      ? { bookingId: guest.id, reference: guest.reference, as: 'USER', driverId: guest.driverId }
+      : null;
+  }
 
   const booking = await prisma.booking.findUnique({
     where: { reference },

@@ -549,5 +549,16 @@
     "whatsappBody": "Para viajes urgentes en menos de 3 horas y cualquier cosa que no pueda esperar.",
     "emailTitle": "Correo electrónico",
     "emailBody": "Para presupuestos, facturas y cambios en la reserva."
+  },
+  "findBooking": {
+    "title": "Buscar mi reserva",
+    "intro": "Introduce tu referencia de reserva y el email con el que reservaste para abrir tu página de viaje: datos del conductor, ubicación en directo y mensajes.",
+    "reference": "Referencia de la reserva",
+    "email": "Email usado en la reserva",
+    "submit": "Abrir mi viaje",
+    "notFound": "No encontramos ninguna reserva con esa referencia y ese email. Compruébalos en tu email de confirmación.",
+    "hint": "La referencia tiene el formato BCN-7Q4K2M y aparece en el asunto de tu email de confirmación.",
+    "trackLink": "Abrir la página de tu viaje",
+    "findLink": "Buscar mi reserva"
   }
 }

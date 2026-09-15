@@ -6,6 +6,7 @@ import { PageHero } from '@/components/page-hero';
 import { prisma } from '@/lib/db';
 import { eurIn } from '@bcn/core/format';
 import { confirmBookingPayment } from '@/lib/payments/confirm';
+import { tripLink } from '@/lib/trip-token';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -29,6 +30,7 @@ export default async function BookingPage(props: {
 
   const t = await getTranslations('confirmation');
   const tq = await getTranslations('quote');
+  const tf = await getTranslations('findBooking');
 
   const booking = await prisma.booking
     .findUnique({ where: { reference }, include: { vehicle: true } })
@@ -159,7 +161,18 @@ export default async function BookingPage(props: {
           <p className="mt-3 text-xs leading-relaxed text-dim">{tq('disclaimer')}</p>
         </div>
 
-        <div className="mt-8 text-center">
+        {/* The trip page is where the driver's details, live position and
+            chat live. A guest reaches it through the signed link; an account
+            holder through their session. Either way, one button. */}
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <a href={tripLink(locale, booking.reference)} className="cta cta-gold group">
+            {tf('trackLink')}
+            <span className="cta-pip" aria-hidden="true">
+              <svg viewBox="0 0 20 20" className="h-3 w-3 fill-current">
+                <path d="M4 9h9.2l-3.6-3.6L11 4l6 6-6 6-1.4-1.4L13.2 11H4V9Z" />
+              </svg>
+            </span>
+          </a>
           <Link href="/" className="font-semibold text-gold underline underline-offset-4">
             {t('backHome')}
           </Link>

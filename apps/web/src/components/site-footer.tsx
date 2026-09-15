@@ -23,6 +23,7 @@ const LEGAL_LINKS = [
 export async function SiteFooter() {
   const t = await getTranslations('footer');
   const tn = await getTranslations('nav');
+  const tf = await getTranslations('findBooking');
   const locale = await getLocale();
 
   // Link the six strongest landing pages; the rest are reachable from each other.
@@ -78,6 +79,11 @@ export async function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link prefetch={false} href="/find-booking" className="hover:text-gold">
+                {tf('findLink')}
+              </Link>
+            </li>
             <li>
               <Link prefetch={false} href="/blog" className="hover:text-gold">
                 Guides

@@ -36,6 +36,7 @@ export function AuthForm({
 }) {
   const [state, formAction] = useActionState(action, {} as AuthState);
   const t = useTranslations('auth');
+  const tf = useTranslations('findBooking');
   const isRegister = mode === 'register';
 
   return (
@@ -84,7 +85,12 @@ export function AuthForm({
         {isRegister ? (
           <span className="mt-1 block text-xs text-muted">{t('passwordHint')}</span>
         ) : (
-          <span className="mt-2 block text-right text-xs">
+          <span className="mt-2 flex justify-between gap-4 text-xs">
+            {/* Most passengers booked as guests: their way in is the reference,
+                not a password they never set. */}
+            <Link href="/find-booking" className="font-semibold text-accent-text underline underline-offset-4">
+              {tf('findLink')}
+            </Link>
             <Link
               href="/forgot-password"
               className="font-semibold text-accent-text underline underline-offset-4"

@@ -549,5 +549,16 @@
     "driverNote": "Les coordonnées de votre chauffeur vous seront envoyées avant la prise en charge.",
     "notFound": "Nous n'avons pas trouvé cette réservation.",
     "backHome": "Retour à l'accueil"
+  },
+  "findBooking": {
+    "title": "Retrouver ma réservation",
+    "intro": "Saisissez votre référence de réservation et l’e-mail utilisé pour ouvrir votre page de trajet : coordonnées du chauffeur, position en direct et messages.",
+    "reference": "Référence de réservation",
+    "email": "E-mail utilisé pour la réservation",
+    "submit": "Ouvrir mon trajet",
+    "notFound": "Aucune réservation ne correspond à cette référence et cet e-mail. Vérifiez-les dans votre e-mail de confirmation.",
+    "hint": "La référence ressemble à BCN-7Q4K2M et figure dans l’objet de votre e-mail de confirmation.",
+    "trackLink": "Ouvrir la page de votre trajet",
+    "findLink": "Retrouver ma réservation"
   }
 }
