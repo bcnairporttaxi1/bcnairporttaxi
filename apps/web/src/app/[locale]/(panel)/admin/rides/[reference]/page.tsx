@@ -82,6 +82,13 @@ export default async function AdminRideDetailPage(props: {
   const when = dateIn(locale, 'long');
   const b = booking;
 
+  const otherLeg = b.groupId
+    ? await prisma.booking.findFirst({
+        where: { groupId: b.groupId, id: { not: b.id } },
+        select: { reference: true, pickupAt: true },
+      })
+    : null;
+
   const live = ['EN_ROUTE', 'ARRIVED', 'ON_BOARD'].includes(b.status);
   const closed = b.status === 'COMPLETED' || b.status === 'CANCELLED';
   const mapsUrl = (lat: number, lng: number) => `https://www.google.com/maps?q=${lat},${lng}`;
@@ -154,6 +161,17 @@ export default async function AdminRideDetailPage(props: {
             <Row label="Group" mono>
               {b.passengers} pax · {b.luggage} bags
             </Row>
+            <Row label="Flight" mono>
+              {b.flightNumber ?? <span className="p-faint">—</span>}
+            </Row>
+            {otherLeg && (
+              <Row label={otherLeg.pickupAt > b.pickupAt ? 'Return leg' : 'Outbound leg'} mono>
+                <Link href={`/admin/rides/${otherLeg.reference}`} className="p-gold underline underline-offset-2">
+                  {otherLeg.reference}
+                </Link>
+                <span className="p-faint"> · {toBarcelonaInput(otherLeg.pickupAt).replace('T', ' ')}</span>
+              </Row>
+            )}
             {b.user && (
               <Row label="Account">
                 <Link href="/admin/users" className="underline underline-offset-4 hover:text-[var(--p-gold-bright)]">

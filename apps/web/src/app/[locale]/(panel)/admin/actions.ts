@@ -123,6 +123,7 @@ export async function assignDriver(formData: FormData): Promise<void> {
         contactPhone: booking.contactPhone,
         vehicleName: booking.vehicle?.name,
         notes: booking.notes,
+        flightNumber: booking.flightNumber,
         pay: booking.driverPay == null ? null : Number(booking.driverPay),
         panelUrl: absoluteUrl('/en/driver'),
       });

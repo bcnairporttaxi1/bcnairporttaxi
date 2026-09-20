@@ -104,7 +104,7 @@
     "tripType": "Fahrtart",
     "oneWay": "Einfache Fahrt",
     "return": "Hin und zurück",
-    "returnNote": "Die Rückfahrt wird separat kalkuliert und per E-Mail bestätigt.",
+    "returnNote": "Hin- und Rückfahrt werden zusammen gebucht und bezahlt, jede zum Tarif ihrer Tageszeit.",
     "instantPrice": "Sofortpreis, ohne Konto",
     "tariffBadge": "Tarif {tariff}",
     "tariffT1": "T-1 · werktags tagsüber",
@@ -147,7 +147,11 @@
       "nextLede": "sobald bezahlt ist."
     },
     "airportMinimumApplied": "Flughafen-Mindestpreis von {amount} angewendet.",
-    "t4Applied": "Festpreis Flughafen ↔ Kreuzfahrtterminal."
+    "t4Applied": "Festpreis Flughafen ↔ Kreuzfahrtterminal.",
+    "returnDate": "Rückfahrtdatum",
+    "returnTime": "Rückfahrtzeit",
+    "returnIncluded": "Rückfahrt enthalten",
+    "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen."
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "Wir konnten Ihre Buchung nicht abschließen. Es wurde nichts abgebucht. Bitte versuchen Sie es erneut.",
       "expired": "Dieser Preis ist abgelaufen. Bitte holen Sie einen neuen ein."
-    }
+    },
+    "returnLeg": "Rückfahrt",
+    "outbound": "Hinfahrt",
+    "returnFlight": "Flugnummer Rückflug",
+    "returnFlightHelp": "Optional. Für die Rückfahrt.",
+    "bothLegs": "Hin- und Rückfahrt, zusammen bezahlt"
   },
   "pricing": {
     "feeBody": "Unser Service ist im angezeigten Preis enthalten. Sie zahlen bei der Onlinebuchung einen einzigen Komplettbetrag — Tarif, alle offiziellen Zuschläge und unseren Buchungsservice — und dem Fahrer nichts. Eine vollständige Quittung erhalten Sie per E-Mail.",
@@ -548,7 +557,11 @@
     "status": "Status",
     "driverNote": "Die Daten Ihres Fahrers senden wir Ihnen vor der Abholung.",
     "notFound": "Diese Buchung konnten wir nicht finden.",
-    "backHome": "Zurück zur Startseite"
+    "backHome": "Zurück zur Startseite",
+    "flight": "Flug",
+    "returnLeg": "Rückfahrt",
+    "outboundLeg": "Hinfahrt",
+    "viewLeg": "Ansehen"
   },
   "findBooking": {
     "title": "Meine Buchung finden",

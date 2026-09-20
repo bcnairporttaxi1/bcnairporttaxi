@@ -104,7 +104,7 @@
     "tripType": "Type rit",
     "oneWay": "Enkele reis",
     "return": "Retour",
-    "returnNote": "De terugreis wordt apart geoffreerd en per e-mail bevestigd.",
+    "returnNote": "Heen- en terugreis worden samen geboekt en betaald, elk tegen het tarief van het tijdstip.",
     "instantPrice": "Direct een prijs, geen account nodig",
     "tariffBadge": "Tarief {tariff}",
     "tariffT1": "T-1 · doordeweeks overdag",
@@ -147,7 +147,11 @@
       "nextLede": "zodra u betaald hebt."
     },
     "airportMinimumApplied": "Minimumtarief luchthaven van {amount} toegepast.",
-    "t4Applied": "Vaste prijs luchthaven ↔ cruiseterminal."
+    "t4Applied": "Vaste prijs luchthaven ↔ cruiseterminal.",
+    "returnDate": "Datum terugreis",
+    "returnTime": "Tijd terugreis",
+    "returnIncluded": "Terugreis inbegrepen",
+    "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "We konden uw boeking niet afronden. Er is niets afgeschreven. Probeer het opnieuw.",
       "expired": "Deze prijs is verlopen. Vraag een nieuwe op."
-    }
+    },
+    "returnLeg": "Terugreis",
+    "outbound": "Heenreis",
+    "returnFlight": "Vluchtnummer terugvlucht",
+    "returnFlightHelp": "Optioneel. Voor de terugreis.",
+    "bothLegs": "Heen en terug, samen betaald"
   },
   "pricing": {
     "feeBody": "Onze service zit in de getoonde prijs. U betaalt bij het online boeken één all-in bedrag — het tarief, alle officiële toeslagen en onze reserveringsservice — en niets aan de chauffeur. U ontvangt een volledige bon per e-mail.",
@@ -548,7 +557,11 @@
     "status": "Status",
     "driverNote": "De gegevens van uw chauffeur sturen we u vóór het ophalen.",
     "notFound": "We konden die boeking niet vinden.",
-    "backHome": "Terug naar de startpagina"
+    "backHome": "Terug naar de startpagina",
+    "flight": "Vlucht",
+    "returnLeg": "Terugreis",
+    "outboundLeg": "Heenreis",
+    "viewLeg": "Bekijken"
   },
   "findBooking": {
     "title": "Mijn boeking vinden",

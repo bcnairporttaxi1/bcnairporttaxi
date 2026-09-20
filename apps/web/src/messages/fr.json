@@ -104,7 +104,7 @@
     "tripType": "Type de trajet",
     "oneWay": "Aller simple",
     "return": "Aller-retour",
-    "returnNote": "Le retour est devisé séparément et confirmé par e-mail.",
+    "returnNote": "Aller et retour sont réservés et payés ensemble, chacun au tarif de son heure.",
     "instantPrice": "Prix instantané, sans compte",
     "tariffBadge": "Tarif {tariff}",
     "tariffT1": "T-1 · jour de semaine",
@@ -147,7 +147,11 @@
       "nextLede": "une fois le paiement fait."
     },
     "airportMinimumApplied": "Tarif minimum aéroport de {amount} appliqué.",
-    "t4Applied": "Prix fixe aéroport ↔ terminal de croisière."
+    "t4Applied": "Prix fixe aéroport ↔ terminal de croisière.",
+    "returnDate": "Date de retour",
+    "returnTime": "Heure de retour",
+    "returnIncluded": "Retour inclus",
+    "returnTooEarly": "Le retour doit avoir lieu au moins une heure après la prise en charge."
   },
   "fleet": {
     "h1": "Notre flotte de taxis à Barcelone",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "Nous n'avons pas pu finaliser votre réservation. Vous n'avez pas été débité. Veuillez réessayer.",
       "expired": "Ce prix a expiré. Veuillez en demander un nouveau."
-    }
+    },
+    "returnLeg": "Trajet retour",
+    "outbound": "Aller",
+    "returnFlight": "Numéro de vol retour",
+    "returnFlightHelp": "Facultatif. Pour le trajet retour.",
+    "bothLegs": "Aller et retour, payés ensemble"
   },
   "pricing": {
     "feeBody": "Notre service est inclus dans le prix affiché. Vous réglez en ligne un montant unique tout compris — le tarif, tous les suppléments officiels et notre service de réservation — et rien au chauffeur. Un reçu complet vous est envoyé par e-mail.",
@@ -548,7 +557,11 @@
     "status": "Statut",
     "driverNote": "Les coordonnées de votre chauffeur vous seront envoyées avant la prise en charge.",
     "notFound": "Nous n'avons pas trouvé cette réservation.",
-    "backHome": "Retour à l'accueil"
+    "backHome": "Retour à l'accueil",
+    "flight": "Vol",
+    "returnLeg": "Trajet retour",
+    "outboundLeg": "Trajet aller",
+    "viewLeg": "Voir"
   },
   "findBooking": {
     "title": "Retrouver ma réservation",

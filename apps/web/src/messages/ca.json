@@ -104,7 +104,7 @@
     "tripType": "Tipus de trajecte",
     "oneWay": "Només anada",
     "return": "Anada i tornada",
-    "returnNote": "La tornada es pressuposta a part i es confirma per correu.",
+    "returnNote": "Anada i tornada es reserven i es paguen juntes, cadascuna a la seva tarifa segons l’hora.",
     "instantPrice": "Preu a l'instant, sense registre",
     "tariffBadge": "Tarifa {tariff}",
     "tariffT1": "T-1 · feiner de dia",
@@ -147,7 +147,11 @@
       "nextLede": "un cop has pagat."
     },
     "airportMinimumApplied": "S'aplica la tarifa mínima d'aeroport de {amount}.",
-    "t4Applied": "Preu tancat aeroport ↔ terminal de creuers."
+    "t4Applied": "Preu tancat aeroport ↔ terminal de creuers.",
+    "returnDate": "Data de tornada",
+    "returnTime": "Hora de tornada",
+    "returnIncluded": "Tornada inclosa",
+    "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida."
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "No hem pogut completar la teva reserva. No se t'ha cobrat res. Torna-ho a provar.",
       "expired": "Aquest preu ha caducat. Demana’n un de nou."
-    }
+    },
+    "returnLeg": "Viatge de tornada",
+    "outbound": "Anada",
+    "returnFlight": "Número de vol de tornada",
+    "returnFlightHelp": "Opcional. Per al viatge de tornada.",
+    "bothLegs": "Anada i tornada, pagades juntes"
   },
   "pricing": {
     "feeBody": "El nostre servei està inclòs en el preu que veus. Pagues un únic import amb tot inclòs en reservar en línia — la tarifa, tots els suplements oficials i el nostre servei de reserva — i res al conductor. Rebràs un rebut complet per correu.",
@@ -548,7 +557,11 @@
     "status": "Estat",
     "driverNote": "T’enviarem les dades del teu conductor abans de la recollida.",
     "notFound": "No hem trobat aquesta reserva.",
-    "backHome": "Tornar a l'inici"
+    "backHome": "Tornar a l'inici",
+    "flight": "Vol",
+    "returnLeg": "Viatge de tornada",
+    "outboundLeg": "Viatge d’anada",
+    "viewLeg": "Veure"
   },
   "findBooking": {
     "title": "Trobar la meva reserva",

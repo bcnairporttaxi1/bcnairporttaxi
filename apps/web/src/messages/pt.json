@@ -104,7 +104,7 @@
     "tripType": "Tipo de viagem",
     "oneWay": "Só ida",
     "return": "Ida e volta",
-    "returnNote": "A volta é orçamentada à parte e confirmada por email.",
+    "returnNote": "Ida e volta são reservadas e pagas em conjunto, cada uma à tarifa da sua hora.",
     "instantPrice": "Preço imediato, sem registo",
     "tariffBadge": "Tarifa {tariff}",
     "tariffT1": "T-1 · dia útil diurno",
@@ -147,7 +147,11 @@
       "nextLede": "assim que pagar."
     },
     "airportMinimumApplied": "Aplicada a tarifa mínima de aeroporto de {amount}.",
-    "t4Applied": "Preço fixo aeroporto ↔ terminal de cruzeiros."
+    "t4Applied": "Preço fixo aeroporto ↔ terminal de cruzeiros.",
+    "returnDate": "Data de regresso",
+    "returnTime": "Hora de regresso",
+    "returnIncluded": "Regresso incluído",
+    "returnTooEarly": "O regresso tem de ser pelo menos uma hora depois da recolha."
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "Não conseguimos concluir a sua reserva. Não lhe foi cobrado nada. Tente novamente.",
       "expired": "Este preço expirou. Peça um novo."
-    }
+    },
+    "returnLeg": "Viagem de regresso",
+    "outbound": "Ida",
+    "returnFlight": "Número do voo de regresso",
+    "returnFlightHelp": "Opcional. Para a viagem de regresso.",
+    "bothLegs": "Ida e volta, pagas em conjunto"
   },
   "pricing": {
     "feeBody": "O nosso serviço está incluído no preço apresentado. Paga online um único valor com tudo incluído — a tarifa, todos os suplementos oficiais e o nosso serviço de reserva — e nada ao motorista. Recebe um recibo completo por e-mail.",
@@ -548,7 +557,11 @@
     "status": "Estado",
     "driverNote": "Os dados do seu motorista serão enviados antes da recolha.",
     "notFound": "Não encontrámos essa reserva.",
-    "backHome": "Voltar ao início"
+    "backHome": "Voltar ao início",
+    "flight": "Voo",
+    "returnLeg": "Viagem de regresso",
+    "outboundLeg": "Viagem de ida",
+    "viewLeg": "Ver"
   },
   "findBooking": {
     "title": "Encontrar a minha reserva",

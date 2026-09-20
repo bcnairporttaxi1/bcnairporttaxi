@@ -1,5 +1,6 @@
 import 'server-only';
 import { prisma } from '@/lib/db';
+import type { Prisma } from '@/generated/prisma/client';
 import { getCheckoutStatus } from '@/lib/payments/sumup';
 import { adminBookingEmail, bookingConfirmationEmail, sendEmail } from '@/lib/email';
 import { ADMIN_NOTIFY_EMAIL, absoluteUrl } from '@bcn/core/site';
@@ -48,6 +49,31 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
   });
   if (flipped.count === 0) return 'already-paid';
 
+  // A return booking's other leg shares the checkout: one payment paid for
+  // both, so both are confirmed, each with its own receipt and desk notice.
+  if (booking.groupId) {
+    const legs = await prisma.booking.findMany({
+      where: { groupId: booking.groupId, id: { not: booking.id }, paymentStatus: { not: 'PAID' } },
+      include: { vehicle: { select: { name: true } } },
+    });
+    for (const leg of legs) {
+      const done = await prisma.booking.updateMany({
+        where: { id: leg.id, paymentStatus: { not: 'PAID' } },
+        data: { paymentStatus: 'PAID', status: 'CONFIRMED' },
+      });
+      if (done.count === 1) await notifyPaid(leg);
+    }
+  }
+
+  await notifyPaid(booking);
+  return 'paid';
+}
+
+type PaidBooking = Prisma.BookingGetPayload<{ include: { vehicle: { select: { name: true } } } }>;
+
+/** The receipt to the passenger and the notice to the desk, for one leg. */
+async function notifyPaid(booking: PaidBooking): Promise<void> {
+
   const receipt = bookingConfirmationEmail({
     reference: booking.reference,
     contactName: booking.contactName,
@@ -85,6 +111,7 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
     luggage: booking.luggage,
     vehicleName: booking.vehicle?.name,
     notes: booking.notes,
+    flightNumber: booking.flightNumber,
     amountOnline: Number(booking.amountOnline),
     locale: booking.locale,
     rideUrl: absoluteUrl(`/en/admin/rides/${booking.reference}`),
@@ -94,6 +121,4 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
     replyTo: booking.contactEmail,
     ...notice,
   });
-
-  return 'paid';
 }

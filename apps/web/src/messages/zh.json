@@ -104,7 +104,7 @@
     "tripType": "行程类型",
     "oneWay": "单程",
     "return": "往返",
-    "returnNote": "返程单独报价，并通过电子邮件确认。",
+    "returnNote": "往返两程一并预订和支付，各按其时段的费率计价。",
     "instantPrice": "即时报价，无需注册",
     "tariffBadge": "费率 {tariff}",
     "tariffT1": "T-1 · 工作日白天",
@@ -147,7 +147,11 @@
       "nextLede": "接下来会发生什么。"
     },
     "airportMinimumApplied": "已适用 {amount} 的机场最低消费。",
-    "t4Applied": "机场 ↔ 邮轮码头固定价。"
+    "t4Applied": "机场 ↔ 邮轮码头固定价。",
+    "returnDate": "返程日期",
+    "returnTime": "返程时间",
+    "returnIncluded": "含返程",
+    "returnTooEarly": "返程时间须至少在接送时间一小时之后。"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "未能完成预订。未向您扣款，请重试。",
       "expired": "此价格已过期，请重新获取。"
-    }
+    },
+    "returnLeg": "返程",
+    "outbound": "去程",
+    "returnFlight": "返程航班号",
+    "returnFlightHelp": "可选。用于返程。",
+    "bothLegs": "往返两程，一并支付"
   },
   "pricing": {
     "feeBody": "我们的服务已包含在您看到的价格中。预订时在线支付一笔全包金额——车费、所有官方附加费以及我们的预订服务——无需再向司机支付任何费用。完整收据将通过电子邮件发送。",
@@ -548,7 +557,11 @@
     "status": "状态",
     "driverNote": "司机信息将在接送前发送给您。",
     "notFound": "未找到该预订。",
-    "backHome": "返回首页"
+    "backHome": "返回首页",
+    "flight": "航班",
+    "returnLeg": "返程",
+    "outboundLeg": "去程",
+    "viewLeg": "查看"
   },
   "findBooking": {
     "title": "查找我的预订",

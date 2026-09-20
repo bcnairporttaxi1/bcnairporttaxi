@@ -104,7 +104,7 @@
     "tripType": "Tipo di viaggio",
     "oneWay": "Solo andata",
     "return": "Andata e ritorno",
-    "returnNote": "Il ritorno viene quotato separatamente e confermato via email.",
+    "returnNote": "Andata e ritorno si prenotano e si pagano insieme, ciascuno alla tariffa della sua fascia oraria.",
     "instantPrice": "Prezzo immediato, senza registrazione",
     "tariffBadge": "Tariffa {tariff}",
     "tariffT1": "T-1 · feriale diurno",
@@ -147,7 +147,11 @@
       "nextLede": "una volta pagato."
     },
     "airportMinimumApplied": "Applicata la tariffa minima aeroportuale di {amount}.",
-    "t4Applied": "Prezzo chiuso aeroporto ↔ terminal crociere."
+    "t4Applied": "Prezzo chiuso aeroporto ↔ terminal crociere.",
+    "returnDate": "Data di ritorno",
+    "returnTime": "Ora di ritorno",
+    "returnIncluded": "Ritorno incluso",
+    "returnTooEarly": "Il ritorno deve essere almeno un’ora dopo il ritiro."
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",
@@ -435,7 +439,12 @@
     "errors": {
       "failed": "Non siamo riusciti a completare la prenotazione. Non ti è stato addebitato nulla. Riprova.",
       "expired": "Questo prezzo è scaduto. Richiedine uno nuovo."
-    }
+    },
+    "returnLeg": "Viaggio di ritorno",
+    "outbound": "Andata",
+    "returnFlight": "Numero del volo di ritorno",
+    "returnFlightHelp": "Facoltativo. Per il viaggio di ritorno.",
+    "bothLegs": "Andata e ritorno, pagati insieme"
   },
   "pricing": {
     "feeBody": "Il nostro servizio è incluso nel prezzo indicato. Paghi online un unico importo tutto incluso — la tariffa, tutti i supplementi ufficiali e il nostro servizio di prenotazione — e nulla al conducente. Ricevi una ricevuta completa via e-mail.",
@@ -548,7 +557,11 @@
     "status": "Stato",
     "driverNote": "I dati del tuo autista ti saranno inviati prima del ritiro.",
     "notFound": "Non abbiamo trovato questa prenotazione.",
-    "backHome": "Torna alla home"
+    "backHome": "Torna alla home",
+    "flight": "Volo",
+    "returnLeg": "Viaggio di ritorno",
+    "outboundLeg": "Viaggio di andata",
+    "viewLeg": "Vedi"
   },
   "findBooking": {
     "title": "Trova la mia prenotazione",

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
 import {
@@ -37,8 +37,15 @@ const bodySchema = z.object({
      the server decides the mode. See paymentMode below. */
   paymentMode: z.enum(['FEE_ONLY', 'FULL_PREPAID']).optional(),
   notes: z.string().trim().max(1000).optional(),
+  /** Airline code and number, e.g. VY8301. Free text, the driver reads it. */
+  flightNumber: z.string().trim().toUpperCase().max(12).optional(),
+  /** Present when the passenger wants the journey back too. */
+  returnAt: z.iso.datetime().optional(),
+  returnFlightNumber: z.string().trim().toUpperCase().max(12).optional(),
   locale: z.string().trim().max(5).default('en'),
 });
+
+const RETURN_MIN_GAP_MS = 60 * 60 * 1000;
 
 /** Human-quotable reference, e.g. BCN-7Q4K2M. Avoids ambiguous 0/O/1/I. */
 function makeReference(): string {
@@ -105,6 +112,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'pickup_outside_area' }, { status: 422 });
   }
 
+  // A return leg is a second ride, back the other way, at a later time. It
+  // must be a real interval after the outbound so the two cannot overlap.
+  const returnAt = input.returnAt ? new Date(input.returnAt) : null;
+  if (returnAt && returnAt.getTime() < pickupAt.getTime() + RETURN_MIN_GAP_MS) {
+    return NextResponse.json({ error: 'return_too_early' }, { status: 422 });
+  }
+
   // Distance and price are recomputed here from scratch. Anything the client
   // sent about km or fare is ignored, so a tampered payload cannot set a price.
   const route = await fetchRoute(input.pickup, input.dropoff);
@@ -127,13 +141,34 @@ export async function POST(request: Request) {
     vehicleSeats: vehicle?.seats,
   });
 
+  // The return is priced on its own road and its own time of day — a
+  // night-rate leg back costs what a night-rate leg costs.
+  const returnRoute = returnAt ? await fetchRoute(input.dropoff, input.pickup) : null;
+  if (returnAt && !returnRoute) {
+    return NextResponse.json({ error: 'routing_unavailable' }, { status: 502 });
+  }
+  const returnQuote =
+    returnAt && returnRoute
+      ? calculateQuote({
+          pickup: input.dropoff,
+          dropoff: input.pickup,
+          roadKm: returnRoute.roadKm,
+          durationMin: returnRoute.durationMin,
+          pickupAt: returnAt,
+          vehicleSeats: vehicle?.seats,
+        })
+      : null;
+
   /* Every booking is all-inclusive and prepaid. Fixed here rather than taken
      from the request so the amount charged online is always the whole price. */
   const paymentMode = DEFAULT_PAYMENT_MODE;
   const amountOnline = amountDueOnline(quote, paymentMode);
   const amountInTaxi = amountDueInTaxi(quote, paymentMode);
+  const returnAmountOnline = returnQuote ? amountDueOnline(returnQuote, paymentMode) : 0;
 
   const reference = makeReference();
+  const returnReference = returnQuote ? makeReference() : null;
+  const groupId = returnQuote ? randomUUID() : null;
 
   try {
     const booking = await prisma.booking.create({
@@ -164,26 +199,67 @@ export async function POST(request: Request) {
         passengers: input.passengers,
         luggage: input.luggage,
         notes: input.notes,
+        flightNumber: input.flightNumber || null,
+        groupId,
         vehicleId: vehicle?.id,
         locale: input.locale,
       },
     });
 
+    const returnBooking =
+      returnQuote && returnAt && returnReference
+        ? await prisma.booking.create({
+            data: {
+              reference: returnReference,
+              contactName: input.contactName,
+              contactEmail: input.contactEmail,
+              contactPhone: input.contactPhone,
+              pickupLabel: input.dropoff.label,
+              pickupLat: input.dropoff.lat,
+              pickupLng: input.dropoff.lng,
+              dropoffLabel: input.pickup.label,
+              dropoffLat: input.pickup.lat,
+              dropoffLng: input.pickup.lng,
+              roadKm: returnQuote.roadKm,
+              durationMin: returnQuote.durationMin,
+              tariff: returnQuote.tariff,
+              startFare: returnQuote.startFare,
+              perKmRate: returnQuote.perKmRate,
+              perKmRateCharged: returnQuote.perKmRateCharged,
+              supplements: returnQuote.supplements,
+              meterEstimate: returnQuote.meterEstimate,
+              fixedFare: returnQuote.fixedFare,
+              bookingFee: returnQuote.bookingFee,
+              amountOnline: returnAmountOnline,
+              paymentMode,
+              pickupAt: returnAt,
+              passengers: input.passengers,
+              luggage: input.luggage,
+              notes: input.notes,
+              flightNumber: input.returnFlightNumber || null,
+              groupId,
+              vehicleId: vehicle?.id,
+              locale: input.locale,
+            },
+          })
+        : null;
+
     // Under FEE_ONLY this is the booking fee alone; under FULL_PREPAID it is the
     // fixed fare plus the fee. The metered fare is never charged online.
+    // One checkout covers both legs; both rows carry its id, and payment
+    // confirmation flips every booking on that checkout together.
     const checkout = await createCheckout({
-      amount: amountOnline,
+      amount: amountOnline + returnAmountOnline,
       currency: quote.currency,
       reference,
-      description:
-        paymentMode === 'FULL_PREPAID'
-          ? `Barcelona taxi ${reference} — fare and booking fee`
-          : `Booking fee for Barcelona taxi ${reference}`,
+      description: returnReference
+        ? `Barcelona taxi ${reference} + return ${returnReference}`
+        : `Barcelona taxi ${reference} — all-inclusive`,
       returnUrl: `${SITE_URL}/${input.locale}/booking/${reference}`,
     });
 
-    await prisma.booking.update({
-      where: { id: booking.id },
+    await prisma.booking.updateMany({
+      where: { id: { in: [booking.id, ...(returnBooking ? [returnBooking.id] : [])] } },
       data: { sumupCheckoutId: checkout.checkoutId },
     });
 
@@ -215,6 +291,29 @@ export async function POST(request: Request) {
       text: mail.text,
     });
 
+    if (returnBooking && returnQuote && returnAt) {
+      const back = bookingConfirmationEmail({
+        reference: returnBooking.reference,
+        contactName: input.contactName,
+        pickupLabel: input.dropoff.label,
+        dropoffLabel: input.pickup.label,
+        pickupAt: returnAt,
+        roadKm: returnQuote.roadKm,
+        durationMin: returnQuote.durationMin,
+        tariff: returnQuote.tariff,
+        paymentMode,
+        meterEstimate: returnQuote.meterEstimate,
+        fixedFare: returnQuote.fixedFare,
+        bookingFee: returnQuote.bookingFee,
+        amountOnline: returnAmountOnline,
+        amountInTaxi: amountDueInTaxi(returnQuote, paymentMode),
+        vehicleName: vehicle?.name,
+        feePaid: false,
+        locale: input.locale,
+      });
+      await sendEmail({ to: input.contactEmail, ...back });
+    }
+
     // The desk hears about every booking the moment it exists. Not awaited
     // on the same promise as the receipt so a failure here cannot fail the
     // booking — the passenger has already been charged or is about to be.
@@ -233,6 +332,7 @@ export async function POST(request: Request) {
       luggage: input.luggage,
       vehicleName: vehicle?.name,
       notes: input.notes,
+      flightNumber: input.flightNumber,
       amountOnline,
       locale: input.locale,
       rideUrl: absoluteUrl(`/en/admin/rides/${reference}`),
@@ -241,11 +341,39 @@ export async function POST(request: Request) {
       (err) => console.error('Admin booking notice failed:', err),
     );
 
+    if (returnBooking && returnQuote && returnAt && returnRoute) {
+      const backNotice = adminBookingEmail({
+        reference: returnBooking.reference,
+        paid: false,
+        contactName: input.contactName,
+        contactEmail: input.contactEmail,
+        contactPhone: input.contactPhone,
+        pickupLabel: input.dropoff.label,
+        dropoffLabel: input.pickup.label,
+        pickupAt: returnAt,
+        roadKm: returnRoute.roadKm,
+        durationMin: returnRoute.durationMin,
+        passengers: input.passengers,
+        luggage: input.luggage,
+        vehicleName: vehicle?.name,
+        notes: input.notes,
+        flightNumber: input.returnFlightNumber,
+        amountOnline: returnAmountOnline,
+        locale: input.locale,
+        rideUrl: absoluteUrl(`/en/admin/rides/${returnBooking.reference}`),
+      });
+      sendEmail({ to: ADMIN_NOTIFY_EMAIL, replyTo: input.contactEmail, ...backNotice }).catch(
+        (err) => console.error('Admin booking notice failed:', err),
+      );
+    }
+
     return NextResponse.json(
       {
         reference,
+        returnReference,
         quote,
-        amountOnline,
+        returnQuote,
+        amountOnline: amountOnline + returnAmountOnline,
         amountInTaxi,
         payment: {
           configured: checkout.configured,

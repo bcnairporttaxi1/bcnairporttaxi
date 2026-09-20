@@ -69,11 +69,24 @@ export default async function BookingPage(props: {
    * them, read from the stored mode rather than assumed.
    */
   const prepaid = booking.paymentMode === 'FULL_PREPAID';
-  const when = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
-    dateStyle: 'full',
-    timeStyle: 'short',
-    timeZone: 'Europe/Madrid',
-  }).format(booking.pickupAt);
+  const fmtWhen = (d: Date) =>
+    new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
+      dateStyle: 'full',
+      timeStyle: 'short',
+      timeZone: 'Europe/Madrid',
+    }).format(d);
+  const when = fmtWhen(booking.pickupAt);
+
+  // The other half of a return booking, so each confirmation points at the
+  // other and the passenger sees both dates without hunting through email.
+  const otherLeg = booking.groupId
+    ? await prisma.booking
+        .findFirst({
+          where: { groupId: booking.groupId, id: { not: booking.id } },
+          select: { reference: true, pickupAt: true },
+        })
+        .catch(() => null)
+    : null;
 
   return (
     <>
@@ -128,6 +141,25 @@ export default async function BookingPage(props: {
               <dt className="text-dim">{tq('date')}</dt>
               <dd className="text-right font-medium">{when}</dd>
             </div>
+            {booking.flightNumber && (
+              <div className="flex justify-between gap-4 py-3">
+                <dt className="text-dim">{t('flight')}</dt>
+                <dd className="text-right font-mono font-medium">{booking.flightNumber}</dd>
+              </div>
+            )}
+            {otherLeg && (
+              <div className="flex justify-between gap-4 py-3">
+                <dt className="text-dim">
+                  {otherLeg.pickupAt > booking.pickupAt ? t('returnLeg') : t('outboundLeg')}
+                </dt>
+                <dd className="text-right">
+                  <Link href={`/booking/${otherLeg.reference}`} className="font-medium text-gold underline underline-offset-4">
+                    {otherLeg.reference}
+                  </Link>
+                  <span className="block text-xs text-dim">{fmtWhen(otherLeg.pickupAt)}</span>
+                </dd>
+              </div>
+            )}
             <div className="flex justify-between gap-4 py-3">
               <dt className="text-dim">{tq('distance')}</dt>
               <dd className="text-right font-mono">

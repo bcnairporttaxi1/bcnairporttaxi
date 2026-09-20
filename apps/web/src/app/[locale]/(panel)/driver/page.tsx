@@ -156,6 +156,12 @@ export default async function DriverPage(props: {
               {b.passengers} / {b.luggage}
             </dd>
           </div>
+          {b.flightNumber && (
+            <div className="flex gap-2">
+              <dt className="shrink-0 p-muted">Flight</dt>
+              <dd className="font-mono font-semibold">{b.flightNumber}</dd>
+            </div>
+          )}
         </dl>
 
         {b.notes && (

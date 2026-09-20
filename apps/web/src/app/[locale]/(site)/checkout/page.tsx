@@ -75,6 +75,7 @@ export default async function CheckoutPage(props: {
   const plabel = one('plabel') ?? '';
   const dlabel = one('dlabel') ?? '';
   const at = one('at');
+  const ret = one('ret');
 
   const haveTrip =
     plat !== null && plng !== null && dlat !== null && dlng !== null && Boolean(at);
@@ -105,6 +106,16 @@ export default async function CheckoutPage(props: {
   const pickupAt = new Date(at!);
   const pickup = { lat: plat!, lng: plng! };
   const dropoff = { lat: dlat!, lng: dlng! };
+
+  // A return leg is optional and only honoured when it is a valid time at
+  // least an hour after the outbound; anything else quietly books one way.
+  const returnCandidate = ret ? new Date(ret) : null;
+  const returnAt =
+    returnCandidate &&
+    !Number.isNaN(returnCandidate.getTime()) &&
+    returnCandidate.getTime() >= pickupAt.getTime() + 60 * 60 * 1000
+      ? returnCandidate
+      : null;
 
   if (Number.isNaN(pickupAt.getTime()) || !meetsLeadTime(pickupAt)) {
     return (
@@ -159,6 +170,25 @@ export default async function CheckoutPage(props: {
     ]),
   );
 
+  // The way back is its own road and its own time of day, priced as such.
+  const returnRoute = returnAt ? await fetchRoute(dropoff, pickup) : null;
+  const returnQuotesByVehicle =
+    returnAt && returnRoute
+      ? Object.fromEntries(
+          FLEET.map((v) => [
+            v.slug,
+            calculateQuote({
+              pickup: dropoff,
+              dropoff: pickup,
+              roadKm: returnRoute.roadKm,
+              durationMin: returnRoute.durationMin,
+              pickupAt: returnAt,
+              vehicleSeats: v.seats,
+            }),
+          ]),
+        )
+      : undefined;
+
   return (
     <>
       <PageHero title={t('h1')} />
@@ -168,6 +198,8 @@ export default async function CheckoutPage(props: {
         pickup={{ ...pickup, label: plabel }}
         dropoff={{ ...dropoff, label: dlabel }}
         pickupAtIso={pickupAt.toISOString()}
+        returnAtIso={returnAt && returnRoute ? returnAt.toISOString() : undefined}
+        returnQuotesByVehicle={returnQuotesByVehicle}
         fleet={FLEET}
         // Carried over by the rebook link so a repeat trip opens as it was.
         initialPassengers={clamp(num(one('pax')), 1, 8)}

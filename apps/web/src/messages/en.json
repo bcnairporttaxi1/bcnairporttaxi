@@ -107,7 +107,7 @@
     "tripType": "Trip type",
     "oneWay": "One way",
     "return": "Return",
-    "returnNote": "Return legs are quoted separately and confirmed by email.",
+    "returnNote": "Both journeys are booked and paid together, each at its own rate for the time of day.",
     "instantPrice": "Instant price, no account needed",
     "tariffBadge": "Tariff {tariff}",
     "tariffT1": "T-1 · weekday daytime",
@@ -150,7 +150,11 @@
     "sections": {
       "nextTitle": "What happens next",
       "nextLede": "once you have paid."
-    }
+    },
+    "returnDate": "Return date",
+    "returnTime": "Return time",
+    "returnIncluded": "Return included",
+    "returnTooEarly": "The return must be at least an hour after the pickup."
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",
@@ -303,7 +307,12 @@
       "failed": "We could not complete your booking. You have not been charged. Please try again.",
       "expired": "This quote has expired. Please get a fresh price."
     },
-    "totalDue": "Total to pay"
+    "totalDue": "Total to pay",
+    "returnLeg": "Return journey",
+    "outbound": "Outbound",
+    "returnFlight": "Return flight number",
+    "returnFlightHelp": "Optional. For the journey back.",
+    "bothLegs": "Both journeys, paid together"
   },
   "confirmation": {
     "metaTitle": "Booking Confirmed",
@@ -315,7 +324,11 @@
     "status": "Status",
     "driverNote": "Your driver's details will be sent to you before pickup.",
     "notFound": "We could not find that booking.",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "flight": "Flight",
+    "returnLeg": "Return journey",
+    "outboundLeg": "Outbound journey",
+    "viewLeg": "View"
   },
   "common": {
     "from": "from",

@@ -14,6 +14,9 @@ interface Props {
   pickup: { lat: number; lng: number; label: string };
   dropoff: { lat: number; lng: number; label: string };
   pickupAtIso: string;
+  /** Present when the passenger asked for the journey back as well. */
+  returnAtIso?: string;
+  returnQuotesByVehicle?: Record<string, Quote>;
   fleet: FleetVehicle[];
   /** Preselected from the home-screen choice. */
   /** Carried over when rebooking a previous trip. Defaults to a couple. */
@@ -27,6 +30,8 @@ export function CheckoutForm({
   pickup,
   dropoff,
   pickupAtIso,
+  returnAtIso,
+  returnQuotesByVehicle,
   fleet,
   initialPassengers,
   initialLuggage,
@@ -49,6 +54,7 @@ export function CheckoutForm({
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [flight, setFlight] = useState('');
+  const [returnFlight, setReturnFlight] = useState('');
   const [notes, setNotes] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,23 +63,29 @@ export function CheckoutForm({
   const overCapacity = passengers > vehicle.seats || luggage > vehicle.bags;
 
   const quote = quotesByVehicle[vehicle.slug] ?? Object.values(quotesByVehicle)[0];
+  const returnQuote =
+    returnAtIso && returnQuotesByVehicle
+      ? (returnQuotesByVehicle[vehicle.slug] ?? Object.values(returnQuotesByVehicle)[0])
+      : null;
 
   /**
    * One number, and it is the whole transaction. There is no mode to choose
    * any more and nothing is settled with the driver, so the summary has a
    * total and nothing else to reconcile against it.
    */
-  const dueNow = quote.total;
+  const dueNow = quote.total + (returnQuote?.total ?? 0);
 
-  const when = useMemo(
+  const fmt = useMemo(
     () =>
       new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
         dateStyle: 'full',
         timeStyle: 'short',
         timeZone: 'Europe/Madrid',
-      }).format(new Date(pickupAtIso)),
-    [pickupAtIso, locale],
+      }),
+    [locale],
   );
+  const when = fmt.format(new Date(pickupAtIso));
+  const returnWhen = returnAtIso ? fmt.format(new Date(returnAtIso)) : null;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -95,7 +107,10 @@ export function CheckoutForm({
           luggage,
           vehicleSlug,
           paymentMode: DEFAULT_PAYMENT_MODE,
-          notes: [flight && `Flight: ${flight}`, notes].filter(Boolean).join(' — '),
+          notes,
+          flightNumber: flight.trim() || undefined,
+          returnAt: returnQuote ? returnAtIso : undefined,
+          returnFlightNumber: returnQuote ? returnFlight.trim() || undefined : undefined,
           locale,
         }),
       });
@@ -150,6 +165,17 @@ export function CheckoutForm({
                   {quote.roadKm} km · {quote.durationMin} min
                 </dd>
               </div>
+              {returnQuote && returnWhen && (
+                <div className="flex justify-between gap-4 py-3.5">
+                  <dt className="text-dim">{t('returnLeg')}</dt>
+                  <dd className="text-right">
+                    <span className="block font-medium">{returnWhen}</span>
+                    <span className="block font-mono text-xs text-dim">
+                      {returnQuote.roadKm} km · {returnQuote.durationMin} min
+                    </span>
+                  </dd>
+                </div>
+              )}
             </dl>
           </section>
 
@@ -238,11 +264,18 @@ export function CheckoutForm({
                 <span className="mb-1.5 block text-sm font-medium">{t('luggage')}</span>
                 <input type="number" min={0} max={12} value={luggage} onChange={(e) => setLuggage(Number(e.target.value))} className={field} />
               </label>
-              <label className="block sm:col-span-2">
+              <label className={`block ${returnQuote ? '' : 'sm:col-span-2'}`}>
                 <span className="mb-1.5 block text-sm font-medium">{t('flight')}</span>
-                <input value={flight} onChange={(e) => setFlight(e.target.value)} className={field} placeholder="VY1234" />
+                <input value={flight} onChange={(e) => setFlight(e.target.value)} className={field} placeholder="VY1234" maxLength={12} autoCapitalize="characters" />
                 <span className="mt-1 block text-xs text-dim">{t('flightHelp')}</span>
               </label>
+              {returnQuote && (
+                <label className="block">
+                  <span className="mb-1.5 block text-sm font-medium">{t('returnFlight')}</span>
+                  <input value={returnFlight} onChange={(e) => setReturnFlight(e.target.value)} className={field} placeholder="VY1235" maxLength={12} autoCapitalize="characters" />
+                  <span className="mt-1 block text-xs text-dim">{t('returnFlightHelp')}</span>
+                </label>
+              )}
               <label className="block sm:col-span-2">
                 <span className="mb-1.5 block text-sm font-medium">{t('notes')}</span>
                 <textarea rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} className={field} />
@@ -268,10 +301,23 @@ export function CheckoutForm({
             <p className="mt-2 font-display font-bold">{vehicle.name}</p>
 
             <dl className="mt-5 space-y-2.5 border-t border-line pt-4 text-sm">
-              <div className="flex justify-between">
-                <dt className="text-dim">{tq('tariffBadge', { tariff: quote.tariff })}</dt>
-                <dd className="font-mono">{quote.roadKm} km</dd>
-              </div>
+              {returnQuote ? (
+                <>
+                  <div className="flex justify-between">
+                    <dt className="text-dim">{t('outbound')} · {tq('tariffBadge', { tariff: quote.tariff })}</dt>
+                    <dd className="font-mono">{eur(quote.total)}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-dim">{t('returnLeg')} · {tq('tariffBadge', { tariff: returnQuote.tariff })}</dt>
+                    <dd className="font-mono">{eur(returnQuote.total)}</dd>
+                  </div>
+                </>
+              ) : (
+                <div className="flex justify-between">
+                  <dt className="text-dim">{tq('tariffBadge', { tariff: quote.tariff })}</dt>
+                  <dd className="font-mono">{quote.roadKm} km</dd>
+                </div>
+              )}
             </dl>
 
             <div className="mt-4 border-t border-line pt-4">

@@ -90,6 +90,9 @@ export function QuoteWidget({
   const [dropoff, setDropoff] = useState<Place | null>(null);
   const [date, setDate] = useState(initial.date);
   const [time, setTime] = useState(initial.time);
+  const [returnDate, setReturnDate] = useState(initial.date);
+  const [returnTime, setReturnTime] = useState(initial.time);
+  const [returnResult, setReturnResult] = useState<QuoteResponse | null>(null);
 
   const [result, setResult] = useState<QuoteResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -136,6 +139,13 @@ export function QuoteWidget({
   }, [mapInView]);
 
   const pickupAt = useMemo(() => new Date(`${date}T${time}:00`), [date, time]);
+  const returnAt = useMemo(
+    () => (tripType === 'RETURN' ? new Date(`${returnDate}T${returnTime}:00`) : null),
+    [tripType, returnDate, returnTime],
+  );
+  const returnTooEarly =
+    returnAt !== null &&
+    (Number.isNaN(returnAt.getTime()) || returnAt.getTime() < pickupAt.getTime() + 60 * 60 * 1000);
 
   // A stale estimate next to changed inputs would be misleading.
   useEffect(() => {
@@ -155,18 +165,26 @@ export function QuoteWidget({
         setTooSoon(true);
         return;
       }
+      if (returnTooEarly) return setError(t('returnTooEarly'));
 
       setLoading(true);
       try {
-        const res = await fetch('/api/quote', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            pickup: { lat: pickup.lat, lng: pickup.lng },
-            dropoff: { lat: dropoff.lat, lng: dropoff.lng },
-            pickupAt: pickupAt.toISOString(),
-          }),
-        });
+        const ask = (from: typeof pickup, to: typeof dropoff, at: Date) =>
+          fetch('/api/quote', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              pickup: { lat: from!.lat, lng: from!.lng },
+              dropoff: { lat: to!.lat, lng: to!.lng },
+              pickupAt: at.toISOString(),
+            }),
+          });
+        // The return is the same road the other way at a different hour, so
+        // it is priced separately and shown as one figure with the outbound.
+        const [res, backRes] = await Promise.all([
+          ask(pickup, dropoff, pickupAt),
+          returnAt ? ask(dropoff, pickup, returnAt) : Promise.resolve(null),
+        ]);
 
         if (res.status === 422) {
           const body = await res.json();
@@ -183,16 +201,19 @@ export function QuoteWidget({
         }
 
         setResult((await res.json()) as QuoteResponse);
+        setReturnResult(backRes && backRes.ok ? ((await backRes.json()) as QuoteResponse) : null);
       } catch {
         setError(t('errors.routeFailed'));
       } finally {
         setLoading(false);
       }
     },
-    [pickup, dropoff, pickupAt, t],
+    [pickup, dropoff, pickupAt, returnAt, returnTooEarly, t],
   );
 
   const q = result?.quote;
+  const back = tripType === 'RETURN' ? returnResult?.quote : undefined;
+  const shownTotal = q ? q.total + (back?.total ?? 0) : null;
 
   const TARIFF_LABELS = {
     T1: 'tariffT1',
@@ -219,6 +240,7 @@ export function QuoteWidget({
           dlabel: dropoff.label,
           at: pickupAt.toISOString(),
           mode: DEFAULT_PAYMENT_MODE,
+          ...(returnAt && !returnTooEarly ? { ret: returnAt.toISOString() } : {}),
         }).toString()}`
       : '/book';
 
@@ -389,9 +411,36 @@ export function QuoteWidget({
         </div>
 
         {tripType === 'RETURN' && (
-          <p className="mt-3 rounded-xl border border-line-2 bg-white/5 px-3.5 py-2.5 text-xs leading-relaxed text-dim">
-            {t('returnNote')}
-          </p>
+          <>
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              <label className="well block rounded-2xl px-4 py-3">
+                <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                  {t('returnDate')}
+                </span>
+                <input
+                  type="date"
+                  value={returnDate}
+                  min={date}
+                  required
+                  onChange={(e) => setReturnDate(e.target.value)}
+                  className="bare-input mt-1 font-medium [color-scheme:dark]"
+                />
+              </label>
+              <label className="well block rounded-2xl px-4 py-3">
+                <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-ghost">
+                  {t('returnTime')}
+                </span>
+                <input
+                  type="time"
+                  value={returnTime}
+                  required
+                  onChange={(e) => setReturnTime(e.target.value)}
+                  className="bare-input mt-1 font-medium [color-scheme:dark]"
+                />
+              </label>
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-dim">{t('returnNote')}</p>
+          </>
         )}
 
         <button
@@ -409,7 +458,7 @@ export function QuoteWidget({
         </button>
 
         <p aria-live="polite" className="sr-only">
-          {q ? `${t('totalPrice')} ${eur(q.total)}` : ''}
+          {shownTotal !== null ? `${t('totalPrice')} ${eur(shownTotal)}` : ''}
         </p>
 
         {error && (
@@ -454,11 +503,16 @@ export function QuoteWidget({
           </div>
 
           <p
-            key={q?.total ?? 'idle'}
+            key={shownTotal ?? 'idle'}
             className="taximeter-digits animate-digit-roll mt-2 text-5xl font-bold sm:text-6xl"
           >
-            {q ? eur(q.total) : '— . —'}
+            {shownTotal !== null ? eur(shownTotal) : '— . —'}
           </p>
+          {back && (
+            <p className="mt-1 font-mono text-xs text-gold">
+              {t('returnIncluded')} · {eur(q!.total)} + {eur(back.total)}
+            </p>
+          )}
 
           <p className="mt-1.5 flex items-center gap-2 text-xs text-jade">
             <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5 flex-none fill-current">

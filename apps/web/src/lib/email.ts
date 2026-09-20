@@ -336,6 +336,7 @@ export function adminBookingEmail(d: {
   luggage: number;
   vehicleName?: string;
   notes?: string | null;
+  flightNumber?: string | null;
   amountOnline: number;
   locale: string;
   rideUrl: string;
@@ -371,6 +372,7 @@ export function adminBookingEmail(d: {
        ${row('To', d.dropoffLabel)}
        ${row('Distance', `${d.roadKm} km · about ${d.durationMin} min`)}
        ${row('Group', `${d.passengers} passengers · ${d.luggage} bags`)}
+       ${d.flightNumber ? row('Flight', `<strong>${d.flightNumber}</strong>`, true) : ''}
        ${row('Vehicle', d.vehicleName ?? 'Not chosen')}
        ${row('Passenger', `<strong>${d.contactName}</strong>`)}
        ${row('Phone', `<a href="tel:${d.contactPhone}">${d.contactPhone}</a>`)}
@@ -396,6 +398,7 @@ export function adminBookingEmail(d: {
     `To:        ${d.dropoffLabel}`,
     `Distance:  ${d.roadKm} km, about ${d.durationMin} min`,
     `Group:     ${d.passengers} pax, ${d.luggage} bags`,
+    d.flightNumber ? `Flight:    ${d.flightNumber}` : null,
     `Vehicle:   ${d.vehicleName ?? 'Not chosen'}`,
     ``,
     `Passenger: ${d.contactName}`,
@@ -534,6 +537,7 @@ export function driverJobEmail(d: {
   contactPhone: string;
   vehicleName?: string | null;
   notes?: string | null;
+  flightNumber?: string | null;
   /** The desk's agreed figure. Omitted from the email when not yet set. */
   pay?: number | null;
   panelUrl: string;
@@ -562,6 +566,7 @@ export function driverJobEmail(d: {
        ${row('To', d.dropoffLabel)}
        ${row('Distance', `${d.roadKm} km · about ${d.durationMin} min`)}
        ${row('Group', `${d.passengers} passengers · ${d.luggage} bags`)}
+       ${d.flightNumber ? row('Flight', `<strong>${d.flightNumber}</strong>`, true) : ''}
        ${d.vehicleName ? row('Vehicle booked', d.vehicleName) : ''}
        ${row('Passenger', `<strong>${d.contactName}</strong>`)}
        ${row('Phone', `<a href="tel:${d.contactPhone}">${d.contactPhone}</a>`, true)}
@@ -585,6 +590,7 @@ export function driverJobEmail(d: {
     `To:        ${d.dropoffLabel}`,
     `Distance:  ${d.roadKm} km, about ${d.durationMin} min`,
     `Group:     ${d.passengers} pax, ${d.luggage} bags`,
+    d.flightNumber ? `Flight:    ${d.flightNumber}` : null,
     d.vehicleName ? `Vehicle:   ${d.vehicleName}` : null,
     ``,
     `Passenger: ${d.contactName}`,

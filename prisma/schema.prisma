@@ -244,6 +244,14 @@ model Booking {
   passengers Int      @default(1)
   luggage    Int      @default(0)
   notes      String?
+  /// The arriving (or departing) flight, so the driver can track it. Was
+  /// prepended to `notes` as text; a column lets the desk and the driver
+  /// see it where it belongs.
+  flightNumber String?
+  /// Shared by the two legs of a return booking. Both legs carry the same
+  /// SumUp checkout and are marked paid together; each is otherwise its own
+  /// ride with its own reference, driver and status.
+  groupId String?
 
   vehicleId String?
   vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
@@ -304,6 +312,7 @@ model Booking {
   @@index([status, createdAt])
   @@index([userId, createdAt])
   @@index([driverId, status])
+  @@index([groupId])
   @@index([pickupAt])
   @@index([sumupCheckoutId])
   @@index([status, pickupAt])

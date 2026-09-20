@@ -104,7 +104,7 @@
     "tripType": "Tipo de trayecto",
     "oneWay": "Solo ida",
     "return": "Ida y vuelta",
-    "returnNote": "La vuelta se presupuesta aparte y se confirma por email.",
+    "returnNote": "Ida y vuelta se reservan y pagan juntas, cada una a su tarifa según la hora.",
     "instantPrice": "Precio al instante, sin registro",
     "tariffBadge": "Tarifa {tariff}",
     "tariffT1": "T-1 · laborable de día",
@@ -147,7 +147,11 @@
     "sections": {
       "nextTitle": "Qué pasa después",
       "nextLede": "una vez has pagado."
-    }
+    },
+    "returnDate": "Fecha de vuelta",
+    "returnTime": "Hora de vuelta",
+    "returnIncluded": "Vuelta incluida",
+    "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida."
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -233,7 +237,12 @@
     "errors": {
       "failed": "No hemos podido completar tu reserva. No se te ha cobrado nada. Inténtalo de nuevo.",
       "expired": "Este precio ha caducado. Solicita uno nuevo."
-    }
+    },
+    "returnLeg": "Viaje de vuelta",
+    "outbound": "Ida",
+    "returnFlight": "Número de vuelo de vuelta",
+    "returnFlightHelp": "Opcional. Para el viaje de vuelta.",
+    "bothLegs": "Ida y vuelta, pagadas juntas"
   },
   "confirmation": {
     "titlePaid": "Reserva confirmada",
@@ -245,7 +254,11 @@
     "notFound": "No hemos encontrado esa reserva.",
     "backHome": "Volver al inicio",
     "metaTitle": "Reserva confirmada",
-    "status": "Estado"
+    "status": "Estado",
+    "flight": "Vuelo",
+    "returnLeg": "Viaje de vuelta",
+    "outboundLeg": "Viaje de ida",
+    "viewLeg": "Ver"
   },
   "notFound": {
     "title": "Página no encontrada",
