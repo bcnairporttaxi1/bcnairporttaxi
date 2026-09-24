@@ -85,7 +85,10 @@ export async function PaymentMethods() {
           <h2 className="font-display text-xl font-bold tracking-tight sm:text-2xl">{t('payment.title')}</h2>
           <p className="mt-1.5 text-sm text-dim">{t('payment.note')}</p>
         </div>
-        <ul className="flex flex-wrap gap-3" role="img" aria-label={BRANDS.map((b) => b.label).join(', ')}>
+        {/* A plain list, labelled. role="img" here silently stripped the list
+            semantics from every <li> inside it, which is both an axe failure
+            and a worse reading: the marks are a list of what we accept. */}
+        <ul className="flex flex-wrap gap-3" aria-label={BRANDS.map((b) => b.label).join(', ')}>
           {BRANDS.map((brand) => (
             <Chip key={brand.label} brand={brand} />
           ))}

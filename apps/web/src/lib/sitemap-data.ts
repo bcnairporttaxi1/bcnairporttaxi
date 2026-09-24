@@ -54,7 +54,13 @@ function priorityFor(path: string): number {
  * book-online: /book renders this page's exact copy and holds the site-wide
  * header link, so it is the canonical of the pair.
  */
-const CANONICALISED_ELSEWHERE = new Set(['book-online']);
+/**
+ * Paths kept out of the sitemap. `book-online` canonicalises to `/book`;
+ * `reviews` carries noindex until the first review is published, and a
+ * sitemap that advertises a noindex page is a contradiction Search Console
+ * reports as "excluded by noindex". Both return the moment they should.
+ */
+const CANONICALISED_ELSEWHERE = new Set(['book-online', 'reviews']);
 
 export function sitemapPaths(): string[] {
   return [
