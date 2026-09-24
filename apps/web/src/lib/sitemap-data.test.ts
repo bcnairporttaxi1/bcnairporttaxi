@@ -13,7 +13,8 @@ describe('sitemap paths', () => {
 
   it('still carries the pages that earn traffic', () => {
     const paths = sitemapPaths();
-    for (const p of ['/', '/pricing', '/fleet', '/el-prat-airport-taxi', '/destinations/sitges']) {
+    // The homepage is the empty path; the locale prefix is added per entry.
+    for (const p of ['', '/pricing', '/fleet', '/el-prat-airport-taxi', '/destinations/sitges']) {
       expect(paths).toContain(p);
     }
   });
