@@ -63,13 +63,16 @@ function priorityFor(path: string): number {
 const CANONICALISED_ELSEWHERE = new Set(['book-online', 'reviews']);
 
 export function sitemapPaths(): string[] {
+  // Filtered at the end rather than per source list: `reviews` is a static
+  // path and `book-online` a landing slug, and an exclusion that only
+  // covered one of the two silently kept the other in the sitemap.
   return [
     ...STATIC_PATHS,
-    ...LANDING_SLUGS.filter((s) => !CANONICALISED_ELSEWHERE.has(s)).map((s) => `/${s}`),
+    ...LANDING_SLUGS.map((s) => `/${s}`),
     ...BLOG_SLUGS.map((s) => `/blog/${s}`),
     ...DESTINATION_PAGES.map((d) => `/destinations/${d.slug}`),
     ...LEGAL_SLUGS.map((s) => `/${s}`),
-  ];
+  ].filter((path) => !CANONICALISED_ELSEWHERE.has(path.slice(1)));
 }
 
 export function sitemapEntries(now: Date = new Date()): SitemapEntry[] {
