@@ -82,8 +82,11 @@ export default async function HomePage(props: {
   const moll = { lat: LANDMARKS.mollAdossat.lat, lng: LANDMARKS.mollAdossat.lng };
 
   const fareRows = [
-    { route: tfare('rowAirportCity'), distance: '14.2 km', tariff: 'T-1', fare: eur(sample(airport, BCN_CENTRE, 14.2).total) },
-    { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: 'T-4', fare: eur(sample(airport, moll, 12.4).total) },
+    /* The two airport routes are fixed prices now, so showing a distance and
+       a tariff code beside them would advertise inputs that no longer move
+       the figure. Both read "fixed", as the port row already did. */
+    { route: tfare('rowAirportCity'), distance: tfare('fixed'), tariff: tfare('fixed'), fare: eur(sample(airport, BCN_CENTRE, 14.2).total) },
+    { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: tfare('fixed'), fare: eur(sample(airport, moll, 12.4).total) },
     { route: tfare('rowAirportSitges'), distance: '32.8 km', tariff: 'T-6', fare: eur(sample(airport, SITGES, 32.8).total) },
     { route: tfare('rowBcnTarragona'), distance: '97.3 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, TARRAGONA, 97.3).total) },
     { route: tfare('rowBcnGirona'), distance: '97.0 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, GIRONA_AIRPORT, 97.0).total) },

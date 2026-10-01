@@ -151,7 +151,8 @@
     "returnDate": "返程日期",
     "returnTime": "返程时间",
     "returnIncluded": "含返程",
-    "returnTooEarly": "返程时间须至少在接送时间一小时之后。"
+    "returnTooEarly": "返程时间须至少在接送时间一小时之后。",
+    "fixedRouteApplied": "此路线为固定价格，不随距离和时段变化。"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",

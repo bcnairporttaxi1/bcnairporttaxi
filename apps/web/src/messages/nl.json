@@ -151,7 +151,8 @@
     "returnDate": "Datum terugreis",
     "returnTime": "Tijd terugreis",
     "returnIncluded": "Terugreis inbegrepen",
-    "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn."
+    "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn.",
+    "fixedRouteApplied": "Vaste prijs voor deze rit. Afstand en tijdstip veranderen er niets aan."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",

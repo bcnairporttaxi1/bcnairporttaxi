@@ -14,6 +14,7 @@ import {
 } from './pricing';
 
 /** Barcelona is UTC+2 in summer (CEST), UTC+1 in winter (CET). */
+const round2 = (n: number) => Math.round(n * 100) / 100;
 const summer = (hhmm: string) => new Date(`2026-07-15T${hhmm}:00+02:00`); // Wednesday
 const winter = (hhmm: string) => new Date(`2026-02-11T${hhmm}:00+01:00`); // Wednesday
 
@@ -208,6 +209,114 @@ describe('calculateQuote — payment modes', () => {
   });
 });
 
+describe('fixed routes — the operator price list of 1 October 2026', () => {
+  const BADALONA = { lat: 41.45, lng: 2.2474 }; // AMB, but not Barcelona
+  const total = (from: typeof AIRPORT, to: typeof AIRPORT, seats?: number) =>
+    calculateQuote({
+      pickup: from,
+      dropoff: to,
+      roadKm: 15,
+      durationMin: 25,
+      pickupAt: summer('13:00'),
+      vehicleSeats: seats,
+    }).total;
+
+  it('prices Barcelona city to the airport by vehicle size', () => {
+    expect(total(EIXAMPLE, AIRPORT)).toBe(50); // sedan, no vehicle chosen
+    expect(total(EIXAMPLE, AIRPORT, 4)).toBe(50); // Corolla, Toledo, Estate, Prius
+    expect(total(EIXAMPLE, AIRPORT, 6)).toBe(70); // Vito
+    expect(total(EIXAMPLE, AIRPORT, 7)).toBe(75); // V-Class
+  });
+
+  it('prices the cruise port ten euros above the city on every vehicle', () => {
+    expect(total(MOLL, AIRPORT)).toBe(60);
+    expect(total(MOLL, AIRPORT, 4)).toBe(60);
+    expect(total(MOLL, AIRPORT, 6)).toBe(80);
+    expect(total(MOLL, AIRPORT, 7)).toBe(85);
+  });
+
+  it('is the same price in both directions', () => {
+    expect(total(AIRPORT, EIXAMPLE, 6)).toBe(total(EIXAMPLE, AIRPORT, 6));
+    expect(total(AIRPORT, MOLL, 7)).toBe(total(MOLL, AIRPORT, 7));
+  });
+
+  it('sells the cruise port at the port price, not the city price', () => {
+    // Moll Adossat is inside Barcelona, so it satisfies the city rule too.
+    // Testing the city first would quietly sell every cruise job at 50.
+    expect(total(AIRPORT, MOLL)).toBe(60);
+  });
+
+  it('leaves the rest of the metropolitan area on the meter', () => {
+    // Badalona is in the AMB but is not Barcelona: it keeps billing per km,
+    // which for a longer run is more than the city's fixed 50.
+    const q = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: BADALONA,
+      roadKm: 22,
+      durationMin: 35,
+      pickupAt: summer('13:00'),
+    });
+    expect(q.adjustment).not.toBe('FIXED_ROUTE');
+    expect(q.total).not.toBe(50);
+    expect(q.supplements).toBeGreaterThan(0); // airport supplement still applies
+  });
+
+  it('leaves journeys outside the area on the interurban tariff', () => {
+    const q = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: VALLIRANA,
+      roadKm: 30,
+      durationMin: 40,
+      pickupAt: summer('13:00'),
+    });
+    expect(['T6', 'T7']).toContain(q.tariff);
+    expect(q.total).not.toBe(50);
+  });
+
+  it('does not touch a journey that never sees the airport', () => {
+    // City to port, with no airport end, stays metered.
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: MOLL,
+      roadKm: 6,
+      durationMin: 15,
+      pickupAt: summer('13:00'),
+    });
+    expect(q.adjustment).not.toBe('FIXED_ROUTE');
+    expect(q.total).not.toBe(50);
+  });
+
+  it('holds the quoted figure as the amount actually charged', () => {
+    const q = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: AIRPORT,
+      roadKm: 15,
+      durationMin: 25,
+      pickupAt: summer('13:00'),
+      vehicleSeats: 7,
+    });
+    // fare + our charge must reconstitute the price list exactly, or the
+    // passenger is quoted one number and billed another.
+    expect(round2(q.fixedFare + q.bookingFee)).toBe(75);
+    expect(q.payNowFull).toBe(75);
+    expect(q.total).toBe(75);
+  });
+
+  it('keeps the price fixed at night, when the meter would rise', () => {
+    const day = total(EIXAMPLE, AIRPORT, 4);
+    const night = calculateQuote({
+      pickup: EIXAMPLE,
+      dropoff: AIRPORT,
+      roadKm: 15,
+      durationMin: 25,
+      pickupAt: summer('23:30'),
+      vehicleSeats: 4,
+    }).total;
+    expect(night).toBe(day);
+    expect(night).toBe(50);
+  });
+});
+
 describe('calculateQuote — airport rules', () => {
   it('adds the El Prat supplement and enforces the minimum on both fares', () => {
     const q = calculateQuote({
@@ -225,7 +334,7 @@ describe('calculateQuote — airport rules', () => {
     expect(q.fixedFare).toBeGreaterThanOrEqual(TARIFFS.minFareFromAirport);
   });
 
-  it('does not apply the minimum when the metered total already exceeds it', () => {
+  it('charges the fixed city price airport to Barcelona, whatever the meter would say', () => {
     const q = calculateQuote({
       pickup: AIRPORT,
       dropoff: EIXAMPLE,
@@ -234,12 +343,13 @@ describe('calculateQuote — airport rules', () => {
       pickupAt: summer('13:00'),
     });
 
-    expect(q.meterEstimate).toBe(27.65); // 2.80 + 20.25 + 4.60
-    expect(q.fixedFare).toBe(29.9); // 2.80 + 22.50 + 4.60
-    expect(q.adjustment).toBeNull();
+    // Was metered at 29.90 + fee. From 1 October it is the operator's own
+    // fixed total, and distance no longer moves it.
+    expect(q.total).toBe(50);
+    expect(q.adjustment).toBe('FIXED_ROUTE');
   });
 
-  it('applies the airport supplement when the airport is the destination', () => {
+  it('charges the same fixed city price in the other direction', () => {
     const q = calculateQuote({
       pickup: EIXAMPLE,
       dropoff: AIRPORT,
@@ -248,8 +358,9 @@ describe('calculateQuote — airport rules', () => {
       pickupAt: summer('13:00'),
     });
 
-    expect(q.supplements).toBe(4.6);
-    expect(q.adjustment).toBeNull(); // minimum is origin-only
+    // Supplements are inside the fixed figure now, not added to it.
+    expect(q.total).toBe(50);
+    expect(q.supplements).toBe(0);
   });
 
   it('uses the fixed T4 price in both directions with no markup', () => {
@@ -262,11 +373,12 @@ describe('calculateQuote — airport rules', () => {
     });
 
     expect(a.tariff).toBe('T4');
-    expect(a.meterEstimate).toBe(46);
-    // A regulated closed price has no per-km component to mark up.
-    expect(a.fixedFare).toBe(46);
-    expect(a.bookingFee).toBe(9.2);
-    expect(a.payNowFull).toBe(55.2);
+    // The operator's fixed port total is 60; the fare and our charge are
+    // solved out of it, so the passenger pays exactly what they were quoted.
+    expect(a.total).toBe(60);
+    expect(a.fixedFare).toBe(50); // 60 / 1.20
+    expect(a.bookingFee).toBe(10);
+    expect(a.payNowFull).toBe(60);
 
     const b = calculateQuote({
       pickup: MOLL,
@@ -275,7 +387,10 @@ describe('calculateQuote — airport rules', () => {
       durationMin: 28,
       pickupAt: summer('02:00'),
     });
-    expect(b.fixedFare).toBe(46);
+    // 02:00 falls in the elevated-fee window, so the split differs while the
+    // total the passenger pays stays exactly 60.
+    expect(b.total).toBe(60);
+    expect(round2(b.fixedFare + b.bookingFee)).toBe(60);
   });
 });
 

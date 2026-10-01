@@ -154,7 +154,8 @@
     "returnDate": "Return date",
     "returnTime": "Return time",
     "returnIncluded": "Return included",
-    "returnTooEarly": "The return must be at least an hour after the pickup."
+    "returnTooEarly": "The return must be at least an hour after the pickup.",
+    "fixedRouteApplied": "One fixed price for this route. Distance and time of day do not change it."
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",

@@ -55,7 +55,7 @@ export interface Quote {
   supplementLines: SupplementLine[];
 
   /** Set when a legal minimum or fixed price overrode the calculation. */
-  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
+  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | null;
 
   /**
    * What the taxi meter is expected to read, on official rates only.
@@ -341,6 +341,49 @@ export function insideAMB(p: Coords): boolean {
 }
 
 /**
+ * Barcelona the municipality, not the metropolitan area.
+ *
+ * The fixed city price is the operator's own, and it covers Barcelona
+ * itself. L'Hospitalet, Badalona, Sant Cugat and the other 32 AMB towns are
+ * `insideAMB` but are not Barcelona, and they keep billing on the meter —
+ * which is why this is a separate test rather than a reuse of that one.
+ * Nearest-centroid resolution is exact here because every neighbouring
+ * municipality is in the table; without them Barcelona's centroid would
+ * swallow its neighbours and give them the city price.
+ */
+export function isBarcelonaCity(p: Coords): boolean {
+  return nearestMunicipality(p)?.name === 'Barcelona';
+}
+
+/** Which column of the fixed-price table a vehicle falls in. */
+function vehicleClass(seats: number | undefined): 'sedan' | 'van6' | 'van7' {
+  if (!seats || seats <= 4) return 'sedan';
+  return seats >= 7 ? 'van7' : 'van6';
+}
+
+/**
+ * The operator's fixed total for this journey, or null if it is not one of
+ * the two fixed routes.
+ *
+ * The port is tested first and deliberately: Moll Adossat sits inside
+ * Barcelona, so a cruise transfer satisfies the city rule too, and testing
+ * the city first would quietly sell every cruise job at the city price.
+ */
+function fixedRouteTotal(
+  pickup: Coords,
+  dropoff: Coords,
+  seats: number | undefined,
+): number | null {
+  const ends = (a: (p: Coords) => boolean, b: (p: Coords) => boolean) =>
+    (a(pickup) && b(dropoff)) || (b(pickup) && a(dropoff));
+
+  const column = vehicleClass(seats);
+  if (ends(isAirport, isMollAdossat)) return TARIFFS.fixedRoutes.portAirport[column];
+  if (ends(isAirport, isBarcelonaCity)) return TARIFFS.fixedRoutes.cityAirport[column];
+  return null;
+}
+
+/**
  * A journey is interurban when either end sits outside the AMB. The whole
  * trip then bills on T-6/T-7, not just the portion beyond the boundary.
  */
@@ -398,22 +441,29 @@ export function calculateQuote(input: QuoteInput): Quote {
 
   const pickupAirport = isAirport(pickup);
   const dropoffAirport = isAirport(dropoff);
-  const pickupMoll = isMollAdossat(pickup);
-  const dropoffMoll = isMollAdossat(dropoff);
 
-  // T-4: fixed closed price between the airport and the cruise terminal.
-  const isT4Route =
-    (pickupAirport && dropoffMoll) || (pickupMoll && dropoffAirport);
+  /*
+   * The operator's fixed prices come first, before any tariff selection: on
+   * these two routes the time of day, the distance and the supplements no
+   * longer move the figure. The passenger is quoted one number and pays it.
+   */
+  const fixedTotal = fixedRouteTotal(pickup, dropoff, vehicleSeats);
 
-  if (isT4Route) {
-    const meterEstimate = TARIFFS.t4FixedAirportMollAdossat;
-    // A regulated closed price carries no per-km component, so there is
-    // nothing for the markup to apply to.
-    const fixedFare = meterEstimate;
-    const bookingFee = round2(fixedFare * bookingFeeRateFor(pickupAt));
+  if (fixedTotal !== null) {
+    /*
+     * The price list is expressed as totals, so the fare and our service
+     * charge are solved out of it rather than added to it:
+     *     total = fare x (1 + rate)
+     * Quoting EUR 50 and charging EUR 62.50 would be the same bug the old
+     * T-4 branch had, where a "fixed EUR 46" reached the passenger as EUR 57.50.
+     */
+    const bookingFeeRate = bookingFeeRateFor(pickupAt);
+    const fixedFare = round2(fixedTotal / (1 + bookingFeeRate));
+    const bookingFee = round2(fixedTotal - fixedFare);
+    const isPort = isMollAdossat(pickup) || isMollAdossat(dropoff);
 
     return {
-      tariff: 'T4',
+      tariff: isPort ? 'T4' : selectTariff(pickupAt),
       roadKm,
       durationMin,
       startFare: 0,
@@ -421,12 +471,15 @@ export function calculateQuote(input: QuoteInput): Quote {
       perKmRateCharged: 0,
       supplements: 0,
       supplementLines: [],
-      adjustment: 'T4_FIXED',
-      meterEstimate,
+      adjustment: isPort ? 'T4_FIXED' : 'FIXED_ROUTE',
+      meterEstimate: fixedFare,
       fixedFare,
       bookingFee,
-      bookingFeeRate: bookingFeeRateFor(pickupAt),
-      ...allInclusive(fixedFare, bookingFee, meterEstimate),
+      bookingFeeRate,
+      total: fixedTotal,
+      payNowFull: fixedTotal,
+      payNowFeeOnly: bookingFee,
+      payInTaxiFeeOnly: fixedFare,
       currency: TARIFFS.currency,
     };
   }
@@ -446,7 +499,7 @@ export function calculateQuote(input: QuoteInput): Quote {
   if (pickupAirport || dropoffAirport) {
     lines.push({ key: 'airportElPrat', amount: TARIFFS.supplements.airportElPrat });
   }
-  if (pickupMoll || dropoffMoll) {
+  if (isMollAdossat(pickup) || isMollAdossat(dropoff)) {
     lines.push({ key: 'mollAdossat', amount: TARIFFS.supplements.mollAdossat });
   }
   if (isSants(pickup) || isSants(dropoff)) {

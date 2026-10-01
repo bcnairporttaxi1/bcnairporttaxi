@@ -151,7 +151,8 @@
     "returnDate": "Data di ritorno",
     "returnTime": "Ora di ritorno",
     "returnIncluded": "Ritorno incluso",
-    "returnTooEarly": "Il ritorno deve essere almeno un’ora dopo il ritiro."
+    "returnTooEarly": "Il ritorno deve essere almeno un’ora dopo il ritiro.",
+    "fixedRouteApplied": "Prezzo fisso per questa tratta. Distanza e orario non lo modificano."
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",

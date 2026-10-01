@@ -151,7 +151,8 @@
     "returnDate": "Fecha de vuelta",
     "returnTime": "Hora de vuelta",
     "returnIncluded": "Vuelta incluida",
-    "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida."
+    "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida.",
+    "fixedRouteApplied": "Precio fijo para esta ruta. La distancia y la hora no lo modifican."
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",

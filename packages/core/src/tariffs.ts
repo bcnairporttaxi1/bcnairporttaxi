@@ -77,6 +77,29 @@ export const TARIFFS = {
   /** T-4: fixed closed price for El Prat <-> Moll Adossat (cruise terminal). */
   t4FixedAirportMollAdossat: 46.0,
 
+  /**
+   * The operator's own fixed prices for the two routes that make up most of
+   * the work, set 1 October 2026. These are TOTALS — what the passenger is
+   * quoted and charged, with our service already inside the figure, which is
+   * how every price on the site is expressed. The fare the driver is settled
+   * against is derived from it, not added to it.
+   *
+   * They apply only when one end is El Prat and the other is Barcelona city
+   * or the cruise terminal. Anywhere else, including the rest of the
+   * metropolitan area, keeps billing on the metered tariff; a journey with an
+   * end outside the AMB keeps billing interurban. Both of those are
+   * unchanged.
+   *
+   * Keyed by vehicle size because that is what the passenger chooses:
+   * `sedan` is any four-seat car, `van6` the Vito, `van7` the V-Class.
+   */
+  fixedRoutes: {
+    /** Barcelona city <-> El Prat. */
+    cityAirport: { sedan: 50.0, van6: 70.0, van7: 75.0 },
+    /** Moll Adossat cruise terminal <-> El Prat. */
+    portAirport: { sedan: 60.0, van6: 80.0, van7: 85.0 },
+  },
+
   /** Closed price via app (T-3) — informational, shown on the pricing page only. */
   t3: {
     startDay: 4.11,

@@ -25,7 +25,7 @@ export interface QuotePayload {
   perKmRateCharged: number;
   supplements: number;
   supplementLines: Array<{ key: string; amount: number }>;
-  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | null;
+  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | null;
   meterEstimate: number;
   fixedFare: number;
   bookingFee: number;
@@ -541,6 +541,9 @@ export function QuoteWidget({
           )}
           {q?.adjustment === 'T4_FIXED' && (
             <p className="mt-3 text-xs text-gold">{t('t4Applied')}</p>
+          )}
+          {q?.adjustment === 'FIXED_ROUTE' && (
+            <p className="mt-3 text-xs text-gold">{t('fixedRouteApplied')}</p>
           )}
 
           {q && (

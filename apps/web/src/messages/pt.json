@@ -151,7 +151,8 @@
     "returnDate": "Data de regresso",
     "returnTime": "Hora de regresso",
     "returnIncluded": "Regresso incluído",
-    "returnTooEarly": "O regresso tem de ser pelo menos uma hora depois da recolha."
+    "returnTooEarly": "O regresso tem de ser pelo menos uma hora depois da recolha.",
+    "fixedRouteApplied": "Preço fixo para esta rota. A distância e a hora não o alteram."
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",

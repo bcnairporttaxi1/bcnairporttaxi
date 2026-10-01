@@ -151,7 +151,8 @@
     "returnDate": "Data de tornada",
     "returnTime": "Hora de tornada",
     "returnIncluded": "Tornada inclosa",
-    "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida."
+    "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida.",
+    "fixedRouteApplied": "Preu fix per a aquesta ruta. La distància i l’hora no el modifiquen."
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",

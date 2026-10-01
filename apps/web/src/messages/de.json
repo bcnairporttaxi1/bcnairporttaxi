@@ -151,7 +151,8 @@
     "returnDate": "Rückfahrtdatum",
     "returnTime": "Rückfahrtzeit",
     "returnIncluded": "Rückfahrt enthalten",
-    "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen."
+    "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen.",
+    "fixedRouteApplied": "Festpreis für diese Strecke. Entfernung und Tageszeit ändern ihn nicht."
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",

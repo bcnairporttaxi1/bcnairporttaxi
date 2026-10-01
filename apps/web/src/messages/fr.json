@@ -151,7 +151,8 @@
     "returnDate": "Date de retour",
     "returnTime": "Heure de retour",
     "returnIncluded": "Retour inclus",
-    "returnTooEarly": "Le retour doit avoir lieu au moins une heure après la prise en charge."
+    "returnTooEarly": "Le retour doit avoir lieu au moins une heure après la prise en charge.",
+    "fixedRouteApplied": "Prix fixe pour ce trajet. La distance et l’heure ne le modifient pas."
   },
   "fleet": {
     "h1": "Notre flotte de taxis à Barcelone",
