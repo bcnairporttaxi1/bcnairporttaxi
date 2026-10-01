@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PanelShell, StatusPill } from '@/components/panel-shell';
 import { TripLive } from '@/components/trip-live';
@@ -9,9 +9,12 @@ import { rateMyDriver, reportMyDriver } from '@/app/[locale]/(panel)/account/act
 import { ratePassenger, reportPassenger } from '@/app/[locale]/(panel)/driver/actions';
 import { ACTIVE_STATUSES } from '@bcn/core/rides';
 import { prisma } from '@/lib/db';
-import { dateIn } from '@bcn/core/format';
+import { dateIn, eurIn } from '@bcn/core/format';
 import { getSession } from '@/lib/auth';
 import { resolveTripAccess } from '@/lib/trip-access';
+import { TIP_PRESETS, confirmTip } from '@/lib/payments/tip';
+import { TipForm } from '@/components/tip-form';
+import { tipDriver } from './actions';
 import { cookies } from 'next/headers';
 import { tripCookieName, verifyTripToken } from '@/lib/trip-token';
 
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
 
 export default async function TripPage(props: {
   params: Promise<{ locale: string; reference: string }>;
-  searchParams: Promise<{ k?: string }>;
+  searchParams: Promise<{ k?: string; tip?: string }>;
 }) {
   const { locale, reference } = await props.params;
   setRequestLocale(locale);
@@ -47,6 +50,12 @@ export default async function TripPage(props: {
   // about who is allowed to see a trip.
   const access = await resolveTripAccess(reference);
   if (!access) notFound();
+
+  // Back from SumUp after tipping. Settled here, against SumUp's own answer,
+  // for the same reason the fare is: a return URL is a hint, not a receipt.
+  const { tip } = await props.searchParams;
+  const tipOutcome = tip === 'done' ? await confirmTip(reference) : null;
+  const tt = await getTranslations('tip');
 
   // These three do not depend on each other, so they go together rather than
   // three round trips deep. The update marks the viewer present, which is what
@@ -213,6 +222,39 @@ export default async function TripPage(props: {
       )}
 
       {/* Both sides rate each other once the ride is closed out. */}
+      {/* Tipping belongs here and nowhere earlier. The fare was quoted and
+          paid before the journey as one all-inclusive figure, and the promise
+          that nothing further is owed is what the site sells; an offer to pay
+          more at checkout would contradict it. Once the ride is done the
+          passenger has met the driver, and the offer contradicts nothing. */}
+      {finished && access.as === 'USER' && (
+        <section className="mt-10">
+          {booking.tipPaidAt ? (
+            <p className="p-card p-5 text-sm">
+              <span className="font-display text-base font-extrabold p-gold">
+                {tt('thanksTitle')}
+              </span>
+              <span className="mt-1 block p-muted">
+                {tt('thanksBody', {
+                  amount: eurIn(locale)(Number(booking.tipAmount ?? 0)),
+                  name: booking.driver?.name ?? tt('yourDriver'),
+                })}
+              </span>
+            </p>
+          ) : (
+            <TipForm
+              reference={booking.reference}
+              presets={TIP_PRESETS}
+              action={tipDriver}
+              driverName={booking.driver?.name ?? tt('yourDriver')}
+            />
+          )}
+          {tipOutcome === 'pending' && (
+            <p className="mt-3 text-sm p-muted">{tt('pending')}</p>
+          )}
+        </section>
+      )}
+
       {finished && access.as !== 'ADMIN' && (
         <section className="mt-10 grid gap-6 lg:grid-cols-2">
           <RateForm

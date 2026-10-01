@@ -574,5 +574,24 @@
     "hint": "La référence ressemble à BCN-7Q4K2M et figure dans l’objet de votre e-mail de confirmation.",
     "trackLink": "Ouvrir la page de votre trajet",
     "findLink": "Retrouver ma réservation"
+  },
+  "tip": {
+    "title": "Donner un pourboire",
+    "intro": "Si {name} s’est bien occupé de vous, vous pouvez ajouter quelque chose. C’est entièrement facultatif.",
+    "other": "Autre",
+    "submit": "Ajouter un pourboire",
+    "sending": "Ouverture du paiement…",
+    "note": "Le pourboire revient intégralement à votre chauffeur. Nous ne prenons rien.",
+    "thanksTitle": "Merci",
+    "thanksBody": "Votre pourboire de {amount} est revenu intégralement à {name}.",
+    "pending": "Votre pourboire n’est pas encore confirmé. Si le paiement est terminé, il apparaîtra ici sous peu.",
+    "yourDriver": "votre chauffeur",
+    "errors": {
+      "amount": "Saisissez un montant entre 1 € et 100 €.",
+      "notYours": "Ce trajet n’est pas le vôtre.",
+      "notFinished": "Vous pourrez donner un pourboire une fois le trajet terminé.",
+      "alreadyTipped": "Vous avez déjà donné un pourboire pour ce trajet. Merci.",
+      "unavailable": "Les pourboires sont indisponibles pour le moment. Réessayez dans un instant."
+    }
   }
 }

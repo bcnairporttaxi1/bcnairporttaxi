@@ -77,6 +77,7 @@ export async function advanceRide(formData: FormData): Promise<void> {
       reviewUrl: tripLink(booking.locale, booking.reference),
       paidInCar: money.prepaid ? null : money.cashToCollect,
       locale: booking.locale,
+      canTip: Boolean(booking.driverId) && booking.tipPaidAt == null,
     });
     await sendEmail({ to: booking.contactEmail, ...mail });
   }

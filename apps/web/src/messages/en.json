@@ -574,5 +574,24 @@
     "hint": "The reference looks like BCN-7Q4K2M and is in the subject of your confirmation email.",
     "trackLink": "Open your trip page",
     "findLink": "Find my booking"
+  },
+  "tip": {
+    "title": "Tip your driver",
+    "intro": "If {name} looked after you, you can add something. It is entirely optional.",
+    "other": "Other",
+    "submit": "Add a tip",
+    "sending": "Opening payment…",
+    "note": "The tip goes to your driver in full. We take nothing from it.",
+    "thanksTitle": "Thank you",
+    "thanksBody": "Your {amount} tip went to {name} in full.",
+    "pending": "Your tip has not been confirmed yet. If you completed the payment, it will appear here shortly.",
+    "yourDriver": "your driver",
+    "errors": {
+      "amount": "Enter an amount between €1 and €100.",
+      "notYours": "This ride is not yours to tip.",
+      "notFinished": "You can tip once the ride is finished.",
+      "alreadyTipped": "You have already tipped this ride. Thank you.",
+      "unavailable": "Tipping is unavailable right now. Please try again shortly."
+    }
   }
 }

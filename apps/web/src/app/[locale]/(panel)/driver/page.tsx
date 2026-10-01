@@ -259,6 +259,14 @@ export default async function DriverPage(props: {
           <p className="text-[10px] uppercase tracking-wider p-muted">Earned today</p>
           <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(owedToday)}</p>
         </div>
+        {balance.tips > 0 && (
+          <div className="p-card p-3.5 sm:p-4">
+            <p className="text-[10px] uppercase tracking-wider p-muted">Tips</p>
+            <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">
+              {eur(balance.tips)}
+            </p>
+          </div>
+        )}
         <div className="p-card p-3.5 sm:p-4">
           <p className="text-[10px] uppercase tracking-wider p-muted">Available</p>
           <p className="mt-1 font-mono text-xl font-extrabold tabular-nums sm:text-2xl">{eur(balance.available)}</p>

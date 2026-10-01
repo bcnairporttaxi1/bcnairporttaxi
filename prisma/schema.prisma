@@ -296,6 +296,14 @@ model Booking {
   /// Confirmed by the driver on completion.
   cashCollected Boolean  @default(false)
 
+  /// A voluntary tip the passenger added after the ride, paid separately
+  /// from the fare. It belongs to the driver in full: no service charge is
+  /// taken from it, and it is summed into their balance alongside the
+  /// payout rather than folded into it, so both sides can see what it was.
+  tipAmount     Decimal?  @db.Decimal(10, 2)
+  tipCheckoutId String?
+  tipPaidAt     DateTime?
+
   // Live location is opt-in on both sides and can be revoked mid-trip.
   userSharesLocation   Boolean @default(false)
   driverSharesLocation Boolean @default(false)

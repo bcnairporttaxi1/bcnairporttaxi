@@ -574,5 +574,24 @@
     "hint": "Die Referenz sieht aus wie BCN-7Q4K2M und steht im Betreff Ihrer Bestätigungs-E-Mail.",
     "trackLink": "Ihre Fahrtseite öffnen",
     "findLink": "Meine Buchung finden"
+  },
+  "tip": {
+    "title": "Trinkgeld für Ihren Fahrer",
+    "intro": "Wenn {name} gut für Sie gesorgt hat, können Sie etwas hinzufügen. Völlig freiwillig.",
+    "other": "Anderer",
+    "submit": "Trinkgeld geben",
+    "sending": "Zahlung wird geöffnet…",
+    "note": "Das Trinkgeld geht vollständig an Ihren Fahrer. Wir behalten nichts davon.",
+    "thanksTitle": "Vielen Dank",
+    "thanksBody": "Ihr Trinkgeld von {amount} ging vollständig an {name}.",
+    "pending": "Ihr Trinkgeld ist noch nicht bestätigt. Wenn die Zahlung abgeschlossen ist, erscheint es gleich hier.",
+    "yourDriver": "Ihr Fahrer",
+    "errors": {
+      "amount": "Geben Sie einen Betrag zwischen 1 € und 100 € ein.",
+      "notYours": "Diese Fahrt gehört nicht zu Ihnen.",
+      "notFinished": "Trinkgeld ist möglich, sobald die Fahrt beendet ist.",
+      "alreadyTipped": "Sie haben für diese Fahrt bereits Trinkgeld gegeben. Danke.",
+      "unavailable": "Trinkgeld ist derzeit nicht möglich. Bitte versuchen Sie es gleich noch einmal."
+    }
   }
 }

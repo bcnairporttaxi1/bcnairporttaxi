@@ -574,5 +574,24 @@
     "hint": "La referencia tiene el formato BCN-7Q4K2M y aparece en el asunto de tu email de confirmación.",
     "trackLink": "Abrir la página de tu viaje",
     "findLink": "Buscar mi reserva"
+  },
+  "tip": {
+    "title": "Da propina a tu conductor",
+    "intro": "Si {name} te atendió bien, puedes añadir algo. Es totalmente opcional.",
+    "other": "Otro",
+    "submit": "Añadir propina",
+    "sending": "Abriendo el pago…",
+    "note": "La propina es íntegra para tu conductor. No nos quedamos nada.",
+    "thanksTitle": "Gracias",
+    "thanksBody": "Tu propina de {amount} fue íntegra para {name}.",
+    "pending": "Tu propina aún no está confirmada. Si completaste el pago, aparecerá aquí en breve.",
+    "yourDriver": "tu conductor",
+    "errors": {
+      "amount": "Introduce un importe entre 1 € y 100 €.",
+      "notYours": "Este viaje no es tuyo para dar propina.",
+      "notFinished": "Puedes dar propina cuando acabe el viaje.",
+      "alreadyTipped": "Ya has dado propina en este viaje. Gracias.",
+      "unavailable": "Las propinas no están disponibles ahora mismo. Inténtalo en unos minutos."
+    }
   }
 }

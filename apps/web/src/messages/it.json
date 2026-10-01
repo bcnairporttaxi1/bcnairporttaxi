@@ -574,5 +574,24 @@
     "hint": "Il riferimento ha la forma BCN-7Q4K2M ed è nell’oggetto dell’email di conferma.",
     "trackLink": "Apri la pagina del tuo viaggio",
     "findLink": "Trova la mia prenotazione"
+  },
+  "tip": {
+    "title": "Lascia una mancia",
+    "intro": "Se {name} si è preso cura di te, puoi aggiungere qualcosa. È del tutto facoltativo.",
+    "other": "Altro",
+    "submit": "Aggiungi mancia",
+    "sending": "Apertura del pagamento…",
+    "note": "La mancia va interamente al tuo autista. Noi non tratteniamo nulla.",
+    "thanksTitle": "Grazie",
+    "thanksBody": "La tua mancia di {amount} è andata interamente a {name}.",
+    "pending": "La mancia non è ancora confermata. Se hai completato il pagamento, apparirà qui a breve.",
+    "yourDriver": "il tuo autista",
+    "errors": {
+      "amount": "Inserisci un importo tra 1 € e 100 €.",
+      "notYours": "Questo viaggio non è tuo.",
+      "notFinished": "Potrai lasciare la mancia a viaggio concluso.",
+      "alreadyTipped": "Hai già lasciato una mancia per questo viaggio. Grazie.",
+      "unavailable": "Le mance non sono disponibili al momento. Riprova tra poco."
+    }
   }
 }

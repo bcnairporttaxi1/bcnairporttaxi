@@ -1,6 +1,8 @@
 import 'server-only';
 import { prisma } from '@/lib/db';
 
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
 /**
  * Driver earnings.
  *
@@ -21,7 +23,10 @@ export async function driverBalance(driverId: string) {
   const [earnedAgg, heldAgg, paidAgg] = await Promise.all([
     prisma.booking.aggregate({
       where: { driverId, status: 'COMPLETED' },
-      _sum: { driverPayout: true },
+      // Tips are the driver's in full, so they are earnings like the payout —
+      // summed beside it rather than into it, so the earnings page can show
+      // a driver what they were tipped as its own figure.
+      _sum: { driverPayout: true, tipAmount: true },
     }),
     prisma.withdrawal.aggregate({
       where: { driverId, status: { in: ['REQUESTED', 'APPROVED'] } },
@@ -33,12 +38,15 @@ export async function driverBalance(driverId: string) {
     }),
   ]);
 
-  const earned = Number(earnedAgg._sum.driverPayout ?? 0);
+  const fares = Number(earnedAgg._sum.driverPayout ?? 0);
+  const tips = Number(earnedAgg._sum.tipAmount ?? 0);
+  const earned = round2(fares + tips);
   const pending = Number(heldAgg._sum.amount ?? 0);
   const paid = Number(paidAgg._sum.amount ?? 0);
 
   return {
     earned,
+    tips,
     pending,
     paid,
     available: Math.max(0, Math.round((earned - pending - paid) * 100) / 100),

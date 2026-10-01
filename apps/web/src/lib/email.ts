@@ -606,6 +606,42 @@ export function driverJobEmail(d: {
   return { subject, html, text };
 }
 
+/**
+ * A passenger tipped. The driver hears about it the same day.
+ *
+ * Short on purpose: the figure and who it came from is the whole message,
+ * and it is read on a phone between jobs.
+ */
+export function driverTipEmail(d: {
+  driverName: string;
+  reference: string;
+  passengerName: string;
+  amount: number;
+  panelUrl: string;
+}) {
+  const eur = (n: number) =>
+    new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(n);
+
+  const subject = `${d.passengerName} tipped you ${eur(d.amount)} — ${d.reference}`;
+
+  const html = layout(
+    'You were tipped',
+    `<p style="font-size:15px;line-height:1.7">${d.driverName}, <strong>${d.passengerName}</strong> added a tip of <strong>${eur(d.amount)}</strong> after ride ${d.reference}.</p>
+     <p style="font-size:15px;line-height:1.7">It is yours in full — we take nothing from a tip — and it is already in your balance.</p>
+     <p style="margin-top:18px"><a href="${d.panelUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">See your earnings</a></p>`,
+  );
+
+  const text = [
+    `${d.driverName}, ${d.passengerName} tipped you ${eur(d.amount)} after ride ${d.reference}.`,
+    ``,
+    `It is yours in full — we take nothing from a tip — and it is already in your balance.`,
+    ``,
+    `Earnings: ${d.panelUrl}`,
+  ].join('\n');
+
+  return { subject, html, text };
+}
+
 /** Asks the passenger to rate the driver once the ride is done. */
 export function rideCompletedEmail(d: {
   name: string;
@@ -613,6 +649,8 @@ export function rideCompletedEmail(d: {
   reviewUrl: string;
   paidInCar: number | null;
   locale?: string;
+  /** Mentioned only when there is a driver to tip and none was given yet. */
+  canTip?: boolean;
 }) {
   const money = (n: number) =>
     new Intl.NumberFormat(d.locale ?? 'en', {
@@ -622,6 +660,13 @@ export function rideCompletedEmail(d: {
 
   const subject = `Thanks for travelling with us — ${d.reference}`;
 
+  // One sentence, pointing at the page the rating already lives on. A button
+  // of its own asking for money would read as a second invoice against a fare
+  // we promised was all-inclusive.
+  const tipLine = d.canTip
+    ? 'You can also add a tip for your driver there — it reaches them in full.'
+    : null;
+
   const settled = d.paidInCar
     ? `You paid the metered fare of about ${money(d.paidInCar)} to your driver in the car. An invoice is available from the driver on request.`
     : `This ride was paid in full in advance — nothing was owed in the car.`;
@@ -630,6 +675,7 @@ export function rideCompletedEmail(d: {
     'Ride complete',
     `<p style="font-size:15px;line-height:1.7">${d.name}, thank you for travelling with us.</p>
      <p style="font-size:15px;line-height:1.7">${settled}</p>
+     ${tipLine ? `<p style="font-size:15px;line-height:1.7">${tipLine}</p>` : ''}
      <p style="margin-top:18px"><a href="${d.reviewUrl}" style="display:inline-block;background:#f5b301;color:#0e0e10;font-weight:800;text-decoration:none;padding:12px 22px;border-radius:10px">Rate your driver</a></p>`,
   );
 
@@ -637,6 +683,7 @@ export function rideCompletedEmail(d: {
     `${d.name}, thank you for travelling with us.`,
     ``,
     settled,
+    ...(tipLine ? [``, tipLine] : []),
     ``,
     `Rate your driver: ${d.reviewUrl}`,
   ].join('\n');

@@ -574,5 +574,24 @@
     "hint": "De referentie ziet eruit als BCN-7Q4K2M en staat in het onderwerp van je bevestigingsmail.",
     "trackLink": "Je ritpagina openen",
     "findLink": "Mijn boeking vinden"
+  },
+  "tip": {
+    "title": "Geef je chauffeur een fooi",
+    "intro": "Als {name} goed voor je zorgde, kun je iets toevoegen. Volledig optioneel.",
+    "other": "Anders",
+    "submit": "Fooi geven",
+    "sending": "Betaling openen…",
+    "note": "De fooi gaat volledig naar je chauffeur. Wij houden er niets van in.",
+    "thanksTitle": "Bedankt",
+    "thanksBody": "Je fooi van {amount} ging volledig naar {name}.",
+    "pending": "Je fooi is nog niet bevestigd. Als de betaling is voltooid, verschijnt die hier zo.",
+    "yourDriver": "je chauffeur",
+    "errors": {
+      "amount": "Vul een bedrag in tussen € 1 en € 100.",
+      "notYours": "Deze rit is niet van jou.",
+      "notFinished": "Je kunt een fooi geven zodra de rit klaar is.",
+      "alreadyTipped": "Je hebt voor deze rit al een fooi gegeven. Bedankt.",
+      "unavailable": "Fooien zijn op dit moment niet beschikbaar. Probeer het zo opnieuw."
+    }
   }
 }

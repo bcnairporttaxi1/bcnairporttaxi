@@ -574,5 +574,24 @@
     "hint": "A referência tem o formato BCN-7Q4K2M e está no assunto do email de confirmação.",
     "trackLink": "Abrir a página da sua viagem",
     "findLink": "Encontrar a minha reserva"
+  },
+  "tip": {
+    "title": "Dê gorjeta ao seu motorista",
+    "intro": "Se {name} cuidou bem de si, pode acrescentar algo. É totalmente opcional.",
+    "other": "Outro",
+    "submit": "Dar gorjeta",
+    "sending": "A abrir o pagamento…",
+    "note": "A gorjeta vai integralmente para o seu motorista. Não ficamos com nada.",
+    "thanksTitle": "Obrigado",
+    "thanksBody": "A sua gorjeta de {amount} foi integralmente para {name}.",
+    "pending": "A sua gorjeta ainda não está confirmada. Se concluiu o pagamento, aparecerá aqui em breve.",
+    "yourDriver": "o seu motorista",
+    "errors": {
+      "amount": "Introduza um valor entre 1 € e 100 €.",
+      "notYours": "Esta viagem não é sua.",
+      "notFinished": "Pode dar gorjeta assim que a viagem terminar.",
+      "alreadyTipped": "Já deu gorjeta nesta viagem. Obrigado.",
+      "unavailable": "As gorjetas não estão disponíveis neste momento. Tente novamente daqui a pouco."
+    }
   }
 }

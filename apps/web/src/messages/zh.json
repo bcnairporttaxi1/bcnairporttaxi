@@ -574,5 +574,24 @@
     "hint": "编号格式如 BCN-7Q4K2M，位于确认邮件的主题中。",
     "trackLink": "打开行程页面",
     "findLink": "查找我的预订"
+  },
+  "tip": {
+    "title": "给司机小费",
+    "intro": "如果{name}让您满意，可以给一点小费。完全自愿。",
+    "other": "其他",
+    "submit": "给小费",
+    "sending": "正在打开支付…",
+    "note": "小费全额归司机所有，我们分文不取。",
+    "thanksTitle": "谢谢",
+    "thanksBody": "您的 {amount} 小费已全额给到{name}。",
+    "pending": "小费尚未确认。如果您已完成支付，稍后会显示在此。",
+    "yourDriver": "您的司机",
+    "errors": {
+      "amount": "请输入 1 € 至 100 € 之间的金额。",
+      "notYours": "这不是您的行程。",
+      "notFinished": "行程结束后即可给小费。",
+      "alreadyTipped": "您已为此行程给过小费，谢谢。",
+      "unavailable": "小费功能暂时不可用，请稍后再试。"
+    }
   }
 }
