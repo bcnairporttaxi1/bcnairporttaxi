@@ -8,7 +8,7 @@ import { eurIn, dateIn } from '@bcn/core/format';
 import { requireDriver } from '@/lib/guards';
 import { DRIVER_TABS } from './tabs';
 import { driverBalance } from '@/lib/driver-balance';
-import { ACTIVE_STATUSES } from '@bcn/core/rides';
+import { ACTIVE_STATUSES, balanceDue } from '@bcn/core/rides';
 import { advanceRide, } from './actions';
 
 export const metadata: Metadata = {
@@ -80,6 +80,14 @@ export default async function DriverPage(props: {
 
   function Trip({ b }: { b: (typeof bookings)[number] }) {
     const prepaid = b.paymentMode === 'FULL_PREPAID';
+    // What the card actually took can be less than the price: a part
+    // payment, or a price corrected after the card was charged. The driver
+    // is the last person who can recover it, so they are told plainly.
+    const owed = balanceDue({
+      amountOnline: Number(b.amountOnline),
+      amountPaid: b.amountPaid == null ? null : Number(b.amountPaid),
+      paid: b.paymentStatus === 'PAID',
+    });
 
     return (
       <article className="p-card p-5 sm:p-6">
@@ -95,14 +103,14 @@ export default async function DriverPage(props: {
             money changes hands in the car. Stated loudly, never buried. */}
         <p
           className={`mt-4 rounded-xl px-4 py-3 font-display text-sm font-extrabold ${
-            prepaid
-              ? 'border p-tone-good'
-              : 'border p-tone-warn'
+            prepaid && owed === 0 ? 'border p-tone-good' : 'border p-tone-warn'
           }`}
         >
-          {prepaid
-            ? 'PAID ONLINE — collect nothing'
-            : `COLLECT IN CAR — ${eur(b.meterEstimate)} on the meter`}
+          {!prepaid
+            ? `COLLECT IN CAR — ${eur(b.meterEstimate)} on the meter`
+            : owed > 0
+              ? `COLLECT ${eur(owed)} IN CAR — the passenger only part-paid online`
+              : 'PAID ONLINE — collect nothing'}
         </p>
 
         {/* The one money line a driver gets: what the desk agreed to pay them.

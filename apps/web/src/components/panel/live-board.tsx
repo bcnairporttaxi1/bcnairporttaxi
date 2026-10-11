@@ -2,6 +2,7 @@ import { Card, CardHeader, Empty } from '@/components/panel/ui';
 import { StatusPill } from '@/components/panel-shell';
 import { RideProgress, STAGE_SENTENCE, formatMinutes } from '@/components/panel/ride-progress';
 import type { LiveRide } from '@/lib/live-rides';
+import { eurIn } from '@bcn/core/format';
 
 /**
  * The rides in motion right now, one card each.
@@ -22,6 +23,7 @@ function metresLabel(m: number): string {
 }
 
 function LiveCard({ ride, locale, now }: { ride: LiveRide; locale: string; now: Date }) {
+  const eur = eurIn(locale);
   const time = new Intl.DateTimeFormat(locale, {
     hour: '2-digit',
     minute: '2-digit',
@@ -102,7 +104,11 @@ function LiveCard({ ride, locale, now }: { ride: LiveRide; locale: string; now: 
           )}
 
           <p className="mt-3 text-xs p-muted">
-            {ride.paymentMode === 'FULL_PREPAID' ? (
+            {ride.paymentMode === 'FULL_PREPAID' && ride.balanceDue > 0 ? (
+              <span className="p-gold">
+                Part-paid — driver collects {eur(ride.balanceDue)} in the car
+              </span>
+            ) : ride.paymentMode === 'FULL_PREPAID' ? (
               <span className="text-[var(--p-up)]">Prepaid — nothing to collect</span>
             ) : (
               <span className="p-gold">

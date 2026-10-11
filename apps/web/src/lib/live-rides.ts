@@ -1,6 +1,6 @@
 import 'server-only';
 import { prisma } from '@/lib/db';
-import { AT_DOOR_METRES, distanceMetres } from '@bcn/core/rides';
+import { AT_DOOR_METRES, distanceMetres, balanceDue } from '@bcn/core/rides';
 import type { RideStage } from '@/components/panel/ride-progress';
 
 /**
@@ -42,6 +42,12 @@ export interface LiveRide {
   paymentMode: string;
   /** What the driver must take in the car, already formatted upstream. */
   cashToCollect: number;
+  /**
+   * The part of the price the card did not take, on a ride still in progress.
+   * `cashToCollect` is only frozen on completion, so during the ride it reads
+   * zero and the board said "nothing to collect" on a half-paid booking.
+   */
+  balanceDue: number;
   enRouteAt: Date | null;
   arrivedAt: Date | null;
   onBoardAt: Date | null;
@@ -120,6 +126,11 @@ export async function liveRides(now: Date = new Date()): Promise<LiveRide[]> {
       plate: b.driver?.plate ?? null,
       paymentMode: b.paymentMode,
       cashToCollect: Number(b.cashToCollect),
+      balanceDue: balanceDue({
+        amountOnline: Number(b.amountOnline),
+        amountPaid: b.amountPaid == null ? null : Number(b.amountPaid),
+        paid: b.paymentStatus === 'PAID',
+      }),
       enRouteAt: b.enRouteAt,
       arrivedAt: b.arrivedAt,
       onBoardAt: b.onBoardAt,

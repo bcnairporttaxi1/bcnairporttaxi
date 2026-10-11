@@ -19,12 +19,18 @@ function toMoney(b: {
   meterEstimate: unknown;
   fixedFare: unknown;
   driverPay: unknown;
+  amountOnline: unknown;
+  amountPaid: unknown;
+  paymentStatus: string;
 }) {
   return {
     paymentMode: b.paymentMode,
     meterEstimate: Number(b.meterEstimate),
     fixedFare: Number(b.fixedFare),
     driverPay: b.driverPay == null ? null : Number(b.driverPay),
+    amountOnline: Number(b.amountOnline),
+    amountPaid: b.amountPaid == null ? null : Number(b.amountPaid),
+    paid: b.paymentStatus === 'PAID',
   };
 }
 
@@ -36,7 +42,7 @@ export async function applyRideStatus(
 ): Promise<boolean> {
   const booking = await prisma.booking.findUnique({
     where: { id: bookingId },
-    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true },
+    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true, amountOnline: true, amountPaid: true, paymentStatus: true },
   });
   if (!booking) return false;
 
@@ -63,7 +69,7 @@ export async function applyRideStatusBulk(
 
   const bookings = await prisma.booking.findMany({
     where: { id: { in: ids } },
-    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true },
+    select: { id: true, paymentMode: true, meterEstimate: true, fixedFare: true, driverPay: true, amountOnline: true, amountPaid: true, paymentStatus: true },
   });
 
   await prisma.$transaction(

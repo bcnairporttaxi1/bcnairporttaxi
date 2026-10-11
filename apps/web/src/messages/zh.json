@@ -100,6 +100,8 @@
     "payNow": "现在支付",
     "payInTaxi": "在车上支付",
     "nothingInTaxi": "车上无需支付",
+    "paidOnline": "已在线支付",
+    "balanceInTaxi": "需向司机支付的余额",
     "bookNow": "立即预订",
     "tripType": "行程类型",
     "oneWay": "单程",

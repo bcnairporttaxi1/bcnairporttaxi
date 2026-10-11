@@ -90,9 +90,32 @@ export async function createCheckout(req: CheckoutRequest): Promise<CheckoutResu
  * redirect parameter, so a crafted return URL cannot mark a booking as paid.
  */
 export async function getCheckoutStatus(checkoutId: string): Promise<CheckoutStatus> {
+  return (await getCheckoutResult(checkoutId)).status;
+}
+
+export interface CheckoutOutcome {
+  status: CheckoutStatus;
+  /**
+   * What the processor says was actually taken, summed over the successful
+   * transactions on the checkout. Null when it cannot be read, which is
+   * treated as "we do not know" rather than as zero.
+   */
+  amountPaid: number | null;
+}
+
+/**
+ * The checkout's status and the amount behind it.
+ *
+ * Asking for the amount as well as the status is what makes a short payment
+ * visible: the booking stores what we asked for, and only the processor
+ * knows what was really taken. A live booking once sold for half the list
+ * price with the driver told to collect nothing, and nothing in the system
+ * could have noticed.
+ */
+export async function getCheckoutResult(checkoutId: string): Promise<CheckoutOutcome> {
   if (!isSumUpConfigured()) {
     // Stub mode: treat as still pending so nothing is falsely marked paid.
-    return 'PENDING';
+    return { status: 'PENDING', amountPaid: null };
   }
 
   const res = await fetch(`${API_BASE}/checkouts/${checkoutId}`, {
@@ -100,17 +123,29 @@ export async function getCheckoutStatus(checkoutId: string): Promise<CheckoutSta
     signal: AbortSignal.timeout(12000),
   });
 
-  if (!res.ok) return 'PENDING';
+  if (!res.ok) return { status: 'PENDING', amountPaid: null };
 
-  const data = (await res.json()) as { status?: string };
+  const data = (await res.json()) as {
+    status?: string;
+    amount?: number;
+    transactions?: Array<{ amount?: number; status?: string }>;
+  };
+
+  const successful = (data.transactions ?? []).filter((t) => t.status === 'SUCCESSFUL');
+  const summed = successful.reduce((n, t) => n + (Number(t.amount) || 0), 0);
+  // Fall back to the checkout's own amount when it reports no transaction
+  // breakdown, and to null when there is nothing to go on at all.
+  const amountPaid = successful.length > 0 ? Math.round(summed * 100) / 100
+    : typeof data.amount === 'number' ? data.amount
+      : null;
 
   switch (data.status) {
     case 'PAID':
-      return 'PAID';
+      return { status: 'PAID', amountPaid };
     case 'FAILED':
     case 'EXPIRED':
-      return 'FAILED';
+      return { status: 'FAILED', amountPaid: null };
     default:
-      return 'PENDING';
+      return { status: 'PENDING', amountPaid: null };
   }
 }

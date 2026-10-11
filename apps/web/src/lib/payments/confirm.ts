@@ -1,7 +1,7 @@
 import 'server-only';
 import { prisma } from '@/lib/db';
 import type { Prisma } from '@/generated/prisma/client';
-import { getCheckoutStatus } from '@/lib/payments/sumup';
+import { getCheckoutResult } from '@/lib/payments/sumup';
 import { adminBookingEmail, bookingConfirmationEmail, sendEmail } from '@/lib/email';
 import { ADMIN_NOTIFY_EMAIL, absoluteUrl } from '@bcn/core/site';
 
@@ -31,7 +31,7 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
   if (booking.paymentStatus === 'PAID') return 'already-paid';
   if (!booking.sumupCheckoutId) return 'pending';
 
-  const status = await getCheckoutStatus(booking.sumupCheckoutId);
+  const { status, amountPaid } = await getCheckoutResult(booking.sumupCheckoutId);
 
   if (status === 'FAILED') {
     await prisma.booking.updateMany({
@@ -45,7 +45,9 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
   // The guard: only the call that performs the flip continues to the emails.
   const flipped = await prisma.booking.updateMany({
     where: { id: booking.id, paymentStatus: { not: 'PAID' } },
-    data: { paymentStatus: 'PAID', status: 'CONFIRMED' },
+    // amountPaid is what the processor says it took. Storing it is what lets
+    // a short payment surface as cash owed rather than vanishing.
+    data: { paymentStatus: 'PAID', status: 'CONFIRMED', amountPaid },
   });
   if (flipped.count === 0) return 'already-paid';
 
@@ -59,20 +61,32 @@ export async function confirmBookingPayment(reference: string): Promise<ConfirmO
     for (const leg of legs) {
       const done = await prisma.booking.updateMany({
         where: { id: leg.id, paymentStatus: { not: 'PAID' } },
-        data: { paymentStatus: 'PAID', status: 'CONFIRMED' },
+        // One checkout covered both legs, so the paid amount is apportioned
+        // to each leg's own price rather than double-counted against both.
+        data: {
+          paymentStatus: 'PAID',
+          status: 'CONFIRMED',
+          amountPaid: amountPaid == null ? null : Number(leg.amountOnline),
+        },
       });
-      if (done.count === 1) await notifyPaid(leg);
+      if (done.count === 1)
+        await notifyPaid(leg, amountPaid == null ? null : Number(leg.amountOnline));
     }
   }
 
-  await notifyPaid(booking);
+  await notifyPaid(booking, amountPaid);
   return 'paid';
 }
 
 type PaidBooking = Prisma.BookingGetPayload<{ include: { vehicle: { select: { name: true } } } }>;
 
-/** The receipt to the passenger and the notice to the desk, for one leg. */
-async function notifyPaid(booking: PaidBooking): Promise<void> {
+/**
+ * The receipt to the passenger and the notice to the desk, for one leg.
+ *
+ * `paidNow` is what the processor confirmed. It is passed in rather than read
+ * off `booking`, whose row was fetched before the update that set it.
+ */
+async function notifyPaid(booking: PaidBooking, paidNow: number | null): Promise<void> {
 
   const receipt = bookingConfirmationEmail({
     reference: booking.reference,
@@ -113,6 +127,7 @@ async function notifyPaid(booking: PaidBooking): Promise<void> {
     notes: booking.notes,
     flightNumber: booking.flightNumber,
     amountOnline: Number(booking.amountOnline),
+    amountPaid: paidNow,
     locale: booking.locale,
     rideUrl: absoluteUrl(`/en/admin/rides/${booking.reference}`),
   });

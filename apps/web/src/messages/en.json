@@ -103,6 +103,8 @@
     "payNow": "Pay now",
     "payInTaxi": "Pay in the taxi",
     "nothingInTaxi": "Nothing to pay in the taxi",
+    "paidOnline": "Paid online",
+    "balanceInTaxi": "Balance to pay the driver",
     "bookNow": "Book now",
     "tripType": "Trip type",
     "oneWay": "One way",

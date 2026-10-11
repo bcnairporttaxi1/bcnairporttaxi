@@ -7,6 +7,7 @@ import { prisma } from '@/lib/db';
 import { eurIn } from '@bcn/core/format';
 import { confirmBookingPayment } from '@/lib/payments/confirm';
 import { tripLink } from '@/lib/trip-token';
+import { balanceDue } from '@bcn/core/rides';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -69,6 +70,14 @@ export default async function BookingPage(props: {
    * them, read from the stored mode rather than assumed.
    */
   const prepaid = booking.paymentMode === 'FULL_PREPAID';
+
+  // What the card actually took can fall short of the price. The passenger is
+  // told here so the driver asking for the rest in the car is not a surprise.
+  const owed = balanceDue({
+    amountOnline: Number(booking.amountOnline),
+    amountPaid: booking.amountPaid == null ? null : Number(booking.amountPaid),
+    paid: booking.paymentStatus === 'PAID',
+  });
   const fmtWhen = (d: Date) =>
     new Intl.DateTimeFormat(locale === 'zh' ? 'zh-Hans' : locale, {
       dateStyle: 'full',
@@ -174,7 +183,22 @@ export default async function BookingPage(props: {
                 {eur(Number(booking.amountOnline))}
               </dd>
             </div>
-            {prepaid ? (
+            {prepaid && owed > 0 ? (
+              // The card took less than the price. Saying so here, rather than
+              // letting the driver surprise them, is the whole point.
+              <>
+                <div className="flex justify-between gap-4 py-3">
+                  <dt className="text-dim">{tq('paidOnline')}</dt>
+                  <dd className="text-right font-mono">
+                    {eur(Number(booking.amountPaid ?? 0))}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-4 py-3">
+                  <dt className="text-dim">{tq('balanceInTaxi')}</dt>
+                  <dd className="text-right font-mono font-bold text-gold">{eur(owed)}</dd>
+                </div>
+              </>
+            ) : prepaid ? (
               <div className="flex justify-between gap-4 py-3">
                 <dt className="text-dim">{tq('allInclusive')}</dt>
                 <dd className="text-right font-medium text-jade">{tq('nothingInTaxi')}</dd>

@@ -236,6 +236,12 @@ model Booking {
   bookingFee      Decimal @db.Decimal(10, 2)
   /// Amount actually taken online, derived from paymentMode.
   amountOnline    Decimal @db.Decimal(10, 2)
+  /// What the card processor confirmed, read back from its own record rather
+  /// than assumed from what we asked for. The two are normally equal; when
+  /// they are not — a part payment, a price raised after the fact — the
+  /// difference is owed in the car, and before this column existed that
+  /// shortfall was invisible and the driver was told to collect nothing.
+  amountPaid      Decimal? @db.Decimal(10, 2)
   currency        String  @default("EUR")
 
   paymentMode PaymentMode @default(FEE_ONLY)

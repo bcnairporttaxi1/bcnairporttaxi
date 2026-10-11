@@ -110,6 +110,19 @@ describe('admin booking notice', () => {
     expect(adminBookingEmail({ ...ride, paid: false }).text).toMatch(/^New booking — payment not yet confirmed/);
   });
 
+  it('leads with the shortfall when the card took less than the price', () => {
+    const { text, html } = adminBookingEmail({ ...ride, paid: true, amountPaid: 22.02 });
+    expect(text).toMatch(/^PART-PAID — assign a driver and tell them to collect €22.02 in the car/);
+    expect(text).toContain('OWED IN CAR: €22.02');
+    expect(html).toContain('is owed in the car');
+  });
+
+  it('reads as fully paid when the card took the whole price', () => {
+    const { text } = adminBookingEmail({ ...ride, paid: true, amountPaid: 44.04 });
+    expect(text).toMatch(/^PAID — assign a driver/);
+    expect(text).not.toContain('OWED IN CAR');
+  });
+
   it('carries everything needed to run the ride without opening the panel', () => {
     const { text, html } = adminBookingEmail({ ...ride, paid: true });
     for (const s of ['Marta Vidal', '+34600111222', 'marta@example.com', 'Aeroport T1', 'Hotel Arts', '16.2 km', '3 pax, 4 bags', 'Mercedes Vito', 'VY8301', '€44.04']) {
@@ -204,6 +217,20 @@ describe('driver job notice', () => {
 
   it('says plainly that there is nothing to collect', () => {
     expect(driverJobEmail(job).text).toContain('nothing to collect in the car');
+    // A zero balance is the normal case and must read the same as none at all.
+    expect(driverJobEmail({ ...job, collectInCar: 0 }).text).toContain(
+      'nothing to collect in the car',
+    );
+  });
+
+  it('tells the driver to collect the balance when the card came up short', () => {
+    // The live defect this guards: a part-paid booking was dispatched with a
+    // mail stating the passenger had paid in full, so nobody asked for the rest.
+    const { text, html } = driverJobEmail({ ...job, collectInCar: 25 });
+    expect(text).toContain('COLLECT €25.00 IN THE CAR');
+    expect(text).not.toContain('nothing to collect');
+    expect(html).toContain('Collect <strong>€25.00</strong>');
+    expect(html).not.toContain('paid in full');
   });
 
   it('shows the pay the desk set, and only that figure', () => {

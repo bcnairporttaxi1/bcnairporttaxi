@@ -123,6 +123,35 @@ export interface MoneyInput {
   fixedFare: number;
   /** The desk's agreed figure for the driver; the fare stands in when unset. */
   driverPay?: number | null;
+  /** What the price was, and what the processor actually took. */
+  amountOnline?: number;
+  amountPaid?: number | null;
+  paid?: boolean;
+}
+
+/**
+ * What the passenger still owes in the car.
+ *
+ * Normally nothing: the fare is taken in full online and that is the whole
+ * promise of the product. It is not nothing when the processor took less
+ * than the price — a part payment, or a price corrected upwards after the
+ * card was charged. Until this existed the shortfall was invisible: the
+ * booking only stored what we asked for, the driver was told to collect
+ * nothing, and the money was never recovered.
+ *
+ * `amountPaid` of null means the payment was never settled against the
+ * processor, which is not the same as a shortfall — an unpaid booking owes
+ * everything, and that is the `paid` flag's job, not this one.
+ */
+export function balanceDue(b: {
+  amountOnline: number;
+  amountPaid: number | null;
+  paid: boolean;
+}): number {
+  if (!b.paid || b.amountPaid == null) return 0;
+  const owed = Math.round((b.amountOnline - b.amountPaid) * 100) / 100;
+  // A customer who overpaid is owed a refund, not charged a negative fare.
+  return owed > 0 ? owed : 0;
 }
 
 /**
@@ -131,10 +160,12 @@ export interface MoneyInput {
  *
  * Fee-only rides are settled entirely in the taxi — we already took our fee
  * online, so the meter belongs to the driver and the platform owes nothing.
- * Prepaid rides are the reverse: nothing changes hands in the car, and what
- * the desk agreed to pay sits in the driver's balance until they withdraw it.
- * The desk sets that figure per ride; a ride where it was never set pays the
- * fare, which is what every ride did before the figure existed.
+ * Prepaid rides are the reverse: normally nothing changes hands in the car,
+ * and what the desk agreed to pay sits in the driver's balance until they
+ * withdraw it. The desk sets that figure per ride; a ride where it was never
+ * set pays the fare, which is what every ride did before the figure existed.
+ * "Normally" is `balanceDue`: a prepaid ride whose card took less than the
+ * price does collect the difference in the car.
  */
 export function settlementFor(b: MoneyInput): {
   cashToCollect: number;
@@ -142,9 +173,20 @@ export function settlementFor(b: MoneyInput): {
   prepaid: boolean;
 } {
   const prepaid = b.paymentMode === 'FULL_PREPAID';
+
+  // A prepaid ride collects nothing — unless the card took less than the
+  // price, in which case the difference is collected in the car.
+  const shortfall = prepaid
+    ? balanceDue({
+        amountOnline: b.amountOnline ?? 0,
+        amountPaid: b.amountPaid ?? null,
+        paid: b.paid ?? false,
+      })
+    : 0;
+
   return {
     prepaid,
-    cashToCollect: prepaid ? 0 : b.meterEstimate,
+    cashToCollect: prepaid ? shortfall : b.meterEstimate,
     driverPayout: prepaid ? (b.driverPay ?? b.fixedFare) : 0,
   };
 }
@@ -262,9 +304,11 @@ export function statusWriteFor(
     const money = settlementFor(booking);
     data.driverPayout = money.driverPayout;
     data.cashToCollect = money.cashToCollect;
-    // Fee-only rides settle in the car by definition; prepaid ones have
-    // nothing to collect. Neither leaves money outstanding at this point.
-    data.cashCollected = !money.prepaid;
+    // A fee-only ride settles in the car by definition, and a fully prepaid
+    // one has nothing to settle: both are done. The exception is a prepaid
+    // ride whose card came up short, where the driver still has to confirm
+    // they took the balance.
+    data.cashCollected = !money.prepaid || money.cashToCollect === 0;
   }
 
   if (status === 'CANCELLED') data.cancelledBy = actor;

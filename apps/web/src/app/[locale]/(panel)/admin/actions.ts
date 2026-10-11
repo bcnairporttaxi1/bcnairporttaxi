@@ -1,5 +1,6 @@
 'use server';
 
+import { balanceDue } from '@bcn/core/rides';
 import { revalidatePath } from 'next/cache';
 import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
@@ -125,6 +126,13 @@ export async function assignDriver(formData: FormData): Promise<void> {
         notes: booking.notes,
         flightNumber: booking.flightNumber,
         pay: booking.driverPay == null ? null : Number(booking.driverPay),
+        // The driver is the only person who can still recover a shortfall, so
+        // the mail that dispatches them has to name it.
+        collectInCar: balanceDue({
+          amountOnline: Number(booking.amountOnline),
+          amountPaid: booking.amountPaid == null ? null : Number(booking.amountPaid),
+          paid: booking.paymentStatus === 'PAID',
+        }),
         panelUrl: absoluteUrl('/en/driver'),
       });
       await sendEmail({ to: driverEmail, ...job });

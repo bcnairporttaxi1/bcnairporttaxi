@@ -338,6 +338,8 @@ export function adminBookingEmail(d: {
   notes?: string | null;
   flightNumber?: string | null;
   amountOnline: number;
+  /** What the card actually took, when it differs from the price. */
+  amountPaid?: number | null;
   locale: string;
   rideUrl: string;
 }) {
@@ -359,7 +361,9 @@ export function adminBookingEmail(d: {
     : `New booking ${d.reference} · ${when} · awaiting payment`;
 
   const lead = d.paid
-    ? `<strong>Paid — assign a driver.</strong> ${eur(d.amountOnline)} taken online; nothing to collect in the car.`
+    ? d.amountPaid != null && d.amountPaid < d.amountOnline
+      ? `<strong>Part-paid — assign a driver and tell them to collect the rest.</strong> ${eur(d.amountPaid)} of ${eur(d.amountOnline)} was taken online; <strong>${eur(d.amountOnline - d.amountPaid)} is owed in the car</strong>.`
+      : `<strong>Paid — assign a driver.</strong> ${eur(d.amountOnline)} taken online; nothing to collect in the car.`
     : `<strong>Booking received, payment not yet confirmed.</strong> The passenger has been sent to pay ${eur(d.amountOnline)}. If it stays pending, chase them — there is no webhook, so a passenger who pays and closes the tab is only marked paid when they return to the site.`;
 
   const html = layout(
@@ -388,8 +392,18 @@ export function adminBookingEmail(d: {
      <p style="font-size:12px;color:#9a9aa4;margin-top:18px">Reply to this email to reach the passenger directly.</p>`,
   );
 
+  // What is still outstanding, when the card took less than the price.
+  const owedInCar =
+    d.paid && d.amountPaid != null && d.amountPaid < d.amountOnline
+      ? Math.round((d.amountOnline - d.amountPaid) * 100) / 100
+      : 0;
+
   const text = [
-    d.paid ? `PAID — assign a driver` : `New booking — payment not yet confirmed`,
+    !d.paid
+      ? `New booking — payment not yet confirmed`
+      : owedInCar > 0
+        ? `PART-PAID — assign a driver and tell them to collect ${eur(owedInCar)} in the car`
+        : `PAID — assign a driver`,
     ``,
     `Ride:      ${d.rideUrl}`,
     ``,
@@ -406,7 +420,9 @@ export function adminBookingEmail(d: {
     `Email:     ${d.contactEmail}`,
     `Language:  ${d.locale.toUpperCase()}`,
     ``,
-    `Online:    ${eur(d.amountOnline)} (${d.paid ? 'paid' : 'pending'})`,
+    `Price:     ${eur(d.amountOnline)}`,
+    `Online:    ${eur(d.amountPaid ?? (d.paid ? d.amountOnline : 0))} (${d.paid ? 'paid' : 'pending'})`,
+    owedInCar > 0 ? `OWED IN CAR: ${eur(owedInCar)}` : null,
     d.notes ? `\nNotes:\n${d.notes}` : null,
   ]
     .filter((l): l is string => l !== null)
@@ -540,6 +556,12 @@ export function driverJobEmail(d: {
   flightNumber?: string | null;
   /** The desk's agreed figure. Omitted from the email when not yet set. */
   pay?: number | null;
+  /**
+   * What the passenger still owes, when the card took less than the price.
+   * The mail used to state flatly that the ride was paid in full, so a
+   * part-paid booking reached the driver as one with nothing to collect.
+   */
+  collectInCar?: number | null;
   panelUrl: string;
 }) {
   const eur = (n: number) =>
@@ -557,9 +579,16 @@ export function driverJobEmail(d: {
 
   const subject = `New ride ${when} · ${short(d.pickupLabel)} → ${short(d.dropoffLabel)} · ${d.reference}`;
 
+  const owed = d.collectInCar != null && d.collectInCar > 0 ? d.collectInCar : null;
+  const paymentLine = owed
+    ? `<strong>The passenger has only part-paid online.</strong> Collect <strong>${eur(owed)}</strong> from them in the car.`
+    : `<strong>The passenger has already paid in full</strong> — nothing to collect in the car.`;
+
   const html = layout(
     'You have a new ride',
-    `<p style="font-size:15px;line-height:1.7">${d.driverName}, the desk has assigned <strong>${d.reference}</strong> to you. <strong>The passenger has already paid in full</strong> — nothing to collect in the car.</p>
+    `<p style="font-size:15px;line-height:1.7">${d.driverName}, the desk has assigned <strong>${d.reference}</strong> to you. ${paymentLine}</p>`
+    + `${owed ? `<p style="background:#fff6e0;border:1px solid #f5b301;border-radius:10px;padding:12px;font-size:15px;font-weight:700;line-height:1.5">Collect ${eur(owed)} in the car.</p>` : ''}`
+    + `
      <table style="width:100%;border-collapse:collapse;margin-top:14px;border-top:1px solid #e4e0d7">
        ${row('Pickup time', `<strong>${when}</strong>`, true)}
        ${row('From', d.pickupLabel)}
@@ -583,7 +612,9 @@ export function driverJobEmail(d: {
 
   const text = [
     `${d.driverName}, you have a new ride: ${d.reference}`,
-    `Paid in full online — nothing to collect in the car.`,
+    owed
+      ? `PART-PAID ONLINE — COLLECT ${eur(owed)} IN THE CAR.`
+      : `Paid in full online — nothing to collect in the car.`,
     ``,
     `Pickup:    ${when}`,
     `From:      ${d.pickupLabel}`,
@@ -648,6 +679,11 @@ export function rideCompletedEmail(d: {
   reference: string;
   reviewUrl: string;
   paidInCar: number | null;
+  /**
+   * True when `paidInCar` is the unpaid remainder of a prepaid price rather
+   * than a metered fare, which are two different things to tell a passenger.
+   */
+  paidInCarWasBalance?: boolean;
   locale?: string;
   /** Mentioned only when there is a driver to tip and none was given yet. */
   canTip?: boolean;
@@ -668,7 +704,9 @@ export function rideCompletedEmail(d: {
     : null;
 
   const settled = d.paidInCar
-    ? `You paid the metered fare of about ${money(d.paidInCar)} to your driver in the car. An invoice is available from the driver on request.`
+    ? d.paidInCarWasBalance
+      ? `Your card payment covered part of the price, so the remaining ${money(d.paidInCar)} was settled with your driver in the car. An invoice is available from the driver on request.`
+      : `You paid the metered fare of about ${money(d.paidInCar)} to your driver in the car. An invoice is available from the driver on request.`
     : `This ride was paid in full in advance — nothing was owed in the car.`;
 
   const html = layout(

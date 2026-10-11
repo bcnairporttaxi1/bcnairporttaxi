@@ -100,6 +100,8 @@
     "payNow": "Payer maintenant",
     "payInTaxi": "Payer dans le taxi",
     "nothingInTaxi": "Rien à payer dans le taxi",
+    "paidOnline": "Payé en ligne",
+    "balanceInTaxi": "Solde à payer au chauffeur",
     "bookNow": "Réserver",
     "tripType": "Type de trajet",
     "oneWay": "Aller simple",

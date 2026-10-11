@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  balanceDue,
   bucketFor,
   bucketWhere,
   canRoleTransition,
@@ -104,6 +105,38 @@ describe('passenger edit window', () => {
   });
 });
 
+describe('balanceDue', () => {
+  it('is the difference between the price and what was taken', () => {
+    expect(balanceDue({ amountOnline: 50, amountPaid: 25, paid: true })).toBe(25);
+  });
+
+  it('is nothing when the full price was taken', () => {
+    expect(balanceDue({ amountOnline: 50, amountPaid: 50, paid: true })).toBe(0);
+  });
+
+  it('never goes negative when the passenger overpaid', () => {
+    // An overpayment is a refund to arrange, not a negative fare to collect.
+    expect(balanceDue({ amountOnline: 50, amountPaid: 60, paid: true })).toBe(0);
+  });
+
+  it('is nothing on a booking that was never paid', () => {
+    // An unpaid booking owes the whole price, but that is the payment flow's
+    // job. Reporting 50 here would tell the driver to collect a fare on a
+    // ride that should not have been dispatched at all.
+    expect(balanceDue({ amountOnline: 50, amountPaid: null, paid: false })).toBe(0);
+  });
+
+  it('is nothing when the paid amount was never recorded', () => {
+    // Older bookings, and any checkout SumUp would not break down, have no
+    // recorded amount. Unknown is not the same as short.
+    expect(balanceDue({ amountOnline: 50, amountPaid: null, paid: true })).toBe(0);
+  });
+
+  it('does not accumulate floating point error on cent amounts', () => {
+    expect(balanceDue({ amountOnline: 50.1, amountPaid: 25.05, paid: true })).toBe(25.05);
+  });
+});
+
 describe('settlement', () => {
   it('gives the meter to the driver and owes nothing on a fee-only ride', () => {
     const s = settlementFor({
@@ -121,6 +154,35 @@ describe('settlement', () => {
       fixedFare: 48.9,
     });
     expect(s).toEqual({ prepaid: true, cashToCollect: 0, driverPayout: 48.9 });
+  });
+
+  it('collects the shortfall in the car when the card took less than the price', () => {
+    // The live defect: a booking priced at 50 that only took 25 online left
+    // the driver told to collect nothing, and the 25 was never recovered.
+    const s = settlementFor({
+      paymentMode: 'FULL_PREPAID',
+      meterEstimate: 42.5,
+      fixedFare: 48.9,
+      amountOnline: 50,
+      amountPaid: 25,
+      paid: true,
+    });
+    expect(s.cashToCollect).toBe(25);
+    // The driver is still owed their agreed figure in full; the shortfall is
+    // the passenger's debt, not a deduction from the driver.
+    expect(s.driverPayout).toBe(48.9);
+  });
+
+  it('collects nothing when the card paid the price in full', () => {
+    const s = settlementFor({
+      paymentMode: 'FULL_PREPAID',
+      meterEstimate: 42.5,
+      fixedFare: 48.9,
+      amountOnline: 50,
+      amountPaid: 50,
+      paid: true,
+    });
+    expect(s.cashToCollect).toBe(0);
   });
 
   it('pays the figure the desk set, not the fare, when there is one', () => {

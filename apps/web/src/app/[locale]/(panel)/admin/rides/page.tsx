@@ -6,7 +6,7 @@ import { AdminRideTable, type RideRow } from '@/components/admin-ride-table';
 import { prisma } from '@/lib/db';
 import { eurIn, dateIn } from '@bcn/core/format';
 import { requireRole } from '@/lib/guards';
-import { bucketWhere, type RideBucket } from '@bcn/core/rides';
+import { bucketWhere, balanceDue, type RideBucket } from '@bcn/core/rides';
 import { liveRides } from '@/lib/live-rides';
 import { LiveBoard } from '@/components/panel/live-board';
 import { STAGE_SENTENCE, formatMinutes, stageSince } from '@/components/panel/ride-progress';
@@ -109,8 +109,7 @@ export default async function AdminRidesPage(props: {
       bookingFee: eur(b.bookingFee),
       fare: eur(b.fixedFare),
       driverPayout: Number(b.driverPayout) > 0 ? eur(b.driverPayout) : '—',
-      cashToCollect:
-        b.paymentMode === 'FEE_ONLY' ? `${eur(b.meterEstimate)} in car` : '—',
+      cashToCollect: cashLine(b),
       stage: STAGE_SENTENCE[b.status] ?? b.status.replace(/_/g, ' ').toLowerCase(),
       // Elapsed time is computed here, on the server, from the same `now` the
       // rest of the page uses — so every figure on the screen agrees.
@@ -121,6 +120,25 @@ export default async function AdminRidesPage(props: {
       live,
     };
   });
+
+  // A prepaid ride normally shows a dash here, because that is the promise:
+  // nothing changes hands in the car. It must not show a dash when the card
+  // took less than the price, which is how a half-paid ride looked settled.
+  function cashLine(b: {
+    paymentMode: string;
+    meterEstimate: unknown;
+    amountOnline: unknown;
+    amountPaid: unknown;
+    paymentStatus: string;
+  }): string {
+    if (b.paymentMode === 'FEE_ONLY') return `${eur(b.meterEstimate)} in car`;
+    const owed = balanceDue({
+      amountOnline: Number(b.amountOnline),
+      amountPaid: b.amountPaid == null ? null : Number(b.amountPaid),
+      paid: b.paymentStatus === 'PAID',
+    });
+    return owed > 0 ? `${eur(owed)} in car` : '—';
+  }
 
   return (
     <PanelShell

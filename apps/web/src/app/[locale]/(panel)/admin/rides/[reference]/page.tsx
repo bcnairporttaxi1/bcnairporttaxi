@@ -9,6 +9,7 @@ import { prisma } from '@/lib/db';
 import { requireRole } from '@/lib/guards';
 import { eurIn, dateIn } from '@bcn/core/format';
 import { toBarcelonaInput } from '@bcn/core/barcelona-time';
+import { balanceDue } from '@bcn/core/rides';
 import { adminNav } from '../../tabs';
 import { assignDriver, cancelRide, editRide, setBookingStatus } from '../../actions';
 
@@ -81,6 +82,14 @@ export default async function AdminRideDetailPage(props: {
   const eur = eurIn(locale);
   const when = dateIn(locale, 'long');
   const b = booking;
+
+  // Surfaced on the desk as well as the driver's phone: whoever answers the
+  // phone about this ride needs to know money is outstanding.
+  const owedInCar = balanceDue({
+    amountOnline: Number(b.amountOnline),
+    amountPaid: b.amountPaid == null ? null : Number(b.amountPaid),
+    paid: b.paymentStatus === 'PAID',
+  });
 
   const otherLeg = b.groupId
     ? await prisma.booking.findFirst({
@@ -284,10 +293,25 @@ export default async function AdminRideDetailPage(props: {
             <Row label="Service charge" mono>
               {eur(b.bookingFee)}
             </Row>
-            <Row label="Taken online" mono>
+            <Row label="Price" mono>
               <span className="font-bold p-gold">{eur(b.amountOnline)}</span>
               <span className="p-faint"> · {b.paymentStatus.toLowerCase()}</span>
             </Row>
+            <Row label="Actually paid" mono>
+              {b.amountPaid == null ? (
+                <span className="p-faint">
+                  {b.paymentStatus === 'PAID' ? 'not recorded' : '—'}
+                </span>
+              ) : (
+                eur(b.amountPaid)
+              )}
+            </Row>
+            {owedInCar > 0 && (
+              <Row label="Owed in car" mono>
+                <span className="font-bold text-[var(--p-down)]">{eur(owedInCar)}</span>
+                <span className="p-faint"> · the card took less than the price</span>
+              </Row>
+            )}
             <Row label="Driver pay" mono>
               {b.driverPay != null ? (
                 eur(b.driverPay)

@@ -68,6 +68,11 @@ export async function advanceRide(formData: FormData): Promise<void> {
     paymentMode: booking.paymentMode,
     meterEstimate: Number(booking.meterEstimate),
     fixedFare: Number(booking.fixedFare),
+    // Without these a prepaid ride always settled at zero, so a card that
+    // came up short produced a receipt saying nothing was paid in the car.
+    amountOnline: Number(booking.amountOnline),
+    amountPaid: booking.amountPaid == null ? null : Number(booking.amountPaid),
+    paid: booking.paymentStatus === 'PAID',
   });
 
   if (next === 'COMPLETED') {
@@ -75,7 +80,8 @@ export async function advanceRide(formData: FormData): Promise<void> {
       name: booking.contactName,
       reference: booking.reference,
       reviewUrl: tripLink(booking.locale, booking.reference),
-      paidInCar: money.prepaid ? null : money.cashToCollect,
+      paidInCar: money.cashToCollect > 0 ? money.cashToCollect : null,
+      paidInCarWasBalance: money.prepaid,
       locale: booking.locale,
       canTip: Boolean(booking.driverId) && booking.tipPaidAt == null,
     });
