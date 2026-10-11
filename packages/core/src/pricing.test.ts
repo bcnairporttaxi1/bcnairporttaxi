@@ -252,13 +252,38 @@ describe('fixed routes — the operator price list of 1 October 2026', () => {
     const q = calculateQuote({
       pickup: AIRPORT,
       dropoff: BADALONA,
-      roadKm: 22,
+      roadKm: 25.24, // the distance a real booking actually travelled
       durationMin: 35,
       pickupAt: summer('13:00'),
     });
     expect(q.adjustment).not.toBe('FIXED_ROUTE');
-    expect(q.total).not.toBe(50);
+    expect(q.total).toBeGreaterThan(50); // metered, and above the floor
     expect(q.supplements).toBeGreaterThan(0); // airport supplement still applies
+  });
+
+  it('lifts an airport job that would otherwise sell under the list price', () => {
+    // The live defect: El Prat town to a Barcelona hotel took 25.51, almost
+    // exactly half the list price, because neither end was Barcelona city.
+    const q = calculateQuote({
+      pickup: { lat: 41.3246, lng: 2.0953 }, // El Prat town, outside the airport radius
+      dropoff: { lat: 41.3874, lng: 2.1686 }, // Barcelona
+      roadKm: 12,
+      durationMin: 22,
+      pickupAt: summer('13:00'),
+    });
+    // Not an airport job — neither end is the airport — so the floor does not
+    // apply and it stays metered. The floor is for airport journeys only.
+    expect(q.adjustment).not.toBe('FIXED_ROUTE');
+
+    const fromTerminal = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: { lat: 41.3874, lng: 2.1686 },
+      roadKm: 12,
+      durationMin: 22,
+      pickupAt: summer('13:00'),
+      vehicleSeats: 7,
+    });
+    expect(fromTerminal.total).toBe(75); // V-Class list price, not the meter
   });
 
   it('leaves journeys outside the area on the interurban tariff', () => {
@@ -318,7 +343,26 @@ describe('fixed routes — the operator price list of 1 October 2026', () => {
 });
 
 describe('calculateQuote — airport rules', () => {
-  it('adds the El Prat supplement and enforces the minimum on both fares', () => {
+  it('still adds the El Prat supplement on a run that meters above the floor', () => {
+    // Badalona at its real road distance: the meter clears 50, so the trip
+    // prices normally and the supplement is visible in the breakdown.
+    const q = calculateQuote({
+      pickup: AIRPORT,
+      dropoff: { lat: 41.45, lng: 2.2474 },
+      roadKm: 25.24,
+      durationMin: 35,
+      pickupAt: summer('13:00'),
+    });
+
+    expect(q.supplementLines.some((l) => l.key === 'airportElPrat')).toBe(true);
+    expect(q.adjustment).toBeNull();
+    expect(q.total).toBeGreaterThan(50);
+  });
+
+  it('never sells a short airport hop below the list price', () => {
+    // 4 km from the terminal used to meter down to the 21 EUR AMB minimum and
+    // reach the passenger at about 26. The list says 50 for an airport job in
+    // a sedan, so 50 it is; the AMB minimum can no longer bind here.
     const q = calculateQuote({
       pickup: AIRPORT,
       dropoff: { lat: 41.3275, lng: 2.0761 },
@@ -327,11 +371,8 @@ describe('calculateQuote — airport rules', () => {
       pickupAt: summer('13:00'),
     });
 
-    expect(q.supplementLines.some((l) => l.key === 'airportElPrat')).toBe(true);
-    expect(q.adjustment).toBe('AIRPORT_MINIMUM');
-    expect(q.meterEstimate).toBe(TARIFFS.minFareFromAirport);
-    // The prepaid fare must never dip below the regulated floor either.
-    expect(q.fixedFare).toBeGreaterThanOrEqual(TARIFFS.minFareFromAirport);
+    expect(q.total).toBe(50);
+    expect(q.adjustment).toBe('FIXED_ROUTE');
   });
 
   it('charges the fixed city price airport to Barcelona, whatever the meter would say', () => {
@@ -621,17 +662,21 @@ describe('interurban (outside AMB) tariffs T-6 and T-7', () => {
     // membership was resolved by municipality it landed in Castelldefels,
     // which IS in the AMB, so the test had been passing for the wrong reason.
     // Vallirana is a real municipality and really is outside.
+    // Lengthened from 8 km: at that distance the airport floor now binds and
+    // masks the tariff underneath. At a real interurban distance the
+    // Generalitat tariff is what prices the trip, which is the rule here.
     const q = calculateQuote({
       pickup: AIRPORT,
       dropoff: VALLIRANA,
-      roadKm: 8,
-      durationMin: 12,
+      roadKm: 30,
+      durationMin: 40,
       pickupAt: summer('13:00'),
     });
 
     expect(q.tariff).toBe('T6');
     expect(q.adjustment).toBeNull();
-    expect(q.meterEstimate).toBe(24.97); // 7.25 + (16 x 0.82) + 4.60
+    // The closed circuit bills out and back: 60 km for a 30 km journey.
+    expect(q.meterEstimate).toBe(61.05); // 7.25 + (60 x 0.82) + 4.60
   });
 
   it('bills the return leg, because the interurban service is a closed circuit', () => {

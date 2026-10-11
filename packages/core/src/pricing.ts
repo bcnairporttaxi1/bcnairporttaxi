@@ -437,6 +437,73 @@ export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
  * minimum apply to the meter and the fare alike; only the per-km rate differs.
  */
 export function calculateQuote(input: QuoteInput): Quote {
+  const quote = baseQuote(input);
+
+  /*
+   * An airport job never sells below the price list.
+   *
+   * The fixed city price covers Barcelona itself, so a run from the ring
+   * just outside it — L'Hospitalet, Esplugues, El Prat town — fell through
+   * to the meter and sold for 25 to 33 euros against a list price of 50.
+   * Live bookings did exactly that: BCN-H2SRQM took 25.51 for El Prat to a
+   * Barcelona hotel, almost exactly half. Nothing was underpaid; the quote
+   * itself was short, and because every booking is prepaid the shortfall
+   * was never recoverable in the car.
+   *
+   * So the list price becomes a floor rather than only an exact match. A
+   * longer run that meters above it still charges the meter — Badalona and
+   * Castelldefels are unaffected — and a journey that never sees the
+   * airport is untouched.
+   */
+  const touchesAirport = isAirport(input.pickup) || isAirport(input.dropoff);
+  if (!touchesAirport) return quote;
+
+  const floor = TARIFFS.fixedRoutes.cityAirport[vehicleClass(input.vehicleSeats)];
+  if (quote.total >= floor) return quote;
+
+  return atFixedTotal(floor, quote.tariff, 'FIXED_ROUTE', input);
+}
+
+/**
+ * Rebuilds a quote so the passenger pays exactly `total`.
+ *
+ * The price list is written as totals, so the fare and our charge are solved
+ * out of the figure rather than added to it. Quoting 50 and charging 62.50
+ * would repeat the bug the old T-4 branch had.
+ */
+function atFixedTotal(
+  total: number,
+  tariff: TariffCode,
+  adjustment: Quote['adjustment'],
+  input: QuoteInput,
+): Quote {
+  const bookingFeeRate = bookingFeeRateFor(input.pickupAt);
+  const fixedFare = round2(total / (1 + bookingFeeRate));
+  const bookingFee = round2(total - fixedFare);
+
+  return {
+    tariff,
+    roadKm: input.roadKm,
+    durationMin: input.durationMin,
+    startFare: 0,
+    perKmRate: 0,
+    perKmRateCharged: 0,
+    supplements: 0,
+    supplementLines: [],
+    adjustment,
+    meterEstimate: fixedFare,
+    fixedFare,
+    bookingFee,
+    bookingFeeRate,
+    total,
+    payNowFull: total,
+    payNowFeeOnly: bookingFee,
+    payInTaxiFeeOnly: fixedFare,
+    currency: TARIFFS.currency,
+  };
+}
+
+function baseQuote(input: QuoteInput): Quote {
   const { pickup, dropoff, roadKm, durationMin, pickupAt, vehicleSeats } = input;
 
   const pickupAirport = isAirport(pickup);
@@ -457,31 +524,13 @@ export function calculateQuote(input: QuoteInput): Quote {
      * Quoting EUR 50 and charging EUR 62.50 would be the same bug the old
      * T-4 branch had, where a "fixed EUR 46" reached the passenger as EUR 57.50.
      */
-    const bookingFeeRate = bookingFeeRateFor(pickupAt);
-    const fixedFare = round2(fixedTotal / (1 + bookingFeeRate));
-    const bookingFee = round2(fixedTotal - fixedFare);
     const isPort = isMollAdossat(pickup) || isMollAdossat(dropoff);
-
-    return {
-      tariff: isPort ? 'T4' : selectTariff(pickupAt),
-      roadKm,
-      durationMin,
-      startFare: 0,
-      perKmRate: 0,
-      perKmRateCharged: 0,
-      supplements: 0,
-      supplementLines: [],
-      adjustment: isPort ? 'T4_FIXED' : 'FIXED_ROUTE',
-      meterEstimate: fixedFare,
-      fixedFare,
-      bookingFee,
-      bookingFeeRate,
-      total: fixedTotal,
-      payNowFull: fixedTotal,
-      payNowFeeOnly: bookingFee,
-      payInTaxiFeeOnly: fixedFare,
-      currency: TARIFFS.currency,
-    };
+    return atFixedTotal(
+      fixedTotal,
+      isPort ? 'T4' : selectTariff(pickupAt),
+      isPort ? 'T4_FIXED' : 'FIXED_ROUTE',
+      input,
+    );
   }
 
   // Interurban: either end outside the AMB switches the whole journey to the
