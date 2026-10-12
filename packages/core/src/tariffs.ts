@@ -281,7 +281,20 @@ export const SPECIAL_NIGHT_EVES = new Set(['12-24', '12-31', '06-23']);
 /** Known fixed points used for supplement detection. */
 export const LANDMARKS = {
   elPratAirport: { lat: 41.2974, lng: 2.0833, radiusKm: 3.0 },
-  mollAdossat: { lat: 41.3506, lng: 2.1739, radiusKm: 1.2 },
+  /**
+   * The cruise quay, centred on the middle of the terminal strip.
+   *
+   * It was previously centred on the quay's southern end, where Terminal E
+   * sits. The five terminals run about 1.3 km north-east from there, so
+   * Terminal A fell 1.45 km away — outside the radius, and therefore sold at
+   * the city price instead of the fixed airport–port fare. Terminal B cleared
+   * the old radius by 37 m, which is not a margin.
+   *
+   * Centred here, the furthest terminal is 0.71 km out and the World Trade
+   * Center berths — a different quay, correctly priced as a city address —
+   * stay 1.68 km clear. Terminal coordinates are in `places.ts`.
+   */
+  mollAdossat: { lat: 41.3565, lng: 2.1778, radiusKm: 1.0 },
   santsStation: { lat: 41.3792, lng: 2.14, radiusKm: 0.6 },
   firaGranVia: { lat: 41.3542, lng: 2.1287, radiusKm: 0.8 },
 } as const;
