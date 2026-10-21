@@ -58,14 +58,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport to City Taxi | Book Online',
         description:
-          'Book a taxi from Barcelona airport to the city centre. One all-inclusive price from the official AMB tariff, El Prat supplement included, driver waiting at arrivals.',
+          'Book a taxi from Barcelona airport to the city centre. One fixed all-inclusive price, El Prat supplement included, driver waiting at arrivals.',
         h1: 'Taxi from Barcelona airport to the city',
         intro:
           'A taxi from Barcelona El Prat to the city centre takes roughly 25 to 35 minutes depending on traffic and which terminal you land at. Booking ahead means a driver is already assigned when you land, holding a name sign in arrivals, instead of joining the rank queue at T1 or T2.',
         sections: [
           {
             h2: 'What a Barcelona airport transfer taxi costs',
-            body: 'Your price is built from the official AMB tariff and the real road distance, with the fixed airport supplement and the airport minimum fare already inside it. A ride from the airport to anywhere in Barcelona is a fixed EUR 50 in a standard taxi, whatever the distance and whatever the hour; weekends and public holidays add 7.5%. Enter your exact destination above to see your own all-inclusive price.',
+            body: 'Your price is a fixed figure from our own list, not a meter reading and not an estimate — every official supplement that applies to the route is already inside it. A ride from the airport to anywhere in Barcelona is a fixed EUR 50 in a standard taxi, whatever the distance and whatever the hour; weekends and public holidays add 7.5%. Enter your exact destination above to see your own all-inclusive price.',
           },
           {
             h2: 'Where your driver meets you at arrivals',
@@ -87,7 +87,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi from Barcelona to the Airport | Book Online',
         description:
-          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, one all-inclusive price from the official AMB tariff, and a driver who knows the terminal drop-off points.',
+          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, one fixed all-inclusive price, and a driver who knows the terminal drop-off points.',
         h1: 'Taxi from Barcelona to the airport',
         intro:
           'Going the other way is the trip worth booking in advance. A pre-booked taxi to Barcelona airport arrives at your hotel or apartment at a set time, which matters far more when you have a flight to catch than when you are arriving.',
@@ -102,7 +102,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'Early morning Barcelona to El Prat airport taxi runs',
-            body: 'The first wave of departures from El Prat leaves before 07:00, which means pickups from 04:30. Those run on the T-2 night tariff, and we confirm the driver the evening before so there is no uncertainty at 4am.',
+            body: 'The first wave of departures from El Prat leaves before 07:00, which means pickups from 04:30. A 04:30 pickup costs exactly what the same journey costs at midday — the hour does not move a fixed price — and we confirm the driver the evening before so there is no uncertainty at 4am.',
           },
         ],
       },
@@ -126,11 +126,11 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'The El Prat airport supplement',
-            body: 'Every taxi journey starting or ending at El Prat carries a fixed airport supplement set by the AMB, and journeys starting at the airport have a minimum fare. Both are built into the estimate you see before booking, so there is no surprise on the meter.',
+            body: 'The official airport supplement and every other charge that applies to the route are inside the fixed price you are quoted. There is no meter running on your journey and no second figure at the end of it, so there is nothing to be surprised by.',
           },
           {
             h2: 'Cruise passengers and the port',
-            body: 'For passengers connecting to a cruise, the run between El Prat and the Moll Adossat cruise terminal has its own fixed closed price set by the AMB, rather than running on the meter. Enter the cruise terminal as your destination and the estimate switches to that fixed price automatically.',
+            body: 'For passengers connecting to a cruise, the run between El Prat and the Moll Adossat cruise terminal has its own fixed price, listed separately from the city price. Enter the cruise terminal as your destination and the quote switches to it automatically.',
           },
         ],
       },
@@ -143,26 +143,26 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport Taxi Price | 2026 AMB Fares',
         description:
-          'What a Barcelona airport taxi actually costs: the official AMB tariff table, the El Prat supplement, the airport minimum fare, and how your all-inclusive price is built.',
+          'What a Barcelona airport taxi actually costs: our fixed transfer prices per vehicle, how far the flat price reaches, and what the weekend and out-of-zone rates add.',
         h1: 'Barcelona airport taxi price',
         intro:
-          'Barcelona taxi prices are regulated. No licensed taxi can charge more or less than the official AMB meter, which means the honest answer to "what does it cost" is a calculation rather than a sales figure. Here is exactly how that calculation works.',
+          'A Barcelona airport transfer with us is one fixed price, agreed before you book and locked when you do. No meter, no distance guesswork and nothing to settle in the car. Here is the whole list and the three things that can add to it.',
         sections: [
           {
             h2: 'How your Barcelona airport taxi fare is calculated',
-            body: 'Every trip starts with a fixed start fare, then adds a per-kilometre rate. Which rate applies depends on when you travel: T-1 is the weekday daytime rate between 08:00 and 20:00, and T-2 is the higher rate that covers nights, all of Saturday and Sunday, and public holidays. Supplements for the airport, the cruise port, Sants station and Fira Gran Via are added on top, capped at a maximum per service.',
+            body: 'A transfer is one fixed price, set by vehicle rather than by distance or clock. The airport to anywhere in Barcelona is one figure, the airport to the cruise terminal another, and a standard taxi, a six-seat minivan and a seven-seat van each have their own. Only three things can add to it: a drop-off beyond the flat zone, a transfer to or from the cruise quay, and the weekend and public-holiday rate. Each is shown as its own line before you pay.',
           },
           {
             h2: 'Is there a cheap taxi from Barcelona airport?',
-            body: 'Not in the sense of one operator undercutting another — the AMB meter is identical in every licensed taxi, so nobody can legally be cheaper on the fare itself. What you can control is timing and vehicle choice: travelling in the T-1 daytime window costs meaningfully less per kilometre than at night or at weekends, and a shared arrival time for a group of four beats four separate fares. Be wary of anyone advertising a fare well below the meter; it usually signals an unlicensed vehicle.',
+            body: 'Compare on what the price actually protects you from rather than on the headline figure. A fixed price cannot move once agreed: traffic, a longer route, a late landing and the time of day are our problem, not yours, and nothing is collected in the car. What you can control is vehicle choice and travelling outside the weekend window. Be wary of an unusually low quote — it usually means an unlicensed vehicle, or a figure that will grow before you arrive.',
           },
           {
-            h2: 'The airport minimum fare',
-            body: 'Journeys starting at El Prat have a minimum fare. If the metered amount for a short hop comes to less than that minimum, the minimum is what you pay. This mainly affects trips to El Prat town or nearby hotels rather than journeys into Barcelona.',
+            h2: 'How far the fixed price reaches',
+            body: 'The city price covers everywhere within a 16 km radius of the terminal, which is the whole of Barcelona and the towns immediately around it — a short hop to El Prat town and a run across the city to Park Güell cost the same. Beyond that radius the fixed price still stands and only the kilometres past it are added, at a published rate.',
           },
           {
             h2: 'What we charge on top',
-            body: 'You pay one all-inclusive price online when you reserve. It covers the journey on the official AMB tariff, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. There is no second amount to settle: nothing at all is owed in the taxi, and you receive a receipt for the full price by email.',
+            body: 'You pay one all-inclusive price online when you reserve. It covers the journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. There is no second amount to settle: nothing at all is owed in the taxi, and you receive a receipt for the full price by email.',
           },
         ],
       },
@@ -175,7 +175,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Hotel to Airport Transfer | Door to Door',
         description:
-          'Book a taxi from your Barcelona hotel to El Prat airport, or from the airport to your hotel door. Door-to-door, licensed, and priced on the official meter.',
+          'Book a taxi from your Barcelona hotel to El Prat airport, or from the airport to your hotel door. Door-to-door, licensed, one fixed price paid online.',
         h1: 'Barcelona hotel to airport transfers',
         intro:
           'Most of our bookings are hotel transfers, in both directions. A door-to-door taxi removes the part of the trip people most underestimate: getting luggage from the hotel lobby to a rank, or finding the right address after a long flight.',
@@ -232,7 +232,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport Private Transfer | Your Own Taxi',
         description:
-          'A private Barcelona airport transfer: your own licensed taxi, no sharing, no waiting for other passengers, priced on the official AMB meter.',
+          'A private Barcelona airport transfer: your own licensed taxi, no sharing, no waiting for other passengers, one fixed price agreed before you book.',
         h1: 'Barcelona airport private transfer',
         intro:
           'Every booking here is a private transfer. The vehicle is yours alone: no shared shuttle, no detours to collect other passengers, no fixed departure slot. You travel directly from your pickup point to your destination.',
@@ -243,11 +243,11 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'Choosing your vehicle',
-            body: 'Choose a standard taxi for up to four passengers, a Mercedes Vito minivan for six, or a V-Class for seven with luggage to match. The metered rate does not change with vehicle size — the AMB tariff is the same — so pick on capacity and comfort.',
+            body: 'Choose a standard taxi for up to four passengers, a Mercedes Vito minivan for six, or a V-Class for seven with luggage to match. Each has its own fixed transfer price, shown side by side before you book, so you can weigh capacity and comfort against the figure.',
           },
           {
             h2: 'Business travel and invoices',
-            body: 'For business trips we can assign the premium V-Class and provide the taxi invoice for expenses. Ask your driver for the meter invoice in the car; we email the booking-fee receipt separately.',
+            body: 'For business trips we can assign the premium V-Class. A full receipt for the whole amount is emailed with your confirmation, which is what expenses normally need; if you also want the official taxi invoice for the journey itself, your driver can provide it in the car.',
           },
         ],
       },
@@ -267,7 +267,7 @@ export const LANDING_PAGES: LandingPage[] = [
         sections: [
           {
             h2: 'Airport taxi Barcelona 24 hours a day',
-            body: 'Between 20:00 and 08:00, all weekend, and on public holidays, the higher T-2 rate applies. This is set by the AMB and applies to every licensed taxi in Barcelona equally — it is not a surcharge we add. Your estimate uses the correct tariff for your actual pickup time automatically. Christmas Eve and New Year\'s Eve nights carry an additional official supplement.',
+            body: 'A night pickup costs the same as the same journey at midday: the hour does not move a fixed price. Weekends and public holidays do — Saturday and Sunday, Christmas, New Year and the Catalan calendar each add 7.5%, shown as its own line before you pay rather than discovered later. Christmas Eve and New Year\'s Eve nights carry an additional official supplement.',
           },
           {
             h2: 'Late night arrivals',
@@ -316,7 +316,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Eixample to Barcelona Airport | Door to Door',
         description:
-          'Book a taxi from Eixample to Barcelona El Prat airport. Straightforward door-to-door pickup on the grid, on the official AMB meter.',
+          'Book a taxi from Eixample to Barcelona El Prat airport. Straightforward door-to-door pickup on the grid, at one fixed price.',
         h1: 'Taxi from Eixample to Barcelona airport',
         intro:
           'Eixample is the easiest district in Barcelona for a taxi pickup. Cerdà\'s grid means almost every address is directly reachable by car, with room to stop and load luggage — the opposite of the old town.',
@@ -359,7 +359,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What a city centre to airport taxi costs',
-            body: 'The official tariff from the centre to El Prat, plus the fixed airport supplement, all inside one price. Nights and weekends run on the higher T-2 rate. Enter your address to see your exact price before you commit.',
+            body: 'One fixed price from anywhere in the centre to El Prat, with every official supplement already inside it and nothing to pay in the taxi. The hour does not change it; weekends and public holidays add 7.5%. Enter your address to see your exact price before you commit.',
           },
         ],
       },
@@ -372,7 +372,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Book Airport Taxi Barcelona Online | Instant Price',
         description:
-          'Book a Barcelona airport taxi online in minutes. Instant fare estimate from official AMB tariffs, secure payment, instant email confirmation.',
+          'Book a Barcelona airport taxi online in minutes. Instant fixed price, secure payment, instant email confirmation.',
         h1: 'Book an airport taxi in Barcelona online',
         intro:
           'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. You pay one all-inclusive price online, and owe nothing at all in the taxi.',

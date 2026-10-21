@@ -26,11 +26,11 @@
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
     "metaDescription": "Book a Barcelona airport taxi online in advance. One all-inclusive price paid online, built from the official AMB tariff.",
     "h1": "Barcelona airport taxi, booked before you land",
-    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. You see one all-inclusive price before you book — built from the official AMB tariff and the real road distance — you pay it online, and there is nothing to settle with the driver.",
+    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. One fixed all-inclusive price, shown before you book and locked when you do — no meter, no distance guesswork — you pay it online and there is nothing to settle with the driver.",
     "trust": {
       "licensed": "Licensed AMB taxis",
-      "meter": "Official AMB tariff",
-      "noSurge": "No surge pricing",
+      "meter": "Fixed price, no meter",
+      "noSurge": "Price locked when you book",
       "support": "24 h booking"
     },
     "sections": {
@@ -60,7 +60,7 @@
     "why": {
       "meter": {
         "title": "One price, locked before you travel",
-        "body": "Barcelona fares are set by the AMB and identical in every licensed taxi. We build your price from the official tariff and the real road distance, then lock it — so the figure you are quoted is the figure you pay, whatever the traffic does."
+        "body": "Your price is a fixed figure from our own list, not a meter reading — set by route and vehicle, not by distance or the hour. You agree it before you book and it is locked when you do, so the figure you are quoted is the figure you pay, whatever the traffic does."
       },
       "flight": {
         "title": "We watch your flight",
@@ -171,7 +171,7 @@
     "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",
     "metaDescription": "Licensed Barcelona airport taxis: Toyota Prius+, Toyota Corolla, Mercedes Vito minivan and Mercedes V-Class premium van.",
     "h1": "Our Barcelona taxi fleet",
-    "intro": "Every vehicle is a licensed Barcelona taxi with a working meter. Choose by group size and luggage: vehicles carrying five to eight passengers attract the official AMB supplement, which is already inside the price you are shown.",
+    "intro": "Every vehicle is a licensed Barcelona taxi. Choose by group size and luggage: a standard taxi takes four, a minivan six and a van seven, and each has its own fixed transfer price, shown in full before you book.",
     "seats": "{count, plural, one {# passenger} other {# passengers}}",
     "bags": "{count, plural, one {# suitcase} other {# suitcases}}",
     "select": "Select {name}",
@@ -194,31 +194,29 @@
     "chooseVehicle": "Choose a vehicle"
   },
   "pricing": {
-    "metaTitle": "Barcelona Airport Taxi Prices 2026",
-    "metaDescription": "Barcelona airport taxi prices explained: official AMB tariffs T-1 and T-2, the El Prat supplement, the 21 EUR airport minimum.",
+    "metaTitle": "Barcelona Airport Taxi Prices 2026 — Fixed Transfer Fares",
+    "metaDescription": "Fixed Barcelona airport taxi prices: {sedan} to anywhere in the city, {port} to the cruise port, per vehicle. What the weekend rate and the out-of-zone rate add, and when a journey is priced by the kilometre instead.",
     "h1": "Barcelona airport taxi prices",
-    "intro": "Barcelona taxi fares are not set by us. They are fixed by the Àrea Metropolitana de Barcelona (AMB) and run on the official meter in every licensed taxi. The table below is the current tariff, valid 19 January 2026 to 17 January 2027.",
-    "tableCaption": "Official AMB urban taxi tariffs, valid 19 Jan 2026 – 17 Jan 2027",
-    "fixedTitle": "Our fixed transfer prices",
-    "fixedBody": "The table above is the official meter. What you actually pay us for a transfer is a fixed price, not a meter reading: {sedan} between the airport and anywhere within {km} km of it, which covers the whole of Barcelona, {van6} for a six-seat minivan and {van7} for a seven-seat van. The airport and the cruise port are {port}, and a transfer between the port and the city is the city price plus {portExtra}. Beyond {km} km we add {rate} for each extra kilometre, and weekends and public holidays — Christmas, New Year and the Catalan calendar — add {surge}%. Only journeys that leave the metropolitan area are priced by the kilometre.",
-    "concept": "Concept",
-    "amount": "Amount",
-    "rows": {
-      "startFare": "Start fare (bajada de bandera)",
-      "perKmT1": "Per km — T-1 (Mon–Fri 08:00–20:00)",
-      "perKmT2": "Per km — T-2 (nights, weekends, holidays)",
-      "waitPerHour": "Waiting time, per hour",
-      "airportSupplement": "El Prat airport supplement",
-      "mollSupplement": "Moll Adossat cruise port supplement",
-      "santsSupplement": "Sants station supplement",
-      "firaSupplement": "Fira Gran Via supplement",
-      "maxSupplement": "Maximum supplements per service",
-      "minFromAirport": "Minimum fare from the airport",
-      "t4Fixed": "Fixed price: airport ↔ Moll Adossat (T-4)"
-    },
+    "intro": "One fixed price per journey, agreed before you book and locked when you do. It is not a meter reading and not an estimate: the figure you see is the figure you pay, whatever the traffic does and whatever the hour.",
+    "tableCaption": "Fixed transfer prices, per vehicle",
     "feeTitle": "What your price includes",
-    "feeBody": "Our service is included in the price you are quoted. You pay one all-inclusive amount online when you book — the fare, every official supplement and our booking service together — and nothing at all to the driver. You receive a full receipt by email.",
-    "verifyNote": "Tariffs are reviewed by the AMB each January. We verify them at taxi.amb.cat at every changeover."
+    "feeBody": "Everything. The journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car, in one amount paid online when you book. There is no second figure to settle: nothing at all is owed in the taxi, and a full receipt is emailed with your confirmation.",
+    "verifyNote": "Our prices are fixed by us and reviewed as costs change. Journeys outside the metropolitan area are priced per kilometre on the interurban tariff set by the Generalitat de Catalunya, which we verify at every changeover.",
+    "routeCol": "Route",
+    "standardCol": "Standard taxi (4)",
+    "minivanCol": "Minivan (6)",
+    "vanCol": "Van (7)",
+    "rowCityAirport": "Airport ↔ anywhere in Barcelona, within {km} km",
+    "rowPortAirport": "Airport ↔ Moll Adossat cruise port",
+    "adjTitle": "What can be added",
+    "adjPortCity": "Cruise port ↔ city",
+    "adjPortCityValue": "city price + {portExtra}",
+    "adjExcessKm": "Each kilometre beyond {km} km",
+    "adjExcessKmValue": "+ {rate}",
+    "adjWeekend": "Weekends and public holidays",
+    "adjWeekendValue": "+ {surge}%",
+    "adjInterurban": "Outside the metropolitan area",
+    "adjInterurbanValue": "priced by the kilometre"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
@@ -573,7 +571,7 @@
     "rowAirportSitges": "El Prat airport to Sitges",
     "rowBcnTarragona": "Barcelona to Tarragona",
     "rowBcnGirona": "Barcelona to Girona airport",
-    "note": "Airport and cruise port transfers are a fixed price: the time of day does not change it. Weekends and public holidays add {surge}%, and journeys more than {km} km from the airport or port add {rate} per extra kilometre. Trips outside the metropolitan area are metered on T-6 or T-7. Every price shown is all-inclusive — the fare, the official supplements and the booking, with nothing to pay in the taxi.",
+    "note": "Airport and cruise port transfers are a fixed price: the hour of the day does not change it. Weekends and public holidays add {surge}%, and a drop-off more than {km} km from the airport or port adds {rate} for each extra kilometre. Only journeys that leave the metropolitan area are priced by the kilometre. Every price shown is all-inclusive, with nothing to pay in the taxi.",
     "totalPrice": "Total price"
   },
   "findBooking": {

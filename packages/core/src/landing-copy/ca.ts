@@ -11,14 +11,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aeroport Barcelona al Centre | Reserva Online',
     description:
-      'Reserva un taxi de l\'aeroport de Barcelona al centre. Tarifa oficial del taxímetre AMB, suplement del Prat inclòs a l\'estimació i conductor esperant a arribades.',
+      'Reserva un taxi de l’aeroport de Barcelona al centre. Preu fix tot inclòs, amb el suplement del Prat ja dins i conductor esperant a arribades.',
     h1: 'Taxi de l\'aeroport de Barcelona al centre',
     intro:
       'Un taxi des del Prat fins al centre de Barcelona triga entre 25 i 35 minuts segons el trànsit i la terminal on aterris. Reservar amb antelació vol dir que ja hi ha un conductor assignat quan arribes, amb un cartell amb el teu nom a la sala d\'arribades, en comptes de fer cua a la parada de la T1 o la T2.',
     sections: [
       {
         h2: 'Quant costa un trasllat de l\'aeroport de Barcelona',
-        body: 'La tarifa la marca el taxímetre oficial de l\'AMB. Des del Prat pagues l\'import del taxímetre més el suplement fix d\'aeroport, i hi ha una tarifa mínima per als trajectes molt curts amb origen a l\'aeroport. A la pràctica, un trajecte de l\'aeroport a qualsevol punt de Barcelona són 50 EUR fixos en taxi estàndard, sigui quina sigui la distància i l\'hora; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva destinació exacta aquí sobre per veure una estimació precisa.',
+        body: 'El preu el fixem nosaltres: no és una lectura del taxímetre ni una estimació, i tots els suplements oficials de la ruta ja són dins de la xifra. A la pràctica, un trajecte de l’aeroport a qualsevol punt de Barcelona són 50 EUR fixos en taxi estàndard, sigui quina sigui la distància i l’hora; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva destinació exacta a dalt per veure el teu preu.',
       },
       {
         h2: 'On t\'espera el conductor a arribades',
@@ -34,7 +34,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi de Barcelona a l\'Aeroport | Reserva Online',
     description:
-      'Reserva un taxi des de Barcelona ciutat a l\'aeroport del Prat. Hora de recollida fixada, tarifa oficial del taxímetre i conductors que coneixen les portes de cada terminal.',
+      'Reserva un taxi des de Barcelona ciutat a l\'aeroport del Prat. Hora de recollida fixada, preu fix tot inclòs i conductors que coneixen les portes de cada terminal.',
     h1: 'Taxi de Barcelona a l\'aeroport',
     intro:
       'El trajecte d\'anada a l\'aeroport és el que realment convé reservar. Un taxi contractat prèviament arriba al teu hotel o apartament a una hora fixada, cosa que importa molt més quan has d\'agafar un vol que no pas quan estàs arribant.',
@@ -49,7 +49,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Vols de primera hora des del Prat',
-        body: 'La primera onada de sortides del Prat s\'enlaira abans de les 07:00, cosa que implica recollides des de les 04:30. Aquests trajectes es facturen amb la tarifa nocturna T-2, i confirmem el conductor la tarda anterior perquè no quedi res per resoldre a les quatre del matí.',
+        body: 'La primera onada de sortides del Prat s\'enlaira abans de les 07:00, cosa que implica recollides des de les 04:30. Una recollida a les 04:30 costa el mateix que el mateix trajecte al migdia, perquè l\'hora no mou un preu fix, i confirmem el conductor la tarda anterior perquè no quedi res per resoldre a les quatre del matí.',
       },
     ],
   },
@@ -57,7 +57,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aeroport del Prat | Trasllats amb Llicència',
     description:
-      'Taxis amb llicència cap a i des de l\'aeroport de Barcelona-el Prat (BCN). Reserva online amb estimació segons la tarifa oficial AMB i conductor assignat al teu vol.',
+      'Taxis amb llicència cap a i des de l\'aeroport de Barcelona-el Prat (BCN). Reserva online amb estimació segons la preu fix i conductor assignat al teu vol.',
     h1: 'Taxi aeroport del Prat',
     intro:
       'L\'aeroport Josep Tarradellas Barcelona-el Prat, que gairebé tothom continua anomenant simplement el Prat, és a uns 15 km al sud-oest de la ciutat. És el segon aeroport amb més trànsit de l\'Estat i el taxi és la manera més ràpida d\'arribar a Barcelona a gairebé qualsevol hora, sempre que hi hagi un cotxe esperant.',
@@ -68,11 +68,11 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'El suplement d\'aeroport del Prat',
-        body: 'Tot trajecte en taxi que comenci o acabi al Prat porta un suplement fix d\'aeroport establert per l\'AMB, i els trajectes que surten de l\'aeroport tenen una tarifa mínima. Tots dos estan inclosos a l\'estimació que veus abans de reservar, així que el taxímetre no dona sorpreses.',
+        body: 'El suplement oficial d’aeroport i qualsevol altre càrrec que correspongui a la ruta són dins del preu fix que et donem. No hi ha taxímetre en marxa ni una segona xifra al final, així que no hi ha sorpreses.',
       },
       {
         h2: 'Passatgers de creuer',
-        body: 'Per a qui enllaça amb un creuer, el trajecte entre el Prat i la terminal de creuers del Moll Adossat té el seu propi preu tancat fixat per l\'AMB, en lloc de funcionar amb taxímetre. Introdueix la terminal de creuers com a destinació i l\'estimació canvia automàticament a aquest preu fix.',
+        body: 'Per a qui enllaça amb un creuer, el trajecte entre el Prat i la terminal de creuers del Moll Adossat té el seu propi preu tancat fixat per l\'AMB, en lloc de funcionar amb taxímetre en marxa. Introdueix la terminal de creuers com a destinació i l\'estimació canvia automàticament a aquest preu fix.',
       },
     ],
   },
@@ -80,26 +80,26 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preu Taxi Aeroport Barcelona | Tarifes AMB 2026',
     description:
-      'El que costa realment un taxi a l\'aeroport de Barcelona: la taula oficial de tarifes AMB, el suplement del Prat, la tarifa mínima d\'aeroport i com es calcula el teu preu amb tot inclòs.',
+      'El que costa realment un taxi a l’aeroport de Barcelona: els nostres preus fixos per vehicle, fins on arriba el preu pla i què hi afegeixen la tarifa de cap de setmana i la de fora de zona.',
     h1: 'Preu del taxi a l\'aeroport de Barcelona',
     intro:
-      'Els preus del taxi a Barcelona estan regulats. Cap taxi amb llicència pot cobrar més ni menys que el taxímetre oficial de l\'AMB, cosa que significa que la resposta honesta a "quant costa" és un càlcul, no una xifra comercial. Així funciona exactament aquest càlcul.',
+      'Els preus del taxi a Barcelona estan regulats. Cap taxi amb llicència pot cobrar més ni menys que la nostra llista de preus fixos, cosa que significa que la resposta honesta a "quant costa" és un càlcul, no una xifra comercial. Així funciona exactament aquest càlcul.',
     sections: [
       {
         h2: 'Com es calcula la tarifa del teu taxi a l\'aeroport',
-        body: 'Cada trajecte comença amb una baixada de bandera fixa i després suma un preu per quilòmetre. Quin preu s\'aplica depèn de quan viatgis: la T-1 és la tarifa diürna de dilluns a divendres entre les 08:00 i les 20:00, i la T-2 és la tarifa més alta que cobreix nits, tot el dissabte i el diumenge, i els festius. Els suplements per aeroport, port de creuers, estació de Sants i Fira Gran Via se sumen a sobre, amb un màxim per servei.',
+        body: 'Un trasllat és un preu fix, definit per ruta i vehicle, no per distància ni per hora. De l’aeroport a qualsevol punt de Barcelona és una xifra; de l’aeroport a la terminal de creuers, una altra; i el taxi estàndard, el minivan de sis places i la van de set tenen cadascun la seva. Només tres coses hi poden afegir: una destinació més enllà de la zona plana, un trasllat al port de creuers i la tarifa de cap de setmana i festius. Cadascuna apareix com una línia pròpia abans de pagar.',
       },
       {
         h2: 'Hi ha algun taxi barat des de l\'aeroport de Barcelona?',
-        body: 'No en el sentit que un operador pugui abaixar el preu respecte d\'un altre: el taxímetre de l\'AMB és idèntic a tots els taxis amb llicència, així que legalment ningú no pot ser més barat en la tarifa. El que sí que pots controlar és l\'horari i el vehicle. Viatjar dins la franja diürna T-1 costa força menys per quilòmetre que de nit o en cap de setmana, i per a un grup de quatre un sol cotxe surt millor que quatre bitllets solts. Desconfia de qui anunciï tarifes molt per sota del taxímetre; sol indicar un vehicle sense llicència.',
+        body: 'Compara pel que el preu et protegeix, no només per la xifra. Un preu fix no es mou un cop acordat: el trànsit, un desviament, un aterratge amb retard i l’hora del dia són el nostre problema, no el teu, i al cotxe no es cobra res. El que sí que pots controlar és el vehicle i viatjar fora del cap de setmana. Desconfia d’un preu inusualment baix: sol indicar un vehicle sense llicència, o una xifra que creixerà abans que arribis.',
       },
       {
-        h2: 'La tarifa mínima d\'aeroport',
-        body: 'Els trajectes que comencen al Prat tenen una tarifa mínima. Si l\'import del taxímetre per a un trajecte curt queda per sota d\'aquest mínim, pagues el mínim. Això afecta sobretot els viatges al Prat poble o a hotels propers, no els trajectes cap a Barcelona.',
+        h2: 'Fins on arriba el preu fix',
+        body: 'El preu de ciutat cobreix tot el que estigui en un radi de 16 km des de la terminal, és a dir, tota Barcelona i els municipis immediats: un trajecte curt al Prat poble i una carrera al Park Güell costen el mateix. Més enllà d’aquest radi el preu fix continua valent i només s’hi afegeixen els quilòmetres que sobresurten, a un preu publicat.',
       },
       {
         h2: 'Què inclou el teu preu',
-        body: 'Pagues un únic preu amb tot inclòs en reservar en línia. Cobreix el trajecte segons la tarifa oficial de l\'AMB, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. No hi ha cap segon import: al taxi no es paga res.',
+        body: 'Pagues un únic preu amb tot inclòs en reservar en línia. Cobreix el trajecte segons la preu fix, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. No hi ha cap segon import: al taxi no es paga res.',
       },
     ],
   },
@@ -107,7 +107,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Trasllat Hotel Barcelona a l\'Aeroport | Porta a Porta',
     description:
-      'Reserva un taxi des del teu hotel de Barcelona a l\'aeroport del Prat, o de l\'aeroport a la porta del teu hotel. Porta a porta, amb llicència i tarifa oficial de taxímetre.',
+      'Reserva un taxi des del teu hotel de Barcelona a l\'aeroport del Prat, o de l\'aeroport a la porta del teu hotel. Porta a porta, amb llicència i preu fix tot inclòs.',
     h1: 'Trasllats d\'hotel a l\'aeroport de Barcelona',
     intro:
       'La majoria de les nostres reserves són trasllats d\'hotel, en tots dos sentits. Un taxi porta a porta elimina la part del viatge que més es menysté: portar les maletes des del vestíbul de l\'hotel fins a una parada, o trobar l\'adreça correcta després d\'un vol llarg.',
@@ -130,14 +130,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Estació de Sants a l\'Aeroport de Barcelona',
     description:
-      'Reserva un taxi des de l\'estació de Sants a l\'aeroport del Prat. Uns 15 minuts, tarifa oficial de taxímetre amb el suplement d\'estació inclòs.',
+      'Reserva un taxi des de l\'estació de Sants a l\'aeroport del Prat. Uns 15 minuts, preu fix tot inclòs amb el suplement d\'estació inclòs.',
     h1: 'Taxi de l\'estació de Sants a l\'aeroport de Barcelona',
     intro:
       'Sants és la principal estació de tren de Barcelona i el punt d\'arribada dels AVE des de Madrid, València i Sevilla. També és el gran node de transport més proper al Prat: el trajecte en taxi ronda els 15 minuts fora d\'hora punta.',
     sections: [
       {
         h2: 'El suplement de l\'estació de Sants',
-        body: 'Els trajectes que comencen o acaben a l\'estació de Sants porten un petit suplement fix establert per l\'AMB, a més de la tarifa del taxímetre. Juntament amb el suplement d\'aeroport, tots dos van inclosos a l\'estimació que veus abans de reservar, i el total de suplements té un màxim per servei.',
+        body: 'Els trajectes que comencen o acaben a l\'estació de Sants porten un petit suplement fix establert per l\'AMB, a més de el preu del trajecte. Juntament amb el suplement d\'aeroport, tots dos van inclosos a l\'estimació que veus abans de reservar, i el total de suplements té un màxim per servei.',
       },
       {
         h2: 'On trobar el teu conductor a Sants',
@@ -153,7 +153,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Trasllat Privat Aeroport Barcelona | Taxi Exclusiu',
     description:
-      'Un trasllat privat des de l\'aeroport de Barcelona: taxi amb llicència només per a tu, sense compartir ni esperar altres passatgers, amb tarifa oficial de l\'AMB.',
+      'Un trasllat privat des de l\'aeroport de Barcelona: taxi amb llicència només per a tu, sense compartir ni esperar altres passatgers, amb preu fix.',
     h1: 'Trasllat privat de l\'aeroport de Barcelona',
     intro:
       'Totes les reserves aquí són trasllats privats. El vehicle és només teu: sense llançadora compartida, sense desviaments per recollir altres passatgers i sense horari fix de sortida. Viatges directe des del teu punt de recollida fins a la teva destinació.',
@@ -164,7 +164,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Triar vehicle',
-        body: 'Tria un taxi estàndard per a fins a quatre passatgers, una Mercedes Vito per a sis o una V-Class per a set amb equipatge equivalent. La tarifa del taxímetre no canvia amb la mida del vehicle, perquè la fixa l\'AMB, així que tria per capacitat i comoditat.',
+        body: 'Tria un taxi estàndard per a fins a quatre passatgers, una Mercedes Vito per a sis o una V-Class per a set amb equipatge equivalent. Cadascun té el seu propi preu fix de trasllat, visible abans de reservar, així que tria per capacitat i comoditat.',
       },
       {
         h2: 'Viatges d\'empresa i factures',
@@ -183,7 +183,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Taxi a l\'aeroport de Barcelona les 24 hores',
-        body: 'Entre les 20:00 i les 08:00, tot el cap de setmana i en festius s\'aplica la tarifa més alta T-2. La fixa l\'AMB i regeix igual per a tots els taxis amb llicència de Barcelona: no és un recàrrec que hi afegim nosaltres. La teva estimació utilitza automàticament la tarifa correcta segons l\'hora real de recollida. Les nits de Nadal i de Cap d\'Any porten a més un suplement oficial.',
+        body: 'Una recollida de nit costa el mateix que el mateix trajecte al migdia: l’hora no mou un preu fix. Els caps de setmana i festius sí: dissabtes i diumenges, Nadal, Cap d’Any i el calendari català hi afegeixen un 7,5 %, que apareix com una línia pròpia abans de pagar i no es descobreix després.',
       },
       {
         h2: 'Arribades de matinada',
@@ -222,7 +222,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: 'Taxi Eixample a l\'Aeroport de Barcelona | Porta a Porta',
     description:
-      'Reserva un taxi des de l\'Eixample a l\'aeroport de Barcelona-el Prat. Recollida senzilla porta a porta a la quadrícula, amb tarifa oficial de l\'AMB.',
+      'Reserva un taxi des de l\'Eixample a l\'aeroport de Barcelona-el Prat. Recollida senzilla porta a porta a la quadrícula, amb preu fix.',
     h1: 'Taxi de l\'Eixample a l\'aeroport de Barcelona',
     intro:
       'L\'Eixample és el districte més còmode de Barcelona per recollir un taxi. La quadrícula de Cerdà fa que gairebé qualsevol adreça sigui accessible en cotxe, amb espai per aturar-se i carregar l\'equipatge: just el contrari que el nucli antic.',
@@ -245,7 +245,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Centre de Barcelona a l\'Aeroport',
     description:
-      'Reserva un taxi des del centre de Barcelona a l\'aeroport del Prat. Recollida a qualsevol adreça cèntrica, tarifa oficial de taxímetre i conductor confirmat per endavant.',
+      'Reserva un taxi des del centre de Barcelona a l\'aeroport del Prat. Recollida a qualsevol adreça cèntrica, preu fix tot inclòs i conductor confirmat per endavant.',
     h1: 'Taxi del centre de Barcelona a l\'aeroport',
     intro:
       'Des de qualsevol punt cèntric —la Rambla, la plaça de Catalunya, el Born, el Raval o el Passeig de Gràcia— el Prat queda a 20 o 35 minuts en cotxe. Reservar amb antelació fixa l\'hora de recollida i el vehicle, cosa que importa sobretot en el trajecte d\'anada.',
@@ -260,7 +260,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Quant costa del centre a l\'aeroport',
-        body: 'La tarifa del taxímetre des del centre fins al Prat, més el suplement fix d\'aeroport. Les nits i els caps de setmana s\'aplica la tarifa més alta T-2. Introdueix la teva adreça per a una estimació exacta abans de decidir.',
+        body: 'Un preu fix des de qualsevol punt del centre fins al Prat, amb tots els suplements oficials ja dins i sense res a pagar al taxi. L’hora no el canvia; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva adreça per veure el preu exacte abans de decidir.',
       },
     ],
   },

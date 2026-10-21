@@ -23,11 +23,11 @@
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
     "metaDescription": "Boek online vooraf een taxi naar de luchthaven van Barcelona. Eén all-in prijs, online betaald en berekend met het officiële AMB-tarief.",
     "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
-    "intro": "Reserveer een vergunde zwart-gele taxi in Barcelona van of naar de luchthaven El Prat. U ziet vóór het boeken één all-in prijs, berekend met het officiële AMB-tarief en de werkelijke wegafstand. U betaalt online en hoeft de chauffeur niets te betalen.",
+    "intro": "Reserveer een erkende zwart-gele Barcelona-taxi naar of van de luchthaven El Prat. Eén vaste alles-inbegrepen prijs, zichtbaar vóór het boeken en vastgezet zodra u boekt — geen meter, geen afstandsgegoochel — u betaalt online en bij de chauffeur hoeft niets te worden afgerekend.",
     "trust": {
       "licensed": "Vergunde AMB-taxi's",
-      "meter": "Officieel AMB-tarief",
-      "noSurge": "Geen piektarieven",
+      "meter": "Vaste prijs, geen meter",
+      "noSurge": "Prijs vast bij boeking",
       "support": "24 uur boeken"
     },
     "sections": {
@@ -57,8 +57,8 @@
     "kicker": "Vergunde taxiservice naar de luchthaven van Barcelona",
     "why": {
       "meter": {
-        "title": "Eén prijs, vast voordat u vertrekt",
-        "body": "De tarieven in Barcelona worden door de AMB vastgesteld en zijn in elke vergunde taxi identiek. Wij bouwen uw prijs op uit het officiële tarief en de werkelijke wegafstand en zetten hem daarna vast: het bedrag dat u hoort is het bedrag dat u betaalt, wat het verkeer ook doet."
+        "title": "Eén prijs, vastgezet voordat u rijdt",
+        "body": "Uw prijs is een vast bedrag uit onze eigen prijslijst, geen meterstand — bepaald door route en voertuig, niet door afstand of tijdstip. U gaat ermee akkoord vóór het boeken en dan staat hij vast, dus het genoemde bedrag is wat u betaalt, wat het verkeer ook doet."
       },
       "flight": {
         "title": "Wij volgen uw vlucht",
@@ -187,7 +187,7 @@
     "chooseVehicle": "Kies een voertuig",
     "metaTitle": "Taxivloot Barcelona | Auto’s, monovolumes en bussen",
     "metaDescription": "Vergunde taxi’s naar de luchthaven van Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito monovolume en Mercedes V-Class premium bus.",
-    "intro": "Elk voertuig is een vergunde Barcelona-taxi met werkende taxameter. Kies op groepsgrootte en bagage: voertuigen voor vijf tot acht passagiers brengen de officiële AMB-toeslag met zich mee, die al in de getoonde prijs zit.",
+    "intro": "Alle voertuigen zijn erkende Barcelona-taxi’s. Kies op groepsgrootte en bagage: een standaardtaxi neemt vier passagiers, een minivan zes en een van zeven, en elk heeft zijn eigen vaste transferprijs, zichtbaar vóór het boeken.",
     "select": "{name} selecteren"
   },
   "common": {
@@ -420,7 +420,7 @@
     "rowAirportSitges": "Luchthaven El Prat naar Sitges",
     "rowBcnTarragona": "Barcelona naar Tarragona",
     "rowBcnGirona": "Barcelona naar luchthaven Girona",
-    "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge}% bij, en bij ritten verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Ritten buiten het stadsgebied gaan op T-6 of T-7. Alle prijzen zijn alles inbegrepen: rit, officiële toeslagen en boeking, in de taxi betaalt u niets.",
+    "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge} % bij, en een bestemming verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Alleen ritten buiten het stadsgebied gaan per kilometer. Alle prijzen zijn alles inbegrepen, in de taxi betaalt u niets.",
     "totalPrice": "Totaalprijs"
   },
   "checkout": {
@@ -458,31 +458,29 @@
     "bothLegs": "Heen en terug, samen betaald"
   },
   "pricing": {
-    "feeBody": "Onze service zit in de getoonde prijs. U betaalt bij het online boeken één all-in bedrag — het tarief, alle officiële toeslagen en onze reserveringsservice — en niets aan de chauffeur. U ontvangt een volledige bon per e-mail.",
-    "metaTitle": "Taxiprijs luchthaven Barcelona 2026 | AMB-tarieven",
-    "metaDescription": "Taxiprijzen naar de luchthaven van Barcelona uitgelegd: officiële AMB-tarieven T-1 en T-2, de El Prat-toeslag.",
-    "h1": "Taxiprijzen naar de luchthaven van Barcelona",
-    "intro": "De taxitarieven in Barcelona stellen wij niet vast. Ze worden bepaald door de Àrea Metropolitana de Barcelona (AMB) en lopen op de officiële taxameter van elke vergunde taxi. De tabel hieronder is het geldende tarief, van 19 januari 2026 tot 17 januari 2027.",
-    "tableCaption": "Officiële stedelijke AMB-taxitarieven, geldig 19 jan. 2026 – 17 jan. 2027",
-    "fixedTitle": "Onze vaste transferprijzen",
-    "fixedBody": "De tabel hierboven is de officiële meter. Wat u ons voor een transfer betaalt is een vaste prijs, geen meterstand: {sedan} tussen de luchthaven en elke plek binnen {km} km daarvan, wat heel Barcelona dekt, {van6} voor een zespersoons minivan en {van7} voor een zevenpersoons van. Luchthaven en cruisehaven kosten {port}, en een transfer tussen de haven en de stad is de stadsprijs plus {portExtra}. Boven {km} km rekenen we {rate} per extra kilometer, en in het weekend en op feestdagen — Kerst, Nieuwjaar en de Catalaanse kalender — {surge}%. Alleen ritten buiten het stadsgebied gaan per kilometer.",
-    "concept": "Post",
-    "amount": "Bedrag",
-    "rows": {
-      "startFare": "Starttarief",
-      "perKmT1": "Per km — T-1 (ma–vr 08:00–20:00)",
-      "perKmT2": "Per km — T-2 (nacht, weekend, feestdagen)",
-      "waitPerHour": "Wachttijd, per uur",
-      "airportSupplement": "Toeslag luchthaven El Prat",
-      "mollSupplement": "Toeslag cruisehaven Moll Adossat",
-      "santsSupplement": "Toeslag station Sants",
-      "firaSupplement": "Toeslag Fira Gran Via",
-      "maxSupplement": "Maximum aan toeslagen per rit",
-      "minFromAirport": "Minimumtarief vanaf de luchthaven",
-      "t4Fixed": "Vaste prijs: luchthaven ↔ Moll Adossat (T-4)"
-    },
+    "feeBody": "Alles. De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Er is geen tweede bedrag: in de taxi is niets verschuldigd, en een volledige bon komt per e-mail met uw bevestiging.",
+    "metaTitle": "Taxiprijzen Luchthaven Barcelona 2026 — Vaste Tarieven",
+    "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar elke plek in de stad, {port} naar de cruisehaven, per voertuig. Wat het weekendtarief en het buitenzonetarief toevoegen, en wanneer er per kilometer wordt gerekend.",
+    "h1": "Taxiprijzen luchthaven Barcelona",
+    "intro": "Eén vaste prijs per rit, afgesproken vóór het boeken en vastgezet zodra u boekt. Het is geen meterstand en geen schatting: het bedrag dat u ziet is wat u betaalt, wat het verkeer ook doet en op welk uur dan ook.",
+    "tableCaption": "Vaste transferprijzen, per voertuig",
     "feeTitle": "Wat uw prijs omvat",
-    "verifyNote": "De AMB herziet de tarieven elke januari. Wij controleren ze bij elke wijziging op taxi.amb.cat."
+    "verifyNote": "Onze prijzen stellen wij zelf vast en herzien we als de kosten veranderen. Ritten buiten het stadsgebied gaan per kilometer op het interlokale tarief van de Generalitat de Catalunya, dat wij bij elke wijziging controleren.",
+    "routeCol": "Route",
+    "standardCol": "Standaardtaxi (4)",
+    "minivanCol": "Minivan (6)",
+    "vanCol": "Van (7)",
+    "rowCityAirport": "Luchthaven ↔ elke plek in Barcelona, binnen {km} km",
+    "rowPortAirport": "Luchthaven ↔ cruisehaven Moll Adossat",
+    "adjTitle": "Wat erbij kan komen",
+    "adjPortCity": "Cruisehaven ↔ stad",
+    "adjPortCityValue": "stadsprijs + {portExtra}",
+    "adjExcessKm": "Elke kilometer boven {km} km",
+    "adjExcessKmValue": "+ {rate}",
+    "adjWeekend": "Weekenden en feestdagen",
+    "adjWeekendValue": "+ {surge} %",
+    "adjInterurban": "Buiten het stadsgebied",
+    "adjInterurbanValue": "per kilometer"
   },
   "site": {
     "name": "BCNAirportTaxi"

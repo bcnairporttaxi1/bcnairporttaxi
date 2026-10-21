@@ -5,14 +5,14 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Táxi Aeroporto Barcelona Centro | Reservar Online',
     description:
-      'Reserve um táxi do aeroporto de Barcelona para o centro. Tarifa oficial do taxímetro AMB, suplemento de El Prat incluído na estimativa, motorista nas chegadas.',
+      'Reserve um táxi do aeroporto de Barcelona para o centro. Preço fixo tudo incluído, com o suplemento de El Prat já dentro, motorista nas chegadas.',
     h1: 'Táxi do aeroporto de Barcelona para o centro',
     intro:
       'Um táxi de El Prat até ao centro de Barcelona demora entre 25 e 35 minutos consoante o trânsito e o terminal de chegada. Reservar com antecedência significa ter já um motorista atribuído quando aterra, com um cartaz com o seu nome nas chegadas, em vez de fazer fila na praça do T1 ou do T2.',
     sections: [
       {
         h2: 'Quanto custa um transfer do aeroporto de Barcelona',
-        body: 'A tarifa é a do taxímetro oficial da AMB. A partir de El Prat paga o valor do taxímetro mais o suplemento fixo de aeroporto, e existe uma tarifa mínima para percursos muito curtos com origem no aeroporto. Na prática, uma viagem do aeroporto para qualquer ponto de Barcelona são 50 EUR fixos em táxi padrão, independentemente da distância e da hora; aos fins de semana e feriados acrescentam-se 7,5 %. Introduza acima o destino exato para uma estimativa precisa.',
+        body: 'O preço é fixado por nós: não é uma leitura do taxímetro nem uma estimativa, e todos os suplementos oficiais aplicáveis ao percurso já estão dentro. Na prática, uma viagem do aeroporto para qualquer ponto de Barcelona são 50 EUR fixos em táxi padrão, independentemente da distância e da hora; aos fins de semana e feriados acrescentam-se 7,5 %. Introduza acima o seu destino exato para ver o seu preço.',
       },
       {
         h2: 'Onde o motorista o espera',
@@ -28,7 +28,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Táxi de Barcelona para o Aeroporto | Reservar',
     description:
-      'Reserve um táxi de Barcelona cidade para o aeroporto de El Prat. Hora de recolha fixa, tarifa oficial do taxímetro e motoristas que conhecem as portas de cada terminal.',
+      'Reserve um táxi de Barcelona cidade para o aeroporto de El Prat. Hora de recolha fixa, preço fixo tudo incluído e motoristas que conhecem as portas de cada terminal.',
     h1: 'Táxi de Barcelona para o aeroporto',
     intro:
       'É a viagem de ida que compensa mesmo reservar. Um táxi marcado com antecedência chega ao seu hotel ou apartamento a uma hora combinada, o que pesa muito mais quando tem um voo para apanhar do que quando está a chegar.',
@@ -43,7 +43,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Partidas de madrugada',
-        body: 'A primeira vaga de partidas sai de El Prat antes das 07:00, o que implica recolhas a partir das 04:30. Essas viagens seguem a tarifa noturna T-2, e confirmamos o motorista na véspera para que às quatro da manhã não fique nada por resolver.',
+        body: 'A primeira vaga de partidas sai de El Prat antes das 07:00, o que implica recolhas a partir das 04:30. Uma recolha às 04:30 custa o mesmo que a mesma viagem ao meio-dia, porque a hora não mexe num preço fixo, e confirmamos o motorista na véspera para que às quatro da manhã não falte resolver nada.',
       },
     ],
   },
@@ -51,7 +51,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Táxi Aeroporto El Prat | Transferes Licenciados',
     description:
-      'Táxis licenciados de e para o aeroporto de Barcelona-El Prat (BCN). Reserve online com estimativa pela tarifa oficial AMB e motorista atribuído ao seu voo.',
+      'Táxis licenciados de e para o aeroporto de Barcelona-El Prat (BCN). Reserve online com estimativa pela preço fixo e motorista atribuído ao seu voo.',
     h1: 'Táxi aeroporto El Prat',
     intro:
       'O aeroporto Josep Tarradellas Barcelona-El Prat, que quase toda a gente continua a tratar apenas por El Prat, fica a cerca de 15 km a sudoeste da cidade. É o segundo aeroporto espanhol com mais tráfego, e o táxi é a forma mais rápida de chegar a Barcelona a quase qualquer hora, desde que haja um carro à espera.',
@@ -62,7 +62,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'O suplemento de aeroporto',
-        body: 'Toda a viagem que comece ou termine em El Prat leva um suplemento de aeroporto fixo definido pela AMB, e as viagens com origem no aeroporto têm tarifa mínima. Ambos estão incluídos na estimativa que vê antes de reservar, por isso o taxímetro não traz surpresas.',
+        body: 'O suplemento oficial de aeroporto e qualquer outro encargo aplicável ao percurso estão dentro do preço fixo que lhe damos. Não há taxímetro a correr durante a viagem nem um segundo valor no fim, pelo que não há surpresas.',
       },
       {
         h2: 'Passageiros de cruzeiro',
@@ -74,26 +74,26 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preço Táxi Aeroporto Barcelona | Tarifas AMB 2026',
     description:
-      'O que custa realmente um táxi para o aeroporto de Barcelona: a tabela oficial de tarifas AMB, o suplemento de El Prat, a tarifa mínima de aeroporto e como é construído o seu preço com tudo incluído.',
+      'O que custa realmente um táxi para o aeroporto de Barcelona: os nossos preços fixos por veículo, até onde chega o preço plano e o que acrescentam a tarifa de fim de semana e a de fora de zona.',
     h1: 'Preço do táxi para o aeroporto de Barcelona',
     intro:
       'Os preços dos táxis em Barcelona são regulados. Nenhum táxi licenciado pode cobrar mais nem menos do que o taxímetro oficial da AMB, o que significa que a resposta honesta a «quanto custa» é uma conta, não um número comercial. É assim que essa conta funciona.',
     sections: [
       {
         h2: 'Como é calculada a sua tarifa',
-        body: 'Cada viagem começa com uma bandeirada fixa e depois soma um preço por quilómetro. A tarifa aplicável depende de quando viaja: a T-1 é a tarifa diurna de segunda a sexta entre as 08:00 e as 20:00, e a T-2 é a mais alta, que cobre noites, todo o sábado e domingo e os feriados. Os suplementos de aeroporto, porto de cruzeiros, estação de Sants e Fira Gran Via somam-se, com um máximo por serviço.',
+        body: 'Um transfer é um preço fixo, definido pelo percurso e pelo veículo, não pela distância nem pela hora. Do aeroporto para qualquer ponto de Barcelona é um valor; do aeroporto para o terminal de cruzeiros, outro; e o táxi padrão, a minivan de seis lugares e a van de sete têm cada um o seu. Só três coisas podem acrescentar-se: um destino além da zona plana, um transfer ao porto de cruzeiros e a tarifa de fim de semana e feriados. Cada uma aparece como uma linha própria antes do pagamento.',
       },
       {
         h2: 'Existe táxi barato a partir do aeroporto?',
-        body: 'Não no sentido de um operador ficar abaixo de outro: o taxímetro da AMB é idêntico em todos os táxis licenciados, por isso ninguém pode legalmente ser mais barato na corrida. O que pode controlar é o horário e o veículo. Viajar na faixa diurna T-1 custa bastante menos por quilómetro do que à noite ou ao fim de semana, e a quatro pessoas um só carro compensa mais do que quatro bilhetes. Desconfie de quem anuncia tarifas muito abaixo do taxímetro: costuma indicar veículo sem licença.',
+        body: 'Compare pelo que o preço o protege, não apenas pelo valor. Um preço fixo não se move depois de acordado: o trânsito, um desvio, uma aterragem atrasada e a hora do dia são problema nosso, não seu, e no carro não se cobra nada. O que pode escolher é o veículo e viajar fora do fim de semana. Desconfie de um preço invulgarmente baixo: costuma indicar um veículo sem licença, ou um valor que vai crescer antes de chegar.',
       },
       {
-        h2: 'A tarifa mínima de aeroporto',
-        body: 'As viagens que começam em El Prat têm tarifa mínima. Se o taxímetro marcar menos do que esse mínimo num percurso curto, paga o mínimo. Afeta sobretudo as deslocações para El Prat vila ou hotéis próximos, não as viagens para Barcelona.',
+        h2: 'Até onde chega o preço fixo',
+        body: 'O preço de cidade cobre tudo o que esteja num raio de 16 km do terminal, ou seja, toda a Barcelona e os concelhos imediatos: um percurso curto até El Prat vila e uma travessia da cidade até ao Park Güell custam o mesmo. Além desse raio o preço fixo mantém-se e só se acrescentam os quilómetros que sobram, a uma tarifa publicada.',
       },
       {
         h2: 'O que o seu preço inclui',
-        body: 'Paga online um único preço com tudo incluído no momento da reserva. Cobre a viagem segundo a tarifa oficial do AMB, todos os suplementos oficiais aplicáveis ao seu percurso e o nosso serviço de reservar e garantir o carro. Não há um segundo valor: no táxi não paga nada.',
+        body: 'Paga online um único preço com tudo incluído no momento da reserva. Cobre a viagem segundo a preço fixo, todos os suplementos oficiais aplicáveis ao seu percurso e o nosso serviço de reservar e garantir o carro. Não há um segundo valor: no táxi não paga nada.',
       },
     ],
   },
@@ -131,7 +131,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'O suplemento da estação de Sants',
-        body: 'As viagens que começam ou terminam na estação de Sants levam um pequeno suplemento fixo definido pela AMB, além da tarifa do taxímetro. Juntamente com o suplemento de aeroporto, ambos estão incluídos na estimativa que vê antes de reservar, e o total de suplementos tem um teto por serviço.',
+        body: 'As viagens que começam ou terminam na estação de Sants levam um pequeno suplemento fixo definido pela AMB, além do preço da viagem. Juntamente com o suplemento de aeroporto, ambos estão incluídos na estimativa que vê antes de reservar, e o total de suplementos tem um teto por serviço.',
       },
       {
         h2: 'Onde encontrar o motorista',
@@ -158,7 +158,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Escolher o veículo',
-        body: 'Táxi standard até quatro passageiros, Mercedes Vito para seis, V-Class para sete com bagagem correspondente. A tarifa do taxímetro não muda com o tamanho do veículo, porque é fixada pela AMB, por isso escolha por capacidade e conforto.',
+        body: 'Táxi standard até quatro passageiros, Mercedes Vito para seis, V-Class para sete com bagagem correspondente. Cada um tem o seu próprio preço fixo de transfer, mostrado lado a lado antes de reservar, para que possa pesar capacidade e conforto face ao valor.',
       },
       {
         h2: 'Viagens de trabalho',
@@ -177,7 +177,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'A tarifa noturna',
-        body: 'Entre as 20:00 e as 08:00, durante todo o fim de semana e em feriados aplica-se a tarifa mais alta T-2. É fixada pela AMB e vale por igual para todos os táxis licenciados de Barcelona: não é um agravamento nosso. A sua estimativa usa automaticamente a tarifa certa para a hora real de recolha. As noites de Natal e de Ano Novo têm ainda um suplemento oficial.',
+        body: 'Uma recolha à noite custa o mesmo que a mesma viagem ao meio-dia: a hora não mexe num preço fixo. Os fins de semana e feriados sim: sábados e domingos, Natal, Ano Novo e o calendário catalão acrescentam 7,5 %, indicado como linha própria antes do pagamento em vez de descoberto depois.',
       },
       {
         h2: 'Chegadas tardias',
@@ -254,7 +254,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Quanto custa a viagem',
-        body: 'O valor do taxímetro do centro até El Prat, mais o suplemento fixo de aeroporto. À noite e aos fins de semana aplica-se a tarifa mais alta T-2. Introduza a morada para uma estimativa exata antes de decidir.',
+        body: 'Um preço fixo de qualquer ponto do centro até El Prat, com todos os suplementos oficiais já dentro e nada a pagar no táxi. A hora não o altera; os fins de semana e feriados acrescentam 7,5 %. Introduza o seu endereço para ver o preço exato antes de decidir.',
       },
     ],
   },

@@ -5,14 +5,14 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aeroporto Barcellona Centro | Prenota Online',
     description:
-      "Prenota un taxi dall'aeroporto di Barcellona al centro. Tariffa ufficiale del tassametro AMB, supplemento El Prat incluso nella stima, autista in sala arrivi.",
+      "Prenota un taxi dall'aeroporto di Barcellona al centro. Prezzo fisso tutto incluso, supplemento El Prat già compreso, autista in sala arrivi.",
     h1: "Taxi dall'aeroporto di Barcellona al centro",
     intro:
       "Un taxi da El Prat al centro di Barcellona impiega dai 25 ai 35 minuti a seconda del traffico e del terminal di arrivo. Prenotare in anticipo significa avere già un autista assegnato all'atterraggio, con il cartello con il tuo nome in sala arrivi, invece di mettersi in coda al posteggio del T1 o del T2.",
     sections: [
       {
         h2: "Quanto costa un transfer dall'aeroporto di Barcellona",
-        body: "Il prezzo si costruisce sulla tariffa ufficiale AMB e sulla distanza stradale reale, con il supplemento aeroportuale fisso e la tariffa minima già inclusi. In pratica una corsa dall'aeroporto a qualsiasi punto di Barcellona costa 50 EUR fissi in taxi standard, qualunque sia la distanza e qualunque sia l'ora; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisci sopra la destinazione esatta per vedere il tuo prezzo tutto incluso.",
+        body: "Il prezzo lo fissiamo noi: non è una lettura del tassametro né una stima, e ogni supplemento ufficiale previsto per il percorso è già dentro. In pratica una corsa dall’aeroporto a qualsiasi punto di Barcellona costa 50 EUR fissi in taxi standard, qualunque sia la distanza e qualunque sia l’ora; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca sopra la destinazione esatta per vedere il suo prezzo.",
       },
       {
         h2: 'Dove ti aspetta il tuo autista',
@@ -28,7 +28,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: "Taxi da Barcellona all'Aeroporto | Prenota Online",
     description:
-      "Prenota un taxi da Barcellona città all'aeroporto di El Prat. Orario di ritiro fisso, tariffa ufficiale del tassametro e autisti che conoscono gli ingressi dei terminal.",
+      "Prenota un taxi da Barcellona città all'aeroporto di El Prat. Orario di ritiro fisso, prezzo fisso tutto incluso e autisti che conoscono gli ingressi dei terminal.",
     h1: "Taxi da Barcellona all'aeroporto",
     intro:
       "È la corsa di andata quella che conviene davvero prenotare. Un taxi prenotato in anticipo arriva al tuo hotel o appartamento a un orario fissato, cosa che conta molto di più quando devi prendere un volo che non quando stai arrivando.",
@@ -43,7 +43,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Partenze di primo mattino',
-        body: "La prima ondata di partenze lascia El Prat prima delle 07:00, il che comporta ritiri dalle 04:30. Queste corse rientrano nella tariffa notturna T-2, e confermiamo l'autista la sera prima perché alle quattro del mattino non resti nulla da organizzare.",
+        body: "La prima ondata di partenze lascia El Prat prima delle 07:00, il che comporta ritiri dalle 04:30. Un ritiro alle 04:30 costa come la stessa corsa a mezzogiorno, perché l’ora non muove un prezzo fisso, e confermiamo il conducente la sera prima così alle quattro del mattino non resta nulla da sistemare.",
       },
     ],
   },
@@ -51,7 +51,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aeroporto El Prat | Transfer Autorizzati',
     description:
-      "Taxi autorizzati da e per l'aeroporto di Barcellona-El Prat (BCN). Prenota online con stima secondo la tariffa ufficiale AMB e autista assegnato al tuo volo.",
+      "Taxi autorizzati da e per l'aeroporto di Barcellona-El Prat (BCN). Prenota online con stima secondo la prezzo fisso e autista assegnato al tuo volo.",
     h1: 'Taxi aeroporto El Prat',
     intro:
       "L'aeroporto Josep Tarradellas Barcellona-El Prat, che quasi tutti continuano a chiamare semplicemente El Prat, si trova a circa 15 km a sud-ovest della città. È il secondo scalo spagnolo per traffico, e il taxi è il modo più rapido per raggiungere Barcellona a quasi qualsiasi ora, a patto che un'auto sia già lì ad aspettare.",
@@ -62,7 +62,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Il supplemento aeroportuale',
-        body: "Ogni corsa che inizia o termina a El Prat prevede un supplemento aeroportuale fisso stabilito dall'AMB, e le corse in partenza dall'aeroporto hanno una tariffa minima. Entrambi sono già inclusi nella stima che vedi prima di prenotare: nessuna sorpresa al tassametro.",
+        body: "Il supplemento aeroportuale ufficiale e ogni altro onere previsto per il percorso sono dentro il prezzo fisso che le indichiamo. Non c’è nessun tassametro in moto durante la corsa né una seconda cifra alla fine, quindi non ci sono sorprese.",
       },
       {
         h2: 'Passeggeri delle crociere',
@@ -74,26 +74,26 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prezzo Taxi Aeroporto Barcellona | Tariffe AMB 2026',
     description:
-      "Quanto costa davvero un taxi per l'aeroporto di Barcellona: tabella ufficiale AMB, supplemento El Prat, tariffa minima aeroportuale e come si compone il tuo prezzo tutto incluso.",
+      "Quanto costa davvero un taxi per l’aeroporto di Barcellona: i nostri prezzi fissi per veicolo, fin dove arriva il prezzo forfettario e cosa aggiungono la tariffa del fine settimana e quella fuori zona.",
     h1: "Prezzo del taxi per l'aeroporto di Barcellona",
     intro:
       "I prezzi dei taxi a Barcellona sono regolamentati. Nessun taxi autorizzato può chiedere più o meno del tassametro ufficiale dell'AMB, il che significa che la risposta onesta a «quanto costa» è un calcolo, non una cifra commerciale. Ecco come funziona esattamente quel calcolo.",
     sections: [
       {
         h2: 'Come si calcola la tua tariffa',
-        body: "Ogni corsa parte da uno scatto iniziale fisso e poi somma un prezzo al chilometro. Quale tariffa si applica dipende da quando viaggi: la T-1 è la tariffa diurna dal lunedì al venerdì tra le 08:00 e le 20:00, mentre la T-2, più alta, copre le notti, tutto il sabato e la domenica e i giorni festivi. I supplementi per aeroporto, porto crociere, stazione di Sants e Fira Gran Via si aggiungono, entro un massimo per servizio.",
+        body: "Un trasferimento è un prezzo fisso, definito dal percorso e dal veicolo, non dalla distanza né dall’ora. Dall’aeroporto a qualsiasi punto di Barcellona è una cifra; dall’aeroporto al terminal crociere un’altra; e taxi standard, minivan da sei e van da sette hanno ciascuno la propria. Solo tre cose possono aggiungersi: una destinazione oltre la zona forfettaria, un trasferimento al porto crociere e la tariffa di fine settimana e festivi. Ognuna compare come riga a sé prima del pagamento.",
       },
       {
         h2: "Esiste un taxi economico dall'aeroporto?",
-        body: "Non nel senso che un operatore possa costare meno di un altro: il tassametro dell'AMB è identico su ogni taxi autorizzato, quindi nessuno può legalmente essere più economico sulla corsa. Quello che puoi controllare sono orario e veicolo. Viaggiare nella fascia diurna T-1 costa sensibilmente meno al chilometro che di notte o nel fine settimana, e in quattro una sola auto batte quattro biglietti separati. Diffida di chi pubblicizza tariffe molto sotto il tassametro: di solito segnala un veicolo non autorizzato.",
+        body: "Confronti su ciò da cui il prezzo la protegge, non solo sulla cifra. Un prezzo fisso non si muove una volta concordato: il traffico, una deviazione, un atterraggio in ritardo e l’ora del giorno sono un problema nostro, non suo, e in auto non si incassa nulla. Quello che può scegliere è il veicolo e viaggiare fuori dal fine settimana. Diffidi di un prezzo insolitamente basso: di solito indica un veicolo non autorizzato, o una cifra destinata a crescere prima del suo arrivo.",
       },
       {
-        h2: 'La tariffa minima aeroportuale',
-        body: "Le corse che partono da El Prat hanno una tariffa minima. Se su un tragitto breve il tassametro segna meno di quel minimo, paghi il minimo. Riguarda soprattutto gli spostamenti verso El Prat paese o gli hotel vicini, non le corse verso Barcellona.",
+        h2: 'Fin dove arriva il prezzo fisso',
+        body: "Il prezzo città copre tutto ciò che si trova entro un raggio di 16 km dal terminal, cioè tutta Barcellona e i comuni immediatamente vicini: un breve tragitto a El Prat paese e una traversata della città fino al Park Güell costano lo stesso. Oltre quel raggio il prezzo fisso resta valido e si aggiungono solo i chilometri che sporgono, a una tariffa pubblicata.",
       },
       {
         h2: 'Cosa comprende il tuo prezzo',
-        body: "Paghi online un unico prezzo tutto incluso al momento della prenotazione. Copre il tragitto secondo la tariffa ufficiale AMB, ogni supplemento ufficiale previsto per il tuo percorso e il nostro servizio di prenotazione e garanzia dell'auto. Non c'è un secondo importo: in taxi non si paga nulla.",
+        body: "Paghi online un unico prezzo tutto incluso al momento della prenotazione. Copre il tragitto secondo la prezzo fisso, ogni supplemento ufficiale previsto per il tuo percorso e il nostro servizio di prenotazione e garanzia dell'auto. Non c'è un secondo importo: in taxi non si paga nulla.",
       },
     ],
   },
@@ -131,7 +131,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Il supplemento della stazione di Sants',
-        body: "Le corse che iniziano o terminano alla stazione di Sants prevedono un piccolo supplemento fisso stabilito dall'AMB, oltre alla tariffa del tassametro. Insieme al supplemento aeroportuale, entrambi sono inclusi nella stima che vedi prima di prenotare, e il totale dei supplementi ha un tetto per servizio.",
+        body: "Le corse che iniziano o terminano alla stazione di Sants prevedono un piccolo supplemento fisso stabilito dall'AMB, oltre alil prezzo della corsa. Insieme al supplemento aeroportuale, entrambi sono inclusi nella stima che vedi prima di prenotare, e il totale dei supplementi ha un tetto per servizio.",
       },
       {
         h2: 'Dove trovare il tuo autista',
@@ -147,7 +147,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Transfer Privato Aeroporto Barcellona | Taxi Esclusivo',
     description:
-      "Un transfer privato dall'aeroporto di Barcellona: il tuo taxi autorizzato solo per te, senza condivisioni né attese di altri passeggeri, a tariffa ufficiale AMB.",
+      "Un transfer privato dall'aeroporto di Barcellona: il tuo taxi autorizzato solo per te, senza condivisioni né attese di altri passeggeri, a prezzo fisso.",
     h1: 'Transfer privato aeroporto di Barcellona',
     intro:
       "Tutte le prenotazioni qui sono transfer privati. Il veicolo è solo tuo: nessuna navetta condivisa, nessuna deviazione per raccogliere altri passeggeri, nessun orario imposto. Vai diretto dal punto di ritiro alla destinazione.",
@@ -177,7 +177,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'La tariffa notturna',
-        body: "Tra le 20:00 e le 08:00, per tutto il fine settimana e nei festivi si applica la tariffa più alta T-2. La stabilisce l'AMB e vale allo stesso modo per ogni taxi autorizzato di Barcellona: non è una maggiorazione nostra. La tua stima usa automaticamente la tariffa corretta in base all'orario reale di ritiro. Le notti di Natale e di Capodanno prevedono inoltre un supplemento ufficiale.",
+        body: "Un ritiro di notte costa come la stessa corsa a mezzogiorno: l’ora non muove un prezzo fisso. I fine settimana e i festivi sì: sabato e domenica, Natale, Capodanno e il calendario catalano aggiungono il 7,5 %, indicato come riga a sé prima del pagamento invece di essere scoperto dopo.",
       },
       {
         h2: 'Arrivi in tarda notte',
@@ -216,7 +216,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: "Taxi Eixample all'Aeroporto di Barcellona",
     description:
-      "Prenota un taxi dall'Eixample all'aeroporto di Barcellona-El Prat. Ritiro porta a porta sulla scacchiera, a tariffa ufficiale dell'AMB.",
+      "Prenota un taxi dall'Eixample all'aeroporto di Barcellona-El Prat. Ritiro porta a porta sulla scacchiera, a prezzo fisso.",
     h1: "Taxi dall'Eixample all'aeroporto di Barcellona",
     intro:
       "L'Eixample è il quartiere più comodo di Barcellona per un ritiro in taxi. La scacchiera di Cerdà rende quasi ogni indirizzo raggiungibile in auto, con lo spazio per fermarsi e caricare i bagagli: esattamente il contrario della città vecchia.",
@@ -254,7 +254,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Quanto costa la corsa',
-        body: "L'importo del tassametro dal centro fino a El Prat, più il supplemento aeroportuale fisso. Di notte e nei fine settimana vale la tariffa più alta T-2. Inserisci il tuo indirizzo per una stima esatta prima di decidere.",
+        body: "Un prezzo fisso da qualsiasi punto del centro fino a El Prat, con ogni supplemento ufficiale già dentro e nulla da pagare in taxi. L’ora non lo cambia; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca il suo indirizzo per vedere il prezzo esatto prima di decidere.",
       },
     ],
   },

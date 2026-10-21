@@ -12,7 +12,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: "Combien coûte un transfert depuis l'aéroport de Barcelone",
-        body: "Le tarif est celui du compteur officiel de l'AMB. Depuis El Prat vous réglez le montant au compteur plus le supplément aéroport fixe, et un tarif minimum s'applique aux trajets très courts au départ de l'aéroport. En pratique, un trajet de l'aéroport vers n'importe quel point de Barcelone coûte 50 EUR fixes en taxi standard, quelle que soit la distance et quelle que soit l'heure ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre destination exacte ci-dessus pour une estimation précise.",
+        body: "Le prix est fixé par nous : ce n’est ni un relevé de compteur ni une estimation, et tous les suppléments officiels applicables au trajet sont déjà dedans. En pratique, un trajet de l’aéroport vers n’importe quel point de Barcelone coûte 50 EUR fixes en taxi standard, quelle que soit la distance et quelle que soit l’heure ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre destination exacte ci-dessus pour voir votre prix.",
       },
       {
         h2: 'Où votre chauffeur vous attend',
@@ -43,7 +43,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Départs matinaux depuis El Prat',
-        body: "La première vague de départs quitte El Prat avant 07:00, ce qui implique des prises en charge dès 04:30. Ces trajets relèvent du tarif de nuit T-2, et nous confirmons le chauffeur la veille au soir pour qu'il ne reste rien à organiser à quatre heures du matin.",
+        body: "La première vague de départs quitte El Prat avant 07:00, ce qui implique des prises en charge dès 04:30. Une prise en charge à 04:30 coûte le même prix que le même trajet à midi, car l’heure ne déplace pas un prix fixe, et nous confirmons le chauffeur la veille au soir pour qu’il n’y ait rien à régler à quatre heures du matin.",
       },
     ],
   },
@@ -51,7 +51,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aéroport El Prat | Transferts Agréés Barcelone',
     description:
-      "Taxis agréés vers et depuis l'aéroport de Barcelone-El Prat (BCN). Réservez en ligne avec une estimation au tarif officiel AMB et un chauffeur affecté à votre vol.",
+      "Taxis agréés vers et depuis l'aéroport de Barcelone-El Prat (BCN). Réservez en ligne avec une estimation au prix fixe et un chauffeur affecté à votre vol.",
     h1: 'Taxi aéroport El Prat',
     intro:
       "L'aéroport Josep Tarradellas Barcelone-El Prat, que presque tout le monde appelle encore simplement El Prat, se trouve à environ 15 km au sud-ouest de la ville. Deuxième aéroport d'Espagne par le trafic, il se rejoint le plus rapidement en taxi à presque toute heure — à condition qu'une voiture attende.",
@@ -62,7 +62,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Le supplément aéroport d'El Prat",
-        body: "Tout trajet commençant ou finissant à El Prat comporte un supplément aéroport fixe défini par l'AMB, et les trajets au départ de l'aéroport ont un tarif minimum. Les deux sont intégrés à l'estimation affichée avant réservation : aucune surprise au compteur.",
+        body: "Le supplément aéroport officiel et tout autre frais applicable au trajet sont inclus dans le prix fixe que nous vous donnons. Aucun compteur ne tourne pendant votre course et il n’y a pas de second montant à la fin, donc rien ne peut vous surprendre.",
       },
       {
         h2: 'Passagers de croisière',
@@ -74,26 +74,26 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prix Taxi Aéroport Barcelone | Tarifs AMB 2026',
     description:
-      "Ce que coûte réellement un taxi pour l'aéroport de Barcelone : la grille officielle AMB, le supplément El Prat, le tarif minimum aéroport et la façon dont votre prix tout compris est construit.",
+      "Ce que coûte réellement un taxi pour l’aéroport de Barcelone : nos prix fixes par véhicule, jusqu’où porte le prix forfaitaire, et ce qu’ajoutent le tarif week-end et le hors-zone.",
     h1: "Prix d'un taxi pour l'aéroport de Barcelone",
     intro:
-      "Les prix des taxis à Barcelone sont réglementés. Aucun taxi agréé ne peut facturer plus ou moins que le compteur officiel de l'AMB, ce qui veut dire que la réponse honnête à « combien ça coûte » est un calcul, pas un argument commercial. Voici exactement comment ce calcul fonctionne.",
+      "Les prix des taxis à Barcelone sont réglementés. Aucun taxi agréé ne peut facturer plus ou moins que notre propre barème de prix fixes, ce qui veut dire que la réponse honnête à « combien ça coûte » est un calcul, pas un argument commercial. Voici exactement comment ce calcul fonctionne.",
     sections: [
       {
         h2: 'Comment votre tarif est calculé',
-        body: "Chaque course démarre par une prise en charge fixe, puis ajoute un prix au kilomètre. Le tarif applicable dépend du moment : T-1 en journée du lundi au vendredi entre 08:00 et 20:00, et T-2, plus élevé, la nuit, tout le samedi et le dimanche, ainsi que les jours fériés. Les suppléments aéroport, port de croisière, gare de Sants et Fira Gran Via s'ajoutent, dans la limite d'un plafond par course.",
+        body: "Un transfert est un prix fixe, défini par trajet et par véhicule, non par distance ni par heure. De l’aéroport vers n’importe quel point de Barcelone, c’est un montant ; de l’aéroport vers le terminal de croisière, un autre ; et le taxi standard, le minivan six places et le van sept places ont chacun le leur. Trois choses seulement peuvent s’y ajouter : une destination au-delà de la zone forfaitaire, un transfert au port de croisière, et le tarif week-end et jours fériés. Chacune apparaît comme une ligne distincte avant le paiement.",
       },
       {
         h2: "Existe-t-il un taxi pas cher depuis l'aéroport ?",
-        body: "Pas au sens où un opérateur casserait les prix : le compteur de l'AMB est identique dans tous les taxis agréés, donc personne ne peut légalement être moins cher sur la course. Ce que vous maîtrisez, c'est l'horaire et le véhicule. Voyager dans la plage diurne T-1 coûte nettement moins par kilomètre que la nuit ou le week-end, et à quatre une seule voiture bat quatre billets séparés. Méfiez-vous des tarifs annoncés très en dessous du compteur : c'est souvent le signe d'un véhicule non agréé.",
+        body: "Comparez sur ce contre quoi le prix vous protège, pas seulement sur le montant affiché. Un prix fixe ne bouge plus une fois accepté : la circulation, un détour, un atterrissage tardif et l’heure de la journée sont notre problème, pas le vôtre, et rien n’est encaissé dans la voiture. Ce que vous pouvez contrôler, c’est le véhicule et le fait de voyager hors week-end. Méfiez-vous d’un prix anormalement bas : il signale en général un véhicule non agréé, ou un montant qui gonflera avant votre arrivée.",
       },
       {
-        h2: 'Le tarif minimum aéroport',
-        body: "Les courses au départ d'El Prat comportent un tarif minimum. Si le compteur affiche moins que ce minimum sur un trajet court, c'est le minimum qui s'applique. Cela concerne surtout les trajets vers El Prat village ou les hôtels voisins, pas les courses vers Barcelone.",
+        h2: 'Jusqu’où porte le prix fixe',
+        body: "Le prix ville couvre tout ce qui se trouve dans un rayon de 16 km du terminal, c’est-à-dire tout Barcelone et les communes immédiates : un court trajet vers El Prat village et une traversée de la ville jusqu’au Park Güell coûtent la même chose. Au-delà de ce rayon, le prix fixe tient toujours et seuls les kilomètres qui dépassent s’ajoutent, à un tarif publié.",
       },
       {
         h2: 'Ce que votre prix comprend',
-        body: "Vous réglez en ligne un prix unique tout compris au moment de la réservation. Il couvre le trajet au tarif officiel AMB, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Il n'y a pas de second montant : rien à payer dans le taxi.",
+        body: "Vous réglez en ligne un prix unique tout compris au moment de la réservation. Il couvre le trajet au prix fixe, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Il n'y a pas de second montant : rien à payer dans le taxi.",
       },
     ],
   },
@@ -147,7 +147,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Transfert Privé Aéroport Barcelone | Votre Taxi',
     description:
-      "Un transfert privé depuis l'aéroport de Barcelone : votre taxi agréé rien que pour vous, sans partage ni attente d'autres passagers, au tarif officiel AMB.",
+      "Un transfert privé depuis l'aéroport de Barcelone : votre taxi agréé rien que pour vous, sans partage ni attente d'autres passagers, au prix fixe.",
     h1: 'Transfert privé aéroport de Barcelone',
     intro:
       "Toutes les réservations ici sont des transferts privés. Le véhicule est le vôtre seul : pas de navette partagée, pas de détours pour récupérer d'autres passagers, pas d'horaire imposé. Vous allez directement de votre point de départ à votre destination.",
@@ -177,7 +177,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Le tarif de nuit',
-        body: "Entre 20:00 et 08:00, tout le week-end et les jours fériés, le tarif T-2, plus élevé, s'applique. Il est fixé par l'AMB et vaut identiquement pour tous les taxis agréés de Barcelone : ce n'est pas une majoration de notre fait. Votre estimation retient automatiquement le bon tarif selon l'heure réelle de prise en charge. Les nuits de Noël et du Nouvel An comportent en outre un supplément officiel.",
+        body: "Une prise en charge de nuit coûte le même prix que le même trajet à midi : l’heure ne déplace pas un prix fixe. Les week-ends et jours fériés, si : samedi et dimanche, Noël, le Nouvel An et le calendrier catalan ajoutent 7,5 %, affiché comme une ligne distincte avant le paiement plutôt que découvert ensuite.",
       },
       {
         h2: 'Arrivées tardives',
@@ -216,7 +216,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: "Taxi Eixample vers l'Aéroport de Barcelone",
     description:
-      "Réservez un taxi depuis l'Eixample vers l'aéroport de Barcelone-El Prat. Prise en charge porte à porte sur le plan en damier, au tarif officiel de l'AMB.",
+      "Réservez un taxi depuis l'Eixample vers l'aéroport de Barcelone-El Prat. Prise en charge porte à porte sur le plan en damier, au prix fixe.",
     h1: "Taxi de l'Eixample vers l'aéroport de Barcelone",
     intro:
       "L'Eixample est le quartier le plus commode de Barcelone pour une prise en charge. Le damier de Cerdà rend presque chaque adresse accessible en voiture, avec la place nécessaire pour s'arrêter et charger les bagages — tout l'inverse de la vieille ville.",
@@ -254,7 +254,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Ce que coûte le trajet',
-        body: "Le montant au compteur depuis le centre jusqu'à El Prat, plus le supplément aéroport fixe. La nuit et le week-end, le tarif T-2 s'applique. Saisissez votre adresse pour une estimation exacte avant de vous engager.",
+        body: "Un prix fixe depuis n’importe quel point du centre jusqu’à El Prat, tous suppléments officiels déjà inclus et rien à payer dans le taxi. L’heure ne le change pas ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre adresse pour voir votre prix exact avant de vous engager.",
       },
     ],
   },

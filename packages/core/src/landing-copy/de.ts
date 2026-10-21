@@ -5,14 +5,14 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Flughafen Barcelona Zentrum | Online buchen',
     description:
-      'Buchen Sie ein Taxi vom Flughafen Barcelona ins Zentrum. Offizieller AMB-Taxameterpreis, El-Prat-Zuschlag in der Schätzung enthalten, Fahrer wartet in der Ankunftshalle.',
+      'Buchen Sie ein Taxi vom Flughafen Barcelona ins Zentrum. Fester Komplettpreis, El-Prat-Zuschlag bereits enthalten, Fahrer wartet in der Ankunftshalle.',
     h1: 'Taxi vom Flughafen Barcelona ins Zentrum',
     intro:
       'Ein Taxi von El Prat ins Zentrum von Barcelona braucht je nach Verkehr und Terminal 25 bis 35 Minuten. Wer vorab bucht, hat bei der Landung bereits einen zugeteilten Fahrer mit Namensschild in der Ankunftshalle — statt sich am Taxistand von T1 oder T2 anzustellen.',
     sections: [
       {
         h2: 'Was ein Transfer vom Flughafen Barcelona kostet',
-        body: 'Der Preis wird aus dem offiziellen AMB-Tarif und der tatsächlichen Straßenentfernung gebildet; der feste Flughafenzuschlag und der Mindestpreis ab Flughafen stecken bereits darin. Eine Fahrt vom Flughafen an jeden Ort in Barcelona kostet im Standardtaxi feste 50 EUR — unabhängig von Entfernung und Uhrzeit; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie oben Ihr genaues Ziel ein, um Ihren Komplettpreis zu sehen.',
+        body: 'Den Preis legen wir fest: keine Taxameteranzeige und keine Schätzung, und jeder offizielle Zuschlag der Strecke ist bereits darin. Eine Fahrt vom Flughafen an jeden Ort in Barcelona kostet im Standardtaxi feste 50 EUR — unabhängig von Entfernung und Uhrzeit; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie oben Ihr genaues Ziel ein, um Ihren Preis zu sehen.',
       },
       {
         h2: 'Wo Ihr Fahrer auf Sie wartet',
@@ -20,7 +20,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Terminal 1 und Terminal 2',
-        body: 'Beide Terminals haben offizielle Taxistände, und unsere Fahrer bedienen beide. T1 wickelt den Großteil des Langstreckenverkehrs und von Vueling ab; T2 bedient viele Billigfluggesellschaften. Der Preisunterschied ist gering — ein paar Kilometer —, wobei T1 etwas weiter von der Stadt entfernt liegt.',
+        body: 'Beide Terminals haben offizielle Taxistände, und unsere Fahrer bedienen beide. T1 wickelt den Großteil des Langstreckenverkehrs und von Vueling ab; T2 bedient viele Billigfluggesellschaften. Zwischen beiden gilt derselbe Festpreis, auch wenn T1 etwas weiter von der Stadt entfernt liegt.',
       },
     ],
   },
@@ -28,7 +28,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi Barcelona zum Flughafen | Online buchen',
     description:
-      'Buchen Sie ein Taxi von Barcelona zum Flughafen El Prat. Feste Abholzeit, offizieller Taxameterpreis und Fahrer, die die Terminaleinfahrten kennen.',
+      'Buchen Sie ein Taxi von Barcelona zum Flughafen El Prat. Feste Abholzeit, fester Komplettpreis und Fahrer, die die Terminaleinfahrten kennen.',
     h1: 'Taxi von Barcelona zum Flughafen',
     intro:
       'Die Hinfahrt ist die Fahrt, die sich wirklich zu buchen lohnt. Ein vorbestelltes Taxi steht zur vereinbarten Zeit vor Ihrem Hotel oder Apartment — das zählt deutlich mehr, wenn Sie einen Flug erreichen müssen, als bei der Ankunft.',
@@ -43,7 +43,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Frühe Abflüge ab El Prat',
-        body: 'Die erste Abflugwelle verlässt El Prat vor 07:00 Uhr, was Abholungen ab 04:30 Uhr bedeutet. Diese Fahrten laufen über den Nachttarif T-2, und wir bestätigen den Fahrer am Vorabend, damit um vier Uhr früh nichts mehr zu klären ist.',
+        body: 'Die erste Abflugwelle verlässt El Prat vor 07:00, was Abholungen ab 04:30 bedeutet. Eine Abholung um 04:30 kostet genauso viel wie dieselbe Fahrt mittags, denn die Uhrzeit bewegt einen Festpreis nicht, und wir bestätigen den Fahrer am Vorabend, damit um vier Uhr morgens nichts offen ist.',
       },
     ],
   },
@@ -58,11 +58,11 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Vorab buchen statt anstehen',
-        body: 'Der offizielle Stand in El Prat ist gut organisiert und bewegt sich meist zügig. Er staut sich zu vorhersehbaren Zeiten: bei den Ankunftswellen am späten Vormittag, sonntagabends und wenn mehrere Langstreckenflüge gleichzeitig landen. Eine Vorabbuchung nimmt dieses Risiko vollständig heraus und legt Ihren Fahrer fest — zum selben Taxameterpreis.',
+        body: 'Der offizielle Stand in El Prat ist gut organisiert und bewegt sich meist zügig. Er staut sich zu vorhersehbaren Zeiten: bei den Ankunftswellen am späten Vormittag, sonntagabends und wenn mehrere Langstreckenflüge gleichzeitig landen. Eine Vorabbuchung nimmt dieses Risiko vollständig heraus und legt Ihren Fahrer fest — zum selben Festpreis.',
       },
       {
         h2: 'Der Flughafenzuschlag',
-        body: 'Jede Fahrt, die in El Prat beginnt oder endet, enthält einen festen, von der AMB festgelegten Flughafenzuschlag, und für Fahrten ab dem Flughafen gilt ein Mindestpreis. Beides ist in der Schätzung vor der Buchung enthalten — am Taxameter gibt es also keine Überraschung.',
+        body: 'Der offizielle Flughafenzuschlag und jede andere für die Strecke geltende Gebühr sind in dem Festpreis enthalten, den wir Ihnen nennen. Es läuft kein Taxameter und am Ende steht kein zweiter Betrag, also kann nichts überraschen.',
       },
       {
         h2: 'Kreuzfahrtgäste',
@@ -74,22 +74,22 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Taxipreis Flughafen Barcelona | AMB-Tarife 2026',
     description:
-      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: die offizielle AMB-Tariftabelle, der El-Prat-Zuschlag, der Mindestpreis ab Flughafen und wie Ihr Komplettpreis zustande kommt.',
+      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: unsere Festpreise je Fahrzeug, wie weit der Pauschalpreis reicht und was Wochenend- und Außerzonen-Tarif hinzufügen.',
     h1: 'Taxipreis zum Flughafen Barcelona',
     intro:
-      'Taxipreise in Barcelona sind reguliert. Kein lizenziertes Taxi darf mehr oder weniger verlangen als das offizielle AMB-Taxameter. Die ehrliche Antwort auf „Was kostet das?" ist deshalb eine Rechnung, keine Verkaufszahl. So funktioniert diese Rechnung genau.',
+      'Taxipreise in Barcelona sind reguliert. Kein lizenziertes Taxi darf mehr oder weniger verlangen als unsere eigene Festpreisliste. Die ehrliche Antwort auf „Was kostet das?" ist deshalb eine Rechnung, keine Verkaufszahl. So funktioniert diese Rechnung genau.',
     sections: [
       {
         h2: 'Wie Ihr Fahrpreis zustande kommt',
-        body: 'Jede Fahrt beginnt mit einem festen Grundpreis und addiert dann einen Kilometerpreis. Welcher Satz gilt, hängt vom Zeitpunkt ab: T-1 ist der Tagestarif Montag bis Freitag zwischen 08:00 und 20:00 Uhr, T-2 der höhere Satz für Nächte, den gesamten Samstag und Sonntag sowie Feiertage. Zuschläge für Flughafen, Kreuzfahrthafen, Bahnhof Sants und Fira Gran Via kommen hinzu, begrenzt durch einen Höchstbetrag je Fahrt.',
+        body: 'Ein Transfer ist ein Festpreis, bestimmt durch Strecke und Fahrzeug, nicht durch Entfernung oder Uhrzeit. Vom Flughafen an jeden Ort in Barcelona ist es ein Betrag, vom Flughafen zum Kreuzfahrtterminal ein anderer, und Standardtaxi, Sechssitzer und Siebensitzer haben jeweils ihren eigenen. Nur drei Dinge können hinzukommen: ein Ziel jenseits der Pauschalzone, ein Transfer zum Kreuzfahrthafen und der Wochenend- und Feiertagstarif. Jedes erscheint vor der Zahlung als eigene Zeile.',
       },
       {
         h2: 'Gibt es ein günstiges Taxi ab dem Flughafen?',
-        body: 'Nicht in dem Sinne, dass ein Anbieter den anderen unterbietet: Das AMB-Taxameter ist in jedem lizenzierten Taxi identisch, niemand kann beim Fahrpreis legal billiger sein. Beeinflussen können Sie Zeitpunkt und Fahrzeug. Eine Fahrt im Tagesfenster T-1 kostet spürbar weniger pro Kilometer als nachts oder am Wochenende, und für vier Personen schlägt ein Wagen vier Einzeltickets. Seien Sie misstrauisch bei Preisen deutlich unter dem Taxameter — das deutet meist auf ein nicht lizenziertes Fahrzeug hin.',
+        body: 'Vergleichen Sie danach, wovor der Preis Sie schützt, nicht nur nach der Zahl. Ein Festpreis bewegt sich nach der Zusage nicht mehr: Verkehr, ein Umweg, eine verspätete Landung und die Tageszeit sind unser Problem, nicht Ihres, und im Auto wird nichts eingesammelt. Steuern können Sie das Fahrzeug und die Reise außerhalb des Wochenendfensters. Seien Sie bei einem auffällig niedrigen Preis misstrauisch — meist steht dahinter ein nicht lizenziertes Fahrzeug oder ein Betrag, der bis zu Ihrer Ankunft wächst.',
       },
       {
-        h2: 'Der Mindestpreis ab Flughafen',
-        body: 'Für Fahrten, die in El Prat beginnen, gilt ein Mindestpreis. Liegt der Taxameterbetrag bei einer kurzen Fahrt darunter, zahlen Sie den Mindestpreis. Das betrifft vor allem Fahrten nach El Prat Ort oder zu nahegelegenen Hotels, nicht Fahrten nach Barcelona.',
+        h2: 'Wie weit der Festpreis reicht',
+        body: 'Der Stadtpreis deckt alles im Umkreis von 16 km um das Terminal ab, also ganz Barcelona und die unmittelbaren Nachbargemeinden: eine kurze Fahrt nach El Prat Ort und eine Querung der Stadt bis zum Park Güell kosten dasselbe. Jenseits dieses Umkreises gilt der Festpreis weiter, und nur die darüber hinausgehenden Kilometer kommen hinzu, zu einem veröffentlichten Satz.',
       },
       {
         h2: 'Was Ihr Preis enthält',
@@ -101,7 +101,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcelona Flughafen | Tür zu Tür',
     description:
-      'Buchen Sie ein Taxi von Ihrem Hotel in Barcelona zum Flughafen El Prat oder vom Flughafen bis vor Ihre Hoteltür. Tür zu Tür, lizenziert, zum offiziellen Taxameterpreis.',
+      'Buchen Sie ein Taxi von Ihrem Hotel in Barcelona zum Flughafen El Prat oder vom Flughafen bis vor Ihre Hoteltür. Tür zu Tür, lizenziert, zum festen Komplettpreis.',
     h1: 'Hotel-Flughafen-Transfers in Barcelona',
     intro:
       'Die meisten unserer Buchungen sind Hoteltransfers, in beide Richtungen. Ein Tür-zu-Tür-Taxi nimmt den Teil der Reise heraus, den man am meisten unterschätzt: das Gepäck von der Lobby bis zu einem Taxistand zu schleppen — oder nach einem langen Flug die richtige Adresse zu finden.',
@@ -124,14 +124,14 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Bahnhof Sants zum Flughafen Barcelona',
     description:
-      'Buchen Sie ein Taxi vom Bahnhof Barcelona-Sants zum Flughafen El Prat. Rund 15 Minuten, offizieller Taxameterpreis inklusive Bahnhofszuschlag.',
+      'Buchen Sie ein Taxi vom Bahnhof Barcelona-Sants zum Flughafen El Prat. Rund 15 Minuten, fester Komplettpreis inklusive Bahnhofszuschlag.',
     h1: 'Taxi vom Bahnhof Sants zum Flughafen',
     intro:
       'Sants ist der Hauptbahnhof Barcelonas und Ankunftspunkt der AVE-Züge aus Madrid, Valencia und Sevilla. Er ist zugleich der dem Flughafen nächstgelegene große Verkehrsknoten: Die Taxifahrt dauert außerhalb der Stoßzeiten etwa 15 Minuten.',
     sections: [
       {
         h2: 'Der Zuschlag für den Bahnhof Sants',
-        body: 'Fahrten, die am Bahnhof Sants beginnen oder enden, enthalten zusätzlich zum Taxameterpreis einen kleinen festen Zuschlag der AMB. Zusammen mit dem Flughafenzuschlag sind beide in der Schätzung vor der Buchung enthalten, und die Summe der Zuschläge ist je Fahrt gedeckelt.',
+        body: 'Fahrten, die am Bahnhof Sants beginnen oder enden, enthalten zusätzlich zum Festpreis einen kleinen festen Zuschlag der AMB. Zusammen mit dem Flughafenzuschlag sind beide in der Schätzung vor der Buchung enthalten, und die Summe der Zuschläge ist je Fahrt gedeckelt.',
       },
       {
         h2: 'Wo Sie Ihren Fahrer treffen',
@@ -158,7 +158,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Fahrzeugwahl',
-        body: 'Standardtaxi für bis zu vier Personen, Mercedes Vito für sechs, V-Class für sieben mit entsprechendem Gepäck. Der Taxameterpreis ändert sich nicht mit der Fahrzeuggröße — der AMB-Tarif ist derselbe —, wählen Sie also nach Kapazität und Komfort.',
+        body: 'Standardtaxi für bis zu vier Personen, Mercedes Vito für sechs, V-Class für sieben mit entsprechendem Gepäck. Jedes hat seinen eigenen Transfer-Festpreis, vor der Buchung nebeneinander sichtbar, sodass Sie Kapazität und Komfort gegen den Betrag abwägen können.',
       },
       {
         h2: 'Geschäftsreisen',
@@ -177,7 +177,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Der Nachttarif',
-        body: 'Zwischen 20:00 und 08:00 Uhr, am gesamten Wochenende und an Feiertagen gilt der höhere Tarif T-2. Er wird von der AMB festgelegt und gilt für jedes lizenzierte Taxi in Barcelona gleichermaßen — es ist kein Aufschlag von uns. Ihre Schätzung verwendet automatisch den richtigen Tarif für Ihre tatsächliche Abholzeit. Für Heiligabend und Silvester kommt zusätzlich ein offizieller Zuschlag hinzu.',
+        body: 'Eine Abholung nachts kostet dasselbe wie dieselbe Fahrt mittags: die Uhrzeit bewegt einen Festpreis nicht. Wochenenden und Feiertage schon — Samstag und Sonntag, Weihnachten, Neujahr und der katalanische Kalender fügen 7,5 % hinzu, vor der Zahlung als eigene Zeile ausgewiesen statt hinterher entdeckt.',
       },
       {
         h2: 'Späte Ankünfte',
@@ -239,7 +239,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Stadtzentrum Barcelona zum Flughafen',
     description:
-      'Buchen Sie ein Taxi vom Stadtzentrum Barcelonas zum Flughafen El Prat. Abholung an jeder zentralen Adresse, offizieller Taxameterpreis, Fahrer vorab bestätigt.',
+      'Buchen Sie ein Taxi vom Stadtzentrum Barcelonas zum Flughafen El Prat. Abholung an jeder zentralen Adresse, fester Komplettpreis, Fahrer vorab bestätigt.',
     h1: 'Taxi vom Zentrum Barcelonas zum Flughafen',
     intro:
       'Von jedem zentralen Punkt — der Rambla, Plaça de Catalunya, El Born, dem Raval oder dem Passeig de Gràcia — sind es 20 bis 35 Minuten Fahrt nach El Prat. Eine Vorabbuchung legt Abholzeit und Wagen fest, was vor allem auf der Hinfahrt zählt.',
@@ -254,7 +254,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Was die Fahrt kostet',
-        body: 'Der Taxameterbetrag vom Zentrum bis El Prat plus den festen Flughafenzuschlag. Nachts und am Wochenende gilt der höhere Tarif T-2. Geben Sie Ihre Adresse ein für eine genaue Schätzung, bevor Sie sich festlegen.',
+        body: 'Ein Festpreis von jedem Punkt im Zentrum bis El Prat, mit allen offiziellen Zuschlägen bereits darin und nichts im Taxi zu zahlen. Die Uhrzeit ändert ihn nicht; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie Ihre Adresse ein, um vor der Buchung Ihren genauen Preis zu sehen.',
       },
     ],
   },

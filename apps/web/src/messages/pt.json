@@ -23,11 +23,11 @@
     "metaTitle": "Táxi Aeroporto Barcelona | Transferes El Prat Online",
     "metaDescription": "Reserve online um táxi para o aeroporto de Barcelona. Um único preço com tudo incluído pago online, calculado com a tarifa oficial do AMB.",
     "h1": "Táxi para o aeroporto de Barcelona, reservado antes de aterrar",
-    "intro": "Reserve um táxi licenciado de Barcelona de ou para o aeroporto de El Prat. Vê um único preço com tudo incluído antes de reservar, calculado com a tarifa oficial do AMB e a distância real por estrada. Paga online e não tem nada a pagar ao motorista.",
+    "intro": "Reserve um táxi de Barcelona licenciado, preto e amarelo, para ou do aeroporto de El Prat. Um preço fixo tudo incluído, mostrado antes de reservar e bloqueado ao reservar — sem taxímetro e sem estimativas de distância — paga-o online e não fica nada a pagar ao motorista.",
     "trust": {
       "licensed": "Táxis licenciados AMB",
-      "meter": "Tarifa oficial do AMB",
-      "noSurge": "Sem preços dinâmicos",
+      "meter": "Preço fixo, sem taxímetro",
+      "noSurge": "Preço bloqueado na reserva",
       "support": "Reservas 24 h"
     },
     "sections": {
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Um preço, fixado antes de viajar",
-        "body": "As tarifas de Barcelona são fixadas pela AMB e são idênticas em todos os táxis licenciados. Construímos o seu preço a partir da tarifa oficial e da distância real por estrada e depois fixamo-lo: o valor que lhe indicamos é o valor que paga, faça o trânsito o que fizer."
+        "body": "O seu preço é um valor fixo da nossa própria tabela, não uma leitura do taxímetro: depende do percurso e do veículo, não da distância nem da hora. Aceita-o antes de reservar e fica bloqueado, pelo que o valor indicado é o que paga, aconteça o que acontecer no trânsito."
       },
       "flight": {
         "title": "Acompanhamos o seu voo",
@@ -187,7 +187,7 @@
     "chooseVehicle": "Escolha um veículo",
     "metaTitle": "Frota de táxis em Barcelona | Carros, monovolumes e vans",
     "metaDescription": "Táxis licenciados para o aeroporto de Barcelona: Toyota Prius+, Toyota Corolla, monovolume Mercedes Vito e van premium Mercedes V-Class.",
-    "intro": "Cada veículo é um táxi licenciado de Barcelona com taxímetro a funcionar. Escolha pelo tamanho do grupo e pela bagagem: os veículos de cinco a oito passageiros implicam o suplemento oficial da AMB, já incluído no preço que vê.",
+    "intro": "Todos os veículos são táxis de Barcelona licenciados. Escolha pelo tamanho do grupo e pela bagagem: um táxi padrão leva quatro passageiros, uma minivan seis e uma van sete, e cada um tem o seu próprio preço fixo de transfer, visível antes de reservar.",
     "select": "Selecionar {name}"
   },
   "common": {
@@ -420,7 +420,7 @@
     "rowAirportSitges": "Aeroporto El Prat a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona ao aeroporto de Girona",
-    "note": "As transferências para o aeroporto e para o porto de cruzeiros têm preço fixo: a hora do dia não o altera. Fins de semana e feriados acrescentam {surge}%, e os percursos a mais de {km} km do aeroporto ou do porto acrescentam {rate} por quilómetro extra. As viagens fora da área metropolitana são taxadas em T-6 ou T-7. Todos os preços são tudo incluído: tarifa, suplementos oficiais e reserva, sem nada a pagar no táxi.",
+    "note": "As transferências para o aeroporto e para o porto de cruzeiros têm preço fixo: a hora do dia não o altera. Fins de semana e feriados acrescentam {surge} %, e um destino a mais de {km} km do aeroporto ou do porto acrescenta {rate} por quilómetro extra. Só as viagens que saem da área metropolitana são cobradas ao quilómetro. Todos os preços são tudo incluído, sem nada a pagar no táxi.",
     "totalPrice": "Preço total"
   },
   "checkout": {
@@ -458,31 +458,29 @@
     "bothLegs": "Ida e volta, pagas em conjunto"
   },
   "pricing": {
-    "feeBody": "O nosso serviço está incluído no preço apresentado. Paga online um único valor com tudo incluído — a tarifa, todos os suplementos oficiais e o nosso serviço de reserva — e nada ao motorista. Recebe um recibo completo por e-mail.",
-    "metaTitle": "Preço do táxi para o aeroporto de Barcelona 2026 | Tarifas AMB",
-    "metaDescription": "Preços de táxi para o aeroporto de Barcelona: tarifas oficiais AMB T-1 e T-2, suplemento de El Prat.",
-    "h1": "Preços de táxi para o aeroporto de Barcelona",
-    "intro": "As tarifas de táxi em Barcelona não são definidas por nós. São fixadas pela Àrea Metropolitana de Barcelona (AMB) e correm no taxímetro oficial de todos os táxis licenciados. A tabela abaixo é a tarifa em vigor, válida de 19 de janeiro de 2026 a 17 de janeiro de 2027.",
-    "tableCaption": "Tarifas urbanas oficiais da AMB, válidas de 19 jan 2026 a 17 jan 2027",
-    "fixedTitle": "Os nossos preços fixos de transfer",
-    "fixedBody": "A tabela acima é o taxímetro oficial. O que nos paga por um transfer é um preço fixo, não uma leitura do taxímetro: {sedan} entre o aeroporto e qualquer ponto num raio de {km} km, o que cobre toda a Barcelona, {van6} para uma minivan de seis lugares e {van7} para uma van de sete. Aeroporto e porto de cruzeiros são {port}, e um transfer entre o porto e a cidade é o preço de cidade mais {portExtra}. Além dos {km} km acrescentamos {rate} por cada quilómetro extra, e aos fins de semana e feriados — Natal, Ano Novo e o calendário catalão — {surge}%. Só as viagens que saem da área metropolitana são cobradas ao quilómetro.",
-    "concept": "Rubrica",
-    "amount": "Valor",
-    "rows": {
-      "startFare": "Bandeirada inicial",
-      "perKmT1": "Por km — T-1 (seg–sex 08:00–20:00)",
-      "perKmT2": "Por km — T-2 (noites, fins de semana, feriados)",
-      "waitPerHour": "Tempo de espera, por hora",
-      "airportSupplement": "Suplemento do aeroporto de El Prat",
-      "mollSupplement": "Suplemento do porto de cruzeiros Moll Adossat",
-      "santsSupplement": "Suplemento da estação de Sants",
-      "firaSupplement": "Suplemento da Fira Gran Via",
-      "maxSupplement": "Máximo de suplementos por serviço",
-      "minFromAirport": "Tarifa mínima a partir do aeroporto",
-      "t4Fixed": "Preço fixo: aeroporto ↔ Moll Adossat (T-4)"
-    },
+    "feeBody": "Tudo. A viagem, cada suplemento oficial aplicável ao percurso e o nosso serviço de organizar e garantir o carro, num único valor pago online ao reservar. Não há um segundo valor a liquidar: no táxi não se deve nada e um recibo completo é enviado por email com a confirmação.",
+    "metaTitle": "Preços Táxi Aeroporto Barcelona 2026 — Tarifas Fixas",
+    "metaDescription": "Preços fixos de táxi para o aeroporto de Barcelona: {sedan} para qualquer ponto da cidade, {port} para o porto de cruzeiros, por veículo. O que acrescentam a tarifa de fim de semana e a de fora de zona, e quando se cobra ao quilómetro.",
+    "h1": "Preços do táxi para o aeroporto de Barcelona",
+    "intro": "Um preço fixo por viagem, acordado antes de reservar e bloqueado ao reservar. Não é uma leitura do taxímetro nem uma estimativa: o valor que vê é o que paga, aconteça o que acontecer no trânsito e seja a hora que for.",
+    "tableCaption": "Preços fixos de transfer, por veículo",
     "feeTitle": "O que o seu preço inclui",
-    "verifyNote": "A AMB revê as tarifas todos os janeiros. Nós verificamo-las em taxi.amb.cat a cada mudança."
+    "verifyNote": "Os nossos preços são fixados por nós e revistos quando os custos mudam. As viagens fora da área metropolitana são cobradas ao quilómetro segundo a tarifa interurbana da Generalitat de Catalunya, que verificamos em cada alteração.",
+    "routeCol": "Percurso",
+    "standardCol": "Táxi padrão (4)",
+    "minivanCol": "Minivan (6)",
+    "vanCol": "Van (7)",
+    "rowCityAirport": "Aeroporto ↔ qualquer ponto de Barcelona, até {km} km",
+    "rowPortAirport": "Aeroporto ↔ porto de cruzeiros Moll Adossat",
+    "adjTitle": "O que pode ser acrescentado",
+    "adjPortCity": "Porto de cruzeiros ↔ cidade",
+    "adjPortCityValue": "preço de cidade + {portExtra}",
+    "adjExcessKm": "Cada quilómetro além de {km} km",
+    "adjExcessKmValue": "+ {rate}",
+    "adjWeekend": "Fins de semana e feriados",
+    "adjWeekendValue": "+ {surge} %",
+    "adjInterurban": "Fora da área metropolitana",
+    "adjInterurbanValue": "cobrado ao quilómetro"
   },
   "site": {
     "name": "BCNAirportTaxi"

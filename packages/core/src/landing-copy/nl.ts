@@ -5,14 +5,14 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Luchthaven Barcelona Centrum | Online Boeken',
     description:
-      'Boek een taxi van de luchthaven Barcelona naar het centrum. Officieel AMB-metertarief, El Prat-toeslag inbegrepen in de schatting, chauffeur in de aankomsthal.',
+      'Boek een taxi van de luchthaven Barcelona naar het centrum. Vaste alles-inbegrepen prijs, El Prat-toeslag al inbegrepen, chauffeur in de aankomsthal.',
     h1: 'Taxi van de luchthaven Barcelona naar het centrum',
     intro:
       'Een taxi van El Prat naar het centrum van Barcelona duurt 25 tot 35 minuten, afhankelijk van het verkeer en de terminal waar u landt. Vooraf boeken betekent dat er bij de landing al een chauffeur klaarstaat met een naambordje in de aankomsthal, in plaats van aansluiten in de rij bij T1 of T2.',
     sections: [
       {
         h2: 'Wat een transfer vanaf de luchthaven kost',
-        body: 'De prijs wordt opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand, met de vaste luchthaventoeslag en het minimumtarief er al in. In de praktijk kost een rit van de luchthaven naar elke plek in Barcelona een vaste 50 EUR in een standaardtaxi, ongeacht de afstand en ongeacht het tijdstip; in het weekend en op feestdagen komt er 7,5 % bij. Voer hierboven uw exacte bestemming in om uw all-in prijs te zien.',
+        body: 'De prijs stellen wij vast: geen meterstand en geen schatting, en elke officiële toeslag die op de route van toepassing is zit er al in. In de praktijk kost een rit van de luchthaven naar elke plek in Barcelona een vaste 50 EUR in een standaardtaxi, ongeacht de afstand en ongeacht het tijdstip; in het weekend en op feestdagen komt er 7,5 % bij. Vul hierboven uw exacte bestemming in om uw prijs te zien.',
       },
       {
         h2: 'Waar uw chauffeur op u wacht',
@@ -28,7 +28,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi Barcelona naar de Luchthaven | Online Boeken',
     description:
-      'Boek een taxi van Barcelona stad naar luchthaven El Prat. Vaste ophaaltijd, officieel metertarief en chauffeurs die de terminaldeuren kennen.',
+      'Boek een taxi van Barcelona stad naar luchthaven El Prat. Vaste ophaaltijd, vaste alles-inbegrepen prijs en chauffeurs die de terminaldeuren kennen.',
     h1: 'Taxi van Barcelona naar de luchthaven',
     intro:
       'Het is de heenrit die het echt waard is om te boeken. Een vooraf bestelde taxi staat op de afgesproken tijd voor uw hotel of appartement, en dat weegt veel zwaarder wanneer u een vlucht moet halen dan wanneer u aankomt.',
@@ -43,7 +43,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Vroege vertrekken vanaf El Prat',
-        body: 'De eerste vertrekgolf verlaat El Prat vóór 07:00 uur, wat ophaaltijden vanaf 04:30 uur betekent. Die ritten vallen onder het nachttarief T-2, en we bevestigen de chauffeur de avond ervoor zodat er om vier uur \'s ochtends niets meer te regelen valt.',
+        body: 'De eerste vertrekgolf verlaat El Prat vóór 07:00 uur, wat ophaaltijden vanaf 04:30 uur betekent. Een rit om 04:30 kost hetzelfde als dezelfde rit om het middaguur, want het tijdstip verandert een vaste prijs niet, en wij bevestigen de chauffeur de avond ervoor zodat er om vier uur \'s nachts niets meer te regelen is.',
       },
     ],
   },
@@ -51,18 +51,18 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Luchthaven El Prat | Vergunde Transfers',
     description:
-      'Vergunde taxi\'s van en naar luchthaven Barcelona-El Prat (BCN). Boek online met een schatting op het officiële AMB-tarief en een chauffeur die aan uw vlucht is toegewezen.',
+      'Vergunde taxi\'s van en naar luchthaven Barcelona-El Prat (BCN). Boek online met een schatting op het vaste prijs en een chauffeur die aan uw vlucht is toegewezen.',
     h1: 'Taxi luchthaven El Prat',
     intro:
       'De luchthaven Josep Tarradellas Barcelona-El Prat, die vrijwel iedereen nog gewoon El Prat noemt, ligt ongeveer 15 km ten zuidwesten van de stad. Het is de op één na drukste luchthaven van Spanje, en de taxi is op vrijwel elk uur de snelste weg naar Barcelona — mits er een wagen klaarstaat.',
     sections: [
       {
         h2: 'Boeken in plaats van in de rij staan',
-        body: 'De officiële standplaats op El Prat is goed geregeld en beweegt meestal vlot. Hij loopt vol op voorspelbare momenten: de aankomstgolven halverwege de ochtend, zondagavonden en wanneer meerdere langeafstandsvluchten tegelijk landen. Vooraf boeken haalt dat risico er volledig uit en legt uw chauffeur vast, tegen hetzelfde metertarief.',
+        body: 'De officiële standplaats op El Prat is goed geregeld en beweegt meestal vlot. Hij loopt vol op voorspelbare momenten: de aankomstgolven halverwege de ochtend, zondagavond en wanneer er meerdere langeafstandsvluchten tegelijk landen. Vooraf boeken haalt dat risico er volledig uit en zet uw chauffeur vast, voor dezelfde vaste prijs.',
       },
       {
         h2: 'De luchthaventoeslag',
-        body: 'Elke rit die op El Prat begint of eindigt kent een vaste luchthaventoeslag van de AMB, en ritten vanaf de luchthaven hebben een minimumtarief. Beide zitten in de schatting die u vóór het boeken ziet, dus de taxameter levert geen verrassingen op.',
+        body: 'De officiële luchthaventoeslag en elke andere kost die bij de route hoort zitten in de vaste prijs die wij u geven. Er loopt geen meter tijdens uw rit en er is geen tweede bedrag aan het eind, dus er kan niets verrassen.',
       },
       {
         h2: 'Cruisepassagiers',
@@ -74,26 +74,26 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Taxiprijs Luchthaven Barcelona | AMB-tarieven 2026',
     description:
-      'Wat een taxi naar de luchthaven van Barcelona werkelijk kost: de officiële AMB-tarieftabel, de El Prat-toeslag, het minimumtarief en hoe uw all-in prijs is opgebouwd.',
+      'Wat een taxi naar de luchthaven van Barcelona werkelijk kost: onze vaste prijzen per voertuig, hoe ver de vaste prijs reikt en wat het weekendtarief en het buitenzonetarief toevoegen.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
       'Taxiprijzen in Barcelona zijn gereguleerd. Geen enkele vergunde taxi mag meer of minder rekenen dan de officiële AMB-taxameter, wat betekent dat het eerlijke antwoord op "wat kost het" een berekening is en geen verkooppraatje. Zo werkt die berekening precies.',
     sections: [
       {
         h2: 'Hoe uw tarief tot stand komt',
-        body: 'Elke rit begint met een vast starttarief en telt daar een kilometerprijs bij op. Welk tarief geldt hangt af van het moment: T-1 is het dagtarief van maandag tot en met vrijdag tussen 08:00 en 20:00 uur, en T-2 het hogere tarief voor nachten, de hele zaterdag en zondag en feestdagen. Toeslagen voor luchthaven, cruisehaven, station Sants en Fira Gran Via komen daarbovenop, met een maximum per rit.',
+        body: 'Een transfer is één vaste prijs, bepaald door route en voertuig, niet door afstand of klok. Van de luchthaven naar elke plek in Barcelona is één bedrag, van de luchthaven naar de cruiseterminal een ander, en standaardtaxi, zespersoons minivan en zevenpersoons van hebben elk hun eigen bedrag. Slechts drie dingen kunnen erbij komen: een bestemming buiten de vaste zone, een transfer naar de cruisehaven, en het weekend- en feestdagtarief. Elk verschijnt vóór het betalen als een eigen regel.',
       },
       {
         h2: 'Bestaat er een goedkope taxi vanaf de luchthaven?',
-        body: 'Niet in de zin dat de ene aanbieder de andere onderbiedt: de AMB-meter is in elke vergunde taxi identiek, dus niemand kan op de rit legaal goedkoper zijn. Wat u wel bepaalt is het tijdstip en het voertuig. Reizen binnen het dagvenster T-1 kost merkbaar minder per kilometer dan \'s nachts of in het weekend, en met vier personen wint één auto het van vier losse tickets. Wees wantrouwend bij tarieven ver onder de meter; dat wijst meestal op een voertuig zonder vergunning.',
+        body: 'Vergelijk op waartegen de prijs u beschermt, niet alleen op het bedrag. Een vaste prijs beweegt niet meer zodra hij is afgesproken: het verkeer, een omleiding, een late landing en het tijdstip zijn ons probleem, niet het uwe, en in de auto wordt niets geïnd. Wat u wel kunt kiezen is het voertuig en reizen buiten het weekend. Wees op uw hoede bij een opvallend lage prijs: dat duidt meestal op een voertuig zonder vergunning, of op een bedrag dat nog groeit voordat u aankomt.',
       },
       {
-        h2: 'Het minimumtarief vanaf de luchthaven',
-        body: 'Voor ritten die op El Prat beginnen geldt een minimumtarief. Komt de meter bij een korte rit onder dat minimum uit, dan betaalt u het minimum. Dat raakt vooral ritten naar het dorp El Prat of nabijgelegen hotels, niet ritten naar Barcelona.',
+        h2: 'Hoe ver de vaste prijs reikt',
+        body: 'De stadsprijs dekt alles binnen een straal van 16 km van de terminal, dus heel Barcelona en de gemeenten er direct naast: een korte rit naar El Prat dorp en een tocht door de stad naar Park Güell kosten hetzelfde. Buiten die straal blijft de vaste prijs gelden en komen alleen de kilometers erbij die eruit steken, tegen een bekendgemaakt tarief.',
       },
       {
         h2: 'Wat uw prijs omvat',
-        body: 'U betaalt bij het online boeken één all-in prijs. Die dekt de rit volgens het officiële AMB-tarief, elke officiële toeslag die op uw route van toepassing is, en onze service om de auto te reserveren en te garanderen. Er is geen tweede bedrag: in de taxi betaalt u niets.',
+        body: 'U betaalt bij het online boeken één all-in prijs. Die dekt de rit volgens het vaste prijs, elke officiële toeslag die op uw route van toepassing is, en onze service om de auto te reserveren en te garanderen. Er is geen tweede bedrag: in de taxi betaalt u niets.',
       },
     ],
   },
@@ -101,7 +101,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcelona Luchthaven | Deur tot Deur',
     description:
-      'Boek een taxi van uw hotel in Barcelona naar luchthaven El Prat, of van de luchthaven tot aan uw hoteldeur. Deur tot deur, vergund en tegen het officiële metertarief.',
+      'Boek een taxi van uw hotel in Barcelona naar luchthaven El Prat, of van de luchthaven tot aan uw hoteldeur. Deur tot deur, met vergunning, één vaste prijs online betaald.',
     h1: 'Hotel-luchthaventransfers in Barcelona',
     intro:
       'De meeste van onze boekingen zijn hoteltransfers, in beide richtingen. Een deur-tot-deurtaxi haalt het deel van de reis weg dat het vaakst wordt onderschat: bagage van de lobby naar een standplaats sjouwen, of na een lange vlucht het juiste adres vinden.',
@@ -124,14 +124,14 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Station Sants naar Luchthaven Barcelona',
     description:
-      'Boek een taxi van station Barcelona-Sants naar luchthaven El Prat. Ongeveer 15 minuten, officieel metertarief inclusief stationstoeslag.',
+      'Boek een taxi van station Barcelona-Sants naar luchthaven El Prat. Ongeveer 15 minuten, vaste alles-inbegrepen prijs inclusief stationstoeslag.',
     h1: 'Taxi van station Sants naar de luchthaven',
     intro:
       'Sants is het belangrijkste treinstation van Barcelona en het aankomstpunt van de AVE-treinen uit Madrid, Valencia en Sevilla. Het is ook het grote vervoersknooppunt dat het dichtst bij El Prat ligt: de taxirit duurt buiten de spits zo\'n 15 minuten.',
     sections: [
       {
         h2: 'De toeslag voor station Sants',
-        body: 'Ritten die op station Sants beginnen of eindigen kennen naast het metertarief een kleine vaste toeslag van de AMB. Samen met de luchthaventoeslag zitten beide in de schatting die u vóór het boeken ziet, en het totaal aan toeslagen kent een maximum per rit.',
+        body: 'Ritten die op station Sants beginnen of eindigen kennen naast de vaste prijs een kleine vaste toeslag van de AMB. Samen met de luchthaventoeslag zitten beide in de schatting die u vóór het boeken ziet, en het totaal aan toeslagen kent een maximum per rit.',
       },
       {
         h2: 'Waar u uw chauffeur treft',
@@ -147,7 +147,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Privétransfer Luchthaven Barcelona | Uw Eigen Taxi',
     description:
-      'Een privétransfer vanaf de luchthaven van Barcelona: uw vergunde taxi alleen voor u, zonder delen of wachten op andere passagiers, tegen het officiële AMB-tarief.',
+      'Een privétransfer vanaf de luchthaven van Barcelona: uw vergunde taxi alleen voor u, zonder delen of wachten op andere passagiers, tegen het vaste prijs.',
     h1: 'Privétransfer luchthaven Barcelona',
     intro:
       'Elke boeking hier is een privétransfer. Het voertuig is alleen van u: geen gedeelde shuttle, geen omwegen om andere passagiers op te halen, geen vast vertrekmoment. U rijdt rechtstreeks van uw ophaalpunt naar uw bestemming.',
@@ -158,7 +158,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Voertuigkeuze',
-        body: 'Standaardtaxi tot vier passagiers, Mercedes Vito voor zes, V-Class voor zeven met bijbehorende bagage. Het metertarief verandert niet met de voertuiggrootte — dat stelt de AMB vast — dus kies op capaciteit en comfort.',
+        body: 'Standaardtaxi tot vier passagiers, Mercedes Vito voor zes, V-Class voor zeven met bijbehorende bagage. De vaste prijs verandert niet met de voertuiggrootte — dat stelt de AMB vast — dus kies op capaciteit en comfort.',
       },
       {
         h2: 'Zakenreizen',
@@ -177,7 +177,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Het nachttarief',
-        body: 'Tussen 20:00 en 08:00 uur, het hele weekend en op feestdagen geldt het hogere tarief T-2. Dat stelt de AMB vast en het geldt gelijk voor elke vergunde taxi in Barcelona: het is geen opslag van ons. Uw schatting gebruikt automatisch het juiste tarief voor uw werkelijke ophaaltijd. Kerstavond en oudejaarsavond kennen bovendien een officiële toeslag.',
+        body: 'Een rit \'s nachts kost hetzelfde als dezelfde rit om het middaguur: het tijdstip verandert een vaste prijs niet. Weekenden en feestdagen wel: zaterdag en zondag, Kerst, Nieuwjaar en de Catalaanse kalender voegen 7,5 % toe, vóór het betalen als eigen regel vermeld in plaats van achteraf ontdekt.',
       },
       {
         h2: 'Late aankomsten',
@@ -216,7 +216,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: 'Taxi Eixample naar Luchthaven Barcelona',
     description:
-      'Boek een taxi van de Eixample naar luchthaven Barcelona-El Prat. Eenvoudige deur-tot-deurophaling op het raster, tegen het officiële AMB-tarief.',
+      'Boek een taxi van de Eixample naar luchthaven Barcelona-El Prat. Eenvoudige deur-tot-deurophaling op het raster, tegen het vaste prijs.',
     h1: 'Taxi van de Eixample naar de luchthaven van Barcelona',
     intro:
       'De Eixample is de handigste wijk van Barcelona om een taxi op te halen. Het raster van Cerdà maakt vrijwel elk adres met de auto bereikbaar, met ruimte om te stoppen en bagage in te laden — precies het tegenovergestelde van de oude stad.',
@@ -239,7 +239,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Centrum Barcelona naar de Luchthaven',
     description:
-      'Boek een taxi van het centrum van Barcelona naar luchthaven El Prat. Ophalen op elk centraal adres, officieel metertarief en vooraf bevestigde chauffeur.',
+      'Boek een taxi van het centrum van Barcelona naar luchthaven El Prat. Ophalen op elk centraal adres, vaste alles-inbegrepen prijs en vooraf bevestigde chauffeur.',
     h1: 'Taxi van het centrum van Barcelona naar de luchthaven',
     intro:
       'Vanaf elk centraal punt — de Rambla, plaça de Catalunya, El Born, de Raval of de Passeig de Gràcia — is El Prat 20 tot 35 minuten rijden. Vooraf boeken legt de ophaaltijd en de wagen vast, wat vooral op de heenrit telt.',
@@ -254,7 +254,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wat de rit kost',
-        body: 'Het meterbedrag van het centrum tot El Prat, plus de vaste luchthaventoeslag. \'s Nachts en in het weekend geldt het hogere tarief T-2. Vul uw adres in voor een exacte schatting voordat u zich vastlegt.',
+        body: 'Eén vaste prijs van elk punt in het centrum tot El Prat, met alle officiële toeslagen er al in en niets te betalen in de taxi. Het tijdstip verandert hem niet; weekenden en feestdagen voegen 7,5 % toe. Vul uw adres in om uw exacte prijs te zien voordat u beslist.',
       },
     ],
   },
