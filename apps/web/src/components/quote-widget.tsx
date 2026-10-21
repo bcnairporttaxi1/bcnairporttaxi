@@ -6,8 +6,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import { eurIn } from '@bcn/core/format';
 import { Link } from '@/i18n/navigation';
 import { meetsLeadTime } from '@bcn/core/pricing';
-import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
+import { DEFAULT_PAYMENT_MODE, TARIFFS } from '@bcn/core/tariffs';
 import { whatsappLink } from '@bcn/core/site';
+
+/** Quoted in the copy that explains a price above the flat figure. */
+const FLAT_ZONE_RADIUS_KM = TARIFFS.fixedRoutes.flatZoneRadiusKm;
 import { AddressField, type Place } from './address-field';
 
 const RouteMap = dynamic(() => import('./route-map'), {
@@ -25,7 +28,7 @@ export interface QuotePayload {
   perKmRateCharged: number;
   supplements: number;
   supplementLines: Array<{ key: string; amount: number }>;
-  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | null;
+  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | 'FIXED_PLUS_KM' | null;
   meterEstimate: number;
   fixedFare: number;
   bookingFee: number;
@@ -544,6 +547,27 @@ export function QuoteWidget({
           )}
           {q?.adjustment === 'FIXED_ROUTE' && (
             <p className="mt-3 text-xs text-gold">{t('fixedRouteApplied')}</p>
+          )}
+          {q?.adjustment === 'FIXED_PLUS_KM' && (
+            <p className="mt-3 text-xs text-gold">
+              {t('fixedPlusKmApplied', { km: FLAT_ZONE_RADIUS_KM })}
+            </p>
+          )}
+
+          {/* A price above the headline figure has to say what lifted it.
+              Extra kilometres, the port transfer and the weekend rate are
+              each named, so the total is never just a bigger number. */}
+          {q && q.supplementLines.length > 0 && (
+            <dl className="mt-3 space-y-1 text-xs">
+              {q.supplementLines.map((line) => (
+                <div key={line.key} className="flex justify-between gap-3">
+                  <dt className="text-ghost">
+                    {t(`supplementNames.${line.key}`, { km: FLAT_ZONE_RADIUS_KM })}
+                  </dt>
+                  <dd className="font-mono text-dim">+{eur(line.amount)}</dd>
+                </div>
+              ))}
+            </dl>
           )}
 
           {q && (

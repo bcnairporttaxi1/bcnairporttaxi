@@ -12,7 +12,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: "Quanto costa un transfer dall'aeroporto di Barcellona",
-        body: "Il prezzo si costruisce sulla tariffa ufficiale AMB e sulla distanza stradale reale, con il supplemento aeroportuale fisso e la tariffa minima già inclusi. In pratica una corsa dall'aeroporto al centro di Barcellona si aggira sui trentacinque euro, di più di notte e nei fine settimana quando vale la tariffa T-2. Inserisci sopra la destinazione esatta per vedere il tuo prezzo tutto incluso.",
+        body: "Il prezzo si costruisce sulla tariffa ufficiale AMB e sulla distanza stradale reale, con il supplemento aeroportuale fisso e la tariffa minima già inclusi. In pratica una corsa dall'aeroporto a qualsiasi punto di Barcellona costa 50 EUR fissi in taxi standard, qualunque sia la distanza e qualunque sia l'ora; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisci sopra la destinazione esatta per vedere il tuo prezzo tutto incluso.",
       },
       {
         h2: 'Dove ti aspetta il tuo autista',

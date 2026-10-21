@@ -12,7 +12,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Wat een transfer vanaf de luchthaven kost',
-        body: 'De prijs wordt opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand, met de vaste luchthaventoeslag en het minimumtarief er al in. In de praktijk komt een rit van de luchthaven naar het centrum van Barcelona rond de vijfendertig euro uit, hoger ’s nachts en in het weekend wanneer het T-2-tarief geldt. Voer hierboven uw exacte bestemming in om uw all-in prijs te zien.',
+        body: 'De prijs wordt opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand, met de vaste luchthaventoeslag en het minimumtarief er al in. In de praktijk kost een rit van de luchthaven naar elke plek in Barcelona een vaste 50 EUR in een standaardtaxi, ongeacht de afstand en ongeacht het tijdstip; in het weekend en op feestdagen komt er 7,5 % bij. Voer hierboven uw exacte bestemming in om uw all-in prijs te zien.',
       },
       {
         h2: 'Waar uw chauffeur op u wacht',

@@ -12,7 +12,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Quanto custa um transfer do aeroporto de Barcelona',
-        body: 'A tarifa é a do taxímetro oficial da AMB. A partir de El Prat paga o valor do taxímetro mais o suplemento fixo de aeroporto, e existe uma tarifa mínima para percursos muito curtos com origem no aeroporto. Na prática, uma viagem do aeroporto para o centro de Barcelona costuma situar-se entre os trinta e cinco e os quarenta e cinco euros, mais cara à noite e aos fins de semana quando se aplica a tarifa T-2. Introduza acima o destino exato para uma estimativa precisa.',
+        body: 'A tarifa é a do taxímetro oficial da AMB. A partir de El Prat paga o valor do taxímetro mais o suplemento fixo de aeroporto, e existe uma tarifa mínima para percursos muito curtos com origem no aeroporto. Na prática, uma viagem do aeroporto para qualquer ponto de Barcelona são 50 EUR fixos em táxi padrão, independentemente da distância e da hora; aos fins de semana e feriados acrescentam-se 7,5 %. Introduza acima o destino exato para uma estimativa precisa.',
       },
       {
         h2: 'Onde o motorista o espera',

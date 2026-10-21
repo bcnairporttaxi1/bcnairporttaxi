@@ -127,7 +127,10 @@
       "nitDeNadal": "Zuschlag Heiligabend",
       "capDAny": "Zuschlag Silvester",
       "santJoan": "Zuschlag Sant-Joan-Nacht",
-      "largeVehicle": "Großes Fahrzeug (5-8 Plätze)"
+      "largeVehicle": "Großes Fahrzeug (5-8 Plätze)",
+      "excessKm": "Zusätzliche Strecke über {km} km",
+      "portTransfer": "Transfer Kreuzfahrthafen",
+      "weekendSurge": "Wochenend-/Feiertagstarif"
     },
     "disclaimer": "Ihr Preis steht mit der Buchung fest und deckt die gesamte Fahrt einschließlich aller offiziellen Zuschläge ab. Im Taxi ist nichts zu zahlen. Die Quittung erhalten Sie per E-Mail mit Ihrer Bestätigung.",
     "errors": {
@@ -158,7 +161,8 @@
     "returnTime": "Rückfahrtzeit",
     "returnIncluded": "Rückfahrt enthalten",
     "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen.",
-    "fixedRouteApplied": "Festpreis für diese Strecke. Entfernung und Tageszeit ändern ihn nicht."
+    "fixedRouteApplied": "Festpreis für diese Strecke. Entfernung und Tageszeit ändern ihn nicht.",
+    "fixedPlusKmApplied": "Festpreis bis {km} km, zuzüglich der Strecke darüber."
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -416,7 +420,7 @@
     "rowAirportSitges": "Flughafen El Prat nach Sitges",
     "rowBcnTarragona": "Barcelona nach Tarragona",
     "rowBcnGirona": "Barcelona zum Flughafen Girona",
-    "note": "Fahrten nachts, am Wochenende und an Feiertagen werden nach T-2 oder T-7 abgerechnet. Alle angezeigten Preise sind Komplettpreise: Tarif, offizielle Zuschläge und Buchung — im Taxi ist nichts zu zahlen.",
+    "note": "Transfers zum Flughafen und zum Kreuzfahrthafen haben einen Festpreis: die Tageszeit ändert ihn nicht. An Wochenenden und Feiertagen kommen {surge}% hinzu, und bei Fahrten über {km} km vom Flughafen oder Hafen {rate} pro zusätzlichem Kilometer. Fahrten außerhalb des Stadtgebiets laufen auf T-6 oder T-7. Alle Preise sind All-inclusive: Fahrpreis, offizielle Zuschläge und Buchung, im Taxi ist nichts zu zahlen.",
     "totalPrice": "Gesamtpreis"
   },
   "checkout": {
@@ -460,6 +464,8 @@
     "h1": "Taxipreise zum Flughafen Barcelona",
     "intro": "Die Taxitarife in Barcelona setzen nicht wir fest. Sie werden von der Àrea Metropolitana de Barcelona (AMB) bestimmt und laufen auf dem offiziellen Taxameter jedes lizenzierten Taxis. Die folgende Tabelle ist der aktuelle Tarif, gültig vom 19. Januar 2026 bis 17. Januar 2027.",
     "tableCaption": "Offizielle städtische AMB-Taxitarife, gültig 19. Jan. 2026 – 17. Jan. 2027",
+    "fixedTitle": "Unsere Transfer-Festpreise",
+    "fixedBody": "Die Tabelle oben ist der offizielle Taxameter. Was Sie uns für einen Transfer zahlen, ist ein Festpreis und keine Taxameteranzeige: {sedan} zwischen dem Flughafen und jedem Ort im Umkreis von {km} km, was ganz Barcelona abdeckt, {van6} für einen Sechssitzer und {van7} für einen Siebensitzer. Flughafen und Kreuzfahrthafen kosten {port}, und ein Transfer zwischen Hafen und Stadt ist der Stadtpreis plus {portExtra}. Über {km} km hinaus kommen {rate} je zusätzlichem Kilometer hinzu, und an Wochenenden und Feiertagen — Weihnachten, Neujahr und der katalanische Kalender — {surge}%. Nur Fahrten aus dem Stadtgebiet heraus werden nach Kilometern berechnet.",
     "concept": "Position",
     "amount": "Betrag",
     "rows": {

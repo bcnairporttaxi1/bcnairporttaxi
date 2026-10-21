@@ -54,8 +54,15 @@ export interface Quote {
   supplements: number;
   supplementLines: SupplementLine[];
 
-  /** Set when a legal minimum or fixed price overrode the calculation. */
-  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | null;
+  /**
+   * How the price was reached, when it was not the meter.
+   *
+   * FIXED_ROUTE   the flat zone price, whole and unqualified
+   * FIXED_PLUS_KM the flat zone price plus kilometres beyond the radius
+   * T4_FIXED      the airport <-> cruise quay list price
+   * AIRPORT_MINIMUM the regulated floor, on a metered city journey
+   */
+  adjustment: 'AIRPORT_MINIMUM' | 'T4_FIXED' | 'FIXED_ROUTE' | 'FIXED_PLUS_KM' | null;
 
   /**
    * What the taxi meter is expected to read, on official rates only.
@@ -362,25 +369,81 @@ function vehicleClass(seats: number | undefined): 'sedan' | 'van6' | 'van7' {
 }
 
 /**
- * The operator's fixed total for this journey, or null if it is not one of
- * the two fixed routes.
+ * The fixed price for a journey with one end at the airport or the cruise
+ * port, or null when neither end is.
  *
- * The port is tested first and deliberately: Moll Adossat sits inside
- * Barcelona, so a cruise transfer satisfies the city rule too, and testing
- * the city first would quietly sell every cruise job at the city price.
+ * This is the whole city price list. There is no metered city fare for an
+ * airport or port job any more: the list price covers everything inside the
+ * flat zone whatever the distance and whatever the hour, and beyond the zone
+ * it is the list price plus the kilometres that stick out — never a meter
+ * that can come in under the list.
+ *
+ * Three things can sit on top, each as its own visible line:
+ *   - kilometres beyond `flatZoneRadiusKm`, at the charged road rate;
+ *   - the port surcharge, when the quay is one end and the airport is not;
+ *   - the weekend and holiday uplift, on the sum of the above.
  */
-function fixedRouteTotal(
-  pickup: Coords,
-  dropoff: Coords,
-  seats: number | undefined,
-): number | null {
-  const ends = (a: (p: Coords) => boolean, b: (p: Coords) => boolean) =>
-    (a(pickup) && b(dropoff)) || (b(pickup) && a(dropoff));
+function fixedZoneQuote(input: QuoteInput): Quote | null {
+  const { pickup, dropoff, pickupAt, vehicleSeats } = input;
+  const cfg = TARIFFS.fixedRoutes;
 
-  const column = vehicleClass(seats);
-  if (ends(isAirport, isMollAdossat)) return TARIFFS.fixedRoutes.portAirport[column];
-  if (ends(isAirport, isBarcelonaCity)) return TARIFFS.fixedRoutes.cityAirport[column];
-  return null;
+  const airport = isAirport(pickup) || isAirport(dropoff);
+  // Moll Adossat sits inside Barcelona, so the port is tested on its own
+  // terms: a cruise transfer would satisfy the city rule as well, and reading
+  // the city first would quietly sell every cruise job at the city price.
+  const port = isMollAdossat(pickup) || isMollAdossat(dropoff);
+  if (!airport && !port) return null;
+
+  const column = vehicleClass(vehicleSeats);
+  const lines: SupplementLine[] = [];
+
+  // Airport to the quay is its own listed route, priced as a pair rather than
+  // as a city journey with a surcharge.
+  const airportToPort = airport && port;
+  const base = airportToPort ? cfg.portAirport[column] : cfg.cityAirport[column];
+
+  if (port && !airport) {
+    lines.push({ key: 'portTransfer', amount: cfg.portSurcharge });
+  }
+
+  /*
+   * The zone is measured from whichever fixed point the journey touches, to
+   * the other end. On an airport-to-quay job both ends are fixed points and
+   * the listed price already covers it, so no radius is involved.
+   */
+  if (!airportToPort) {
+    const anchor = airport
+      ? (isAirport(pickup) ? pickup : dropoff)
+      : (isMollAdossat(pickup) ? pickup : dropoff);
+    const far = airport
+      ? (isAirport(pickup) ? dropoff : pickup)
+      : (isMollAdossat(pickup) ? dropoff : pickup);
+
+    const excessKm = round2(Math.max(0, haversineKm(anchor, far) - cfg.flatZoneRadiusKm));
+    if (excessKm > 0) {
+      lines.push({ key: 'excessKm', amount: round2(excessKm * cfg.excessPerKm) });
+    }
+  }
+
+  const beforeSurge = round2(base + lines.reduce((n, l) => n + l.amount, 0));
+
+  // Saturday 08:00 to Monday 08:00, plus holidays and the special nights on
+  // the same shape. The same window the booking fee already uses, so the two
+  // cannot disagree about what counts as a weekend.
+  if (inElevatedFeeWindow(pickupAt)) {
+    lines.push({ key: 'weekendSurge', amount: round2(beforeSurge * cfg.surgeRate) });
+  }
+
+  const total = round2(base + lines.reduce((n, l) => n + l.amount, 0));
+  const hasExcess = lines.some((l) => l.key === 'excessKm');
+
+  return atFixedTotal(
+    total,
+    airportToPort ? 'T4' : selectTariff(pickupAt),
+    airportToPort ? 'T4_FIXED' : hasExcess ? 'FIXED_PLUS_KM' : 'FIXED_ROUTE',
+    input,
+    lines,
+  );
 }
 
 /**
@@ -432,36 +495,31 @@ export function amountDueInTaxi(quote: Quote, mode: PaymentMode): number {
 /**
  * Build a full fare estimate.
  *
- * Produces the meter estimate on official rates, our marked-up fare, and the
- * all-inclusive `total` the passenger is quoted. Supplements and the airport
- * minimum apply to the meter and the fare alike; only the per-km rate differs.
+ * Two worlds, and the boundary between them is the metropolitan area:
+ *
+ *   - Leave the AMB and the Generalitat's interurban tariff prices the whole
+ *     journey by the kilometre. That is the only per-kilometre pricing left.
+ *   - Stay inside it, with one end at the airport or the cruise port, and the
+ *     price comes off the fixed list — flat across the zone, plus the
+ *     kilometres beyond its radius, plus the weekend uplift.
+ *
+ * A journey that stays inside the city and touches neither fixed point is
+ * still metered; it is not a transfer, and no list price covers it.
+ *
+ * There used to be a third path: an airport job could fall through to the
+ * city meter and be sold under the list, which is how a run from L'Hospitalet
+ * reached a passenger at EUR 32.51 against a list price of 50. The flat zone
+ * removes the fall-through rather than patching it with a floor.
  */
 export function calculateQuote(input: QuoteInput): Quote {
-  const quote = baseQuote(input);
+  // Interurban is decided first: a journey out of the metropolitan area is
+  // metered by its own tariff and never reaches the fixed price list, even
+  // when it starts at the terminal.
+  if (TARIFFS.outsideAMB.enabled && isInterurban(input.pickup, input.dropoff)) {
+    return baseQuote(input);
+  }
 
-  /*
-   * An airport job never sells below the price list.
-   *
-   * The fixed city price covers Barcelona itself, so a run from the ring
-   * just outside it — L'Hospitalet, Esplugues, El Prat town — fell through
-   * to the meter and sold for 25 to 33 euros against a list price of 50.
-   * Live bookings did exactly that: BCN-H2SRQM took 25.51 for El Prat to a
-   * Barcelona hotel, almost exactly half. Nothing was underpaid; the quote
-   * itself was short, and because every booking is prepaid the shortfall
-   * was never recoverable in the car.
-   *
-   * So the list price becomes a floor rather than only an exact match. A
-   * longer run that meters above it still charges the meter — Badalona and
-   * Castelldefels are unaffected — and a journey that never sees the
-   * airport is untouched.
-   */
-  const touchesAirport = isAirport(input.pickup) || isAirport(input.dropoff);
-  if (!touchesAirport) return quote;
-
-  const floor = TARIFFS.fixedRoutes.cityAirport[vehicleClass(input.vehicleSeats)];
-  if (quote.total >= floor) return quote;
-
-  return atFixedTotal(floor, quote.tariff, 'FIXED_ROUTE', input);
+  return fixedZoneQuote(input) ?? baseQuote(input);
 }
 
 /**
@@ -476,6 +534,12 @@ function atFixedTotal(
   tariff: TariffCode,
   adjustment: Quote['adjustment'],
   input: QuoteInput,
+  /**
+   * What was added to the list price to reach `total` — extra kilometres,
+   * the port transfer, the weekend uplift. Shown to the passenger so a price
+   * above the headline figure explains itself instead of looking arbitrary.
+   */
+  lines: SupplementLine[] = [],
 ): Quote {
   const bookingFeeRate = bookingFeeRateFor(input.pickupAt);
   const fixedFare = round2(total / (1 + bookingFeeRate));
@@ -488,8 +552,8 @@ function atFixedTotal(
     startFare: 0,
     perKmRate: 0,
     perKmRateCharged: 0,
-    supplements: 0,
-    supplementLines: [],
+    supplements: round2(lines.reduce((n, l) => n + l.amount, 0)),
+    supplementLines: lines,
     adjustment,
     meterEstimate: fixedFare,
     fixedFare,
@@ -508,30 +572,6 @@ function baseQuote(input: QuoteInput): Quote {
 
   const pickupAirport = isAirport(pickup);
   const dropoffAirport = isAirport(dropoff);
-
-  /*
-   * The operator's fixed prices come first, before any tariff selection: on
-   * these two routes the time of day, the distance and the supplements no
-   * longer move the figure. The passenger is quoted one number and pays it.
-   */
-  const fixedTotal = fixedRouteTotal(pickup, dropoff, vehicleSeats);
-
-  if (fixedTotal !== null) {
-    /*
-     * The price list is expressed as totals, so the fare and our service
-     * charge are solved out of it rather than added to it:
-     *     total = fare x (1 + rate)
-     * Quoting EUR 50 and charging EUR 62.50 would be the same bug the old
-     * T-4 branch had, where a "fixed EUR 46" reached the passenger as EUR 57.50.
-     */
-    const isPort = isMollAdossat(pickup) || isMollAdossat(dropoff);
-    return atFixedTotal(
-      fixedTotal,
-      isPort ? 'T4' : selectTariff(pickupAt),
-      isPort ? 'T4_FIXED' : 'FIXED_ROUTE',
-      input,
-    );
-  }
 
   // Interurban: either end outside the AMB switches the whole journey to the
   // Generalitat's T-6/T-7 tariff, which has its own start fare and per-km rate.

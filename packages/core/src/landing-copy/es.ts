@@ -19,7 +19,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Cuánto cuesta un traslado del aeropuerto de Barcelona',
-        body: 'La tarifa la marca el taxímetro oficial del AMB. Desde El Prat pagas el importe del taxímetro más el suplemento fijo de aeropuerto, y existe una tarifa mínima para trayectos muy cortos con origen en el aeropuerto. En la práctica, un trayecto del aeropuerto al centro de Barcelona suele situarse entre treinta y tantos y cuarenta y pocos euros, más caro de noche y los fines de semana cuando se aplica la tarifa T-2. Introduce tu destino exacto arriba para ver una estimación precisa.',
+        body: 'La tarifa la marca el taxímetro oficial del AMB. Desde El Prat pagas el importe del taxímetro más el suplemento fijo de aeropuerto, y existe una tarifa mínima para trayectos muy cortos con origen en el aeropuerto. En la práctica, un trayecto del aeropuerto a cualquier punto de Barcelona son 50 EUR fijos en taxi estándar, sea cual sea la distancia y la hora; los fines de semana y festivos añaden un 7,5 %. Introduce tu destino exacto arriba para ver una estimación precisa.',
       },
       {
         h2: 'Dónde te espera el conductor en llegadas',

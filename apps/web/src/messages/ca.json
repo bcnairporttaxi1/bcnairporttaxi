@@ -127,7 +127,10 @@
       "nitDeNadal": "Suplement Nit de Nadal",
       "capDAny": "Suplement Cap d'Any",
       "santJoan": "Suplement revetlla de Sant Joan",
-      "largeVehicle": "Vehicle gran (5-8 places)"
+      "largeVehicle": "Vehicle gran (5-8 places)",
+      "excessKm": "Distància addicional més enllà de {km} km",
+      "portTransfer": "Trasllat al port de creuers",
+      "weekendSurge": "Tarifa de cap de setmana / festiu"
     },
     "disclaimer": "El preu queda fixat en reservar i cobreix tot el trajecte, inclosos tots els suplements oficials. No es paga res al conductor dins el taxi. Rebràs el rebut per correu amb la confirmació.",
     "errors": {
@@ -158,7 +161,8 @@
     "returnTime": "Hora de tornada",
     "returnIncluded": "Tornada inclosa",
     "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida.",
-    "fixedRouteApplied": "Preu fix per a aquesta ruta. La distància i l’hora no el modifiquen."
+    "fixedRouteApplied": "Preu fix per a aquesta ruta. La distància i l’hora no el modifiquen.",
+    "fixedPlusKmApplied": "Preu fix fins a {km} km, més la distància addicional."
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -416,7 +420,7 @@
     "rowAirportSitges": "Aeroport El Prat a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona a l aeroport de Girona",
-    "note": "Els trajectes nocturns, de cap de setmana i festius es facturen amb T-2 o T-7. Tots els preus mostrats són amb tot inclòs: tarifa, suplements oficials i reserva, sense res a pagar al taxi.",
+    "note": "Els trasllats a l’aeroport i al port de creuers tenen preu fix: l’hora del dia no el canvia. Caps de setmana i festius hi afegeixen un {surge}%, i els trajectes a més de {km} km de l’aeroport o del port hi afegeixen {rate} per quilòmetre extra. Els viatges fora de l’àrea metropolitana es tarifen amb T-6 o T-7. Tots els preus són tot inclòs: tarifa, suplements oficials i reserva, sense res a pagar al taxi.",
     "totalPrice": "Preu total"
   },
   "checkout": {
@@ -460,6 +464,8 @@
     "h1": "Preus del taxi a l'aeroport de Barcelona",
     "intro": "Les tarifes de taxi a Barcelona no les fixem nosaltres. Les estableix l'Àrea Metropolitana de Barcelona (AMB) i corren al taxímetre oficial de tots els taxis amb llicència. La taula següent és la tarifa vigent, del 19 de gener de 2026 al 17 de gener de 2027.",
     "tableCaption": "Tarifes urbanes oficials de l'AMB, vigents del 19 gen 2026 al 17 gen 2027",
+    "fixedTitle": "Els nostres preus fixos de trasllat",
+    "fixedBody": "La taula anterior és el taxímetre oficial. El que vostè ens paga per un trasllat és un preu fix, no una lectura del taxímetre: {sedan} entre l’aeroport i qualsevol punt en un radi de {km} km, que cobreix tota Barcelona, {van6} per a un minivan de sis places i {van7} per a una van de set. Aeroport i port de creuers són {port}, i un trasllat entre el port i la ciutat és el preu de ciutat més {portExtra}. Més enllà de {km} km hi afegim {rate} per quilòmetre extra, i els caps de setmana i festius — Nadal, Cap d’Any i el calendari català — hi afegeixen un {surge}%. Només els viatges que surten de l’àrea metropolitana es cobren per quilòmetre.",
     "concept": "Concepte",
     "amount": "Import",
     "rows": {

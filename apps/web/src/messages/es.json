@@ -129,7 +129,10 @@
       "nitDeNadal": "Suplemento Nochebuena",
       "capDAny": "Suplemento Nochevieja",
       "santJoan": "Suplemento noche de San Juan",
-      "largeVehicle": "Vehículo grande (5-8 plazas)"
+      "largeVehicle": "Vehículo grande (5-8 plazas)",
+      "excessKm": "Distancia adicional más allá de {km} km",
+      "portTransfer": "Traslado al puerto de cruceros",
+      "weekendSurge": "Tarifa de fin de semana / festivo"
     },
     "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. No se paga nada al conductor en el taxi. Recibirás el recibo por correo con tu confirmación.",
     "errors": {
@@ -158,7 +161,8 @@
     "returnTime": "Hora de vuelta",
     "returnIncluded": "Vuelta incluida",
     "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida.",
-    "fixedRouteApplied": "Precio fijo para esta ruta. La distancia y la hora no lo modifican."
+    "fixedRouteApplied": "Precio fijo para esta ruta. La distancia y la hora no lo modifican.",
+    "fixedPlusKmApplied": "Precio fijo hasta {km} km, más la distancia adicional."
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -466,7 +470,7 @@
     "rowAirportSitges": "Aeropuerto El Prat a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona al aeropuerto de Girona",
-    "note": "Los trayectos nocturnos, de fin de semana y festivos se facturan con T-2 o T-7. Todos los precios mostrados son con todo incluido: tarifa, suplementos oficiales y reserva, sin nada que pagar en el taxi.",
+    "note": "Los traslados al aeropuerto y al puerto de cruceros tienen precio fijo: la hora del día no lo cambia. Fines de semana y festivos añaden un {surge}%, y los trayectos a más de {km} km del aeropuerto o del puerto añaden {rate} por kilómetro extra. Los viajes fuera del área metropolitana se tarifican con T-6 o T-7. Todos los precios son todo incluido: tarifa, suplementos oficiales y reserva, sin nada que pagar en el taxi.",
     "totalPrice": "Precio total"
   },
   "pricing": {
@@ -476,6 +480,8 @@
     "h1": "Precios del taxi al aeropuerto de Barcelona",
     "intro": "Las tarifas de taxi en Barcelona no las fijamos nosotros. Las establece el Àrea Metropolitana de Barcelona (AMB) y corren en el taxímetro oficial de todos los taxis con licencia. La tabla siguiente es la tarifa vigente, del 19 de enero de 2026 al 17 de enero de 2027.",
     "tableCaption": "Tarifas urbanas oficiales del AMB, vigentes del 19 ene 2026 al 17 ene 2027",
+    "fixedTitle": "Nuestros precios fijos de traslado",
+    "fixedBody": "La tabla anterior es el taxímetro oficial. Lo que usted nos paga por un traslado es un precio fijo, no una lectura del taxímetro: {sedan} entre el aeropuerto y cualquier punto en un radio de {km} km, lo que cubre toda Barcelona, {van6} para un minivan de seis plazas y {van7} para una van de siete. Aeropuerto y puerto de cruceros son {port}, y un traslado entre el puerto y la ciudad es el precio de ciudad más {portExtra}. Más allá de {km} km añadimos {rate} por kilómetro extra, y los fines de semana y festivos — Navidad, Año Nuevo y el calendario catalán — añaden un {surge}%. Solo los viajes que salen del área metropolitana se cobran por kilómetro.",
     "concept": "Concepto",
     "amount": "Importe",
     "rows": {

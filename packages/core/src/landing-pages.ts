@@ -65,7 +65,7 @@ export const LANDING_PAGES: LandingPage[] = [
         sections: [
           {
             h2: 'What a Barcelona airport transfer taxi costs',
-            body: 'Your price is built from the official AMB tariff and the real road distance, with the fixed airport supplement and the airport minimum fare already inside it. In practice a ride from the airport into central Barcelona typically lands in the mid-thirties in euros, higher at night and at weekends when the T-2 tariff applies. Enter your exact destination above to see your own all-inclusive price.',
+            body: 'Your price is built from the official AMB tariff and the real road distance, with the fixed airport supplement and the airport minimum fare already inside it. A ride from the airport to anywhere in Barcelona is a fixed EUR 50 in a standard taxi, whatever the distance and whatever the hour; weekends and public holidays add 7.5%. Enter your exact destination above to see your own all-inclusive price.',
           },
           {
             h2: 'Where your driver meets you at arrivals',

@@ -34,6 +34,9 @@ export default async function PricingPage(props: {
   setRequestLocale(locale);
   const t = await getTranslations('pricing');
   const eur = eurIn(locale);
+  const FIXED = TARIFFS.fixedRoutes;
+  /** 7.5 reads better than 7.500000000000001 after the percent conversion. */
+  const round = (n: number) => Math.round(n * 10) / 10;
 
 
   const rows: Array<[string, string]> = [
@@ -89,6 +92,25 @@ export default async function PricingPage(props: {
             </tbody>
           </table>
         </div>
+
+        {/* The table above is the official meter. A transfer is not priced
+            off it any more, so the list that does price it says so here,
+            before the page explains what the figure includes. */}
+        <section className="mt-10 rounded-card border-2 border-gold/40 bg-gold/5 p-6">
+          <h2 className="font-display text-xl font-extrabold">{t('fixedTitle')}</h2>
+          <p className="mt-3 leading-relaxed">
+            {t('fixedBody', {
+              sedan: eur(FIXED.cityAirport.sedan),
+              van6: eur(FIXED.cityAirport.van6),
+              van7: eur(FIXED.cityAirport.van7),
+              port: eur(FIXED.portAirport.sedan),
+              portExtra: eur(FIXED.portSurcharge),
+              rate: eur(FIXED.excessPerKm),
+              km: FIXED.flatZoneRadiusKm,
+              surge: round(FIXED.surgeRate * 100),
+            })}
+          </p>
+        </section>
 
         <section className="mt-10 rounded-card border-2 border-accent/40 bg-accent/5 p-6">
           <h2 className="font-display text-xl font-extrabold">{t('feeTitle')}</h2>

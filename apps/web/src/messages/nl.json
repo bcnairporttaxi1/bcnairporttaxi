@@ -127,7 +127,10 @@
       "nitDeNadal": "Toeslag kerstavond",
       "capDAny": "Toeslag oudejaarsavond",
       "santJoan": "Toeslag Sant Joan-nacht",
-      "largeVehicle": "Groot voertuig (5-8 plaatsen)"
+      "largeVehicle": "Groot voertuig (5-8 plaatsen)",
+      "excessKm": "Extra afstand boven {km} km",
+      "portTransfer": "Transfer cruisehaven",
+      "weekendSurge": "Weekend-/feestdagtarief"
     },
     "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. In de taxi betaalt u niets. De bon ontvangt u per e-mail bij uw bevestiging.",
     "errors": {
@@ -158,7 +161,8 @@
     "returnTime": "Tijd terugreis",
     "returnIncluded": "Terugreis inbegrepen",
     "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn.",
-    "fixedRouteApplied": "Vaste prijs voor deze rit. Afstand en tijdstip veranderen er niets aan."
+    "fixedRouteApplied": "Vaste prijs voor deze rit. Afstand en tijdstip veranderen er niets aan.",
+    "fixedPlusKmApplied": "Vaste prijs tot {km} km, plus de afstand daarboven."
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -416,7 +420,7 @@
     "rowAirportSitges": "Luchthaven El Prat naar Sitges",
     "rowBcnTarragona": "Barcelona naar Tarragona",
     "rowBcnGirona": "Barcelona naar luchthaven Girona",
-    "note": "Ritten 's nachts, in het weekend en op feestdagen worden afgerekend op T-2 of T-7. Alle getoonde prijzen zijn all-in: tarief, officiële toeslagen en reservering, zonder iets te betalen in de taxi.",
+    "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge}% bij, en bij ritten verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Ritten buiten het stadsgebied gaan op T-6 of T-7. Alle prijzen zijn alles inbegrepen: rit, officiële toeslagen en boeking, in de taxi betaalt u niets.",
     "totalPrice": "Totaalprijs"
   },
   "checkout": {
@@ -460,6 +464,8 @@
     "h1": "Taxiprijzen naar de luchthaven van Barcelona",
     "intro": "De taxitarieven in Barcelona stellen wij niet vast. Ze worden bepaald door de Àrea Metropolitana de Barcelona (AMB) en lopen op de officiële taxameter van elke vergunde taxi. De tabel hieronder is het geldende tarief, van 19 januari 2026 tot 17 januari 2027.",
     "tableCaption": "Officiële stedelijke AMB-taxitarieven, geldig 19 jan. 2026 – 17 jan. 2027",
+    "fixedTitle": "Onze vaste transferprijzen",
+    "fixedBody": "De tabel hierboven is de officiële meter. Wat u ons voor een transfer betaalt is een vaste prijs, geen meterstand: {sedan} tussen de luchthaven en elke plek binnen {km} km daarvan, wat heel Barcelona dekt, {van6} voor een zespersoons minivan en {van7} voor een zevenpersoons van. Luchthaven en cruisehaven kosten {port}, en een transfer tussen de haven en de stad is de stadsprijs plus {portExtra}. Boven {km} km rekenen we {rate} per extra kilometer, en in het weekend en op feestdagen — Kerst, Nieuwjaar en de Catalaanse kalender — {surge}%. Alleen ritten buiten het stadsgebied gaan per kilometer.",
     "concept": "Post",
     "amount": "Bedrag",
     "rows": {

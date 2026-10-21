@@ -98,6 +98,48 @@ export const TARIFFS = {
     cityAirport: { sedan: 50.0, van6: 70.0, van7: 75.0 },
     /** Moll Adossat cruise terminal <-> El Prat. */
     portAirport: { sedan: 60.0, van6: 80.0, van7: 85.0 },
+
+    /**
+     * The flat zone: a straight-line radius around the airport, and around
+     * the cruise port, inside which the list price is the whole price.
+     *
+     * Deliberately a radius and not road distance. Plaça de Catalunya is
+     * 12.3 km from the terminal as the crow flies but 19.6 km by road, so
+     * measuring the zone along the road would put the centre of Barcelona
+     * outside it and bill extra kilometres on the one journey the list price
+     * exists to cover. At 16 km every part of the city is inside — Park
+     * Güell is the furthest at 14.3 — while Badalona (21.8) and Sant Cugat
+     * (19.5) are outside and pay for the difference.
+     */
+    flatZoneRadiusKm: 16,
+
+    /**
+     * What a kilometre beyond the zone costs, as one published figure.
+     *
+     * Deliberately not the AMB tariff of the hour. Reading the night rate
+     * after 20:00 would put the time of day back into a price list whose
+     * whole point is that the hour does not move it, and a passenger told
+     * "EUR 50 plus 1.50 a kilometre" would be charged 1.81 without warning.
+     * The weekend uplift is the only thing that lifts a fixed price.
+     *
+     * The figure matches the daytime T-1 road rate we charge, 1.35 + 0.15.
+     */
+    excessPerKm: 1.5,
+
+    /**
+     * Added when the cruise port is one end and the airport is not, so a
+     * quay-to-city transfer costs the city price plus this. It lands on the
+     * same EUR 60 as airport <-> quay, which is the intended symmetry.
+     */
+    portSurcharge: 10.0,
+
+    /**
+     * Weekend and holiday uplift on a fixed price — the middle of the agreed
+     * 5-10% band. Applied only to fixed prices: an interurban journey already
+     * moves to the T-7 tariff at the weekend, which carries its own higher
+     * rate, and charging both would bill the same premium twice.
+     */
+    surgeRate: 0.075,
   },
 
   /** Closed price via app (T-3) — informational, shown on the pricing page only. */

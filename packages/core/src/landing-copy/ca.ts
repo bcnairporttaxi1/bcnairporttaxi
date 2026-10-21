@@ -18,7 +18,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Quant costa un trasllat de l\'aeroport de Barcelona',
-        body: 'La tarifa la marca el taxímetre oficial de l\'AMB. Des del Prat pagues l\'import del taxímetre més el suplement fix d\'aeroport, i hi ha una tarifa mínima per als trajectes molt curts amb origen a l\'aeroport. A la pràctica, un trajecte de l\'aeroport al centre de Barcelona sol situar-se entre els trenta-i-escaig i els quaranta-i-pocs euros, més car de nit i els caps de setmana quan s\'aplica la tarifa T-2. Introdueix la teva destinació exacta aquí sobre per veure una estimació precisa.',
+        body: 'La tarifa la marca el taxímetre oficial de l\'AMB. Des del Prat pagues l\'import del taxímetre més el suplement fix d\'aeroport, i hi ha una tarifa mínima per als trajectes molt curts amb origen a l\'aeroport. A la pràctica, un trajecte de l\'aeroport a qualsevol punt de Barcelona són 50 EUR fixos en taxi estàndard, sigui quina sigui la distància i l\'hora; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva destinació exacta aquí sobre per veure una estimació precisa.',
       },
       {
         h2: 'On t\'espera el conductor a arribades',

@@ -12,7 +12,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: "Combien coûte un transfert depuis l'aéroport de Barcelone",
-        body: "Le tarif est celui du compteur officiel de l'AMB. Depuis El Prat vous réglez le montant au compteur plus le supplément aéroport fixe, et un tarif minimum s'applique aux trajets très courts au départ de l'aéroport. En pratique, un trajet de l'aéroport vers le centre de Barcelone se situe généralement entre trente-cinq et quarante-cinq euros, davantage la nuit et le week-end lorsque le tarif T-2 s'applique. Indiquez votre destination exacte ci-dessus pour une estimation précise.",
+        body: "Le tarif est celui du compteur officiel de l'AMB. Depuis El Prat vous réglez le montant au compteur plus le supplément aéroport fixe, et un tarif minimum s'applique aux trajets très courts au départ de l'aéroport. En pratique, un trajet de l'aéroport vers n'importe quel point de Barcelone coûte 50 EUR fixes en taxi standard, quelle que soit la distance et quelle que soit l'heure ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre destination exacte ci-dessus pour une estimation précise.",
       },
       {
         h2: 'Où votre chauffeur vous attend',

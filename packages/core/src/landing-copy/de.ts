@@ -12,7 +12,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Was ein Transfer vom Flughafen Barcelona kostet',
-        body: 'Der Preis wird aus dem offiziellen AMB-Tarif und der tatsächlichen Straßenentfernung gebildet; der feste Flughafenzuschlag und der Mindestpreis ab Flughafen stecken bereits darin. In der Praxis liegt eine Fahrt vom Flughafen ins Zentrum meist bei Mitte dreißig Euro, nachts und am Wochenende höher, wenn der T-2-Tarif gilt. Geben Sie oben Ihr genaues Ziel ein, um Ihren Komplettpreis zu sehen.',
+        body: 'Der Preis wird aus dem offiziellen AMB-Tarif und der tatsächlichen Straßenentfernung gebildet; der feste Flughafenzuschlag und der Mindestpreis ab Flughafen stecken bereits darin. Eine Fahrt vom Flughafen an jeden Ort in Barcelona kostet im Standardtaxi feste 50 EUR — unabhängig von Entfernung und Uhrzeit; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie oben Ihr genaues Ziel ein, um Ihren Komplettpreis zu sehen.',
       },
       {
         h2: 'Wo Ihr Fahrer auf Sie wartet',
