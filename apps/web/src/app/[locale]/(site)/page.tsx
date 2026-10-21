@@ -40,7 +40,7 @@ const FAQ_KEYS = ['fareAccurate', 'whyFee', 'invoice', 'meetDriver', 'urgent', '
  * right, closing on the centre. See `.why-grid` in globals.css.
  */
 const WHY = [
-  { key: 'meter' as const, wide: true, from: 'left' as const, alt: 'Driver beside a black-and-yellow Barcelona taxi at the airport, with the taximeter showing the official tariff' },
+  { key: 'meter' as const, wide: true, from: 'left' as const, alt: 'Driver standing beside a black-and-yellow Barcelona taxi at the airport terminal kerb' },
   { key: 'flight' as const, wide: false, from: 'left' as const, alt: 'Driver at the terminal checking an arriving flight on a tablet, the plane landing behind' },
   { key: 'licensed' as const, wide: false, from: 'below' as const, alt: 'Licensed driver holding the taxi door open for a passenger at Terminal 1, the meter visible inside' },
   { key: 'support' as const, wide: false, from: 'right' as const, alt: 'Booking desk agent on a headset answering a WhatsApp message, a taxi waiting at the terminal' },

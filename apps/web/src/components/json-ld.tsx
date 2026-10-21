@@ -47,7 +47,7 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
             }
           : {}),
         description:
-          'Online booking service for licensed Barcelona airport taxis to and from El Prat, priced on official AMB tariffs.',
+          'Online booking service for licensed Barcelona airport taxis to and from El Prat, at fixed all-inclusive prices paid online.',
         // A search engine deciding whether we serve a given query needs to
         // know where. City alone under-describes a business whose whole
         // proposition is airport-to-anywhere, so the radius covers the

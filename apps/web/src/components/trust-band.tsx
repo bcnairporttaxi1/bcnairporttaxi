@@ -2,7 +2,8 @@ import { getTranslations } from 'next-intl/server';
 
 /**
  * The four claims a nervous traveller wants settled before they read on:
- * licensed cars, the official tariff, no surge, booking around the clock.
+ * licensed cars, a fixed price, the price locked at booking, booking around
+ * the clock.
  *
  * They used to sit inside the hero as a fourth text element under the
  * intro, which made the hero a list and pushed the buttons down a phone

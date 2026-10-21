@@ -38,7 +38,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
       {
         h2: 'What we provide',
         paragraphs: [
-          'We provide an online service that lets you reserve a licensed Barcelona taxi in advance, gives you a fixed all-inclusive price calculated from the official AMB tariff, and assigns a driver to your journey.',
+          'We provide an online service that lets you reserve a licensed Barcelona taxi in advance, gives you a fixed all-inclusive price from our own published price list, and assigns a driver to your journey.',
           'The transport itself is provided by an independent licensed taxi driver. Your contract for the journey is with that driver, under the regulated conditions that apply to all Barcelona taxis.',
         ],
       },
@@ -46,7 +46,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
         h2: 'Prices and payment',
         paragraphs: [
           'You pay a single all-inclusive price, quoted before you book and collected by us online at the time of booking. It covers the journey, every official supplement that applies to your route, and our service in arranging, confirming and supporting the reservation. Nothing further is owed to the driver in the vehicle.',
-          'The price is calculated from the official AMB tariff and the real road distance of your route, and is fixed once your booking is confirmed. Variations in traffic or routing do not change what you pay.',
+          'The price is set by us and taken from our published price list for your route and vehicle. It is fixed once your booking is confirmed, and variations in traffic, routing or time of day do not change what you pay. Journeys outside the Barcelona metropolitan area are the exception: those are priced per kilometre on the interurban tariff set by the Generalitat de Catalunya.',
           'We settle the journey with the licensed driver ourselves. You receive a receipt for the full amount by email with your confirmation; the official taxi meter invoice for the journey remains available from the driver on request.',
         ],
       },

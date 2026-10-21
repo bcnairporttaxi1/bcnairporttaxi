@@ -58,8 +58,10 @@ booking is made, and covers the journey, every official supplement that
 applies to the route, and our service in arranging and guaranteeing the car.
 Nothing is owed to the driver.
 
-That price is built from the official tariff, which is where the figures below
-come from. They are the regulated rates, not the amount charged.
+A transfer to or from the airport or the cruise port is a FIXED price from our
+own list, set by route and vehicle rather than by distance or time of day. The
+regulated rates below are published for reference and for interurban journeys;
+they are not how a transfer is priced.
 
 ${line('Daytime urban tariff (T-1)', `weekdays 08:00-20:00, official ${t.perKm.T1.toFixed(2)} EUR/km, charged ${(t.perKm.T1 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
 ${line('Night and weekend urban tariff (T-2)', `nights, weekends, public holidays, official ${t.perKm.T2.toFixed(2)} EUR/km, charged ${(t.perKm.T2 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
@@ -88,7 +90,7 @@ from the booking form, which measures the real road distance.
 
 ## Prices and guides
 
-- Prices, with the official tariff explained: ${SITE_URL}/en/pricing
+- Prices, with the fixed price list per vehicle: ${SITE_URL}/en/pricing
 - How much a taxi from Barcelona airport costs: ${SITE_URL}/en/blog/how-much-is-a-taxi-from-barcelona-airport
 - Taxi or Aerobús from the airport, compared: ${SITE_URL}/en/blog/taxi-or-aerobus-from-barcelona-airport
 - Terminals T1 and T2, where the taxi ranks are: ${SITE_URL}/en/blog/barcelona-airport-terminals-t1-t2-guide
