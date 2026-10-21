@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Flughafen Barcelona | El Prat Transfers online",
-    "metaDescription": "Barcelona-Flughafentaxi online im Voraus buchen. Ein Komplettpreis, online bezahlt, berechnet nach dem offiziellen AMB-Tarif.",
+    "metaDescription": "Buchen Sie ein Taxi zum Flughafen Barcelona online und im Voraus. Ein fester Komplettpreis, vor der Buchung vereinbart und mit ihr fixiert.",
     "h1": "Taxi zum Flughafen Barcelona, gebucht bevor Sie landen",
     "intro": "Reservieren Sie ein lizenziertes schwarz-gelbes Barcelona-Taxi zum oder vom Flughafen El Prat. Ein Festpreis, alles inklusive, vor der Buchung angezeigt und mit ihr fixiert — kein Taxameter, keine Entfernungsschätzung — Sie zahlen online, und beim Fahrer ist nichts zu begleichen.",
     "trust": {
@@ -47,7 +47,7 @@
       "faresLede": "aus dem echten Tarif.",
       "closingLede": "und losfahren.",
       "faresTitle": "Echte Preise",
-      "faresIntro": "Jeder Betrag unten ist ein Komplettpreis nach dem offiziellen Tarif — genau der, den auch das Buchungsformular nennt.",
+      "faresIntro": "Jeder Betrag unten ist ein fester Komplettpreis — genau der, den auch das Buchungsformular nennt.",
       "closingTitle": "Landen, rausgehen,",
       "closingIntro": "Ein Komplettpreis in Sekunden. Kein Konto nötig, um ihn zu sehen.",
       "howLede": "in drei Schritten.",
@@ -203,7 +203,7 @@
     "min": "Min."
   },
   "footer": {
-    "about": "BCNAirportTaxi ist ein Buchungsdienst für lizenzierte Taxis in Barcelona. Wir sind Vermittler, kein Taxiunternehmen: Die Preise folgen dem offiziellen AMB-Tarif, und Sie zahlen uns bei der Buchung einen einzigen Komplettbetrag.",
+    "about": "BCNAirportTaxi ist ein Buchungsservice für lizenzierte Barcelona-Taxis. Wir sind Vermittler, kein Taxiunternehmen: wir legen unsere eigenen Transfer-Festpreise fest, und Sie zahlen uns bei der Buchung einen Komplettbetrag.",
     "routes": "Beliebte Strecken",
     "company": "Unternehmen",
     "legal": "Rechtliches",
@@ -213,7 +213,7 @@
     "refunds": "Erstattungen",
     "installApp": "App installieren",
     "rights": "Alle Rechte vorbehalten.",
-    "disclaimerShort": "Die Preise folgen dem offiziellen AMB-Tarif und stehen mit der Buchung fest."
+    "disclaimerShort": "Festpreise, vor der Buchung vereinbart und mit ihr fixiert."
   },
   "cookies": {
     "title": "Wir verwenden Cookies",
@@ -492,7 +492,7 @@
     "steps": {
       "one": {
         "title": "Preis abrufen",
-        "body": "Abhol- und Zielort eingeben. Wir messen die tatsächliche Straßenentfernung und wenden den offiziellen AMB-Tarif für Ihre Reisezeit an, um einen einzigen Komplettpreis zu bilden."
+        "body": "Geben Sie Start und Ziel ein. Ihr Festpreis kommt direkt aus unserer Liste für diese Strecke und dieses Fahrzeug, mit allen offiziellen Zuschlägen bereits darin."
       },
       "two": {
         "title": "Wagen reservieren",
@@ -516,7 +516,7 @@
     "items": {
       "fareAccurate": {
         "q": "Ist der angezeigte Preis der Preis, den ich zahle?",
-        "a": "Ja. Der angezeigte Preis ist der Preis, den Sie zahlen. Er entsteht aus dem offiziellen AMB-Tarif und der tatsächlichen Straßenentfernung Ihrer Strecke, enthält bereits jeden offiziellen Zuschlag und steht im Moment der Buchung fest. Verkehr und Streckenführung sind unser Risiko, nicht Ihres: Nachträglich kommt nichts hinzu, und dem Fahrer schulden Sie nichts."
+        "a": "Ja. Der angezeigte Preis ist der Preis, den Sie zahlen. Es ist ein Festbetrag aus unserer eigenen Liste, er enthält bereits jeden offiziellen Zuschlag Ihrer Strecke, und er wird im Moment der Buchung fixiert. Verkehr und Routenwahl sind unser Risiko, nicht Ihres: nachträglich kommt nichts hinzu, und dem Fahrer ist nichts geschuldet."
       },
       "whyFee": {
         "q": "Was ist im Preis enthalten?",

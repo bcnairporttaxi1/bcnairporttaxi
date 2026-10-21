@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
-    "metaDescription": "Reserva en línia un taxi a l'aeroport de Barcelona. Un únic preu amb tot inclòs pagat en línia, calculat amb la tarifa oficial de l'AMB.",
+    "metaDescription": "Reserva en línia i amb antelació un taxi a l’aeroport de Barcelona. Un preu fix tot inclòs, acordat abans de reservar i blocat en fer-ho.",
     "h1": "Taxi a l'aeroport de Barcelona, reservat abans d'aterrar",
     "intro": "Reserveu un taxi de Barcelona amb llicència, blanc i groc, cap a o des de l’aeroport del Prat. Un preu fix tot inclòs, mostrat abans de reservar i blocat en fer-ho — sense taxímetre i sense càlculs de distància — el pagueu en línia i no queda res a pagar al conductor.",
     "trust": {
@@ -47,7 +47,7 @@
       "faresLede": "de la tarifa real.",
       "closingLede": "i en marxa.",
       "faresTitle": "Preus reals",
-      "faresIntro": "Cada import de sota és un preu amb tot inclòs calculat amb el quadre oficial, el mateix que et dona el formulari de reserva.",
+      "faresIntro": "Cada import de sota és un preu fix amb tot inclòs, el mateix que et dóna el formulari de reserva.",
       "closingTitle": "Aterra, surt",
       "closingIntro": "Un preu amb tot inclòs en segons. No cal cap compte per veure’l.",
       "howLede": "en tres passos.",
@@ -203,7 +203,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi és un servei de reserves de taxis amb llicència de Barcelona. Som intermediaris, no una empresa de taxis: els preus segueixen la tarifa oficial de l'AMB i ens pagues un únic import amb tot inclòs en reservar.",
+    "about": "BCNAirportTaxi és un servei de reserves de taxis amb llicència de Barcelona. Som intermediaris, no operadors de taxi: fixem els nostres propis preus de trasllat i pagues un únic import amb tot inclòs en reservar.",
     "routes": "Rutes populars",
     "company": "Empresa",
     "legal": "Legal",
@@ -213,7 +213,7 @@
     "refunds": "Reemborsaments",
     "installApp": "Instal·lar l'app",
     "rights": "Tots els drets reservats.",
-    "disclaimerShort": "Els preus segueixen la tarifa oficial de l'AMB i queden fixats en reservar."
+    "disclaimerShort": "Preus fixos, acordats abans de reservar i blocats en fer-ho."
   },
   "cookies": {
     "title": "Utilitzem galetes",
@@ -492,7 +492,7 @@
     "steps": {
       "one": {
         "title": "Aconsegueix el teu preu",
-        "body": "Indica recollida i destinació. Mesurem la distància real per carretera i apliquem la tarifa oficial de l'AMB segons el teu horari per formar un únic preu amb tot inclòs."
+        "body": "Introdueix origen i destinació. El teu preu fix surt directament de la nostra llista per a aquella ruta i aquell vehicle, amb tots els suplements oficials ja dins."
       },
       "two": {
         "title": "Reserva el cotxe",
@@ -516,7 +516,7 @@
     "items": {
       "fareAccurate": {
         "q": "El preu que veig és el que pago?",
-        "a": "Sí. El preu que veus és el que pagues. Es calcula amb la tarifa oficial de l'AMB i la distància real per carretera de la teva ruta, ja inclou tots els suplements oficials i queda fixat en el moment de reservar. El trànsit i el recorregut són risc nostre, no teu: no s'hi afegeix res després ni es deu res al conductor."
+        "a": "Sí. El preu que veus és el que pagues. És una xifra fixa de la nostra pròpia llista, ja inclou tots els suplements oficials que corresponguin a la teva ruta i queda blocat en el moment de reservar. El trànsit i el recorregut són el nostre risc, no el teu: després no s’hi afegeix res i al conductor no se li deu res."
       },
       "whyFee": {
         "q": "Què inclou el preu?",

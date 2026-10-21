@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
-    "metaDescription": "Boek online vooraf een taxi naar de luchthaven van Barcelona. Eén all-in prijs, online betaald en berekend met het officiële AMB-tarief.",
+    "metaDescription": "Boek vooraf online een taxi naar de luchthaven van Barcelona. Eén vaste alles-inbegrepen prijs, afgesproken vóór het boeken en vastgezet zodra u boekt.",
     "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
     "intro": "Reserveer een erkende zwart-gele Barcelona-taxi naar of van de luchthaven El Prat. Eén vaste alles-inbegrepen prijs, zichtbaar vóór het boeken en vastgezet zodra u boekt — geen meter, geen afstandsgegoochel — u betaalt online en bij de chauffeur hoeft niets te worden afgerekend.",
     "trust": {
@@ -47,7 +47,7 @@
       "faresLede": "uit het echte tarief.",
       "closingLede": "en wegwezen.",
       "faresTitle": "Echte prijzen",
-      "faresIntro": "Elk bedrag hieronder is een all-in prijs op basis van het officiële tarief — dezelfde die het boekingsformulier noemt.",
+      "faresIntro": "Elk bedrag hieronder is een vaste alles-inbegrepen prijs — dezelfde die het boekingsformulier noemt.",
       "closingTitle": "Land, loop naar buiten,",
       "closingIntro": "Eén all-in prijs in enkele seconden. Geen account nodig om hem te zien.",
       "howLede": "in drie stappen.",
@@ -203,7 +203,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi is een boekingsdienst voor vergunde taxi’s in Barcelona. Wij zijn een tussenpersoon, geen taxibedrijf: prijzen volgen het officiële AMB-tarief en u betaalt ons bij het boeken één all-in bedrag.",
+    "about": "BCNAirportTaxi is een boekingsdienst voor erkende Barcelona-taxi’s. Wij zijn een tussenpersoon, geen taxibedrijf: wij stellen onze eigen vaste transferprijzen vast, en u betaalt ons bij het boeken één bedrag met alles inbegrepen.",
     "routes": "Populaire routes",
     "company": "Bedrijf",
     "legal": "Juridisch",
@@ -213,7 +213,7 @@
     "refunds": "Terugbetalingen",
     "installApp": "App installeren",
     "rights": "Alle rechten voorbehouden.",
-    "disclaimerShort": "Prijzen volgen het officiële AMB-tarief en staan vast zodra u boekt."
+    "disclaimerShort": "Vaste prijzen, afgesproken vóór het boeken en vastgezet zodra u boekt."
   },
   "cookies": {
     "title": "We gebruiken cookies",
@@ -492,7 +492,7 @@
     "steps": {
       "one": {
         "title": "Vraag uw prijs op",
-        "body": "Vul ophaal- en afzetpunt in. Wij meten de werkelijke wegafstand en passen het officiële AMB-tarief van uw reistijd toe om één all-in prijs te vormen."
+        "body": "Vul ophaal- en bestemmingsadres in. Uw vaste prijs komt rechtstreeks uit onze prijslijst voor die route en dat voertuig, met alle officiële toeslagen er al in."
       },
       "two": {
         "title": "Reserveer de auto",
@@ -516,7 +516,7 @@
     "items": {
       "fareAccurate": {
         "q": "Is de prijs die ik zie de prijs die ik betaal?",
-        "a": "Ja. De getoonde prijs is de prijs die u betaalt. Hij is opgebouwd uit het officiële AMB-tarief en de werkelijke wegafstand van uw route, bevat al elke officiële toeslag en staat vast op het moment dat u boekt. Verkeer en route zijn ons risico, niet dat van u: er komt achteraf niets bij en de chauffeur hoeft niets te ontvangen."
+        "a": "Ja. De prijs die u ziet is wat u betaalt. Het is een vast bedrag uit onze eigen prijslijst, het bevat al elke officiële toeslag die op uw route van toepassing is, en het staat vast op het moment van boeken. Verkeer en route zijn ons risico, niet het uwe: er komt achteraf niets bij en aan de chauffeur is niets verschuldigd."
       },
       "whyFee": {
         "q": "Wat zit er in de prijs?",

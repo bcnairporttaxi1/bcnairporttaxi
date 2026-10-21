@@ -24,7 +24,7 @@
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
-    "metaDescription": "Book a Barcelona airport taxi online in advance. One all-inclusive price paid online, built from the official AMB tariff.",
+    "metaDescription": "Book a Barcelona airport taxi online in advance. One fixed all-inclusive price, agreed before you book and locked when you do.",
     "h1": "Barcelona airport taxi, booked before you land",
     "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. One fixed all-inclusive price, shown before you book and locked when you do — no meter, no distance guesswork — you pay it online and there is nothing to settle with the driver.",
     "trust": {
@@ -50,7 +50,7 @@
       "faresLede": "from the real tariff.",
       "closingLede": "drive off.",
       "faresTitle": "Real prices",
-      "faresIntro": "Every figure below is an all-inclusive price built from the official schedule — the same one the booking form quotes.",
+      "faresIntro": "Every figure below is an all-inclusive fixed price — the same one the booking form quotes.",
       "closingTitle": "Land, walk out,",
       "closingIntro": "One all-inclusive price in seconds. No account needed to see it.",
       "howLede": "in three moves.",
@@ -225,7 +225,7 @@
     "steps": {
       "one": {
         "title": "Get your price",
-        "body": "Enter pickup and drop-off. We measure the real road distance and apply the official AMB tariff for your travel time to build one all-inclusive price."
+        "body": "Enter pickup and drop-off. Your fixed price comes straight off our list for that route and vehicle, with every official supplement already inside it."
       },
       "two": {
         "title": "Reserve the car",
@@ -249,7 +249,7 @@
     "items": {
       "fareAccurate": {
         "q": "Is the price I see the price I pay?",
-        "a": "Yes. The price you are shown is the price you pay. It is built from the official AMB tariff and the real road distance of your route, it already contains every official supplement, and it is fixed the moment you book. Traffic and routing are our risk, not yours: nothing is added afterwards and nothing is owed to the driver."
+        "a": "Yes. The price you are shown is the price you pay. It is a fixed figure from our own list, it already contains every official supplement that applies to your route, and it is locked the moment you book. Traffic and routing are our risk, not yours: nothing is added afterwards and nothing is owed to the driver."
       },
       "whyFee": {
         "q": "What is included in the price?",
@@ -354,7 +354,7 @@
     "relatedTransfers": "Related transfers"
   },
   "footer": {
-    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: prices follow the official AMB tariff, and you pay one all-inclusive amount to us when you book.",
+    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: we set our own fixed transfer prices, and you pay one all-inclusive amount to us when you book.",
     "routes": "Popular routes",
     "company": "Company",
     "legal": "Legal",
@@ -364,7 +364,7 @@
     "refunds": "Refund policy",
     "installApp": "Install the app",
     "rights": "All rights reserved.",
-    "disclaimerShort": "Prices follow the official AMB tariff and are fixed when you book."
+    "disclaimerShort": "Fixed prices, agreed before you book and locked when you do."
   },
   "cookies": {
     "title": "We use cookies",

@@ -21,7 +21,7 @@
   },
   "home": {
     "metaTitle": "Táxi Aeroporto Barcelona | Transferes El Prat Online",
-    "metaDescription": "Reserve online um táxi para o aeroporto de Barcelona. Um único preço com tudo incluído pago online, calculado com a tarifa oficial do AMB.",
+    "metaDescription": "Reserve online e com antecedência um táxi para o aeroporto de Barcelona. Um preço fixo tudo incluído, acordado antes de reservar e bloqueado ao reservar.",
     "h1": "Táxi para o aeroporto de Barcelona, reservado antes de aterrar",
     "intro": "Reserve um táxi de Barcelona licenciado, preto e amarelo, para ou do aeroporto de El Prat. Um preço fixo tudo incluído, mostrado antes de reservar e bloqueado ao reservar — sem taxímetro e sem estimativas de distância — paga-o online e não fica nada a pagar ao motorista.",
     "trust": {
@@ -47,7 +47,7 @@
       "faresLede": "da tarifa real.",
       "closingLede": "e siga viagem.",
       "faresTitle": "Precos reais",
-      "faresIntro": "Cada valor abaixo é um preço com tudo incluído calculado com a tabela oficial, o mesmo que o formulário de reserva indica.",
+      "faresIntro": "Cada valor abaixo é um preço fixo tudo incluído, o mesmo que o formulário de reserva apresenta.",
       "closingTitle": "Aterre, saia",
       "closingIntro": "Um preço com tudo incluído em segundos. Não precisa de conta para o ver.",
       "howLede": "em três passos.",
@@ -203,7 +203,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "A BCNAirportTaxi é um serviço de reservas de táxis licenciados de Barcelona. Somos um intermediário, não um operador de táxis: os preços seguem a tarifa oficial do AMB e paga-nos um único valor com tudo incluído ao reservar.",
+    "about": "A BCNAirportTaxi é um serviço de reservas de táxis licenciados de Barcelona. Somos um intermediário, não um operador de táxis: definimos os nossos próprios preços fixos de transfer e paga-nos um único valor tudo incluído ao reservar.",
     "routes": "Rotas populares",
     "company": "Empresa",
     "legal": "Legal",
@@ -213,7 +213,7 @@
     "refunds": "Reembolsos",
     "installApp": "Instalar a app",
     "rights": "Todos os direitos reservados.",
-    "disclaimerShort": "Os preços seguem a tarifa oficial do AMB e ficam fixados ao reservar."
+    "disclaimerShort": "Preços fixos, acordados antes de reservar e bloqueados ao reservar."
   },
   "cookies": {
     "title": "Utilizamos cookies",
@@ -492,7 +492,7 @@
     "steps": {
       "one": {
         "title": "Obtenha o seu preço",
-        "body": "Indique recolha e destino. Medimos a distância real por estrada e aplicamos a tarifa oficial da AMB do seu horário para formar um único preço com tudo incluído."
+        "body": "Introduza a origem e o destino. O seu preço fixo sai diretamente da nossa tabela para esse percurso e esse veículo, com todos os suplementos oficiais já dentro."
       },
       "two": {
         "title": "Reserve o carro",
@@ -516,7 +516,7 @@
     "items": {
       "fareAccurate": {
         "q": "O preço que vejo é o preço que pago?",
-        "a": "Sim. O preço que vê é o preço que paga. É construído a partir da tarifa oficial da AMB e da distância real por estrada do seu percurso, já contém todos os suplementos oficiais e fica fixado no momento da reserva. O trânsito e o percurso são risco nosso, não seu: nada é acrescentado depois e nada é devido ao motorista."
+        "a": "Sim. O preço que vê é o que paga. É um valor fixo da nossa própria tabela, já contém todos os suplementos oficiais aplicáveis ao seu percurso e fica bloqueado no momento da reserva. O trânsito e o percurso são o nosso risco, não o seu: depois não se acrescenta nada e ao motorista não se deve nada."
       },
       "whyFee": {
         "q": "O que está incluído no preço?",
