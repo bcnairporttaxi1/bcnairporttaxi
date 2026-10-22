@@ -40,7 +40,11 @@ export default async function DriverPage(props: {
   const [bookings, balance, ratingAgg] = await Promise.all([
     prisma.booking.findMany({
       where: { driverId: driver.id },
-      include: { vehicle: true, user: { select: { whatsapp: true } } },
+      include: {
+        vehicle: true,
+        requestedVehicle: true,
+        user: { select: { whatsapp: true } },
+      },
       orderBy: { pickupAt: 'asc' },
     }),
     driverBalance(driver.id),
@@ -164,6 +168,31 @@ export default async function DriverPage(props: {
               {b.passengers} / {b.luggage}
             </dd>
           </div>
+          {/* What the passenger paid for. The driver has to know this before
+              setting off: a six-seat booking turned up for in a saloon is a
+              refund and a complaint, and until this was shown the panel gave
+              no way to tell one job from the other. */}
+          {b.requestedVehicle && (
+            <div className="flex gap-2">
+              <dt className="shrink-0 p-muted">Customer booked</dt>
+              <dd>
+                <span className="font-semibold">{b.requestedVehicle.name}</span>
+                <span className="p-muted">
+                  {' '}
+                  · up to {b.requestedVehicle.seats} seats, {b.requestedVehicle.bags} bags
+                </span>
+                {/* Only worth saying when the two differ, which happens when
+                    the desk assigns a driver whose own car is a different
+                    class from the one sold. */}
+                {b.vehicle && b.vehicle.id !== b.requestedVehicle.id && (
+                  <span className="mt-1 block font-semibold text-[var(--p-down)]">
+                    You are listed as arriving in a {b.vehicle.name} — check this is
+                    enough car for the booking before you set off.
+                  </span>
+                )}
+              </dd>
+            </div>
+          )}
           {b.flightNumber && (
             <div className="flex gap-2">
               <dt className="shrink-0 p-muted">Flight</dt>

@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { adminBookingEmail, bookingConfirmationEmail, driverJobEmail } from './email';
+import {
+  adminBookingEmail,
+  bookingConfirmationEmail,
+  driverAssignedEmail,
+  driverJobEmail,
+} from './email';
 
 const base = {
   reference: 'BCN-TEST01',
@@ -247,5 +252,51 @@ describe('driver job notice', () => {
     const { text, html } = driverJobEmail({ ...job, notes: null });
     expect(text).not.toContain('Notes');
     expect(html).not.toContain('Notes from the passenger');
+  });
+});
+
+describe('driver assigned notice to the passenger', () => {
+  const ride = {
+    name: 'Marta Vidal',
+    reference: 'BCN-7K2QX',
+    pickupAt: new Date('2026-09-20T08:30:00Z'),
+    locale: 'en',
+    driverName: 'Marc Oliveras',
+    driverPhone: '+34699888777',
+    plate: '1234 KLM',
+    vehicleName: 'Mercedes Vito',
+    tripUrl: 'https://bcnairporttaxi.es/en/trip/BCN-7K2QX',
+  };
+
+  it('gives the passenger the name and the number to call', () => {
+    // The whole point of the notice: a driver was assigned, and this is who.
+    // The desk can now dispatch a driver who has no account at all, so this
+    // mail is the only thing that reaches the passenger.
+    const { text, html } = driverAssignedEmail(ride);
+    for (const s of ['Marc Oliveras', '+34699888777']) {
+      expect(text, s).toContain(s);
+      expect(html, s).toContain(s);
+    }
+    // Dialable from the phone it is read on.
+    expect(html).toContain('href="tel:+34699888777"');
+  });
+
+  it('names the car to look for as well as the driver', () => {
+    const { text } = driverAssignedEmail(ride);
+    expect(text).toContain('1234 KLM');
+    expect(text).toContain('Mercedes Vito');
+  });
+
+  it('still sends when there is no plate or vehicle on file', () => {
+    // A driver typed in from a ride may have neither. The mail must carry the
+    // name and number rather than fail or print "undefined".
+    const { text, html } = driverAssignedEmail({
+      ...ride,
+      plate: null,
+      vehicleName: null,
+    });
+    expect(text).toContain('Marc Oliveras');
+    expect(text).not.toMatch(/undefined|null/);
+    expect(html).not.toMatch(/undefined|null/);
   });
 });

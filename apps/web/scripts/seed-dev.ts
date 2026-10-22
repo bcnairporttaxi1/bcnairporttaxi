@@ -157,7 +157,7 @@ async function main() {
         supplements: q.supplements, meterEstimate: q.meterEstimate, fixedFare: q.fixedFare,
         bookingFee: q.bookingFee, amountOnline: q.total, paymentMode: 'FULL_PREPAID',
         pickupAt: o.at, passengers: o.passengers ?? 2, luggage: o.luggage ?? 2, notes: o.notes ?? null,
-        vehicleId: v.id, driverId: o.driver?.id ?? null,
+        vehicleId: v.id, requestedVehicleId: v.id, driverId: o.driver?.id ?? null,
         status: o.status as never, paymentStatus: paid ? 'PAID' : 'PENDING',
         sumupCheckoutId: `dev_${n}`, sumupRef: paid ? `SUMUP-DEV-${1000 + n}` : null,
         driverPayout: done ? q.fixedFare : 0, cashToCollect: 0,

@@ -11,7 +11,13 @@ import { eurIn, dateIn } from '@bcn/core/format';
 import { toBarcelonaInput } from '@bcn/core/barcelona-time';
 import { balanceDue } from '@bcn/core/rides';
 import { adminNav } from '../../tabs';
-import { assignDriver, cancelRide, editRide, setBookingStatus } from '../../actions';
+import {
+  assignDriver,
+  assignDriverByDetails,
+  cancelRide,
+  editRide,
+  setBookingStatus,
+} from '../../actions';
 
 export const metadata: Metadata = {
   title: { absolute: 'Ride | BCNAirportTaxi' },
@@ -426,6 +432,97 @@ export default async function AdminRideDetailPage(props: {
               Assign
             </button>
           </form>
+
+          {/* The desk usually knows a name and a phone number before it knows
+              anything else, and a driver with no account, no licence on file
+              and no car recorded could not be dispatched at all without
+              first being created on the drivers page. Typing them here
+              creates or updates the driver and assigns the ride in one go,
+              and the passenger is emailed their name and number either way. */}
+          <details className="mt-4 border-t p-hairline pt-4">
+            <summary className="cursor-pointer text-sm font-bold p-gold">
+              Assign by name and phone instead
+            </summary>
+            <p className="mt-2 text-xs p-muted">
+              For a driver not on the list. Matched by phone number, so the same
+              driver typed twice stays one record. The passenger is emailed the
+              name and number as soon as you submit.
+            </p>
+            <form action={assignDriverByDetails} className="mt-3 grid gap-2">
+              <input type="hidden" name="bookingId" value={b.id} />
+              <input type="hidden" name="locale" value={locale} />
+              <input
+                type="text"
+                name="driverName"
+                required
+                minLength={2}
+                maxLength={120}
+                placeholder="Driver name"
+                aria-label="Driver name"
+                autoComplete="off"
+                className="p-input w-full"
+              />
+              <input
+                type="tel"
+                name="driverPhone"
+                required
+                minLength={6}
+                maxLength={40}
+                placeholder="Phone, e.g. +34 600 111 222"
+                aria-label="Driver phone"
+                autoComplete="off"
+                className="p-input w-full font-mono"
+              />
+              <div className="flex flex-wrap gap-2">
+                <input
+                  type="text"
+                  name="driverPlate"
+                  maxLength={20}
+                  placeholder="Plate (optional)"
+                  aria-label="Vehicle plate"
+                  autoComplete="off"
+                  className="p-input min-w-0 flex-1 basis-32 font-mono uppercase"
+                />
+                <label className="relative basis-28">
+                  <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm p-muted">
+                    €
+                  </span>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    name="driverPay"
+                    defaultValue={b.driverPay != null ? Number(b.driverPay).toFixed(2) : ''}
+                    placeholder="pay"
+                    aria-label="Driver pay in euros"
+                    className="p-input w-full pl-7 font-mono"
+                  />
+                </label>
+              </div>
+              <button type="submit" className="p-btn p-btn-gold w-full" disabled={closed}>
+                Save driver and notify passenger
+              </button>
+            </form>
+          </details>
+
+          {/* What the passenger will be told to look for, so the desk can see
+              it was sent rather than trust that it was. */}
+          {b.driver && (
+            <dl className="mt-4 space-y-1 border-t p-hairline pt-3 text-sm">
+              <Row label="Assigned" mono>
+                <span className="font-bold">{b.driver.name}</span>
+              </Row>
+              <Row label="Phone" mono>
+                <a href={`tel:${b.driver.phone}`} className="p-gold">
+                  {b.driver.phone}
+                </a>
+              </Row>
+              {b.driver.plate && (
+                <Row label="Plate" mono>
+                  {b.driver.plate}
+                </Row>
+              )}
+            </dl>
+          )}
         </Card>
 
         <Card>

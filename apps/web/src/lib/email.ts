@@ -454,7 +454,7 @@ export function driverAtDoorEmail(d: {
     `<p style="font-size:15px;line-height:1.7">${d.name}, your car has arrived at ${d.pickupLabel}.</p>
      <table style="width:100%;border-collapse:collapse;margin-top:14px">
        ${row('Driver', d.driverName)}
-       ${row('Phone', d.driverPhone)}
+       ${row('Phone', `<a href="tel:${d.driverPhone}">${d.driverPhone}</a>`, true)}
        ${d.plate ? row('Number plate', `<strong>${d.plate}</strong>`, true) : ''}
        ${d.vehicleName ? row('Vehicle', d.vehicleName) : ''}
        ${row('Reference', d.reference)}
@@ -504,7 +504,7 @@ export function driverAssignedEmail(d: {
     `<p style="font-size:15px;line-height:1.7">${d.name}, here is who is picking you up on ${when}.</p>
      <table style="width:100%;border-collapse:collapse;margin-top:14px">
        ${row('Driver', d.driverName)}
-       ${row('Phone', d.driverPhone)}
+       ${row('Phone', `<a href="tel:${d.driverPhone}">${d.driverPhone}</a>`, true)}
        ${d.plate ? row('Number plate', `<strong>${d.plate}</strong>`, true) : ''}
        ${d.vehicleName ? row('Vehicle', d.vehicleName) : ''}
      </table>

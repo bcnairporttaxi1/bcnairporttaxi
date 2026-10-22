@@ -142,7 +142,9 @@ model Driver {
   phone         String
   /// Passengers on an active ride see this alongside the phone number.
   whatsapp      String?
-  licenseNumber String
+  /// Null when the desk added the driver from a ride in a hurry, with only a
+  /// name and a phone number. The full driver form still requires it.
+  licenseNumber String?
   /// Registration plate, shown to the passenger so they identify the right car.
   plate         String?
   photoUrl      String?
@@ -193,6 +195,8 @@ model Vehicle {
 
   drivers  Driver[]
   bookings Booking[]
+  /// Bookings that asked for this class, whatever car was finally sent.
+  requestedBookings Booking[] @relation("RequestedVehicle")
 
   @@index([active, sortOrder])
 }
@@ -259,8 +263,21 @@ model Booking {
   /// ride with its own reference, driver and status.
   groupId String?
 
+  /// The car that will actually arrive. Overwritten with the driver's own
+  /// vehicle when one is assigned, because the passenger has to look for the
+  /// right car at the rank.
   vehicleId String?
   vehicle   Vehicle? @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+
+  /// The vehicle class the passenger chose at booking, never overwritten.
+  ///
+  /// Assignment replaces `vehicleId` with the driver's actual car, which is
+  /// right for the passenger and wrong for the driver: it destroyed the only
+  /// record of what was booked, so a driver sent to a six-seat job could not
+  /// tell it from a four-seat one, and nobody could check the car sent
+  /// matched the car sold.
+  requestedVehicleId String?
+  requestedVehicle   Vehicle? @relation("RequestedVehicle", fields: [requestedVehicleId], references: [id], onDelete: SetNull)
 
   driverId String?
   driver   Driver? @relation("DriverBookings", fields: [driverId], references: [id], onDelete: SetNull)

@@ -1,6 +1,7 @@
 'use server';
 
 import { balanceDue } from '@bcn/core/rides';
+import { samePhone } from '@bcn/core/phone';
 import { revalidatePath } from 'next/cache';
 import { tripLink } from '@/lib/trip-token';
 import { z } from 'zod';
@@ -43,14 +44,132 @@ export async function assignDriver(formData: FormData): Promise<void> {
   const driverId = String(formData.get('driverId') || '');
   const locale = String(formData.get('locale') ?? 'en');
 
-  // What the driver will be paid for this ride. Optional: an empty field
-  // leaves the current value alone, so re-assigning does not wipe a figure
-  // the desk already agreed. Zero is a legitimate amount (a favour, a redo).
-  const payRaw = String(formData.get('driverPay') ?? '').trim().replace(',', '.');
-  const payParsed = payRaw === '' ? null : z.coerce.number().min(0).max(9999).safeParse(payRaw);
-  if (payParsed && !payParsed.success) return;
-  const driverPay = payParsed ? Math.round(payParsed.data * 100) / 100 : undefined;
+  const driverPay = readDriverPay(formData);
+  if (driverPay === INVALID) return;
 
+  await attachDriver({ bookingId, driverId, driverPay, locale });
+}
+
+/** Sentinel: the pay field was filled in but not with a number. */
+const INVALID = Symbol('invalid-pay');
+
+/**
+ * The driver's pay for this ride, from the form.
+ *
+ * Optional: an empty field leaves the current value alone, so re-assigning
+ * does not wipe a figure the desk already agreed. Zero is a legitimate
+ * amount (a favour, a redo), which is why absence is undefined and not 0.
+ */
+function readDriverPay(formData: FormData): number | undefined | typeof INVALID {
+  const raw = String(formData.get('driverPay') ?? '').trim().replace(',', '.');
+  if (raw === '') return undefined;
+  const parsed = z.coerce.number().min(0).max(9999).safeParse(raw);
+  if (!parsed.success) return INVALID;
+  return Math.round(parsed.data * 100) / 100;
+}
+
+/**
+ * Assigns a driver typed in by hand, rather than chosen from the list.
+ *
+ * The desk often knows only a name and a phone number at the moment it needs
+ * to dispatch — the driver may have no account, no licence on file and no
+ * vehicle recorded. Rather than add a parallel "ad-hoc driver" shape to
+ * Booking, this finds or creates a real Driver row, which the schema already
+ * allows to exist without a login, so the trip page, the passenger email, the
+ * driver panel and settlement all keep working unchanged.
+ *
+ * Matching is by phone number: the same driver dispatched twice is the same
+ * row, with their name and plate refreshed from whatever was typed last.
+ */
+export async function assignDriverByDetails(formData: FormData): Promise<void> {
+  await assertAdmin();
+
+  const bookingId = String(formData.get('bookingId'));
+  const locale = String(formData.get('locale') ?? 'en');
+
+  const parsed = z
+    .object({
+      name: z.string().trim().min(2).max(120),
+      phone: z.string().trim().min(6).max(40),
+      plate: z.string().trim().max(20).optional(),
+    })
+    .safeParse({
+      name: formData.get('driverName'),
+      phone: formData.get('driverPhone'),
+      plate: String(formData.get('driverPlate') ?? '').trim() || undefined,
+    });
+  if (!parsed.success) return;
+
+  const driverPay = readDriverPay(formData);
+  if (driverPay === INVALID) return;
+
+  const { name, phone, plate } = parsed.data;
+
+  /*
+   * Compared in memory, deliberately.
+   *
+   * There is no normalised phone column to match on, and narrowing the query
+   * by the digits would miss every driver stored with formatting — a row
+   * saved as "+34 600 111 222" does not contain "600111222" — which is
+   * exactly the duplicate this lookup exists to prevent. A taxi desk has
+   * tens of drivers, not millions, so reading the column and comparing it
+   * properly costs nothing and cannot be wrong.
+   */
+  const candidates = await prisma.driver.findMany({
+    select: { id: true, phone: true, userId: true },
+  });
+  const existing = candidates.find((d) => samePhone(d.phone, phone));
+
+  let driverId: string;
+  if (!existing) {
+    const created = await prisma.driver.create({
+      data: { name, phone, plate: plate ?? null, active: true },
+      select: { id: true },
+    });
+    driverId = created.id;
+  } else if (existing.userId) {
+    /*
+     * A registered driver is matched but never rewritten.
+     *
+     * The number identifies them, so this is the right person and the ride is
+     * theirs — but their name and plate belong to their own account, and they
+     * carry reviews, a payout history and a panel. A mistyped digit here
+     * would otherwise rename a real driver: typing a new colleague's details
+     * against an existing driver's number renamed Jordi Puig outright.
+     */
+    driverId = existing.id;
+  } else {
+    // A desk-created driver has no account of their own, so the newest
+    // spelling and plate the desk typed are the best record there is.
+    const updated = await prisma.driver.update({
+      where: { id: existing.id },
+      data: { name, phone, ...(plate ? { plate } : {}) },
+      select: { id: true },
+    });
+    driverId = updated.id;
+  }
+
+  await attachDriver({ bookingId, driverId, driverPay, locale });
+}
+
+/**
+ * Attaches a driver to a booking and tells both sides.
+ *
+ * Shared by the dropdown and the typed-in form so the two cannot drift: the
+ * passenger is emailed their driver's name and number either way, which is
+ * the whole point of assigning from the desk.
+ */
+async function attachDriver({
+  bookingId,
+  driverId,
+  driverPay,
+  locale,
+}: {
+  bookingId: string;
+  driverId: string;
+  driverPay: number | undefined;
+  locale: string;
+}): Promise<void> {
   // Read first, then write. The status decision depends on the current value,
   // and nesting that read inside the update object made the order of
   // evaluation something you had to reason about rather than see.
@@ -86,6 +205,7 @@ export async function assignDriver(formData: FormData): Promise<void> {
     include: {
       driver: { include: { user: { select: { email: true } } } },
       vehicle: { select: { name: true } },
+      requestedVehicle: { select: { name: true } },
     },
   });
 
@@ -122,7 +242,7 @@ export async function assignDriver(formData: FormData): Promise<void> {
         luggage: booking.luggage,
         contactName: booking.contactName,
         contactPhone: booking.contactPhone,
-        vehicleName: booking.vehicle?.name,
+        vehicleName: booking.requestedVehicle?.name ?? booking.vehicle?.name,
         notes: booking.notes,
         flightNumber: booking.flightNumber,
         pay: booking.driverPay == null ? null : Number(booking.driverPay),
@@ -141,6 +261,10 @@ export async function assignDriver(formData: FormData): Promise<void> {
 
   revalidatePath(`/${locale}/admin`);
   revalidatePath(`/${locale}/admin/rides`);
+  // The typed-in form sits on the ride page, so that page is what the desk is
+  // looking at when it submits.
+  revalidatePath(`/${locale}/admin/rides/${booking.reference}`);
+  revalidatePath(`/${locale}/trip/${booking.reference}`);
 }
 
 const STATUSES = [

@@ -202,6 +202,9 @@ export async function POST(request: Request) {
         flightNumber: input.flightNumber || null,
         groupId,
         vehicleId: vehicle?.id,
+        // Kept apart from vehicleId, which assignment overwrites with the
+        // driver's own car. This stays as what the passenger paid for.
+        requestedVehicleId: vehicle?.id,
         locale: input.locale,
       },
     });
@@ -239,6 +242,7 @@ export async function POST(request: Request) {
               flightNumber: input.returnFlightNumber || null,
               groupId,
               vehicleId: vehicle?.id,
+              requestedVehicleId: vehicle?.id,
               locale: input.locale,
             },
           })
