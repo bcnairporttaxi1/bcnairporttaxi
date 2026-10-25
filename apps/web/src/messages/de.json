@@ -299,7 +299,8 @@
     "otherIn": "Weitere Ziele: {group}",
     "photoAlt": "{place}, Ziel für einen privaten Transfer ab Barcelona",
     "waQuote": "Hallo, ich hätte gern einen Festpreis für einen Transfer ab Barcelona: {name}.",
-    "waQuoteSibling": "Hallo, ich hätte gern ein Angebot für {name}."
+    "waQuoteSibling": "Hallo, ich hätte gern ein Angebot für {name}.",
+    "metaDescription": "Taxi vom Flughafen Barcelona nach {name}: ein Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. Online buchen."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als App installieren",
@@ -463,8 +464,8 @@
   },
   "pricing": {
     "feeBody": "Alles. Die Fahrt, jeden offiziellen Zuschlag Ihrer Strecke und unsere Leistung, das Fahrzeug zu organisieren und zu garantieren, in einem Betrag, online bei der Buchung bezahlt. Es gibt keinen zweiten Betrag: im Taxi ist nichts zu zahlen, und eine vollständige Quittung kommt per E-Mail mit Ihrer Bestätigung.",
-    "metaTitle": "Taxipreise Flughafen Barcelona 2026 — Festpreise",
-    "metaDescription": "Festpreise für das Taxi zum Flughafen Barcelona: {sedan} an jeden Ort der Stadt, {port} zum Kreuzfahrthafen, je Fahrzeug. Was Wochenend- und Außerzonen-Tarif hinzufügen und wann nach Kilometern abgerechnet wird.",
+    "metaTitle": "Taxipreise Flughafen Barcelona 2026",
+    "metaDescription": "Festpreise für das Taxi zum Flughafen Barcelona: {sedan} in die Stadt, {port} zum Kreuzfahrthafen. Je Fahrzeug, alles inklusive.",
     "h1": "Taxipreise zum Flughafen Barcelona",
     "intro": "Ein Festpreis je Fahrt, vor der Buchung vereinbart und mit ihr fixiert. Keine Taxameteranzeige und keine Schätzung: der angezeigte Betrag ist der bezahlte, was der Verkehr auch tut und zu welcher Stunde auch immer.",
     "tableCaption": "Transfer-Festpreise, je Fahrzeug",

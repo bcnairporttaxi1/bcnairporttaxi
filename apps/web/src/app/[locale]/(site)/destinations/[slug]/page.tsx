@@ -45,11 +45,19 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: 'destinationRoute' });
 
+  /*
+   * The card blurb is a card blurb — 33 to 104 characters, written to fit
+   * under a thumbnail. Reusing it as the meta description left every
+   * destination page with a snippet less than half the width Google renders,
+   * so the description is composed for the slot it occupies.
+   */
+  const description = t('metaDescription', { name: d.name });
+
   return {
     title: { absolute: t('metaTitle', { name: d.name }) },
-    description: d.blurb,
+    description,
     alternates: { canonical: `/${locale}/destinations/${slug}`, languages },
-    openGraph: { title: t('ogTitle', { name: d.name }), description: d.blurb },
+    openGraph: { title: t('ogTitle', { name: d.name }), description },
   };
 }
 

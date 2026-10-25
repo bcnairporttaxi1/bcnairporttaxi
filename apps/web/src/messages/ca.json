@@ -299,7 +299,8 @@
     "otherIn": "Altres destinacions: {group}",
     "photoAlt": "{place}, destinació de trasllat privat des de Barcelona",
     "waQuote": "Hola, volia un pressupost tancat per a un trasllat des de Barcelona: {name}.",
-    "waQuoteSibling": "Hola, volia un pressupost per a {name}."
+    "waQuoteSibling": "Hola, volia un pressupost per a {name}.",
+    "metaDescription": "Taxi de l’aeroport de Barcelona a {name}: un preu fix amb tot inclòs, conductor amb llicència i seguiment del teu vol. Reserva en línia."
   },
   "install": {
     "metaTitle": "Instal·la BCNAirportTaxi com a aplicació",
@@ -463,8 +464,8 @@
   },
   "pricing": {
     "feeBody": "Tot. El trajecte, cada suplement oficial que correspongui a la ruta i el nostre servei de gestió i garantia del vehicle, en un únic import pagat en línia al reservar. No hi ha una segona xifra a liquidar: no es deu res al taxi i s’envia un rebut complet per correu amb la confirmació.",
-    "metaTitle": "Preus Taxi Aeroport Barcelona 2026 — Tarifes Fixes",
-    "metaDescription": "Preus fixos de taxi a l’aeroport de Barcelona: {sedan} a qualsevol punt de la ciutat, {port} al port de creuers, per vehicle. Què hi afegeixen la tarifa de cap de setmana i la de fora de zona, i quan es cobra per quilòmetre.",
+    "metaTitle": "Preus Taxi Aeroport Barcelona 2026",
+    "metaDescription": "Preus fixos de taxi a l’aeroport de Barcelona: {sedan} a qualsevol punt de la ciutat, {port} al port de creuers. Tot inclòs, per vehicle.",
     "h1": "Preus del taxi a l’aeroport de Barcelona",
     "intro": "Un preu fix per trajecte, acordat abans de reservar i blocat en fer-ho. No és una lectura del taxímetre ni una estimació: la xifra que veieu és la que pagueu, passi el que passi amb el trànsit i sigui l’hora que sigui.",
     "tableCaption": "Preus fixos de trasllat, per vehicle",

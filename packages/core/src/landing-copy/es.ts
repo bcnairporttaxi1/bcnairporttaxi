@@ -35,7 +35,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi de Barcelona al Aeropuerto | Reserva Online',
     description:
-      'Reserva un taxi desde Barcelona ciudad al aeropuerto de El Prat. Hora de recogida fija, un precio fijo todo incluido y conductores que conocen las puertas de cada terminal.',
+      'Reserva un taxi desde Barcelona al aeropuerto de El Prat. Hora de recogida fija, precio fijo todo incluido y conductores expertos.',
     h1: 'Taxi de Barcelona al aeropuerto',
     intro:
       'El trayecto de ida al aeropuerto es el que realmente conviene reservar. Un taxi previamente contratado llega a tu hotel o apartamento a una hora fijada, algo que importa mucho más cuando tienes un vuelo que coger que cuando estás llegando.',
@@ -81,7 +81,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Precio Taxi Aeropuerto Barcelona | Tarifas AMB 2026',
     description:
-      'Lo que cuesta realmente un taxi al aeropuerto de Barcelona: nuestros precios fijos por vehículo, hasta dónde llega el precio plano y qué añaden la tarifa de fin de semana y la de fuera de zona.',
+      'Lo que cuesta de verdad un taxi al aeropuerto de Barcelona: nuestros precios fijos por vehículo y qué añade la tarifa de fin de semana.',
     h1: 'Precio del taxi al aeropuerto de Barcelona',
     intro:
       'Un traslado con nosotros es un precio fijo, acordado antes de reservar y bloqueado al reservar. Sin taxímetro, sin cálculos de distancia y sin nada que pagar en el coche. Esta es la lista completa y las tres cosas que pueden añadirse.',
@@ -108,7 +108,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Traslado Hotel Barcelona al Aeropuerto | Puerta a Puerta',
     description:
-      'Reserva un taxi desde tu hotel de Barcelona al aeropuerto de El Prat, o del aeropuerto a la puerta de tu hotel. Puerta a puerta, con licencia y un precio fijo pagado online.',
+      'Reserva un taxi desde tu hotel de Barcelona al aeropuerto de El Prat, o a la puerta de tu hotel. Puerta a puerta, con licencia, a precio fijo.',
     h1: 'Traslados de hotel al aeropuerto de Barcelona',
     intro:
       'La mayoría de nuestras reservas son traslados de hotel, en ambos sentidos. Un taxi puerta a puerta elimina la parte del viaje que más se subestima: llevar las maletas desde el vestíbulo del hotel hasta una parada, o encontrar la dirección correcta después de un vuelo largo.',
@@ -154,7 +154,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Traslado Privado Aeropuerto Barcelona | Taxi Exclusivo',
     description:
-      'Un traslado privado desde el aeropuerto de Barcelona: taxi con licencia solo para ti, sin compartir ni esperar a otros pasajeros, con un precio fijo acordado antes de reservar.',
+      'Un traslado privado desde el aeropuerto de Barcelona: taxi con licencia solo para ti, sin compartir ni esperar, a un precio fijo.',
     h1: 'Traslado privado del aeropuerto de Barcelona',
     intro:
       'Todas las reservas aquí son traslados privados. El vehículo es solo tuyo: sin lanzadera compartida, sin desvíos para recoger a otros pasajeros y sin horario fijo de salida. Viajas directo desde tu punto de recogida hasta tu destino.',
@@ -200,7 +200,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: 'Taxi Barrio Gótico al Aeropuerto de Barcelona',
     description:
-      'Reserva un taxi desde el Barrio Gótico al aeropuerto de Barcelona. Acordamos un punto de recogida accesible de antemano, porque la mayoría de calles del Barri Gòtic son demasiado estrechas.',
+      'Reserva un taxi desde el Barrio Gótico al aeropuerto de Barcelona. Acordamos antes un punto de recogida accesible para un coche.',
     h1: 'Taxi del Barrio Gótico al aeropuerto de Barcelona',
     intro:
       'El Barri Gòtic es la zona de Barcelona donde reservar con antelación cambia de verdad la experiencia. Buena parte del barrio es peatonal o demasiado estrecha para un coche, así que la pregunta no es cuándo llega tu taxi, sino dónde puede llegar realmente a recogerte.',
@@ -267,7 +267,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   },
 
   'book-online': {
-    title: 'Reservar Taxi Aeropuerto Barcelona Online | Precio al Instante',
+    title: 'Reservar Taxi Aeropuerto Barcelona | Online',
     description:
       'Reserva un taxi al aeropuerto de Barcelona online en minutos. Estimación inmediata con tarifas oficiales AMB, pago seguro y confirmación instantánea por correo.',
     h1: 'Reservar un taxi al aeropuerto de Barcelona online',

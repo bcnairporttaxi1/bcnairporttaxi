@@ -5,7 +5,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aéroport Barcelone Centre-Ville | Réserver',
     description:
-      "Réservez un taxi de l'aéroport de Barcelone vers le centre. Tarif officiel au compteur AMB, supplément El Prat inclus dans l'estimation, chauffeur en salle d'arrivée.",
+      "Réservez un taxi de l’aéroport de Barcelone vers le centre. Prix fixe tout compris, supplément El Prat inclus, chauffeur à l’arrivée.",
     h1: "Taxi de l'aéroport de Barcelone vers le centre",
     intro:
       "Un taxi depuis El Prat jusqu'au centre de Barcelone prend 25 à 35 minutes selon la circulation et le terminal d'arrivée. Réserver à l'avance signifie qu'un chauffeur vous attend déjà à l'atterrissage, pancarte à votre nom en salle d'arrivée, plutôt que la file d'attente à la station T1 ou T2.",
@@ -28,7 +28,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: "Taxi Barcelone vers l'Aéroport | Réserver en ligne",
     description:
-      "Réservez un taxi depuis Barcelone vers l'aéroport El Prat. Heure de prise en charge fixe, tarif officiel au compteur, chauffeurs qui connaissent chaque porte de terminal.",
+      "Réservez un taxi depuis Barcelone vers l’aéroport El Prat. Heure de prise en charge fixe, prix fixe tout compris, chauffeurs expérimentés.",
     h1: "Taxi de Barcelone vers l'aéroport",
     intro:
       "C'est le trajet aller qui mérite vraiment d'être réservé. Un taxi commandé à l'avance se présente à votre hôtel ou appartement à une heure convenue, ce qui compte bien davantage quand vous avez un vol à prendre que lorsque vous arrivez.",
@@ -66,7 +66,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Passagers de croisière',
-        body: "Pour une correspondance vers une croisière, le trajet entre El Prat et le terminal du Moll Adossat relève d'un prix fixe officiel plutôt que du compteur. Saisissez le terminal de croisière comme destination et l'estimation bascule automatiquement sur ce prix.",
+        body: "Pour une correspondance vers une croisière, le trajet entre El Prat et le terminal du Moll Adossat a son propre prix fixe, indiqué séparément du prix ville. Saisissez le terminal de croisière comme destination et l'estimation bascule automatiquement sur ce prix.",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prix Taxi Aéroport Barcelone | Tarifs AMB 2026',
     description:
-      "Ce que coûte réellement un taxi pour l’aéroport de Barcelone : nos prix fixes par véhicule, jusqu’où porte le prix forfaitaire, et ce qu’ajoutent le tarif week-end et le hors-zone.",
+      "Ce que coûte réellement un taxi pour l’aéroport de Barcelone : nos prix fixes par véhicule et ce qu’ajoute le tarif week-end.",
     h1: "Prix d'un taxi pour l'aéroport de Barcelone",
     intro:
       "Les prix des taxis à Barcelone sont réglementés. Aucun taxi agréé ne peut facturer plus ou moins que notre propre barème de prix fixes, ce qui veut dire que la réponse honnête à « combien ça coûte » est un calcul, pas un argument commercial. Voici exactement comment ce calcul fonctionne.",
@@ -101,7 +101,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: "Transfert Hôtel Barcelone Aéroport | Porte à Porte",
     description:
-      "Réservez un taxi depuis votre hôtel de Barcelone vers l'aéroport El Prat, ou de l'aéroport jusqu'à la porte de votre hôtel. Porte à porte, agréé, au tarif officiel.",
+      "Réservez un taxi de votre hôtel de Barcelone vers l’aéroport El Prat, ou de l’aéroport à votre porte. Porte à porte, agréé, à prix fixe.",
     h1: "Transferts hôtel-aéroport à Barcelone",
     intro:
       "La majorité de nos réservations sont des transferts d'hôtel, dans les deux sens. Un taxi porte à porte supprime la partie du trajet la plus sous-estimée : traîner les bagages du hall jusqu'à une station, ou trouver la bonne adresse après un long vol.",
@@ -158,7 +158,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Choix du véhicule',
-        body: "Taxi standard jusqu'à quatre passagers, Mercedes Vito pour six, V-Class pour sept avec les bagages correspondants. Le tarif au compteur ne varie pas selon la taille du véhicule — il est fixé par l'AMB — choisissez donc selon la capacité et le confort.",
+        body: "Taxi standard jusqu'à quatre passagers, Mercedes Vito pour six, V-Class pour sept avec les bagages correspondants. Chacun a son propre prix fixe de transfert, affiché avant la réservation, choisissez donc selon la capacité et le confort.",
       },
       {
         h2: 'Déplacements professionnels',
@@ -193,7 +193,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: "Taxi Quartier Gothique vers l'Aéroport de Barcelone",
     description:
-      "Réservez un taxi depuis le Quartier Gothique vers l'aéroport de Barcelone. Nous convenons à l'avance d'un point accessible : la plupart des ruelles du Barri Gòtic sont trop étroites.",
+      "Réservez un taxi du Quartier Gothique vers l’aéroport de Barcelone. Nous convenons à l’avance d’un point de prise en charge accessible.",
     h1: "Taxi du Quartier Gothique vers l'aéroport",
     intro:
       "Le Barri Gòtic est le quartier de Barcelone où réserver à l'avance change réellement l'expérience. L'essentiel du quartier est piéton ou trop étroit pour une voiture : la question n'est donc pas quand votre taxi arrive, mais où il peut réellement vous rejoindre.",
@@ -239,7 +239,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: "Taxi Centre de Barcelone vers l'Aéroport",
     description:
-      "Réservez un taxi depuis le centre de Barcelone vers l'aéroport El Prat. Prise en charge à toute adresse centrale, tarif officiel au compteur, chauffeur confirmé à l'avance.",
+      "Réservez un taxi depuis le centre de Barcelone vers l’aéroport El Prat. Prise en charge à toute adresse centrale, à un prix fixe convenu.",
     h1: "Taxi du centre de Barcelone vers l'aéroport",
     intro:
       "Depuis n'importe quel point central — la Rambla, la place de Catalogne, El Born, le Raval ou le Passeig de Gràcia — El Prat est à 20 à 35 minutes de route. Réserver fixe l'heure et la voiture, ce qui compte surtout pour le trajet aller.",
@@ -262,7 +262,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Réserver un Taxi Aéroport Barcelone en Ligne',
     description:
-      "Réservez un taxi pour l'aéroport de Barcelone en quelques minutes. Estimation immédiate aux tarifs officiels AMB, paiement sécurisé, confirmation instantanée par e-mail.",
+      "Réservez un taxi pour l’aéroport de Barcelone en quelques minutes. Prix fixe immédiat, paiement sécurisé et confirmation par e-mail.",
     h1: "Réserver un taxi pour l'aéroport de Barcelone en ligne",
     intro:
       "Réserver en ligne prend quelques minutes et vous garantit une voiture confirmée avec chauffeur affecté. Vous réglez un prix unique tout compris en ligne et ne devez rien dans le taxi.",

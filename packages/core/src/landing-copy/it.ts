@@ -28,7 +28,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: "Taxi da Barcellona all'Aeroporto | Prenota Online",
     description:
-      "Prenota un taxi da Barcellona città all'aeroporto di El Prat. Orario di ritiro fisso, prezzo fisso tutto incluso e autisti che conoscono gli ingressi dei terminal.",
+      "Prenota un taxi da Barcellona all’aeroporto di El Prat. Orario di ritiro fisso, prezzo fisso tutto incluso e conducenti esperti.",
     h1: "Taxi da Barcellona all'aeroporto",
     intro:
       "È la corsa di andata quella che conviene davvero prenotare. Un taxi prenotato in anticipo arriva al tuo hotel o appartamento a un orario fissato, cosa che conta molto di più quando devi prendere un volo che non quando stai arrivando.",
@@ -74,10 +74,10 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Prezzo Taxi Aeroporto Barcellona | Tariffe AMB 2026',
     description:
-      "Quanto costa davvero un taxi per l’aeroporto di Barcellona: i nostri prezzi fissi per veicolo, fin dove arriva il prezzo forfettario e cosa aggiungono la tariffa del fine settimana e quella fuori zona.",
+      "Quanto costa davvero un taxi per l’aeroporto di Barcellona: i nostri prezzi fissi per veicolo e cosa aggiunge la tariffa del weekend.",
     h1: "Prezzo del taxi per l'aeroporto di Barcellona",
     intro:
-      "I prezzi dei taxi a Barcellona sono regolamentati. Nessun taxi autorizzato può chiedere più o meno del tassametro ufficiale dell'AMB, il che significa che la risposta onesta a «quanto costa» è un calcolo, non una cifra commerciale. Ecco come funziona esattamente quel calcolo.",
+      "Un trasferimento con noi è un prezzo fisso, concordato prima di prenotare e bloccato al momento della prenotazione. Nessun tassametro, nessun calcolo di distanza e nulla da saldare in auto. Questo è il listino completo e le tre cose che possono aggiungersi.",
     sections: [
       {
         h2: 'Come si calcola la tua tariffa',
@@ -101,7 +101,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcellona Aeroporto | Porta a Porta',
     description:
-      "Prenota un taxi dal tuo hotel di Barcellona all'aeroporto di El Prat, o dall'aeroporto fino alla porta del tuo hotel. Porta a porta, autorizzato, a tariffa ufficiale.",
+      "Prenota un taxi dal tuo hotel di Barcellona all’aeroporto di El Prat, o fino alla porta. Porta a porta, autorizzato, a prezzo fisso.",
     h1: 'Transfer hotel-aeroporto a Barcellona',
     intro:
       "La maggior parte delle nostre prenotazioni sono transfer da hotel, in entrambe le direzioni. Un taxi porta a porta elimina la parte del viaggio che si sottovaluta di più: portare i bagagli dalla hall fino a un posteggio, o trovare l'indirizzo giusto dopo un volo lungo.",
@@ -193,7 +193,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: "Taxi Quartiere Gotico all'Aeroporto di Barcellona",
     description:
-      "Prenota un taxi dal Quartiere Gotico all'aeroporto di Barcellona. Concordiamo in anticipo un punto accessibile: quasi tutte le vie del Barri Gòtic sono troppo strette.",
+      "Prenota un taxi dal Quartiere Gotico all’aeroporto di Barcellona. Concordiamo prima un punto di ritiro raggiungibile in auto.",
     h1: "Taxi dal Quartiere Gotico all'aeroporto",
     intro:
       "Il Barri Gòtic è la zona di Barcellona in cui prenotare in anticipo cambia davvero l'esperienza. Gran parte del quartiere è pedonale o troppo stretta per un'auto: la domanda quindi non è quando arriva il taxi, ma dove può effettivamente raggiungerti.",
@@ -239,7 +239,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: "Taxi Centro di Barcellona all'Aeroporto",
     description:
-      "Prenota un taxi dal centro di Barcellona all'aeroporto di El Prat. Ritiro a qualsiasi indirizzo centrale, tariffa ufficiale e autista confermato in anticipo.",
+      "Prenota un taxi dal centro di Barcellona all'aeroporto di El Prat. Ritiro a qualsiasi indirizzo centrale, prezzo fisso e autista confermato in anticipo.",
     h1: "Taxi dal centro di Barcellona all'aeroporto",
     intro:
       "Da qualsiasi punto centrale — la Rambla, plaça de Catalunya, il Born, il Raval o il Passeig de Gràcia — El Prat dista 20-35 minuti d'auto. Prenotare fissa l'orario di ritiro e il veicolo, cosa che conta soprattutto sulla corsa di andata.",

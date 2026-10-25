@@ -28,7 +28,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Táxi de Barcelona para o Aeroporto | Reservar',
     description:
-      'Reserve um táxi de Barcelona cidade para o aeroporto de El Prat. Hora de recolha fixa, preço fixo tudo incluído e motoristas que conhecem as portas de cada terminal.',
+      'Reserve um táxi de Barcelona para o aeroporto de El Prat. Hora de recolha fixa, preço fixo tudo incluído e motoristas experientes.',
     h1: 'Táxi de Barcelona para o aeroporto',
     intro:
       'É a viagem de ida que compensa mesmo reservar. Um táxi marcado com antecedência chega ao seu hotel ou apartamento a uma hora combinada, o que pesa muito mais quando tem um voo para apanhar do que quando está a chegar.',
@@ -74,10 +74,10 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preço Táxi Aeroporto Barcelona | Tarifas AMB 2026',
     description:
-      'O que custa realmente um táxi para o aeroporto de Barcelona: os nossos preços fixos por veículo, até onde chega o preço plano e o que acrescentam a tarifa de fim de semana e a de fora de zona.',
+      'O que custa realmente um táxi para o aeroporto de Barcelona: os nossos preços fixos por veículo e o que acrescenta a tarifa de fim de semana.',
     h1: 'Preço do táxi para o aeroporto de Barcelona',
     intro:
-      'Os preços dos táxis em Barcelona são regulados. Nenhum táxi licenciado pode cobrar mais nem menos do que o taxímetro oficial da AMB, o que significa que a resposta honesta a «quanto custa» é uma conta, não um número comercial. É assim que essa conta funciona.',
+      'Um transfer com nós é um preço fixo, acordado antes de reservar e bloqueado ao reservar. Sem taxímetro, sem cálculos de distância e sem nada a pagar no carro. Esta é a tabela completa e as três coisas que podem acrescentar-se.',
     sections: [
       {
         h2: 'Como é calculada a sua tarifa',
@@ -101,7 +101,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcelona Aeroporto | Porta a Porta',
     description:
-      'Reserve um táxi do seu hotel em Barcelona para o aeroporto de El Prat, ou do aeroporto até à porta do hotel. Porta a porta, licenciado e com tarifa oficial.',
+      'Reserve um táxi do seu hotel em Barcelona para o aeroporto de El Prat, ou do aeroporto até à porta do hotel. Porta a porta, licenciado e com preço fixo.',
     h1: 'Transferes de hotel para o aeroporto de Barcelona',
     intro:
       'A maioria das nossas reservas são transferes de hotel, nos dois sentidos. Um táxi porta a porta elimina a parte da viagem que mais se subestima: levar as malas do átrio do hotel até uma praça de táxis, ou encontrar a morada certa depois de um voo longo.',
@@ -147,7 +147,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Transfer Privado Aeroporto Barcelona | Táxi Só Para Si',
     description:
-      'Um transfer privado do aeroporto de Barcelona: o seu táxi licenciado só para si, sem partilhas nem esperas por outros passageiros, com tarifa oficial da AMB.',
+      'Um transfer privado do aeroporto de Barcelona: o seu táxi licenciado só para si, sem partilhas nem esperas por outros passageiros, com preço fixo.',
     h1: 'Transfer privado do aeroporto de Barcelona',
     intro:
       'Todas as reservas aqui são transferes privados. O veículo é só seu: sem shuttle partilhado, sem desvios para apanhar outros passageiros e sem horário fixo. Segue direto do ponto de recolha até ao destino.',
@@ -193,7 +193,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: 'Táxi Bairro Gótico para o Aeroporto de Barcelona',
     description:
-      'Reserve um táxi do Bairro Gótico para o aeroporto de Barcelona. Combinamos previamente um ponto acessível, porque quase todas as ruas do Barri Gòtic são demasiado estreitas.',
+      'Reserve um táxi do Bairro Gótico para o aeroporto de Barcelona. Combinamos previamente um ponto de recolha acessível a um carro.',
     h1: 'Táxi do Bairro Gótico para o aeroporto',
     intro:
       'O Barri Gòtic é a zona de Barcelona onde reservar com antecedência muda mesmo a experiência. Grande parte do bairro é pedonal ou demasiado estreita para um carro, por isso a pergunta não é quando chega o táxi, mas onde ele o consegue efetivamente apanhar.',
@@ -216,7 +216,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: 'Táxi Eixample para o Aeroporto de Barcelona',
     description:
-      'Reserve um táxi do Eixample para o aeroporto de Barcelona-El Prat. Recolha porta a porta na quadrícula, com tarifa oficial da AMB.',
+      'Reserve um táxi do Eixample para o aeroporto de Barcelona-El Prat. Recolha porta a porta na quadrícula, com preço fixo tudo incluído.',
     h1: 'Táxi do Eixample para o aeroporto de Barcelona',
     intro:
       'O Eixample é o bairro mais cómodo de Barcelona para apanhar um táxi. A quadrícula de Cerdà torna quase todas as moradas acessíveis de carro, com espaço para parar e carregar bagagem: exatamente o contrário do centro histórico.',
@@ -239,7 +239,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Táxi Centro de Barcelona para o Aeroporto',
     description:
-      'Reserve um táxi do centro de Barcelona para o aeroporto de El Prat. Recolha em qualquer morada central, tarifa oficial e motorista confirmado com antecedência.',
+      'Reserve um táxi do centro de Barcelona para o aeroporto de El Prat. Recolha em qualquer morada central, preço fixo e motorista confirmado com antecedência.',
     h1: 'Táxi do centro de Barcelona para o aeroporto',
     intro:
       'De qualquer ponto central — a Rambla, a praça de Catalunya, o Born, o Raval ou o Passeig de Gràcia — El Prat fica a 20 ou 35 minutos de carro. Reservar fixa a hora de recolha e o veículo, o que conta sobretudo na viagem de ida.',

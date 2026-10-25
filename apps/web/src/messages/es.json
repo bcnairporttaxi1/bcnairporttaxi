@@ -354,7 +354,8 @@
     "otherIn": "Otros destinos: {group}",
     "photoAlt": "{place}, destino de traslado privado desde Barcelona",
     "waQuote": "Hola, quería un presupuesto cerrado para un traslado desde Barcelona: {name}.",
-    "waQuoteSibling": "Hola, quería un presupuesto para {name}."
+    "waQuoteSibling": "Hola, quería un presupuesto para {name}.",
+    "metaDescription": "Taxi del aeropuerto de Barcelona a {name}: un precio fijo con todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online."
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",
@@ -481,8 +482,8 @@
   },
   "pricing": {
     "feeBody": "Todo. El trayecto, cada suplemento oficial que corresponda a su ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. No hay una segunda cifra que liquidar: no se debe nada en el taxi y se envía un recibo completo por email con la confirmación.",
-    "metaTitle": "Precios Taxi Aeropuerto Barcelona 2026 — Tarifas Fijas",
-    "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros, por vehículo. Qué añaden la tarifa de fin de semana y la de fuera de zona, y cuándo se cobra por kilómetro.",
+    "metaTitle": "Precios Taxi Aeropuerto Barcelona 2026",
+    "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros. Todo incluido.",
     "h1": "Precios del taxi al aeropuerto de Barcelona",
     "intro": "Un precio fijo por trayecto, acordado antes de reservar y bloqueado al hacerlo. No es una lectura del taxímetro ni una estimación: la cifra que ve es la que paga, pase lo que pase con el tráfico y sea la hora que sea.",
     "tableCaption": "Precios fijos de traslado, por vehículo",

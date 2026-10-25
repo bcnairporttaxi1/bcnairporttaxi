@@ -51,7 +51,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Flughafen El Prat | Lizenzierte Transfers',
     description:
-      'Lizenzierte Taxis von und zum Flughafen Barcelona-El Prat (BCN). Online buchen mit Schätzung nach offiziellem AMB-Tarif und einem Ihrem Flug zugeteilten Fahrer.',
+      'Lizenzierte Taxis von und zum Flughafen Barcelona-El Prat (BCN). Online buchen zum Festpreis, mit einem Ihrem Flug zugeteilten Fahrer.',
     h1: 'Taxi Flughafen El Prat',
     intro:
       'Der Flughafen Josep Tarradellas Barcelona-El Prat, den fast alle weiterhin schlicht El Prat nennen, liegt rund 15 km südwestlich der Stadt. Er ist der zweitgrößte Flughafen Spaniens, und das Taxi ist zu fast jeder Stunde der schnellste Weg nach Barcelona — sofern ein Wagen bereitsteht.',
@@ -72,9 +72,9 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   },
 
   'barcelona-airport-taxi-price': {
-    title: 'Taxipreis Flughafen Barcelona | AMB-Tarife 2026',
+    title: 'Taxipreis Flughafen Barcelona | Festpreise 2026',
     description:
-      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: unsere Festpreise je Fahrzeug, wie weit der Pauschalpreis reicht und was Wochenend- und Außerzonen-Tarif hinzufügen.',
+      'Was ein Taxi zum Flughafen Barcelona wirklich kostet: unsere Festpreise je Fahrzeug und was Wochenend- und Außerzonen-Tarif hinzufügen.',
     h1: 'Taxipreis zum Flughafen Barcelona',
     intro:
       'Taxipreise in Barcelona sind reguliert. Kein lizenziertes Taxi darf mehr oder weniger verlangen als unsere eigene Festpreisliste. Die ehrliche Antwort auf „Was kostet das?" ist deshalb eine Rechnung, keine Verkaufszahl. So funktioniert diese Rechnung genau.',
@@ -101,7 +101,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcelona Flughafen | Tür zu Tür',
     description:
-      'Buchen Sie ein Taxi von Ihrem Hotel in Barcelona zum Flughafen El Prat oder vom Flughafen bis vor Ihre Hoteltür. Tür zu Tür, lizenziert, zum festen Komplettpreis.',
+      'Buchen Sie ein Taxi von Ihrem Hotel in Barcelona zum Flughafen El Prat oder zurück an die Hoteltür. Tür zu Tür, lizenziert, zum Festpreis.',
     h1: 'Hotel-Flughafen-Transfers in Barcelona',
     intro:
       'Die meisten unserer Buchungen sind Hoteltransfers, in beide Richtungen. Ein Tür-zu-Tür-Taxi nimmt den Teil der Reise heraus, den man am meisten unterschätzt: das Gepäck von der Lobby bis zu einem Taxistand zu schleppen — oder nach einem langen Flug die richtige Adresse zu finden.',
@@ -147,7 +147,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Privattransfer Flughafen Barcelona | Ihr eigenes Taxi',
     description:
-      'Ein privater Transfer ab dem Flughafen Barcelona: Ihr lizenziertes Taxi allein für Sie, ohne Teilen und ohne Warten auf andere Fahrgäste, zum offiziellen AMB-Tarif.',
+      'Ein privater Transfer ab dem Flughafen Barcelona: Ihr lizenziertes Taxi allein für Sie, ohne Teilen und ohne Warten, zum Festpreis.',
     h1: 'Privattransfer Flughafen Barcelona',
     intro:
       'Jede Buchung hier ist ein Privattransfer. Das Fahrzeug gehört Ihnen allein: kein Sammelshuttle, keine Umwege zu weiteren Fahrgästen, keine feste Abfahrtszeit. Sie fahren direkt vom Abholpunkt zum Ziel.',
@@ -170,7 +170,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   '24-hour-taxi': {
     title: '24-Stunden-Taxi Flughafen Barcelona | Nachttransfers',
     description:
-      'Rund-um-die-Uhr-Taxiservice am Flughafen Barcelona. Buchen Sie nächtliche Landungen und Abfahrten vor Sonnenaufgang zum offiziellen AMB-Nachttarif.',
+      'Rund-um-die-Uhr-Taxiservice am Flughafen Barcelona. Buchen Sie nächtliche Landungen und Abfahrten vor Sonnenaufgang zum selben Festpreis wie am Tag.',
     h1: '24-Stunden-Taxi am Flughafen Barcelona',
     intro:
       'El Prat arbeitet rund um die Uhr, der Taxiservice ebenso. Die Zeiten, die sich wirklich zu buchen lohnen, sind die unbequemen: Landungen nach Mitternacht und Abflüge, die eine Abholung vor Tagesanbruch verlangen.',
@@ -193,7 +193,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: 'Taxi Gotisches Viertel zum Flughafen Barcelona',
     description:
-      'Buchen Sie ein Taxi vom Gotischen Viertel zum Flughafen Barcelona. Wir vereinbaren vorab einen erreichbaren Abholpunkt, denn die meisten Gassen im Barri Gòtic sind zu eng.',
+      'Buchen Sie ein Taxi vom Gotischen Viertel zum Flughafen Barcelona. Wir vereinbaren vorab einen Abholpunkt, den ein Auto erreichen kann.',
     h1: 'Taxi vom Gotischen Viertel zum Flughafen',
     intro:
       'Das Barri Gòtic ist der Teil Barcelonas, in dem eine Vorabbuchung den Unterschied wirklich ausmacht. Der Großteil des Viertels ist Fußgängerzone oder für ein Auto zu eng — die Frage ist deshalb nicht, wann Ihr Taxi kommt, sondern wo es Sie überhaupt erreichen kann.',
@@ -216,7 +216,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: 'Taxi Eixample zum Flughafen Barcelona | Tür zu Tür',
     description:
-      'Buchen Sie ein Taxi vom Eixample zum Flughafen Barcelona-El Prat. Unkomplizierte Tür-zu-Tür-Abholung im Raster, zum offiziellen AMB-Tarif.',
+      'Buchen Sie ein Taxi vom Eixample zum Flughafen Barcelona-El Prat. Unkomplizierte Tür-zu-Tür-Abholung im Raster, zum festen Komplettpreis.',
     h1: 'Taxi vom Eixample zum Flughafen Barcelona',
     intro:
       'Der Eixample ist der bequemste Stadtteil Barcelonas für eine Taxiabholung. Cerdàs Raster macht fast jede Adresse mit dem Auto erreichbar, mit Platz zum Halten und Einladen — das genaue Gegenteil der Altstadt.',
@@ -262,7 +262,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Taxi Flughafen Barcelona online buchen | Sofortpreis',
     description:
-      'Buchen Sie in Minuten ein Taxi zum Flughafen Barcelona. Sofortige Schätzung nach offiziellen AMB-Tarifen, sichere Zahlung, sofortige Bestätigung per E-Mail.',
+      'Buchen Sie in Minuten ein Taxi zum Flughafen Barcelona. Sofortiger Festpreis, sichere Zahlung und eine Bestätigung per E-Mail.',
     h1: 'Taxi zum Flughafen Barcelona online buchen',
     intro:
       'Die Onlinebuchung dauert ein paar Minuten und sichert Ihnen einen bestätigten Wagen mit zugeteiltem Fahrer. Sie zahlen einen Komplettpreis online und schulden im Taxi nichts.',

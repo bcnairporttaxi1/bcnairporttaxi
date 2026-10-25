@@ -34,7 +34,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi de Barcelona a l\'Aeroport | Reserva Online',
     description:
-      'Reserva un taxi des de Barcelona ciutat a l\'aeroport del Prat. Hora de recollida fixada, preu fix tot inclòs i conductors que coneixen les portes de cada terminal.',
+      'Reserva un taxi des de Barcelona a l’aeroport del Prat. Hora de recollida fixada, preu fix tot inclòs i conductors que coneixen les portes.',
     h1: 'Taxi de Barcelona a l\'aeroport',
     intro:
       'El trajecte d\'anada a l\'aeroport és el que realment convé reservar. Un taxi contractat prèviament arriba al teu hotel o apartament a una hora fixada, cosa que importa molt més quan has d\'agafar un vol que no pas quan estàs arribant.',
@@ -57,14 +57,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aeroport del Prat | Trasllats amb Llicència',
     description:
-      'Taxis amb llicència cap a i des de l\'aeroport de Barcelona-el Prat (BCN). Reserva online amb estimació segons la preu fix i conductor assignat al teu vol.',
+      'Taxis amb llicència cap a i des de l’aeroport de Barcelona-el Prat (BCN). Reserva en línia a preu fix i conductor assignat al teu vol.',
     h1: 'Taxi aeroport del Prat',
     intro:
       'L\'aeroport Josep Tarradellas Barcelona-el Prat, que gairebé tothom continua anomenant simplement el Prat, és a uns 15 km al sud-oest de la ciutat. És el segon aeroport amb més trànsit de l\'Estat i el taxi és la manera més ràpida d\'arribar a Barcelona a gairebé qualsevol hora, sempre que hi hagi un cotxe esperant.',
     sections: [
       {
         h2: 'Reservar un taxi a l\'aeroport de Barcelona o anar a la parada',
-        body: 'La parada oficial del Prat està ben organitzada i sol avançar de pressa. Es col·lapsa en moments previsibles: les onades d\'arribades de mig matí, els diumenges a la tarda i quan aterren diversos vols de llarg radi alhora. Reservar amb antelació elimina aquest risc del tot i fixa el teu conductor per endavant, amb la mateixa tarifa de taxímetre.',
+        body: 'La parada oficial del Prat està ben organitzada i sol avançar de pressa. Es col·lapsa en moments previsibles: les onades d\'arribades de mig matí, els diumenges a la tarda i quan aterren diversos vols de llarg radi alhora. Reservar amb antelació elimina aquest risc del tot i fixa el teu conductor per endavant, al mateix preu fix.',
       },
       {
         h2: 'El suplement d\'aeroport del Prat',
@@ -80,7 +80,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Preu Taxi Aeroport Barcelona | Tarifes AMB 2026',
     description:
-      'El que costa realment un taxi a l’aeroport de Barcelona: els nostres preus fixos per vehicle, fins on arriba el preu pla i què hi afegeixen la tarifa de cap de setmana i la de fora de zona.',
+      'El que costa realment un taxi a l’aeroport de Barcelona: els nostres preus fixos per vehicle i què hi afegeix la tarifa de cap de setmana.',
     h1: 'Preu del taxi a l\'aeroport de Barcelona',
     intro:
       'Els preus del taxi a Barcelona estan regulats. Cap taxi amb llicència pot cobrar més ni menys que la nostra llista de preus fixos, cosa que significa que la resposta honesta a "quant costa" és un càlcul, no una xifra comercial. Així funciona exactament aquest càlcul.',
@@ -107,7 +107,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Trasllat Hotel Barcelona a l\'Aeroport | Porta a Porta',
     description:
-      'Reserva un taxi des del teu hotel de Barcelona a l\'aeroport del Prat, o de l\'aeroport a la porta del teu hotel. Porta a porta, amb llicència i preu fix tot inclòs.',
+      'Reserva un taxi des del teu hotel de Barcelona a l’aeroport del Prat, o a la porta del teu hotel. Porta a porta, amb llicència, a preu fix.',
     h1: 'Trasllats d\'hotel a l\'aeroport de Barcelona',
     intro:
       'La majoria de les nostres reserves són trasllats d\'hotel, en tots dos sentits. Un taxi porta a porta elimina la part del viatge que més es menysté: portar les maletes des del vestíbul de l\'hotel fins a una parada, o trobar l\'adreça correcta després d\'un vol llarg.',
@@ -199,7 +199,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: 'Taxi Barri Gòtic a l\'Aeroport de Barcelona',
     description:
-      'Reserva un taxi des del Barri Gòtic a l\'aeroport de Barcelona. Acordem un punt de recollida accessible per endavant, perquè la majoria de carrers del Barri Gòtic són massa estrets.',
+      'Reserva un taxi des del Barri Gòtic a l’aeroport de Barcelona. Acordem abans un punt de recollida accessible per a un cotxe.',
     h1: 'Taxi del Barri Gòtic a l\'aeroport de Barcelona',
     intro:
       'El Barri Gòtic és la zona de Barcelona on reservar amb antelació canvia de debò l\'experiència. Bona part del barri és de vianants o massa estret per a un cotxe, així que la pregunta no és quan arriba el teu taxi, sinó on pot arribar realment a recollir-te.',
@@ -245,7 +245,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Centre de Barcelona a l\'Aeroport',
     description:
-      'Reserva un taxi des del centre de Barcelona a l\'aeroport del Prat. Recollida a qualsevol adreça cèntrica, preu fix tot inclòs i conductor confirmat per endavant.',
+      'Reserva un taxi des del centre de Barcelona a l’aeroport del Prat. Recollida a qualsevol adreça cèntrica, a un preu fix acordat abans.',
     h1: 'Taxi del centre de Barcelona a l\'aeroport',
     intro:
       'Des de qualsevol punt cèntric —la Rambla, la plaça de Catalunya, el Born, el Raval o el Passeig de Gràcia— el Prat queda a 20 o 35 minuts en cotxe. Reservar amb antelació fixa l\'hora de recollida i el vehicle, cosa que importa sobretot en el trajecte d\'anada.',

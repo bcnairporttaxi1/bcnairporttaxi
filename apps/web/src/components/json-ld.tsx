@@ -112,6 +112,7 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
             url: absoluteUrl('/img/logo.png'),
           },
         },
+        isPartOf: { '@id': `${SITE_URL}/#website` },
         availableChannel: {
           '@type': 'ServiceChannel',
           serviceUrl: absoluteUrl(`/${locale}/book`),
@@ -126,6 +127,56 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
           opens: '00:00',
           closes: '23:59',
         },
+      }}
+    />
+  );
+}
+
+/**
+ * The site and the company as named entities.
+ *
+ * Rendered once per page beside the service markup. Both carry an `@id` so
+ * the service node can reference them instead of repeating itself, which is
+ * what lets a crawler merge the three into one understanding of the business.
+ */
+export function WebSiteJsonLd() {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            '@id': `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: 'BCNAirportTaxi',
+            inLanguage: ['en', 'es', 'ca', 'fr', 'de', 'it', 'pt', 'nl', 'ru', 'zh'],
+            publisher: { '@id': `${SITE_URL}/#provider` },
+          },
+          {
+            '@type': 'Organization',
+            '@id': `${SITE_URL}/#provider`,
+            name: 'BCNAirportTaxi',
+            url: SITE_URL,
+            email: CONTACT_EMAIL,
+            description:
+              'Online booking service for licensed Barcelona airport taxis, at fixed all-inclusive prices paid online.',
+            logo: {
+              '@type': 'ImageObject',
+              url: absoluteUrl('/img/logo.png'),
+            },
+            areaServed: { '@type': 'City', name: 'Barcelona' },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer service',
+              email: CONTACT_EMAIL,
+              availableLanguage: ['en', 'es', 'ca', 'fr', 'de', 'it', 'pt', 'nl', 'ru', 'zh'],
+              ...(WHATSAPP_NUMBER && WHATSAPP_NUMBER !== '34600000000'
+                ? { telephone: `+${WHATSAPP_NUMBER}` }
+                : {}),
+            },
+          },
+        ],
       }}
     />
   );

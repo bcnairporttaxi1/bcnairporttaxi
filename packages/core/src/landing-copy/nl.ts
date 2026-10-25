@@ -51,7 +51,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Luchthaven El Prat | Vergunde Transfers',
     description:
-      'Vergunde taxi\'s van en naar luchthaven Barcelona-El Prat (BCN). Boek online met een schatting op het vaste prijs en een chauffeur die aan uw vlucht is toegewezen.',
+      'Vergunde taxi’s van en naar luchthaven Barcelona-El Prat (BCN). Boek online tegen een vaste prijs, met een chauffeur voor uw vlucht.',
     h1: 'Taxi luchthaven El Prat',
     intro:
       'De luchthaven Josep Tarradellas Barcelona-El Prat, die vrijwel iedereen nog gewoon El Prat noemt, ligt ongeveer 15 km ten zuidwesten van de stad. Het is de op één na drukste luchthaven van Spanje, en de taxi is op vrijwel elk uur de snelste weg naar Barcelona — mits er een wagen klaarstaat.',
@@ -74,7 +74,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'barcelona-airport-taxi-price': {
     title: 'Taxiprijs Luchthaven Barcelona | AMB-tarieven 2026',
     description:
-      'Wat een taxi naar de luchthaven van Barcelona werkelijk kost: onze vaste prijzen per voertuig, hoe ver de vaste prijs reikt en wat het weekendtarief en het buitenzonetarief toevoegen.',
+      'Wat een taxi naar de luchthaven van Barcelona echt kost: onze vaste prijzen per voertuig en wat het weekendtarief eraan toevoegt.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
       'Taxiprijzen in Barcelona zijn gereguleerd. Geen enkele vergunde taxi mag meer of minder rekenen dan de officiële AMB-taxameter, wat betekent dat het eerlijke antwoord op "wat kost het" een berekening is en geen verkooppraatje. Zo werkt die berekening precies.',
@@ -101,7 +101,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'hotel-transfers': {
     title: 'Transfer Hotel Barcelona Luchthaven | Deur tot Deur',
     description:
-      'Boek een taxi van uw hotel in Barcelona naar luchthaven El Prat, of van de luchthaven tot aan uw hoteldeur. Deur tot deur, met vergunning, één vaste prijs online betaald.',
+      'Boek een taxi van uw hotel in Barcelona naar luchthaven El Prat, of tot aan uw hoteldeur. Deur tot deur, vergund, tegen een vaste prijs.',
     h1: 'Hotel-luchthaventransfers in Barcelona',
     intro:
       'De meeste van onze boekingen zijn hoteltransfers, in beide richtingen. Een deur-tot-deurtaxi haalt het deel van de reis weg dat het vaakst wordt onderschat: bagage van de lobby naar een standplaats sjouwen, of na een lange vlucht het juiste adres vinden.',
@@ -193,7 +193,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/gothic-quarter': {
     title: 'Taxi Gotische Wijk naar Luchthaven Barcelona',
     description:
-      'Boek een taxi van de Gotische Wijk naar de luchthaven van Barcelona. We spreken vooraf een bereikbaar ophaalpunt af, want de meeste straatjes in het Barri Gòtic zijn te smal.',
+      'Boek een taxi van de Gotische Wijk naar de luchthaven van Barcelona. We spreken vooraf een ophaalpunt af waar een auto bij kan komen.',
     h1: 'Taxi van de Gotische Wijk naar de luchthaven',
     intro:
       'Het Barri Gòtic is het deel van Barcelona waar vooraf boeken de ervaring echt verandert. Het grootste deel van de wijk is voetgangersgebied of te smal voor een auto, dus de vraag is niet wanneer uw taxi komt, maar waar hij u werkelijk kan bereiken.',
@@ -262,7 +262,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Taxi Luchthaven Barcelona Online Boeken | Direct Prijs',
     description:
-      'Boek in enkele minuten een taxi naar de luchthaven van Barcelona. Directe schatting op officiële AMB-tarieven, veilige betaling en directe bevestiging per e-mail.',
+      'Boek in enkele minuten een taxi naar de luchthaven van Barcelona. Direct een vaste prijs, veilig betalen en meteen een bevestiging.',
     h1: 'Een taxi naar de luchthaven van Barcelona online boeken',
     intro:
       'Online boeken kost twee minuten en levert u een bevestigde wagen met toegewezen chauffeur op. U betaalt online één all-in prijs en bent in de taxi niets verschuldigd.',

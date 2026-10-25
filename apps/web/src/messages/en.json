@@ -195,8 +195,8 @@
     "chooseVehicle": "Choose a vehicle"
   },
   "pricing": {
-    "metaTitle": "Barcelona Airport Taxi Prices 2026 — Fixed Transfer Fares",
-    "metaDescription": "Fixed Barcelona airport taxi prices: {sedan} to anywhere in the city, {port} to the cruise port, per vehicle. What the weekend rate and the out-of-zone rate add, and when a journey is priced by the kilometre instead.",
+    "metaTitle": "Barcelona Airport Taxi Prices 2026",
+    "metaDescription": "Fixed Barcelona airport taxi prices: {sedan} to anywhere in the city, {port} to the cruise port. Per vehicle, all-inclusive. Book online.",
     "h1": "Barcelona airport taxi prices",
     "intro": "One fixed price per journey, agreed before you book and locked when you do. It is not a meter reading and not an estimate: the figure you see is the figure you pay, whatever the traffic does and whatever the hour.",
     "tableCaption": "Fixed transfer prices, per vehicle",
@@ -455,7 +455,8 @@
     "otherIn": "Other {group}",
     "photoAlt": "{place}, destination for a private transfer from Barcelona",
     "waQuote": "Hi, I would like a fixed quote for a Barcelona transfer: {name}.",
-    "waQuoteSibling": "Hi, I would like a quote for {name}."
+    "waQuoteSibling": "Hi, I would like a quote for {name}.",
+    "metaDescription": "Taxi from Barcelona airport to {name}: one fixed all-inclusive price, a licensed driver and your flight tracked. Book online in minutes."
   },
   "install": {
     "metaTitle": "Install BCNAirportTaxi as an App",

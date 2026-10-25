@@ -6,7 +6,7 @@ import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
-import { OrganizationJsonLd } from '@/components/json-ld';
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/json-ld';
 import '../globals.css';
 
 /**
@@ -163,6 +163,10 @@ export default async function LocaleLayout(props: {
                 through PanelShell. Route groups do not affect URLs. */}
             {props.children}
           <OrganizationJsonLd locale={locale} />
+          {/* The site and the company as entities the service node points at,
+              so a crawler resolves one business rather than three partial
+              descriptions of one. */}
+          <WebSiteJsonLd />
         </NextIntlClientProvider>
       </body>
     </html>

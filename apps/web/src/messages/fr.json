@@ -299,7 +299,8 @@
     "otherIn": "Autres destinations : {group}",
     "photoAlt": "{place}, destination de transfert privé depuis Barcelone",
     "waQuote": "Bonjour, je souhaite un devis ferme pour un transfert depuis Barcelone : {name}.",
-    "waQuoteSibling": "Bonjour, je souhaite un devis pour {name}."
+    "waQuoteSibling": "Bonjour, je souhaite un devis pour {name}.",
+    "metaDescription": "Taxi de l’aéroport de Barcelone vers {name} : un prix fixe tout compris, un chauffeur agréé et votre vol suivi. Réservation en ligne."
   },
   "install": {
     "metaTitle": "Installer BCNAirportTaxi comme application",
@@ -463,8 +464,8 @@
   },
   "pricing": {
     "feeBody": "Tout. Le trajet, chaque supplément officiel applicable à votre itinéraire et notre service d’organisation et de garantie du véhicule, en un seul montant payé en ligne à la réservation. Il n’y a pas de second montant à régler : rien n’est dû dans le taxi, et un reçu complet est envoyé par e-mail avec votre confirmation.",
-    "metaTitle": "Prix Taxi Aéroport Barcelone 2026 — Tarifs Fixes",
-    "metaDescription": "Prix fixes du taxi pour l’aéroport de Barcelone : {sedan} vers tout point de la ville, {port} vers le port de croisière, par véhicule. Ce qu’ajoutent le tarif week-end et le hors-zone, et quand le trajet est facturé au kilomètre.",
+    "metaTitle": "Prix Taxi Aéroport Barcelone 2026",
+    "metaDescription": "Prix fixes du taxi pour l’aéroport de Barcelone : {sedan} vers la ville, {port} vers le port de croisière. Par véhicule, tout compris.",
     "h1": "Prix du taxi pour l’aéroport de Barcelone",
     "intro": "Un prix fixe par trajet, accepté avant la réservation et verrouillé dès ce moment. Ce n’est ni un relevé de compteur ni une estimation : le montant affiché est celui que vous payez, quelle que soit la circulation et quelle que soit l’heure.",
     "tableCaption": "Prix fixes de transfert, par véhicule",

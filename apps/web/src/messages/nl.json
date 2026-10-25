@@ -299,7 +299,8 @@
     "otherIn": "Andere bestemmingen: {group}",
     "photoAlt": "{place}, bestemming voor een privétransfer vanuit Barcelona",
     "waQuote": "Hallo, ik wil graag een vaste prijs voor een transfer vanuit Barcelona: {name}.",
-    "waQuoteSibling": "Hallo, ik wil graag een prijsopgave voor {name}."
+    "waQuoteSibling": "Hallo, ik wil graag een prijsopgave voor {name}.",
+    "metaDescription": "Taxi van de luchthaven Barcelona naar {name}: één vaste alles-inbegrepen prijs, een erkende chauffeur en uw vlucht gevolgd. Boek online."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als app installeren",
@@ -463,8 +464,8 @@
   },
   "pricing": {
     "feeBody": "Alles. De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Er is geen tweede bedrag: in de taxi is niets verschuldigd, en een volledige bon komt per e-mail met uw bevestiging.",
-    "metaTitle": "Taxiprijzen Luchthaven Barcelona 2026 — Vaste Tarieven",
-    "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar elke plek in de stad, {port} naar de cruisehaven, per voertuig. Wat het weekendtarief en het buitenzonetarief toevoegen, en wanneer er per kilometer wordt gerekend.",
+    "metaTitle": "Taxiprijzen Luchthaven Barcelona 2026",
+    "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar de stad, {port} naar de cruisehaven. Per voertuig, alles inbegrepen.",
     "h1": "Taxiprijzen luchthaven Barcelona",
     "intro": "Eén vaste prijs per rit, afgesproken vóór het boeken en vastgezet zodra u boekt. Het is geen meterstand en geen schatting: het bedrag dat u ziet is wat u betaalt, wat het verkeer ook doet en op welk uur dan ook.",
     "tableCaption": "Vaste transferprijzen, per voertuig",

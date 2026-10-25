@@ -143,7 +143,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport Taxi Price | 2026 AMB Fares',
         description:
-          'What a Barcelona airport taxi actually costs: our fixed transfer prices per vehicle, how far the flat price reaches, and what the weekend and out-of-zone rates add.',
+          'What a Barcelona airport taxi really costs: our fixed prices per vehicle, how far the flat price reaches, and what the weekend and out-of-zone rates add.',
         h1: 'Barcelona airport taxi price',
         intro:
           'A Barcelona airport transfer with us is one fixed price, agreed before you book and locked when you do. No meter, no distance guesswork and nothing to settle in the car. Here is the whole list and the three things that can add to it.',
@@ -288,7 +288,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Gothic Quarter to Barcelona Airport',
         description:
-          'Book a taxi from the Gothic Quarter to Barcelona airport. We agree an accessible pickup point in advance, because most Barri Gòtic streets are too narrow for cars.',
+          'Book a taxi from the Gothic Quarter to Barcelona airport. We agree an accessible pickup point in advance — most Barri Gòtic streets are too narrow for cars.',
         h1: 'Taxi from the Gothic Quarter to Barcelona airport',
         intro:
           'The Barri Gòtic is the part of Barcelona where booking ahead genuinely changes the experience. Most of the quarter is pedestrianised or too narrow for a car, so the question is not when your taxi arrives but where it can actually reach you.',
@@ -372,7 +372,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Book Airport Taxi Barcelona Online | Instant Price',
         description:
-          'Book a Barcelona airport taxi online in minutes. Instant fixed price, secure payment, instant email confirmation.',
+          'Book a Barcelona airport taxi online in minutes. Instant fixed all-inclusive price, secure payment and an email confirmation straight away.',
         h1: 'Book an airport taxi in Barcelona online',
         intro:
           'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. You pay one all-inclusive price online, and owe nothing at all in the taxi.',
