@@ -162,7 +162,8 @@
     "returnIncluded": "Regresso incluído",
     "returnTooEarly": "O regresso tem de ser pelo menos uma hora depois da recolha.",
     "fixedRouteApplied": "Preço fixo para esta rota. A distância e a hora não o alteram.",
-    "fixedPlusKmApplied": "Preço fixo até {km} km, mais a distância além disso."
+    "fixedPlusKmApplied": "Preço fixo até {km} km, mais a distância além disso.",
+    "perVehicle": "por veículo, tudo incluído"
   },
   "fleet": {
     "h1": "A nossa frota de táxis em Barcelona",
@@ -444,6 +445,9 @@
     "payButton": "Pagar {amount} e confirmar",
     "processing": "A processar…",
     "capacityWarning": "Este veículo leva {seats} passageiros e {bags} malas. Escolha um maior para o seu grupo.",
+    "addVehicle": "Adicionar um {vehicle}",
+    "removeVehicle": "Remover um {vehicle}",
+    "multiVehicleNote": "{cars} veículos, para {seats} passageiros e {bags} malas. Cada veículo leva o seu próprio motorista e paga-os todos juntos.",
     "agree": "Ao reservar aceita os nossos termos e a política de reembolso.",
     "missingQuote": "Comece por obter um preço na página inicial e volte depois para concluir a reserva.",
     "getPrice": "Obter preço",
@@ -571,6 +575,8 @@
     "backHome": "Voltar ao início",
     "flight": "Voo",
     "returnLeg": "Viagem de regresso",
+    "anotherCar": "Outro veículo, mesma viagem",
+    "orderTotal": "Pago no total ({count} reservas)",
     "outboundLeg": "Viagem de ida",
     "viewLeg": "Ver"
   },

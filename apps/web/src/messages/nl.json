@@ -162,7 +162,8 @@
     "returnIncluded": "Terugreis inbegrepen",
     "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn.",
     "fixedRouteApplied": "Vaste prijs voor deze rit. Afstand en tijdstip veranderen er niets aan.",
-    "fixedPlusKmApplied": "Vaste prijs tot {km} km, plus de afstand daarboven."
+    "fixedPlusKmApplied": "Vaste prijs tot {km} km, plus de afstand daarboven.",
+    "perVehicle": "per voertuig, alles inbegrepen"
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -444,6 +445,9 @@
     "payButton": "Betaal {amount} en bevestig",
     "processing": "Bezig…",
     "capacityWarning": "Dit voertuig biedt plaats aan {seats} passagiers en {bags} stuks bagage. Kies een groter voertuig voor uw groep.",
+    "addVehicle": "Eén {vehicle} toevoegen",
+    "removeVehicle": "Eén {vehicle} verwijderen",
+    "multiVehicleNote": "{cars} voertuigen, voor {seats} passagiers en {bags} koffers. Elk voertuig heeft zijn eigen chauffeur en u betaalt ze samen.",
     "agree": "Door te boeken accepteert u onze voorwaarden en ons restitutiebeleid.",
     "missingQuote": "Vraag eerst een prijs op de startpagina op en kom dan terug om uw boeking af te ronden.",
     "getPrice": "Prijs opvragen",
@@ -571,6 +575,8 @@
     "backHome": "Terug naar de startpagina",
     "flight": "Vlucht",
     "returnLeg": "Terugreis",
+    "anotherCar": "Ander voertuig, zelfde rit",
+    "orderTotal": "Totaal betaald ({count} boekingen)",
     "outboundLeg": "Heenreis",
     "viewLeg": "Bekijken"
   },

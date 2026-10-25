@@ -162,7 +162,8 @@
     "returnIncluded": "Ritorno incluso",
     "returnTooEarly": "Il ritorno deve essere almeno un’ora dopo il ritiro.",
     "fixedRouteApplied": "Prezzo fisso per questa tratta. Distanza e orario non lo modificano.",
-    "fixedPlusKmApplied": "Prezzo fisso fino a {km} km, più la distanza oltre."
+    "fixedPlusKmApplied": "Prezzo fisso fino a {km} km, più la distanza oltre.",
+    "perVehicle": "per veicolo, tutto incluso"
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",
@@ -444,6 +445,9 @@
     "payButton": "Paga {amount} e conferma",
     "processing": "Elaborazione…",
     "capacityWarning": "Questo veicolo porta {seats} passeggeri e {bags} bagagli. Scegline uno più grande per il tuo gruppo.",
+    "addVehicle": "Aggiungi un {vehicle}",
+    "removeVehicle": "Rimuovi un {vehicle}",
+    "multiVehicleNote": "{cars} veicoli, per {seats} passeggeri e {bags} bagagli. Ogni veicolo ha il proprio conducente e li paga tutti insieme.",
     "agree": "Prenotando accetti i nostri termini e la politica di rimborso.",
     "missingQuote": "Inizia ottenendo un prezzo in home page, poi torna qui per completare la prenotazione.",
     "getPrice": "Ottieni un prezzo",
@@ -571,6 +575,8 @@
     "backHome": "Torna alla home",
     "flight": "Volo",
     "returnLeg": "Viaggio di ritorno",
+    "anotherCar": "Altro veicolo, stessa corsa",
+    "orderTotal": "Pagato in totale ({count} prenotazioni)",
     "outboundLeg": "Viaggio di andata",
     "viewLeg": "Vedi"
   },

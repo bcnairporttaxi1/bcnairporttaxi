@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import type { FleetVehicle } from '@bcn/core/fleet';
 import type { Quote } from '@bcn/core/pricing';
 import { DEFAULT_PAYMENT_MODE } from '@bcn/core/tariffs';
+import { MAX_CARS_PER_BOOKING } from '@bcn/core/party';
 
 interface Props {
   locale: string;
@@ -47,7 +48,40 @@ export function CheckoutForm({
   const tq = useTranslations('quote');
   const tf = useTranslations('fleet');
 
-  const [vehicleSlug, setVehicleSlug] = useState(fleet[1]?.slug ?? fleet[0].slug);
+  /**
+   * How many of each vehicle, keyed by slug.
+   *
+   * A party of ten needs two vans, and each van is dispatched to its own
+   * driver, so the booking has to be able to ask for more than one car. One
+   * of the default vehicle is still the starting point, because one car is
+   * the overwhelming majority of bookings.
+   */
+  const [counts, setCounts] = useState<Record<string, number>>({
+    [fleet[1]?.slug ?? fleet[0].slug]: 1,
+  });
+
+  const chosen = useMemo(
+    () => fleet.filter((v) => (counts[v.slug] ?? 0) > 0),
+    [fleet, counts],
+  );
+  const carTotal = chosen.reduce((n, v) => n + (counts[v.slug] ?? 0), 0);
+
+  const nudgeCount = (slug: string, delta: number) =>
+    setCounts((prev) => {
+      const total = Object.values(prev).reduce((n, k) => n + k, 0);
+      // The cap is on the whole booking, so it has to be read from the same
+      // snapshot the increment is applied to.
+      const room = MAX_CARS_PER_BOOKING - total;
+      const step = delta > 0 ? Math.min(delta, room) : delta;
+      const next = Math.max(0, (prev[slug] ?? 0) + step);
+
+      const out = { ...prev, [slug]: next };
+      if (next === 0) delete out[slug];
+      // Never leave the form with nothing selected: there is no booking
+      // without a car, and an empty state would just disable the button.
+      if (Object.keys(out).length === 0) return prev;
+      return out;
+    });
   const [passengers, setPassengers] = useState(initialPassengers ?? 2);
   const [luggage, setLuggage] = useState(initialLuggage ?? 2);
   const [name, setName] = useState('');
@@ -59,10 +93,27 @@ export function CheckoutForm({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const vehicle = fleet.find((v) => v.slug === vehicleSlug) ?? fleet[0];
-  const overCapacity = passengers > vehicle.seats || luggage > vehicle.bags;
+  /** Seats and boot space across everything chosen, which is what has to fit. */
+  const capacity = chosen.reduce(
+    (acc, v) => ({
+      seats: acc.seats + v.seats * (counts[v.slug] ?? 0),
+      bags: acc.bags + v.bags * (counts[v.slug] ?? 0),
+    }),
+    { seats: 0, bags: 0 },
+  );
+  const overCapacity = passengers > capacity.seats || luggage > capacity.bags;
 
+  const vehicle = chosen[0] ?? fleet[0];
   const quote = quotesByVehicle[vehicle.slug] ?? Object.values(quotesByVehicle)[0];
+
+  /** Each car is priced on its own class, then added up. */
+  const sumOver = (table: Record<string, Quote> | undefined) =>
+    table
+      ? chosen.reduce((n, v) => n + (table[v.slug]?.total ?? 0) * (counts[v.slug] ?? 0), 0)
+      : 0;
+
+  const outTotal = sumOver(quotesByVehicle);
+  const returnTotal = returnAtIso && returnQuotesByVehicle ? sumOver(returnQuotesByVehicle) : 0;
   const returnQuote =
     returnAtIso && returnQuotesByVehicle
       ? (returnQuotesByVehicle[vehicle.slug] ?? Object.values(returnQuotesByVehicle)[0])
@@ -73,7 +124,7 @@ export function CheckoutForm({
    * any more and nothing is settled with the driver, so the summary has a
    * total and nothing else to reconcile against it.
    */
-  const dueNow = quote.total + (returnQuote?.total ?? 0);
+  const dueNow = Math.round((outTotal + returnTotal) * 100) / 100;
 
   const fmt = useMemo(
     () =>
@@ -105,7 +156,7 @@ export function CheckoutForm({
           contactPhone: phone,
           passengers,
           luggage,
-          vehicleSlug,
+          vehicles: chosen.map((v) => ({ slug: v.slug, count: counts[v.slug] ?? 0 })),
           paymentMode: DEFAULT_PAYMENT_MODE,
           notes,
           flightNumber: flight.trim() || undefined,
@@ -186,22 +237,15 @@ export function CheckoutForm({
               <legend className="sr-only">{t('chooseVehicle')}</legend>
               <div className="grid gap-4 sm:grid-cols-2">
                 {fleet.map((v) => {
-                  const selected = v.slug === vehicleSlug;
+                  const count = counts[v.slug] ?? 0;
+                  const selected = count > 0;
                   return (
-                    <label
+                    <div
                       key={v.slug}
-                      className={`cursor-pointer overflow-hidden rounded-card border-2 bg-raise transition ${
-                        selected ? 'border-gold' : 'border-line hover:border-ink/40'
+                      className={`overflow-hidden rounded-card border-2 bg-raise transition ${
+                        selected ? 'border-gold' : 'border-line'
                       }`}
                     >
-                      <input
-                        type="radio"
-                        name="vehicle"
-                        value={v.slug}
-                        checked={selected}
-                        onChange={() => setVehicleSlug(v.slug)}
-                        className="sr-only"
-                      />
                       <Image
                         src={v.image}
                         alt={v.imageAlt}
@@ -223,19 +267,60 @@ export function CheckoutForm({
                         <p className="mt-2 font-mono text-sm font-bold">
                           {eur(quotesByVehicle[v.slug]?.total ?? 0)}{' '}
                           <span className="font-sans text-xs font-normal text-dim">
-                            {tq('allInclusive').toLowerCase()}
+                            {tq('perVehicle')}
                           </span>
                         </p>
+
+                        {/* A stepper rather than a radio: the price per car
+                            does not change, so asking for two is asking for
+                            twice the price and two drivers. */}
+                        <div className="mt-3 flex items-center gap-3">
+                          <button
+                            type="button"
+                            onClick={() => nudgeCount(v.slug, -1)}
+                            disabled={count === 0}
+                            aria-label={t('removeVehicle', { vehicle: v.name })}
+                            className="h-9 w-9 rounded-lg border-2 border-line font-bold leading-none disabled:opacity-40"
+                          >
+                            −
+                          </button>
+                          <output
+                            aria-live="polite"
+                            className="min-w-8 text-center font-mono text-base font-extrabold"
+                          >
+                            {count}
+                          </output>
+                          <button
+                            type="button"
+                            onClick={() => nudgeCount(v.slug, 1)}
+                            disabled={carTotal >= MAX_CARS_PER_BOOKING}
+                            aria-label={t('addVehicle', { vehicle: v.name })}
+                            className="h-9 w-9 rounded-lg border-2 border-gold font-bold leading-none disabled:opacity-40"
+                          >
+                            +
+                          </button>
+                          {count > 0 && (
+                            <span className="ml-auto font-mono text-sm font-bold text-gold">
+                              {eur((quotesByVehicle[v.slug]?.total ?? 0) * count)}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </label>
+                    </div>
                   );
                 })}
               </div>
             </fieldset>
 
+            {carTotal > 1 && (
+              <p className="mt-3 rounded-lg border-2 border-gold/40 bg-gold/5 px-3 py-2.5 text-sm">
+                {t('multiVehicleNote', { cars: carTotal, seats: capacity.seats, bags: capacity.bags })}
+              </p>
+            )}
+
             {overCapacity && (
               <p role="alert" className="mt-3 rounded-lg bg-amber-100 px-3 py-2.5 text-sm text-amber-900">
-                {t('capacityWarning', { seats: vehicle.seats, bags: vehicle.bags })}
+                {t('capacityWarning', { seats: capacity.seats, bags: capacity.bags })}
               </p>
             )}
           </section>
@@ -258,11 +343,11 @@ export function CheckoutForm({
               </label>
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">{t('passengers')}</span>
-                <input type="number" min={1} max={8} value={passengers} onChange={(e) => setPassengers(Number(e.target.value))} className={field} />
+                <input type="number" min={1} max={Math.max(1, capacity.seats)} value={passengers} onChange={(e) => setPassengers(Number(e.target.value))} className={field} />
               </label>
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium">{t('luggage')}</span>
-                <input type="number" min={0} max={12} value={luggage} onChange={(e) => setLuggage(Number(e.target.value))} className={field} />
+                <input type="number" min={0} max={Math.max(0, capacity.bags)} value={luggage} onChange={(e) => setLuggage(Number(e.target.value))} className={field} />
               </label>
               <label className={`block ${returnQuote ? '' : 'sm:col-span-2'}`}>
                 <span className="mb-1.5 block text-sm font-medium">{t('flight')}</span>

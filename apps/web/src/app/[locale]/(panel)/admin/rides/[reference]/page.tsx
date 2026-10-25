@@ -97,12 +97,15 @@ export default async function AdminRideDetailPage(props: {
     paid: b.paymentStatus === 'PAID',
   });
 
-  const otherLeg = b.groupId
-    ? await prisma.booking.findFirst({
+  // Every other booking paid for on this order: the return leg, the other
+  // cars of the same party, or both.
+  const siblings = b.groupId
+    ? await prisma.booking.findMany({
         where: { groupId: b.groupId, id: { not: b.id } },
         select: { reference: true, pickupAt: true },
+        orderBy: { pickupAt: 'asc' },
       })
-    : null;
+    : [];
 
   const live = ['EN_ROUTE', 'ARRIVED', 'ON_BOARD'].includes(b.status);
   const closed = b.status === 'COMPLETED' || b.status === 'CANCELLED';
@@ -179,14 +182,24 @@ export default async function AdminRideDetailPage(props: {
             <Row label="Flight" mono>
               {b.flightNumber ?? <span className="p-faint">—</span>}
             </Row>
-            {otherLeg && (
-              <Row label={otherLeg.pickupAt > b.pickupAt ? 'Return leg' : 'Outbound leg'} mono>
-                <Link href={`/admin/rides/${otherLeg.reference}`} className="p-gold underline underline-offset-2">
-                  {otherLeg.reference}
+            {siblings.map((other) => (
+              <Row
+                key={other.reference}
+                label={
+                  other.pickupAt.getTime() === b.pickupAt.getTime()
+                    ? 'Another car, same journey'
+                    : other.pickupAt > b.pickupAt
+                      ? 'Return leg'
+                      : 'Outbound leg'
+                }
+                mono
+              >
+                <Link href={`/admin/rides/${other.reference}`} className="p-gold underline underline-offset-2">
+                  {other.reference}
                 </Link>
-                <span className="p-faint"> · {toBarcelonaInput(otherLeg.pickupAt).replace('T', ' ')}</span>
+                <span className="p-faint"> · {toBarcelonaInput(other.pickupAt).replace('T', ' ')}</span>
               </Row>
-            )}
+            ))}
             {b.user && (
               <Row label="Account">
                 <Link href="/admin/users" className="underline underline-offset-4 hover:text-[var(--p-gold-bright)]">

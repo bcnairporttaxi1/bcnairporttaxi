@@ -162,7 +162,8 @@
     "returnIncluded": "Rückfahrt enthalten",
     "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen.",
     "fixedRouteApplied": "Festpreis für diese Strecke. Entfernung und Tageszeit ändern ihn nicht.",
-    "fixedPlusKmApplied": "Festpreis bis {km} km, zuzüglich der Strecke darüber."
+    "fixedPlusKmApplied": "Festpreis bis {km} km, zuzüglich der Strecke darüber.",
+    "perVehicle": "pro Fahrzeug, alles inklusive"
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -444,6 +445,9 @@
     "payButton": "{amount} zahlen und bestätigen",
     "processing": "Wird verarbeitet…",
     "capacityWarning": "Dieses Fahrzeug fasst {seats} Personen und {bags} Gepäckstücke. Wählen Sie für Ihre Gruppe ein größeres.",
+    "addVehicle": "Ein {vehicle} hinzufügen",
+    "removeVehicle": "Ein {vehicle} entfernen",
+    "multiVehicleNote": "{cars} Fahrzeuge für {seats} Personen und {bags} Gepäckstücke. Jedes Fahrzeug hat seinen eigenen Fahrer, und Sie zahlen alle zusammen.",
     "agree": "Mit der Buchung akzeptieren Sie unsere Bedingungen und Erstattungsrichtlinien.",
     "missingQuote": "Holen Sie zuerst auf der Startseite einen Preis ein und kommen Sie dann zurück, um die Buchung abzuschließen.",
     "getPrice": "Preis abrufen",
@@ -571,6 +575,8 @@
     "backHome": "Zurück zur Startseite",
     "flight": "Flug",
     "returnLeg": "Rückfahrt",
+    "anotherCar": "Weiteres Fahrzeug, gleiche Fahrt",
+    "orderTotal": "Insgesamt bezahlt ({count} Buchungen)",
     "outboundLeg": "Hinfahrt",
     "viewLeg": "Ansehen"
   },

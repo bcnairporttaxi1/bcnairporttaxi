@@ -162,7 +162,8 @@
     "returnIncluded": "Tornada inclosa",
     "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida.",
     "fixedRouteApplied": "Preu fix per a aquesta ruta. La distància i l’hora no el modifiquen.",
-    "fixedPlusKmApplied": "Preu fix fins a {km} km, més la distància addicional."
+    "fixedPlusKmApplied": "Preu fix fins a {km} km, més la distància addicional.",
+    "perVehicle": "per vehicle, tot inclòs"
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -444,6 +445,9 @@
     "payButton": "Paga {amount} i confirma",
     "processing": "Processant…",
     "capacityWarning": "Aquest vehicle admet {seats} passatgers i {bags} maletes. Tria’n un de més gran per al teu grup.",
+    "addVehicle": "Afegir un {vehicle}",
+    "removeVehicle": "Treure un {vehicle}",
+    "multiVehicleNote": "{cars} vehicles, amb capacitat per a {seats} passatgers i {bags} maletes. Cada vehicle porta el seu propi conductor i els pagues tots junts.",
     "agree": "En reservar acceptes els nostres termes i la política de reemborsaments.",
     "missingQuote": "Comença obtenint un preu a la pàgina d'inici i torna per completar la reserva.",
     "getPrice": "Obtenir preu",
@@ -571,6 +575,8 @@
     "backHome": "Tornar a l'inici",
     "flight": "Vol",
     "returnLeg": "Viatge de tornada",
+    "anotherCar": "Un altre vehicle, mateix trajecte",
+    "orderTotal": "Pagat en total ({count} reserves)",
     "outboundLeg": "Viatge d’anada",
     "viewLeg": "Veure"
   },

@@ -165,7 +165,8 @@
     "returnIncluded": "Return included",
     "returnTooEarly": "The return must be at least an hour after the pickup.",
     "fixedRouteApplied": "One fixed price for this route. Distance and time of day do not change it.",
-    "fixedPlusKmApplied": "Fixed price up to {km} km, plus the extra distance beyond it."
+    "fixedPlusKmApplied": "Fixed price up to {km} km, plus the extra distance beyond it.",
+    "perVehicle": "per vehicle, all-inclusive"
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",
@@ -311,6 +312,9 @@
     "payButton": "Pay {amount} and confirm",
     "processing": "Processing…",
     "capacityWarning": "This vehicle seats {seats} and takes {bags} bags. Choose a larger one for your group.",
+    "addVehicle": "Add one {vehicle}",
+    "removeVehicle": "Remove one {vehicle}",
+    "multiVehicleNote": "{cars} cars, seating up to {seats} passengers with room for {bags} bags. Each car gets its own driver, and you pay for all of them together.",
     "agree": "By booking you accept our terms and refund policy.",
     "missingQuote": "Start by getting a price on the home page, then come back to complete your booking.",
     "getPrice": "Get a price",
@@ -338,6 +342,8 @@
     "backHome": "Back to home",
     "flight": "Flight",
     "returnLeg": "Return journey",
+    "anotherCar": "Another car, same journey",
+    "orderTotal": "Paid in total ({count} bookings)",
     "outboundLeg": "Outbound journey",
     "viewLeg": "View"
   },

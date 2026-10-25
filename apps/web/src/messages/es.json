@@ -162,7 +162,8 @@
     "returnIncluded": "Vuelta incluida",
     "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida.",
     "fixedRouteApplied": "Precio fijo para esta ruta. La distancia y la hora no lo modifican.",
-    "fixedPlusKmApplied": "Precio fijo hasta {km} km, más la distancia adicional."
+    "fixedPlusKmApplied": "Precio fijo hasta {km} km, más la distancia adicional.",
+    "perVehicle": "por vehículo, todo incluido"
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -245,6 +246,9 @@
     "metaTitle": "Completa tu reserva de taxi en Barcelona",
     "metaDescription": "Confirma tu reserva de taxi al aeropuerto de Barcelona: elige vehículo, introduce tus datos y paga de forma segura.",
     "capacityWarning": "Este vehículo admite {seats} pasajeros y {bags} maletas. Elige uno más grande para tu grupo.",
+    "addVehicle": "Añadir un {vehicle}",
+    "removeVehicle": "Quitar un {vehicle}",
+    "multiVehicleNote": "{cars} vehículos, con capacidad para {seats} pasajeros y {bags} maletas. Cada vehículo lleva su propio conductor y los pagas todos juntos.",
     "errors": {
       "failed": "No hemos podido completar tu reserva. No se te ha cobrado nada. Inténtalo de nuevo.",
       "expired": "Este precio ha caducado. Solicita uno nuevo."
@@ -268,6 +272,8 @@
     "status": "Estado",
     "flight": "Vuelo",
     "returnLeg": "Viaje de vuelta",
+    "anotherCar": "Otro vehículo, mismo trayecto",
+    "orderTotal": "Pagado en total ({count} reservas)",
     "outboundLeg": "Viaje de ida",
     "viewLeg": "Ver"
   },

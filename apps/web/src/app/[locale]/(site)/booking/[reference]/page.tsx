@@ -86,16 +86,37 @@ export default async function BookingPage(props: {
     }).format(d);
   const when = fmtWhen(booking.pickupAt);
 
-  // The other half of a return booking, so each confirmation points at the
-  // other and the passenger sees both dates without hunting through email.
-  const otherLeg = booking.groupId
+  /*
+   * Everything else paid for on this order.
+   *
+   * A return has one sibling; a party in three vans has two more cars per
+   * direction, each its own booking with its own driver. This used to take
+   * only the first, so a multi-car order showed one of its cars and silently
+   * hid the rest.
+   */
+  const siblings = booking.groupId
     ? await prisma.booking
-        .findFirst({
+        .findMany({
           where: { groupId: booking.groupId, id: { not: booking.id } },
-          select: { reference: true, pickupAt: true },
+          select: { reference: true, pickupAt: true, amountOnline: true },
+          orderBy: { pickupAt: 'asc' },
         })
-        .catch(() => null)
-    : null;
+        .catch(() => [])
+    : [];
+
+/*
+ * What the card was actually charged.
+ *
+ * One booking row is one car, so a party in two vans sees EUR 70 on a page
+ * for a payment of EUR 140 and reasonably concludes they have been charged
+ * twice. The order total is the sum across everything on the same checkout.
+ */
+  const orderTotal =
+    Math.round(
+      (Number(booking.amountOnline) +
+        siblings.reduce((n, o) => n + Number(o.amountOnline), 0)) *
+        100,
+    ) / 100;
 
   return (
     <>
@@ -156,19 +177,23 @@ export default async function BookingPage(props: {
                 <dd className="text-right font-mono font-medium">{booking.flightNumber}</dd>
               </div>
             )}
-            {otherLeg && (
-              <div className="flex justify-between gap-4 py-3">
+            {siblings.map((other) => (
+              <div key={other.reference} className="flex justify-between gap-4 py-3">
                 <dt className="text-dim">
-                  {otherLeg.pickupAt > booking.pickupAt ? t('returnLeg') : t('outboundLeg')}
+                  {other.pickupAt.getTime() === booking.pickupAt.getTime()
+                    ? t('anotherCar')
+                    : other.pickupAt > booking.pickupAt
+                      ? t('returnLeg')
+                      : t('outboundLeg')}
                 </dt>
                 <dd className="text-right">
-                  <Link href={`/booking/${otherLeg.reference}`} className="font-medium text-gold underline underline-offset-4">
-                    {otherLeg.reference}
+                  <Link href={`/booking/${other.reference}`} className="font-medium text-gold underline underline-offset-4">
+                    {other.reference}
                   </Link>
-                  <span className="block text-xs text-dim">{fmtWhen(otherLeg.pickupAt)}</span>
+                  <span className="block text-xs text-dim">{fmtWhen(other.pickupAt)}</span>
                 </dd>
               </div>
-            )}
+            ))}
             <div className="flex justify-between gap-4 py-3">
               <dt className="text-dim">{tq('distance')}</dt>
               <dd className="text-right font-mono">
@@ -183,6 +208,14 @@ export default async function BookingPage(props: {
                 {eur(Number(booking.amountOnline))}
               </dd>
             </div>
+            {siblings.length > 0 && (
+              <div className="flex justify-between gap-4 py-3">
+                <dt className="text-dim">
+                  {t('orderTotal', { count: siblings.length + 1 })}
+                </dt>
+                <dd className="text-right font-mono font-bold text-gold">{eur(orderTotal)}</dd>
+              </div>
+            )}
             {prepaid && owed > 0 ? (
               // The card took less than the price. Saying so here, rather than
               // letting the driver surprise them, is the whole point.

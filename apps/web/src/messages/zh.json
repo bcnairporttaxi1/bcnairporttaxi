@@ -162,7 +162,8 @@
     "returnIncluded": "含返程",
     "returnTooEarly": "返程时间须至少在接送时间一小时之后。",
     "fixedRouteApplied": "此路线为固定价格，不随距离和时段变化。",
-    "fixedPlusKmApplied": "{km} 公里内固定价格，超出部分按里程加收。"
+    "fixedPlusKmApplied": "{km} 公里内固定价格，超出部分按里程加收。",
+    "perVehicle": "每辆车，全包价"
   },
   "fleet": {
     "h1": "我们在巴塞罗那的出租车队",
@@ -444,6 +445,9 @@
     "payButton": "支付 {amount} 并确认",
     "processing": "处理中…",
     "capacityWarning": "该车可载 {seats} 名乘客和 {bags} 件行李。请为您的团体选择更大的车型。",
+    "addVehicle": "增加一辆 {vehicle}",
+    "removeVehicle": "减少一辆 {vehicle}",
+    "multiVehicleNote": "{cars} 辆车，可载 {seats} 位乘客、{bags} 件行李。每辆车配备各自的司机，费用一次性合并支付。",
     "agree": "预订即表示您接受我们的条款与退款政策。",
     "missingQuote": "请先在首页获取价格，然后返回此处完成预订。",
     "getPrice": "获取价格",
@@ -571,6 +575,8 @@
     "backHome": "返回首页",
     "flight": "航班",
     "returnLeg": "返程",
+    "anotherCar": "同一行程的另一辆车",
+    "orderTotal": "合计已支付（{count} 份预订）",
     "outboundLeg": "去程",
     "viewLeg": "查看"
   },

@@ -309,7 +309,11 @@ export default async function HomePage(props: {
               <span className="editorial text-[1.08em]">{t('sections.faresLede')}</span>
             </h2>
             <p className="mt-3 max-w-md text-dim">{t('sections.faresIntro')}</p>
-            <p className="mt-6 max-w-md text-xs leading-relaxed text-ghost">{tfare('note')}</p>
+            <p className="mt-6 max-w-md text-xs leading-relaxed text-ghost">{tfare('note', {
+              surge: Math.round(TARIFFS.fixedRoutes.surgeRate * 1000) / 10,
+              km: TARIFFS.fixedRoutes.flatZoneRadiusKm,
+              rate: eur(TARIFFS.fixedRoutes.excessPerKm),
+            })}</p>
           </Reveal>
 
           <Reveal>
