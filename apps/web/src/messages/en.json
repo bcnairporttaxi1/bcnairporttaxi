@@ -456,7 +456,7 @@
     "photoAlt": "{place}, destination for a private transfer from Barcelona",
     "waQuote": "Hi, I would like a fixed quote for a Barcelona transfer: {name}.",
     "waQuoteSibling": "Hi, I would like a quote for {name}.",
-    "metaDescription": "Taxi from Barcelona airport to {name}: one fixed all-inclusive price, a licensed driver and your flight tracked. Book online in minutes."
+    "metaDescription": "{name} by private taxi: one fixed all-inclusive price, a licensed driver and your flight tracked. Book online in minutes."
   },
   "install": {
     "metaTitle": "Install BCNAirportTaxi as an App",

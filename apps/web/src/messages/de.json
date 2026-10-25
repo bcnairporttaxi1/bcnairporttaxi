@@ -300,7 +300,7 @@
     "photoAlt": "{place}, Ziel für einen privaten Transfer ab Barcelona",
     "waQuote": "Hallo, ich hätte gern einen Festpreis für einen Transfer ab Barcelona: {name}.",
     "waQuoteSibling": "Hallo, ich hätte gern ein Angebot für {name}.",
-    "metaDescription": "Taxi vom Flughafen Barcelona nach {name}: ein Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. Online buchen."
+    "metaDescription": "{name} im privaten Taxi: ein Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. In Minuten online buchen."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als App installieren",

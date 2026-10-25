@@ -355,7 +355,7 @@
     "photoAlt": "{place}, destino de traslado privado desde Barcelona",
     "waQuote": "Hola, quería un presupuesto cerrado para un traslado desde Barcelona: {name}.",
     "waQuoteSibling": "Hola, quería un presupuesto para {name}.",
-    "metaDescription": "Taxi del aeropuerto de Barcelona a {name}: un precio fijo con todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online."
+    "metaDescription": "{name} en taxi privado: un precio fijo con todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",

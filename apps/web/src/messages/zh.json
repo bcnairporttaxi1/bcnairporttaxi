@@ -300,7 +300,7 @@
     "photoAlt": "{place}，从巴塞罗那出发的专车接送目的地",
     "waQuote": "您好，我想索取从巴塞罗那出发的接送固定报价：{name}。",
     "waQuoteSibling": "您好，我想咨询 {name} 的报价。",
-    "metaDescription": "从巴塞罗那机场前往{name}的出租车：全包固定价格，持牌司机并为您跟踪航班，车上无需再付。"
+    "metaDescription": "{name}专车接送：一个全包固定价格，持牌司机并为您跟踪航班动态，车上无需再付。可在线预订。"
   },
   "install": {
     "metaTitle": "将 BCNAirportTaxi 安装为应用",

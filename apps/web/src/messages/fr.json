@@ -300,7 +300,7 @@
     "photoAlt": "{place}, destination de transfert privé depuis Barcelone",
     "waQuote": "Bonjour, je souhaite un devis ferme pour un transfert depuis Barcelone : {name}.",
     "waQuoteSibling": "Bonjour, je souhaite un devis pour {name}.",
-    "metaDescription": "Taxi de l’aéroport de Barcelone vers {name} : un prix fixe tout compris, un chauffeur agréé et votre vol suivi. Réservation en ligne."
+    "metaDescription": "{name} en taxi privé : un prix fixe tout compris, un chauffeur agréé et votre vol suivi. Réservez en ligne en quelques minutes."
   },
   "install": {
     "metaTitle": "Installer BCNAirportTaxi comme application",

@@ -300,7 +300,7 @@
     "photoAlt": "{place}, destinazione per un transfer privato da Barcellona",
     "waQuote": "Salve, vorrei un preventivo fisso per un transfer da Barcellona: {name}.",
     "waQuoteSibling": "Salve, vorrei un preventivo per {name}.",
-    "metaDescription": "Taxi dall’aeroporto di Barcellona a {name}: un prezzo fisso tutto incluso, conducente autorizzato e volo monitorato. Prenota online."
+    "metaDescription": "{name} in taxi privato: un prezzo fisso tutto incluso, conducente autorizzato e volo monitorato. Prenoti online in pochi minuti."
   },
   "install": {
     "metaTitle": "Installa BCNAirportTaxi come app",

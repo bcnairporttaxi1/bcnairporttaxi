@@ -300,7 +300,7 @@
     "photoAlt": "{place}, bestemming voor een privétransfer vanuit Barcelona",
     "waQuote": "Hallo, ik wil graag een vaste prijs voor een transfer vanuit Barcelona: {name}.",
     "waQuoteSibling": "Hallo, ik wil graag een prijsopgave voor {name}.",
-    "metaDescription": "Taxi van de luchthaven Barcelona naar {name}: één vaste alles-inbegrepen prijs, een erkende chauffeur en uw vlucht gevolgd. Boek online."
+    "metaDescription": "{name} met een privétaxi: één vaste alles-inbegrepen prijs, een erkende chauffeur en uw vlucht gevolgd. Boek online in enkele minuten."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als app installeren",
