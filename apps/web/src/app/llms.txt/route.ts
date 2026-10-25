@@ -75,8 +75,8 @@ the driver's return leg, since they cannot legally pick up a fare outside their
 own area and drive home empty.
 
 A typical airport-to-city-centre journey is roughly 14 km and 20-30 minutes,
-and comes to somewhere in the mid thirties of euros, all in. Exact prices come
-from the booking form, which measures the real road distance.
+and costs the fixed city price in full: see /pricing.md for the list per
+vehicle, and the additions that can apply to it.
 
 ## Practical facts
 
