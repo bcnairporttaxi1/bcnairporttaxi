@@ -1,3 +1,4 @@
+import { socialImages, twitterImages } from '@/lib/social-card';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -68,9 +69,19 @@ export async function generateMetadata(props: {
     description: copy.description,
     alternates: { canonical, languages },
     openGraph: {
+      type: 'website',
       title: copy.title,
       description: copy.description,
-      url: `/${locale}/${path}`,
+      url: canonical,
+      // Without these the eleven landing pages carried no social image: a
+      // page-level `openGraph` replaces the layout's rather than merging.
+      images: socialImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: copy.title,
+      description: copy.description,
+      images: twitterImages,
     },
   };
 }

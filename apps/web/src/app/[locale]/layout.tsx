@@ -1,3 +1,4 @@
+import { socialImages, twitterImages } from '@/lib/social-card';
 import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -5,7 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google';
 
 import { localeHrefLang, locales, routing, type Locale } from '@/i18n/routing';
-import { SITE_URL, absoluteUrl } from '@bcn/core/site';
+import { SITE_URL } from '@bcn/core/site';
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/json-ld';
 import '../globals.css';
 
@@ -99,17 +100,23 @@ export async function generateMetadata(props: {
       type: 'website',
       siteName: 'BCNAirportTaxi',
       locale: localeHrefLang[locale as Locale],
-      url: absoluteUrl(`/${locale}`),
+      /*
+       * No `url` here.
+       *
+       * A layout's `generateMetadata` is not told which page is rendering, so
+       * this could only ever be the locale root — and every page that did not
+       * override it inherited that. /en/pricing, /en/faq and fourteen others
+       * declared `og:url` as the homepage, so each share consolidated its
+       * engagement onto `/en` instead of the page actually shared.
+       *
+       * Omitting it is the correct fix rather than a concession: with no
+       * `og:url`, platforms use the URL they fetched, which is right by
+       * definition. Routes that genuinely need a canonical social URL — the
+       * blog, the landing pages, the destinations — set their own.
+       */
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [
-        {
-          url: '/img/hero-banner.jpg',
-          width: 1920,
-          height: 1080,
-          alt: 'Black and yellow Barcelona airport taxi on the waterfront at sunset with the Sagrada Família behind',
-        },
-      ],
+      images: socialImages,
     },
     twitter: {
       card: 'summary_large_image',
@@ -117,7 +124,7 @@ export async function generateMetadata(props: {
       description: t('metaDescription'),
       // Most parsers fall back to og:image, but not all of them do, and the
       // ones that do not render a bare text card.
-      images: ['/img/hero-banner.jpg'],
+      images: twitterImages,
     },
     // iOS looks for this when a visitor adds the site to their home screen.
     // The file was already in the repo but nothing ever linked to it, so the

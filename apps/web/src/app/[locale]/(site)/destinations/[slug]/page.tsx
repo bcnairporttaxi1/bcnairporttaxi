@@ -1,3 +1,4 @@
+import { socialImages, twitterImages } from '@/lib/social-card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -57,7 +58,22 @@ export async function generateMetadata(props: {
     title: { absolute: t('metaTitle', { name: d.name }) },
     description,
     alternates: { canonical: `/${locale}/destinations/${slug}`, languages },
-    openGraph: { title: t('ogTitle', { name: d.name }), description },
+    openGraph: {
+      type: 'website',
+      title: t('ogTitle', { name: d.name }),
+      description,
+      url: `/${locale}/destinations/${slug}`,
+      // Setting `openGraph` replaces the layout's object instead of merging
+      // into it, so omitting these shipped twelve destination pages in ten
+      // languages with no social image and no og:url at all.
+      images: socialImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle', { name: d.name }),
+      description,
+      images: twitterImages,
+    },
   };
 }
 
