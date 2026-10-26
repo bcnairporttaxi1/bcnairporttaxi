@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'BCNAirportTaxi — Barcelona Airport Taxi Booking',
     short_name: 'BCNAirportTaxi',
     description:
-      'Book a licensed Barcelona airport taxi to or from El Prat, with an official AMB fare estimate before you book.',
+      'Book a licensed Barcelona airport taxi to or from El Prat. One fixed all-inclusive price, agreed before you book and paid online.',
     start_url: '/en',
     scope: '/',
     display: 'standalone',

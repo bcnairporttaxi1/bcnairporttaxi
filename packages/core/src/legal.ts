@@ -183,7 +183,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
       {
         h2: 'Cancelling in good time',
         paragraphs: [
-          'Cancel more than 24 hours before your pickup time and we refund the whole amount you paid, to the original payment method, normally within five to ten working days.',
+          'Cancel at least 24 hours before your pickup time and we refund the whole amount you paid, to the original payment method, normally within five to ten working days.',
         ],
       },
       {

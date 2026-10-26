@@ -347,7 +347,7 @@ export const LANDING_PAGES: LandingPage[] = [
         sections: [
           {
             h2: 'Airport taxi Barcelona 24 hours a day',
-            body: 'A night pickup costs the same as the same journey at midday: the hour does not move a fixed price. Weekends and public holidays do — Saturday and Sunday, Christmas, New Year and the Catalan calendar each add 7.5%, shown as its own line before you pay rather than discovered later. Christmas Eve and New Year\'s Eve nights carry an additional official supplement.',
+            body: 'A night pickup costs the same as the same journey at midday: the hour does not move a fixed price. Weekends and public holidays do — Saturday and Sunday, Christmas, New Year and the Catalan calendar each add 7.5%, shown as its own line before you pay rather than discovered later. Three nights carry an additional regulated supplement on top of that: Christmas Eve, New Year\'s Eve and the Revetlla de Sant Joan on 23 June.',
           },
           {
             h2: 'Late night arrivals',
@@ -513,7 +513,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'After your Barcelona airport taxi booking is placed',
-            body: 'You receive a confirmation email immediately, with your route, vehicle, fare estimate and a receipt for what you paid online. A driver is then assigned and their details are sent to you before the trip.',
+            body: 'You receive a confirmation email immediately, with your route, vehicle, the price you paid and a receipt for it. A driver is then assigned and their details are sent to you before the trip.',
           },
           {
             h2: 'Changes and cancellations',

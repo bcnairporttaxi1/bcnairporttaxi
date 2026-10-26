@@ -86,7 +86,14 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
             },
             ...(LEGAL.company ? { legalName: LEGAL.company } : {}),
             ...(LEGAL.vatId ? { vatID: LEGAL.vatId } : {}),
-            priceRange: `${TARIFFS.currency} ${f.cityAirport.sedan.toFixed(0)}-${f.portAirport.van7.toFixed(0)}`,
+            /*
+             * An open-ended lower bound, not a range. "EUR 50-85" described
+             * the fixed city and port list and was false as soon as any
+             * interurban route was quoted: Sitges alone is EUR 90.78. A range
+             * here would have to be re-derived every time a destination is
+             * added, so it states the floor instead.
+             */
+            priceRange: `${TARIFFS.currency} ${f.cityAirport.sedan.toFixed(0)}+`,
             currenciesAccepted: TARIFFS.currency,
             // No cash. The whole price is taken online and nothing is
             // collected in the car, so listing it contradicted the product.
