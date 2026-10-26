@@ -499,7 +499,7 @@
     "adjInterurban": "Fora de l’àrea metropolitana",
     "adjInterurbanValue": "es cobra per quilòmetre",
     "zoneTitle": "Quines adreces cobreix el preu urbà",
-    "zoneBody1": "El preu de la llista cobreix qualsevol adreça situada a menys de {km} km de la terminal, mesurats en línia recta i no per carretera. Tota Barcelona hi queda dins: el Park Güell, darrere de Gràcia, és el punt més allunyat de la ciutat amb 14,3 km, i paga el mateix que un hotel del passeig de Gràcia.",
+    "zoneBody1": "El preu de la llista cobreix qualsevol adreça situada a menys de {km} km de la terminal, mesurats en línia recta i no per carretera. Això abasta tot el centre i gairebé qualsevol lloc on s’allotgi un visitant: Ciutat Vella, l’Eixample, Gràcia, Sants, el front marítim fins a la Barceloneta i el Poblenou, i el Park Güell darrere de Gràcia a 14,3 km, que paguen tots el mateix que un hotel del passeig de Gràcia. L’excepció són els districtes del nord i de l’est: la Sagrera a 16,4 km, el Fòrum a 17,4, Sant Andreu a 17,7 i Nou Barris a 17,9 queden fora de la zona i se’ls afegeix el preu per quilòmetre indicat més avall.",
     "zoneBody2": "El mesurament en línia recta és deliberat i va a favor vostre. La plaça de Catalunya és a 12,3 km de la terminal en línia d'aire, però a 19,6 km per carretera, perquè la via volta el Llobregat i entra per la Gran Via. Una zona mesurada per carretera a {km} km deixaria fora el centre de la ciutat i començaria a cobrar quilòmetres extra en el trajecte més habitual de tots. Més enllà de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— s'aplica el preu de la llista més {rate} per cada quilòmetre addicional, com una xifra única publicada i no com la tarifa que toqui en aquella hora.",
     "supTitle": "Els suplements oficials, ja inclosos en el vostre preu",
     "supIntro": "La tarifa regulada de Barcelona afegeix suplements fixos per determinats llocs i dates. No són extres que cobrem a part: cadascun ja està contingut en la xifra de la taula anterior, i per això no hi ha res a liquidar al cotxe. Els enumerem aquí perquè un suplement que vegeu en un quadre de tarifes sigui un suplement que pugueu situar.",
@@ -595,7 +595,7 @@
       },
       "whereInCity": {
         "q": "El preu canvia segons la zona de Barcelona on vagi?",
-        "a": "No. Un mateix preu cobreix qualsevol adreça dins de 16 km de la terminal, mesurats en línia recta, i tota Barcelona hi queda dins: el Park Güell és el punt més allunyat de la ciutat, a 14,3 km. Més enllà d'aquesta zona s'aplica el preu de la llista més 1,50 € per quilòmetre addicional."
+        "a": "Per a la major part de la ciutat, no. Un mateix preu cobreix qualsevol adreça dins de 16 km de la terminal en línia recta, cosa que abasta tot el centre, l’Eixample, Gràcia, Sants, el front marítim i el Park Güell a 14,3 km. Els districtes exteriors que queden més enllà —Sant Andreu, Nou Barris, la Sagrera, el Fòrum— afegeixen 1,50 € per quilòmetre addicional al preu de la llista."
       },
       "weekendNight": {
         "q": "Cobreu més de nit o els caps de setmana?",

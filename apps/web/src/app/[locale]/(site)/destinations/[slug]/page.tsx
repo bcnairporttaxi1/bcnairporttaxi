@@ -148,8 +148,21 @@ export default async function DestinationPage(props: {
                 <dt className="text-xs uppercase tracking-wider text-ghost">
                   {t('fromDaytime')}
                 </dt>
+                {/*
+                  `total`, not `fixedFare`. The fare excludes our service
+                  charge, so this row advertised EUR 75.65 for Sitges while
+                  the booking took EUR 90.78 and the homepage row for the same
+                  journey said EUR 90.78 too. Fifteen euros under, on twelve
+                  destination pages in ten languages.
+
+                  The shared helper that was supposed to end exactly this
+                  contradiction was already in place; the page read the wrong
+                  field of its result, so unifying the source of the price
+                  fixed nothing. `total` is the only figure a passenger ever
+                  pays and the only one any surface should show.
+                */}
                 <dd className="font-mono text-xl font-bold text-gold">
-                  {estimate ? eur(estimate.fixedFare, locale) : t('onRequest')}
+                  {estimate ? eur(estimate.total, locale) : t('onRequest')}
                 </dd>
               </div>
             </dl>

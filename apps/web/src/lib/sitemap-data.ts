@@ -1,7 +1,7 @@
 import { SITE_URL } from '@bcn/core/site';
 import { LANDING_SLUGS } from '@bcn/core/landing-pages';
 import { LEGAL_SLUGS } from '@bcn/core/legal';
-import { BLOG_SLUGS } from '@bcn/core/blog';
+import { BLOG_POSTS, BLOG_SLUGS } from '@bcn/core/blog';
 import { DESTINATION_PAGES } from '@bcn/core/destinations';
 import { localeHrefLang, locales } from '@/i18n/routing';
 
@@ -32,18 +32,55 @@ const STATIC_PATHS = [
 
 export interface SitemapEntry {
   url: string;
-  lastModified: string;
-  changeFrequency: 'weekly';
-  priority: number;
+  /**
+   * The date this page's content last actually changed, or undefined when
+   * there is no honest answer. Never a build timestamp.
+   */
+  lastModified?: string;
   /** hreflang -> absolute URL, including x-default. */
   alternates: Array<[string, string]>;
 }
 
-function priorityFor(path: string): number {
-  if (path === '') return 1;
-  if (path === '/book' || path === '/pricing') return 0.9;
-  if (LEGAL_SLUGS.some((s) => path === `/${s}`)) return 0.3;
-  return 0.7;
+/**
+ * When each page's content last changed, as a plain date.
+ *
+ * Every URL previously carried `new Date().toISOString()` — the moment the
+ * sitemap was generated. That is not a content date: it moved on every
+ * deploy, so `/terms` claimed to have changed at the same instant as a page
+ * that really had, and it always read as "just now". Google's guidance is
+ * that an inaccurate lastmod gets the signal ignored for the whole site,
+ * which makes a wrong value worse than none.
+ *
+ * Blog posts are not listed here: they carry their own `updated` date, which
+ * is already maintained next to the content and is read directly below.
+ *
+ * MAINTENANCE: bump the entry when you substantively change a page. A date
+ * left stale is a smaller problem than one that is always today, and a path
+ * with no entry simply omits `lastmod`, which is a valid and honest sitemap.
+ */
+const PAGE_REVISED: Record<string, string> = {
+  '': '2026-10-25',
+  '/pricing': '2026-10-26',
+  '/fleet': '2026-10-25',
+  '/faq': '2026-10-25',
+  '/how-it-works': '2026-10-25',
+  '/contact': '2026-10-25',
+  '/blog': '2026-10-25',
+  '/destinations': '2026-10-26',
+  '/book': '2026-10-25',
+  '/install': '2026-08-10',
+  // The landing and neighbourhood pages were rewritten together.
+  ...Object.fromEntries(LANDING_SLUGS.map((s) => [`/${s}`, '2026-10-26'])),
+  ...Object.fromEntries(DESTINATION_PAGES.map((d) => [`/destinations/${d.slug}`, '2026-10-26'])),
+  // Legal pages change on their own schedule and almost never otherwise.
+  ...Object.fromEntries(LEGAL_SLUGS.map((s) => [`/${s}`, '2026-10-25'])),
+};
+
+/** The content date for a path, or undefined when none is known. */
+function revisedFor(path: string): string | undefined {
+  const post = BLOG_POSTS.find((p) => `/blog/${p.slug}` === path);
+  if (post) return post.updated ?? post.published;
+  return PAGE_REVISED[path];
 }
 
 /**
@@ -75,15 +112,11 @@ export function sitemapPaths(): string[] {
   ].filter((path) => !CANONICALISED_ELSEWHERE.has(path.slice(1)));
 }
 
-export function sitemapEntries(now: Date = new Date()): SitemapEntry[] {
-  const lastModified = now.toISOString();
-
+export function sitemapEntries(): SitemapEntry[] {
   return sitemapPaths().flatMap((path) =>
     locales.map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: priorityFor(path),
+      lastModified: revisedFor(path),
       // Every URL declares the full alternate set, so search engines can map
       // the same page across all ten languages.
       //

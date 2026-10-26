@@ -320,8 +320,17 @@ export default async function HomePage(props: {
 
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] border border-line bg-white/[0.038] p-1.5">
+              {/*
+                On a 375px phone this table was 520px wide inside a 329px
+                scroll container, so only Route and Distance were on screen
+                and the price column — the entire point of the table, and the
+                reason someone is on this page — sat off the right edge with
+                no hint that it was there. Narrowing the minimum and pinning
+                the route column puts the price in view unscrolled; the
+                desktop width is unchanged above the sm breakpoint.
+              */}
               <div className="overflow-x-auto rounded-[calc(2rem-0.375rem)] bg-gradient-to-b from-raise to-pane shadow-[inset_0_1px_1px_rgba(255,255,255,0.09)]">
-                <table className="w-full min-w-[520px] border-collapse text-left">
+                <table className="w-full min-w-[400px] border-collapse text-left sm:min-w-[520px] [&_tbody_th]:sticky [&_tbody_th]:left-0 [&_tbody_th]:bg-raise [&_thead_th:first-child]:sticky [&_thead_th:first-child]:left-0 [&_thead_th:first-child]:bg-raise">
                   <caption className="sr-only">{t('sections.faresTitle')}</caption>
                   <thead>
                     <tr className="border-b border-line">

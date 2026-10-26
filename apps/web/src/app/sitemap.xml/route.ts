@@ -37,13 +37,22 @@ export function GET(): Response {
         )
         .join('');
 
+      /*
+       * `changefreq` and `priority` are gone. Google has said for years that
+       * it ignores both, and they were not even accurate here: every URL
+       * claimed `weekly`, including the legal pages. They only added bytes
+       * to a 500 KB file.
+       *
+       * `lastmod` is emitted only when a real content date exists, rather
+       * than falling back to the build time. An always-current lastmod tells
+       * a crawler nothing and, per Google's documentation, an unreliable one
+       * gets the signal discounted for the whole site.
+       */
       return (
         `<url>` +
         `<loc>${xml(e.url)}</loc>` +
         alternates +
-        `<lastmod>${e.lastModified}</lastmod>` +
-        `<changefreq>${e.changeFrequency}</changefreq>` +
-        `<priority>${e.priority}</priority>` +
+        (e.lastModified ? `<lastmod>${xml(e.lastModified)}</lastmod>` : '') +
         `</url>`
       );
     })

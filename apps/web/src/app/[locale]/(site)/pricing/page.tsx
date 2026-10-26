@@ -98,8 +98,23 @@ export default async function PricingPage(props: {
       <div className="mx-auto max-w-3xl px-4 py-14">
         {/* Four columns on a phone would force a pinch, so the table keeps
             its own scroll container rather than widening the page body. */}
-        <div className="overflow-x-auto rounded-card border border-line bg-raise">
-          <table className="w-full min-w-[520px] border-collapse text-left">
+        {/*
+          The price has to be visible on a phone, and it was not.
+          The table sat at min-width 520px inside a 341px scroll container on
+          a 375px screen, so the first price column was already clipped
+          ("Standa...") and the six- and seven-seat columns were off-screen
+          with nothing to indicate they existed. A pricing page where a
+          visitor cannot see a price is worse than a thin one.
+
+          Three changes, all mobile-only: the route column sticks so the row
+          keeps its label while the prices scroll past it, the minimum width
+          drops so the first price is on screen unscrolled, and a gradient on
+          the right edge shows there is more to reach. The route labels are
+          what pushed the table wide, so they are allowed to wrap.
+        */}
+        <div className="relative">
+          <div className="overflow-x-auto rounded-card border border-line bg-raise">
+            <table className="w-full min-w-[420px] border-collapse text-left sm:min-w-[520px] [&_tbody_th]:sticky [&_tbody_th]:left-0 [&_tbody_th]:bg-raise [&_thead_th:first-child]:sticky [&_thead_th:first-child]:left-0 [&_thead_th:first-child]:bg-raise">
             <caption className="px-5 pt-5 text-left text-sm text-dim">
               {t('tableCaption')}
             </caption>
@@ -133,7 +148,15 @@ export default async function PricingPage(props: {
                 </tr>
               ))}
             </tbody>
-          </table>
+            </table>
+          </div>
+          {/* Shows there is more table to the right. Hidden once the whole
+              table fits, and hidden from assistive tech, which gets the
+              scroll container instead. */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-10 rounded-r-card bg-gradient-to-l from-raise to-transparent sm:hidden"
+          />
         </div>
 
         {/* A fixed price can still be added to, so what adds to it is listed

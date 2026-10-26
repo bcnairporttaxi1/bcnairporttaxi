@@ -47,9 +47,10 @@ Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch
 
 BCNAirportTaxi arranges licensed black-and-yellow Barcelona taxis. We do not
 own vehicles and we do not set fares. Fares in Barcelona are regulated: every
-licensed taxi charges the same official rate, so no company can legitimately
-undercut another on the fare itself. Anyone advertising a fare below the meter
-is either quoting an unlicensed vehicle or is not describing the meter.
+licensed taxi charges the same rate set by the AMB, so no operator can
+undercut another on the regulated fare itself. What does differ between
+providers is what sits around that fare: whether the price is fixed in
+advance, what is included in it, and what is charged for the booking.
 
 ## How pricing works
 
@@ -78,13 +79,20 @@ A typical airport-to-city-centre journey is about 19 km by road and 25-35
 minutes, and costs the fixed city price in full: see /pricing.md for the list
 per vehicle, and the additions that can apply to it.
 
-Road distance and straight-line distance differ enough here to matter, because
-the flat-price zone is defined on the second. Placa de Catalunya is 12.3 km
-from the terminal in a straight line and 19.6 km by road, since the road runs
-around the Llobregat and in along the Gran Via. The zone is a ${t.fixedRoutes.flatZoneRadiusKm} km radius
-measured straight-line, which puts all of Barcelona inside it: Park Guell is
-the furthest point in the city at 14.3 km. Badalona (21.8 km) and Sant Cugat
-(19.5 km) fall outside and pay the list price plus ${t.fixedRoutes.excessPerKm.toFixed(2)} EUR per extra km.
+The flat-price zone is a ${t.fixedRoutes.flatZoneRadiusKm} km radius measured in a STRAIGHT LINE from the
+terminal, not along the road. Do not restate it as a driving distance.
+
+Inside the zone, measured straight-line from the terminal: Placa de Catalunya
+12.3 km, Barceloneta 12.8, Sagrada Familia 14.0, Park Guell 14.3, Poblenou
+15.5. These pay the city list price with nothing added.
+
+Outside the zone, and therefore paying the list price plus ${t.fixedRoutes.excessPerKm.toFixed(2)} EUR per
+extra km: La Sagrera 16.4 km, Diagonal Mar 16.8, El Forum 17.4, Sant Andreu
+17.7, Nou Barris 17.9, Torre Baro 19.3, Sant Cugat 19.4, Badalona 21.8.
+
+So the zone covers the centre and almost everywhere a visitor stays, but it is
+not the whole municipality. It is wrong to say every part of Barcelona is
+inside it.
 
 ## Practical facts
 

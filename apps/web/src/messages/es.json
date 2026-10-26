@@ -517,7 +517,7 @@
     "adjInterurban": "Fuera del área metropolitana",
     "adjInterurbanValue": "se cobra por kilómetro",
     "zoneTitle": "Qué direcciones cubre el precio urbano",
-    "zoneBody1": "El precio de la lista cubre cualquier dirección situada a menos de {km} km de la terminal, medidos en línea recta y no por carretera. Toda Barcelona queda dentro: el Park Güell, por detrás de Gràcia, es el punto más alejado de la ciudad con 14,3 km, y paga lo mismo que un hotel del passeig de Gràcia.",
+    "zoneBody1": "El precio de la lista cubre cualquier dirección situada a menos de {km} km de la terminal, medidos en línea recta y no por carretera. Eso abarca todo el centro y casi cualquier sitio donde se aloje un visitante: Ciutat Vella, el Eixample, Gràcia, Sants, el frente marítimo hasta la Barceloneta y el Poblenou, y el Park Güell por detrás de Gràcia a 14,3 km, que pagan todos lo mismo que un hotel del passeig de Gràcia. La excepción son los distritos del norte y del este: la Sagrera a 16,4 km, el Fòrum a 17,4, Sant Andreu a 17,7 y Nou Barris a 17,9 quedan fuera de la zona y se les añade el precio por kilómetro indicado más abajo.",
     "zoneBody2": "La medición en línea recta es deliberada y juega a su favor. La plaça de Catalunya está a 12,3 km de la terminal a vuelo de pájaro, pero a 19,6 km por carretera, porque la vía rodea el Llobregat y entra por la Gran Via. Una zona medida por carretera a {km} km dejaría fuera el centro de la ciudad y empezaría a cobrar kilómetros extra en el trayecto más habitual de todos. Más allá de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— se aplica el precio de la lista más {rate} por cada kilómetro adicional, como una única cifra publicada y no como la tarifa que toque a esa hora.",
     "supTitle": "Los suplementos oficiales, ya incluidos en su precio",
     "supIntro": "La tarifa regulada de Barcelona añade suplementos fijos por determinados lugares y fechas. No son extras que cobremos aparte: cada uno ya está contenido en la cifra de la tabla anterior, y por eso no hay nada que liquidar en el coche. Los enumeramos aquí para que un suplemento que vea en un cuadro de tarifas sea un suplemento que pueda situar.",
@@ -613,7 +613,7 @@
       },
       "whereInCity": {
         "q": "¿Cambia el precio según la zona de Barcelona a la que vaya?",
-        "a": "No. Un mismo precio cubre cualquier dirección dentro de 16 km de la terminal, medidos en línea recta, y toda Barcelona queda dentro: el Park Güell es el punto más alejado de la ciudad, a 14,3 km. Más allá de esa zona se aplica el precio de la lista más 1,50 € por kilómetro adicional."
+        "a": "Para la mayor parte de la ciudad, no. Un mismo precio cubre cualquier dirección dentro de 16 km de la terminal en línea recta, lo que abarca todo el centro, el Eixample, Gràcia, Sants, el frente marítimo y el Park Güell a 14,3 km. Los distritos exteriores que quedan más allá —Sant Andreu, Nou Barris, la Sagrera, el Fòrum— añaden 1,50 € por kilómetro adicional al precio de la lista."
       },
       "weekendNight": {
         "q": "¿Cobráis más de noche o los fines de semana?",

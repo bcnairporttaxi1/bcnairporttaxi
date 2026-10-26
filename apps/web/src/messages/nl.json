@@ -499,7 +499,7 @@
     "adjInterurban": "Buiten het stadsgebied",
     "adjInterurbanValue": "per kilometer",
     "zoneTitle": "Welke adressen de stadsprijs dekt",
-    "zoneBody1": "De lijstprijs dekt elk adres binnen {km} km van de terminal, hemelsbreed gemeten en niet langs de weg. Heel Barcelona valt daarbinnen: Park Güell, achter Gràcia, is met 14,3 km het verste punt van de stad en betaalt hetzelfde als een hotel aan de passeig de Gràcia.",
+    "zoneBody1": "De lijstprijs dekt elk adres binnen {km} km van de terminal, hemelsbreed gemeten en niet langs de weg. Daarmee valt het hele centrum eronder en vrijwel alles waar een bezoeker verblijft: Ciutat Vella, de Eixample, Gràcia, Sants, de waterkant tot Barceloneta en Poblenou, en Park Güell achter Gràcia op 14,3 km — die betalen allemaal hetzelfde als een hotel aan de passeig de Gràcia. De uitzondering zijn de buitenwijken in het noorden en oosten: La Sagrera op 16,4 km, het Fòrum op 17,4, Sant Andreu op 17,7 en Nou Barris op 17,9 vallen buiten de zone en daarvoor komt de kilometerprijs hieronder erbij.",
     "zoneBody2": "De hemelsbrede meting is bewust gekozen en werkt in uw voordeel. De plaça de Catalunya ligt hemelsbreed 12,3 km van de terminal maar 19,6 km over de weg, omdat die om de Llobregat heen loopt en via de Gran Via de stad in komt. Een zone die over de weg op {km} km werd gemeten, zou het stadscentrum erbuiten laten vallen en juist op de meest gemaakte rit extra kilometers gaan rekenen. Buiten de zone — Badalona op 21,8 km, Sant Cugat op 19,5 — geldt de lijstprijs plus {rate} per extra kilometer, als één gepubliceerd bedrag en niet als het tarief dat op dat uur geldt.",
     "supTitle": "De officiële toeslagen, al in uw prijs begrepen",
     "supIntro": "Het gereguleerde tarief van Barcelona kent vaste toeslagen voor bepaalde plaatsen en data. Het zijn geen extra's die wij er bovenop zetten: elke toeslag zit al in het bedrag in de tabel hierboven, en daarom valt er in de auto niets af te rekenen. Ze staan hier zodat een toeslag die u op een tarievenbord ziet, een toeslag is die u kunt plaatsen.",
@@ -595,7 +595,7 @@
       },
       "whereInCity": {
         "q": "Verandert de prijs naargelang waar in Barcelona ik heen ga?",
-        "a": "Nee. Eén prijs dekt elk adres binnen 16 km van de terminal, hemelsbreed gemeten, en heel Barcelona valt daarbinnen: Park Güell is met 14,3 km het verste punt van de stad. Buiten die zone geldt de lijstprijs plus € 1,50 per extra kilometer."
+        "a": "Voor het grootste deel van de stad niet. Eén prijs dekt elk adres binnen 16 km hemelsbreed van de terminal, en daarmee het hele centrum, de Eixample, Gràcia, Sants, de waterkant en Park Güell op 14,3 km. De buitenwijken daarbuiten — Sant Andreu, Nou Barris, La Sagrera, het Fòrum — kosten de lijstprijs plus € 1,50 per extra kilometer."
       },
       "weekendNight": {
         "q": "Rekent u 's nachts of in het weekend meer?",

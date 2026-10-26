@@ -78,7 +78,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'How far the EUR 50 reaches',
             body:
-              'One price covers any address within 16 km of the terminal, measured in a straight line rather than along the road. Every part of Barcelona is inside it — Park Güell, up behind Gràcia, is the furthest point in the city at 14.3 km, and it pays the same as a hotel on Passeig de Gràcia. The straight-line measurement works in your favour: Plaça de Catalunya is 12.3 km from the terminal as the crow flies but 19.6 km by road, so a zone drawn along the road would push the city centre outside it. Beyond the zone — Badalona at 21.8 km, Sant Cugat at 19.5 — the list price applies plus EUR 1.50 for each additional kilometre.',
+              'One price covers any address within 16 km of the terminal, measured in a straight line rather than along the road. That takes in the whole centre and almost everywhere a visitor stays — Ciutat Vella, the Eixample, Gràcia, Sants, the waterfront out to Barceloneta and Poblenou, and Park Güell up behind Gràcia at 14.3 km — all at the same price as a hotel on Passeig de Gràcia. The straight-line measurement works in your favour, because the road into the city is appreciably longer than the direct line: it has to come round the Llobregat and in along the Gran Via, so a zone drawn along the route would push the centre outside it. The outer northern and eastern districts are where the zone ends: La Sagrera at 16.4 km, the Fòrum at 17.4, Sant Andreu at 17.7 and Nou Barris at 17.9 fall beyond it, as do Sant Cugat at 19.4 and Badalona at 21.8, and all of them pay the list price plus EUR 1.50 for each additional kilometre.',
           },
           {
             h2: 'Taxi, Aerobús or metro into the city',
@@ -479,7 +479,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'What counts as the centre for the fixed price',
             body:
-              'All of it, and a good deal more. The list price covers any address within 16 km of the terminal measured in a straight line, and the furthest point in Barcelona proper is Park Güell at 14.3 km. So the distinction between the Gothic Quarter, the Eixample, Gràcia, Sants and the Barceloneta does not exist as far as the price is concerned: they are one figure. What does differ between them is the journey time and whether a car can reach the door, which is why the address matters even when the price does not.',
+              'The whole of it, and a good deal beyond. The list price covers any address within 16 km of the terminal measured in a straight line, so the distinction between the Gothic Quarter, the Eixample, Gràcia, Sants, the Barceloneta and Park Güell at 14.3 km does not exist as far as the price is concerned: they are one figure. The zone runs out in the outer northern and eastern districts — Sant Andreu, Nou Barris, La Sagrera and the Fòrum are all past 16 km and add the per-kilometre rate. What differs across the centre is the journey time and whether a car can reach the door, which is why the address matters even where the price does not.',
           },
           {
             h2: 'Where a car can actually stop',
