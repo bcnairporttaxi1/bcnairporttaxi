@@ -111,7 +111,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
         h2: 'Why we hold it',
         paragraphs: [
           'To perform the booking contract with you: arranging the journey, assigning a driver, and sending confirmations.',
-          'To meet legal obligations, including tax and accounting records for the booking fee.',
+          'To meet legal obligations, including tax and accounting records for the payment.',
           'With your consent, for analytics that help us improve the service. You may withdraw that consent at any time.',
         ],
       },
@@ -174,36 +174,36 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
     slug: 'refund-policy',
     title: 'Refund Policy',
     description:
-      'When the BCNAirportTaxi booking fee is refunded: cancellations, no-shows, and cases where no driver could be assigned.',
+      'When a BCNAirportTaxi booking is refunded: cancellations, no-shows, and cases where no driver could be assigned.',
     h1: 'Refund policy',
-    updated: '10 August 2026',
+    updated: '25 October 2026',
     intro:
-      'This policy covers the booking fee, which is the only amount we collect. The metered fare is paid to your driver in the taxi and is not ours to refund.',
+      'You pay one all-inclusive price online when you book, and nothing to the driver. This policy covers that whole amount: the fare, every official supplement and our booking service together.',
     sections: [
       {
         h2: 'Cancelling in good time',
         paragraphs: [
-          'Cancel more than 24 hours before your pickup time and we refund the booking fee in full, to the original payment method, normally within five to ten working days.',
+          'Cancel more than 24 hours before your pickup time and we refund the whole amount you paid, to the original payment method, normally within five to ten working days.',
         ],
       },
       {
         h2: 'Late cancellations and no-shows',
         paragraphs: [
           'Cancellations inside 24 hours of pickup are not refunded, because a driver has already been committed to your journey.',
-          'If you do not appear at the pickup point and cannot be reached, the booking is treated as a no-show and the fee is not refunded.',
+          'If you do not appear at the pickup point and cannot be reached, the booking is treated as a no-show and the amount paid is not refunded.',
         ],
       },
       {
         h2: 'When we refund automatically',
         paragraphs: [
-          'If we cannot assign a driver, if the vehicle fails to arrive, or if we cancel your booking for any reason, the booking fee is refunded in full without you having to ask.',
-          'If a genuine error in our fare estimate materially misled you — for example the wrong tariff was applied — contact us and we will correct it and refund the difference in the fee.',
+          'If we cannot assign a driver, if the vehicle fails to arrive, or if we cancel your booking for any reason, the whole amount is refunded in full without you having to ask.',
+          'If a genuine error in our price materially misled you — for example the wrong route or vehicle was charged — contact us and we will correct it and refund the difference.',
         ],
       },
       {
         h2: 'Flight delays',
         paragraphs: [
-          'A delayed flight is not a cancellation. We track your flight number and move the pickup, at no extra charge. If your flight is cancelled outright, tell us as soon as you know and we will refund the fee in full.',
+          'A delayed flight is not a cancellation. We track your flight number and move the pickup, at no extra charge. If your flight is cancelled outright, tell us as soon as you know and we will refund the whole amount in full.',
         ],
       },
       {

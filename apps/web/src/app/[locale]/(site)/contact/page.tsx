@@ -63,6 +63,42 @@ export default async function ContactPage(props: {
           <p className="mt-3 font-mono text-sm">{CONTACT_EMAIL}</p>
         </a>
       </div>
+
+      {/*
+        The page was two links and a sentence — 32 words. It told a visitor
+        which buttons existed and nothing about which one to press, how long
+        an answer takes, or what to put in the message so the answer is
+        useful first time. Most of what the inbox spends its time asking for
+        is in the four sections below.
+      */}
+      <div className="mx-auto max-w-3xl px-4 pb-16">
+        <section>
+          <h2 className="font-display text-2xl font-extrabold">{t('whichTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('whichBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('whichBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('includeTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('includeBody1')}</p>
+          <ul className="mt-4 list-disc space-y-1.5 pl-5 leading-relaxed">
+            {(['ref', 'route', 'when', 'people', 'flight'] as const).map((k) => (
+              <li key={k}>{t(`includeItems.${k}`)}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('existingTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('existingBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('existingBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('langTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('langBody')}</p>
+        </section>
+      </div>
     </>
   );
 }

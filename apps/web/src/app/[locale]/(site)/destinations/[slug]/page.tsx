@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/reveal';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FLEET } from '@bcn/core/fleet';
-import { calculateQuote } from '@bcn/core/pricing';
+import { destinationRoutePrice } from '@bcn/core/route-price';
 import {
   DESTINATION_PAGES,
   getDestination,
@@ -73,22 +73,17 @@ export default async function DestinationPage(props: {
   const group = groupOf(slug);
   const siblings = (group?.destinations ?? []).filter((x) => x.slug !== slug).slice(0, 6);
 
-  // Indicative price on the Generalitat interurban tariff. Built from the
-  // published distance rather than a live route lookup, so it is a guide
-  // figure — the exact fare still comes from the booking form or a quote.
-  const estimate =
-    d.km !== undefined
-      ? calculateQuote({
-          // A representative city-centre origin and a point outside the AMB:
-          // enough to select the interurban tariff, which is what sets the rate.
-          pickup: { lat: 41.3874, lng: 2.1686 },
-          dropoff: { lat: 41.9794, lng: 2.8214 },
-          roadKm: d.km,
-          durationMin: d.minutes ?? 0,
-          // Weekday midday, so the quoted "from" price is the cheaper T-6 band.
-          pickupAt: new Date('2026-07-15T13:00:00+02:00'),
-        })
-      : null;
+  /*
+   * Indicative price on the Generalitat interurban tariff, from the shared
+   * helper so this page and the homepage cannot disagree.
+   *
+   * They did: this page priced every destination from one hardcoded pair of
+   * dummy points — Barcelona centre to Girona's coordinates — on the grounds
+   * that they were "enough to select the interurban tariff". They were enough
+   * for the tariff and wrong for the fare, so Sitges read EUR 75.65 here and
+   * EUR 85.07 on the homepage.
+   */
+  const estimate = destinationRoutePrice(slug);
 
   const t = await getTranslations('destinationRoute');
   const tHub = await getTranslations('destinations');

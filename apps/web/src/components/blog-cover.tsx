@@ -1,4 +1,5 @@
 import { BLOG_COVERS, type BlogMotif } from '@bcn/core/blog';
+import { TARIFFS } from '@bcn/core/tariffs';
 
 /**
  * Blog thumbnails.
@@ -50,8 +51,20 @@ export function BlogCover({
  * One drawing per motif. Each takes the gold gradient reference so the accent
  * is defined once on the wrapper rather than repeated per shape.
  */
+/**
+ * The city price the fares cover is drawn, so read it from the tariff rather
+ * than the artwork.
+ *
+ * It was hardcoded as "€34.44 · T-1 · ALL IN", a meter estimate from when the
+ * site quoted them. The price list replaced that months later and the drawing
+ * kept asserting a figure sixteen euros under the real one, at the top of the
+ * post that ranks for what a Barcelona airport taxi costs. A number in an
+ * illustration is still a number a reader believes.
+ */
+const CITY_PRICE = `€${TARIFFS.fixedRoutes.cityAirport.sedan.toFixed(0)}`;
+
 const MOTIFS: Record<BlogMotif, (gold: string) => React.ReactNode> = {
-  /** Fares: a meter readout mid-count. */
+  /** Fares: the fixed city price on a meter-style readout. */
   meter: (gold) => (
     <>
       <rect x="86" y="46" width="148" height="88" rx="14" fill="#0d0d10" stroke="rgb(255 255 255 / 0.09)" />
@@ -66,7 +79,7 @@ const MOTIFS: Record<BlogMotif, (gold: string) => React.ReactNode> = {
         fontWeight="700"
         letterSpacing="-1"
       >
-        €34.44
+        {CITY_PRICE}
       </text>
       <text
         x="160"
@@ -77,7 +90,7 @@ const MOTIFS: Record<BlogMotif, (gold: string) => React.ReactNode> = {
         fontSize="9"
         letterSpacing="2.4"
       >
-        T-1 · ALL IN
+        CITY · ALL IN
       </text>
       <circle cx="104" cy="62" r="3" fill="#39d98a" />
     </>

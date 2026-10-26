@@ -171,6 +171,15 @@
     "bags": "{count, plural, one {# koffer} other {# koffers}}",
     "passengersLabel": "Passagiers",
     "luggageLabel": "Bagage",
+    "chooseTitle": "Kies op bagage, niet op aantal personen",
+    "chooseBody1": "Kies het voertuig op het aantal koffers, niet op het aantal passagiers. In een standaardtaxi met vier zitplaatsen passen vier mensen, maar slechts ongeveer drie grote koffers: de kofferruimte van een Corolla of een SEAT Toledo is de echte beperking, en het is de beperking die bij het boeken vanuit huis het vaakst wordt onderschat. Vier volwassenen met elk een grote koffer hebben de zeszits Mercedes Vito nodig, die zes passagiers en zes stuks bagage meeneemt.",
+    "chooseBody2": "Daarboven vervoert de zevenzits Mercedes V-Class zeven passagiers en zeven stuks bagage. Reist u met iets buitenmaats — een fiets, ski's, een surfplank, een cello — vermeld dat dan in de opmerkingen bij de boeking in plaats van een grotere auto te kiezen en te hopen, want soms is het juiste antwoord een specifiek voertuig en niet simpelweg een ruimer exemplaar. Voor groepen boven zeven personen kunnen meerdere auto's samen in één betaling worden geboekt, elk tegen de eigen gepubliceerde prijs.",
+    "licensedTitle": "Wat \"gelicentieerde Barcelonese taxi\" hier betekent",
+    "licensedBody1": "Elk voertuig in deze vloot is een gelicentieerde Barcelonese taxi in de officiële zwart-gele uitvoering, die rijdt onder de stedelijke taxilicentie en niet als huurauto met chauffeur. Dat is geen kwestie van uitstraling: het betekent dat het voertuig de taxistandplaatsen en taxibanen mag gebruiken, de voorgeschreven verzekering heeft, onder het keuringsregime van de AMB valt en voor de rit een officiële meterfactuur kan afgeven.",
+    "licensedBody2": "Het betekent ook dat de chauffeur een beroepstaxichauffeur uit Barcelona is die aan de stedelijke kennis- en licentie-eisen heeft voldaan, en niet een opdrachtnemer met een app. Wie hier boekt, boekt een gereguleerde taxi tegen een vooraf afgesproken vaste prijs: het voertuig en de chauffeur zijn dezelfde die u op de standplaats zou krijgen, met de prijs en de auto geregeld vóór uw landing in plaats van erna.",
+    "commonTitle": "Wat elk voertuig heeft",
+    "commonBody1": "Airconditioning, gordels op elke zitplaats, een pinautomaat en ruimte voor de bagage die op de kaart staat. Alle auto's zijn rookvrij. Elke auto wordt gekeurd volgens het schema van de AMB en is verzekerd als gelicentieerde taxi, dus de ondergrens wordt door de regelgeving bepaald en niet door ons.",
+    "commonBody2": "Kinderzitjes zijn niet standaard aanwezig; heeft u er een nodig, vraag er dan vóór de reis om in de opmerkingen bij de boeking, zodat de juiste auto wordt ingezet. Hulp met de bagage bij het in- en uitladen van de kofferruimte is inbegrepen en wordt nooit in rekening gebracht, net als een redelijke wachttijd terwijl u de aankomsthal uitkomt.",
     "categories": {
       "eco": "Eco-hybride taxi",
       "standard": "Standaardtaxi",
@@ -419,7 +428,7 @@
     "fixed": "vast",
     "rowAirportCity": "Luchthaven El Prat naar centrum Barcelona",
     "rowAirportPort": "Luchthaven El Prat naar Moll Adossat",
-    "rowAirportSitges": "Luchthaven El Prat naar Sitges",
+    "rowBcnSitges": "Barcelona naar Sitges",
     "rowBcnTarragona": "Barcelona naar Tarragona",
     "rowBcnGirona": "Barcelona naar luchthaven Girona",
     "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge} % bij, en een bestemming verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Alleen ritten buiten het stadsgebied gaan per kilometer. Alle prijzen zijn alles inbegrepen, in de taxi betaalt u niets.",
@@ -485,7 +494,25 @@
     "adjWeekend": "Weekenden en feestdagen",
     "adjWeekendValue": "+ {surge} %",
     "adjInterurban": "Buiten het stadsgebied",
-    "adjInterurbanValue": "per kilometer"
+    "adjInterurbanValue": "per kilometer",
+    "zoneTitle": "Welke adressen de stadsprijs dekt",
+    "zoneBody1": "De lijstprijs dekt elk adres binnen {km} km van de terminal, hemelsbreed gemeten en niet langs de weg. Heel Barcelona valt daarbinnen: Park Güell, achter Gràcia, is met 14,3 km het verste punt van de stad en betaalt hetzelfde als een hotel aan de passeig de Gràcia.",
+    "zoneBody2": "De hemelsbrede meting is bewust gekozen en werkt in uw voordeel. De plaça de Catalunya ligt hemelsbreed 12,3 km van de terminal maar 19,6 km over de weg, omdat die om de Llobregat heen loopt en via de Gran Via de stad in komt. Een zone die over de weg op {km} km werd gemeten, zou het stadscentrum erbuiten laten vallen en juist op de meest gemaakte rit extra kilometers gaan rekenen. Buiten de zone — Badalona op 21,8 km, Sant Cugat op 19,5 — geldt de lijstprijs plus {rate} per extra kilometer, als één gepubliceerd bedrag en niet als het tarief dat op dat uur geldt.",
+    "supTitle": "De officiële toeslagen, al in uw prijs begrepen",
+    "supIntro": "Het gereguleerde tarief van Barcelona kent vaste toeslagen voor bepaalde plaatsen en data. Het zijn geen extra's die wij er bovenop zetten: elke toeslag zit al in het bedrag in de tabel hierboven, en daarom valt er in de auto niets af te rekenen. Ze staan hier zodat een toeslag die u op een tarievenbord ziet, een toeslag is die u kunt plaatsen.",
+    "supAirport": "Luchthaven El Prat",
+    "supPort": "Cruiseterminal Moll Adossat",
+    "supSants": "Station Sants",
+    "supFira": "Fira Gran Via",
+    "supLarge": "Voertuig met {seats} zitplaatsen of meer",
+    "supNights": "Kerstavond, oudejaarsavond en de nacht van Sant Joan",
+    "supCap": "Het gereguleerde tarief maximeert het totaal aan toeslagen per rit op {cap}. Bij een gewone luchthaventransfer geldt één toeslag en wordt dat plafond nooit bereikt.",
+    "neverTitle": "Wat uw prijs nooit verandert",
+    "neverBody1": "Het tijdstip van de dag. Ophalen om 04:30 voor een vroege vlucht kost precies hetzelfde als een rit om twee uur 's middags. Bij een vaste prijs bestaat er geen nachttarief en geen luchthaventoeslag die aan het eind nog opduikt.",
+    "neverBody2": "Evenmin het verkeer, de route die uw chauffeur kiest, de terminal waar u landt, het aantal passagiers tot de capaciteit van het voertuig of de hoeveelheid bagage die erin past. Weekenden en feestdagen zijn het enige wat een lijstprijs verhoogt, met één gepubliceerd percentage. Al het overige is ons risico — en dat is precies wat u koopt door een prijs vooraf vast te zetten.",
+    "interTitle": "Ritten buiten het stadsgewest",
+    "interBody1": "Zodra een van de uiteinden van de rit buiten het stadsgewest Barcelona ligt, geldt het stadstarief niet meer en wordt de rit per kilometer berekend op het interlokale tarief dat de Generalitat de Catalunya vaststelt. Sitges, Tarragona, Girona, Reus, de Costa Brava en Andorra worden zo berekend, volledig geprijsd vóór het boeken en niet uit de vaste lijst gehaald: geen enkele eerlijke vaste lijst kan afstanden dekken die een factor vijf verschillen.",
+    "interBody2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen: het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is."
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -512,7 +539,19 @@
       "reserved": "Gereserveerd · online betaald",
       "arrived": "Aangekomen · niets te betalen in de taxi",
       "live": "Chauffeur live"
-    }
+    },
+    "prepTitle": "Wat wij van u nodig hebben",
+    "prepBody1": "Een volledig adres in plaats van een wijk, het aantal passagiers en hoeveel koffers u werkelijk meeneemt. Dat laatste weegt zwaarder dan men verwacht: een vierzitter neemt vier passagiers mee maar slechts ongeveer drie koffers, dus vier volwassenen met vier grote stuks bagage hebben een zeszits bus nodig. Dat bij het boeken goed inschatten is het verschil tussen een transfer en een probleem op de stoep.",
+    "prepBody2": "Komt u per vliegtuig aan, voeg dan uw vluchtnummer toe. Het is optioneel, maar daarmee volgen wij de werkelijke landing en verschuiven we het ophalen automatisch, zodat vertraging u niets kost en u weken vooraf geen veilige aankomsttijd hoeft te gokken. Een op de dag bereikbaar mobiel nummer maakt het geheel af — zo bereikt uw chauffeur u als de aankomsthal u beiden de baas is.",
+    "afterTitle": "Wat er gebeurt nadat u heeft betaald",
+    "afterBody1": "De boeking wordt direct per e-mail bevestigd, met een referentie, de volledige prijs die u heeft betaald, het gekozen voertuig en een bon voor het hele bedrag. Er blijft niets openstaan en er volgt geen tweede betaling.",
+    "afterBody2": "Daarna wordt er een chauffeur aan uw rit toegewezen, en op dat moment krijgt u per e-mail zijn naam en telefoonnummer samen met het exacte ontmoetingspunt voor uw terminal. Die toewijzing is een echte vastlegging van een specifieke auto en persoon, niet een verzoek dat bij uw landing in een groep wordt gegooid — en daarom gedraagt een geboekte transfer zich anders dan een rij bij de standplaats om twee uur 's nachts.",
+    "dayTitle": "Op de dag zelf",
+    "dayBody1": "Bij een luchthavenophaal wacht uw chauffeur binnen in de aankomsthal, aan de publieke zijde van de uitgang van de bagageband, met een bordje met uw naam. Niet aan de stoeprand en niet in de rij bij de standplaats. Bij een ophaal in de stad komt hij naar het door u opgegeven adres, op de afgesproken tijd.",
+    "dayBody2": "Alles is al betaald, dus in de auto valt niets af te rekenen: geen rit, geen toeslag, geen verwachte tip. Wilt u de officiële meterfactuur voor de rit zelf, dan kan de chauffeur die op verzoek verstrekken; uw eigen bon voor het betaalde bedrag kwam met de bevestiging.",
+    "changeTitle": "Als er iets verandert",
+    "changeBody1": "U kunt de gegevens binnen 30 minuten na het boeken zelf wijzigen, en daarna tot het moment dat uw chauffeur vertrekt: antwoord op uw bevestiging of stuur ons een WhatsApp. Een andere terminal, ophaaltijd of adres kost niets, en een verkeerde terminal is de correctie die wij het vaakst doorvoeren.",
+    "changeBody2": "Een vertraagde vlucht is geen wijziging en vraagt niets van u: het ophalen volgt de werkelijke landingstijd, zonder extra kosten en hoe laat het vliegtuig ook is. Wordt uw vlucht helemaal geschrapt, of vallen uw plannen in het water, laat het ons dan weten zodra u het weet: bij annuleren ten minste 24 uur voor het ophalen wordt het hele bedrag terugbetaald op de kaart waarmee u betaalde, normaal binnen vijf tot tien werkdagen. Binnen die 24 uur zullen we altijd proberen te helpen, maar terugbetaling is dan niet meer automatisch."
   },
   "faq": {
     "metaTitle": "FAQ taxi luchthaven Barcelona | Tarieven en ophalen",
@@ -550,8 +589,76 @@
       "outsideBarcelona": {
         "q": "Haalt u ook buiten Barcelona op?",
         "a": "Nog niet. Op dit moment moet het ophaalpunt binnen de stad Barcelona of op de luchthaven El Prat liggen. Uw bestemming mag echter overal zijn."
+      },
+      "whereInCity": {
+        "q": "Verandert de prijs naargelang waar in Barcelona ik heen ga?",
+        "a": "Nee. Eén prijs dekt elk adres binnen 16 km van de terminal, hemelsbreed gemeten, en heel Barcelona valt daarbinnen: Park Güell is met 14,3 km het verste punt van de stad. Buiten die zone geldt de lijstprijs plus € 1,50 per extra kilometer."
+      },
+      "weekendNight": {
+        "q": "Rekent u 's nachts of in het weekend meer?",
+        "a": "Nooit voor het tijdstip: ophalen om 04:30 kost hetzelfde als om 14:00. Weekenden en feestdagen komen met 7,5 % erbij, dus een stadstransfer van € 50 wordt € 53,75. Dat is een gepubliceerd tarief, geen toeslag die met de vraag meestijgt."
+      },
+      "vsMeter": {
+        "q": "Is dit goedkoper dan een taxi van de standplaats?",
+        "a": "Soms, en dat zeggen we liever eerlijk. Op een rustige weekdag staat de meter op de standplaats vaak lager, omdat onze vaste prijs een verkeersrisico bevat dat zich niet voordeed. Bij druk verkeer, in het weekend of op de drie toeslagnachten is de vaste prijs meestal lager — en hij staat altijd vooraf vast."
+      },
+      "payment": {
+        "q": "Hoe betaal ik, en is de chauffeur nog iets verschuldigd?",
+        "a": "U betaalt het volledige bedrag online bij het boeken, met creditcard, betaalkaart of Bizum. In de taxi is niets verschuldigd: geen rit, geen toeslag, geen verwachte tip. De chauffeur wordt achteraf door ons afgerekend en zal u nooit om geld vragen."
+      },
+      "flightDelay": {
+        "q": "Wat als mijn vlucht vertraging heeft?",
+        "a": "U hoeft niets te doen. Wij volgen uw vluchtnummer en verschuiven het ophalen naar het werkelijke landingstijdstip, zonder extra kosten. Vertraging kost u de auto niet en levert geen annuleringskosten op. Wordt de vlucht helemaal geschrapt, laat het ons weten en het hele bedrag wordt terugbetaald."
+      },
+      "multipleCars": {
+        "q": "Wij zijn een grote groep. Kunnen we meer dan één auto boeken?",
+        "a": "Ja. Kies meerdere voertuigen in één boeking: ze worden samen gereserveerd, in één keer betaald en naar hetzelfde ophaalpunt gestuurd, tot zes auto's. Elke auto gaat tegen het gepubliceerde tarief voor zijn maat, dus een groep van tien is twee auto's tegen lijstprijs, geen maatwerkprijs."
+      },
+      "whichVehicle": {
+        "q": "Welke voertuiggrootte heb ik nodig?",
+        "a": "Een vierzitter neemt 4 passagiers en ongeveer 3 koffers, en dat is de grens die het vaakst wordt onderschat. Vier volwassenen met vier grote koffers hebben de zeszits Mercedes Vito (6 koffers) of de zevenzits V-Class (7 koffers) nodig. Kiezen op bagage in plaats van op aantal personen voorkomt een probleem op de stoep."
+      },
+      "changeBooking": {
+        "q": "Kan ik een boeking later nog wijzigen?",
+        "a": "Ja. Binnen 30 minuten na het boeken wijzigt u de gegevens zelf, daarna tot het moment dat uw chauffeur vertrekt: antwoord op de bevestigingsmail of stuur ons een WhatsApp. Een andere terminal of ophaaltijd kost niets."
+      },
+      "cruisePort": {
+        "q": "Rijdt u naar de cruiseterminal aan het Moll Adossat?",
+        "a": "Ja, en die heeft een eigen prijs los van de stad: € 60 in een vierzitter, € 80 voor zes en € 85 voor zeven zitplaatsen, tussen de terminal en El Prat. Een rit tussen de kade en de stad is de stadsprijs plus € 10 haventoeslag, wat op diezelfde € 60 uitkomt."
+      },
+      "longDistance": {
+        "q": "Rijdt u naar Sitges, Girona, Tarragona of Andorra?",
+        "a": "Ja. Ritten met één einde buiten het stadsgewest worden per kilometer berekend op het interlokale tarief van de Generalitat, niet volgens de vaste stadslijst, en volledig geprijsd voordat u boekt. De kilometerprijs is hoger omdat dat tarief ook de terugrit van de chauffeur in rekening brengt."
+      },
+      "findDriver": {
+        "q": "Wat als ik mijn chauffeur niet kan vinden?",
+        "a": "In uw bevestiging staat een nummer dat direct de chauffeur bereikt, geen callcenter. Aankomsthallen zijn groot en naambordjes gaan op een moment omlaag, dus één telefoontje lost het meestal binnen een minuut op. De chauffeur heeft ook uw nummer en belt als hij u niet ziet."
       }
     }
+  },
+  "blog": {
+    "metaTitle": "Taxi luchthaven Barcelona: gidsen en tips",
+    "metaDescription": "Praktische gidsen voor het reizen van en naar de luchthaven Barcelona El Prat: wat een taxi kost, taxi of Aerobús, en welke terminal u echt nodig heeft.",
+    "h1": "Reisgidsen luchthaven Barcelona",
+    "breadcrumb": "Gidsen",
+    "intro": "Heldere antwoorden over reizen van en naar El Prat — wat dingen kosten, hoe lang ze duren, en wanneer een taxi werkelijk de juiste keuze is.",
+    "aboutTitle": "Waar deze gidsen voor zijn",
+    "aboutBody1": "Dit zijn de vragen die ons het vaakst worden gesteld, behandeld op de lengte die ze echt nodig hebben. Wat een taxi vanaf El Prat kost en hoe die prijs is opgebouwd. Of de Aerobús of de metro de betere keuze is voor uw groep — met het eerlijke antwoord, dat voor één persoon met lichte bagage bijna nooit de taxi is. Welke terminal uw luchtvaartmaatschappij gebruikt en waar de taxi's bij elk daarvan wachten.",
+    "aboutBody2": "Elk cijfer erin komt uit dezelfde bron als de prijzen op deze site: het gepubliceerde AMB-tarief voor Barcelona en het interlokale tarief van de Generalitat voor alles daarbuiten, gecontroleerd aan de gedrukte borden en niet overgenomen van een andere website. Waar een gids een tarief noemt, is het het tarief dat geldt voor het huidige tariefjaar, en de pagina's dragen de datum van hun laatste herziening.",
+    "aboutBody3": "Wat ze niet zijn, is verkooptekst met een vraagteken ervoor. Waar het openbaar vervoer de betere optie is, zeggen we dat, en waar de standplaats voor de aankomsthal u minder kost dan vooraf boeken, zeggen we dat ook. Een gids die ons voor elke rit aanbeveelt zou niet het lezen waard zijn, en zou niet waar zijn."
+  },
+  "reviews": {
+    "metaTitle": "Beoordelingen taxi luchthaven Barcelona",
+    "metaDescription": "Beoordelingen van passagiers die een taxi naar de luchthaven van Barcelona boekten bij BCNAirportTaxi. Elke beoordeling komt uit een afgeronde, gecontroleerde boeking.",
+    "h1": "Beoordelingen van passagiers",
+    "intro": "Elke beoordeling hier komt uit een afgeronde boeking. We publiceren ze na een controle dat de rit werkelijk heeft plaatsgevonden.",
+    "empty": "Nog geen beoordelingen gepubliceerd. Zodra passagiers ritten gaan afronden, verschijnen hun beoordelingen hier.",
+    "policyTitle": "Hoe een beoordeling op deze pagina komt",
+    "policyBody1": "Alleen iemand van wie de boeking is afgerond kan een beoordeling achterlaten, via een link die na de rit wordt verstuurd. De beoordeling hangt aan een specifieke referentie, dus niemand die de rit niet heeft gemaakt kan haar schrijven, en dezelfde rit kan niet twee keer worden beoordeeld.",
+    "policyBody2": "Beoordelingen worden voor publicatie gelezen, en die controle doet niets anders dan vaststellen dat de rit heeft plaatsgevonden en weghalen wat een derde of een chauffeur bij naam aanwijst. Een beoordeling wordt niet tegengehouden omdat ze kritisch is: dat zou de hele pagina waardeloos maken, en een pagina met niets dan vijf sterren is een pagina die niemand gelooft. Cijfers van elk niveau worden gepubliceerd zoals ze zijn geschreven.",
+    "whyEmptyTitle": "Waarom we liever niets tonen dan iets",
+    "whyEmptyBody1": "Deze pagina toont een gemiddeld cijfer en een aantal beoordelingen pas zodra er echte goedgekeurde beoordelingen bestaan. Tot die tijd toont ze geen van beide, en wordt ze bewust buiten de zoekresultaten gehouden in plaats van gevuld met getuigenissen van elders.",
+    "whyEmptyBody2": "Dat is een beslissing met een prijs: sterren in zoekresultaten verhogen het aantal klikken meetbaar, en ze verzinnen is zowel eenvoudig als gangbaar. Het is ook fraude, en de structured data die die sterren oplevert is een verklaring aan een zoekmachine over echte klanten. Een lege pagina is minder waard dan een volle en aanzienlijk meer dan een verzonnen pagina."
   },
   "contact": {
     "metaTitle": "Contact | Taxi luchthaven Barcelona boeken",
@@ -561,7 +668,24 @@
     "whatsappTitle": "WhatsApp — het snelst",
     "whatsappBody": "Voor spoedritten binnen 3 uur en alles wat niet kan wachten.",
     "emailTitle": "E-mail",
-    "emailBody": "Voor offertes, facturen en wijzigingen aan de boeking."
+    "emailBody": "Voor offertes, facturen en wijzigingen aan de boeking.",
+    "whichTitle": "Welke u moet gebruiken",
+    "whichBody1": "WhatsApp voor alles wat vandaag speelt. Een rit die binnen het drie-uursvenster van de online boeking nodig is, een vlucht die net geland is en een chauffeur die u niet vindt, een ophaaltijd die binnen het uur moet opschuiven: daarvoor moet iemand direct meelezen, en daarvoor is het WhatsApp-nummer er.",
+    "whichBody2": "E-mail voor alles met een papieren spoor. Facturen en btw-gegevens, een offerte voor een lange of ongebruikelijke rit, een klacht, een terugbetaling, een boeking voor een datum maanden vooruit, of elk onderwerp waarbij u het antwoord zwart op wit wilt. E-mail is ook het betere kanaal als u geen WhatsApp gebruikt — wat het nummer veronderstelt en de mailbox niet.",
+    "includeTitle": "Wat u erbij moet zetten zodat we in één keer kunnen antwoorden",
+    "includeBody1": "Het meeste heen-en-weer over een boeking komt door een bericht waarin één gegeven ontbreekt. Als u deze meestuurt, is het antwoord meestal een antwoord en geen nieuwe vraag:",
+    "includeItems": {
+      "ref": "Uw boekingsreferentie, als u die al heeft — die staat in de onderwerpregel van uw bevestiging",
+      "route": "De volledige ophaal- en bestemmingsadressen, niet alleen de wijken",
+      "when": "De datum en tijd, en of die tijd een landingstijd of een ophaaltijd is",
+      "people": "Hoeveel passagiers en hoeveel koffers",
+      "flight": "Het vluchtnummer, voor alles wat met de luchthaven te maken heeft"
+    },
+    "existingTitle": "Een bestaande boeking wijzigen of annuleren",
+    "existingBody1": "U kunt de gegevens binnen 30 minuten na het boeken zelf wijzigen. Daarna, en tot uw chauffeur vertrekt, antwoordt u op de bevestigingsmail of stuurt u ons een bericht en verzetten wij het. Een andere terminal, tijd of adres kost niets, en een verkeerde terminal is de meest voorkomende correctie die wij doen.",
+    "existingBody2": "Om te annuleren: laat het ons weten zodra u het weet. Een boeking die ten minste 24 uur voor het ophalen wordt geannuleerd, wordt volledig terugbetaald op de kaart waarmee u betaalde, normaal binnen vijf tot tien werkdagen. Een vertraagde vlucht is geen annulering en vraagt niets van u: wij volgen het vluchtnummer en het ophalen sluit aan op de werkelijke landingstijd.",
+    "langTitle": "Talen",
+    "langBody": "Wij antwoorden direct in het Nederlands, Engels, Spaans en Catalaans. Berichten in het Frans, Duits, Italiaans, Portugees, Russisch en Chinees worden ook beantwoord, soms iets langzamer, en de boekingsbevestiging en uw bon worden verzonden in de taal waarin u boekte, uit de tien beschikbare."
   },
   "confirmation": {
     "metaTitle": "Boeking bevestigd",

@@ -74,9 +74,17 @@ Generalitat defines an interurban journey as a closed circuit: the meter counts
 the driver's return leg, since they cannot legally pick up a fare outside their
 own area and drive home empty.
 
-A typical airport-to-city-centre journey is roughly 14 km and 20-30 minutes,
-and costs the fixed city price in full: see /pricing.md for the list per
-vehicle, and the additions that can apply to it.
+A typical airport-to-city-centre journey is about 19 km by road and 25-35
+minutes, and costs the fixed city price in full: see /pricing.md for the list
+per vehicle, and the additions that can apply to it.
+
+Road distance and straight-line distance differ enough here to matter, because
+the flat-price zone is defined on the second. Placa de Catalunya is 12.3 km
+from the terminal in a straight line and 19.6 km by road, since the road runs
+around the Llobregat and in along the Gran Via. The zone is a ${t.fixedRoutes.flatZoneRadiusKm} km radius
+measured straight-line, which puts all of Barcelona inside it: Park Guell is
+the furthest point in the city at 14.3 km. Badalona (21.8 km) and Sant Cugat
+(19.5 km) fall outside and pay the list price plus ${t.fixedRoutes.excessPerKm.toFixed(2)} EUR per extra km.
 
 ## Practical facts
 

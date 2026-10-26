@@ -10,6 +10,9 @@ import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
 import { locales } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 
+/** Shared by the social card and the Article `image`, so they cannot drift. */
+const OG_IMAGE = '/img/hero-banner.jpg';
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     BLOG_POSTS.map((p) => ({ locale, slug: p.slug })),
@@ -38,7 +41,28 @@ export async function generateMetadata(props: {
       title: post.title,
       description: post.description,
       publishedTime: post.published,
+      modifiedTime: post.updated ?? post.published,
       url: `/${locale}/blog/${slug}`,
+      /*
+       * Setting `openGraph` here replaces the layout's object rather than
+       * merging into it, so leaving images out did not inherit the site image
+       * — it shipped an article card with no image at all. Every share of
+       * every post rendered as a bare line of text.
+       */
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1920,
+          height: 1080,
+          alt: 'Black and yellow Barcelona airport taxi on the waterfront at sunset with the Sagrada Família behind',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [OG_IMAGE],
     },
   };
 }
@@ -70,10 +94,21 @@ export default async function BlogPostPage(props: {
             headline: post.title,
             description: post.description,
             datePublished: post.published,
-            dateModified: post.published,
+            // The post's own revision date when it has one. These were the
+            // same field, so a post rewritten around a new price model still
+            // reported that nothing had changed since it was first published.
+            dateModified: post.updated ?? post.published,
+            /*
+             * Google treats `image` as required on Article and drops the
+             * result without it. There is no per-post artwork — the covers are
+             * inline SVG drawn from a motif — so this is the site image, which
+             * is a real photograph at a known size rather than a placeholder.
+             */
+            image: [absoluteUrl(OG_IMAGE)],
+            inLanguage: locale,
             mainEntityOfPage: absoluteUrl(`/${locale}/blog/${slug}`),
             author: { '@type': 'Organization', name: 'BCNAirportTaxi' },
-            publisher: { '@id': `${SITE_URL}/#organization` },
+            publisher: { '@id': `${SITE_URL}/#provider` },
           }),
         }}
       />

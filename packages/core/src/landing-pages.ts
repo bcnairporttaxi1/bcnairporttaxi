@@ -115,7 +115,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'El Prat Airport Taxi | Licensed Barcelona Transfers',
         description:
-          'Licensed taxis to and from Barcelona El Prat airport (BCN). Book online with an official AMB fare estimate and a driver assigned to your flight.',
+          'Licensed taxis to and from Barcelona El Prat airport (BCN). Book online at a fixed all-inclusive price, with a driver assigned to your flight.',
         h1: 'El Prat airport taxi',
         intro:
           'Josep Tarradellas Barcelona–El Prat, still known to nearly everyone as El Prat, sits about 15 km southwest of the city. It is the second-busiest airport in Spain, and the taxi rank is the fastest way into Barcelona at almost any hour — provided there is a car waiting.',
@@ -141,7 +141,7 @@ export const LANDING_PAGES: LandingPage[] = [
     related: ['el-prat-airport-taxi', 'airport-to-city', 'city-to-airport', 'private-transfer'],
     copy: {
       en: {
-        title: 'Barcelona Airport Taxi Price | 2026 AMB Fares',
+        title: 'Barcelona Airport Taxi Price | Fixed 2026 Fares',
         description:
           'What a Barcelona airport taxi really costs: our fixed prices per vehicle, how far the flat price reaches, and what the weekend and out-of-zone rates add.',
         h1: 'Barcelona airport taxi price',

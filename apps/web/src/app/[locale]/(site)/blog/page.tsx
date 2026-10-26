@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
@@ -21,10 +21,10 @@ export async function generateMetadata(props: {
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/blog`;
+  const t = await getTranslations({ locale, namespace: 'blog' });
   return {
-    title: { absolute: 'Barcelona Airport Taxi Guides & Tips' },
-    description:
-      'Practical guides to getting to and from Barcelona El Prat airport: what a taxi costs, taxi versus Aerobús, and which terminal you need.',
+    title: { absolute: t('metaTitle') },
+    description: t('metaDescription'),
     alternates: { canonical: `/${locale}/blog`, languages },
   };
 }
@@ -34,19 +34,19 @@ export default async function BlogIndex(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
+  // The hero, the metadata and the breadcrumb label were hardcoded English on
+  // a page published in ten languages.
+  const t = await getTranslations('blog');
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', url: `/${locale}` },
-          { name: 'Guides', url: `/${locale}/blog` },
+          { name: t('breadcrumb'), url: `/${locale}/blog` },
         ]}
       />
-      <PageHero
-        title="Barcelona airport travel guides"
-        intro="Straight answers on getting to and from El Prat — what things cost, how long they take, and when a taxi is genuinely the right call."
-      />
+      <PageHero title={t('h1')} intro={t('intro')} />
 
       <div className="mx-auto max-w-5xl px-4 py-14">
         {/* Cards rather than a stack of paragraphs: every post now leads with
@@ -81,6 +81,16 @@ export default async function BlogIndex(props: {
             </StaggerItem>
           ))}
         </Stagger>
+
+        {/* An index of three cards is a navigation element, not a page. What
+            the guides are for, and what they deliberately do not do, is the
+            part worth reading before clicking into one. */}
+        <section className="mx-auto mt-14 max-w-3xl">
+          <h2 className="font-display text-2xl font-extrabold">{t('aboutTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('aboutBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('aboutBody2')}</p>
+          <p className="mt-3 leading-relaxed">{t('aboutBody3')}</p>
+        </section>
       </div>
     </>
   );

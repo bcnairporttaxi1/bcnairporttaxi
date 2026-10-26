@@ -178,6 +178,15 @@
     "select": "Select {name}",
     "passengersLabel": "Passengers",
     "luggageLabel": "Luggage",
+    "chooseTitle": "Choosing by luggage, not headcount",
+    "chooseBody1": "Pick the vehicle on the number of suitcases, not the number of people. Four passengers fit in a standard four-seat taxi, but only around three large cases do — the boot of a Corolla or a SEAT Toledo is the real constraint, and it is the one most often misjudged when booking from home. Four adults each with a full-size case need the six-seat Mercedes Vito, which takes six passengers and six bags.",
+    "chooseBody2": "Above that, the seven-seat Mercedes V-Class carries seven passengers and seven bags. If you are travelling with something oversized — a bicycle, skis, a surfboard, a cello — say so in the booking notes rather than choosing a larger car and hoping, because the right answer is sometimes a specific vehicle rather than simply a bigger one. For parties beyond seven, several cars can be booked together in one checkout, each at its own published price.",
+    "licensedTitle": "What \"licensed Barcelona taxi\" means here",
+    "licensedBody1": "Every vehicle in this fleet is a licensed Barcelona taxi in the official black-and-yellow livery, operating under the metropolitan taxi licence rather than as a private hire car. That is not a detail of branding. It means the vehicle is permitted to use the taxi ranks and lanes, carries the regulated insurance, is subject to the AMB's inspection regime, and can issue an official meter invoice for the journey.",
+    "licensedBody2": "It also means the driver is a professional Barcelona taxi driver who has passed the city's knowledge and licensing requirements, not a contractor with an app. When you book here you are booking a regulated taxi at a fixed price agreed in advance — the vehicle and the driver are the same ones you would get at the rank, with the price and the car settled before you land instead of after.",
+    "commonTitle": "What every vehicle has",
+    "commonBody1": "Air conditioning, seatbelts for every seat, a card terminal, and space for the luggage listed on its card. All are non-smoking. Every car is inspected on the AMB's schedule and insured as a licensed taxi, so the floor is set by regulation rather than by us.",
+    "commonBody2": "Child seats are not fitted as standard; if you need one, ask in the booking notes before you travel so the right car is assigned. Assistance with luggage into and out of the boot is included and never charged for, as is a reasonable wait while you come out of arrivals.",
     "categories": {
       "eco": "Eco hybrid taxi",
       "standard": "Standard taxi",
@@ -217,7 +226,25 @@
     "adjWeekend": "Weekends and public holidays",
     "adjWeekendValue": "+ {surge}%",
     "adjInterurban": "Outside the metropolitan area",
-    "adjInterurbanValue": "priced by the kilometre"
+    "adjInterurbanValue": "priced by the kilometre",
+    "zoneTitle": "Which addresses the city price covers",
+    "zoneBody1": "The listed price covers any address within {km} km of the terminal, measured in a straight line rather than along the road. Every part of Barcelona is inside it: Park Güell, up behind Gràcia, is the furthest point in the city at 14.3 km, and it pays the same as a hotel on Passeig de Gràcia.",
+    "zoneBody2": "The straight-line measurement is deliberate, and it works in your favour. Plaça de Catalunya is 12.3 km from the terminal as the crow flies but 19.6 km by road, because the road runs around the Llobregat and in along the Gran Via. A zone measured along the road at {km} km would put the centre of the city outside it and start billing extra kilometres on the most common journey of all. Beyond the zone — Badalona at 21.8 km, Sant Cugat at 19.5 — the list price applies plus {rate} for each additional kilometre, as one published figure rather than the tariff of the hour.",
+    "supTitle": "The official supplements, already inside your price",
+    "supIntro": "Barcelona's regulated tariff adds fixed supplements for certain places and dates. They are not extras we bill on top: each one is already contained in the figure in the table above, which is why there is nothing to settle in the car. They are listed here so that a supplement you see on a tariff board is one you can account for.",
+    "supAirport": "El Prat airport",
+    "supPort": "Moll Adossat cruise terminal",
+    "supSants": "Sants station",
+    "supFira": "Fira Gran Via",
+    "supLarge": "Vehicle carrying {seats} or more passengers",
+    "supNights": "Christmas Eve, New Year's Eve and the night of Sant Joan",
+    "supCap": "The regulated tariff caps total supplements on a single service at {cap}. On an ordinary airport transfer one supplement applies and the ceiling is never reached.",
+    "neverTitle": "What never changes your price",
+    "neverBody1": "The hour of the day. A 04:30 pickup for an early departure costs exactly what a two-o'clock-in-the-afternoon run costs. There is no night rate on a fixed price, and no airport-arrival surcharge appearing at the end.",
+    "neverBody2": "Nor does the traffic, the route your driver chooses, which terminal you land at, the number of passengers up to the vehicle's capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by a single published percentage. Everything else is our risk, which is what you are buying when you fix a price in advance.",
+    "interTitle": "Journeys outside the metropolitan area",
+    "interBody1": "Once either end of the journey lies outside the Barcelona metropolitan area, the city tariff stops applying and the journey is priced per kilometre on the interurban tariff set by the Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, the Costa Brava and Andorra are all priced this way, quoted in full before you book rather than taken from the fixed list — no honest fixed list could cover distances that differ by a factor of five.",
+    "interBody2": "The per-kilometre figure is higher than the city one for a reason worth knowing: the interurban tariff treats the journey as a closed circuit and bills the driver's return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It is why a long transfer costs what it does, and why a per-kilometre rate quoted anywhere without that detail is about half the real one."
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
@@ -241,7 +268,19 @@
       "reserved": "Reserved · paid online",
       "arrived": "Arrived · nothing to pay in the car",
       "live": "Driver live"
-    }
+    },
+    "prepTitle": "What we need from you",
+    "prepBody1": "A full address rather than a district, the number of passengers, and how many suitcases you are actually carrying. The last one matters more than people expect: a four-seat car takes four passengers but only about three cases, so four adults with four large bags need a six-seat van. Getting that right while booking is the difference between a transfer and a problem on the kerb.",
+    "prepBody2": "If you are arriving by air, add your flight number. It is optional, but with it we track the actual landing and move your pickup automatically, so a delay costs you nothing and you do not have to guess at a safe arrival time weeks in advance. A mobile number reachable on the day completes the set — it is how your driver reaches you if the arrivals hall defeats you both.",
+    "afterTitle": "What happens once you have paid",
+    "afterBody1": "The booking is confirmed immediately by email, with a reference, the full price you paid, the vehicle you chose, and a receipt for the whole amount. Nothing is left outstanding and there is no second payment later.",
+    "afterBody2": "A driver is then assigned to your trip, and when that happens you are emailed their name and phone number along with the exact meeting point for your terminal. That assignment is a real commitment of a specific car and person rather than a request put out to a pool when you land, which is why a booked transfer behaves differently from a rank queue at two in the morning.",
+    "dayTitle": "On the day",
+    "dayBody1": "For an airport pickup your driver waits inside the arrivals hall, on the public side of the exit from baggage reclaim, holding a sign with your name. Not at the kerb, and not in the rank queue. For a city pickup they come to the address you gave, at the time agreed.",
+    "dayBody2": "Everything is already paid, so there is nothing to settle in the car: no fare, no supplement, no tip expected. If you want the official taxi meter invoice for the journey itself, the driver can provide it on request — your own receipt for the amount you paid arrived with the confirmation.",
+    "changeTitle": "If something changes",
+    "changeBody1": "You can change the details yourself within 30 minutes of booking, and after that up until your driver sets off — reply to your confirmation or message us on WhatsApp. Changing a terminal, a pickup time or an address costs nothing, and a changed terminal is the single most common correction we make.",
+    "changeBody2": "A delayed flight is not a change and needs no action from you: the pickup follows the real landing time, at no extra charge, however late the aircraft is. If your flight is cancelled outright, or your plans fall through, tell us as soon as you know — cancel at least 24 hours before the pickup and the whole amount is refunded to the card you paid with, normally within five to ten working days. Inside 24 hours we will still always try to help, but a refund at that point is no longer automatic."
   },
   "faq": {
     "metaTitle": "Barcelona Airport Taxi FAQ: Fares, Pickup",
@@ -279,8 +318,76 @@
       "outsideBarcelona": {
         "q": "Do you pick up outside Barcelona?",
         "a": "Not yet. At the moment pickups must be inside Barcelona city or at El Prat airport. Your destination, however, can be anywhere."
+      },
+      "whereInCity": {
+        "q": "Does the price change depending on where in Barcelona I am going?",
+        "a": "No. One price covers any address within 16 km of the terminal, measured in a straight line, and all of Barcelona is inside that — Park Güell is the furthest point in the city at 14.3 km. Beyond the zone the list price applies plus €1.50 per extra kilometre."
+      },
+      "weekendNight": {
+        "q": "Do you charge more at night or at weekends?",
+        "a": "Never for the hour of the day: a 04:30 pickup costs the same as one at 14:00. Weekends and public holidays add 7.5%, so a €50 city transfer is €53.75. That is a single published rate, not a surge that moves with demand."
+      },
+      "vsMeter": {
+        "q": "Is this cheaper than a taxi from the rank?",
+        "a": "Sometimes, and we would rather be straight about it. On a quiet weekday the rank's meter often reads less, because our fixed price includes absorbing traffic risk that did not happen. In heavy traffic, at weekends, or on the three supplement nights, the fixed price is usually lower — and it is always known in advance."
+      },
+      "payment": {
+        "q": "How do I pay, and is anything owed to the driver?",
+        "a": "You pay the whole amount online when you book, by credit card, debit card or Bizum. Nothing at all is owed in the taxi — no fare, no supplement, no tip expected. The driver is settled by us afterwards and never asks you for money."
+      },
+      "flightDelay": {
+        "q": "What happens if my flight is delayed?",
+        "a": "Nothing you need to do. We track your flight number and move the pickup to the actual landing time, at no extra charge. A delay does not lose your car or cost you a cancellation. If the flight is cancelled outright, tell us and the full amount is refunded."
+      },
+      "multipleCars": {
+        "q": "We are a large group. Can we book more than one car?",
+        "a": "Yes. Choose several vehicles in one booking and they are reserved together, paid in a single checkout and dispatched to the same pickup — up to six cars. Each car is priced at the same published rate for its size, so a party of ten is two cars at list price rather than a bespoke quote."
+      },
+      "whichVehicle": {
+        "q": "Which vehicle size do I need?",
+        "a": "A four-seat car takes 4 passengers and about 3 suitcases, which is the limit people most often misjudge. Four adults with four large cases need the six-seat Mercedes Vito (6 bags) or the seven-seat V-Class (7 bags). Choosing on luggage rather than headcount avoids a problem at the kerb."
+      },
+      "changeBooking": {
+        "q": "Can I change a booking after making it?",
+        "a": "Yes. You can change details yourself within 30 minutes of booking, and after that up until your driver sets off — reply to your confirmation email or message us on WhatsApp. Changing a terminal or a pickup time costs nothing."
+      },
+      "cruisePort": {
+        "q": "Do you serve the cruise terminal at Moll Adossat?",
+        "a": "Yes, and it is priced separately from the city: €60 in a four-seat car, €80 for six seats and €85 for seven, between the terminal and El Prat. A transfer between the quay and the city is the city price plus a €10 port charge, which lands on the same €60."
+      },
+      "longDistance": {
+        "q": "Do you go to Sitges, Girona, Tarragona or Andorra?",
+        "a": "Yes. Journeys with an end outside the metropolitan area are priced per kilometre on the Generalitat's interurban tariff rather than from the fixed city list, and quoted in full before you book. The rate is higher per kilometre because that tariff bills the driver's return leg as well."
+      },
+      "findDriver": {
+        "q": "What if I cannot find my driver?",
+        "a": "Your confirmation carries a phone number that reaches the driver directly rather than a call centre. Arrivals halls are large and name signs get lowered, so one call usually resolves it in under a minute. The driver also has your number and will call if they cannot see you."
       }
     }
+  },
+  "blog": {
+    "metaTitle": "Barcelona Airport Taxi Guides & Travel Tips",
+    "metaDescription": "Practical guides to getting to and from Barcelona El Prat airport: what a taxi costs, taxi versus Aerobús, and which terminal you actually need.",
+    "h1": "Barcelona airport travel guides",
+    "breadcrumb": "Guides",
+    "intro": "Straight answers on getting to and from El Prat — what things cost, how long they take, and when a taxi is genuinely the right call.",
+    "aboutTitle": "What these guides are for",
+    "aboutBody1": "These are the questions we are asked most often, answered at the length they actually need. What a taxi from El Prat costs and how the price is built. Whether the Aerobús or the metro is the better choice for your group — with the honest answer, which for one person travelling light is usually not the taxi. Which terminal your airline uses and where the taxis wait at each.",
+    "aboutBody2": "Every figure in them comes from the same place as the prices on this site: the published AMB tariff for Barcelona and the Generalitat's interurban tariff for anything beyond it, checked against the printed boards rather than copied from another website. Where a guide quotes a rate, the rate is the one in force for the current tariff year, and the pages carry the date they were last revised.",
+    "aboutBody3": "What they are not is sales copy with a question mark on the front. Where public transport is the better option we say so, and where the rank outside arrivals will cost you less than booking ahead we say that too. A guide that recommends us for every journey would not be worth reading, and would not be true."
+  },
+  "reviews": {
+    "metaTitle": "Barcelona Airport Taxi Reviews",
+    "metaDescription": "Reviews from passengers who booked a Barcelona airport taxi with BCNAirportTaxi. Every review comes from a completed, verified booking and nowhere else.",
+    "h1": "Passenger reviews",
+    "intro": "Every review here comes from a completed booking. We publish them after a check that the trip actually took place.",
+    "empty": "No reviews published yet. Once passengers start completing trips, their reviews will appear here.",
+    "policyTitle": "How reviews get onto this page",
+    "policyBody1": "A review can only be left by someone whose booking was completed, using a link sent after the trip. It is tied to a specific reference, so a review cannot be written by anyone who did not take the journey, and the same trip cannot be reviewed twice.",
+    "policyBody2": "Reviews are read before publication, and the only thing that check does is confirm the trip took place and remove anything that identifies a third party or a driver by name. A review is not held back for being critical — that would make the whole page worthless, and a page of nothing but five stars is a page nobody believes. Ratings of every level are published as written.",
+    "whyEmptyTitle": "Why we would rather show nothing than something",
+    "whyEmptyBody1": "This page shows an average rating and a review count only once real approved reviews exist. Until then it shows neither, and it is deliberately kept out of search results rather than being filled with testimonials from elsewhere.",
+    "whyEmptyBody2": "That is a decision with a cost: star ratings in search results measurably increase clicks, and inventing them is both easy and common. It is also fraud, and the structured data that produces those stars is a declaration to a search engine about real customers. An empty page is worth less than a full one and considerably more than a fabricated one."
   },
   "contact": {
     "metaTitle": "Contact | Barcelona Airport Taxi Booking",
@@ -290,7 +397,24 @@
     "whatsappTitle": "WhatsApp — fastest",
     "whatsappBody": "For urgent rides within 3 hours and anything time-sensitive.",
     "emailTitle": "Email",
-    "emailBody": "For quotes, invoices and booking changes."
+    "emailBody": "For quotes, invoices and booking changes.",
+    "whichTitle": "Which one to use",
+    "whichBody1": "WhatsApp for anything happening today. A ride needed inside the three-hour online booking window, a flight that has just landed and a driver you cannot find, a pickup time that has to move in the next hour — those need a person reading immediately, and that is what the WhatsApp number is for.",
+    "whichBody2": "Email for anything with a paper trail. Invoices and VAT details, a quote for a long or unusual journey, a complaint, a refund, a booking for a date months out, or anything where you want the answer in writing. Email is also the better channel if you are not a WhatsApp user, which the number assumes and the inbox does not.",
+    "includeTitle": "What to include so we can answer first time",
+    "includeBody1": "Most of the back-and-forth on a booking question comes from a message that is missing one fact. If you include these, the reply is usually an answer rather than a question:",
+    "includeItems": {
+      "ref": "Your booking reference, if you already have one — it is in the subject line of your confirmation",
+      "route": "The full pickup and drop-off addresses, not just the districts",
+      "when": "The date and time, and whether that time is a landing time or a pickup time",
+      "people": "How many passengers and how many suitcases",
+      "flight": "The flight number, for anything involving the airport"
+    },
+    "existingTitle": "Changing or cancelling a booking you already have",
+    "existingBody1": "You can change the details yourself within 30 minutes of booking. After that, and up until your driver sets off, reply to your confirmation email or message us and we will move it. Changing a terminal, a time or an address costs nothing, and a wrong terminal is the most common correction we make.",
+    "existingBody2": "To cancel, tell us as soon as you know. A booking cancelled at least 24 hours before the pickup is refunded in full to the card you paid with, normally within five to ten working days. A delayed flight is not a cancellation and needs nothing from you — we track the flight number and the pickup follows the real landing time.",
+    "langTitle": "Languages",
+    "langBody": "We answer in English, Spanish and Catalan directly. Messages in French, German, Italian, Dutch, Portuguese, Russian and Chinese are answered too, sometimes a little more slowly, and the booking confirmation and your receipt are sent in whichever of the ten languages you booked in."
   },
   "checkout": {
     "metaTitle": "Complete Your Barcelona Taxi Booking",
@@ -575,7 +699,7 @@
     "fixed": "fixed",
     "rowAirportCity": "El Prat airport to Barcelona centre",
     "rowAirportPort": "El Prat airport to Moll Adossat cruise port",
-    "rowAirportSitges": "El Prat airport to Sitges",
+    "rowBcnSitges": "Barcelona to Sitges",
     "rowBcnTarragona": "Barcelona to Tarragona",
     "rowBcnGirona": "Barcelona to Girona airport",
     "note": "Airport and cruise port transfers are a fixed price: the hour of the day does not change it. Weekends and public holidays add {surge}%, and a drop-off more than {km} km from the airport or port adds {rate} for each extra kilometre. Only journeys that leave the metropolitan area are priced by the kilometre. Every price shown is all-inclusive, with nothing to pay in the taxi.",

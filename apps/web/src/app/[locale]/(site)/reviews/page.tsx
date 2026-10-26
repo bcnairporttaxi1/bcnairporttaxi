@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { locales } from '@/i18n/routing';
@@ -24,11 +24,11 @@ export async function generateMetadata(props: {
   const approved = await prisma.review
     .count({ where: { approved: true, direction: 'USER_TO_DRIVER' } })
     .catch(() => 0);
+  const t = await getTranslations({ locale, namespace: 'reviews' });
   return {
-    title: 'Barcelona Airport Taxi Reviews',
+    title: t('metaTitle'),
     robots: approved > 0 ? undefined : { index: false, follow: true },
-    description:
-      'Reviews from passengers who booked a Barcelona airport taxi with BCNAirportTaxi. Every review comes from a completed, verified booking.',
+    description: t('metaDescription'),
     alternates: { canonical: `/${locale}/reviews`, languages },
   };
 }
@@ -38,6 +38,9 @@ export default async function ReviewsPage(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
+  // The hero and the empty-state were hardcoded English, so nine locales read
+  // an untranslated page while claiming `hreflang` coverage for it.
+  const t = await getTranslations('reviews');
 
   // Only moderated reviews are ever shown, and only these feed AggregateRating.
   const reviews = await prisma.review
@@ -81,16 +84,12 @@ export default async function ReviewsPage(props: {
         />
       )}
 
-      <PageHero
-        title="Passenger reviews"
-        intro="Every review here comes from a completed booking. We publish them after a quick check that the trip actually took place."
-      />
+      <PageHero title={t('h1')} intro={t('intro')} />
 
       <div className="mx-auto max-w-3xl px-4 py-14">
         {reviews.length === 0 ? (
           <p className="rounded-card border border-line bg-raise p-8 text-center text-dim">
-            No reviews published yet. Once passengers start completing trips, their
-            reviews will appear here.
+            {t('empty')}
           </p>
         ) : (
           <>
@@ -111,6 +110,23 @@ export default async function ReviewsPage(props: {
             </ul>
           </>
         )}
+
+        {/*
+          Why the policy is spelled out on a page that currently lists nothing:
+          the honest explanation of how reviews get here is the one piece of
+          content this page can carry without any reviews existing, and it is
+          the part that matters. Inventing testimonials, or emitting an
+          AggregateRating off zero reviews, would be fraud rather than SEO.
+        */}
+        <section className="mt-14">
+          <h2 className="font-display text-2xl font-extrabold">{t('policyTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('policyBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('policyBody2')}</p>
+
+          <h2 className="mt-12 font-display text-2xl font-extrabold">{t('whyEmptyTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('whyEmptyBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('whyEmptyBody2')}</p>
+        </section>
       </div>
     </>
   );

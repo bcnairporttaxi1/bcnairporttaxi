@@ -62,6 +62,37 @@ export default async function HowItWorksPage(props: {
           ))}
         </ol>
 
+        {/*
+          Three steps and a button came to 117 words, which told a visitor the
+          shape of the process and none of the things they have to decide or
+          provide. The four sections below are the questions that arrive by
+          email after someone has read the steps and still does not know what
+          happens next.
+        */}
+        <section className="mt-14">
+          <h2 className="font-display text-2xl font-extrabold">{t('prepTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('prepBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('prepBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('afterTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('afterBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('afterBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('dayTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('dayBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('dayBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('changeTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('changeBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('changeBody2')}</p>
+        </section>
+
         <p className="mt-12 rounded-card border border-line bg-raise p-5 text-sm text-dim">
           {tq('disclaimer')}
         </p>

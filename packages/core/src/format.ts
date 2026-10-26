@@ -12,12 +12,38 @@
 const money = new Map<string, Intl.NumberFormat>();
 const dates = new Map<string, Intl.DateTimeFormat>();
 
+/** What an unusable tag falls back to. */
+const FALLBACK = 'en';
+
 /**
  * Chinese needs an explicit script subtag; bare `zh` leaves the choice of Han
  * script to the runtime, which is not the same across environments.
+ *
+ * Anything `Intl` cannot parse falls back to English instead of throwing.
+ * That is not defensiveness for its own sake — the argument arrives here as a
+ * URL segment, and `Intl` throws a RangeError on a malformed tag rather than
+ * degrading.
+ *
+ * It cost a 500 on every unmatched path containing a dot. The proxy's matcher
+ * excludes those so that real files and route handlers resolve, which left
+ * `/ads.txt` or `/wp-config.php` matching `[locale]` with the locale set to
+ * "ads.txt". The layout rejects an unknown locale and returns a 404, but a
+ * child component formats a price while that check is still running, so the
+ * RangeError escaped first and the server answered 500. Crawlers read that as
+ * "ask again later" and keep every probe URL queued; a 404 retires it.
+ *
+ * Validating the tag here rather than at the one call site that broke, because
+ * every caller passes a route segment and the next one will have the same bug.
  */
 function intlLocale(locale: string): string {
-  return locale === 'zh' ? 'zh-Hans' : locale;
+  const tag = locale === 'zh' ? 'zh-Hans' : locale;
+  try {
+    // Throws on a malformed tag; a well-formed but unknown one is fine and
+    // resolves to the runtime's closest match.
+    return Intl.getCanonicalLocales(tag)[0] ?? FALLBACK;
+  } catch {
+    return FALLBACK;
+  }
 }
 
 /** Euros the way the reader writes them: €45.20 in English, 45,20 € in Spanish. */

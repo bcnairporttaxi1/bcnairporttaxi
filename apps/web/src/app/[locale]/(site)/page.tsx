@@ -8,6 +8,7 @@ import { DestinationStrip } from '@/components/destination-strip';
 import { FEATURED_DESTINATIONS, ALL_DESTINATIONS } from '@bcn/core/destinations';
 import { attributionLine, destinationPhoto } from '@bcn/core/destination-photos';
 import { LANDMARKS, TARIFFS } from '@bcn/core/tariffs';
+import { destinationRouteTotal } from '@bcn/core/route-price';
 import { calculateQuote } from '@bcn/core/pricing';
 import { PaymentMethods } from '@/components/payment-methods';
 import { Reveal } from '@/components/reveal';
@@ -70,8 +71,6 @@ export default async function HomePage(props: {
      tariff depending on when the page happens to be rendered. */
   const SAMPLE_AT = new Date('2026-06-10T12:00:00+02:00');
   const BCN_CENTRE = { lat: 41.387, lng: 2.1701 }; // Placa de Catalunya
-  const SITGES = { lat: 41.2351, lng: 1.8117 };
-  const TARRAGONA = { lat: 41.1189, lng: 1.2445 };
   const GIRONA_AIRPORT = { lat: 41.901, lng: 2.7606 };
 
   const sample = (pickup: { lat: number; lng: number }, dropoff: { lat: number; lng: number }, km: number) =>
@@ -87,9 +86,12 @@ export default async function HomePage(props: {
        the figure. Both read "fixed", as the port row already did. */
     { route: tfare('rowAirportCity'), distance: tfare('fixed'), tariff: tfare('fixed'), fare: eur(sample(airport, BCN_CENTRE, 14.2).total) },
     { route: tfare('rowAirportPort'), distance: tfare('fixed'), tariff: tfare('fixed'), fare: eur(sample(airport, moll, 12.4).total) },
-    { route: tfare('rowAirportSitges'), distance: '32.8 km', tariff: 'T-6', fare: eur(sample(airport, SITGES, 32.8).total) },
-    { route: tfare('rowBcnTarragona'), distance: '97.3 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, TARRAGONA, 97.3).total) },
-    { route: tfare('rowBcnGirona'), distance: '97.0 km', tariff: 'T-6', fare: eur(sample(BCN_CENTRE, GIRONA_AIRPORT, 97.0).total) },
+    /* Priced through the shared helper, so this row and the Sitges page
+       quote one figure. The label says Barcelona rather than the airport
+       because that is the journey the published distance describes. */
+    { route: tfare('rowBcnSitges'), distance: '38 km', tariff: 'T-6', fare: eur(destinationRouteTotal('sitges') ?? 0) },
+    { route: tfare('rowBcnTarragona'), distance: '100 km', tariff: 'T-6', fare: eur(destinationRouteTotal('tarragona') ?? 0) },
+    { route: tfare('rowBcnGirona'), distance: '103 km', tariff: 'T-6', fare: eur(destinationRouteTotal('girona') ?? 0) },
   ];
 
   /* Cards that carry a photograph read far better than ones that do not, so

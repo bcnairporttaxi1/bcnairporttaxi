@@ -59,6 +59,27 @@ export default async function FleetPage(props: {
           ))}
         </ul>
 
+        {/*
+          The grid of cards showed what the vehicles are and answered none of
+          the questions people actually ask before choosing one: how many
+          suitcases really fit, whether a bigger car costs more, and what a
+          "licensed AMB taxi" means for them. Four seats and three bags is the
+          limit most often misjudged, and it is misjudged at the kerb.
+        */}
+        <section className="mx-auto mt-14 max-w-3xl">
+          <h2 className="font-display text-2xl font-extrabold">{t('chooseTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('chooseBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('chooseBody2')}</p>
+
+          <h2 className="mt-12 font-display text-2xl font-extrabold">{t('licensedTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('licensedBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('licensedBody2')}</p>
+
+          <h2 className="mt-12 font-display text-2xl font-extrabold">{t('commonTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('commonBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('commonBody2')}</p>
+        </section>
+
         <Link
           href="/book"
           className="wave mt-10 inline-block rounded-lg bg-gold px-6 py-3.5 font-display font-extrabold text-void transition hover:bg-accent-deep"

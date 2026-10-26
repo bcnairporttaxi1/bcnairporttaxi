@@ -17,6 +17,11 @@ loadEnv({ path: join(dirname(fileURLToPath(import.meta.url)), '..', '..', '.env'
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  // Serve src/app/global-not-found.tsx for unmatched URLs. See that file for
+  // why the route-level convention cannot work in an app with no root layout.
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     // All imagery is generated at build time and served locally, so no remote
     // patterns are needed. AVIF first keeps the hero within the LCP budget.

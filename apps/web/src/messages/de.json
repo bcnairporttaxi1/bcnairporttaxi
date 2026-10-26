@@ -171,6 +171,15 @@
     "bags": "{count, plural, one {# Koffer} other {# Koffer}}",
     "passengersLabel": "Fahrgäste",
     "luggageLabel": "Gepäck",
+    "chooseTitle": "Nach Gepäck wählen, nicht nach Personenzahl",
+    "chooseBody1": "Wählen Sie das Fahrzeug nach der Zahl der Koffer, nicht der Fahrgäste. In ein Standardtaxi mit vier Sitzen passen vier Personen, aber nur etwa drei große Koffer: der Kofferraum eines Corolla oder eines SEAT Toledo ist die eigentliche Grenze, und sie wird beim Buchen von zu Hause am häufigsten unterschätzt. Vier Erwachsene mit je einem großen Koffer brauchen den sechssitzigen Mercedes Vito, der sechs Fahrgäste und sechs Gepäckstücke aufnimmt.",
+    "chooseBody2": "Darüber hinaus trägt der siebensitzige Mercedes V-Class sieben Fahrgäste und sieben Gepäckstücke. Wenn Sie etwas Übergroßes mitnehmen – ein Fahrrad, Ski, ein Surfbrett, ein Cello –, vermerken Sie es in den Buchungsnotizen, statt einfach ein größeres Auto zu wählen und zu hoffen: manchmal ist die richtige Antwort ein bestimmtes Fahrzeug und nicht bloß ein größeres. Für Gruppen über sieben Personen lassen sich mehrere Wagen gemeinsam in einem Bezahlvorgang buchen, jeder zu seinem veröffentlichten Preis.",
+    "licensedTitle": "Was „lizenziertes Barcelona-Taxi“ hier bedeutet",
+    "licensedBody1": "Jedes Fahrzeug dieser Flotte ist ein lizenziertes Barcelona-Taxi in der amtlichen schwarz-gelben Lackierung, betrieben unter der städtischen Taxilizenz und nicht als Mietwagen mit Fahrer. Das ist kein Markendetail: es bedeutet, dass das Fahrzeug Taxistände und Taxispuren benutzen darf, die vorgeschriebene Versicherung trägt, dem Prüfregime der AMB unterliegt und für die Fahrt eine amtliche Taxameterrechnung ausstellen kann.",
+    "licensedBody2": "Es bedeutet außerdem, dass der Fahrer ein professioneller Barcelona-Taxifahrer ist, der die Ortskunde- und Lizenzanforderungen der Stadt erfüllt hat, und kein Auftragnehmer mit einer App. Wer hier bucht, bucht ein reguliertes Taxi zu einem vorab vereinbarten Festpreis: Fahrzeug und Fahrer sind dieselben, die Sie am Stand bekämen – nur sind Preis und Wagen vor der Landung geklärt und nicht danach.",
+    "commonTitle": "Was jedes Fahrzeug hat",
+    "commonBody1": "Klimaanlage, Gurte auf jedem Sitz, ein Kartenterminal und Platz für das auf der Karte angegebene Gepäck. Alle sind Nichtraucherfahrzeuge. Jeder Wagen wird nach dem Zeitplan der AMB geprüft und ist als lizenziertes Taxi versichert, die Untergrenze setzt also die Vorschrift und nicht wir.",
+    "commonBody2": "Kindersitze sind nicht standardmäßig verbaut; wenn Sie einen brauchen, vermerken Sie das vor der Fahrt in den Buchungsnotizen, damit der passende Wagen zugeteilt wird. Hilfe beim Ein- und Ausladen des Gepäcks ist inbegriffen und wird nie berechnet, ebenso eine angemessene Wartezeit, während Sie aus dem Ankunftsbereich kommen.",
     "categories": {
       "eco": "Öko-Hybrid-Taxi",
       "standard": "Standard-Taxi",
@@ -419,7 +428,7 @@
     "fixed": "fest",
     "rowAirportCity": "Flughafen El Prat ins Zentrum Barcelona",
     "rowAirportPort": "Flughafen El Prat nach Moll Adossat",
-    "rowAirportSitges": "Flughafen El Prat nach Sitges",
+    "rowBcnSitges": "Barcelona nach Sitges",
     "rowBcnTarragona": "Barcelona nach Tarragona",
     "rowBcnGirona": "Barcelona zum Flughafen Girona",
     "note": "Transfers zum Flughafen und zum Kreuzfahrthafen haben einen Festpreis: die Tageszeit ändert ihn nicht. An Wochenenden und Feiertagen kommen {surge} % hinzu, und ein Ziel mehr als {km} km von Flughafen oder Hafen entfernt {rate} je zusätzlichem Kilometer. Nur Fahrten aus dem Stadtgebiet heraus werden nach Kilometern berechnet. Alle Preise sind All-inclusive, im Taxi ist nichts zu zahlen.",
@@ -485,7 +494,25 @@
     "adjWeekend": "Wochenenden und Feiertage",
     "adjWeekendValue": "+ {surge} %",
     "adjInterurban": "Außerhalb des Stadtgebiets",
-    "adjInterurbanValue": "nach Kilometern"
+    "adjInterurbanValue": "nach Kilometern",
+    "zoneTitle": "Welche Adressen der Stadtpreis abdeckt",
+    "zoneBody1": "Der Listenpreis gilt für jede Adresse innerhalb von {km} km vom Terminal, gemessen in der Luftlinie und nicht entlang der Straße. Ganz Barcelona liegt darin: der Park Güell, oberhalb von Gràcia, ist mit 14,3 km der entfernteste Punkt der Stadt und zahlt dasselbe wie ein Hotel am Passeig de Gràcia.",
+    "zoneBody2": "Die Messung in der Luftlinie ist Absicht und sie wirkt zu Ihren Gunsten. Die Plaça de Catalunya liegt 12,3 km Luftlinie vom Terminal entfernt, aber 19,6 km über die Straße, weil diese den Llobregat umfährt und über die Gran Via hereinführt. Eine Zone, die auf der Straße bei {km} km gemessen würde, ließe das Stadtzentrum außen vor und begänne genau auf der häufigsten Fahrt überhaupt Zusatzkilometer zu berechnen. Jenseits der Zone – Badalona mit 21,8 km, Sant Cugat mit 19,5 – gilt der Listenpreis plus {rate} pro zusätzlichem Kilometer, als eine veröffentlichte Zahl und nicht als der jeweils gerade geltende Tarif.",
+    "supTitle": "Die amtlichen Zuschläge, bereits in Ihrem Preis enthalten",
+    "supIntro": "Der regulierte Barcelona-Tarif erhebt feste Zuschläge für bestimmte Orte und Tage. Es sind keine Extras, die wir obendrauf berechnen: jeder davon steckt bereits in der Zahl der Tabelle oben, und genau deshalb ist im Wagen nichts zu begleichen. Sie sind hier aufgeführt, damit ein Zuschlag, den Sie auf einer Tariftafel sehen, ein Zuschlag ist, den Sie einordnen können.",
+    "supAirport": "Flughafen El Prat",
+    "supPort": "Kreuzfahrtterminal Moll Adossat",
+    "supSants": "Bahnhof Sants",
+    "supFira": "Fira Gran Via",
+    "supLarge": "Fahrzeug mit {seats} oder mehr Sitzplätzen",
+    "supNights": "Heiligabend, Silvester und die Nacht von Sant Joan",
+    "supCap": "Der regulierte Tarif begrenzt die Summe der Zuschläge einer einzelnen Fahrt auf {cap}. Bei einem gewöhnlichen Flughafentransfer gilt ein Zuschlag, und diese Obergrenze wird nie erreicht.",
+    "neverTitle": "Was Ihren Preis nie verändert",
+    "neverBody1": "Die Tageszeit. Eine Abholung um 04:30 für einen frühen Flug kostet genau so viel wie eine Fahrt um zwei Uhr nachmittags. Bei einem Festpreis gibt es keinen Nachttarif und keinen Flughafenzuschlag, der am Ende noch auftaucht.",
+    "neverBody2": "Ebenso wenig der Verkehr, die Route, die Ihr Fahrer wählt, das Terminal, an dem Sie landen, die Zahl der Mitfahrenden bis zur Kapazität des Fahrzeugs oder die Menge an Gepäck, die darin Platz hat. Wochenenden und Feiertage sind das Einzige, was einen Listenpreis anhebt, und zwar um einen einzigen veröffentlichten Prozentsatz. Alles andere ist unser Risiko – und genau das kauft man, wenn man einen Preis im Voraus festschreibt.",
+    "interTitle": "Fahrten außerhalb des Großraums",
+    "interBody1": "Sobald ein Ende der Fahrt außerhalb des Großraums Barcelona liegt, gilt der Stadttarif nicht mehr und die Fahrt wird nach Kilometern auf dem Überlandtarif der Generalitat de Catalunya berechnet. Sitges, Tarragona, Girona, Reus, die Costa Brava und Andorra werden so berechnet, vor der Buchung vollständig beziffert und nicht der Festpreisliste entnommen – keine ehrliche Festpreisliste könnte Entfernungen abdecken, die um den Faktor fünf auseinanderliegen.",
+    "interBody2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte: der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt den Preis einer langen Fahrt – und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist."
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -512,7 +539,19 @@
       "reserved": "Reserviert · online bezahlt",
       "arrived": "Angekommen · nichts im Taxi zu zahlen",
       "live": "Fahrer live"
-    }
+    },
+    "prepTitle": "Was wir von Ihnen brauchen",
+    "prepBody1": "Eine vollständige Adresse statt eines Stadtteils, die Zahl der Mitfahrenden und wie viele Koffer Sie tatsächlich dabeihaben. Letzteres zählt mehr als man erwartet: ein Viersitzer nimmt vier Personen, aber nur etwa drei Koffer, also brauchen vier Erwachsene mit vier großen Taschen einen sechssitzigen Van. Das beim Buchen richtig einzuschätzen ist der Unterschied zwischen einem Transfer und einem Problem am Bordstein.",
+    "prepBody2": "Wenn Sie mit dem Flugzeug ankommen, geben Sie die Flugnummer an. Sie ist optional, aber damit verfolgen wir die tatsächliche Landung und verschieben die Abholung automatisch: eine Verspätung kostet Sie nichts, und Sie müssen nicht Wochen vorher eine sichere Ankunftszeit erraten. Eine am Tag erreichbare Mobilnummer macht das Set komplett – so erreicht Ihr Fahrer Sie, wenn die Ankunftshalle Sie beide besiegt.",
+    "afterTitle": "Was nach der Zahlung passiert",
+    "afterBody1": "Die Buchung wird sofort per E-Mail bestätigt, mit einer Referenz, dem vollen gezahlten Preis, dem gewählten Fahrzeug und einer Quittung über den gesamten Betrag. Es bleibt nichts offen, und es folgt keine zweite Zahlung.",
+    "afterBody2": "Danach wird Ihrer Fahrt ein Fahrer zugeteilt, und sobald das geschieht, erhalten Sie dessen Namen und Telefonnummer per E-Mail, zusammen mit dem genauen Treffpunkt für Ihr Terminal. Diese Zuteilung ist eine echte Zusage für einen bestimmten Wagen und eine bestimmte Person und nicht eine Anfrage, die bei Ihrer Landung in eine Runde gegeben wird – deshalb verhält sich ein gebuchter Transfer anders als eine Warteschlange am Stand um zwei Uhr morgens.",
+    "dayTitle": "Am Tag selbst",
+    "dayBody1": "Bei einer Abholung am Flughafen wartet Ihr Fahrer in der Ankunftshalle, auf der öffentlichen Seite des Ausgangs der Gepäckausgabe, mit einem Schild mit Ihrem Namen. Nicht am Bordstein und nicht in der Schlange am Taxistand. Bei einer Abholung in der Stadt kommt er zur angegebenen Adresse, zur vereinbarten Zeit.",
+    "dayBody2": "Alles ist bereits bezahlt, im Wagen ist also nichts zu begleichen: keine Fahrt, kein Zuschlag, kein erwartetes Trinkgeld. Wenn Sie die amtliche Taxameterrechnung für die Fahrt selbst möchten, stellt der Fahrer sie auf Wunsch aus; Ihre eigene Quittung über den gezahlten Betrag kam mit der Bestätigung.",
+    "changeTitle": "Wenn sich etwas ändert",
+    "changeBody1": "Innerhalb von 30 Minuten nach der Buchung ändern Sie die Angaben selbst, danach bis zur Abfahrt Ihres Fahrers: antworten Sie auf Ihre Bestätigung oder schreiben Sie uns auf WhatsApp. Ein anderes Terminal, eine andere Abholzeit oder eine andere Adresse kostet nichts, und ein falsches Terminal ist die Korrektur, die wir am häufigsten vornehmen.",
+    "changeBody2": "Ein verspäteter Flug ist keine Änderung und erfordert nichts von Ihnen: die Abholung folgt der tatsächlichen Landezeit, ohne Mehrkosten und ganz gleich, wie spät die Maschine ist. Fällt Ihr Flug ganz aus oder platzen Ihre Pläne, sagen Sie uns Bescheid, sobald Sie es wissen – bei einer Absage mindestens 24 Stunden vor der Abholung wird der gesamte Betrag auf die verwendete Karte erstattet, in der Regel innerhalb von fünf bis zehn Werktagen. Innerhalb dieser 24 Stunden versuchen wir immer zu helfen, aber eine Erstattung ist dann nicht mehr automatisch."
   },
   "faq": {
     "metaTitle": "FAQ Flughafentaxi Barcelona | Preise und Abholung",
@@ -550,8 +589,76 @@
       "outsideBarcelona": {
         "q": "Holen Sie auch außerhalb Barcelonas ab?",
         "a": "Noch nicht. Derzeit muss die Abholung innerhalb der Stadt Barcelona oder am Flughafen El Prat liegen. Ihr Ziel darf dagegen überall sein."
+      },
+      "whereInCity": {
+        "q": "Ändert sich der Preis je nachdem, wohin in Barcelona ich fahre?",
+        "a": "Nein. Ein Preis gilt für jede Adresse innerhalb von 16 km Luftlinie vom Terminal, und ganz Barcelona liegt darin: der Park Güell ist mit 14,3 km der entfernteste Punkt der Stadt. Außerhalb der Zone gilt der Listenpreis plus 1,50 € pro zusätzlichem Kilometer."
+      },
+      "weekendNight": {
+        "q": "Berechnen Sie nachts oder am Wochenende mehr?",
+        "a": "Nie nach der Tageszeit: eine Abholung um 04:30 kostet so viel wie eine um 14:00. Wochenenden und Feiertage kommen mit 7,5 % hinzu, ein Stadttransfer für 50 € liegt dann bei 53,75 €. Das ist ein veröffentlichter Satz, kein Zuschlag, der mit der Nachfrage steigt."
+      },
+      "vsMeter": {
+        "q": "Ist das günstiger als ein Taxi vom Stand?",
+        "a": "Manchmal, und das sagen wir lieber offen. An einem ruhigen Werktag zeigt das Taxameter am Stand oft weniger, weil unser Festpreis ein Verkehrsrisiko enthält, das nicht eingetreten ist. Bei dichtem Verkehr, am Wochenende oder in den drei Zuschlagsnächten liegt der Festpreis meist darunter – und er steht immer vorher fest."
+      },
+      "payment": {
+        "q": "Wie wird bezahlt, und schuldet man dem Fahrer etwas?",
+        "a": "Sie zahlen den vollen Betrag online bei der Buchung, per Kreditkarte, Debitkarte oder Bizum. Im Taxi ist nichts zu zahlen: keine Fahrt, kein Zuschlag, kein erwartetes Trinkgeld. Den Fahrer rechnen wir im Nachhinein ab, er wird Sie nie um Geld bitten."
+      },
+      "flightDelay": {
+        "q": "Was passiert, wenn mein Flug Verspätung hat?",
+        "a": "Sie müssen nichts tun. Wir verfolgen Ihre Flugnummer und verschieben die Abholung auf die tatsächliche Landezeit, ohne Mehrkosten. Eine Verspätung kostet Sie weder das Auto noch eine Storno-Gebühr. Fällt der Flug ganz aus, sagen Sie uns Bescheid – der volle Betrag wird erstattet."
+      },
+      "multipleCars": {
+        "q": "Wir sind eine große Gruppe. Können wir mehrere Fahrzeuge buchen?",
+        "a": "Ja. Wählen Sie mehrere Fahrzeuge in einer Buchung: sie werden gemeinsam reserviert, in einem Vorgang bezahlt und zum selben Treffpunkt geschickt, bis zu sechs Wagen. Jedes Fahrzeug kostet den veröffentlichten Preis für seine Größe, eine Gruppe von zehn sind also zwei Wagen zum Listenpreis und kein Sonderangebot."
+      },
+      "whichVehicle": {
+        "q": "Welche Fahrzeuggröße brauche ich?",
+        "a": "Ein Viersitzer nimmt 4 Personen und etwa 3 Koffer – die Grenze, die am häufigsten unterschätzt wird. Vier Erwachsene mit vier großen Koffern brauchen den sechssitzigen Mercedes Vito (6 Koffer) oder den siebensitzigen V-Class (7 Koffer). Nach Gepäck statt nach Personenzahl zu wählen erspart das Problem am Bordstein."
+      },
+      "changeBooking": {
+        "q": "Kann ich eine Buchung nachträglich ändern?",
+        "a": "Ja. Innerhalb von 30 Minuten nach der Buchung ändern Sie die Angaben selbst, danach bis zur Abfahrt des Fahrers: antworten Sie auf die Bestätigungsmail oder schreiben Sie uns auf WhatsApp. Ein anderes Terminal oder eine andere Abholzeit kostet nichts."
+      },
+      "cruisePort": {
+        "q": "Fahren Sie zum Kreuzfahrtterminal am Moll Adossat?",
+        "a": "Ja, und es hat einen eigenen Preis getrennt von der Stadt: 60 € im Viersitzer, 80 € für sechs und 85 € für sieben Sitze, zwischen Terminal und El Prat. Eine Fahrt zwischen Kai und Stadt ist der Stadtpreis plus 10 € Hafenzuschlag, was dieselben 60 € ergibt."
+      },
+      "longDistance": {
+        "q": "Fahren Sie nach Sitges, Girona, Tarragona oder Andorra?",
+        "a": "Ja. Fahrten mit einem Ende außerhalb des Stadtgebiets werden nach Kilometern auf dem Überlandtarif der Generalitat berechnet, nicht nach der festen Stadtliste, und vor der Buchung vollständig beziffert. Der Kilometerpreis ist höher, weil dieser Tarif auch die Rückfahrt des Fahrers berechnet."
+      },
+      "findDriver": {
+        "q": "Was, wenn ich meinen Fahrer nicht finde?",
+        "a": "In Ihrer Bestätigung steht eine Nummer, die direkt den Fahrer erreicht, keine Zentrale. Ankunftshallen sind groß und Namensschilder werden irgendwann heruntergenommen, ein Anruf klärt das meist in weniger als einer Minute. Der Fahrer hat ebenfalls Ihre Nummer und ruft an, wenn er Sie nicht sieht."
       }
     }
+  },
+  "blog": {
+    "metaTitle": "Flughafentaxi Barcelona: Ratgeber und Tipps",
+    "metaDescription": "Praktische Ratgeber für Fahrten von und zum Flughafen Barcelona El Prat: was ein Taxi kostet, Taxi oder Aerobús, und welches Terminal Sie wirklich brauchen.",
+    "h1": "Reiseratgeber Flughafen Barcelona",
+    "breadcrumb": "Ratgeber",
+    "intro": "Klare Antworten zu Fahrten von und nach El Prat – was die Dinge kosten, wie lange sie dauern, und wann das Taxi wirklich die richtige Wahl ist.",
+    "aboutTitle": "Wozu diese Ratgeber da sind",
+    "aboutBody1": "Es sind die Fragen, die uns am häufigsten gestellt werden, beantwortet in der Länge, die sie tatsächlich brauchen. Was ein Taxi von El Prat kostet und wie sich der Preis zusammensetzt. Ob der Aerobús oder die Metro für Ihre Gruppe die bessere Wahl ist – mit der ehrlichen Antwort, die für eine Person mit leichtem Gepäck fast nie das Taxi lautet. Welches Terminal Ihre Airline nutzt und wo an jedem die Taxis warten.",
+    "aboutBody2": "Jede Zahl darin stammt aus derselben Quelle wie die Preise auf dieser Seite: der veröffentlichte AMB-Tarif für Barcelona und der Überlandtarif der Generalitat für alles darüber hinaus, geprüft an den gedruckten Tafeln und nicht von einer anderen Website übernommen. Wo ein Ratgeber einen Satz nennt, ist es der für das laufende Tarifjahr gültige, und die Seiten tragen das Datum ihrer letzten Überarbeitung.",
+    "aboutBody3": "Was sie nicht sind, ist Werbetext mit einem Fragezeichen davor. Wo der öffentliche Verkehr die bessere Option ist, sagen wir das, und wo der Stand vor der Ankunftshalle Sie weniger kostet als eine Vorausbuchung, sagen wir das auch. Ein Ratgeber, der uns für jede Fahrt empfiehlt, wäre nicht lesenswert – und nicht wahr."
+  },
+  "reviews": {
+    "metaTitle": "Bewertungen: Flughafentaxi Barcelona",
+    "metaDescription": "Bewertungen von Fahrgästen, die ein Flughafentaxi in Barcelona bei BCNAirportTaxi gebucht haben. Jede Bewertung stammt aus einer abgeschlossenen, geprüften Buchung.",
+    "h1": "Bewertungen von Fahrgästen",
+    "intro": "Jede Bewertung hier stammt aus einer abgeschlossenen Buchung. Wir veröffentlichen sie, nachdem geprüft wurde, dass die Fahrt wirklich stattgefunden hat.",
+    "empty": "Noch keine Bewertungen veröffentlicht. Sobald Fahrgäste Fahrten abschließen, erscheinen ihre Bewertungen hier.",
+    "policyTitle": "Wie eine Bewertung auf diese Seite kommt",
+    "policyBody1": "Eine Bewertung kann nur abgeben, wessen Buchung abgeschlossen wurde, über einen nach der Fahrt verschickten Link. Sie ist an eine bestimmte Referenz gebunden, kann also von niemandem geschrieben werden, der die Fahrt nicht gemacht hat, und dieselbe Fahrt lässt sich nicht zweimal bewerten.",
+    "policyBody2": "Bewertungen werden vor der Veröffentlichung gelesen, und diese Prüfung bestätigt ausschließlich, dass die Fahrt stattgefunden hat, und entfernt alles, was Dritte oder einen Fahrer namentlich kennzeichnet. Eine Bewertung wird nicht zurückgehalten, weil sie kritisch ist: das würde die ganze Seite wertlos machen, und eine Seite aus nichts als fünf Sternen ist eine Seite, die niemand glaubt. Bewertungen jeder Höhe werden so veröffentlicht, wie sie geschrieben wurden.",
+    "whyEmptyTitle": "Warum wir lieber nichts zeigen als irgendetwas",
+    "whyEmptyBody1": "Diese Seite zeigt eine Durchschnittsnote und eine Zahl von Bewertungen erst, wenn echte geprüfte Bewertungen vorliegen. Bis dahin zeigt sie beides nicht und bleibt bewusst aus den Suchergebnissen heraus, statt mit Stimmen von anderswo gefüllt zu werden.",
+    "whyEmptyBody2": "Das ist eine Entscheidung mit Preis: Sterne in Suchergebnissen erhöhen die Klicks messbar, und sie zu erfinden ist leicht und verbreitet. Es ist auch Betrug, und die strukturierten Daten, die diese Sterne erzeugen, sind eine Erklärung gegenüber einer Suchmaschine über echte Kunden. Eine leere Seite ist weniger wert als eine gefüllte und deutlich mehr als eine gefälschte."
   },
   "contact": {
     "metaTitle": "Kontakt | Flughafentaxi Barcelona buchen",
@@ -561,7 +668,24 @@
     "whatsappTitle": "WhatsApp — am schnellsten",
     "whatsappBody": "Für kurzfristige Fahrten innerhalb von 3 Stunden und alles Zeitkritische.",
     "emailTitle": "E-Mail",
-    "emailBody": "Für Angebote, Rechnungen und Buchungsänderungen."
+    "emailBody": "Für Angebote, Rechnungen und Buchungsänderungen.",
+    "whichTitle": "Welcher Kanal wofür",
+    "whichBody1": "WhatsApp für alles, was heute passiert. Eine Fahrt, die innerhalb des Drei-Stunden-Fensters der Online-Buchung gebraucht wird, ein gerade gelandeter Flug und ein Fahrer, den Sie nicht finden, eine Abholzeit, die in der nächsten Stunde verschoben werden muss – dafür braucht es jemanden, der sofort mitliest, und genau dafür ist die WhatsApp-Nummer da.",
+    "whichBody2": "E-Mail für alles mit Papierspur. Rechnungen und Umsatzsteuerangaben, ein Angebot für eine lange oder ungewöhnliche Fahrt, eine Beschwerde, eine Rückerstattung, eine Buchung für ein Datum in Monaten, oder jedes Thema, bei dem Sie die Antwort schriftlich haben wollen. E-Mail ist auch der bessere Kanal, wenn Sie WhatsApp nicht nutzen – was die Nummer voraussetzt und das Postfach nicht.",
+    "includeTitle": "Was hineingehört, damit wir gleich antworten können",
+    "includeBody1": "Das meiste Hin und Her bei einer Buchungsfrage entsteht durch eine Nachricht, in der eine Angabe fehlt. Mit diesen Angaben ist die Antwort meist eine Antwort und keine Rückfrage:",
+    "includeItems": {
+      "ref": "Ihre Buchungsreferenz, falls vorhanden – sie steht im Betreff Ihrer Bestätigung",
+      "route": "Die vollständigen Abhol- und Zieladressen, nicht nur die Stadtteile",
+      "when": "Datum und Uhrzeit, und ob diese Uhrzeit eine Landezeit oder eine Abholzeit ist",
+      "people": "Wie viele Fahrgäste und wie viele Koffer",
+      "flight": "Die Flugnummer, bei allem, was den Flughafen betrifft"
+    },
+    "existingTitle": "Eine bestehende Buchung ändern oder stornieren",
+    "existingBody1": "Innerhalb von 30 Minuten nach der Buchung ändern Sie die Angaben selbst. Danach, und bis Ihr Fahrer losfährt, antworten Sie auf die Bestätigungsmail oder schreiben uns, und wir verschieben sie. Ein anderes Terminal, eine andere Zeit oder Adresse kostet nichts, und ein falsches Terminal ist die häufigste Korrektur, die wir vornehmen.",
+    "existingBody2": "Zum Stornieren sagen Sie uns Bescheid, sobald Sie es wissen. Eine mindestens 24 Stunden vor der Abholung stornierte Buchung wird vollständig auf die verwendete Karte erstattet, in der Regel innerhalb von fünf bis zehn Werktagen. Ein verspäteter Flug ist keine Stornierung und erfordert nichts von Ihnen: wir verfolgen die Flugnummer, und die Abholung richtet sich nach der tatsächlichen Landezeit.",
+    "langTitle": "Sprachen",
+    "langBody": "Wir antworten direkt auf Deutsch, Englisch, Spanisch und Katalanisch. Nachrichten auf Französisch, Italienisch, Niederländisch, Portugiesisch, Russisch und Chinesisch werden ebenfalls beantwortet, manchmal etwas langsamer, und Buchungsbestätigung wie Quittung kommen in derjenigen der zehn Sprachen, in der Sie gebucht haben."
   },
   "confirmation": {
     "metaTitle": "Buchung bestätigt",

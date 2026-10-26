@@ -4,13 +4,29 @@ import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/json-ld';
 import { locales } from '@/i18n/routing';
 
+/**
+ * Order matters: this is the reading order on the page and the order in the
+ * FAQPage graph. Price questions first, because that is what the traffic to
+ * this page is asking, then logistics, then the edge cases.
+ */
 const KEYS = [
   'fareAccurate',
   'whyFee',
+  'whereInCity',
+  'weekendNight',
+  'vsMeter',
+  'payment',
   'invoice',
   'meetDriver',
-  'urgent',
+  'flightDelay',
+  'findDriver',
+  'whichVehicle',
   'luggage',
+  'multipleCars',
+  'cruisePort',
+  'longDistance',
+  'urgent',
+  'changeBooking',
   'cancel',
   'outsideBarcelona',
 ] as const;

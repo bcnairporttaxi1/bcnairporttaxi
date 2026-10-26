@@ -59,6 +59,21 @@ export default async function PricingPage(props: {
     ],
   ];
 
+  /**
+   * The official AMB supplements, which are already inside every listed
+   * price. Read from the tariff rather than retyped, so the January
+   * changeover updates this section with everything else.
+   */
+  const SUP = TARIFFS.supplements;
+  const supplements: Array<[string, string]> = [
+    [t('supAirport'), eur(SUP.airportElPrat)],
+    [t('supPort'), eur(SUP.mollAdossat)],
+    [t('supSants'), eur(SUP.sants)],
+    [t('supFira'), eur(SUP.firaGranVia)],
+    [t('supLarge', { seats: TARIFFS.largeVehicleMinSeats }), eur(SUP.largeVehicle)],
+    [t('supNights'), eur(TARIFFS.specialNights.nitDeNadal)],
+  ];
+
   /** What can sit on top of a listed price, and by how much. */
   const adjustments: Array<[string, string]> = [
     [t('adjPortCity'), t('adjPortCityValue', { portExtra: eur(FIXED.portSurcharge) })],
@@ -138,6 +153,54 @@ export default async function PricingPage(props: {
         <section className="mt-10 rounded-card border-2 border-accent/40 bg-accent/5 p-6">
           <h2 className="font-display text-xl font-extrabold">{t('feeTitle')}</h2>
           <p className="mt-3 leading-relaxed">{t('feeBody')}</p>
+        </section>
+
+        {/*
+          The page listed prices and the things that add to them, and explained
+          neither. A visitor could read it in full and still not know whether
+          their address was inside the zone, what the listed price already
+          covered, or why a journey to Sitges was not on the list — the three
+          questions the support inbox actually receives about pricing.
+        */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('zoneTitle')}</h2>
+          <p className="mt-3 leading-relaxed">
+            {t('zoneBody1', { km: FIXED.flatZoneRadiusKm })}
+          </p>
+          <p className="mt-3 leading-relaxed">
+            {t('zoneBody2', { km: FIXED.flatZoneRadiusKm, rate: eur(FIXED.excessPerKm) })}
+          </p>
+        </section>
+
+        {/* The official supplements are inside the listed figure, so they are
+            named here. A passenger who sees "airport supplement" on a tariff
+            board should be able to find out what we did with it. */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('supTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('supIntro')}</p>
+          <dl className="mt-5 divide-y divide-line rounded-card border border-line bg-raise text-sm">
+            {supplements.map(([label, value]) => (
+              <div key={label} className="flex justify-between gap-4 px-5 py-2.5">
+                <dt className="text-dim">{label}</dt>
+                <dd className="text-right font-mono">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-4 text-sm text-dim">
+            {t('supCap', { cap: eur(TARIFFS.supplements.maxPerService) })}
+          </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('neverTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('neverBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('neverBody2')}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('interTitle')}</h2>
+          <p className="mt-3 leading-relaxed">{t('interBody1')}</p>
+          <p className="mt-3 leading-relaxed">{t('interBody2')}</p>
         </section>
 
         <p className="mt-8 text-sm text-dim">{t('verifyNote')}</p>

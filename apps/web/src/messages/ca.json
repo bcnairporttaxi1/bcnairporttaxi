@@ -171,6 +171,15 @@
     "bags": "{count, plural, one {# maleta} other {# maletes}}",
     "passengersLabel": "Passatgers",
     "luggageLabel": "Equipatge",
+    "chooseTitle": "Trieu per l'equipatge, no pel nombre de persones",
+    "chooseBody1": "Escolliu el vehicle segons el nombre de maletes, no de passatgers. En un taxi estàndard de quatre places hi caben quatre persones, però només unes tres maletes grans: el maleter d'un Corolla o d'un SEAT Toledo és el límit real, i és el que més s'infravalora quan es reserva des de casa. Quatre adults amb una maleta gran cadascun necessiten la Mercedes Vito de sis places, que porta sis passatgers i sis maletes.",
+    "chooseBody2": "Per damunt d'això, la Mercedes V-Class de set places transporta set passatgers i set maletes. Si viatgeu amb alguna cosa de grans dimensions —una bicicleta, esquís, una taula de surf, un violoncel— indiqueu-ho a les notes de la reserva en lloc de triar un cotxe més gran i confiar que hi càpiga, perquè de vegades la resposta correcta és un vehicle concret i no simplement un de més gran. Per a grups de més de set persones es poden reservar diversos cotxes alhora en un únic pagament, cadascun al seu preu publicat.",
+    "licensedTitle": "Què vol dir aquí «taxi de Barcelona amb llicència»",
+    "licensedBody1": "Tots els vehicles d'aquesta flota són taxis de Barcelona amb llicència, amb la lliurea oficial negra i groga, que operen amb la llicència metropolitana de taxi i no com a vehicles de lloguer amb conductor. No és un detall d'imatge: vol dir que el vehicle pot fer servir les parades i els carrils de taxi, té l'assegurança regulada, està subjecte al règim d'inspecció de l'AMB i pot emetre la factura oficial del taxímetre pel trajecte.",
+    "licensedBody2": "També vol dir que el conductor és un taxista professional de Barcelona que ha superat els requisits municipals de coneixement i llicència, no un col·laborador amb una aplicació. En reservar aquí reserveu un taxi regulat a un preu fix acordat per endavant: el vehicle i el conductor són els mateixos que trobaríeu a la parada, amb el preu i el cotxe resolts abans d'aterrar en lloc de després.",
+    "commonTitle": "Què tenen tots els vehicles",
+    "commonBody1": "Aire condicionat, cinturó a totes les places, terminal de pagament amb targeta i espai per a l'equipatge indicat a la seva fitxa. Tots són lliures de fum. Cada cotxe passa les inspeccions segons el calendari de l'AMB i està assegurat com a taxi amb llicència, de manera que el mínim el marca la normativa i no nosaltres.",
+    "commonBody2": "Les cadiretes infantils no venen de sèrie; si en necessiteu una, demaneu-la a les notes de la reserva abans de viatjar perquè s'assigni el cotxe adequat. L'ajuda amb l'equipatge en carregar i descarregar el maleter està inclosa i no es cobra mai, igual que una espera raonable mentre sortiu d'arribades.",
     "categories": {
       "eco": "Taxi híbrid ecològic",
       "standard": "Taxi estàndard",
@@ -419,7 +428,7 @@
     "fixed": "fix",
     "rowAirportCity": "Aeroport El Prat al centre de Barcelona",
     "rowAirportPort": "Aeroport El Prat a Moll Adossat",
-    "rowAirportSitges": "Aeroport El Prat a Sitges",
+    "rowBcnSitges": "Barcelona a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona a l aeroport de Girona",
     "note": "Els trasllats a l’aeroport i al port de creuers tenen preu fix: l’hora del dia no el canvia. Caps de setmana i festius hi afegeixen un {surge} %, i una destinació a més de {km} km de l’aeroport o del port hi afegeix {rate} per quilòmetre extra. Només els viatges que surten de l’àrea metropolitana es cobren per quilòmetre. Tots els preus són tot inclòs, sense res a pagar al taxi.",
@@ -485,7 +494,25 @@
     "adjWeekend": "Caps de setmana i festius",
     "adjWeekendValue": "+ {surge} %",
     "adjInterurban": "Fora de l’àrea metropolitana",
-    "adjInterurbanValue": "es cobra per quilòmetre"
+    "adjInterurbanValue": "es cobra per quilòmetre",
+    "zoneTitle": "Quines adreces cobreix el preu urbà",
+    "zoneBody1": "El preu de la llista cobreix qualsevol adreça situada a menys de {km} km de la terminal, mesurats en línia recta i no per carretera. Tota Barcelona hi queda dins: el Park Güell, darrere de Gràcia, és el punt més allunyat de la ciutat amb 14,3 km, i paga el mateix que un hotel del passeig de Gràcia.",
+    "zoneBody2": "El mesurament en línia recta és deliberat i va a favor vostre. La plaça de Catalunya és a 12,3 km de la terminal en línia d'aire, però a 19,6 km per carretera, perquè la via volta el Llobregat i entra per la Gran Via. Una zona mesurada per carretera a {km} km deixaria fora el centre de la ciutat i començaria a cobrar quilòmetres extra en el trajecte més habitual de tots. Més enllà de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— s'aplica el preu de la llista més {rate} per cada quilòmetre addicional, com una xifra única publicada i no com la tarifa que toqui en aquella hora.",
+    "supTitle": "Els suplements oficials, ja inclosos en el vostre preu",
+    "supIntro": "La tarifa regulada de Barcelona afegeix suplements fixos per determinats llocs i dates. No són extres que cobrem a part: cadascun ja està contingut en la xifra de la taula anterior, i per això no hi ha res a liquidar al cotxe. Els enumerem aquí perquè un suplement que vegeu en un quadre de tarifes sigui un suplement que pugueu situar.",
+    "supAirport": "Aeroport del Prat",
+    "supPort": "Terminal de creuers del Moll Adossat",
+    "supSants": "Estació de Sants",
+    "supFira": "Fira Gran Via",
+    "supLarge": "Vehicle amb {seats} places o més",
+    "supNights": "Nit de Nadal, Cap d'Any i la revetlla de Sant Joan",
+    "supCap": "La tarifa regulada limita el total de suplements d'un mateix servei a {cap}. En un trasllat d'aeroport normal s'aplica un sol suplement i mai no s'arriba a aquell sostre.",
+    "neverTitle": "Què no canvia mai el vostre preu",
+    "neverBody1": "L'hora del dia. Una recollida a les 04:30 per a un vol matiner costa exactament el mateix que un trajecte a les dues de la tarda. En un preu fix no hi ha tarifa nocturna, ni recàrrec per arribada a l'aeroport que aparegui al final.",
+    "neverBody2": "Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterreu, el nombre de passatgers fins a la capacitat del vehicle ni la quantitat d'equipatge que hi càpiga. Els caps de setmana i festius són l'única cosa que apuja un preu de la llista, amb un percentatge únic publicat. Tot la resta és el nostre risc, i és precisament el que es compra quan es fixa un preu per endavant.",
+    "interTitle": "Trajectes fora de l'àrea metropolitana",
+    "interBody1": "Tan bon punt un dels extrems del trajecte queda fora de l'àrea metropolitana de Barcelona, la tarifa urbana deixa d'aplicar-se i el viatge es calcula per quilòmetre amb la tarifa interurbana que fixa la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava i Andorra es calculen així, amb pressupost complet abans de reservar i no a partir de la llista fixa: cap llista fixa honesta no podria cobrir distàncies que es diferencien en un factor de cinc.",
+    "interBody2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer: la tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. És la raó que un trajecte llarg costi el que costa, i que un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall sigui aproximadament la meitat del real."
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -512,7 +539,19 @@
       "reserved": "Reservat · pagat en línia",
       "arrived": "Ha arribat · res a pagar al taxi",
       "live": "Conductor en directe"
-    }
+    },
+    "prepTitle": "Què necessitem de vosaltres",
+    "prepBody1": "Una adreça completa en lloc d'un barri, el nombre de passatgers i quantes maletes porteu realment. Això últim importa més del que es pensa: un cotxe de quatre places porta quatre passatgers però només unes tres maletes, així que quatre adults amb quatre maletes grans necessiten una furgoneta de sis places. Encertar-ho en reservar és la diferència entre un trasllat i un problema a la vorera.",
+    "prepBody2": "Si arribeu en avió, afegiu el número de vol. És opcional, però amb ell seguim l'aterratge real i movem la recollida automàticament, de manera que un retard no us costa res i no heu d'endevinar una hora prudent setmanes abans. Un mòbil operatiu aquell dia completa el conjunt: és la manera com el vostre conductor us localitza si la sala d'arribades us venç tots dos.",
+    "afterTitle": "Què passa un cop heu pagat",
+    "afterBody1": "La reserva es confirma immediatament per correu, amb una referència, el preu complet que heu pagat, el vehicle triat i un rebut per l'import total. No queda res pendent i no hi ha un segon pagament més endavant.",
+    "afterBody2": "Després s'assigna un conductor al vostre trajecte i, quan això passa, rebeu per correu el seu nom i el seu telèfon juntament amb el punt exacte de trobada per a la vostra terminal. Aquella assignació és un compromís real d'un cotxe i una persona concrets, no una petició llançada a un grup quan aterreu, i per això un trasllat reservat es comporta de manera diferent de la cua de la parada a les dues de la matinada.",
+    "dayTitle": "El dia del viatge",
+    "dayBody1": "En una recollida a l'aeroport el vostre conductor espera dins la sala d'arribades, a la zona pública a la sortida de la recollida d'equipatges, amb un cartell amb el vostre nom. No a la vorera ni a la cua de la parada. En una recollida a la ciutat va a l'adreça que vau indicar, a l'hora acordada.",
+    "dayBody2": "Tot està ja pagat, així que no hi ha res a liquidar al cotxe: ni carrera, ni suplements, ni s'espera propina. Si voleu la factura oficial del taxímetre pel trajecte en si, el conductor us la pot facilitar si la demaneu; el vostre rebut per l'import pagat va arribar amb la confirmació.",
+    "changeTitle": "Si alguna cosa canvia",
+    "changeBody1": "Podeu canviar les dades vosaltres mateixos durant els 30 minuts següents a la reserva i, després, fins que el conductor surti: responeu a la confirmació o escriviu-nos per WhatsApp. Canviar una terminal, una hora de recollida o una adreça no costa res, i una terminal equivocada és la correcció més freqüent que fem.",
+    "changeBody2": "Un vol retardat no és un canvi i no requereix res de part vostra: la recollida segueix l'hora real d'aterratge, sense cost addicional i per molt que es retardi l'avió. Si el vol es cancel·la del tot, o els plans se'n van en orris, aviseu-nos tan bon punt ho sapigueu: si cancel·leu com a mínim 24 hores abans de la recollida es retorna l'import complet a la targeta amb què vau pagar, normalment en cinc a deu dies laborables. Dins d'aquelles 24 hores sempre intentarem ajudar, però el reemborsament ja no és automàtic."
   },
   "faq": {
     "metaTitle": "Preguntes freqüents | Taxi a l'aeroport de Barcelona",
@@ -550,8 +589,76 @@
       "outsideBarcelona": {
         "q": "Recolliu fora de Barcelona?",
         "a": "Encara no. De moment les recollides han de ser dins la ciutat de Barcelona o a l'aeroport del Prat. La destinació, en canvi, pot ser qualsevol."
+      },
+      "whereInCity": {
+        "q": "El preu canvia segons la zona de Barcelona on vagi?",
+        "a": "No. Un mateix preu cobreix qualsevol adreça dins de 16 km de la terminal, mesurats en línia recta, i tota Barcelona hi queda dins: el Park Güell és el punt més allunyat de la ciutat, a 14,3 km. Més enllà d'aquesta zona s'aplica el preu de la llista més 1,50 € per quilòmetre addicional."
+      },
+      "weekendNight": {
+        "q": "Cobreu més de nit o els caps de setmana?",
+        "a": "Mai per l'hora del dia: una recollida a les 04:30 costa el mateix que una a les 14:00. Els caps de setmana i festius hi afegeixen un 7,5 %, de manera que un trajecte urbà de 50 € passa a 53,75 €. És una tarifa publicada, no un recàrrec que puja amb la demanda."
+      },
+      "vsMeter": {
+        "q": "Surt més barat que un taxi de la parada?",
+        "a": "De vegades, i preferim dir-ho clar. Un dia tranquil entre setmana el taxímetre de la parada sol marcar menys, perquè el nostre preu fix inclou assumir un risc de trànsit que no s'ha produït. Amb molt trànsit, en cap de setmana o les tres nits amb suplement, el preu fix acostuma a ser més baix, i sempre es coneix per endavant."
+      },
+      "payment": {
+        "q": "Com es paga? Cal donar res al conductor?",
+        "a": "Es paga l'import complet en línia en reservar, amb targeta de crèdit, de dèbit o Bizum. Al taxi no es deu absolutament res: ni carrera, ni suplements, ni s'espera propina. Al conductor el liquidem nosaltres després i mai no li demanarà diners."
+      },
+      "flightDelay": {
+        "q": "Què passa si el meu vol s'endarrereix?",
+        "a": "No ha de fer res. Seguim el seu número de vol i movem la recollida a l'hora real d'aterratge, sense cost addicional. Un retard no li fa perdre el cotxe ni li costa una cancel·lació. Si el vol es cancel·la del tot, aviseu-nos i es retorna l'import complet."
+      },
+      "multipleCars": {
+        "q": "Som un grup gran. Podem reservar més d'un cotxe?",
+        "a": "Sí. Podeu triar diversos vehicles en una sola reserva: es reserven junts, es paguen en un únic procés i s'envien al mateix punt de recollida, fins a sis cotxes. Cada cotxe es cobra a la mateixa tarifa publicada per a la seva mida, així que un grup de deu són dos cotxes a preu de llista, no un pressupost a mida."
+      },
+      "whichVehicle": {
+        "q": "Quina mida de vehicle necessito?",
+        "a": "Un cotxe de quatre places porta 4 passatgers i unes 3 maletes, i és el límit que més s'infravalora. Quatre adults amb quatre maletes grans necessiten la Mercedes Vito de sis places (6 maletes) o la V-Class de set (7 maletes). Triar per equipatge i no per nombre de persones evita problemes a la vorera."
+      },
+      "changeBooking": {
+        "q": "Puc modificar una reserva ja feta?",
+        "a": "Sí. Podeu canviar les dades vosaltres mateixos durant els 30 minuts següents a la reserva i, després, fins que el conductor surti: responeu al correu de confirmació o escriviu-nos per WhatsApp. Canviar la terminal o l'hora de recollida no costa res."
+      },
+      "cruisePort": {
+        "q": "Feu servei a la terminal de creuers del Moll Adossat?",
+        "a": "Sí, i té preu propi diferent de l'urbà: 60 € en cotxe de quatre places, 80 € per a sis i 85 € per a set, entre la terminal i el Prat. Un trajecte entre el moll i la ciutat és el preu urbà més 10 € de suplement de port, cosa que dona els mateixos 60 €."
+      },
+      "longDistance": {
+        "q": "Aneu a Sitges, Girona, Tarragona o Andorra?",
+        "a": "Sí. Els trajectes amb un extrem fora de l'àrea metropolitana es calculen per quilòmetre amb la tarifa interurbana de la Generalitat, no amb la llista urbana fixa, i es pressuposten del tot abans de reservar. El preu per quilòmetre és més alt perquè aquella tarifa cobra també el retorn del conductor."
+      },
+      "findDriver": {
+        "q": "I si no trobo el meu conductor?",
+        "a": "A la confirmació hi ha un telèfon que arriba directament al conductor, no a un centre de trucades. Les sales d'arribades són grans i els cartells amb el nom es baixen, així que una trucada ho resol en menys d'un minut. El conductor també té el vostre número i us trucarà si no us veu."
       }
     }
+  },
+  "blog": {
+    "metaTitle": "Guies i consells de taxi a l'aeroport de Barcelona",
+    "metaDescription": "Guies pràctiques per anar i tornar de l'aeroport de Barcelona el Prat: quant costa un taxi, taxi o Aerobús, i quina terminal necessiteu realment.",
+    "h1": "Guies de viatge de l'aeroport de Barcelona",
+    "breadcrumb": "Guies",
+    "intro": "Respostes clares sobre com anar i tornar del Prat: quant costen les coses, quant es tarda i quan el taxi és de debò l'opció encertada.",
+    "aboutTitle": "Per a què serveixen aquestes guies",
+    "aboutBody1": "Són les preguntes que més ens fan, respostes amb l'extensió que realment necessiten. Quant costa un taxi des del Prat i com es construeix el preu. Si l'Aerobús o el metro és millor opció per al vostre grup, amb la resposta honesta, que per a una persona que viatja lleugera gairebé mai no és el taxi. Quina terminal fa servir la vostra companyia i on esperen els taxis a cadascuna.",
+    "aboutBody2": "Totes les xifres surten del mateix lloc que els preus d'aquest web: la tarifa publicada de l'AMB per a Barcelona i la tarifa interurbana de la Generalitat per a tot el que queda més enllà, comprovades amb els quadres impresos i no copiades d'una altra pàgina. Quan una guia cita una tarifa, és la vigent en l'any tarifari en curs, i les pàgines porten la data de la darrera revisió.",
+    "aboutBody3": "El que no són és publicitat amb un signe d'interrogació al davant. Quan el transport públic és la millor opció ho diem, i quan la parada de taxis d'arribades us costarà menys que reservar per endavant, també. Una guia que ens recomanés per a tots els trajectes no valdria la pena llegir-la, i no seria certa."
+  },
+  "reviews": {
+    "metaTitle": "Opinions de taxi a l'aeroport de Barcelona",
+    "metaDescription": "Opinions de passatgers que van reservar un taxi a l'aeroport de Barcelona amb BCNAirportTaxi. Cada opinió ve d'una reserva completada i verificada.",
+    "h1": "Opinions de passatgers",
+    "intro": "Totes les opinions d'aquesta pàgina vénen d'una reserva completada. Les publiquem després de comprovar que el viatge es va fer de debò.",
+    "empty": "Encara no hi ha opinions publicades. Quan els passatgers comencin a completar viatges, les seves opinions apareixeran aquí.",
+    "policyTitle": "Com arriben les opinions a aquesta pàgina",
+    "policyBody1": "Només pot deixar una opinió qui hagi completat una reserva, mitjançant un enllaç enviat després del viatge. Està vinculada a una referència concreta, per la qual cosa no la pot escriure ningú que no hagi fet el trajecte, i un mateix viatge no es pot valorar dues vegades.",
+    "policyBody2": "Les opinions es llegeixen abans de publicar-les, i aquella comprovació només serveix per confirmar que el viatge es va fer i per retirar allò que identifiqui un tercer o un conductor pel seu nom. Una opinió no es reté per ser crítica: això deixaria la pàgina sense cap valor, i una pàgina amb només cinc estrelles és una pàgina que ningú no es creu. Es publiquen les valoracions de tots els nivells, tal com es van escriure.",
+    "whyEmptyTitle": "Per què preferim no mostrar res abans que mostrar alguna cosa",
+    "whyEmptyBody1": "Aquesta pàgina mostra una valoració mitjana i un nombre d'opinions únicament quan existeixen opinions reals aprovades. Fins aleshores no mostra cap de les dues coses, i es manté deliberadament fora dels resultats de cerca en lloc d'omplir-se de testimonis d'un altre lloc.",
+    "whyEmptyBody2": "És una decisió amb un cost: les estrelles als resultats de cerca augmenten els clics de manera mesurable, i inventar-les és fàcil i bastant comú. També és un frau, i les dades estructurades que generen aquelles estrelles són una declaració a un cercador sobre clients reals. Una pàgina buida val menys que una plena i bastant més que una falsificada."
   },
   "contact": {
     "metaTitle": "Contacte | Reserves de taxi a l'aeroport de Barcelona",
@@ -561,7 +668,24 @@
     "whatsappTitle": "WhatsApp — el més ràpid",
     "whatsappBody": "Per a viatges urgents en menys de 3 hores i qualsevol cosa que no pugui esperar.",
     "emailTitle": "Correu electrònic",
-    "emailBody": "Per a pressupostos, factures i canvis en la reserva."
+    "emailBody": "Per a pressupostos, factures i canvis en la reserva.",
+    "whichTitle": "Quin fer servir",
+    "whichBody1": "WhatsApp per a qualsevol cosa que passi avui. Un viatge necessari dins la finestra de tres hores de la reserva en línia, un vol que acaba d'aterrar i un conductor que no trobeu, una hora de recollida que cal moure en la pròxima hora: això requereix una persona llegint de seguida, i per això hi ha el número de WhatsApp.",
+    "whichBody2": "Correu electrònic per a tot allò que deixi rastre escrit. Factures i dades fiscals, un pressupost per a un trajecte llarg o poc habitual, una reclamació, un reemborsament, una reserva per a una data d'aquí a mesos o qualsevol assumpte en què vulgueu la resposta per escrit. El correu és també el millor canal si no feu servir WhatsApp, cosa que el número dona per suposada i la bústia no.",
+    "includeTitle": "Què incloure perquè puguem respondre a la primera",
+    "includeBody1": "Gairebé tot l'anar i venir de missatges sobre una reserva neix d'un missatge al qual li falta una dada. Si incloeu aquestes, la resposta sol ser una resposta i no una altra pregunta:",
+    "includeItems": {
+      "ref": "La vostra referència de reserva, si ja la teniu: és a l'assumpte de la confirmació",
+      "route": "Les adreces completes de recollida i destinació, no només els barris",
+      "when": "La data i l'hora, i si aquella hora és la d'aterratge o la de recollida",
+      "people": "Quants passatgers i quantes maletes",
+      "flight": "El número de vol, per a qualsevol assumpte relacionat amb l'aeroport"
+    },
+    "existingTitle": "Canviar o cancel·lar una reserva que ja teniu",
+    "existingBody1": "Podeu canviar les dades vosaltres mateixos durant els 30 minuts següents a la reserva. Després d'això, i fins que el vostre conductor surti, responeu al correu de confirmació o escriviu-nos i ho movem. Canviar una terminal, una hora o una adreça no costa res, i una terminal equivocada és la correcció més freqüent que fem.",
+    "existingBody2": "Per cancel·lar, aviseu-nos tan bon punt ho sapigueu. Una reserva cancel·lada com a mínim 24 hores abans de la recollida es retorna íntegra a la targeta amb què vau pagar, normalment en cinc a deu dies laborables. Un vol retardat no és una cancel·lació i no requereix res de part vostra: seguim el número de vol i la recollida s'ajusta a l'hora real d'aterratge.",
+    "langTitle": "Idiomes",
+    "langBody": "Responem directament en català, castellà i anglès. Els missatges en francès, alemany, italià, neerlandès, portuguès, rus i xinès també es contesten, de vegades una mica més lentament, i la confirmació de la reserva i el vostre rebut s'envien en l'idioma en què vau reservar, dels deu disponibles."
   },
   "confirmation": {
     "metaTitle": "Reserva confirmada",
