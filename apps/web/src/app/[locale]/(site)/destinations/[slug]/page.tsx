@@ -238,6 +238,19 @@ export default async function DestinationPage(props: {
           <p className="mt-3 text-sm leading-relaxed">{t('pricedP2')}</p>
         </div>
 
+        {/*
+          Why the interurban rate is what it is, on every destination page
+          rather than only on /pricing. These pages are where someone sees a
+          per-kilometre figure for the first time, and without the closed
+          circuit it reads as roughly double what it should be — which is the
+          most common question that follows a long-distance quote.
+        */}
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-extrabold">{t('interH2')}</h2>
+          <p className="mt-3 leading-relaxed">{t('interP1')}</p>
+          <p className="mt-3 leading-relaxed">{t('interP2')}</p>
+        </section>
+
         <h2 className="mt-12 font-display text-2xl font-extrabold">{t('vehiclesH2')}</h2>
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
           {FLEET.filter((v) => v.seats >= 4).map((v) => (

@@ -27,7 +27,15 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: 'reviews' });
   return {
     title: t('metaTitle'),
-    robots: approved > 0 ? undefined : { index: false, follow: true },
+    /*
+     * Both branches are stated. `undefined` does not fall through to the
+     * layout's value here — Next's metadata merge treats an explicit
+     * `undefined` as "unset this", not "inherit it" — so once the first
+     * review was approved this page became the only one on the site with no
+     * robots directive at all. Crawlers default to indexing, so nothing was
+     * deindexed, but it dropped out of the site-wide policy silently.
+     */
+    robots: approved > 0 ? { index: true, follow: true } : { index: false, follow: true },
     description: t('metaDescription'),
     alternates: { canonical: `/${locale}/reviews`, languages },
   };
