@@ -23,7 +23,7 @@
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
     "metaDescription": "Reserva en línia i amb antelació un taxi a l’aeroport de Barcelona. Un preu fix tot inclòs, acordat abans de reservar i blocat en fer-ho.",
     "h1": "Taxi a l'aeroport de Barcelona, reservat abans d'aterrar",
-    "intro": "Reserveu un taxi de Barcelona amb llicència, blanc i groc, cap a o des de l’aeroport del Prat. Un preu fix tot inclòs, mostrat abans de reservar i blocat en fer-ho — sense taxímetre i sense càlculs de distància — el pagueu en línia i no queda res a pagar al conductor.",
+    "intro": "Reserveu un taxi de Barcelona amb llicència, negre i groc, cap a o des de l’aeroport del Prat. Un preu fix tot inclòs, mostrat abans de reservar i blocat en fer-ho — sense taxímetre i sense càlculs de distància — el pagueu en línia i no queda res a pagar al conductor.",
     "trust": {
       "licensed": "Taxis amb llicència AMB",
       "meter": "Preu fix, sense taxímetre",
@@ -198,7 +198,15 @@
     "metaTitle": "Flota de taxis a Barcelona | Cotxes, monovolums i furgonetes",
     "metaDescription": "Taxis amb llicència a l'aeroport de Barcelona: Toyota Prius+, Toyota Corolla, monovolum Mercedes Vito i furgoneta premium Mercedes V-Class.",
     "intro": "Tots els vehicles són taxis de Barcelona amb llicència. Trieu segons el grup i l’equipatge: un taxi estàndard porta quatre passatgers, un minivan sis i una van set, i cadascun té el seu propi preu fix de trasllat, visible abans de reservar.",
-    "select": "Selecciona {name}"
+    "select": "Selecciona {name}",
+    "luggageNotes": {
+      "toyota-corolla": "3 maletes grans, o 2 de grans més equipatge de cabina",
+      "seat-toledo": "3 maletes grans, o 2 de grans més equipatge de cabina",
+      "toyota-corolla-estate": "4 maletes grans: el maleter més profund dels nostres turismes",
+      "toyota-prius": "4 maletes grans, híbrid i de baixes emissions",
+      "mercedes-vito": "6 maletes grans, ideal per a famílies i grups petits",
+      "mercedes-vclass": "7 maletes grans, el màxim d’espai i confort que oferim"
+    }
   },
   "common": {
     "book": "Reservar ara",
@@ -251,7 +259,7 @@
     "waIntro": "Hola, voldria reservar un taxi a l aeroport de Barcelona."
   },
   "destinations": {
-    "metaTitle": "Destinacions de trasllat des de Barcelona | Taxi i minivan privats",
+    "metaTitle": "Destinacions de trasllat des de Barcelona | Taxi privat",
     "metaDescription": "Trasllats privats en taxi i minivan des de l'aeroport de Barcelona, la ciutat, el port de creuers i els hotels cap a la Costa Brava, Sitges, Tarragona.",
     "eyebrow": "Centre de rutes",
     "h1": "Destinacions de trasllat des de Barcelona",
@@ -290,10 +298,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "Trasllat a {name} | Taxi i minivan privats",
-    "ogTitle": "Trasllat a {name}",
-    "serviceName": "Trasllat privat a {name}",
-    "h1": "Trasllat a {name}",
+    "metaTitle": "Taxi Barcelona {place} | Trasllat privat",
+    "ogTitle": "Taxi {name}",
+    "serviceName": "Trasllat privat: {name}",
+    "h1": "Taxi de {name}",
     "distance": "Distància",
     "journeyTime": "Durada",
     "fromDaytime": "Des de (de dia)",
@@ -310,9 +318,9 @@
     "paxBags": "{seats} pax · {bags} maletes",
     "otherIn": "Altres destinacions: {group}",
     "photoAlt": "{place}, destinació de trasllat privat des de Barcelona",
-    "waQuote": "Hola, volia un pressupost tancat per a un trasllat des de Barcelona: {name}.",
-    "waQuoteSibling": "Hola, volia un pressupost per a {name}.",
-    "metaDescription": "{name} en taxi privat: un preu fix amb tot inclòs, conductor amb llicència i seguiment del teu vol. Reserva en línia en minuts."
+    "waQuote": "Hola, voldria un pressupost tancat per a un trasllat des de Barcelona: {place}.",
+    "waQuoteSibling": "Hola, voldria un pressupost per a {name}.",
+    "metaDescription": "Taxi privat de Barcelona a {place}: preu tancat tot inclòs, conductor amb llicència i seguiment del teu vol. Reserva en línia en pocs minuts."
   },
   "install": {
     "metaTitle": "Instal·la BCNAirportTaxi com a aplicació",
@@ -515,7 +523,10 @@
     "neverBody2": "Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterreu, el nombre de passatgers fins a la capacitat del vehicle ni la quantitat d'equipatge que hi càpiga. Els caps de setmana i festius són l'única cosa que apuja un preu de la llista, amb un percentatge únic publicat. Tot la resta és el nostre risc, i és precisament el que es compra quan es fixa un preu per endavant.",
     "interTitle": "Trajectes fora de l'àrea metropolitana",
     "interBody1": "Tan bon punt un dels extrems del trajecte queda fora de l'àrea metropolitana de Barcelona, la tarifa urbana deixa d'aplicar-se i el viatge es calcula per quilòmetre amb la tarifa interurbana que fixa la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava i Andorra es calculen així, amb pressupost complet abans de reservar i no a partir de la llista fixa: cap llista fixa honesta no podria cobrir distàncies que es diferencien en un factor de cinc.",
-    "interBody2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer: la tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. És la raó que un trajecte llarg costi el que costa, i que un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall sigui aproximadament la meitat del real."
+    "interBody2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer: la tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. És la raó que un trajecte llarg costi el que costa, i que un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall sigui aproximadament la meitat del real.",
+    "officialTitle": "És aquesta la tarifa oficial del taxi?",
+    "officialBody": "No. És el nostre preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada. El taxi de la parada es paga amb taxímetre segons la tarifa de l'AMB. Amb nosaltres coneixes el preu abans de viatjar i no es deu res al cotxe.",
+    "officialLink": "Com es compara amb el taxímetre de la parada"
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -648,7 +659,10 @@
     "aboutTitle": "Per a què serveixen aquestes guies",
     "aboutBody1": "Són les preguntes que més ens fan, respostes amb l'extensió que realment necessiten. Quant costa un taxi des del Prat i com es construeix el preu. Si l'Aerobús o el metro és millor opció per al vostre grup, amb la resposta honesta, que per a una persona que viatja lleugera gairebé mai no és el taxi. Quina terminal fa servir la vostra companyia i on esperen els taxis a cadascuna.",
     "aboutBody2": "Totes les xifres surten del mateix lloc que els preus d'aquest web: la tarifa publicada de l'AMB per a Barcelona i la tarifa interurbana de la Generalitat per a tot el que queda més enllà, comprovades amb els quadres impresos i no copiades d'una altra pàgina. Quan una guia cita una tarifa, és la vigent en l'any tarifari en curs, i les pàgines porten la data de la darrera revisió.",
-    "aboutBody3": "El que no són és publicitat amb un signe d'interrogació al davant. Quan el transport públic és la millor opció ho diem, i quan la parada de taxis d'arribades us costarà menys que reservar per endavant, també. Una guia que ens recomanés per a tots els trajectes no valdria la pena llegir-la, i no seria certa."
+    "aboutBody3": "El que no són és publicitat amb un signe d'interrogació al davant. Quan el transport públic és la millor opció ho diem, i quan la parada de taxis d'arribades us costarà menys que reservar per endavant, també. Una guia que ens recomanés per a tots els trajectes no valdria la pena llegir-la, i no seria certa.",
+    "crumbHome": "Inici",
+    "minRead": "{minutes} min de lectura",
+    "bookHeading": "Reserva el teu trasllat"
   },
   "reviews": {
     "metaTitle": "Opinions de taxi a l'aeroport de Barcelona",

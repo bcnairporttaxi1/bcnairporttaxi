@@ -1,3 +1,4 @@
+import { fitTitle } from '@/lib/title';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -5,7 +6,7 @@ import { PageHero } from '@/components/page-hero';
 import { VehicleCard } from '@/components/vehicle-card';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { FLEET } from '@bcn/core/fleet';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -17,12 +18,12 @@ export async function generateMetadata(props: {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'fleet' });
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/fleet`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/fleet`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/fleet`;
   return {
-    title: t('metaTitle'),
+    title: fitTitle(t('metaTitle')),
     description: t('metaDescription'),
     alternates: { canonical: `/${locale}/fleet`, languages },
   };

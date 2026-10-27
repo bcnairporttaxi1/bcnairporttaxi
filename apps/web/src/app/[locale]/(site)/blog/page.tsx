@@ -4,9 +4,10 @@ import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS } from '@bcn/core/blog';
+import { blogCopy } from '@bcn/core/blog-copy';
 import { BlogCover, coverFor } from '@/components/blog-cover';
 import { Stagger, StaggerItem } from '@/components/motion';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -17,7 +18,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/blog`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/blog`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/blog`;
@@ -42,7 +43,7 @@ export default async function BlogIndex(props: {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: `/${locale}` },
+          { name: t('crumbHome'), url: `/${locale}` },
           { name: t('breadcrumb'), url: `/${locale}/blog` },
         ]}
       />
@@ -68,13 +69,13 @@ export default async function BlogIndex(props: {
                     {new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(
                       new Date(post.published),
                     )}{' '}
-                    · {post.readingMinutes} min
+                    · {t('minRead', { minutes: post.readingMinutes })}
                   </p>
                   <h2 className="mt-2.5 font-display text-lg font-bold leading-snug transition-colors duration-500 group-hover:text-gold">
-                    {post.title}
+                    {blogCopy(post, locale).title}
                   </h2>
                   <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-dim">
-                    {post.excerpt}
+                    {blogCopy(post, locale).excerpt}
                   </p>
                 </div>
               </Link>

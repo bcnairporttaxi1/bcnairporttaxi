@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { PaymentMethods } from '@/components/payment-methods';
 import { StepArt } from '@/components/step-art';
 import { Rise, Stagger, StaggerItem, LiftCard } from '@/components/motion';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
 
 export function generateStaticParams() {
@@ -20,7 +20,7 @@ export async function generateMetadata(props: {
   const page = getLandingPage('book-online')!;
   const copy = getLandingCopy(page, locale);
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/book`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/book`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/book`;

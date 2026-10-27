@@ -110,6 +110,22 @@ describe('message catalogues', () => {
     expect(hits, hits.join('\n')).toEqual([]);
   });
 
+  /**
+   * Strings where a language may legitimately use `{name}`, `{place}` or both.
+   *
+   * The destination titles are built from `{place}` in most languages
+   * ("Taxi Barcelona Andorra") because the full route phrase would push the
+   * longest ones past 60 characters, while English reads best with the whole
+   * `{name}`. What must hold is that one of the two is present and nothing
+   * unknown is; exact equality would force every language into English
+   * word order.
+   */
+  const EITHER_NAME_OR_PLACE = new Set(
+    ['metaTitle', 'metaDescription', 'ogTitle', 'serviceName', 'h1', 'waQuote', 'waQuoteSibling'].map(
+      (k) => `destinationRoute.${k}`,
+    ),
+  );
+
   it('keeps every placeholder the English string declares', () => {
     const TOKEN = /\{(\w+)\}/g;
     const wrong: string[] = [];
@@ -123,7 +139,14 @@ describe('message catalogues', () => {
       for (const locale of OTHERS) {
         const v = at(CATALOGUES[locale], p);
         if (typeof v !== 'string') continue; // absence is the other test's job
-        const got = [...v.matchAll(TOKEN)].map((m) => m[1]).sort().join(',');
+        const gotList = [...v.matchAll(TOKEN)].map((m) => m[1]).sort();
+        const got = gotList.join(',');
+
+        if (EITHER_NAME_OR_PLACE.has(p)) {
+          const ok = gotList.length > 0 && gotList.every((t) => t === 'name' || t === 'place');
+          if (!ok) wrong.push(`${locale} ${p}: has [${got}], expected name and/or place`);
+          continue;
+        }
         if (got !== want) wrong.push(`${locale} ${p}: has [${got}], en has [${want}]`);
       }
     }

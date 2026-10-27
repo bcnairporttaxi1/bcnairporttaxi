@@ -2,6 +2,7 @@ import { SITE_URL } from '@bcn/core/site';
 import { LANDING_SLUGS } from '@bcn/core/landing-pages';
 import { LEGAL_SLUGS } from '@bcn/core/legal';
 import { BLOG_POSTS, BLOG_SLUGS } from '@bcn/core/blog';
+import { hasBlogTranslation } from '@bcn/core/blog-copy';
 import { DESTINATION_PAGES } from '@bcn/core/destinations';
 import { localeHrefLang, locales } from '@/i18n/routing';
 
@@ -97,7 +98,7 @@ function revisedFor(path: string): string | undefined {
  * sitemap that advertises a noindex page is a contradiction Search Console
  * reports as "excluded by noindex". Both return the moment they should.
  */
-const CANONICALISED_ELSEWHERE = new Set(['book-online', 'reviews']);
+const CANONICALISED_ELSEWHERE = new Set(['book-online', 'reviews', 'install']);
 
 export function sitemapPaths(): string[] {
   // Filtered at the end rather than per source list: `reviews` is a static
@@ -112,9 +113,24 @@ export function sitemapPaths(): string[] {
   ].filter((path) => !CANONICALISED_ELSEWHERE.has(path.slice(1)));
 }
 
+/**
+ * The languages a path really exists in.
+ *
+ * A guide appears only in the languages it has been translated into, and the
+ * legal documents only in English. Listing a URL in the sitemap, or naming it
+ * in an hreflang set, is a claim about what is on the page; for 63 URLs that
+ * claim was false.
+ */
+export function localesFor(path: string): readonly (typeof locales)[number][] {
+  const post = BLOG_SLUGS.find((slug) => path === `/blog/${slug}`);
+  if (post) return locales.filter((l) => hasBlogTranslation(post, l));
+  if (LEGAL_SLUGS.some((slug) => path === `/${slug}`)) return ['en'];
+  return locales;
+}
+
 export function sitemapEntries(): SitemapEntry[] {
   return sitemapPaths().flatMap((path) =>
-    locales.map((locale) => ({
+    localesFor(path).map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
       lastModified: revisedFor(path),
       // Every URL declares the full alternate set, so search engines can map
@@ -124,7 +140,7 @@ export function sitemapEntries(): SitemapEntry[] {
       // one of the ten. Without it the set describes ten equals and no
       // fallback, and Google picks one itself.
       alternates: [
-        ...locales.map(
+        ...localesFor(path).map(
           (l) => [localeHrefLang[l], `${SITE_URL}/${l}${path}`] as [string, string],
         ),
         ['x-default', `${SITE_URL}/en${path}`] as [string, string],

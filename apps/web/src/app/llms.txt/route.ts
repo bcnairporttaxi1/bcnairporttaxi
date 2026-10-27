@@ -26,6 +26,7 @@ import { TARIFFS } from '@bcn/core/tariffs';
 
 export const dynamic = 'force-static';
 
+const allIn = (fare: number, rate: number) => (fare * (1 + rate)).toFixed(2);
 function line(label: string, value: string): string {
   return `- ${label}: ${value}`;
 }
@@ -45,12 +46,13 @@ Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch
 
 ## What we are
 
-BCNAirportTaxi arranges licensed black-and-yellow Barcelona taxis. We do not
-own vehicles and we do not set fares. Fares in Barcelona are regulated: every
-licensed taxi charges the same rate set by the AMB, so no operator can
-undercut another on the regulated fare itself. What does differ between
-providers is what sits around that fare: whether the price is fixed in
-advance, what is included in it, and what is charged for the booking.
+BCNAirportTaxi is a booking service that arranges licensed black-and-yellow
+Barcelona taxis. We do not own the vehicles. Our transfers are sold at a fixed
+all-inclusive price from our own published list. That price is NOT the
+regulated meter fare and NOT the AMB tariff, and it should never be quoted as
+either. A taxi taken from the rank is paid by the meter at the regulated rate;
+with us the price is known and paid before the journey, and nothing is owed in
+the car.
 
 ## How pricing works
 
@@ -60,15 +62,26 @@ applies to the route, and our service in arranging and guaranteeing the car.
 Nothing is owed to the driver.
 
 A transfer to or from the airport or the cruise port is a FIXED price from our
-own list, set by route and vehicle rather than by distance or time of day. The
-regulated rates below are published for reference and for interurban journeys;
-they are not how a transfer is priced.
+own list, set by route and vehicle rather than by distance or time of day. See
+/pricing.md for the list per vehicle and the additions that can apply to it.
 
-${line('Daytime urban tariff (T-1)', `weekdays 08:00-20:00, official ${t.perKm.T1.toFixed(2)} EUR/km, charged ${(t.perKm.T1 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
-${line('Night and weekend urban tariff (T-2)', `nights, weekends, public holidays, official ${t.perKm.T2.toFixed(2)} EUR/km, charged ${(t.perKm.T2 + t.perKmMarkup).toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
-${line('Interurban tariff (T-6)', `outside the Barcelona metropolitan area, weekdays 08:00-20:00, charged ${t.outsideAMB.perKmCharged.T6.toFixed(2)} EUR/km, start ${t.outsideAMB.startFare.T6.toFixed(2)} EUR`)}
-${line('Interurban tariff (T-7)', `outside the metropolitan area at night, weekends and holidays, charged ${t.outsideAMB.perKmCharged.T7.toFixed(2)} EUR/km, start ${t.outsideAMB.startFare.T7.toFixed(2)} EUR`)}
-${line('Airport supplement', `${t.supplements.airportElPrat.toFixed(2)} EUR, fixed, set by the AMB, already inside the quoted price`)}
+For reference only, and NOT our price: a taxi taken from the rank is paid by
+the meter at the regulated rate. It is listed so the two are not confused.
+
+${line('Regulated rank meter, T-1', `weekdays 08:00-20:00, ${t.perKm.T1.toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
+${line('Regulated rank meter, T-2', `nights, weekends and public holidays, ${t.perKm.T2.toFixed(2)} EUR/km, start ${t.startFare.toFixed(2)} EUR`)}
+${line('Regulated airport supplement', `${t.supplements.airportElPrat.toFixed(2)} EUR, set by the AMB, already inside our fixed price`)}
+
+OUR prices for journeys with an end outside the Barcelona metropolitan area
+are per kilometre, ALL-IN (our service charge included), and quoted in full
+before booking:
+
+${line('Weekday daytime', `about ${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} EUR`)}
+${line('Weekday night', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekday)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekday)} EUR`)}
+${line('Weekend and public holiday', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekend)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekend)} EUR`)}
+
+Worked example: Barcelona city centre to Sitges is 38 km, which is 38 x
+${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} + ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} = 90.78 EUR on a weekday.
 
 The interurban rate is higher per kilometre than the urban one because the
 Generalitat defines an interurban journey as a closed circuit: the meter counts

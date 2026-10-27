@@ -1,4 +1,5 @@
 import { socialImages, twitterImages } from '@/lib/social-card';
+import { destinationCopy } from '@bcn/core/destination-copy';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -20,7 +21,7 @@ import {
 } from '@bcn/core/destination-photos';
 import { DestinationCover } from '@/components/destination-cover';
 import { whatsappLink } from '@bcn/core/site';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 const eur = (n: number, locale: string) =>
   new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(n);
@@ -39,12 +40,17 @@ export async function generateMetadata(props: {
   if (!d) return {};
 
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/destinations/${slug}`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/destinations/${slug}`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/destinations/${slug}`;
 
   const t = await getTranslations({ locale, namespace: 'destinationRoute' });
+  const c = destinationCopy(d, locale);
+  // A locale with no copy for this page would otherwise serve English text
+  // under a translated URL that hreflang vouches for. Until it is translated,
+  // point the search engines at the English page instead.
+  const untranslated = locale !== 'en' && !c.translated;
 
   /*
    * The card blurb is a card blurb — 33 to 104 characters, written to fit
@@ -52,15 +58,19 @@ export async function generateMetadata(props: {
    * destination page with a snippet less than half the width Google renders,
    * so the description is composed for the slot it occupies.
    */
-  const description = t('metaDescription', { name: d.name });
+  const description = t('metaDescription', { name: c.route, place: c.place });
 
   return {
-    title: { absolute: t('metaTitle', { name: d.name }) },
+    title: { absolute: t('metaTitle', { name: c.route, place: c.place }) },
     description,
-    alternates: { canonical: `/${locale}/destinations/${slug}`, languages },
+    alternates: {
+      canonical: untranslated ? `/en/destinations/${slug}` : `/${locale}/destinations/${slug}`,
+      languages,
+    },
+    robots: untranslated ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       type: 'website',
-      title: t('ogTitle', { name: d.name }),
+      title: t('ogTitle', { name: c.route, place: c.place }),
       description,
       url: `/${locale}/destinations/${slug}`,
       // Setting `openGraph` replaces the layout's object instead of merging
@@ -70,7 +80,7 @@ export async function generateMetadata(props: {
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('ogTitle', { name: d.name }),
+      title: t('ogTitle', { name: c.route, place: c.place }),
       description,
       images: twitterImages,
     },
@@ -104,22 +114,23 @@ export default async function DestinationPage(props: {
   const t = await getTranslations('destinationRoute');
   const tHub = await getTranslations('destinations');
 
-  const quote = t('waQuote', { name: d.name });
+  const c = destinationCopy(d, locale);
+  const quote = t('waQuote', { name: c.route, place: c.place });
   const photo = destinationPhoto(slug);
-  const place = d.name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '');
+  const place = c.place;
 
   return (
     <>
       <ServiceJsonLd
-        name={t('serviceName', { name: d.name })}
-        description={d.blurb}
+        name={t('serviceName', { name: c.route, place: c.place })}
+        description={c.blurb}
         url={`/${locale}/destinations/${slug}`}
       />
       <BreadcrumbJsonLd
         items={[
           { name: tHub('crumbHome'), url: `/${locale}` },
           { name: tHub('crumbDestinations'), url: `/${locale}/destinations` },
-          { name: d.name, url: `/${locale}/destinations/${slug}` },
+          { name: c.route, url: `/${locale}/destinations/${slug}` },
         ]}
       />
 
@@ -134,15 +145,15 @@ export default async function DestinationPage(props: {
               </li>
               <li aria-hidden="true">/</li>
               <li aria-current="page" className="text-dim">
-                {d.name}
+                {c.route}
               </li>
             </ol>
           </nav>
 
           <h1 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-ice sm:text-5xl">
-            {t('h1', { name: d.name })}
+            {t('h1', { name: c.route, place: c.place })}
           </h1>
-          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{d.blurb}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed text-dim">{c.blurb}</p>
 
           {d.km && d.minutes && (
             <dl className="mt-7 flex flex-wrap gap-x-10 gap-y-3">
@@ -253,7 +264,7 @@ export default async function DestinationPage(props: {
       </section>
 
       <article className="mx-auto max-w-3xl px-4 py-14">
-        {(d.body ?? []).map((p) => (
+        {(c.body ?? []).map((p) => (
           <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-ice first:mt-0">
             {p}
           </p>
@@ -312,17 +323,17 @@ export default async function DestinationPage(props: {
                       href={`/destinations/${s.slug}`}
                       className="lift block h-full rounded-card border border-line p-5 hover:border-gold"
                     >
-                      <span className="font-display font-bold">{s.name}</span>
+                      <span className="font-display font-bold">{destinationCopy(s, locale).route}</span>
                       <span className="mt-1.5 block text-sm text-dim">{s.blurb}</span>
                     </Link>
                   ) : (
                     <a
-                      href={whatsappLink(t('waQuoteSibling', { name: s.name }))}
+                      href={whatsappLink(t('waQuoteSibling', { name: destinationCopy(s, locale).route }))}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="lift block h-full rounded-card border border-line p-5 hover:border-gold"
                     >
-                      <span className="font-display font-bold">{s.name}</span>
+                      <span className="font-display font-bold">{destinationCopy(s, locale).route}</span>
                       <span className="mt-1.5 block text-sm text-dim">{s.blurb}</span>
                     </a>
                   )}

@@ -23,7 +23,7 @@
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
     "metaDescription": "Reserva online y con antelación un taxi al aeropuerto de Barcelona. Un precio fijo todo incluido, acordado antes de reservar y bloqueado al hacerlo.",
     "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
-    "intro": "Reserve un taxi de Barcelona con licencia, blanco y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo todo incluido, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — lo paga online y no queda nada por pagar al conductor.",
+    "intro": "Reserve un taxi de Barcelona con licencia, negro y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo todo incluido, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — lo paga online y no queda nada por pagar al conductor.",
     "trust": {
       "licensed": "Taxis con licencia AMB",
       "meter": "Precio fijo, sin taxímetro",
@@ -198,7 +198,15 @@
     "prevVehicle": "Vehículo anterior",
     "nextVehicle": "Vehículo siguiente",
     "chooseVehicle": "Elige un vehículo",
-    "select": "Seleccionar {name}"
+    "select": "Seleccionar {name}",
+    "luggageNotes": {
+      "toyota-corolla": "3 maletas grandes, o 2 grandes más equipaje de cabina",
+      "seat-toledo": "3 maletas grandes, o 2 grandes más equipaje de cabina",
+      "toyota-corolla-estate": "4 maletas grandes: el maletero más profundo de nuestros turismos",
+      "toyota-prius": "4 maletas grandes, híbrido y de bajas emisiones",
+      "mercedes-vito": "6 maletas grandes, ideal para familias y grupos pequeños",
+      "mercedes-vclass": "7 maletas grandes, el mayor espacio y confort que ofrecemos"
+    }
   },
   "common": {
     "from": "desde",
@@ -306,7 +314,7 @@
     "waIntro": "Hola, quiero reservar un taxi al aeropuerto de Barcelona."
   },
   "destinations": {
-    "metaTitle": "Destinos de traslado desde Barcelona | Taxi y minivan privados",
+    "metaTitle": "Destinos de traslado desde Barcelona | Taxi privado",
     "metaDescription": "Traslados privados en taxi y minivan desde el aeropuerto de Barcelona, la ciudad, el puerto de cruceros y los hoteles hacia la Costa Brava, Sitges.",
     "eyebrow": "Centro de rutas",
     "h1": "Destinos de traslado desde Barcelona",
@@ -345,10 +353,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "Traslado a {name} | Taxi y minivan privados",
-    "ogTitle": "Traslado a {name}",
-    "serviceName": "Traslado privado a {name}",
-    "h1": "Traslado a {name}",
+    "metaTitle": "Taxi Barcelona {place} | Traslado privado",
+    "ogTitle": "Taxi {name}",
+    "serviceName": "Traslado privado: {name}",
+    "h1": "Taxi de {name}",
     "distance": "Distancia",
     "journeyTime": "Duración",
     "fromDaytime": "Desde (de día)",
@@ -365,9 +373,9 @@
     "paxBags": "{seats} pax · {bags} maletas",
     "otherIn": "Otros destinos: {group}",
     "photoAlt": "{place}, destino de traslado privado desde Barcelona",
-    "waQuote": "Hola, quería un presupuesto cerrado para un traslado desde Barcelona: {name}.",
+    "waQuote": "Hola, quería un presupuesto cerrado para un traslado desde Barcelona: {place}.",
     "waQuoteSibling": "Hola, quería un presupuesto para {name}.",
-    "metaDescription": "{name} en taxi privado: un precio fijo con todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
+    "metaDescription": "Taxi privado de Barcelona a {place}: precio cerrado todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",
@@ -533,7 +541,10 @@
     "neverBody2": "Tampoco el tráfico, la ruta que elija el conductor, la terminal en la que aterrice, el número de pasajeros hasta la capacidad del vehículo ni la cantidad de equipaje que quepa en él. Los fines de semana y festivos son lo único que eleva un precio de la lista, con un porcentaje único publicado. Todo lo demás es nuestro riesgo, y es precisamente lo que se compra al fijar un precio por adelantado.",
     "interTitle": "Trayectos fuera del área metropolitana",
     "interBody1": "En cuanto uno de los extremos del trayecto queda fuera del área metropolitana de Barcelona, la tarifa urbana deja de aplicarse y el viaje se calcula por kilómetro con la tarifa interurbana que fija la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava y Andorra se calculan así, con presupuesto completo antes de reservar y no a partir de la lista fija: ninguna lista fija honesta podría cubrir distancias que se diferencian en un factor de cinco.",
-    "interBody2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer: la tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Es la razón de que un trayecto largo cueste lo que cuesta, y de que un precio por kilómetro anunciado en cualquier sitio sin ese detalle sea aproximadamente la mitad del real."
+    "interBody2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer: la tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Es la razón de que un trayecto largo cueste lo que cuesta, y de que un precio por kilómetro anunciado en cualquier sitio sin ese detalle sea aproximadamente la mitad del real.",
+    "officialTitle": "¿Es esta la tarifa oficial del taxi?",
+    "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar y no se debe nada en el coche.",
+    "officialLink": "Cómo se compara con el taxímetro de la parada"
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -666,7 +677,10 @@
     "aboutTitle": "Para qué sirven estas guías",
     "aboutBody1": "Son las preguntas que más nos hacen, respondidas con la extensión que de verdad necesitan. Cuánto cuesta un taxi desde El Prat y cómo se construye el precio. Si el Aerobús o el metro es mejor opción para tu grupo, con la respuesta honesta, que para una persona que viaja ligera casi nunca es el taxi. Qué terminal usa tu aerolínea y dónde esperan los taxis en cada una.",
     "aboutBody2": "Todas las cifras salen del mismo lugar que los precios de esta web: la tarifa publicada del AMB para Barcelona y la tarifa interurbana de la Generalitat para todo lo que queda más allá, comprobadas con los cuadros impresos y no copiadas de otra página. Cuando una guía cita una tarifa, es la vigente en el año tarifario en curso, y las páginas llevan la fecha de su última revisión.",
-    "aboutBody3": "Lo que no son es publicidad con un signo de interrogación delante. Cuando el transporte público es la mejor opción lo decimos, y cuando la parada de taxis de llegadas te va a costar menos que reservar por adelantado, también. Una guía que nos recomendara para todos los trayectos no valdría la pena leerla, y no sería cierta."
+    "aboutBody3": "Lo que no son es publicidad con un signo de interrogación delante. Cuando el transporte público es la mejor opción lo decimos, y cuando la parada de taxis de llegadas te va a costar menos que reservar por adelantado, también. Una guía que nos recomendara para todos los trayectos no valdría la pena leerla, y no sería cierta.",
+    "crumbHome": "Inicio",
+    "minRead": "{minutes} min de lectura",
+    "bookHeading": "Reserva tu traslado"
   },
   "reviews": {
     "metaTitle": "Opiniones de taxi al aeropuerto de Barcelona",

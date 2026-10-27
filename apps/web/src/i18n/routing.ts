@@ -50,4 +50,20 @@ export const routing = defineRouting({
   defaultLocale,
   // Always prefix so every page has one canonical, unambiguous URL per language.
   localePrefix: 'always',
+  /*
+   * No HTTP `Link` hreflang header.
+   *
+   * next-intl adds one by default, and it contradicted the page it was
+   * attached to on every one of the 400 URLs: it declared `x-default` as the
+   * bare, unprefixed URL (`https://bcnairporttaxi.es/faq`), which 307s to a
+   * locale, while the HTML and the sitemap both declare `/en/faq`. It also
+   * spelled Chinese `zh` where the sitemap says `zh-Hans`.
+   *
+   * Search Console shows the cost. Google indexed the unprefixed URLs —
+   * `/destinations/lloret-de-mar` alone collected 57 impressions — which can
+   * only have been discovered through that header, since nothing links to
+   * them. Two hreflang sources that disagree is worse than one, and the HTML
+   * tags and the sitemap already carry the full set.
+   */
+  alternateLinks: false,
 });

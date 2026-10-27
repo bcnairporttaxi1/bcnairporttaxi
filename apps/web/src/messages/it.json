@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Aeroporto Barcellona | Transfer El Prat Online",
-    "metaDescription": "Prenoti online e in anticipo un taxi per l’aeroporto di Barcellona. Un prezzo fisso tutto incluso, concordato prima di prenotare e bloccato al momento della prenotazione.",
+    "metaDescription": "Prenoti online e in anticipo un taxi per l’aeroporto di Barcellona. Un prezzo fisso tutto incluso, concordato prima e bloccato alla prenotazione.",
     "h1": "Taxi per l'aeroporto di Barcellona, prenotato prima di atterrare",
-    "intro": "Prenoti un taxi di Barcellona autorizzato, bianco e giallo, da o per l’aeroporto di El Prat. Un prezzo fisso tutto incluso, mostrato prima di prenotare e bloccato al momento della prenotazione — senza tassametro e senza stime di distanza — lo paga online e non resta nulla da saldare al conducente.",
+    "intro": "Prenoti un taxi di Barcellona autorizzato, nero e giallo, da o per l’aeroporto di El Prat. Un prezzo fisso tutto incluso, mostrato prima di prenotare e bloccato al momento della prenotazione — senza tassametro e senza stime di distanza — lo paga online e non resta nulla da saldare al conducente.",
     "trust": {
       "licensed": "Taxi autorizzati AMB",
       "meter": "Prezzo fisso, senza tassametro",
@@ -198,7 +198,15 @@
     "metaTitle": "Flotta taxi Barcellona | Auto, monovolume e van",
     "metaDescription": "Taxi autorizzati per l'aeroporto di Barcellona: Toyota Prius+, Toyota Corolla, monovolume Mercedes Vito e van premium Mercedes V-Class.",
     "intro": "Tutti i veicoli sono taxi di Barcellona autorizzati. Scelga in base al gruppo e ai bagagli: un taxi standard porta quattro passeggeri, un minivan sei e un van sette, e ciascuno ha il proprio prezzo fisso di trasferimento, visibile prima di prenotare.",
-    "select": "Seleziona {name}"
+    "select": "Seleziona {name}",
+    "luggageNotes": {
+      "toyota-corolla": "3 valigie grandi, oppure 2 grandi più bagaglio a mano",
+      "seat-toledo": "3 valigie grandi, oppure 2 grandi più bagaglio a mano",
+      "toyota-corolla-estate": "4 valigie grandi: il bagagliaio più profondo delle nostre berline",
+      "toyota-prius": "4 valigie grandi, ibrida e a basse emissioni",
+      "mercedes-vito": "6 valigie grandi, ideale per famiglie e piccoli gruppi",
+      "mercedes-vclass": "7 valigie grandi, il massimo spazio e comfort che offriamo"
+    }
   },
   "common": {
     "book": "Prenota ora",
@@ -251,7 +259,7 @@
     "waIntro": "Salve, vorrei prenotare un taxi per l aeroporto di Barcellona."
   },
   "destinations": {
-    "metaTitle": "Destinazioni dei transfer da Barcellona | Taxi e minivan privati",
+    "metaTitle": "Destinazioni dei transfer da Barcellona | Taxi privato",
     "metaDescription": "Transfer privati in taxi e minivan dall'aeroporto di Barcellona, dalla città, dal porto crociere e dagli hotel verso Costa Brava, Sitges, Tarragona.",
     "eyebrow": "Tutte le tratte",
     "h1": "Destinazioni dei transfer da Barcellona",
@@ -290,10 +298,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "Transfer {name} | Taxi e minivan privati",
-    "ogTitle": "Transfer {name}",
-    "serviceName": "Transfer privato {name}",
-    "h1": "Transfer {name}",
+    "metaTitle": "Taxi Barcellona {place} | Transfer privato",
+    "ogTitle": "Taxi {name}",
+    "serviceName": "Transfer privato: {name}",
+    "h1": "Taxi {name}",
     "distance": "Distanza",
     "journeyTime": "Durata",
     "fromDaytime": "Da (di giorno)",
@@ -310,9 +318,9 @@
     "paxBags": "{seats} pax · {bags} bagagli",
     "otherIn": "Altre destinazioni: {group}",
     "photoAlt": "{place}, destinazione per un transfer privato da Barcellona",
-    "waQuote": "Salve, vorrei un preventivo fisso per un transfer da Barcellona: {name}.",
-    "waQuoteSibling": "Salve, vorrei un preventivo per {name}.",
-    "metaDescription": "{name} in taxi privato: un prezzo fisso tutto incluso, conducente autorizzato e volo monitorato. Prenoti online in pochi minuti."
+    "waQuote": "Ciao, vorrei un preventivo a prezzo fisso per un transfer da Barcellona: {place}.",
+    "waQuoteSibling": "Ciao, vorrei un preventivo per {name}.",
+    "metaDescription": "Taxi privato da Barcellona a {place}: prezzo fisso tutto incluso, autista con licenza e volo monitorato. Prenota online in pochi minuti."
   },
   "install": {
     "metaTitle": "Installa BCNAirportTaxi come app",
@@ -515,13 +523,16 @@
     "neverBody2": "E nemmeno il traffico, il percorso scelto dall'autista, il terminal di atterraggio, il numero di passeggeri fino alla capienza del veicolo o la quantità di bagaglio che ci sta. Fine settimana e festivi sono l'unica cosa che alza un prezzo di listino, con un'unica percentuale pubblicata. Tutto il resto è il nostro rischio, ed è esattamente ciò che si acquista fissando un prezzo in anticipo.",
     "interTitle": "Percorsi fuori dall'area metropolitana",
     "interBody1": "Appena uno dei due capi del percorso si trova fuori dall'area metropolitana di Barcellona, la tariffa urbana cessa di applicarsi e il viaggio viene calcolato a chilometro sulla tariffa interurbana fissata dalla Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava e Andorra si calcolano così, quotati per intero prima della prenotazione e non ripresi dal listino fisso: nessun listino fisso onesto potrebbe coprire distanze che variano di un fattore cinque.",
-    "interBody2": "La cifra al chilometro è più alta di quella urbana per un motivo che vale la pena conoscere: la tariffa interurbana tratta il viaggio come un circuito chiuso e addebita anche il rientro dell'autista, perché per legge non può caricare un cliente fuori dalla propria area e tornerebbe a vuoto. Un chilometro percorso costa dunque due chilometri su quella tariffa. È la ragione del costo di un trasferimento lungo, e la ragione per cui un prezzo al chilometro pubblicizzato senza quel dettaglio è circa la metà di quello reale."
+    "interBody2": "La cifra al chilometro è più alta di quella urbana per un motivo che vale la pena conoscere: la tariffa interurbana tratta il viaggio come un circuito chiuso e addebita anche il rientro dell'autista, perché per legge non può caricare un cliente fuori dalla propria area e tornerebbe a vuoto. Un chilometro percorso costa dunque due chilometri su quella tariffa. È la ragione del costo di un trasferimento lungo, e la ragione per cui un prezzo al chilometro pubblicizzato senza quel dettaglio è circa la metà di quello reale.",
+    "officialTitle": "È questa la tariffa ufficiale del taxi?",
+    "officialBody": "No. È il nostro prezzo fisso per un trasferimento prenotato e pagato in anticipo, non la tariffa regolamentata. Il taxi del posteggio si paga a tassametro secondo la tariffa dell'AMB. Con noi il prezzo è noto prima di partire e in auto non si deve nulla.",
+    "officialLink": "Come si confronta con il tassametro del posteggio"
   },
   "site": {
     "name": "BCNAirportTaxi"
   },
   "howItWorks": {
-    "metaTitle": "Come funziona prenotare un taxi per l'aeroporto di Barcellona",
+    "metaTitle": "Come prenotare un taxi per l'aeroporto di Barcellona",
     "metaDescription": "Prenota un taxi per l'aeroporto di Barcellona in tre passi: prezzo immediato tutto incluso, pagamento online e incontro con l'autista.",
     "h1": "Come funziona",
     "steps": {
@@ -648,11 +659,14 @@
     "aboutTitle": "A cosa servono queste guide",
     "aboutBody1": "Sono le domande che ci vengono poste più spesso, trattate con la lunghezza che richiedono davvero. Quanto costa un taxi da El Prat e come si costruisce il prezzo. Se l'Aerobús o la metro sia la scelta migliore per il suo gruppo, con la risposta onesta, che per una persona sola con bagaglio leggero non è quasi mai il taxi. Quale terminal usa la sua compagnia e dove attendono i taxi in ciascuno.",
     "aboutBody2": "Ogni cifra che contengono viene dalla stessa fonte dei prezzi di questo sito: la tariffa pubblicata dell'AMB per Barcellona e la tariffa interurbana della Generalitat per tutto il resto, verificate sui tabellari stampati e non copiate da un altro sito. Quando una guida cita una tariffa, è quella in vigore per l'anno tariffario corrente, e le pagine portano la data dell'ultima revisione.",
-    "aboutBody3": "Quello che non sono è testo pubblicitario con un punto di domanda davanti. Dove il trasporto pubblico è l'opzione migliore lo diciamo, e dove il posteggio davanti agli arrivi le costerà meno che prenotare in anticipo lo diciamo altrettanto. Una guida che ci raccomandasse per ogni viaggio non valrebbe la pena di essere letta, e non sarebbe vera."
+    "aboutBody3": "Quello che non sono è testo pubblicitario con un punto di domanda davanti. Dove il trasporto pubblico è l'opzione migliore lo diciamo, e dove il posteggio davanti agli arrivi le costerà meno che prenotare in anticipo lo diciamo altrettanto. Una guida che ci raccomandasse per ogni viaggio non valrebbe la pena di essere letta, e non sarebbe vera.",
+    "crumbHome": "Home",
+    "minRead": "{minutes} min di lettura",
+    "bookHeading": "Prenota il tuo trasferimento"
   },
   "reviews": {
     "metaTitle": "Recensioni taxi aeroporto di Barcellona",
-    "metaDescription": "Recensioni di passeggeri che hanno prenotato un taxi per l'aeroporto di Barcellona con BCNAirportTaxi. Ogni recensione nasce da una prenotazione completata e verificata.",
+    "metaDescription": "Recensioni di passeggeri che hanno prenotato un taxi per l'aeroporto di Barcellona con BCNAirportTaxi. Ogni recensione nasce da una prenotazione verificata.",
     "h1": "Recensioni dei passeggeri",
     "intro": "Ogni recensione qui presente nasce da una prenotazione completata. Le pubblichiamo dopo una verifica che il viaggio sia davvero avvenuto.",
     "empty": "Nessuna recensione pubblicata per ora. Quando i passeggeri inizieranno a completare i viaggi, le loro recensioni compariranno qui.",

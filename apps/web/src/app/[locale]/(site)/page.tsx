@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { FaqAccordion } from '@/components/faq-accordion';
+import { eurIn } from '@bcn/core/format';
+import { FLEET } from '@bcn/core/fleet';
 import { FleetSwiper } from '@/components/fleet-swiper';
 import { DestinationStrip } from '@/components/destination-strip';
 import { FEATURED_DESTINATIONS, ALL_DESTINATIONS } from '@bcn/core/destinations';
@@ -76,7 +78,10 @@ export default async function HomePage(props: {
   const sample = (pickup: { lat: number; lng: number }, dropoff: { lat: number; lng: number }, km: number) =>
     calculateQuote({ pickup, dropoff, roadKm: km, durationMin: Math.round(km * 1.2), pickupAt: SAMPLE_AT });
 
-  const eur = (n: number) => `€${n.toFixed(2)}`;
+  // Locale-aware: "50,00 €" in Spanish, "€50.00" in English. This was a
+  // hardcoded English format, so every non-English homepage showed a foreign
+  // price ("€50.00", "€1.50") above translated prose.
+  const eur = eurIn(locale);
   const airport = { lat: LANDMARKS.elPratAirport.lat, lng: LANDMARKS.elPratAirport.lng };
   const moll = { lat: LANDMARKS.mollAdossat.lat, lng: LANDMARKS.mollAdossat.lng };
 
@@ -396,12 +401,15 @@ export default async function HomePage(props: {
                 luggage: tf('luggageCol'),
                 comfort: tf('comfortCol'),
                 supplement: tf('supplement', {
-                  amount: `€${TARIFFS.supplements.largeVehicle.toFixed(2)}`,
+                  amount: eur(TARIFFS.supplements.largeVehicle),
                 }),
                 noSupplement: tf('noSupplement'),
                 prev: tf('prevVehicle'),
                 next: tf('nextVehicle'),
                 choose: tf('chooseVehicle'),
+                notes: Object.fromEntries(
+                  FLEET.map((v) => [v.slug, tf(`luggageNotes.${v.slug}`)]),
+                ),
                 categories: {
                   eco: tf('categories.eco'),
                   standard: tf('categories.standard'),

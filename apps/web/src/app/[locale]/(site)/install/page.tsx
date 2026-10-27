@@ -1,8 +1,9 @@
+import { fitTitle } from '@/lib/title';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero, Prose } from '@/components/page-hero';
 import { InstallPrompt } from '@/components/install-prompt';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -13,15 +14,21 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/install`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/install`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/install`;
   const t = await getTranslations({ locale, namespace: 'install' });
   return {
-    title: t('metaTitle'),
+    title: fitTitle(t('metaTitle')),
     description: t('metaDescription'),
     alternates: { canonical: `/${locale}/install`, languages },
+    // A ~140-word PWA how-to in ten languages. It has no search intent and
+    // adds a thin-content signal to a young site, so it stays reachable for
+    // the people who need it and stays out of the index. Both halves ship
+    // together: noindex plus a sitemap entry is a contradiction Search
+    // Console reports as "excluded by noindex".
+    robots: { index: false, follow: true },
   };
 }
 

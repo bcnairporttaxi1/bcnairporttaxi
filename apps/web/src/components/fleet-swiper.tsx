@@ -15,6 +15,8 @@ interface Labels {
   next: string;
   choose: string;
   categories: Record<string, string>;
+  /** Luggage note per vehicle slug, already in the visitor's language. */
+  notes: Record<string, string>;
 }
 
 /**
@@ -148,7 +150,7 @@ export function FleetSwiper({ labels }: { labels: Labels }) {
                   </dl>
 
                   <p className="mb-5 max-w-[38ch] text-[15px] leading-relaxed text-dim">
-                    {v.luggageNote}
+                    {labels.notes[v.slug] ?? v.luggageNote}
                   </p>
 
                   <p className="flex items-start gap-2.5 text-[12.5px] text-ghost">

@@ -1,10 +1,12 @@
+import { fitTitle } from '@/lib/title';
 import type { Metadata } from 'next';
 import { eurIn } from '@bcn/core/format';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { TARIFFS } from '@bcn/core/tariffs';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -17,12 +19,12 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: 'pricing' });
   const eur = eurIn(locale);
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/pricing`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/pricing`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/pricing`;
   return {
-    title: t('metaTitle'),
+    title: fitTitle(t('metaTitle')),
     description: t('metaDescription', {
       sedan: eur(TARIFFS.fixedRoutes.cityAirport.sedan),
       port: eur(TARIFFS.fixedRoutes.portAirport.sedan),
@@ -96,6 +98,25 @@ export default async function PricingPage(props: {
       <PageHero title={t('h1')} intro={t('intro')} />
 
       <div className="mx-auto max-w-3xl px-4 py-14">
+        {/*
+          The first thing a reader needs on a page full of euro figures: these
+          are not the regulated taxi fare. Without it the page reads as a
+          tariff table, and an assistant asked for "the official fare" can
+          lift 50 EUR as the answer. This says the opposite of a meter claim —
+          that our price is NOT the meter — and points to where the rank
+          meter is explained.
+        */}
+        <aside className="mb-8 rounded-card border border-line bg-raise p-5">
+          <h2 className="font-display text-lg font-extrabold">{t('officialTitle')}</h2>
+          <p className="mt-2 leading-relaxed text-ice">{t('officialBody')}</p>
+          <Link
+            href="/blog/how-much-is-a-taxi-from-barcelona-airport"
+            className="mt-3 inline-block font-bold text-gold hover:underline"
+          >
+            {t('officialLink')} →
+          </Link>
+        </aside>
+
         {/* Four columns on a phone would force a pinch, so the table keeps
             its own scroll container rather than widening the page body. */}
         {/*

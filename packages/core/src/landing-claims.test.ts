@@ -21,7 +21,7 @@ import { LANDING_PAGES, getLandingCopy } from './landing-pages';
 
 /** Phrases that claim the price comes from the official meter or tariff. */
 const CLAIMS: Array<[string, RegExp]> = [
-  ['en meter/tariff', /official (?:AMB )?(?:meter|tariff|fare|rate)|on the meter|metered rate|AMB fares?\b|AMB tariffs?\b/i],
+  ['en meter/tariff', /official (?:AMB )?(?:meter|tariff|fare|rate)|on the meter|metered rate|official AMB \w+ (?:tariff|rate|fare)|AMB fares?\b|AMB tariffs?\b/i],
   ['es tarifa oficial', /tarifa oficial|taxímetro oficial|importe del taxímetro/i],
   ['ca tarifa oficial', /tarifa oficial|taxímetre oficial|tarifa de taxímetre/i],
   ['fr tarif officiel', /tarif officiel|compteur officiel|(?:au|du) compteur/i],
@@ -60,6 +60,8 @@ const ALLOWED = [
    * silently changed.
    */
   /charged on the meter at the official AMB waiting rate/i,
+  // Copy that says the opposite of the banned claim: our price is NOT the regulated fare.
+  /Is this the official taxi fare|not the regulated (?:meter )?fare|not the AMB tariff|no es la tarifa regulada|nicht der regulierte Tarif|et non le tarif réglementé|non la tariffa regolamentata|niet het gereguleerde tarief|não a tarifa regulamentada|не регулируемый тариф|而非受监管的费率|no la tarifa regulada|no la tarifa regulada/i,
   /suplement|supplément|Zuschlag|supplemento|toeslag|надбавк|附加费|supplement/i,
   /interurban|interurbano|interurbana|interurbain|Überland|междугород|城际|T-6|T-7/i,
   // Our own copy saying there is no meter.

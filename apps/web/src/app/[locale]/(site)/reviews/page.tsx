@@ -1,8 +1,9 @@
+import { fitTitle } from '@/lib/title';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 import { prisma } from '@/lib/db';
 
 export function generateStaticParams() {
@@ -14,7 +15,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/reviews`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/reviews`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/reviews`;
@@ -26,7 +27,7 @@ export async function generateMetadata(props: {
     .catch(() => 0);
   const t = await getTranslations({ locale, namespace: 'reviews' });
   return {
-    title: t('metaTitle'),
+    title: fitTitle(t('metaTitle')),
     /*
      * Both branches are stated. `undefined` does not fall through to the
      * layout's value here — Next's metadata merge treats an explicit

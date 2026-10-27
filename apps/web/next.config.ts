@@ -31,6 +31,18 @@ const nextConfig: NextConfig = {
     // which sits at 40% opacity where the loss is invisible.
     qualities: [60, 75],
   },
+  /*
+   * /book-online renders /book's exact copy and canonicalises to it, yet
+   * Search Console shows it collecting 263 impressions in Spanish while /book
+   * collected 159 — one page's authority split across two URLs, with Google
+   * showing the one it was told to drop. A permanent redirect leaves one URL
+   * to rank and passes whatever the other earned.
+   */
+  async redirects() {
+    return [
+      { source: '/:locale/book-online', destination: '/:locale/book', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

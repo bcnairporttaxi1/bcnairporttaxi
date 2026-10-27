@@ -8,7 +8,8 @@ import { DESTINATION_GROUPS, FEATURED_DESTINATIONS, type Destination } from '@bc
 import { destinationMotif, destinationPhoto } from '@bcn/core/destination-photos';
 import { DestinationCover } from '@/components/destination-cover';
 import { CONTACT_EMAIL, whatsappLink } from '@bcn/core/site';
-import { locales } from '@/i18n/routing';
+import { destinationCopy, groupCopy } from '@bcn/core/destination-copy';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -20,7 +21,7 @@ export async function generateMetadata(props: {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: 'destinations' });
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/destinations`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/destinations`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/destinations`;
@@ -31,14 +32,11 @@ export async function generateMetadata(props: {
   };
 }
 
-/** Strips the routing prefix so copy can name the place on its own. */
-const placeOf = (name: string) =>
-  name.replace('Barcelona to ', '').replace('Barcelona Airport to ', '');
-
 type Copy = Awaited<ReturnType<typeof getTranslations<'destinations'>>>;
 
-function DestinationCard({ d, t }: { d: Destination; t: Copy }) {
-  const place = placeOf(d.name);
+function DestinationCard({ d, t, locale }: { d: Destination; t: Copy; locale: string }) {
+  const c = destinationCopy(d, locale);
+  const place = c.place;
   const photo = destinationPhoto(d.slug);
 
   const inner = (
@@ -83,9 +81,9 @@ function DestinationCard({ d, t }: { d: Destination; t: Copy }) {
       </div>
 
       <h3 className="mt-4 font-display text-lg font-bold transition-colors group-hover:text-gold">
-        {d.name}
+        {c.route}
       </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-dim">{d.blurb}</p>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-dim">{c.blurb}</p>
       {d.km && d.minutes && (
         <p className="mt-3 font-mono text-xs text-dim">
           {t('cardMeta', { km: d.km, min: Math.round(d.minutes / 5) * 5 })}
@@ -231,7 +229,7 @@ export default async function DestinationsPage(props: {
         <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURED_DESTINATIONS.map((d, i) => (
             <Reveal as="li" key={d.slug} delay={(i % 4) * 70} className="flex">
-              <DestinationCard d={d} t={t} />
+              <DestinationCard d={d} t={t} locale={locale} />
             </Reveal>
           ))}
         </ul>
@@ -246,15 +244,15 @@ export default async function DestinationsPage(props: {
           <div className="mx-auto max-w-6xl px-4">
             <Reveal>
               <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
-                {group.title}
+                {groupCopy(group, locale).title}
               </h2>
-              <p className="mt-3 max-w-3xl leading-relaxed text-dim">{group.intro}</p>
+              <p className="mt-3 max-w-3xl leading-relaxed text-dim">{groupCopy(group, locale).intro}</p>
             </Reveal>
 
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {group.destinations.map((d, i) => (
                 <Reveal as="li" key={d.slug} delay={(i % 3) * 70} className="flex">
-                  <DestinationCard d={d} t={t} />
+                  <DestinationCard d={d} t={t} locale={locale} />
                 </Reveal>
               ))}
             </ul>

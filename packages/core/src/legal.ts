@@ -143,7 +143,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
     slug: 'cookies',
     title: 'Cookie Policy',
     description:
-      'The cookies BCNAirportTaxi uses, which are essential, which require consent, and how to change your choice.',
+      'The cookies BCNAirportTaxi uses, which are essential and which need your consent, and how to change or withdraw your choice at any time.',
     h1: 'Cookie policy',
     updated: '10 August 2026',
     intro:
@@ -174,7 +174,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
     slug: 'refund-policy',
     title: 'Refund Policy',
     description:
-      'When a BCNAirportTaxi booking is refunded: cancellations, no-shows, and cases where no driver could be assigned.',
+      'When a BCNAirportTaxi booking is refunded in full: cancellations made in time, no-shows, flight cancellations and cases where no driver could be assigned.',
     h1: 'Refund policy',
     updated: '25 October 2026',
     intro:

@@ -198,7 +198,15 @@
     "metaTitle": "Taxivloot Barcelona | Auto’s, monovolumes en bussen",
     "metaDescription": "Vergunde taxi’s naar de luchthaven van Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito monovolume en Mercedes V-Class premium bus.",
     "intro": "Alle voertuigen zijn erkende Barcelona-taxi’s. Kies op groepsgrootte en bagage: een standaardtaxi neemt vier passagiers, een minivan zes en een van zeven, en elk heeft zijn eigen vaste transferprijs, zichtbaar vóór het boeken.",
-    "select": "{name} selecteren"
+    "select": "{name} selecteren",
+    "luggageNotes": {
+      "toyota-corolla": "3 grote koffers, of 2 grote plus handbagage",
+      "seat-toledo": "3 grote koffers, of 2 grote plus handbagage",
+      "toyota-corolla-estate": "4 grote koffers: de diepste kofferbak van onze sedans",
+      "toyota-prius": "4 grote koffers, hybride en emissiearm",
+      "mercedes-vito": "6 grote koffers, ideaal voor gezinnen en kleine groepen",
+      "mercedes-vclass": "7 grote koffers, de meeste ruimte en comfort die wij bieden"
+    }
   },
   "common": {
     "book": "Nu boeken",
@@ -290,10 +298,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "Transfer {name} | Privétaxi & minivan",
-    "ogTitle": "Transfer {name}",
-    "serviceName": "Privétransfer {name}",
-    "h1": "Transfer {name}",
+    "metaTitle": "Taxi Barcelona {place} | Privétransfer",
+    "ogTitle": "Taxi {name}",
+    "serviceName": "Privétransfer: {name}",
+    "h1": "Taxi {name}",
     "distance": "Afstand",
     "journeyTime": "Reistijd",
     "fromDaytime": "Vanaf (overdag)",
@@ -310,9 +318,9 @@
     "paxBags": "{seats} pers. · {bags} koffers",
     "otherIn": "Andere bestemmingen: {group}",
     "photoAlt": "{place}, bestemming voor een privétransfer vanuit Barcelona",
-    "waQuote": "Hallo, ik wil graag een vaste prijs voor een transfer vanuit Barcelona: {name}.",
-    "waQuoteSibling": "Hallo, ik wil graag een prijsopgave voor {name}.",
-    "metaDescription": "{name} met een privétaxi: één vaste alles-inbegrepen prijs, een erkende chauffeur en uw vlucht gevolgd. Boek online in enkele minuten."
+    "waQuote": "Hallo, ik wil graag een offerte met vaste prijs voor een transfer vanaf Barcelona: {place}.",
+    "waQuoteSibling": "Hallo, ik wil graag een offerte voor {name}.",
+    "metaDescription": "Privétaxi van Barcelona naar {place}: één vaste prijs alles inbegrepen, een erkende chauffeur en uw vlucht gevolgd. Boek online in enkele minuten."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als app installeren",
@@ -515,13 +523,16 @@
     "neverBody2": "Evenmin het verkeer, de route die uw chauffeur kiest, de terminal waar u landt, het aantal passagiers tot de capaciteit van het voertuig of de hoeveelheid bagage die erin past. Weekenden en feestdagen zijn het enige wat een lijstprijs verhoogt, met één gepubliceerd percentage. Al het overige is ons risico — en dat is precies wat u koopt door een prijs vooraf vast te zetten.",
     "interTitle": "Ritten buiten het stadsgewest",
     "interBody1": "Zodra een van de uiteinden van de rit buiten het stadsgewest Barcelona ligt, geldt het stadstarief niet meer en wordt de rit per kilometer berekend op het interlokale tarief dat de Generalitat de Catalunya vaststelt. Sitges, Tarragona, Girona, Reus, de Costa Brava en Andorra worden zo berekend, volledig geprijsd vóór het boeken en niet uit de vaste lijst gehaald: geen enkele eerlijke vaste lijst kan afstanden dekken die een factor vijf verschillen.",
-    "interBody2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen: het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is."
+    "interBody2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen: het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is.",
+    "officialTitle": "Is dit het officiële taxitarief?",
+    "officialBody": "Nee. Dit is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief. Een taxi van de standplaats wordt betaald volgens de meter op het AMB-tarief. Bij ons is de prijs bekend vóór de reis en is er in de auto niets verschuldigd.",
+    "officialLink": "Zo verhoudt het zich tot de meter op de standplaats"
   },
   "site": {
     "name": "BCNAirportTaxi"
   },
   "howItWorks": {
-    "metaTitle": "Zo werkt het boeken van een taxi naar de luchthaven van Barcelona",
+    "metaTitle": "Zo boekt u een taxi naar de luchthaven van Barcelona",
     "metaDescription": "Boek een taxi naar de luchthaven van Barcelona in drie stappen: direct een all-in prijs, online betalen en uw chauffeur ontmoeten.",
     "h1": "Hoe het werkt",
     "steps": {
@@ -648,11 +659,14 @@
     "aboutTitle": "Waar deze gidsen voor zijn",
     "aboutBody1": "Dit zijn de vragen die ons het vaakst worden gesteld, behandeld op de lengte die ze echt nodig hebben. Wat een taxi vanaf El Prat kost en hoe die prijs is opgebouwd. Of de Aerobús of de metro de betere keuze is voor uw groep — met het eerlijke antwoord, dat voor één persoon met lichte bagage bijna nooit de taxi is. Welke terminal uw luchtvaartmaatschappij gebruikt en waar de taxi's bij elk daarvan wachten.",
     "aboutBody2": "Elk cijfer erin komt uit dezelfde bron als de prijzen op deze site: het gepubliceerde AMB-tarief voor Barcelona en het interlokale tarief van de Generalitat voor alles daarbuiten, gecontroleerd aan de gedrukte borden en niet overgenomen van een andere website. Waar een gids een tarief noemt, is het het tarief dat geldt voor het huidige tariefjaar, en de pagina's dragen de datum van hun laatste herziening.",
-    "aboutBody3": "Wat ze niet zijn, is verkooptekst met een vraagteken ervoor. Waar het openbaar vervoer de betere optie is, zeggen we dat, en waar de standplaats voor de aankomsthal u minder kost dan vooraf boeken, zeggen we dat ook. Een gids die ons voor elke rit aanbeveelt zou niet het lezen waard zijn, en zou niet waar zijn."
+    "aboutBody3": "Wat ze niet zijn, is verkooptekst met een vraagteken ervoor. Waar het openbaar vervoer de betere optie is, zeggen we dat, en waar de standplaats voor de aankomsthal u minder kost dan vooraf boeken, zeggen we dat ook. Een gids die ons voor elke rit aanbeveelt zou niet het lezen waard zijn, en zou niet waar zijn.",
+    "crumbHome": "Home",
+    "minRead": "{minutes} min leestijd",
+    "bookHeading": "Boek uw transfer"
   },
   "reviews": {
     "metaTitle": "Beoordelingen taxi luchthaven Barcelona",
-    "metaDescription": "Beoordelingen van passagiers die een taxi naar de luchthaven van Barcelona boekten bij BCNAirportTaxi. Elke beoordeling komt uit een afgeronde, gecontroleerde boeking.",
+    "metaDescription": "Beoordelingen van passagiers die een taxi naar de luchthaven van Barcelona boekten bij BCNAirportTaxi. Elke beoordeling komt uit een gecontroleerde boeking.",
     "h1": "Beoordelingen van passagiers",
     "intro": "Elke beoordeling hier komt uit een afgeronde boeking. We publiceren ze na een controle dat de rit werkelijk heeft plaatsgevonden.",
     "empty": "Nog geen beoordelingen gepubliceerd. Zodra passagiers ritten gaan afronden, verschijnen hun beoordelingen hier.",

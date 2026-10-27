@@ -124,6 +124,11 @@ export const LANDING_PAGES: LandingPage[] = [
             body:
               'You can change the details yourself within 30 minutes of booking, and after that up until your driver sets off — reply to your confirmation or message us on WhatsApp. Moving a pickup time, a terminal or an address costs nothing, and a wrong terminal is the most common correction we make. If the trip falls through entirely, cancel at least 24 hours before the pickup and the whole amount is refunded to the card you paid with, normally within five to ten working days. Inside that 24-hour window we will still try to help, but a refund is no longer automatic.',
           },
+          {
+            h2: 'Choosing the vehicle when you have a lot of luggage',
+            body:
+              'Count the cases before you choose. A four-seat taxi takes around three large suitcases, the six-seat Vito takes six and the seven-seat V-Class takes seven. A heavy-luggage departure is the one place a bigger vehicle is worth the extra EUR 20 to EUR 25, because the alternative is arriving at the terminal with a case on your knee.',
+          },
         ],
       },
     },
@@ -162,6 +167,11 @@ export const LANDING_PAGES: LandingPage[] = [
             body:
               'A booked transfer does not use the rank. Your driver waits inside the arrivals hall, on the public side of the exit from baggage reclaim, holding a sign with your name — not at the kerb and not in the queue. T2 is split into blocks A, B and C along the front of the building, so including your block when you book is the difference between a driver standing where you come out and one three hundred metres down the frontage. The driver follows your flight number, so a late landing moves the pickup instead of losing it, and the phone number in your confirmation reaches them directly rather than an office.',
           },
+          {
+            h2: 'Late arrivals and delayed flights',
+            body:
+              'A booked pickup follows your flight, not the timetable. If you land hours late the driver is still there, and there is no waiting charge for a delayed landing and nothing to renegotiate when you arrive. If the flight is cancelled outright, tell us and the whole amount is refunded.',
+          },
         ],
       },
     },
@@ -199,6 +209,11 @@ export const LANDING_PAGES: LandingPage[] = [
             body:
               'Not the hour of the day: a 04:30 pickup for an early departure costs exactly what a two-in-the-afternoon run costs, because a fixed price carries no night rate. Not the traffic, the route your driver takes, which terminal you land at, the number of passengers up to the vehicle’s capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by one published percentage rather than a surge that moves with demand. Everything else is our risk rather than yours, which is precisely what fixing a price in advance buys.',
           },
+          {
+            h2: 'How and when you pay',
+            body:
+              'The whole price is paid online by card or Bizum when you book, and a receipt for the full amount is emailed with your confirmation. Nothing is collected in the car, so there is no cash to find and no card machine to hope works at the kerb.',
+          },
         ],
       },
     },
@@ -208,10 +223,10 @@ export const LANDING_PAGES: LandingPage[] = [
     related: ['city-to-airport', 'airport-to-city', 'neighborhoods/eixample', 'private-transfer'],
     copy: {
       en: {
-        title: 'Barcelona Hotel to Airport Transfer | Door to Door',
+        title: 'Barcelona Airport Transfer to Hotel and Back | Taxi',
         description:
           'Book a taxi from your Barcelona hotel to El Prat airport, or from the airport to your hotel door. Door-to-door, licensed, one fixed price paid online.',
-        h1: 'Barcelona hotel to airport transfers',
+        h1: 'Barcelona airport transfer to your hotel, and back',
         intro:
           'Most of our bookings are hotel transfers, in both directions. A door-to-door taxi removes the part of the trip people most underestimate: getting luggage from the hotel lobby to a rank, or finding the right address after a long flight.',
         sections: [
@@ -292,7 +307,7 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: 'private-transfer',
-    related: ['hotel-transfers', 'barcelona-airport-taxi-price', 'airport-to-city', '24-hour-taxi'],
+    related: ['group-taxi', 'hotel-transfers', 'barcelona-airport-taxi-price', 'airport-to-city', '24-hour-taxi'],
     copy: {
       en: {
         title: 'Barcelona Airport Private Transfer | Your Own Taxi',
@@ -340,7 +355,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: '24 Hour Taxi Barcelona Airport | Night Transfers',
         description:
-          'A 24-hour Barcelona airport taxi service. Book night landings and pre-dawn departures in advance, on the official AMB night tariff.',
+          'A 24-hour Barcelona airport taxi service. Book night landings and pre-dawn departures in advance, at one fixed price whatever the hour.',
         h1: '24 hour Barcelona airport taxi',
         intro:
           'El Prat operates around the clock, and so does the taxi service. The hours worth booking in advance are the awkward ones: landings after midnight, and departures that need a pickup before dawn.',
@@ -410,6 +425,11 @@ export const LANDING_PAGES: LandingPage[] = [
             body:
               'For a dawn departure the quarter is quiet, the streets are empty and the journey to El Prat is at its fastest — 20 to 25 minutes rather than the 30 to 35 it takes at nine in the morning. What is not easy at 04:30 is finding a taxi. Hailing one in a pedestrianised lane before dawn does not work, and the nearest rank is a walk with luggage. This is the clearest case on the whole site for booking rather than improvising, and the price is the same as the same journey at noon.',
           },
+          {
+            h2: 'If your lane is closed to cars',
+            body:
+              'Parts of the Barri Gòtic are pedestrianised or restricted to vehicles reserved for residents at certain hours, so a driver cannot always stop at the address itself. Tell us the street and the nearest square you can walk to with your luggage, and the meeting point is set on the closest street a taxi can legally wait on and written into your confirmation. On a departure, allow five extra minutes for the walk.',
+          },
         ],
       },
     },
@@ -447,6 +467,16 @@ export const LANDING_PAGES: LandingPage[] = [
             h2: 'Traffic out of the Eixample, by time of day',
             body:
               'The run to El Prat from the Eixample is 25 to 35 minutes for most of the day and noticeably worse twice: weekday mornings between 08:00 and 09:30, when the Gran Via and the Ronda carry commuter traffic in both directions, and Friday afternoons from about 17:00. From the Sagrada Família end of the district add five to ten minutes on top; from blocks near Plaça d’Espanya subtract about the same. A fixed price absorbs all of that — the figure does not move with the traffic — but your departure time still has to allow for it.',
+          },
+          {
+            h2: 'Arriving from the airport into the Eixample',
+            body:
+              'From El Prat the driver takes the quickest of the main approaches on the day, and the price does not depend on which. What changes the last few hundred metres is the one-way grid: a pickup or drop-off on the far side of a block can mean a lap round it, so giving the street number rather than the nearest junction saves a few minutes and a short walk with luggage.',
+          },
+          {
+            h2: 'Apartments with a street door',
+            body:
+              'Many Eixample addresses are apartments rather than hotels: a street door with an intercom, no reception, and often nobody to hold your bags. Put the entry arrangements or a contact number for your host in the booking notes, and the driver can ring when they arrive instead of waiting outside.',
           },
         ],
       },
@@ -490,6 +520,42 @@ export const LANDING_PAGES: LandingPage[] = [
             h2: 'Arriving into the centre late at night',
             body:
               'After about 23:30 the centre is the easiest part of the city to be driven into and the hardest to walk across with luggage: the metro is closing, the streets around the Rambla are busy in a way that slows a car, and the final hundred metres over setts is done in the dark. A booked car ends at the nearest point to your door rather than at a rank, and the driver has the address before you land. The price is the same figure as the same journey at noon.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    slug: 'group-taxi',
+    related: ['private-transfer', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi'],
+    copy: {
+      en: {
+        title: 'Group Taxi Barcelona Airport | 5, 6 or 7 Seats',
+        description:
+          'Taxi for groups from Barcelona airport: a six- or seven-seat van, or several cars booked together in one checkout. One fixed all-inclusive price.',
+        h1: 'Group taxi from Barcelona airport',
+        intro:
+          'A standard Barcelona taxi seats four. For five, six or seven people there is a six-seat Mercedes Vito and a seven-seat Mercedes V-Class, and for a bigger party you book two or more cars together. There is no single nine-seat taxi in Barcelona, and we would rather say so than let you find out at the kerb.',
+        sections: [
+          {
+            h2: 'How many people and how many suitcases fit',
+            body: 'The honest limit is the boot, not the seats. A standard four-seat taxi carries four passengers and around three large suitcases; some models take four. The six-seat Mercedes Vito carries six passengers and six bags, and the seven-seat Mercedes V-Class carries seven passengers and seven bags. If you are travelling with something oversized — skis, a bicycle, a pushchair, an instrument — put it in the booking notes so the right vehicle is assigned rather than the nearest one.',
+          },
+          {
+            h2: 'Five, six or seven people: one vehicle',
+            body: 'Up to seven people travel together in a single vehicle, at a fixed all-inclusive price. The four-seat taxi is EUR 50 between the airport and anywhere in Barcelona, the six-seat Vito is EUR 70 and the seven-seat V-Class is EUR 75. Weekends and public holidays add 7.5%. That is the whole price: the airport supplement, the larger-vehicle supplement and our service are already inside it, and nothing is owed to the driver.',
+          },
+          {
+            h2: 'Eight, nine or ten people: book two cars together',
+            body: 'Above seven there is no single taxi, so the answer is two or more vehicles travelling as one party. Choose several cars in a single booking and they are reserved together, paid in one checkout and sent to the same pickup point, up to six cars. Each is charged at the published price for its size, so there is no bespoke quote and no surprise: eight people can travel in two four-seat taxis for EUR 100 on a weekday, nine in a six-seat Vito and a four-seat taxi for EUR 120 (EUR 70 plus EUR 50), and eleven in a seven-seat V-Class and a four-seat taxi for EUR 125.',
+          },
+          {
+            h2: 'One checkout, one pickup point, all the cars together',
+            body: 'The cars in a group booking are assigned together and you receive every driver\'s name and number by email. They wait in the arrivals hall of your terminal with a name sign and track the same flight number, so a late landing moves the whole party rather than splitting it. That is the practical difference from queuing at the rank with eight people and waiting for taxis to appear in ones and twos.',
+          },
+          {
+            h2: 'Cruise groups, families and wedding parties',
+            body: 'The same logic applies to the cruise terminal at Moll Adossat, where the fixed prices are EUR 60, EUR 80 and EUR 85 for the four-, six- and seven-seat vehicles, and to a family with grandparents and a pile of luggage. For a wedding party or a conference delegation, tell us the arrival times and the number of cases when you book and we will tell you honestly whether two cars are enough or whether three is the safer choice.',
           },
         ],
       },

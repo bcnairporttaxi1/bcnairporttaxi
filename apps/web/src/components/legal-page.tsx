@@ -4,7 +4,6 @@ import { setRequestLocale } from 'next-intl/server';
 import { PageHero, Prose } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { LEGAL_DOCS } from '@bcn/core/legal';
-import { locales } from '@/i18n/routing';
 
 /** Shared metadata builder for the four legal routes. */
 export async function legalMetadata(
@@ -13,15 +12,22 @@ export async function legalMetadata(
 ): Promise<Metadata> {
   const doc = LEGAL_DOCS[slug];
   if (!doc) return {};
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/${slug}`;
-  // x-default tells Google which version to serve a language we do not
-  // publish. Without it the ten alternates describe a set with no default.
-  languages['x-default'] = `/en/${slug}`;
+  // The documents exist in English only. Naming ten languages in the hreflang
+  // set claimed translations of a contract that nobody has translated, and
+  // every non-English URL carried an English title under a translated one.
+  const languages: Record<string, string> = {
+    en: `/en/${slug}`,
+    'x-default': `/en/${slug}`,
+  };
+  const english = locale === 'en';
   return {
     title: doc.title,
     description: doc.description,
-    alternates: { canonical: `/${locale}/${slug}`, languages },
+    // Every locale canonicalises to the one real document.
+    alternates: { canonical: `/en/${slug}`, languages },
+    // The English document is the one to index. The others remain reachable
+    // for visitors reading the site in their own language.
+    robots: english ? { index: true, follow: true } : { index: false, follow: true },
   };
 }
 

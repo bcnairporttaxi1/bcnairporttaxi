@@ -77,7 +77,7 @@ export async function VehicleCard({
           </div>
         </dl>
 
-        <p className="mt-3 text-sm leading-relaxed text-dim">{vehicle.luggageNote}</p>
+        <p className="mt-3 text-sm leading-relaxed text-dim">{t.has(`luggageNotes.${vehicle.slug}`) ? t(`luggageNotes.${vehicle.slug}`) : vehicle.luggageNote}</p>
 
         {/* Pushed to the bottom so every card's CTA lines up regardless of how
             long the luggage note runs. */}

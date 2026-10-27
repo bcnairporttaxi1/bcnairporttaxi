@@ -201,7 +201,15 @@
     "noSupplement": "No large-vehicle supplement on this one.",
     "prevVehicle": "Previous vehicle",
     "nextVehicle": "Next vehicle",
-    "chooseVehicle": "Choose a vehicle"
+    "chooseVehicle": "Choose a vehicle",
+    "luggageNotes": {
+      "toyota-corolla": "3 large suitcases, or 2 large plus cabin bags",
+      "seat-toledo": "3 large suitcases, or 2 large plus cabin bags",
+      "toyota-corolla-estate": "4 large suitcases — the deepest boot of our saloons",
+      "toyota-prius": "4 large suitcases, hybrid and low emission",
+      "mercedes-vito": "6 large suitcases, ideal for families and small groups",
+      "mercedes-vclass": "7 large suitcases, the most space and comfort we offer"
+    }
   },
   "pricing": {
     "metaTitle": "Barcelona Airport Taxi Prices 2026",
@@ -244,7 +252,10 @@
     "neverBody2": "Nor does the traffic, the route your driver chooses, which terminal you land at, the number of passengers up to the vehicle's capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by a single published percentage. Everything else is our risk, which is what you are buying when you fix a price in advance.",
     "interTitle": "Journeys outside the metropolitan area",
     "interBody1": "Once either end of the journey lies outside the Barcelona metropolitan area, the city tariff stops applying and the journey is priced per kilometre on the interurban tariff set by the Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, the Costa Brava and Andorra are all priced this way, quoted in full before you book rather than taken from the fixed list — no honest fixed list could cover distances that differ by a factor of five.",
-    "interBody2": "The per-kilometre figure is higher than the city one for a reason worth knowing: the interurban tariff treats the journey as a closed circuit and bills the driver's return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It is why a long transfer costs what it does, and why a per-kilometre rate quoted anywhere without that detail is about half the real one."
+    "interBody2": "The per-kilometre figure is higher than the city one for a reason worth knowing: the interurban tariff treats the journey as a closed circuit and bills the driver's return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It is why a long transfer costs what it does, and why a per-kilometre rate quoted anywhere without that detail is about half the real one.",
+    "officialTitle": "Is this the official taxi fare?",
+    "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel and nothing is owed in the car.",
+    "officialLink": "How the rank meter compares"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
@@ -374,7 +385,10 @@
     "aboutTitle": "What these guides are for",
     "aboutBody1": "These are the questions we are asked most often, answered at the length they actually need. What a taxi from El Prat costs and how the price is built. Whether the Aerobús or the metro is the better choice for your group — with the honest answer, which for one person travelling light is usually not the taxi. Which terminal your airline uses and where the taxis wait at each.",
     "aboutBody2": "Every figure in them comes from the same place as the prices on this site: the published AMB tariff for Barcelona and the Generalitat's interurban tariff for anything beyond it, checked against the printed boards rather than copied from another website. Where a guide quotes a rate, the rate is the one in force for the current tariff year, and the pages carry the date they were last revised.",
-    "aboutBody3": "What they are not is sales copy with a question mark on the front. Where public transport is the better option we say so, and where the rank outside arrivals will cost you less than booking ahead we say that too. A guide that recommends us for every journey would not be worth reading, and would not be true."
+    "aboutBody3": "What they are not is sales copy with a question mark on the front. Where public transport is the better option we say so, and where the rank outside arrivals will cost you less than booking ahead we say that too. A guide that recommends us for every journey would not be worth reading, and would not be true.",
+    "crumbHome": "Home",
+    "minRead": "{minutes} min read",
+    "bookHeading": "Book your transfer"
   },
   "reviews": {
     "metaTitle": "Barcelona Airport Taxi Reviews",
@@ -561,10 +575,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "{name} Transfer | Private Taxi & Minivan",
+    "metaTitle": "Taxi {name} | Fixed-Price Transfer",
     "ogTitle": "{name} Transfer",
     "serviceName": "{name} private transfer",
-    "h1": "{name} transfer",
+    "h1": "{name} taxi transfer",
     "distance": "Distance",
     "journeyTime": "Journey time",
     "fromDaytime": "From (daytime)",

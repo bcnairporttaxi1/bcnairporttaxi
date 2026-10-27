@@ -196,9 +196,17 @@
     "nextVehicle": "Nächstes Fahrzeug",
     "chooseVehicle": "Fahrzeug wählen",
     "metaTitle": "Taxiflotte Barcelona | Limousinen, Vans und Großraumwagen",
-    "metaDescription": "Lizenzierte Barcelona-Flughafentaxis: Toyota Prius+, Toyota Corolla, Mercedes Vito Van und Mercedes V-Class Premium.",
+    "metaDescription": "Lizenzierte Barcelona-Flughafentaxis: Toyota Prius+, Corolla, Mercedes Vito und V-Class Premium, mit Sitzplätzen und Gepäckkapazität im Überblick.",
     "intro": "Alle Fahrzeuge sind lizenzierte Barcelona-Taxis. Wählen Sie nach Gruppengröße und Gepäck: ein Standardtaxi nimmt vier Personen, ein Minivan sechs und ein Van sieben, und jedes hat seinen eigenen Transfer-Festpreis, vor der Buchung sichtbar.",
-    "select": "{name} auswählen"
+    "select": "{name} auswählen",
+    "luggageNotes": {
+      "toyota-corolla": "3 große Koffer oder 2 große plus Handgepäck",
+      "seat-toledo": "3 große Koffer oder 2 große plus Handgepäck",
+      "toyota-corolla-estate": "4 große Koffer: der tiefste Kofferraum unserer Limousinen",
+      "toyota-prius": "4 große Koffer, Hybrid und emissionsarm",
+      "mercedes-vito": "6 große Koffer, ideal für Familien und kleine Gruppen",
+      "mercedes-vclass": "7 große Koffer, das meiste Platzangebot und der größte Komfort bei uns"
+    }
   },
   "common": {
     "book": "Jetzt buchen",
@@ -290,10 +298,10 @@
     "min": "Min"
   },
   "destinationRoute": {
-    "metaTitle": "Transfer {name} | Privates Taxi & Minivan",
-    "ogTitle": "Transfer {name}",
-    "serviceName": "Privater Transfer {name}",
-    "h1": "Transfer {name}",
+    "metaTitle": "Taxi Barcelona {place} | Privattransfer",
+    "ogTitle": "Taxi {name}",
+    "serviceName": "Privattransfer: {name}",
+    "h1": "Taxi {name}",
     "distance": "Entfernung",
     "journeyTime": "Fahrzeit",
     "fromDaytime": "Ab (tagsüber)",
@@ -310,9 +318,9 @@
     "paxBags": "{seats} Pers. · {bags} Gepäckstücke",
     "otherIn": "Weitere Ziele: {group}",
     "photoAlt": "{place}, Ziel für einen privaten Transfer ab Barcelona",
-    "waQuote": "Hallo, ich hätte gern einen Festpreis für einen Transfer ab Barcelona: {name}.",
+    "waQuote": "Hallo, ich hätte gern ein Festpreis-Angebot für einen Transfer ab Barcelona: {place}.",
     "waQuoteSibling": "Hallo, ich hätte gern ein Angebot für {name}.",
-    "metaDescription": "{name} im privaten Taxi: ein Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. In Minuten online buchen."
+    "metaDescription": "Privates Taxi von Barcelona nach {place}: Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. In Minuten online buchen."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als App installieren",
@@ -515,13 +523,16 @@
     "neverBody2": "Ebenso wenig der Verkehr, die Route, die Ihr Fahrer wählt, das Terminal, an dem Sie landen, die Zahl der Mitfahrenden bis zur Kapazität des Fahrzeugs oder die Menge an Gepäck, die darin Platz hat. Wochenenden und Feiertage sind das Einzige, was einen Listenpreis anhebt, und zwar um einen einzigen veröffentlichten Prozentsatz. Alles andere ist unser Risiko – und genau das kauft man, wenn man einen Preis im Voraus festschreibt.",
     "interTitle": "Fahrten außerhalb des Großraums",
     "interBody1": "Sobald ein Ende der Fahrt außerhalb des Großraums Barcelona liegt, gilt der Stadttarif nicht mehr und die Fahrt wird nach Kilometern auf dem Überlandtarif der Generalitat de Catalunya berechnet. Sitges, Tarragona, Girona, Reus, die Costa Brava und Andorra werden so berechnet, vor der Buchung vollständig beziffert und nicht der Festpreisliste entnommen – keine ehrliche Festpreisliste könnte Entfernungen abdecken, die um den Faktor fünf auseinanderliegen.",
-    "interBody2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte: der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt den Preis einer langen Fahrt – und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist."
+    "interBody2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte: der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt den Preis einer langen Fahrt – und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist.",
+    "officialTitle": "Ist das der amtliche Taxitarif?",
+    "officialBody": "Nein. Das ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer, nicht der regulierte Tarif. Ein Taxi vom Stand wird nach dem Taxameter zum AMB-Tarif bezahlt. Bei uns steht der Preis vor der Fahrt fest, und im Wagen ist nichts zu zahlen.",
+    "officialLink": "Wie sich das Taxameter am Stand vergleicht"
   },
   "site": {
     "name": "BCNAirportTaxi"
   },
   "howItWorks": {
-    "metaTitle": "So funktioniert die Buchung eines Flughafentaxis in Barcelona",
+    "metaTitle": "So buchen Sie ein Flughafentaxi in Barcelona",
     "metaDescription": "Buchen Sie ein Barcelona-Flughafentaxi in drei Schritten: sofortiger Komplettpreis, Online-Zahlung, Treffen mit Ihrem Fahrer. Im Taxi ist nichts zu zahlen.",
     "h1": "So funktioniert es",
     "steps": {
@@ -648,11 +659,14 @@
     "aboutTitle": "Wozu diese Ratgeber da sind",
     "aboutBody1": "Es sind die Fragen, die uns am häufigsten gestellt werden, beantwortet in der Länge, die sie tatsächlich brauchen. Was ein Taxi von El Prat kostet und wie sich der Preis zusammensetzt. Ob der Aerobús oder die Metro für Ihre Gruppe die bessere Wahl ist – mit der ehrlichen Antwort, die für eine Person mit leichtem Gepäck fast nie das Taxi lautet. Welches Terminal Ihre Airline nutzt und wo an jedem die Taxis warten.",
     "aboutBody2": "Jede Zahl darin stammt aus derselben Quelle wie die Preise auf dieser Seite: der veröffentlichte AMB-Tarif für Barcelona und der Überlandtarif der Generalitat für alles darüber hinaus, geprüft an den gedruckten Tafeln und nicht von einer anderen Website übernommen. Wo ein Ratgeber einen Satz nennt, ist es der für das laufende Tarifjahr gültige, und die Seiten tragen das Datum ihrer letzten Überarbeitung.",
-    "aboutBody3": "Was sie nicht sind, ist Werbetext mit einem Fragezeichen davor. Wo der öffentliche Verkehr die bessere Option ist, sagen wir das, und wo der Stand vor der Ankunftshalle Sie weniger kostet als eine Vorausbuchung, sagen wir das auch. Ein Ratgeber, der uns für jede Fahrt empfiehlt, wäre nicht lesenswert – und nicht wahr."
+    "aboutBody3": "Was sie nicht sind, ist Werbetext mit einem Fragezeichen davor. Wo der öffentliche Verkehr die bessere Option ist, sagen wir das, und wo der Stand vor der Ankunftshalle Sie weniger kostet als eine Vorausbuchung, sagen wir das auch. Ein Ratgeber, der uns für jede Fahrt empfiehlt, wäre nicht lesenswert – und nicht wahr.",
+    "crumbHome": "Startseite",
+    "minRead": "{minutes} Min. Lesezeit",
+    "bookHeading": "Transfer buchen"
   },
   "reviews": {
     "metaTitle": "Bewertungen: Flughafentaxi Barcelona",
-    "metaDescription": "Bewertungen von Fahrgästen, die ein Flughafentaxi in Barcelona bei BCNAirportTaxi gebucht haben. Jede Bewertung stammt aus einer abgeschlossenen, geprüften Buchung.",
+    "metaDescription": "Bewertungen von Fahrgästen, die ein Flughafentaxi in Barcelona bei BCNAirportTaxi gebucht haben. Jede stammt aus einer geprüften, abgeschlossenen Buchung.",
     "h1": "Bewertungen von Fahrgästen",
     "intro": "Jede Bewertung hier stammt aus einer abgeschlossenen Buchung. Wir veröffentlichen sie, nachdem geprüft wurde, dass die Fahrt wirklich stattgefunden hat.",
     "empty": "Noch keine Bewertungen veröffentlicht. Sobald Fahrgäste Fahrten abschließen, erscheinen ihre Bewertungen hier.",

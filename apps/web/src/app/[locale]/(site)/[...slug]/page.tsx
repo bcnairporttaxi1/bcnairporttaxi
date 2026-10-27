@@ -12,7 +12,7 @@ import {
   getLandingCopy,
   getLandingPage,
 } from '@bcn/core/landing-pages';
-import { locales } from '@/i18n/routing';
+import { localeHrefLang, locales } from '@/i18n/routing';
 
 /**
  * Catch-all so nested keyword routes such as `/neighborhoods/eixample` resolve
@@ -42,7 +42,7 @@ export async function generateMetadata(props: {
 
   const copy = getLandingCopy(page, locale);
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/${path}`;
+  for (const l of locales) languages[localeHrefLang[l]] = `/${l}/${path}`;
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/${path}`;

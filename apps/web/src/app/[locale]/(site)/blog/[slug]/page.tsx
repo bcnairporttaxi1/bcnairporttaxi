@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BlogCover, coverFor } from '@/components/blog-cover';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
 import { BLOG_POSTS, getBlogPost } from '@bcn/core/blog';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
-import { locales } from '@/i18n/routing';
+import { blogCopy, hasBlogTranslation } from '@bcn/core/blog-copy';
+import { localeHrefLang, locales } from '@/i18n/routing';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 
 /** Shared by the social card and the Article `image`, so they cannot drift. */
@@ -25,21 +26,34 @@ export async function generateMetadata(props: {
   const { locale, slug } = await props.params;
   const post = getBlogPost(slug);
   if (!post) return {};
+  const c = blogCopy(post, locale);
+  // No translation yet: serve the English text but tell search engines the
+  // English URL is the real one, rather than vouching for a Spanish page that
+  // is not Spanish.
+  const untranslated = !hasBlogTranslation(slug, locale);
 
   const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = `/${l}/blog/${slug}`;
+  // Only the languages this guide actually exists in. Listing all ten when
+  // nine were English claimed translations that did not exist.
+  for (const l of locales) {
+    if (hasBlogTranslation(slug, l)) languages[localeHrefLang[l]] = `/${l}/blog/${slug}`;
+  }
   // x-default tells Google which version to serve a language we do not
   // publish. Without it the ten alternates describe a set with no default.
   languages['x-default'] = `/en/blog/${slug}`;
 
   return {
-    title: { absolute: post.title },
-    description: post.description,
-    alternates: { canonical: `/${locale}/blog/${slug}`, languages },
+    title: { absolute: c.title },
+    description: c.description,
+    alternates: {
+      canonical: untranslated ? `/en/blog/${slug}` : `/${locale}/blog/${slug}`,
+      languages,
+    },
+    robots: untranslated ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       type: 'article',
-      title: post.title,
-      description: post.description,
+      title: c.title,
+      description: c.description,
       publishedTime: post.published,
       modifiedTime: post.updated ?? post.published,
       url: `/${locale}/blog/${slug}`,
@@ -60,8 +74,8 @@ export async function generateMetadata(props: {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
+      title: c.title,
+      description: c.description,
       images: [OG_IMAGE],
     },
   };
@@ -75,14 +89,16 @@ export default async function BlogPostPage(props: {
 
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const c = blogCopy(post, locale);
+  const tb = await getTranslations('blog');
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: `/${locale}` },
-          { name: 'Guides', url: `/${locale}/blog` },
-          { name: post.title, url: `/${locale}/blog/${slug}` },
+          { name: tb('crumbHome'), url: `/${locale}` },
+          { name: tb('breadcrumb'), url: `/${locale}/blog` },
+          { name: c.title, url: `/${locale}/blog/${slug}` },
         ]}
       />
       <script
@@ -91,8 +107,8 @@ export default async function BlogPostPage(props: {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: post.title,
-            description: post.description,
+            headline: c.title,
+            description: c.description,
             datePublished: post.published,
             // The post's own revision date when it has one. These were the
             // same field, so a post rewritten around a new price model still
@@ -105,7 +121,7 @@ export default async function BlogPostPage(props: {
              * is a real photograph at a known size rather than a placeholder.
              */
             image: [absoluteUrl(OG_IMAGE)],
-            inLanguage: locale,
+            inLanguage: localeHrefLang[locale as keyof typeof localeHrefLang] ?? locale,
             mainEntityOfPage: absoluteUrl(`/${locale}/blog/${slug}`),
             author: { '@type': 'Organization', name: 'BCNAirportTaxi' },
             publisher: { '@id': `${SITE_URL}/#provider` },
@@ -113,7 +129,7 @@ export default async function BlogPostPage(props: {
         }}
       />
 
-      <PageHero title={post.h1} intro={post.excerpt} />
+      <PageHero title={c.h1} intro={c.excerpt} />
 
       <article className="mx-auto max-w-3xl px-4 py-14">
         {/* The same cover the index card carries, so arriving from the shelf
@@ -126,10 +142,10 @@ export default async function BlogPostPage(props: {
           {new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(
             new Date(post.published),
           )}{' '}
-          · {post.readingMinutes} min read
+          · {tb('minRead', { minutes: post.readingMinutes })}
         </p>
 
-        {post.sections.map((s) => (
+        {c.sections.map((s) => (
           <section key={s.h2} className="mt-9">
             <h2 className="font-display text-2xl font-extrabold">{s.h2}</h2>
             {s.body.map((p) => (
@@ -142,7 +158,7 @@ export default async function BlogPostPage(props: {
 
         <nav aria-labelledby="related" className="mt-14 border-t border-line pt-8">
           <h2 id="related" className="font-display text-xl font-extrabold">
-            Book your transfer
+            {tb('bookHeading')}
           </h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {post.related.map((rel) => {

@@ -198,7 +198,15 @@
     "metaTitle": "Frota de táxis em Barcelona | Carros, monovolumes e vans",
     "metaDescription": "Táxis licenciados para o aeroporto de Barcelona: Toyota Prius+, Toyota Corolla, monovolume Mercedes Vito e van premium Mercedes V-Class.",
     "intro": "Todos os veículos são táxis de Barcelona licenciados. Escolha pelo tamanho do grupo e pela bagagem: um táxi padrão leva quatro passageiros, uma minivan seis e uma van sete, e cada um tem o seu próprio preço fixo de transfer, visível antes de reservar.",
-    "select": "Selecionar {name}"
+    "select": "Selecionar {name}",
+    "luggageNotes": {
+      "toyota-corolla": "3 malas grandes, ou 2 grandes mais bagagem de cabine",
+      "seat-toledo": "3 malas grandes, ou 2 grandes mais bagagem de cabine",
+      "toyota-corolla-estate": "4 malas grandes: o porta-bagagens mais fundo dos nossos sedãs",
+      "toyota-prius": "4 malas grandes, híbrido e de baixas emissões",
+      "mercedes-vito": "6 malas grandes, ideal para famílias e grupos pequenos",
+      "mercedes-vclass": "7 malas grandes, o máximo de espaço e conforto que oferecemos"
+    }
   },
   "common": {
     "book": "Reservar agora",
@@ -251,7 +259,7 @@
     "waIntro": "Ola, gostaria de reservar um taxi para o aeroporto de Barcelona."
   },
   "destinations": {
-    "metaTitle": "Destinos de transfer a partir de Barcelona | Táxi e minivan privados",
+    "metaTitle": "Destinos de transfer a partir de Barcelona | Táxi privado",
     "metaDescription": "Transferes privados de táxi e minivan do aeroporto de Barcelona, da cidade, do porto de cruzeiros e dos hotéis para a Costa Brava, Sitges, Tarragona.",
     "eyebrow": "Todas as rotas",
     "h1": "Destinos de transfer a partir de Barcelona",
@@ -290,10 +298,10 @@
     "min": "min"
   },
   "destinationRoute": {
-    "metaTitle": "Transfer {name} | Táxi e minivan privados",
-    "ogTitle": "Transfer {name}",
-    "serviceName": "Transfer privado {name}",
-    "h1": "Transfer {name}",
+    "metaTitle": "Táxi Barcelona {place} | Transfer privado",
+    "ogTitle": "Táxi {name}",
+    "serviceName": "Transfer privado: {name}",
+    "h1": "Táxi {name}",
     "distance": "Distância",
     "journeyTime": "Duração",
     "fromDaytime": "Desde (de dia)",
@@ -310,9 +318,9 @@
     "paxBags": "{seats} pax · {bags} malas",
     "otherIn": "Outros destinos: {group}",
     "photoAlt": "{place}, destino de transfer privado a partir de Barcelona",
-    "waQuote": "Olá, gostaria de um orçamento fechado para um transfer a partir de Barcelona: {name}.",
+    "waQuote": "Olá, gostaria de um orçamento com preço fixo para um transfer desde Barcelona: {place}.",
     "waQuoteSibling": "Olá, gostaria de um orçamento para {name}.",
-    "metaDescription": "{name} em táxi privado: um preço fixo tudo incluído, motorista licenciado e o seu voo acompanhado. Reserve online em minutos."
+    "metaDescription": "Táxi privado de Barcelona para {place}: preço fixo tudo incluído, motorista licenciado e voo acompanhado. Reserve online em poucos minutos."
   },
   "install": {
     "metaTitle": "Instalar o BCNAirportTaxi como aplicação",
@@ -515,7 +523,10 @@
     "neverBody2": "Nem o trânsito, nem a rota que o motorista escolhe, nem o terminal onde aterra, nem o número de passageiros até à capacidade do veículo, nem a quantidade de bagagem que nele cabe. Fins de semana e feriados são a única coisa que eleva um preço de lista, com uma percentagem única publicada. Todo o resto é o nosso risco — e é precisamente isso que se compra ao fixar um preço com antecedência.",
     "interTitle": "Percursos fora da área metropolitana",
     "interBody1": "A partir do momento em que uma das pontas do percurso fica fora da área metropolitana de Barcelona, a tarifa urbana deixa de se aplicar e a viagem é calculada ao quilómetro pela tarifa interurbana fixada pela Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, a Costa Brava e Andorra calculam-se assim, orçamentados por inteiro antes de reservar e não retirados da lista fixa: nenhuma lista fixa honesta conseguiria cobrir distâncias que diferem num fator de cinco.",
-    "interBody2": "O valor ao quilómetro é mais alto do que o urbano por uma razão que vale a pena conhecer: a tarifa interurbana trata a viagem como um circuito fechado e cobra também o regresso do motorista, porque legalmente ele não pode recolher um cliente fora da sua área e voltaria vazio. Um quilómetro percorrido custa, portanto, dois quilómetros nessa tarifa. É a razão do custo de um transfer longo, e a razão pela qual um preço ao quilómetro anunciado sem esse detalhe é cerca de metade do real."
+    "interBody2": "O valor ao quilómetro é mais alto do que o urbano por uma razão que vale a pena conhecer: a tarifa interurbana trata a viagem como um circuito fechado e cobra também o regresso do motorista, porque legalmente ele não pode recolher um cliente fora da sua área e voltaria vazio. Um quilómetro percorrido custa, portanto, dois quilómetros nessa tarifa. É a razão do custo de um transfer longo, e a razão pela qual um preço ao quilómetro anunciado sem esse detalhe é cerca de metade do real.",
+    "officialTitle": "Esta é a tarifa oficial do táxi?",
+    "officialBody": "Não. É o nosso preço fixo para um transfer reservado e pago antecipadamente, não a tarifa regulamentada. O táxi da praça paga-se pelo taxímetro segundo a tarifa da AMB. Connosco o preço é conhecido antes de viajar e não se deve nada no carro.",
+    "officialLink": "Como se compara com o taxímetro da praça"
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -648,7 +659,10 @@
     "aboutTitle": "Para que servem estes guias",
     "aboutBody1": "São as perguntas que mais nos fazem, respondidas com a extensão de que realmente precisam. Quanto custa um táxi desde El Prat e como se constrói o preço. Se o Aerobús ou o metro é a melhor opção para o seu grupo — com a resposta honesta, que para uma pessoa a viajar leve quase nunca é o táxi. Que terminal usa a sua companhia aérea e onde esperam os táxis em cada um.",
     "aboutBody2": "Todos os números vêm do mesmo lugar que os preços deste site: a tarifa publicada da AMB para Barcelona e a tarifa interurbana da Generalitat para tudo o que fica além, verificadas nos quadros impressos e não copiadas de outro site. Quando um guia cita uma tarifa, é a que está em vigor no ano tarifário corrente, e as páginas indicam a data da última revisão.",
-    "aboutBody3": "O que não são é texto publicitário com um sinal de interrogação à frente. Onde o transporte público é a melhor opção, dizemo-lo, e onde a praça à saída das chegadas lhe vai custar menos do que reservar antecipadamente, dizemos isso também. Um guia que nos recomendasse para todas as viagens não valeria a pena ler, e não seria verdadeiro."
+    "aboutBody3": "O que não são é texto publicitário com um sinal de interrogação à frente. Onde o transporte público é a melhor opção, dizemo-lo, e onde a praça à saída das chegadas lhe vai custar menos do que reservar antecipadamente, dizemos isso também. Um guia que nos recomendasse para todas as viagens não valeria a pena ler, e não seria verdadeiro.",
+    "crumbHome": "Início",
+    "minRead": "{minutes} min de leitura",
+    "bookHeading": "Reserve o seu transfer"
   },
   "reviews": {
     "metaTitle": "Avaliações de táxi aeroporto de Barcelona",
