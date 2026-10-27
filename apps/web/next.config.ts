@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
   // why the route-level convention cannot work in an app with no root layout.
   experimental: {
     globalNotFound: true,
+    // Inline the ~24 KB of Tailwind CSS so first paint is not blocked on stylesheet round trips.
+    inlineCss: true,
   },
   images: {
     // All imagery is generated at build time and served locally, so no remote
