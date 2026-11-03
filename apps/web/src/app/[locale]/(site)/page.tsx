@@ -73,7 +73,6 @@ export default async function HomePage(props: {
      tariff depending on when the page happens to be rendered. */
   const SAMPLE_AT = new Date('2026-06-10T12:00:00+02:00');
   const BCN_CENTRE = { lat: 41.387, lng: 2.1701 }; // Placa de Catalunya
-  const GIRONA_AIRPORT = { lat: 41.901, lng: 2.7606 };
 
   const sample = (pickup: { lat: number; lng: number }, dropoff: { lat: number; lng: number }, km: number) =>
     calculateQuote({ pickup, dropoff, roadKm: km, durationMin: Math.round(km * 1.2), pickupAt: SAMPLE_AT });
@@ -114,14 +113,17 @@ export default async function HomePage(props: {
        quote turns only on the distance — but running it through calculateQuote
        rather than reimplementing T-6 is what keeps the card and the booking
        form agreeing after the next tariff change. */
-    const fare = sample(BCN_CENTRE, GIRONA_AIRPORT, d.km as number).total;
+    // The destination page's own estimate, or none: Costa Brava is a region with no
+    // surveyed drop-off, so its page says "on request" and the card must not quote a
+    // figure the page then withholds (it showed "from EUR 214" over an "on request" page).
+    const fare = destinationRouteTotal(d.slug);
     return {
       slug: d.slug,
       place,
       href: `/destinations/${d.slug}`,
       km: d.km,
       minutes: d.minutes,
-      fare: `€${Math.round(fare)}`,
+      fare: fare === null ? undefined : `€${Math.round(fare)}`,
       photo: photo ? { file: photo.file, alt: td('photoAlt', { place }) } : null,
     };
   });

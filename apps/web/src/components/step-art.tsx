@@ -10,6 +10,16 @@
  * size, and it follows the theme. Server-rendered; the motion around it lives
  * in the parent.
  */
+
+import { TARIFFS } from '@bcn/core/tariffs';
+
+/**
+ * The price in the drawing is the real city price, read from the tariff. It was the
+ * literal "€34.44", a meter estimate from before the fixed price list, shown on the
+ * booking page next to a real quote that said €50.
+ */
+const CITY_PRICE = `€${TARIFFS.fixedRoutes.cityAirport.sedan.toFixed(0)}`;
+
 export function StepArt({ step }: { step: 1 | 2 | 3 }) {
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.1rem] border border-line bg-[radial-gradient(120%_140%_at_30%_0%,#191920_0%,#101014_60%,#0a0a0c_100%)]">
@@ -72,7 +82,7 @@ const ART: Record<1 | 2 | 3, (gold: string) => React.ReactNode> = {
         fontSize="19"
         fontWeight="700"
       >
-        €34.44
+        {CITY_PRICE}
       </text>
       <text
         x="52"
