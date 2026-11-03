@@ -9,22 +9,20 @@
 | No child seats are provided | the fleet note now opens "We do not provide child seats"; the booking-notes hint no longer lists child seats; the private-transfer page says we do not provide them and its heading no longer names them (10 languages). The one remaining mention is the Aerobús guide's general "travelling with children, a pushchair or a car seat", which refers to the traveller's own seat |
 | Tolls apply | listed as "Motorway tolls: apply where the route uses a toll road" on the pricing page (10 languages), in `pricing.md` and in `llms.txt`. **Nothing says tolls are included in the fixed price, and no amount or collection method is stated** |
 
-## A. Toll policy: needs your decision before production (blocker)
-You confirmed "tolls apply". The site does not yet say *how*, and several existing statements sit uneasily with a toll that is charged separately. Please tell me which policy is true:
+## A. Toll policy: confirmed and applied; four operational details still open
+Owner confirmation (2026-11-03): **motorway tolls are NOT included in the fixed transfer price and are charged separately to the customer.** Applied on the branch in all 10 languages. The site now says exactly that and nothing more: tolls are excluded and are charged separately when the route uses toll roads. **No amount, estimate, cap, payment method or route list is stated anywhere**, because none was given.
 
-1. **Who pays and when?** (a) added to the online price at booking, (b) paid by the customer to the driver in the car, (c) another method.
-2. **How is the amount known?** Shown in the quote before booking, estimated by route, or settled afterwards at cost with a receipt.
-3. **Which routes?** Only long routes (Costa Brava, Girona, Tarragona, Montserrat, Andorra, Valencia...) or also city and airport runs. (Today's fixed airport prices carry no toll.)
-4. **Is there a cap or a published list of amounts per route?**
+Where it is stated (all verified on the private preview, 374 pages): home, pricing, FAQ (what is included / how do I pay), how it works, booking page and widget notes, checkout, all 12 destination pages and the destinations hub, the price and route landing pages including cruise port, footer, Terms, Refund policy, `pricing.md`, `llms.txt`, JSON-LD offer descriptions, the PWA manifest, the booking confirmation / desk / driver / completion emails, the SumUp checkout description, and the account page's prepaid row.
 
-Statements that conflict with a separately charged toll until this is answered (I changed none of them, because rewording them without the policy would be inventing it):
-- Every landing page and the quote widget: "One price for the whole journey ... Nothing to pay your driver" (`quote.includedNote`, 10 languages).
-- Terms of service, "Prices and payment": "Nothing further is owed to the driver in the vehicle".
-- `pricing.md`: "Nothing is collected in the vehicle".
-- "all-inclusive" in titles, FAQ, the quote widget and the destination pages (including the Andorra and Costa Brava pages, where tolls are most likely).
-- The Terms also say routing changes do not change what you pay.
+Removed or rewritten: every "all-inclusive" label, "Nothing to pay your driver", "Nothing further is owed to the driver in the vehicle", "nothing to pay in the taxi / car", "nothing is collected in the car", "no second figure at the end", and "no surprise" (all 10 languages). A new test (`toll-policy.test.ts`) fails if any of those claims returns in any language and requires the toll statement wherever a price is explained.
 
-Once you answer, I will write the exact wording once, in the Terms, the pricing page, the FAQ and the quote note, in all 10 languages.
+**Still unknown, and therefore not published** (customers will ask; please decide):
+1. **Who collects the toll and how**: added to the online payment at booking, paid to the driver in the car, billed afterwards, or another method.
+2. **How the customer learns the amount before travelling** (shown in the quote, told by WhatsApp, estimated by route, settled at cost with a receipt).
+3. **Which routes carry tolls** (today the pages say only "where the route uses toll roads").
+4. **Whether the Terms need a toll clause** with a rate, cap or refund treatment, and whether the Terms' "we do not set fares / the price is set by us" wording needs to mention tolls.
+
+Operational consequence to check: the desk and driver emails no longer say "nothing to collect in the car". They say "no fare balance to collect; motorway tolls are not included and are charged separately". They do **not** tell the driver to collect tolls, because the method is unknown. If the driver does collect them, that instruction needs adding.
 
 ## B. Needs the owner (no code can fix these honestly)
 | # | Item | Why it matters |

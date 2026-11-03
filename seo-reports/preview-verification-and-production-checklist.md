@@ -14,7 +14,14 @@ Branch `seo/full-site-optimisation`, head `7bd0dd1` (plus report updates). Verif
 
 **Open and blocking: the toll policy.** The owner confirmed tolls apply, but not who pays, when, how the amount is known or which routes. Several site-wide statements ("Nothing to pay your driver", "Nothing further is owed to the driver in the vehicle", "all-inclusive") conflict with a separately charged toll. They are listed, with the four questions I need answered, in `outstanding-issues.md` section A. I did not reword them without the policy.
 
-Tests at the final commit: core 423 passed, web 251 passed (adds `owner-facts.test.ts`, which pins the confirmed facts in every language), `tsc` clean for the web app, `eslint` clean, production build exit 0.
+Tests before the toll change: core 423 passed, web 251 passed (adds `owner-facts.test.ts`, which pins the confirmed facts in every language), `tsc` clean for the web app, `eslint` clean, production build exit 0.
+
+## Update 2: toll policy (owner, 2026-11-03), applied and re-verified at `b35168d`
+Owner: motorway tolls are NOT included in the fixed transfer price and are charged separately to the customer. Applied in all 10 languages: every "all-inclusive" and "nothing is owed to the driver / nothing to pay in the taxi" claim was removed or rewritten, and the toll exclusion is stated wherever a price is explained (pricing page, quote notes, booking and checkout, FAQ, destination pages, Terms, `pricing.md`, `llms.txt`, schema, manifest, emails, SumUp description). No amount, estimate, cap, payment method or route list was invented.
+
+Verified on the preview at `b35168d` (in-browser, all 374 sitemap pages plus checkout, Terms, Refund policy, `pricing.md`, `llms.txt`, manifest): 0 old claims in any of the 10 languages; toll statement on the pricing, home, FAQ, booking, price and cruise pages in 10 / 10 languages and on 120 / 120 destination pages; checkout 10 / 10; Terms and Refund policy say tolls are not part of the fixed price; `og:locale`, hreflang, H1, structured data, titles and descriptions all still pass. Tests: core 423, web 290, `tsc` clean, `eslint` clean, production build exit 0.
+
+Open (see `outstanding-issues.md` section A): who collects tolls and how, how the customer learns the amount, which routes, and whether the Terms need a toll clause. The preview-only changes touch payment-adjacent text (the SumUp checkout description now reads "Barcelona taxi REF - fixed price" instead of "all-inclusive") and the email templates; no payment logic, price calculation or booking flow code changed.
 
 ## 1. Preview
 - Environment: **Preview** (Vercel confirms), not Production. Address: `https://bcnairporttaxi-git-seo-full-si-6ad3a7-bcnairporttaxi1s-projects.vercel.app` (behind your Vercel login, so it is private; crawlers and PageSpeed cannot reach it).
