@@ -340,7 +340,7 @@ export const LANDING_PAGES: LandingPage[] = [
               'Above seven passengers you need more than one vehicle, and they can be booked together rather than separately. Choose several cars in a single booking and they are reserved as one party, paid in one checkout and dispatched to the same pickup point, up to six cars. Each is charged at the published price for its size, so a group of ten is two cars at list price rather than a bespoke quote — and the whole party is assigned together, which matters more than the arithmetic when ten people are standing in an arrivals hall at midnight.',
           },
           {
-            h2: 'Child seats and anything unusual',
+            h2: 'Anything out of the ordinary',
             body:
               'We do not provide child seats. Anything that changes which vehicle should come — a folded wheelchair, a bicycle, skis, an instrument, or a pet — is worth mentioning in the booking notes, so the right car is assigned rather than the nearest one. None of these is a problem given notice and all of them are a problem at the kerb, which is the whole argument for mentioning them when you book.',
           },

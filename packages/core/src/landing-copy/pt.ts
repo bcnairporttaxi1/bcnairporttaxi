@@ -237,7 +237,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Acima de sete passageiros precisa de mais de um veículo, e podem ser reservados em conjunto e não em separado. Escolha vários carros numa só reserva e ficam reservados como um único grupo, pagos num só checkout e enviados para o mesmo ponto de recolha, até seis carros. Cada um é cobrado ao preço publicado para o seu tamanho, pelo que um grupo de dez são dois carros ao preço da lista e não um orçamento à medida, e o grupo todo é atribuído em conjunto, o que importa mais do que a aritmética quando dez pessoas estão numa sala de chegadas à meia-noite.',
       },
       {
-        h2: 'Cadeirinhas para crianças e tudo o que seja fora do comum',
+        h2: 'Tudo o que seja fora do comum',
         body: 'Não fornecemos cadeirinhas para crianças. Tudo o que altera o veículo adequado — uma cadeira de rodas dobrada, uma bicicleta, esquis, um instrumento ou um animal de estimação — convém indicar nas notas da reserva, para que seja atribuído o carro certo e não o mais próximo. Nenhum destes casos é problema com aviso prévio e todos são problema no passeio, que é todo o argumento para os mencionar ao reservar.',
       },
     ],

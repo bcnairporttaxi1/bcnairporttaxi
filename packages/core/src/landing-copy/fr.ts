@@ -237,7 +237,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
         body: "Au-delà de sept passagers, il faut plus d’un véhicule, et ils peuvent être réservés ensemble plutôt que séparément. Choisissez plusieurs voitures dans une seule réservation : elles sont réservées comme un seul groupe, payées en un seul paiement et envoyées au même point de prise en charge, jusqu’à six voitures. Chacune est facturée au prix publié pour sa taille ; un groupe de dix, ce sont donc deux voitures au prix de la liste et non un devis sur mesure, et tout le groupe est affecté ensemble, ce qui compte davantage que l’arithmétique quand dix personnes attendent dans une salle d’arrivée à minuit.",
       },
       {
-        h2: "Sièges enfant et tout ce qui sort de l’ordinaire",
+        h2: "Tout ce qui sort de l’ordinaire",
         body: "Nous ne fournissons pas de sièges enfant. Tout ce qui change le véhicule à envoyer — un fauteuil roulant plié, un vélo, des skis, un instrument de musique ou un animal — mérite d’être indiqué dans les notes de réservation, afin que le bon véhicule soit affecté plutôt que le plus proche. Rien de tout cela n’est un problème avec un préavis, et tout cela en est un sur le trottoir, ce qui est tout l’argument pour le signaler à la réservation.",
       },
     ],

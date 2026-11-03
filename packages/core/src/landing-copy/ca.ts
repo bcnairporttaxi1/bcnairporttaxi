@@ -243,7 +243,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
         body: "A partir de set passatgers cal més d’un vehicle, i es poden reservar junts i no per separat. Tria diversos cotxes en una sola reserva i queden reservats com un sol grup, es paguen en un sol pagament i van al mateix punt de recollida, fins a sis cotxes. Cadascun es cobra al preu publicat per a la seva mida, així que un grup de deu són dos cotxes al preu de la llista i no un pressupost a mida; i tot el grup s’assigna alhora, cosa que importa més que l’aritmètica quan deu persones esperen a la sala d’arribades a mitjanit.",
       },
       {
-        h2: "Cadiretes infantils i qualsevol cosa fora del normal",
+        h2: "Qualsevol cosa fora del normal",
         body: "No disposem de cadiretes infantils. Qualsevol cosa que canviï el vehicle que ha de venir —una cadira de rodes plegada, una bicicleta, uns esquís, un instrument o una mascota— convé indicar-la a les notes de la reserva, perquè s’assigni el cotxe adequat en lloc del més proper. Si ho avises, no és cap problema; si no, tot són problemes a la vorera, i aquest és tot l’argument per mencionar-ho en reservar.",
       },
     ],

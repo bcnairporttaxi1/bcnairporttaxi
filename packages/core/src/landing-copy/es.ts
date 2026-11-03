@@ -244,7 +244,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Con más de siete pasajeros necesitas más de un vehículo, y se pueden reservar juntos en lugar de por separado. Elige varios coches en una sola reserva y se reservan como un único grupo, se pagan en un solo pago y se envían al mismo punto de recogida, hasta seis coches. Cada uno se cobra al precio publicado para su tamaño, así que un grupo de diez son dos coches a precio de lista y no un presupuesto a medida; además, todo el grupo se asigna a la vez, algo que importa más que la aritmética cuando diez personas esperan en una sala de llegadas a medianoche.',
       },
       {
-        h2: 'Sillas infantiles y cualquier cosa fuera de lo normal',
+        h2: 'Cualquier cosa fuera de lo normal',
         body: 'No disponemos de sillas infantiles. Cualquier cosa que cambie el vehículo que debe acudir —una silla de ruedas plegada, una bicicleta, esquís, un instrumento o una mascota— conviene indicarla en las notas de la reserva, para que se asigne el coche adecuado y no el más cercano. Con aviso ninguna de ellas es un problema, y todas lo son en la acera, y ese es todo el argumento para mencionarlas al reservar.',
       },
     ],

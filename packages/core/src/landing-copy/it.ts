@@ -237,7 +237,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
         body: "Oltre sette passeggeri serve più di un veicolo, e si possono prenotare insieme e non separatamente. Scelga più auto in un'unica prenotazione e vengono riservate come un solo gruppo, pagate in un unico checkout e inviate allo stesso punto di ritiro, fino a sei auto. Ciascuna è addebitata al prezzo pubblicato per la sua dimensione, quindi un gruppo di dieci sono due auto a prezzo di listino e non un preventivo su misura; e l'intero gruppo viene assegnato insieme, cosa che conta più dell'aritmetica quando dieci persone sono in una sala arrivi a mezzanotte.",
       },
       {
-        h2: 'Seggiolini per bambini e richieste insolite',
+        h2: 'Richieste insolite',
         body: "Non forniamo seggiolini per bambini. Tutto ciò che cambia il veicolo da inviare — una sedia a rotelle ripiegata, una bicicletta, degli sci, uno strumento musicale o un animale — conviene indicarlo nelle note della prenotazione, così da far assegnare l'auto giusta e non quella più vicina. Con un po' di preavviso nessuno di questi è un problema, mentre sul marciapiede lo sono tutti, ed è l'intero motivo per segnalarli al momento della prenotazione.",
       },
     ],

@@ -241,7 +241,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Über sieben Fahrgäste hinaus brauchen Sie mehr als ein Fahrzeug, und diese lassen sich gemeinsam statt getrennt buchen. Wählen Sie mehrere Wagen in einer einzigen Buchung, werden sie als eine Gruppe reserviert, in einem Checkout bezahlt und zum selben Abholpunkt geschickt, bis zu sechs Wagen. Jeder wird zum veröffentlichten Preis seiner Größe berechnet, eine Gruppe von zehn sind also zwei Wagen zum Listenpreis und kein individuelles Angebot — und die ganze Gruppe wird gemeinsam zugeteilt, was mehr zählt als die Rechnung, wenn zehn Leute um Mitternacht in einer Ankunftshalle stehen.',
       },
       {
-        h2: 'Kindersitze und alles Ungewöhnliche',
+        h2: 'Alles Ungewöhnliche',
         body: 'Kindersitze stellen wir nicht zur Verfügung. Alles, was ändert, welches Fahrzeug kommen muss — ein zusammengeklappter Rollstuhl, ein Fahrrad, Ski, ein Instrument oder ein Haustier —, sollten Sie in den Buchungsnotizen angeben, damit der passende Wagen zugeteilt wird statt des nächstbesten. Mit Vorankündigung ist nichts davon ein Problem, und am Bordstein ist alles davon eins, was das ganze Argument dafür ist, es bei der Buchung zu erwähnen.',
       },
       {

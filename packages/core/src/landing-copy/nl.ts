@@ -237,7 +237,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
         body: 'Boven de zeven passagiers hebt u meer dan één voertuig nodig, en die kunt u samen boeken in plaats van apart. Kies meerdere auto’s in één boeking, dan worden ze als één gezelschap gereserveerd, in één keer betaald en naar hetzelfde ophaalpunt gestuurd, tot zes auto’s. Elke auto kost de vermelde prijs voor zijn formaat, dus een groep van tien is twee auto’s tegen de lijstprijs en geen offerte op maat — en het hele gezelschap wordt samen toegewezen, wat meer waard is dan de rekensom als tien mensen om middernacht in een aankomsthal staan.',
       },
       {
-        h2: 'Kinderzitjes en alles wat afwijkt',
+        h2: 'Alles wat afwijkt',
         body: 'Wij leveren geen kinderzitjes. Alles wat bepaalt welk voertuig moet komen — een opgevouwen rolstoel, een fiets, ski’s, een instrument of een huisdier — vermeldt u het best in de opmerkingen bij de boeking, zodat de juiste auto wordt toegewezen en niet de dichtstbijzijnde. Met een vooraankondiging is dit geen van alle een probleem, en aan de stoeprand zijn het er allemaal, en dat is precies waarom u ze bij het boeken moet noemen.',
       },
     ],
