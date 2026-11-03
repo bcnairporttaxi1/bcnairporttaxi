@@ -562,6 +562,46 @@ export const LANDING_PAGES: LandingPage[] = [
     },
   },
   {
+    slug: 'cruise-port-taxi',
+    related: ['airport-to-city', 'city-to-airport', 'group-taxi', 'barcelona-airport-taxi-price'],
+    preset: {
+      pickup: 'Barcelona El Prat Airport (BCN)',
+      dropoff: 'Barcelona Cruise Port — Terminal A (Moll Adossat)',
+    },
+    copy: {
+      en: {
+        title: 'Barcelona Cruise Port Taxi | Fixed-Price Transfers',
+        description:
+          'Taxi between Barcelona airport and the cruise port: one fixed all-inclusive price for Moll Adossat terminals A to E, booked online, nothing to pay in the car.',
+        h1: 'Taxi between Barcelona airport and the cruise port',
+        intro:
+          'Cruise passengers arrive with large cases and a hard deadline, so a transfer needs a price you know before you travel and a driver who is already expecting you. Between El Prat and the Moll Adossat cruise terminals the price is fixed, all-inclusive and agreed when you book: EUR 60 in a four-seat car, EUR 80 in a six-seat van and EUR 85 in a seven-seat van.',
+        sections: [
+          {
+            h2: 'What the airport to cruise port transfer costs',
+            body: 'The price is the same in both directions and for every Moll Adossat terminal, A to E. A four-seat taxi is EUR 60, the six-seat Mercedes Vito is EUR 80 and the seven-seat Mercedes V-Class is EUR 85. Weekends and public holidays add 7.5%. The airport supplement, the cruise terminal charge and the larger-vehicle supplement are already inside that figure, so it is not a meter reading and nothing is owed to the driver at the quay. It is our own fixed price for a booked, prepaid transfer, not the regulated fare of a taxi taken from the rank.',
+          },
+          {
+            h2: 'From the ship to a hotel or to the city',
+            body: 'A transfer between the Moll Adossat quay and an address in Barcelona is the city price plus a EUR 10 port charge, which lands on the same EUR 60, EUR 80 and EUR 85 as the airport run. The World Trade Center berths on Moll de Barcelona are a different quay: they are not Moll Adossat, so they price as an ordinary city address without the port charge. Choose your exact terminal in the booking form and the quote switches to the right fare on its own, so you see the final figure before you pay.',
+          },
+          {
+            h2: 'Which terminal, and how the driver finds you',
+            body: 'Moll Adossat has five cruise terminals, A to E, and your ship\'s cruise line tells you which one it uses. Select it in the form, then add the ship name and the time you expect to leave the terminal in the booking notes. Your driver\'s name, phone number and the exact meeting point arrive by email once a driver is assigned, so on disembarkation day you are walking towards a named person rather than searching a crowded kerb.',
+          },
+          {
+            h2: 'Luggage, families and groups after a cruise',
+            body: 'The limit is the boot, not the seats. A four-seat taxi takes four passengers and around three large suitcases, the Vito takes six passengers and six bags, and the V-Class seven passengers and seven bags. A cruise party of eight or more books two or more cars together in a single checkout; each car is charged at the published price for its size and they wait at the same point. Mention a bulky item such as a pushchair or sports equipment in the notes so the right vehicle is sent.',
+          },
+          {
+            h2: 'Getting back to the airport on departure day',
+            body: 'Disembarkation takes time, so give us the time you expect to leave the terminal rather than the time the ship docks, and leave a comfortable margin before check-in closes. Online booking needs at least three hours\' notice; for anything sooner, message us on WhatsApp and we will tell you straight away whether a car is free. The return journey costs the same fixed price as the outward one, with a free-of-charge change of time if the ship docks late.',
+          },
+        ],
+      },
+    },
+  },
+  {
     slug: 'book-online',
     related: ['barcelona-airport-taxi-price', 'airport-to-city', 'city-to-airport', 'private-transfer'],
     copy: {

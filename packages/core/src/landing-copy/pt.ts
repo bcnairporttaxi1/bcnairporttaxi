@@ -418,6 +418,37 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: 'Táxi Porto de Cruzeiros Barcelona | Preço Fixo',
+    description:
+      'Táxi entre o aeroporto de Barcelona e o porto de cruzeiros: preço fixo com tudo incluído para os terminais A a E do Moll Adossat, reservado online.',
+    h1: 'Táxi entre o aeroporto de Barcelona e o porto de cruzeiros',
+    intro:
+      'Os passageiros de cruzeiro chegam com malas grandes e um horário rígido, por isso uma transferência precisa de um preço que conheça antes de viajar e de um motorista que já o esteja a esperar. Entre El Prat e os terminais de cruzeiros do Moll Adossat o preço é fixo, com tudo incluído e acordado no momento da reserva: 60 € num carro de quatro lugares, 80 € numa van de seis lugares e 85 € numa van de sete lugares.',
+    sections: [
+      {
+        h2: 'Quanto custa a transferência do aeroporto para o porto de cruzeiros',
+        body: 'O preço é o mesmo nos dois sentidos e para todos os terminais do Moll Adossat, de A a E. Um táxi de quatro lugares custa 60 €, a Mercedes Vito de seis lugares custa 80 € e a Mercedes V-Class de sete lugares custa 85 €. Os fins de semana e feriados acrescentam 7,5 %. O suplemento do aeroporto, a taxa do terminal de cruzeiros e o suplemento do veículo maior já estão incluídos nesse valor, pelo que não é a leitura de um taxímetro e não se deve nada ao motorista no cais. É o nosso próprio preço fixo para uma transferência reservada e paga antecipadamente, e não a tarifa regulada de um táxi apanhado na praça.',
+      },
+      {
+        h2: 'Do navio para o hotel ou para a cidade',
+        body: 'Uma transferência entre o cais do Moll Adossat e uma morada em Barcelona custa o preço da cidade mais uma taxa portuária de 10 €, o que dá os mesmos 60 €, 80 € e 85 € da viagem até ao aeroporto. Os cais do World Trade Center, no Moll de Barcelona, são outro cais: não são o Moll Adossat, por isso têm o preço de uma morada normal da cidade, sem a taxa portuária. Escolha o seu terminal exato no formulário de reserva e o orçamento passa sozinho para a tarifa certa, de modo que vê o valor final antes de pagar.',
+      },
+      {
+        h2: 'Que terminal e como o motorista o encontra',
+        body: 'O Moll Adossat tem cinco terminais de cruzeiros, de A a E, e é a companhia do seu cruzeiro que lhe indica qual deles o seu navio utiliza. Selecione-o no formulário e depois acrescente nas notas da reserva o nome do navio e a hora a que espera sair do terminal. O nome do seu motorista, o telefone e o ponto de encontro exato chegam por email assim que for atribuído um motorista, pelo que no dia do desembarque caminha ao encontro de uma pessoa com nome e não anda à procura entre a multidão no passeio.',
+      },
+      {
+        h2: 'Bagagem, famílias e grupos depois de um cruzeiro',
+        body: 'O limite é a bagageira e não os lugares. Um táxi de quatro lugares leva quatro passageiros e cerca de três malas grandes, a Vito leva seis passageiros e seis malas, e a V-Class sete passageiros e sete malas. Um grupo de cruzeiro de oito ou mais pessoas reserva dois ou mais carros em conjunto num só checkout; cada carro é cobrado ao preço publicado para o seu tamanho e esperam no mesmo ponto. Indique nas notas um volume pesado, como um carrinho de bebé ou material desportivo, para que seja enviado o veículo certo.',
+      },
+      {
+        h2: 'Regressar ao aeroporto no dia da partida',
+        body: 'O desembarque demora tempo, por isso indique-nos a hora a que espera sair do terminal e não a hora a que o navio atraca, e deixe uma margem confortável antes de o check-in fechar. A reserva online exige pelo menos três horas de antecedência; para algo mais próximo, escreva-nos pelo WhatsApp e dizemos-lhe de imediato se há um carro livre. A viagem de regresso custa o mesmo preço fixo que a de ida, com alteração gratuita da hora se o navio atracar tarde.',
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Reservar Táxi Aeroporto Barcelona Online | Preço',
     description:

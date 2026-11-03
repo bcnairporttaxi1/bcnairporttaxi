@@ -418,6 +418,37 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: 'Taxi Porto Crociere Barcellona | Prezzo Fisso',
+    description:
+      "Taxi tra aeroporto di Barcellona e porto crociere: prezzo fisso tutto incluso per i terminal da A a E del Moll Adossat, prenota online, nulla da pagare in auto.",
+    h1: "Taxi tra l'aeroporto di Barcellona e il porto crociere",
+    intro:
+      "I crocieristi arrivano con valigie grandi e una scadenza precisa, quindi un transfer richiede un prezzo che si conosca prima di partire e un autista che La stia già aspettando. Tra El Prat e i terminal crociere del Moll Adossat il prezzo è fisso, tutto incluso e stabilito al momento della prenotazione: 60 € con un'auto a quattro posti, 80 € con un van a sei posti e 85 € con un van a sette posti.",
+    sections: [
+      {
+        h2: "Quanto costa il transfer dall'aeroporto al porto crociere",
+        body: "Il prezzo è lo stesso nei due sensi e per ogni terminal del Moll Adossat, dalla A alla E. Un taxi a quattro posti costa 60 €, la Mercedes Vito a sei posti 80 € e la Mercedes V-Class a sette posti 85 €. Nei fine settimana e nei festivi si aggiunge il 7,5 %. Il supplemento aeroportuale, la tassa del terminal crociere e il supplemento per il veicolo più grande sono già compresi in quella cifra, quindi non è la lettura di un tassametro e all'autista, in banchina, non si deve nulla. È il nostro prezzo fisso per un transfer prenotato e pagato in anticipo, non la tariffa regolamentata di un taxi preso al posteggio.",
+      },
+      {
+        h2: "Dalla nave all'hotel o al centro città",
+        body: "Un transfer tra la banchina del Moll Adossat e un indirizzo di Barcellona costa il prezzo urbano più 10 € di tassa portuale, e si arriva agli stessi 60 €, 80 € e 85 € della corsa dall'aeroporto. Gli attracchi del World Trade Center, sul Moll de Barcelona, sono un'altra banchina: non sono il Moll Adossat, quindi si calcolano come un normale indirizzo di città, senza la tassa portuale. Scelga il suo terminal esatto nel modulo di prenotazione e il preventivo passa da solo alla tariffa giusta, così vede la cifra finale prima di pagare.",
+      },
+      {
+        h2: "Quale terminal e come La trova l'autista",
+        body: "Il Moll Adossat ha cinque terminal crociere, dalla A alla E, e la compagnia di crociera della sua nave Le indica quale usa. Lo selezioni nel modulo, poi aggiunga nelle note della prenotazione il nome della nave e l'ora in cui prevede di uscire dal terminal. Il nome dell'autista, il suo numero di telefono e il punto d'incontro esatto Le arrivano per email non appena viene assegnato un autista, così il giorno dello sbarco va incontro a una persona con un nome e non deve cercare in mezzo a un marciapiede affollato.",
+      },
+      {
+        h2: 'Bagagli, famiglie e gruppi dopo una crociera',
+        body: "Il limite è il bagagliaio, non i sedili. Un taxi a quattro posti porta quattro passeggeri e circa tre valigie grandi, la Vito sei passeggeri e sei bagagli, la V-Class sette passeggeri e sette bagagli. Un gruppo di crociera di otto o più persone prenota due o più auto insieme in un unico checkout; ogni auto è addebitata al prezzo pubblicato per la sua dimensione e attendono nello stesso punto. Indichi nelle note un oggetto ingombrante, come un passeggino o un'attrezzatura sportiva, così viene mandato il veicolo giusto.",
+      },
+      {
+        h2: "Tornare all'aeroporto il giorno della partenza",
+        body: "Lo sbarco richiede tempo: ci indichi l'ora in cui prevede di uscire dal terminal e non quella in cui la nave attracca, e lasci un margine comodo prima della chiusura del check-in. La prenotazione online richiede almeno tre ore di preavviso; per qualcosa di più ravvicinato ci scriva su WhatsApp e Le diremo subito se c'è un'auto libera. Il viaggio di ritorno costa lo stesso prezzo fisso di quello di andata, con la modifica gratuita dell'orario se la nave attracca in ritardo.",
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Prenoti Taxi Aeroporto Barcellona Online | Prezzo Subito',
     description:

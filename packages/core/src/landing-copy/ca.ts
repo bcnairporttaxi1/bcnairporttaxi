@@ -424,6 +424,37 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: "Taxi Port de Creuers Barcelona | Preu Fix",
+    description:
+      "Taxi entre l’aeroport de Barcelona i el port de creuers: preu fix tot inclòs per a les terminals A a E del Moll Adossat, reserva en línia, res a pagar al cotxe.",
+    h1: "Taxi entre l’aeroport de Barcelona i el port de creuers",
+    intro:
+      "Els passatgers de creuer arriben amb maletes grans i un horari que no admet retards, així que el trasllat necessita un preu que coneguis abans de viatjar i un conductor que ja t’estigui esperant. Entre El Prat i les terminals de creuers del Moll Adossat el preu és fix, tot inclòs i acordat en el moment de reservar: 60 EUR en un cotxe de quatre places, 80 EUR en una furgoneta de sis places i 85 EUR en una de set places.",
+    sections: [
+      {
+        h2: "Quant costa el trasllat de l’aeroport al port de creuers",
+        body: "El preu és el mateix en els dos sentits i per a totes les terminals del Moll Adossat, de la A a la E. Un taxi de quatre places són 60 EUR, la Mercedes Vito de sis places són 80 EUR i la Mercedes V-Class de set places són 85 EUR. Els caps de setmana i els festius hi afegeixen un 7,5 %. El suplement d’aeroport, la taxa de la terminal de creuers i el suplement del vehicle més gran ja són dins d’aquesta xifra, de manera que no és la lectura d’un taxímetre i no es deu res al conductor al moll. És el nostre propi preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada d’un taxi agafat a la parada.",
+      },
+      {
+        h2: "Del vaixell a l’hotel o al centre de la ciutat",
+        body: "Un trasllat entre el moll Adossat i una adreça de Barcelona és el preu de ciutat més 10 EUR de recàrrec del port, que dona els mateixos 60 EUR, 80 EUR i 85 EUR que el trajecte de l’aeroport. Els molls del World Trade Center, al Moll de Barcelona, són un altre moll: no són el Moll Adossat, i per tant es cobren com una adreça qualsevol de la ciutat, sense el recàrrec del port. Tria la teva terminal exacta al formulari de reserva i el preu canvia sol a la tarifa correcta, de manera que veus la xifra definitiva abans de pagar.",
+      },
+      {
+        h2: "Quina terminal, i com et troba el conductor",
+        body: "El Moll Adossat té cinc terminals de creuers, de la A a la E, i la teva companyia de creuers t’indica quina utilitza el teu vaixell. Selecciona-la al formulari i afegeix a les notes de la reserva el nom del vaixell i l’hora a la qual esperes sortir de la terminal. El nom del conductor, el seu telèfon i el punt de trobada exacte te’ls enviem per correu quan s’assigna un conductor, així que el dia del desembarcament camines cap a una persona amb nom i cognom i no busques enmig d’una vorera plena de gent.",
+      },
+      {
+        h2: "Equipatge, famílies i grups després d’un creuer",
+        body: "El límit és el maleter, no els seients. Un taxi de quatre places porta quatre passatgers i unes tres maletes grans, la Vito porta sis passatgers i sis maletes, i la V-Class set passatgers i set maletes. Un grup de creuer de vuit persones o més reserva dos o més cotxes junts en un sol pagament; cada cotxe es cobra al preu publicat per a la seva mida i esperen al mateix punt. Esmenta a les notes un objecte voluminós, com un cotxet o material esportiu, perquè s’enviï el vehicle adequat.",
+      },
+      {
+        h2: "Tornar a l’aeroport el dia de la sortida",
+        body: "El desembarcament triga, així que digues-nos l’hora a la qual esperes sortir de la terminal i no l’hora a la qual atraca el vaixell, i deixa un marge còmode abans que es tanqui la facturació. La reserva en línia requereix un mínim de 3 hores d’antelació; per a qualsevol cosa més aviat, escriu-nos per WhatsApp i et direm de seguida si hi ha un cotxe lliure. El trajecte de tornada costa el mateix preu fix que el d’anada, amb canvi d’hora gratuït si el vaixell atraca tard.",
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Reservar Taxi Aeroport Barcelona Online | Preu a l\'Instant',
     description:

@@ -426,6 +426,37 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: 'Taxi Kreuzfahrthafen Barcelona | Festpreis-Transfer',
+    description:
+      'Taxi zwischen Flughafen Barcelona und Kreuzfahrthafen: Festpreis für die Terminals A bis E am Moll Adossat, online gebucht, nichts im Wagen zu zahlen.',
+    h1: 'Taxi zwischen dem Flughafen Barcelona und dem Kreuzfahrthafen',
+    intro:
+      'Kreuzfahrtgäste kommen mit großen Koffern und einer festen Deadline an, deshalb braucht ein Transfer einen Preis, den Sie schon vor der Reise kennen, und einen Fahrer, der Sie bereits erwartet. Zwischen El Prat und den Kreuzfahrtterminals am Moll Adossat ist der Preis fest, all-inclusive und wird bei der Buchung vereinbart: 60 EUR im Viersitzer, 80 EUR im Sechssitzer-Van und 85 EUR im Siebensitzer-Van.',
+    sections: [
+      {
+        h2: 'Was der Transfer vom Flughafen zum Kreuzfahrthafen kostet',
+        body: 'Der Preis ist in beiden Richtungen und für jedes Terminal am Moll Adossat, A bis E, derselbe. Ein Viersitzer-Taxi kostet 60 EUR, der sechssitzige Mercedes Vito 80 EUR und die siebensitzige Mercedes V-Class 85 EUR. Wochenenden und Feiertage fügen 7,5 % hinzu. Der Flughafenzuschlag, die Gebühr für das Kreuzfahrtterminal und der Zuschlag für das größere Fahrzeug sind in dieser Summe bereits enthalten, es ist also kein Taxameterstand, und dem Fahrer an der Pier ist nichts zu zahlen. Es ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer und nicht der regulierte Tarif eines Taxis vom Taxistand.',
+      },
+      {
+        h2: 'Vom Schiff zum Hotel oder in die Stadt',
+        body: 'Eine Fahrt zwischen der Pier am Moll Adossat und einer Adresse in Barcelona kostet den Stadtpreis plus 10 EUR Hafengebühr, und das ergibt dieselben 60 EUR, 80 EUR und 85 EUR wie die Fahrt zum Flughafen. Die Liegeplätze des World Trade Center am Moll de Barcelona sind eine andere Pier: Sie gehören nicht zum Moll Adossat und werden daher wie eine gewöhnliche Stadtadresse ohne Hafengebühr berechnet. Wählen Sie im Buchungsformular Ihr genaues Terminal, dann springt der Preis von selbst auf den richtigen Tarif, und Sie sehen den Endbetrag, bevor Sie bezahlen.',
+      },
+      {
+        h2: 'Welches Terminal, und wie der Fahrer Sie findet',
+        body: 'Der Moll Adossat hat fünf Kreuzfahrtterminals, A bis E, und Ihre Reederei sagt Ihnen, welches Ihr Schiff nutzt. Wählen Sie es im Formular aus und tragen Sie dann in den Buchungsnotizen den Namen des Schiffes und die Uhrzeit ein, zu der Sie das Terminal voraussichtlich verlassen. Name und Telefonnummer Ihres Fahrers sowie der genaue Treffpunkt kommen per E-Mail, sobald ein Fahrer zugeteilt ist. Am Tag der Ausschiffung gehen Sie also auf eine namentlich bekannte Person zu, statt an einem überfüllten Bordstein zu suchen.',
+      },
+      {
+        h2: 'Gepäck, Familien und Gruppen nach der Kreuzfahrt',
+        body: 'Die Grenze ist der Kofferraum, nicht die Sitze. Ein Viersitzer-Taxi nimmt vier Fahrgäste und etwa drei große Koffer mit, der Vito sechs Fahrgäste und sechs Gepäckstücke, die V-Class sieben Fahrgäste und sieben Gepäckstücke. Eine Reisegruppe von acht oder mehr Personen bucht zwei oder mehr Wagen gemeinsam in einem einzigen Checkout; jeder Wagen wird zum veröffentlichten Preis seiner Größe berechnet, und alle warten am selben Punkt. Tragen Sie Sperriges wie einen Kinderwagen oder Sportgeräte in die Notizen ein, damit das passende Fahrzeug geschickt wird.',
+      },
+      {
+        h2: 'Zurück zum Flughafen am Abreisetag',
+        body: 'Die Ausschiffung braucht Zeit. Nennen Sie uns deshalb die Uhrzeit, zu der Sie das Terminal voraussichtlich verlassen, und nicht die Anlegezeit des Schiffes, und lassen Sie vor Ende des Check-ins einen großzügigen Puffer. Die Onlinebuchung braucht mindestens 3 Stunden Vorlauf; für alles Kurzfristigere schreiben Sie uns auf WhatsApp, und wir sagen Ihnen sofort, ob ein Wagen frei ist. Die Rückfahrt kostet denselben Festpreis wie die Hinfahrt, und bei verspätetem Anlegen des Schiffes ist die Änderung der Uhrzeit kostenlos.',
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Taxi Flughafen Barcelona online buchen | Sofortpreis',
     description:

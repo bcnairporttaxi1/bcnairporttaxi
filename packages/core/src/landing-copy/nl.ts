@@ -418,6 +418,37 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: 'Taxi Cruisehaven Barcelona | Vaste Prijs Transfer',
+    description:
+      'Taxi tussen de luchthaven van Barcelona en de cruisehaven: vaste alles-inbegrepen prijs voor Moll Adossat A tot E, online geboekt, niets te betalen in de taxi.',
+    h1: 'Taxi tussen de luchthaven van Barcelona en de cruisehaven',
+    intro:
+      'Cruisepassagiers komen aan met grote koffers en een strakke deadline, dus een transfer vraagt om een prijs die u vooraf kent en een chauffeur die u al verwacht. Tussen El Prat en de cruiseterminals van Moll Adossat is de prijs vast, alles-inbegrepen en afgesproken bij het boeken: € 60 in een auto met vier zitplaatsen, € 80 in een bus met zes zitplaatsen en € 85 in een bus met zeven zitplaatsen.',
+    sections: [
+      {
+        h2: 'Wat de transfer van de luchthaven naar de cruisehaven kost',
+        body: 'De prijs is in beide richtingen hetzelfde en geldt voor elke terminal van Moll Adossat, A tot E. Een taxi met vier zitplaatsen kost € 60, de Mercedes Vito met zes zitplaatsen € 80 en de Mercedes V-Class met zeven zitplaatsen € 85. Weekenden en feestdagen voegen 7,5 % toe. De luchthaventoeslag, de toeslag van de cruiseterminal en de toeslag voor het grotere voertuig zitten al in dat bedrag, dus het is geen taximeterstand en u bent de chauffeur aan de kade niets verschuldigd. Het is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief van een taxi die u bij de standplaats neemt.',
+      },
+      {
+        h2: 'Van het schip naar een hotel of naar de stad',
+        body: 'Een transfer tussen de kade van Moll Adossat en een adres in Barcelona kost de stadsprijs plus € 10 havenheffing, waarmee u uitkomt op dezelfde € 60, € 80 en € 85 als de rit naar de luchthaven. De aanlegplaatsen van het World Trade Center op Moll de Barcelona liggen aan een andere kade: dat is niet Moll Adossat, dus ze worden berekend als een gewoon stadsadres, zonder havenheffing. Kies uw exacte terminal in het boekingsformulier en de offerte schakelt vanzelf over op het juiste tarief, zodat u het eindbedrag ziet voordat u betaalt.',
+      },
+      {
+        h2: 'Welke terminal, en hoe de chauffeur u vindt',
+        body: 'Moll Adossat heeft vijf cruiseterminals, A tot E, en de rederij van uw schip vertelt u welke het gebruikt. Selecteer die in het formulier en noteer in de opmerkingen bij de boeking de naam van het schip en het tijdstip waarop u verwacht de terminal te verlaten. De naam en het telefoonnummer van uw chauffeur en het exacte ontmoetingspunt ontvangt u per e-mail zodra er een chauffeur is toegewezen. Op de dag van ontscheping loopt u dus naar een persoon met een naam toe in plaats van te zoeken langs een drukke stoeprand.',
+      },
+      {
+        h2: 'Bagage, gezinnen en groepen na een cruise',
+        body: 'De grens is de kofferbak, niet het aantal zitplaatsen. Een taxi met vier zitplaatsen vervoert vier passagiers en ongeveer drie grote koffers, de Vito zes passagiers en zes tassen, en de V-Class zeven passagiers en zeven tassen. Een cruisegezelschap van acht of meer personen boekt twee of meer auto’s samen in één afrekening; elke auto kost de vermelde prijs voor zijn formaat en ze wachten op hetzelfde punt. Vermeld een volumineus voorwerp, zoals een kinderwagen of sportuitrusting, in de opmerkingen, zodat het juiste voertuig wordt gestuurd.',
+      },
+      {
+        h2: 'Terug naar de luchthaven op de vertrekdag',
+        body: 'Ontscheping kost tijd. Geef ons daarom het tijdstip waarop u verwacht de terminal te verlaten en niet het tijdstip waarop het schip aanlegt, en laat een ruime marge voordat de incheckbalie sluit. Online boeken vraagt minimaal drie uur vooraf; voor iets korters kunt u ons op WhatsApp schrijven, dan laten wij u direct weten of er een auto vrij is. De terugreis kost dezelfde vaste prijs als de heenreis, met kosteloze wijziging van het tijdstip als het schip te laat aanlegt.',
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Taxi Luchthaven Barcelona Online Boeken | Direct Prijs',
     description:

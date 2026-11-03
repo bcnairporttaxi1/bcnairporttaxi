@@ -425,6 +425,37 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: 'Taxi Puerto de Cruceros Barcelona | Precio Fijo',
+    description:
+      'Taxi entre el aeropuerto de Barcelona y el puerto de cruceros: precio fijo todo incluido para las terminales A a E del Moll Adossat, sin pagar en el coche.',
+    h1: 'Taxi entre el aeropuerto de Barcelona y el puerto de cruceros',
+    intro:
+      'Quien llega de un crucero viaja con maletas grandes y una hora límite, así que el traslado necesita un precio que conozcas antes de salir y un conductor que ya te esté esperando. Entre El Prat y las terminales de cruceros del Moll Adossat el precio es fijo, todo incluido y cerrado al reservar: 60 € en un coche de cuatro plazas, 80 € en una furgoneta de seis plazas y 85 € en una de siete plazas.',
+    sections: [
+      {
+        h2: 'Cuánto cuesta el traslado del aeropuerto al puerto de cruceros',
+        body: 'El precio es el mismo en los dos sentidos y para todas las terminales del Moll Adossat, de la A a la E. Un taxi de cuatro plazas cuesta 60 €, la Mercedes Vito de seis plazas cuesta 80 € y la Mercedes V-Class de siete plazas cuesta 85 €. Los fines de semana y festivos añaden un 7,5 %. El suplemento de aeropuerto, el de la terminal de cruceros y el del vehículo mayor ya están dentro de esa cifra, así que no es lo que marca el taxímetro y no se debe nada al conductor en el muelle. Es nuestro propio precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada de un taxi cogido en la parada.',
+      },
+      {
+        h2: 'Del barco al hotel o a la ciudad',
+        body: 'Un traslado entre el muelle del Moll Adossat y una dirección de Barcelona cuesta el precio de ciudad más 10 € de tasa de puerto, y así se llega a los mismos 60 €, 80 € y 85 € del trayecto al aeropuerto. Los atraques del World Trade Center, en el Moll de Barcelona, son otro muelle: no son el Moll Adossat, así que se calculan como una dirección normal de la ciudad, sin la tasa de puerto. Elige tu terminal exacta en el formulario de reserva y el presupuesto cambia solo a la tarifa correcta, de modo que ves la cifra final antes de pagar.',
+      },
+      {
+        h2: 'Qué terminal elegir y cómo te encuentra el conductor',
+        body: 'El Moll Adossat tiene cinco terminales de cruceros, de la A a la E, y la naviera de tu barco te dice cuál usa. Selecciónala en el formulario y añade en las notas de la reserva el nombre del barco y la hora a la que esperas salir de la terminal. El nombre del conductor, su teléfono y el punto de encuentro exacto te llegan por correo en cuanto se le asigna la reserva, así que el día del desembarque caminas hacia una persona con nombre y no buscas entre la multitud de la acera.',
+      },
+      {
+        h2: 'Equipaje, familias y grupos después de un crucero',
+        body: 'El límite es el maletero, no los asientos. Un taxi de cuatro plazas lleva a cuatro pasajeros y unas tres maletas grandes, la Vito lleva a seis pasajeros y seis maletas, y la V-Class a siete pasajeros y siete maletas. Un grupo de crucero de ocho personas o más reserva dos o más coches juntos en un solo pago; cada coche se cobra al precio publicado para su tamaño y todos esperan en el mismo punto. Indica en las notas si llevas algo voluminoso, como un cochecito o material deportivo, para que enviemos el vehículo adecuado.',
+      },
+      {
+        h2: 'La vuelta al aeropuerto el día de la salida',
+        body: 'El desembarque lleva tiempo, así que dinos la hora a la que esperas salir de la terminal y no la hora a la que atraca el barco, y deja un margen cómodo antes de que cierre el mostrador de facturación. La reserva online necesita al menos 3 horas de antelación; para algo más urgente, escríbenos por WhatsApp y te diremos enseguida si hay un coche libre. El trayecto de vuelta cuesta el mismo precio fijo que el de ida, y el cambio de hora es gratuito si el barco atraca tarde.',
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Reservar Taxi Aeropuerto Barcelona | Online',
     description:

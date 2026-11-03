@@ -6,6 +6,8 @@ import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld';
 import { FixedPriceTable } from '@/components/fixed-price-table';
+import { BLOG_POSTS } from '@bcn/core/blog';
+import { blogCopy } from '@bcn/core/blog-copy';
 import { Rise, Stagger, StaggerItem } from '@/components/motion';
 import { TrustBand } from '@/components/trust-band';
 import {
@@ -108,7 +110,7 @@ function anchor(heading: string, index: number): string {
 }
 
 /** Landing pages that carry the fixed price table. */
-const PRICE_TABLE_SLUGS = new Set(['barcelona-airport-taxi-price', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi']);
+const PRICE_TABLE_SLUGS = new Set(['barcelona-airport-taxi-price', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi', 'cruise-port-taxi']);
 
 export default async function LandingPageRoute(props: {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -343,6 +345,32 @@ export default async function LandingPageRoute(props: {
             );
           })}
         </Stagger>
+
+        {/* The three guides and the FAQ each had one or two inbound links on
+            the whole site, all from the blog index and the footer. Landing
+            pages are the most-linked pages we have, so they carry the links:
+            a reader deciding whether to book is exactly who wants the price
+            explainer, the terminal guide or the answers page next. */}
+        <nav aria-label={tn('blog')} className="mt-10">
+          <h3 className="font-display text-lg font-extrabold tracking-tight">{tn('blog')}</h3>
+          <ul className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+            {BLOG_POSTS.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="text-[15px] leading-snug text-dim transition-colors hover:text-gold"
+                >
+                  {blogCopy(post, locale).title}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/faq" className="text-[15px] leading-snug text-dim transition-colors hover:text-gold">
+                {tn('faq')}
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </section>
 
       {/* The widget is a long way back up by now. Someone who read to the end

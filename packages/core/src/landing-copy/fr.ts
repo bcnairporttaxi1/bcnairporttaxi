@@ -418,6 +418,37 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
     ],
   },
 
+  'cruise-port-taxi': {
+    title: "Taxi Port de Croisière Barcelone | Prix Fixe",
+    description:
+      "Taxi entre l’aéroport de Barcelone et le port de croisière : prix fixe tout compris pour les terminaux A à E du Moll Adossat, réservé en ligne.",
+    h1: "Taxi entre l’aéroport de Barcelone et le port de croisière",
+    intro:
+      "Les passagers de croisière arrivent avec de grosses valises et un horaire impératif : leur transfert doit donc avoir un prix connu avant le départ et un chauffeur qui les attend déjà. Entre l’aéroport d’El Prat et les terminaux de croisière du Moll Adossat, le prix est fixe, tout compris et convenu à la réservation : 60 EUR dans une voiture de quatre places, 80 EUR dans un van de six places et 85 EUR dans un van de sept places.",
+    sections: [
+      {
+        h2: "Combien coûte le transfert entre l’aéroport et le port de croisière",
+        body: "Le prix est le même dans les deux sens et pour chaque terminal du Moll Adossat, de A à E. Un taxi de quatre places coûte 60 EUR, le Mercedes Vito de six places 80 EUR et la Mercedes V-Class de sept places 85 EUR. Les week-ends et jours fériés ajoutent 7,5 %. Le supplément aéroport, la taxe du terminal de croisière et le supplément du véhicule plus grand sont déjà compris dans ce montant : ce n’est donc pas un relevé de compteur et rien n’est dû au chauffeur sur le quai. C’est notre propre prix fixe pour un transfert réservé et payé d’avance, et non le tarif réglementé d’un taxi pris à la station.",
+      },
+      {
+        h2: "Du bateau à l’hôtel ou au centre-ville",
+        body: "Un transfert entre le quai du Moll Adossat et une adresse à Barcelone correspond au prix de la ville plus 10 EUR de frais de port, ce qui donne les mêmes 60 EUR, 80 EUR et 85 EUR que le trajet depuis l’aéroport. Les quais du World Trade Center, sur le Moll de Barcelona, sont un autre quai : ce n’est pas le Moll Adossat, ils sont donc facturés comme une adresse ordinaire en ville, sans les frais de port. Choisissez votre terminal exact dans le formulaire de réservation et le devis passe tout seul au bon tarif : vous voyez le montant final avant de payer.",
+      },
+      {
+        h2: "Quel terminal, et comment le chauffeur vous trouve",
+        body: "Le Moll Adossat compte cinq terminaux de croisière, de A à E, et votre compagnie de croisière vous indique celui qu’utilise votre navire. Sélectionnez-le dans le formulaire, puis ajoutez dans les notes de réservation le nom du navire et l’heure à laquelle vous pensez quitter le terminal. Le nom de votre chauffeur, son numéro de téléphone et le point de rendez-vous exact vous parviennent par e-mail dès qu’un chauffeur est affecté : le jour du débarquement, vous marchez donc vers une personne nommée au lieu de chercher dans un trottoir bondé.",
+      },
+      {
+        h2: "Bagages, familles et groupes après une croisière",
+        body: "La vraie limite est le coffre, pas les sièges. Un taxi de quatre places transporte quatre passagers et environ trois grandes valises, le Vito six passagers et six bagages, et la V-Class sept passagers et sept bagages. Un groupe de croisière de huit personnes ou plus réserve deux voitures ou plus ensemble dans une seule réservation : chaque voiture est facturée au prix publié pour sa taille et elles attendent au même endroit. Signalez dans les notes un objet encombrant, comme une poussette ou du matériel de sport, afin que le bon véhicule soit envoyé.",
+      },
+      {
+        h2: "Retour à l’aéroport le jour du départ",
+        body: "Le débarquement prend du temps : indiquez-nous donc l’heure à laquelle vous pensez quitter le terminal plutôt que l’heure d’arrivée du navire à quai, et gardez une marge confortable avant la fermeture de l’enregistrement. La réservation en ligne exige au moins trois heures de préavis ; pour un délai plus court, écrivez-nous sur WhatsApp et nous vous dirons tout de suite si une voiture est libre. Le trajet retour coûte le même prix fixe que l’aller, avec un changement d’heure gratuit si le navire accoste en retard.",
+      },
+    ],
+  },
+
   'book-online': {
     title: 'Réserver un Taxi Aéroport Barcelone en Ligne',
     description:
