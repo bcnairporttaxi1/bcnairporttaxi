@@ -123,6 +123,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Unversioned filenames, so not immutable: a day fresh, a week stale-while-revalidate.
+        // They were revalidating on every visit (max-age=0), a conditional request per image.
+        source: '/:dir(img|icons)/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+      },
+      {
         source: '/sw.js',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },

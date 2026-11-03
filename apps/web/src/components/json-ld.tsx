@@ -23,7 +23,7 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
  * anything a visitor wrote, but this sits one careless prop away from doing
  * so, and escaping the angle bracket costs nothing.
  */
-function serialise(data: unknown): string {
+export function serialise(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 
@@ -146,6 +146,9 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
               { '@type': 'Airport', name: 'Josep Tarradellas Barcelona-El Prat Airport', iataCode: 'BCN' },
               { '@type': 'Place', name: 'Barcelona Cruise Port, Moll Adossat' },
               { '@type': 'AdministrativeArea', name: 'Catalonia' },
+              // Priced destinations that sit beyond the 120 km circle below.
+              { '@type': 'Country', name: 'Andorra' },
+              { '@type': 'AdministrativeArea', name: 'Valencian Community' },
               {
                 '@type': 'GeoCircle',
                 geoMidpoint: {
@@ -258,22 +261,42 @@ export function ServiceJsonLd({
   name,
   description,
   url,
+  areaServed = 'Barcelona',
+  price,
 }: {
   name: string;
   description: string;
   url: string;
+  /** Where this particular service runs; the sitewide node already covers Barcelona. */
+  areaServed?: string;
+  /** All-inclusive price in EUR, from the same quote the visible page uses. */
+  price?: number;
 }) {
   return (
     <JsonLd
       data={{
         '@context': 'https://schema.org',
         '@type': 'Service',
+        // A distinct node per page, not a second anonymous Service. The brand
+        // suffix belongs to <title>, not to the name of the thing being sold.
+        '@id': `${absoluteUrl(url)}#service`,
         serviceType: 'Airport taxi transfer',
-        name,
+        name: name.split(' | ')[0],
         description,
         url: absoluteUrl(url),
         provider: { '@id': `${SITE_URL}/#provider` },
-        areaServed: { '@type': 'City', name: 'Barcelona' },
+        isSimilarTo: { '@id': `${SITE_URL}/#service` },
+        areaServed: { '@type': 'City', name: areaServed },
+        ...(price !== undefined
+          ? {
+              offers: {
+                '@type': 'Offer',
+                price: price.toFixed(2),
+                priceCurrency: 'EUR',
+                description: 'All-inclusive fixed price; +7.5% on weekends and public holidays',
+              },
+            }
+          : {}),
       }}
     />
   );

@@ -1,4 +1,4 @@
-import { socialImages, twitterImages } from '@/lib/social-card';
+import { ogLocale, socialImages, twitterImages } from '@/lib/social-card';
 import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
@@ -99,7 +99,7 @@ export async function generateMetadata(props: {
     openGraph: {
       type: 'website',
       siteName: 'BCNAirportTaxi',
-      locale: localeHrefLang[locale as Locale],
+      locale: ogLocale(locale),
       /*
        * No `url` here.
        *

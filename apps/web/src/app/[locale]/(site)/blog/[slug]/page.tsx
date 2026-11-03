@@ -4,11 +4,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BlogCover, coverFor } from '@/components/blog-cover';
-import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { BreadcrumbJsonLd, serialise } from '@/components/json-ld';
 import { BLOG_POSTS, getBlogPost } from '@bcn/core/blog';
 import { getLandingCopy, getLandingPage } from '@bcn/core/landing-pages';
 import { blogCopy, hasBlogTranslation } from '@bcn/core/blog-copy';
 import { localeHrefLang, locales } from '@/i18n/routing';
+import { ogLocale } from '@/lib/social-card';
 import { SITE_URL, absoluteUrl } from '@bcn/core/site';
 
 /** Shared by the social card and the Article `image`, so they cannot drift. */
@@ -52,6 +53,7 @@ export async function generateMetadata(props: {
     robots: untranslated ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       type: 'article',
+      locale: ogLocale(locale),
       title: c.title,
       description: c.description,
       publishedTime: post.published,
@@ -104,7 +106,7 @@ export default async function BlogPostPage(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: serialise({
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: c.title,
@@ -123,8 +125,15 @@ export default async function BlogPostPage(props: {
             image: [absoluteUrl(OG_IMAGE)],
             inLanguage: localeHrefLang[locale as keyof typeof localeHrefLang] ?? locale,
             mainEntityOfPage: absoluteUrl(`/${locale}/blog/${slug}`),
-            author: { '@type': 'Organization', name: 'BCNAirportTaxi' },
-            publisher: { '@id': `${SITE_URL}/#provider` },
+            author: { '@type': 'Organization', '@id': `${SITE_URL}/#provider`, name: 'BCNAirportTaxi', url: SITE_URL },
+            // Inlined: Google does not reliably resolve an @id defined in a different script block.
+            publisher: {
+              '@type': 'Organization',
+              '@id': `${SITE_URL}/#provider`,
+              name: 'BCNAirportTaxi',
+              url: SITE_URL,
+              logo: { '@type': 'ImageObject', url: absoluteUrl('/img/logo.png') },
+            },
           }),
         }}
       />

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { clientKey, rateLimit, tooManyRequests } from '@/lib/rate-limit';
 import { z } from 'zod';
+import { CONTACT_EMAIL } from '@bcn/core/site';
 
 /**
  * Address search, proxied server-side.
@@ -14,7 +15,7 @@ const NOMINATIM =
   process.env.NOMINATIM_BASE_URL ?? 'https://nominatim.openstreetmap.org';
 
 const USER_AGENT =
-  'BCNAirportTaxi/1.0 (Barcelona airport transfer booking; contact: bookings@bcnairporttaxi.com)';
+  `BCNAirportTaxi/1.0 (Barcelona airport transfer booking; contact: ${CONTACT_EMAIL})`;
 
 const querySchema = z.object({
   q: z.string().trim().min(3).max(200),

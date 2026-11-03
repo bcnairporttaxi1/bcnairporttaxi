@@ -35,5 +35,16 @@ export const SOCIAL_CARD = {
 /** Spread into an `openGraph` object so the image survives the shallow merge. */
 export const socialImages = [SOCIAL_CARD];
 
+/**
+ * Open Graph wants language_TERRITORY (en_GB), not the BCP 47 tags hreflang
+ * uses (en, zh-Hans). Facebook and WhatsApp ignore a bare `es` or `zh-Hans`
+ * and fall back to en_US, so every non-English share was labelled English.
+ */
+const OG_LOCALES: Record<string, string> = {
+  en: 'en_GB', es: 'es_ES', ca: 'ca_ES', fr: 'fr_FR', de: 'de_DE',
+  it: 'it_IT', pt: 'pt_PT', nl: 'nl_NL', ru: 'ru_RU', zh: 'zh_CN',
+};
+export const ogLocale = (locale: string): string => OG_LOCALES[locale] ?? 'en_GB';
+
 /** Spread into a `twitter` object. Same file; a second asset would only drift. */
 export const twitterImages = [SOCIAL_CARD.url];

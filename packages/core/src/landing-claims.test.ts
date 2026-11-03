@@ -44,22 +44,7 @@ const CLAIMS: Array<[string, RegExp]> = [
  */
 const ALLOWED = [
   /factura oficial|fatura oficial|facture officielle|Taxameterrechnung|fattura ufficiale|officiële factuur|official taxi invoice|official meter invoice|官方计价器发票/i,
-  /*
-   * OPEN QUESTION FOR THE OPERATOR, allowlisted so it does not block CI.
-   *
-   * `legal.ts` states that waiting beyond a reasonable period "is charged on
-   * the meter at the official AMB waiting rate". Every other surface says the
-   * price is fixed and nothing at all is owed in the car, so either:
-   *   - excess waiting really is billable, and the "nothing to pay" claim
-   *     needs a stated exception everywhere it appears; or
-   *   - the clause is left over from the metered model and should go.
-   *
-   * `TARIFFS.waitPerHour` (27.75) exists, so the charge is implementable
-   * either way. Which it is, is a commercial and contractual decision, not
-   * one to settle by rewording a terms page, so it is surfaced rather than
-   * silently changed.
-   */
-  /charged on the meter at the official AMB waiting rate/i,
+  // Resolved: the meter waiting rate applies to interurban journeys only; legal.ts says so on the same line.
   // Copy that says the opposite of the banned claim: our price is NOT the regulated fare.
   /Is this the official taxi fare|not the regulated (?:meter )?fare|not the AMB tariff|no es la tarifa regulada|nicht der regulierte Tarif|et non le tarif réglementé|non la tariffa regolamentata|niet het gereguleerde tarief|não a tarifa regulamentada|не регулируемый тариф|而非受监管的费率|no la tarifa regulada|no la tarifa regulada/i,
   /suplement|supplément|Zuschlag|supplemento|toeslag|надбавк|附加费|supplement/i,

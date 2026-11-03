@@ -93,3 +93,11 @@ describe('social card', () => {
     expect(routeFiles(APP_DIR).length).toBeGreaterThan(10);
   });
 });
+
+describe('ogLocale', () => {
+  it('gives every site locale a language_TERRITORY value, not a bare BCP 47 tag', async () => {
+    const { ogLocale } = await import('./social-card');
+    const { locales } = await import('@/i18n/routing');
+    for (const l of locales) expect(ogLocale(l), l).toMatch(/^[a-z]{2}_[A-Z]{2}$/);
+  });
+});

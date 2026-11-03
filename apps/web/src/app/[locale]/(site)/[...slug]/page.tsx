@@ -1,4 +1,4 @@
-import { socialImages, twitterImages } from '@/lib/social-card';
+import { ogLocale, socialImages, twitterImages } from '@/lib/social-card';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -70,6 +70,7 @@ export async function generateMetadata(props: {
     alternates: { canonical, languages },
     openGraph: {
       type: 'website',
+      locale: ogLocale(locale),
       title: copy.title,
       description: copy.description,
       url: canonical,

@@ -1,4 +1,4 @@
-import { socialImages, twitterImages } from '@/lib/social-card';
+import { ogLocale, socialImages, twitterImages } from '@/lib/social-card';
 import { destinationCopy } from '@bcn/core/destination-copy';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -70,6 +70,7 @@ export async function generateMetadata(props: {
     robots: untranslated ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       type: 'website',
+      locale: ogLocale(locale),
       title: t('ogTitle', { name: c.route, place: c.place }),
       description,
       url: `/${locale}/destinations/${slug}`,
@@ -125,6 +126,8 @@ export default async function DestinationPage(props: {
         name={t('serviceName', { name: c.route, place: c.place })}
         description={c.blurb}
         url={`/${locale}/destinations/${slug}`}
+        areaServed={c.place}
+        price={estimate?.total}
       />
       <BreadcrumbJsonLd
         items={[

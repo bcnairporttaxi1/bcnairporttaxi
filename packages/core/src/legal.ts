@@ -23,7 +23,7 @@ export interface LegalDoc {
 }
 
 const OPERATOR_NOTE =
-  'BCNAirportTaxi is a booking intermediary. We arrange journeys with licensed Barcelona taxi drivers; we do not operate taxis ourselves and we do not set fares.';
+  'BCNAirportTaxi is a booking intermediary. We arrange journeys with licensed Barcelona taxi drivers; we do not operate taxis ourselves. The fixed price you pay is set by us in our published price list.';
 
 export const LEGAL_DOCS: Record<string, LegalDoc> = {
   terms: {
@@ -69,7 +69,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
         h2: 'Delays and no-shows',
         paragraphs: [
           'For airport pickups we track your flight number and adjust to a delayed landing at no extra cost.',
-          'If you are not at the agreed pickup point and cannot be reached, the driver will wait a reasonable period before releasing the booking. Waiting time beyond that is charged on the meter at the official AMB waiting rate.',
+          'If you are not at the agreed pickup point and cannot be reached, the driver will wait a reasonable period before releasing the booking. For journeys within Barcelona the price is fixed and no waiting charge applies; on interurban journeys, waiting time beyond that is charged on the meter at the official AMB waiting rate.',
         ],
       },
       {
