@@ -1,7 +1,20 @@
 # Preview verification and production checklist
 
-Branch `seo/full-site-optimisation`, head `912e5a1` (plus this report). Verified 2026-11-03 on the private Vercel preview.
+Branch `seo/full-site-optimisation`, head `7bd0dd1` (plus report updates). Verified 2026-11-03 on the private Vercel preview. Sections 1-4 and 6-8 were verified at `912e5a1`; the owner-confirmation changes (below) were re-verified at `c74c24c` and `7bd0dd1`.
 **Production is untouched**: `main` is still `ed8ab9b`, the only Production deployment is the old one, nothing was merged.
+
+## Update: owner confirmations (2026-11-03), applied and re-verified
+| Owner said | What is on the branch now | Verified on the preview (all 374 pages, 10 languages) |
+|---|---|---|
+| Licensed AMB taxis: keep | "Licensed AMB taxis" badge kept; home and fleet copy say "licensed AMB taxi" | 10 / 10 fleet pages carry the new wording |
+| Fully insured: keep | "fully insured" in the same two places, 10 languages | 10 / 10 |
+| Required AMB inspections: keep, accurate wording | "subject to the required AMB inspections"; the implied "AMB's schedule" and the unconfirmed "working meter" are gone. No licence numbers, insurance details or dates are stated | 0 "working meter" claims left |
+| No child seats | fleet note, booking-notes hint and private-transfer page now say they are not provided; the heading that named them was renamed | the only seat mentions left are "we do not provide" statements |
+| Tolls apply | neutral row "Motorway tolls: apply where the route uses a toll road" on the pricing page (10 languages), `pricing.md`, `llms.txt`. **Not** described as included; no amount or method invented | toll row on 10 / 10 pricing pages |
+
+**Open and blocking: the toll policy.** The owner confirmed tolls apply, but not who pays, when, how the amount is known or which routes. Several site-wide statements ("Nothing to pay your driver", "Nothing further is owed to the driver in the vehicle", "all-inclusive") conflict with a separately charged toll. They are listed, with the four questions I need answered, in `outstanding-issues.md` section A. I did not reword them without the policy.
+
+Tests at the final commit: core 423 passed, web 251 passed (adds `owner-facts.test.ts`, which pins the confirmed facts in every language), `tsc` clean for the web app, `eslint` clean, production build exit 0.
 
 ## 1. Preview
 - Environment: **Preview** (Vercel confirms), not Production. Address: `https://bcnairporttaxi-git-seo-full-si-6ad3a7-bcnairporttaxi1s-projects.vercel.app` (behind your Vercel login, so it is private; crawlers and PageSpeed cannot reach it).
@@ -50,11 +63,11 @@ Terms, Privacy, Cookies and Refund Policy were read in full from `packages/core/
 ## 5. Unverified claims (not invented, not removed: they are the owner's to confirm)
 | Claim (where) | Status |
 |---|---|
-| "Licensed AMB taxis" (top bar and home badge); "Every car is a licensed Barcelona taxi" (home, fleet); "Every car is inspected on the AMB's schedule and insured as a licensed taxi"; "with a working meter and the insurance the city requires" (home, fleet); "regulated taxi" (fleet) | **Unverified.** No licence numbers, driver authorisations or insurance evidence in the repo |
-| Child seats: "Child seats are not fitted as standard; if you need one, ask in the booking notes so the right car is assigned" (fleet, group page) | **Unverified.** It implies a car with a child seat can be supplied; no policy is stated. Owner must confirm availability |
+| "Licensed AMB taxis" (top bar and home badge); "Every car is a licensed Barcelona taxi" (home, fleet); "Every car is inspected on the AMB's schedule and insured as a licensed taxi"; "with a working meter and the insurance the city requires" (home, fleet); "regulated taxi" (fleet) | **Confirmed by the owner (2026-11-03) and reworded; historical row.** Still no licence numbers, driver authorisations or insurance documents in the repo, and none are published |
+| Child seats: "Child seats are not fitted as standard; if you need one, ask in the booking notes so the right car is assigned" (fleet, group page) | **Owner confirmed: none provided; copy fixed. This row is historical.** Previously unverified. It implies a car with a child seat can be supplied; no policy is stated. Owner must confirm availability |
 | Andorra winter: "In winter the final climb can require chains or winter tyres. We assign a vehicle equipped for the conditions" (Andorra page) | **Unverified operational promise** |
 | Andorra border: "Bring passports or national ID cards" | General guidance; fine but not checked against current border rules |
-| Tolls | **Silent everywhere.** No page says whether motorway tolls (AP-7, Cadí tunnel on the Andorra route) are included in the "all-inclusive" price. Customers will ask |
+| Tolls | **Owner confirmed: tolls apply (policy not yet stated, see outstanding-issues.md section A).** Previously silent everywhere. No page says whether motorway tolls (AP-7, Cadí tunnel on the Andorra route) are included in the "all-inclusive" price. Customers will ask |
 | Andorra and Sitges: "a fixed-price route, quoted before travel" vs "the figure above is a guide" | The pages say both. The destination figures are indicative; confirm which is binding |
 | "Most booked" labels (home, Sitges) | No data behind them |
 | "24/7" / "24 h booking" beside a 3-hour minimum notice | Wording to confirm |
@@ -76,7 +89,7 @@ What was done (safe, read-only or stateless):
 - `POST /api/bookings` with an empty body: **400 `invalid_input`** listing the required fields, so validation runs before any database write, email or SumUp call. Nothing was created.
 - `/book`, `/checkout`, `/find-booking`, `/contact` and the cruise page render with the booking widget; WhatsApp link `wa.me/34632414610`, `tel:+34632414610` and `mailto:bcnairporttaxi1@gmail.com` are identical on every page checked and match production.
 - The branch changes **no checkout, booking, payment, SumUp, email or WhatsApp code**. Of the 55 files changed, none of those files is among them. The only API-folder change is the geocode User-Agent string; the only layout change is `og:locale`. `DEFAULT_PAYMENT_MODE` is still `FULL_PREPAID`.
-- 211 web tests and 423 core tests pass (section 8).
+- 251 web tests and 423 core tests pass (section 8).
 
 What was **not** done and cannot be done without side effects:
 - A booking, a SumUp checkout or its webhook, and the confirmation / driver emails (Resend). These are exercised only by a real booking. Recommended after deploy: you place one minimum-value booking yourself and cancel it, watching the SumUp checkout, the customer email, the admin email and the WhatsApp message.
@@ -86,7 +99,7 @@ What was **not** done and cannot be done without side effects:
 | Check | Result |
 |---|---|
 | Core unit/acceptance tests | 14 files, **423 passed** |
-| Web tests | 9 files, **211 passed** |
+| Web tests | 10 files, **251 passed** |
 | `tsc --noEmit` | clean |
 | `eslint src` | clean |
 | `next build` | exit 0; 20 `prisma:error` lines are build-time review queries against the local database that is not running (the reviews page falls back); Vercel's own build succeeded |
@@ -95,9 +108,9 @@ What was **not** done and cannot be done without side effects:
 ## 9. Needs your confirmation (the list)
 1. Legal waiting clause (L1), interurban wording (L2), contracting party (L3), meter invoice (L4) and whether legal texts are needed in Spanish/Catalan (L6). Recommended: counsel reviews before production.
 2. Legal entity: company name, NIF/CIF, registered address, data controller and rights contact.
-3. Evidence for "Licensed AMB taxis", driver authorisations and insurance; the "inspected on the AMB's schedule" wording.
-4. Child seats: do you actually supply them? Wheelchair access, pets, round trips.
-5. Andorra: winter equipment promise, border documents, and whether tolls are included (and for every other long route).
+3. ~~Licensed AMB taxis, insurance, inspections~~ confirmed 2026-11-03 and applied.
+4. ~~Child seats~~ confirmed: not provided, applied. Still open: wheelchair access, pets, round trips.
+5. **Toll policy (blocking)**: who pays, when, how the amount is known, which routes. Plus the Andorra winter-equipment promise and border documents.
 6. Which price is binding for Andorra and Sitges, and whether small differences between the page "from" price and the live quote are acceptable.
 7. Free waiting time and any charge after it, for city and interurban trips.
 8. Whether +34 632 414 610 takes voice calls; real support hours; WhatsApp hours.
