@@ -238,7 +238,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Kinderzitjes en alles wat afwijkt',
-        body: 'Kinderzitjes zijn niet standaard gemonteerd, dus als u er een nodig hebt, vermeld het dan in de opmerkingen bij de boeking, dan wordt de juiste auto toegewezen en niet de dichtstbijzijnde. Hetzelfde geldt voor alles wat bepaalt welk voertuig moet komen: een opgevouwen rolstoel, een fiets, ski’s, een instrument of een huisdier. Met een vooraankondiging is dit geen van alle een probleem, en aan de stoeprand zijn het er allemaal, en dat is precies waarom u ze bij het boeken moet noemen.',
+        body: 'Wij leveren geen kinderzitjes. Alles wat bepaalt welk voertuig moet komen — een opgevouwen rolstoel, een fiets, ski’s, een instrument of een huisdier — vermeldt u het best in de opmerkingen bij de boeking, zodat de juiste auto wordt toegewezen en niet de dichtstbijzijnde. Met een vooraankondiging is dit geen van alle een probleem, en aan de stoeprand zijn het er allemaal, en dat is precies waarom u ze bij het boeken moet noemen.',
       },
     ],
   },

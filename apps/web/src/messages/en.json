@@ -68,7 +68,7 @@
       },
       "licensed": {
         "title": "Licensed drivers only",
-        "body": "Every vehicle is a licensed Barcelona taxi with a working meter and the insurance the city requires. No unlicensed cars, ever."
+        "body": "Every vehicle is a licensed AMB taxi in Barcelona, fully insured and subject to the required AMB inspections. No unlicensed cars, ever."
       },
       "support": {
         "title": "A person, not a queue",
@@ -185,8 +185,8 @@
     "licensedBody1": "Every vehicle in this fleet is a licensed Barcelona taxi in the official black-and-yellow livery, operating under the metropolitan taxi licence rather than as a private hire car. That is not a detail of branding. It means the vehicle is permitted to use the taxi ranks and lanes, carries the regulated insurance, is subject to the AMB's inspection regime, and can issue an official meter invoice for the journey.",
     "licensedBody2": "It also means the driver is a professional Barcelona taxi driver who has passed the city's knowledge and licensing requirements, not a contractor with an app. When you book here you are booking a regulated taxi at a fixed price agreed in advance — the vehicle and the driver are the same ones you would get at the rank, with the price and the car settled before you land instead of after.",
     "commonTitle": "What every vehicle has",
-    "commonBody1": "Air conditioning, seatbelts for every seat, a card terminal, and space for the luggage listed on its card. All are non-smoking. Every car is inspected on the AMB's schedule and insured as a licensed taxi, so the floor is set by regulation rather than by us.",
-    "commonBody2": "Child seats are not fitted as standard; if you need one, ask in the booking notes before you travel so the right car is assigned. Assistance with luggage into and out of the boot is included and never charged for, as is a reasonable wait while you come out of arrivals.",
+    "commonBody1": "Air conditioning, seatbelts for every seat, a card terminal, and space for the luggage listed on its card. All are non-smoking. Every car is a licensed AMB taxi, fully insured and subject to the required AMB inspections, so the floor is set by regulation rather than by us.",
+    "commonBody2": "We do not provide child seats. Assistance with luggage into and out of the boot is included and never charged for, as is a reasonable wait while you come out of arrivals.",
     "categories": {
       "eco": "Eco hybrid taxi",
       "standard": "Standard taxi",
@@ -255,7 +255,9 @@
     "interBody2": "The per-kilometre figure is higher than the city one for a reason worth knowing: the interurban tariff treats the journey as a closed circuit and bills the driver's return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It is why a long transfer costs what it does, and why a per-kilometre rate quoted anywhere without that detail is about half the real one.",
     "officialTitle": "Is this the official taxi fare?",
     "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel and nothing is owed in the car.",
-    "officialLink": "How the rank meter compares"
+    "officialLink": "How the rank meter compares",
+    "adjTolls": "Motorway tolls",
+    "adjTollsValue": "Apply where the route uses a toll road"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
@@ -443,7 +445,7 @@
     "flight": "Flight number",
     "flightHelp": "Optional. Lets your driver track your landing.",
     "notes": "Notes for your driver",
-    "notesHelp": "Optional. Door codes, extra luggage, child seats.",
+    "notesHelp": "Optional. Door codes, extra luggage.",
     "passengers": "Passengers",
     "luggage": "Luggage",
     "summary": "Price summary",

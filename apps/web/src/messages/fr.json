@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Uniquement des chauffeurs agréés",
-        "body": "Chaque véhicule est un taxi agréé de Barcelone, avec compteur en service et l'assurance exigée par la ville. Jamais de voiture sans licence."
+        "body": "Chaque véhicule est un taxi agréé AMB de Barcelone, entièrement assuré et soumis aux contrôles exigés par l'AMB. Jamais de voiture sans licence."
       },
       "support": {
         "title": "Une personne, pas une file",
@@ -178,8 +178,8 @@
     "licensedBody1": "Chaque véhicule de cette flotte est un taxi de Barcelone agréé, dans la livrée officielle noir et jaune, exploité sous la licence métropolitaine de taxi et non comme une voiture de transport avec chauffeur. Ce n'est pas un détail d'image : cela veut dire que le véhicule a le droit d'utiliser les stations et les voies de taxi, qu'il porte l'assurance réglementée, qu'il est soumis au régime d'inspection de l'AMB et qu'il peut délivrer la facture officielle du compteur pour le trajet.",
     "licensedBody2": "Cela veut dire aussi que le chauffeur est un taxi professionnel de Barcelone ayant satisfait aux exigences municipales de connaissance et de licence, pas un prestataire muni d'une application. En réservant ici, vous réservez un taxi réglementé à un prix fixe convenu d'avance : le véhicule et le chauffeur sont ceux que vous trouveriez à la station, avec le prix et la voiture réglés avant votre atterrissage plutôt qu'après.",
     "commonTitle": "Ce que tous les véhicules possèdent",
-    "commonBody1": "Climatisation, ceinture à chaque place, terminal de paiement par carte et place pour les bagages indiqués sur sa fiche. Tous sont non-fumeurs. Chaque voiture passe les contrôles selon le calendrier de l'AMB et est assurée comme taxi agréé, de sorte que le minimum est fixé par la réglementation et non par nous.",
-    "commonBody2": "Les sièges enfants ne sont pas montés d'office ; si vous en avez besoin, demandez-le dans les notes de réservation avant de voyager afin que la bonne voiture soit affectée. L'aide pour charger et décharger les bagages est comprise et jamais facturée, de même qu'une attente raisonnable pendant que vous sortez des arrivées.",
+    "commonBody1": "Climatisation, ceinture à chaque place, terminal de paiement par carte et place pour les bagages indiqués sur sa fiche. Tous sont non-fumeurs. Chaque voiture est un taxi agréé AMB, entièrement assurée et soumise aux contrôles exigés par l'AMB, de sorte que le minimum est fixé par la réglementation et non par nous.",
+    "commonBody2": "Nous ne fournissons pas de sièges enfant. L'aide pour charger et décharger les bagages est comprise et jamais facturée, de même qu'une attente raisonnable pendant que vous sortez des arrivées.",
     "categories": {
       "eco": "Taxi hybride écologique",
       "standard": "Taxi standard",
@@ -459,7 +459,7 @@
     "flight": "Numéro de vol",
     "flightHelp": "Facultatif. Permet à votre chauffeur de suivre votre atterrissage.",
     "notes": "Notes pour votre chauffeur",
-    "notesHelp": "Facultatif. Codes d'entrée, bagages supplémentaires, sièges enfant.",
+    "notesHelp": "Facultatif. Codes d'entrée, bagages supplémentaires.",
     "passengers": "Passagers",
     "luggage": "Bagages",
     "summary": "Récapitulatif du prix",
@@ -526,7 +526,9 @@
     "interBody2": "Le prix au kilomètre est plus élevé que l'urbain pour une raison qu'il vaut la peine de connaître : le tarif interurbain traite le trajet comme un circuit fermé et facture aussi le retour du chauffeur, car celui-ci ne peut légalement pas prendre un client hors de sa zone et rentrerait à vide. Un kilomètre parcouru coûte donc deux kilomètres sur ce tarif. C'est la raison du prix d'un long transfert, et la raison pour laquelle un tarif kilométrique annoncé quelque part sans cette précision vaut environ la moitié du vrai.",
     "officialTitle": "Est-ce le tarif officiel du taxi ?",
     "officialBody": "Non. C'est notre prix fixe pour un transfert réservé et payé à l'avance, et non le tarif réglementé. Le taxi de la station se paie au compteur selon le tarif de l'AMB. Chez nous, le prix est connu avant le départ et rien n'est dû dans la voiture.",
-    "officialLink": "Comparaison avec le compteur de la station"
+    "officialLink": "Comparaison avec le compteur de la station",
+    "adjTolls": "Péages",
+    "adjTollsValue": "S'appliquent lorsque l'itinéraire emprunte une route à péage"
   },
   "site": {
     "name": "BCNAirportTaxi"

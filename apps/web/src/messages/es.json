@@ -65,7 +65,7 @@
       },
       "licensed": {
         "title": "Solo conductores con licencia",
-        "body": "Cada vehículo es un taxi con licencia de Barcelona, con taxímetro y el seguro que exige la ciudad. Nunca coches sin licencia."
+        "body": "Cada vehículo es un taxi con licencia del AMB en Barcelona, totalmente asegurado y sujeto a las inspecciones que exige el AMB. Nunca coches sin licencia."
       },
       "support": {
         "title": "Una persona, no una cola",
@@ -181,8 +181,8 @@
     "licensedBody1": "Todos los vehículos de esta flota son taxis de Barcelona con licencia, con la librea oficial negra y amarilla, que operan con la licencia metropolitana de taxi y no como vehículos de alquiler con conductor. No es un detalle de imagen: significa que el vehículo puede usar las paradas y los carriles de taxi, cuenta con el seguro regulado, está sujeto al régimen de inspección del AMB y puede emitir la factura oficial del taxímetro por el trayecto.",
     "licensedBody2": "También significa que el conductor es un taxista profesional de Barcelona que ha superado los requisitos municipales de conocimiento y licencia, no un colaborador con una aplicación. Al reservar aquí reserva un taxi regulado a un precio fijo acordado de antemano: el vehículo y el conductor son los mismos que encontraría en la parada, con el precio y el coche resueltos antes de aterrizar en lugar de después.",
     "commonTitle": "Qué tienen todos los vehículos",
-    "commonBody1": "Aire acondicionado, cinturón en todas las plazas, terminal de pago con tarjeta y espacio para el equipaje indicado en su ficha. Todos son libres de humo. Cada coche pasa las inspecciones según el calendario del AMB y está asegurado como taxi con licencia, de modo que el mínimo lo marca la normativa y no nosotros.",
-    "commonBody2": "Las sillas infantiles no vienen de serie; si necesitas una, pídela en las notas de la reserva antes de viajar para que se asigne el coche adecuado. La ayuda con el equipaje al cargar y descargar el maletero está incluida y nunca se cobra, igual que una espera razonable mientras sales de llegadas.",
+    "commonBody1": "Aire acondicionado, cinturón en todas las plazas, terminal de pago con tarjeta y espacio para el equipaje indicado en su ficha. Todos son libres de humo. Cada coche es un taxi con licencia del AMB, está totalmente asegurado y pasa las inspecciones que exige el AMB, de modo que el mínimo lo marca la normativa y no nosotros.",
+    "commonBody2": "No disponemos de sillas infantiles. La ayuda con el equipaje al cargar y descargar el maletero está incluida y nunca se cobra, igual que una espera razonable mientras sales de llegadas.",
     "categories": {
       "eco": "Taxi híbrido ecológico",
       "standard": "Taxi estándar",
@@ -250,7 +250,7 @@
     "flight": "Número de vuelo",
     "flightHelp": "Opcional. Permite a tu conductor seguir tu aterrizaje.",
     "notes": "Notas para el conductor",
-    "notesHelp": "Opcional. Códigos de puerta, equipaje extra, sillas infantiles.",
+    "notesHelp": "Opcional. Códigos de puerta, equipaje extra.",
     "passengers": "Pasajeros",
     "luggage": "Equipaje",
     "summary": "Resumen del precio",
@@ -544,7 +544,9 @@
     "interBody2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer: la tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Es la razón de que un trayecto largo cueste lo que cuesta, y de que un precio por kilómetro anunciado en cualquier sitio sin ese detalle sea aproximadamente la mitad del real.",
     "officialTitle": "¿Es esta la tarifa oficial del taxi?",
     "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar y no se debe nada en el coche.",
-    "officialLink": "Cómo se compara con el taxímetro de la parada"
+    "officialLink": "Cómo se compara con el taxímetro de la parada",
+    "adjTolls": "Peajes",
+    "adjTollsValue": "Se aplican cuando la ruta usa una vía de peaje"
   },
   "site": {
     "name": "BCNAirportTaxi"

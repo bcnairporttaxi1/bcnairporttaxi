@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Només conductors amb llicència",
-        "body": "Cada vehicle és un taxi amb llicència de Barcelona, amb taxímetre i l’assegurança que exigeix la ciutat. Mai cotxes sense llicència."
+        "body": "Cada vehicle és un taxi amb llicència de l’AMB a Barcelona, totalment assegurat i subjecte a les inspeccions que exigeix l’AMB. Mai cotxes sense llicència."
       },
       "support": {
         "title": "Una persona, no una cua",
@@ -178,8 +178,8 @@
     "licensedBody1": "Tots els vehicles d'aquesta flota són taxis de Barcelona amb llicència, amb la lliurea oficial negra i groga, que operen amb la llicència metropolitana de taxi i no com a vehicles de lloguer amb conductor. No és un detall d'imatge: vol dir que el vehicle pot fer servir les parades i els carrils de taxi, té l'assegurança regulada, està subjecte al règim d'inspecció de l'AMB i pot emetre la factura oficial del taxímetre pel trajecte.",
     "licensedBody2": "També vol dir que el conductor és un taxista professional de Barcelona que ha superat els requisits municipals de coneixement i llicència, no un col·laborador amb una aplicació. En reservar aquí reserveu un taxi regulat a un preu fix acordat per endavant: el vehicle i el conductor són els mateixos que trobaríeu a la parada, amb el preu i el cotxe resolts abans d'aterrar en lloc de després.",
     "commonTitle": "Què tenen tots els vehicles",
-    "commonBody1": "Aire condicionat, cinturó a totes les places, terminal de pagament amb targeta i espai per a l'equipatge indicat a la seva fitxa. Tots són lliures de fum. Cada cotxe passa les inspeccions segons el calendari de l'AMB i està assegurat com a taxi amb llicència, de manera que el mínim el marca la normativa i no nosaltres.",
-    "commonBody2": "Les cadiretes infantils no venen de sèrie; si en necessiteu una, demaneu-la a les notes de la reserva abans de viatjar perquè s'assigni el cotxe adequat. L'ajuda amb l'equipatge en carregar i descarregar el maleter està inclosa i no es cobra mai, igual que una espera raonable mentre sortiu d'arribades.",
+    "commonBody1": "Aire condicionat, cinturó a totes les places, terminal de pagament amb targeta i espai per a l'equipatge indicat a la seva fitxa. Tots són lliures de fum. Cada cotxe és un taxi amb llicència de l'AMB, està totalment assegurat i passa les inspeccions que exigeix l'AMB, de manera que el mínim el marca la normativa i no nosaltres.",
+    "commonBody2": "No disposem de cadiretes infantils. L'ajuda amb l'equipatge en carregar i descarregar el maleter està inclosa i no es cobra mai, igual que una espera raonable mentre sortiu d'arribades.",
     "categories": {
       "eco": "Taxi híbrid ecològic",
       "standard": "Taxi estàndard",
@@ -459,7 +459,7 @@
     "flight": "Número de vol",
     "flightHelp": "Opcional. Permet al teu conductor seguir el teu aterratge.",
     "notes": "Notes per al teu conductor",
-    "notesHelp": "Opcional. Codis de portal, equipatge extra, cadiretes infantils.",
+    "notesHelp": "Opcional. Codis de portal, equipatge extra.",
     "passengers": "Passatgers",
     "luggage": "Equipatge",
     "summary": "Resum del preu",
@@ -526,7 +526,9 @@
     "interBody2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer: la tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. És la raó que un trajecte llarg costi el que costa, i que un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall sigui aproximadament la meitat del real.",
     "officialTitle": "És aquesta la tarifa oficial del taxi?",
     "officialBody": "No. És el nostre preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada. El taxi de la parada es paga amb taxímetre segons la tarifa de l'AMB. Amb nosaltres coneixes el preu abans de viatjar i no es deu res al cotxe.",
-    "officialLink": "Com es compara amb el taxímetre de la parada"
+    "officialLink": "Com es compara amb el taxímetre de la parada",
+    "adjTolls": "Peatges",
+    "adjTollsValue": "S'apliquen quan la ruta fa servir una via de peatge"
   },
   "site": {
     "name": "BCNAirportTaxi"

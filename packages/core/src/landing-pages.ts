@@ -342,7 +342,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'Child seats and anything unusual',
             body:
-              'Child seats are not fitted as standard, so if you need one, say so in the booking notes and the right car is assigned rather than the nearest one. The same applies to anything that changes which vehicle should come: a folded wheelchair, a bicycle, skis, an instrument, or a pet. None of these is a problem given notice and all of them are a problem at the kerb, which is the whole argument for mentioning them when you book.',
+              'We do not provide child seats. Anything that changes which vehicle should come — a folded wheelchair, a bicycle, skis, an instrument, or a pet — is worth mentioning in the booking notes, so the right car is assigned rather than the nearest one. None of these is a problem given notice and all of them are a problem at the kerb, which is the whole argument for mentioning them when you book.',
           },
         ],
       },

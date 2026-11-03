@@ -71,6 +71,9 @@ export default async function PricingPage(props: {
     ],
     [t('adjWeekend'), t('adjWeekendValue', { surge: round(FIXED.surgeRate * 100) })],
     [t('adjInterurban'), t('adjInterurbanValue')],
+    // Owner-confirmed 2026-11-03: tolls apply. The amount and who collects them are not
+    // published here until the policy is confirmed.
+    [t('adjTolls'), t('adjTollsValue')],
   ];
 
   return (

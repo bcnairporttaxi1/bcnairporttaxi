@@ -73,8 +73,9 @@ across the city to Park Guell cost the same.
 | Cruise port transfer | + ${eur(f.portSurcharge)} | The quay is one end and the airport is not |
 | Distance beyond the flat zone | + ${eur(f.excessPerKm)} per km | Only the kilometres past ${f.flatZoneRadiusKm} km |
 | Weekend and public holidays | + ${surge}% | Saturday and Sunday, and the Catalan public holiday calendar, including Christmas and New Year |
+| Motorway tolls | Apply | Where the route uses a toll road |
 
-Nothing else is added. The time of day does not change a fixed price: a
+Nothing else is added to the fixed city and cruise-port prices. The time of day does not change them: a
 pickup at 03:00 costs what the same journey costs at midday.
 
 ## What is included

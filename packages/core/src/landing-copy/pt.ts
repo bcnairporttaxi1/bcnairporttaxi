@@ -238,7 +238,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cadeirinhas para crianças e tudo o que seja fora do comum',
-        body: 'As cadeirinhas para crianças não vêm montadas de série, por isso, se precisar de uma, diga-o nas notas da reserva e é atribuído o carro certo e não o mais próximo. O mesmo vale para tudo o que altera o veículo adequado: uma cadeira de rodas dobrada, uma bicicleta, esquis, um instrumento ou um animal de estimação. Nenhum destes casos é problema com aviso prévio e todos são problema no passeio, que é todo o argumento para os mencionar ao reservar.',
+        body: 'Não fornecemos cadeirinhas para crianças. Tudo o que altera o veículo adequado — uma cadeira de rodas dobrada, uma bicicleta, esquis, um instrumento ou um animal de estimação — convém indicar nas notas da reserva, para que seja atribuído o carro certo e não o mais próximo. Nenhum destes casos é problema com aviso prévio e todos são problema no passeio, que é todo o argumento para os mencionar ao reservar.',
       },
     ],
   },

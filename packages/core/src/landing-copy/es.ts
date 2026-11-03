@@ -245,7 +245,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Sillas infantiles y cualquier cosa fuera de lo normal',
-        body: 'Las sillas infantiles no vienen instaladas de serie, así que, si necesitas una, indícalo en las notas de la reserva y se asigna el coche adecuado y no el más cercano. Lo mismo vale para cualquier cosa que cambie el vehículo que debe acudir: una silla de ruedas plegada, una bicicleta, esquís, un instrumento o una mascota. Con aviso ninguna de ellas es un problema, y todas lo son en la acera, y ese es todo el argumento para mencionarlas al reservar.',
+        body: 'No disponemos de sillas infantiles. Cualquier cosa que cambie el vehículo que debe acudir —una silla de ruedas plegada, una bicicleta, esquís, un instrumento o una mascota— conviene indicarla en las notas de la reserva, para que se asigne el coche adecuado y no el más cercano. Con aviso ninguna de ellas es un problema, y todas lo son en la acera, y ese es todo el argumento para mencionarlas al reservar.',
       },
     ],
   },

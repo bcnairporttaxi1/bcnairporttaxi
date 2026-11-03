@@ -238,7 +238,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Sièges enfant et tout ce qui sort de l’ordinaire",
-        body: "Les sièges enfant ne sont pas installés en standard : si vous en avez besoin, précisez-le dans les notes de réservation et le bon véhicule sera affecté plutôt que le plus proche. Il en va de même pour tout ce qui change le véhicule à envoyer : un fauteuil roulant plié, un vélo, des skis, un instrument de musique ou un animal. Rien de tout cela n’est un problème avec un préavis, et tout cela en est un sur le trottoir, ce qui est tout l’argument pour le signaler à la réservation.",
+        body: "Nous ne fournissons pas de sièges enfant. Tout ce qui change le véhicule à envoyer — un fauteuil roulant plié, un vélo, des skis, un instrument de musique ou un animal — mérite d’être indiqué dans les notes de réservation, afin que le bon véhicule soit affecté plutôt que le plus proche. Rien de tout cela n’est un problème avec un préavis, et tout cela en est un sur le trottoir, ce qui est tout l’argument pour le signaler à la réservation.",
       },
     ],
   },

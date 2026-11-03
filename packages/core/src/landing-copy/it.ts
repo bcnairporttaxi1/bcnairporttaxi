@@ -238,7 +238,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Seggiolini per bambini e richieste insolite',
-        body: "I seggiolini per bambini non sono montati di serie, quindi se ne ha bisogno lo indichi nelle note della prenotazione e verrà assegnata l'auto giusta e non quella più vicina. Lo stesso vale per tutto ciò che cambia il veicolo da inviare: una sedia a rotelle ripiegata, una bicicletta, degli sci, uno strumento musicale o un animale. Con un po' di preavviso nessuno di questi è un problema, mentre sul marciapiede lo sono tutti, ed è l'intero motivo per segnalarli al momento della prenotazione.",
+        body: "Non forniamo seggiolini per bambini. Tutto ciò che cambia il veicolo da inviare — una sedia a rotelle ripiegata, una bicicletta, degli sci, uno strumento musicale o un animale — conviene indicarlo nelle note della prenotazione, così da far assegnare l'auto giusta e non quella più vicina. Con un po' di preavviso nessuno di questi è un problema, mentre sul marciapiede lo sono tutti, ed è l'intero motivo per segnalarli al momento della prenotazione.",
       },
     ],
   },

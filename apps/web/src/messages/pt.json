@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Apenas motoristas licenciados",
-        "body": "Cada veículo é um táxi licenciado de Barcelona, com taxímetro a funcionar e o seguro exigido pela cidade. Nunca carros sem licença."
+        "body": "Cada veículo é um táxi licenciado pela AMB em Barcelona, totalmente seguro e sujeito às inspeções exigidas pela AMB. Nunca carros sem licença."
       },
       "support": {
         "title": "Uma pessoa, não uma fila",
@@ -178,8 +178,8 @@
     "licensedBody1": "Todos os veículos desta frota são táxis de Barcelona licenciados, com a pintura oficial preta e amarela, a operar sob a licença metropolitana de táxi e não como veículo de aluguer com motorista. Não é um detalhe de imagem: significa que o veículo pode usar as praças e as faixas de táxi, tem o seguro regulado, está sujeito ao regime de inspeção da AMB e pode emitir a fatura oficial do taxímetro pelo percurso.",
     "licensedBody2": "Significa também que o motorista é um taxista profissional de Barcelona que cumpriu os requisitos municipais de conhecimento e licenciamento, e não um prestador com uma aplicação. Ao reservar aqui reserva um táxi regulado a um preço fixo acordado antecipadamente: o veículo e o motorista são os mesmos que encontraria na praça, com o preço e o carro resolvidos antes de aterrar em vez de depois.",
     "commonTitle": "O que todos os veículos têm",
-    "commonBody1": "Ar condicionado, cinto em todos os lugares, terminal de pagamento com cartão e espaço para a bagagem indicada na respetiva ficha. Todos são livres de fumo. Cada carro é inspecionado segundo o calendário da AMB e está seguro como táxi licenciado, pelo que o mínimo é fixado pela regulamentação e não por nós.",
-    "commonBody2": "As cadeirinhas para crianças não vêm de série; se precisar de uma, peça-a nas notas da reserva antes de viajar para que seja atribuído o carro adequado. A ajuda com a bagagem ao carregar e descarregar a mala está incluída e nunca é cobrada, assim como uma espera razoável enquanto sai das chegadas.",
+    "commonBody1": "Ar condicionado, cinto em todos os lugares, terminal de pagamento com cartão e espaço para a bagagem indicada na respetiva ficha. Todos são livres de fumo. Cada carro é um táxi licenciado pela AMB, totalmente seguro e sujeito às inspeções exigidas pela AMB, pelo que o mínimo é fixado pela regulamentação e não por nós.",
+    "commonBody2": "Não fornecemos cadeirinhas para crianças. A ajuda com a bagagem ao carregar e descarregar a mala está incluída e nunca é cobrada, assim como uma espera razoável enquanto sai das chegadas.",
     "categories": {
       "eco": "Táxi híbrido ecológico",
       "standard": "Táxi standard",
@@ -459,7 +459,7 @@
     "flight": "Número do voo",
     "flightHelp": "Opcional. Permite ao motorista acompanhar a sua aterragem.",
     "notes": "Notas para o motorista",
-    "notesHelp": "Opcional. Códigos de porta, bagagem extra, cadeirinhas.",
+    "notesHelp": "Opcional. Códigos de porta, bagagem extra.",
     "passengers": "Passageiros",
     "luggage": "Bagagem",
     "summary": "Resumo do preço",
@@ -526,7 +526,9 @@
     "interBody2": "O valor ao quilómetro é mais alto do que o urbano por uma razão que vale a pena conhecer: a tarifa interurbana trata a viagem como um circuito fechado e cobra também o regresso do motorista, porque legalmente ele não pode recolher um cliente fora da sua área e voltaria vazio. Um quilómetro percorrido custa, portanto, dois quilómetros nessa tarifa. É a razão do custo de um transfer longo, e a razão pela qual um preço ao quilómetro anunciado sem esse detalhe é cerca de metade do real.",
     "officialTitle": "Esta é a tarifa oficial do táxi?",
     "officialBody": "Não. É o nosso preço fixo para um transfer reservado e pago antecipadamente, não a tarifa regulamentada. O táxi da praça paga-se pelo taxímetro segundo a tarifa da AMB. Connosco o preço é conhecido antes de viajar e não se deve nada no carro.",
-    "officialLink": "Como se compara com o taxímetro da praça"
+    "officialLink": "Como se compara com o taxímetro da praça",
+    "adjTolls": "Portagens",
+    "adjTollsValue": "Aplicam-se quando o percurso usa uma via com portagem"
   },
   "site": {
     "name": "BCNAirportTaxi"

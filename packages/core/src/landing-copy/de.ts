@@ -242,7 +242,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Kindersitze und alles Ungewöhnliche',
-        body: 'Kindersitze sind nicht serienmäßig eingebaut. Brauchen Sie einen, geben Sie das in den Buchungsnotizen an, dann wird der passende Wagen zugeteilt statt des nächstbesten. Dasselbe gilt für alles, was ändert, welches Fahrzeug kommen sollte: ein zusammengeklappter Rollstuhl, ein Fahrrad, Skier, ein Instrument oder ein Haustier. Mit Vorankündigung ist nichts davon ein Problem, und am Bordstein ist alles davon eins, was das ganze Argument dafür ist, es bei der Buchung zu erwähnen.',
+        body: 'Kindersitze stellen wir nicht zur Verfügung. Alles, was ändert, welches Fahrzeug kommen muss — ein zusammengeklappter Rollstuhl, ein Fahrrad, Ski, ein Instrument oder ein Haustier —, sollten Sie in den Buchungsnotizen angeben, damit der passende Wagen zugeteilt wird statt des nächstbesten. Mit Vorankündigung ist nichts davon ein Problem, und am Bordstein ist alles davon eins, was das ganze Argument dafür ist, es bei der Buchung zu erwähnen.',
       },
       {
         h2: 'Preis und Zahlung beim Privattransfer',

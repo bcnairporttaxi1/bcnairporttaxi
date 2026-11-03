@@ -244,7 +244,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Cadiretes infantils i qualsevol cosa fora del normal",
-        body: "Les cadiretes infantils no van instal·lades de sèrie, així que, si en necessites una, indica-ho a les notes de la reserva i s’assigna el cotxe adequat en lloc del més proper. El mateix val per a qualsevol cosa que canviï el vehicle que ha de venir: una cadira de rodes plegada, una bicicleta, uns esquís, un instrument o una mascota. Si ho avises, no és cap problema; si no, tot són problemes a la vorera, i aquest és tot l’argument per mencionar-ho en reservar.",
+        body: "No disposem de cadiretes infantils. Qualsevol cosa que canviï el vehicle que ha de venir —una cadira de rodes plegada, una bicicleta, uns esquís, un instrument o una mascota— convé indicar-la a les notes de la reserva, perquè s’assigni el cotxe adequat en lloc del més proper. Si ho avises, no és cap problema; si no, tot són problemes a la vorera, i aquest és tot l’argument per mencionar-ho en reservar.",
       },
     ],
   },

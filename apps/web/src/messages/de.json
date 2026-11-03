@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Nur lizenzierte Fahrer",
-        "body": "Jedes Fahrzeug ist ein lizenziertes Barcelona-Taxi mit geeichtem Taxameter und der von der Stadt geforderten Versicherung. Niemals Fahrzeuge ohne Lizenz."
+        "body": "Jedes Fahrzeug ist ein lizenziertes AMB-Taxi in Barcelona, voll versichert und den vorgeschriebenen AMB-Prüfungen unterworfen. Niemals Fahrzeuge ohne Lizenz."
       },
       "support": {
         "title": "Ein Mensch, keine Warteschlange",
@@ -178,8 +178,8 @@
     "licensedBody1": "Jedes Fahrzeug dieser Flotte ist ein lizenziertes Barcelona-Taxi in der amtlichen schwarz-gelben Lackierung, betrieben unter der städtischen Taxilizenz und nicht als Mietwagen mit Fahrer. Das ist kein Markendetail: es bedeutet, dass das Fahrzeug Taxistände und Taxispuren benutzen darf, die vorgeschriebene Versicherung trägt, dem Prüfregime der AMB unterliegt und für die Fahrt eine amtliche Taxameterrechnung ausstellen kann.",
     "licensedBody2": "Es bedeutet außerdem, dass der Fahrer ein professioneller Barcelona-Taxifahrer ist, der die Ortskunde- und Lizenzanforderungen der Stadt erfüllt hat, und kein Auftragnehmer mit einer App. Wer hier bucht, bucht ein reguliertes Taxi zu einem vorab vereinbarten Festpreis: Fahrzeug und Fahrer sind dieselben, die Sie am Stand bekämen – nur sind Preis und Wagen vor der Landung geklärt und nicht danach.",
     "commonTitle": "Was jedes Fahrzeug hat",
-    "commonBody1": "Klimaanlage, Gurte auf jedem Sitz, ein Kartenterminal und Platz für das auf der Karte angegebene Gepäck. Alle sind Nichtraucherfahrzeuge. Jeder Wagen wird nach dem Zeitplan der AMB geprüft und ist als lizenziertes Taxi versichert, die Untergrenze setzt also die Vorschrift und nicht wir.",
-    "commonBody2": "Kindersitze sind nicht standardmäßig verbaut; wenn Sie einen brauchen, vermerken Sie das vor der Fahrt in den Buchungsnotizen, damit der passende Wagen zugeteilt wird. Hilfe beim Ein- und Ausladen des Gepäcks ist inbegriffen und wird nie berechnet, ebenso eine angemessene Wartezeit, während Sie aus dem Ankunftsbereich kommen.",
+    "commonBody1": "Klimaanlage, Gurte auf jedem Sitz, ein Kartenterminal und Platz für das auf der Karte angegebene Gepäck. Alle sind Nichtraucherfahrzeuge. Jeder Wagen ist ein lizenziertes AMB-Taxi, voll versichert und unterliegt den vorgeschriebenen AMB-Prüfungen; die Untergrenze setzt also die Vorschrift und nicht wir.",
+    "commonBody2": "Kindersitze stellen wir nicht zur Verfügung. Hilfe beim Ein- und Ausladen des Gepäcks ist inbegriffen und wird nie berechnet, ebenso eine angemessene Wartezeit, während Sie aus dem Ankunftsbereich kommen.",
     "categories": {
       "eco": "Öko-Hybrid-Taxi",
       "standard": "Standard-Taxi",
@@ -459,7 +459,7 @@
     "flight": "Flugnummer",
     "flightHelp": "Optional. Damit Ihr Fahrer Ihre Landung verfolgen kann.",
     "notes": "Hinweise für Ihren Fahrer",
-    "notesHelp": "Optional. Türcodes, zusätzliches Gepäck, Kindersitze.",
+    "notesHelp": "Optional. Türcodes, zusätzliches Gepäck.",
     "passengers": "Personen",
     "luggage": "Gepäck",
     "summary": "Preisübersicht",
@@ -526,7 +526,9 @@
     "interBody2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte: der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt den Preis einer langen Fahrt – und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist.",
     "officialTitle": "Ist das der amtliche Taxitarif?",
     "officialBody": "Nein. Das ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer, nicht der regulierte Tarif. Ein Taxi vom Stand wird nach dem Taxameter zum AMB-Tarif bezahlt. Bei uns steht der Preis vor der Fahrt fest, und im Wagen ist nichts zu zahlen.",
-    "officialLink": "Wie sich das Taxameter am Stand vergleicht"
+    "officialLink": "Wie sich das Taxameter am Stand vergleicht",
+    "adjTolls": "Mautgebühren",
+    "adjTollsValue": "Fallen an, wenn die Strecke eine mautpflichtige Straße nutzt"
   },
   "site": {
     "name": "BCNAirportTaxi"

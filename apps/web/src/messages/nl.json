@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Alleen vergunde chauffeurs",
-        "body": "Elk voertuig is een vergunde Barcelona-taxi met werkende taxameter en de verzekering die de stad eist. Nooit auto’s zonder vergunning."
+        "body": "Elk voertuig is een gelicentieerde AMB-taxi in Barcelona, volledig verzekerd en onderworpen aan de vereiste AMB-keuringen. Nooit auto’s zonder vergunning."
       },
       "support": {
         "title": "Een mens, geen wachtrij",
@@ -178,8 +178,8 @@
     "licensedBody1": "Elk voertuig in deze vloot is een gelicentieerde Barcelonese taxi in de officiële zwart-gele uitvoering, die rijdt onder de stedelijke taxilicentie en niet als huurauto met chauffeur. Dat is geen kwestie van uitstraling: het betekent dat het voertuig de taxistandplaatsen en taxibanen mag gebruiken, de voorgeschreven verzekering heeft, onder het keuringsregime van de AMB valt en voor de rit een officiële meterfactuur kan afgeven.",
     "licensedBody2": "Het betekent ook dat de chauffeur een beroepstaxichauffeur uit Barcelona is die aan de stedelijke kennis- en licentie-eisen heeft voldaan, en niet een opdrachtnemer met een app. Wie hier boekt, boekt een gereguleerde taxi tegen een vooraf afgesproken vaste prijs: het voertuig en de chauffeur zijn dezelfde die u op de standplaats zou krijgen, met de prijs en de auto geregeld vóór uw landing in plaats van erna.",
     "commonTitle": "Wat elk voertuig heeft",
-    "commonBody1": "Airconditioning, gordels op elke zitplaats, een pinautomaat en ruimte voor de bagage die op de kaart staat. Alle auto's zijn rookvrij. Elke auto wordt gekeurd volgens het schema van de AMB en is verzekerd als gelicentieerde taxi, dus de ondergrens wordt door de regelgeving bepaald en niet door ons.",
-    "commonBody2": "Kinderzitjes zijn niet standaard aanwezig; heeft u er een nodig, vraag er dan vóór de reis om in de opmerkingen bij de boeking, zodat de juiste auto wordt ingezet. Hulp met de bagage bij het in- en uitladen van de kofferruimte is inbegrepen en wordt nooit in rekening gebracht, net als een redelijke wachttijd terwijl u de aankomsthal uitkomt.",
+    "commonBody1": "Airconditioning, gordels op elke zitplaats, een pinautomaat en ruimte voor de bagage die op de kaart staat. Alle auto's zijn rookvrij. Elke auto is een gelicentieerde AMB-taxi, volledig verzekerd en onderworpen aan de vereiste AMB-keuringen, dus de ondergrens wordt door de regelgeving bepaald en niet door ons.",
+    "commonBody2": "Wij leveren geen kinderzitjes. Hulp met de bagage bij het in- en uitladen van de kofferruimte is inbegrepen en wordt nooit in rekening gebracht, net als een redelijke wachttijd terwijl u de aankomsthal uitkomt.",
     "categories": {
       "eco": "Eco-hybride taxi",
       "standard": "Standaardtaxi",
@@ -459,7 +459,7 @@
     "flight": "Vluchtnummer",
     "flightHelp": "Optioneel. Zo kan uw chauffeur uw landing volgen.",
     "notes": "Opmerkingen voor uw chauffeur",
-    "notesHelp": "Optioneel. Deurcodes, extra bagage, kinderzitjes.",
+    "notesHelp": "Optioneel. Deurcodes, extra bagage.",
     "passengers": "Passagiers",
     "luggage": "Bagage",
     "summary": "Prijsoverzicht",
@@ -526,7 +526,9 @@
     "interBody2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen: het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is.",
     "officialTitle": "Is dit het officiële taxitarief?",
     "officialBody": "Nee. Dit is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief. Een taxi van de standplaats wordt betaald volgens de meter op het AMB-tarief. Bij ons is de prijs bekend vóór de reis en is er in de auto niets verschuldigd.",
-    "officialLink": "Zo verhoudt het zich tot de meter op de standplaats"
+    "officialLink": "Zo verhoudt het zich tot de meter op de standplaats",
+    "adjTolls": "Tolwegen",
+    "adjTollsValue": "Van toepassing wanneer de route een tolweg gebruikt"
   },
   "site": {
     "name": "BCNAirportTaxi"

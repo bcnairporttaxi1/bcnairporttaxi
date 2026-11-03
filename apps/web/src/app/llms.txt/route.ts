@@ -80,6 +80,8 @@ ${line('Weekday daytime', `about ${allIn(t.outsideAMB.perKmCharged.T6, t.booking
 ${line('Weekday night', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekday)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekday)} EUR`)}
 ${line('Weekend and public holiday', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekend)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekend)} EUR`)}
 
+Motorway tolls apply where a route uses a toll road.
+
 Worked example: Barcelona city centre to Sitges is 38 km, which is 38 x
 ${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} + ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} = 90.78 EUR on a weekday.
 

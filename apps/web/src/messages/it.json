@@ -66,7 +66,7 @@
       },
       "licensed": {
         "title": "Solo autisti autorizzati",
-        "body": "Ogni veicolo è un taxi autorizzato di Barcellona, con tassametro funzionante e l'assicurazione richiesta dalla città. Mai auto senza licenza."
+        "body": "Ogni veicolo è un taxi con licenza AMB a Barcellona, completamente assicurato e sottoposto alle ispezioni previste dall'AMB. Mai auto senza licenza."
       },
       "support": {
         "title": "Una persona, non una coda",
@@ -178,8 +178,8 @@
     "licensedBody1": "Ogni veicolo di questa flotta è un taxi di Barcellona con licenza, nella livrea ufficiale nera e gialla, che opera con la licenza metropolitana di taxi e non come noleggio con conducente. Non è un dettaglio d'immagine: significa che il veicolo può usare i posteggi e le corsie dei taxi, ha l'assicurazione prevista dalla norma, è soggetto al regime di ispezione dell'AMB e può emettere la fattura ufficiale del tassametro per il percorso.",
     "licensedBody2": "Significa inoltre che il conducente è un tassista professionista di Barcellona che ha superato i requisiti comunali di conoscenza e licenza, non un collaboratore con un'app. Prenotando qui prenota un taxi regolamentato a un prezzo fisso concordato in anticipo: il veicolo e il conducente sono gli stessi che troverebbe al posteggio, con il prezzo e l'auto definiti prima dell'atterraggio invece che dopo.",
     "commonTitle": "Che cosa ha ogni veicolo",
-    "commonBody1": "Aria condizionata, cinture su tutti i posti, terminale per il pagamento con carta e spazio per il bagaglio indicato sulla sua scheda. Tutti sono non fumatori. Ogni auto viene ispezionata secondo il calendario dell'AMB ed è assicurata come taxi con licenza, quindi il minimo lo stabilisce la normativa e non noi.",
-    "commonBody2": "I seggiolini per bambini non sono montati di serie; se le serve uno, lo chieda nelle note della prenotazione prima di viaggiare, così da far assegnare l'auto adeguata. L'aiuto con i bagagli nel carico e nello scarico del bagagliaio è compreso e non viene mai addebitato, così come una attesa ragionevole mentre lei esce dagli arrivi.",
+    "commonBody1": "Aria condizionata, cinture su tutti i posti, terminale per il pagamento con carta e spazio per il bagaglio indicato sulla sua scheda. Tutti sono non fumatori. Ogni auto è un taxi con licenza dell'AMB, completamente assicurata e sottoposta alle ispezioni previste dall'AMB, quindi il minimo lo stabilisce la normativa e non noi.",
+    "commonBody2": "Non forniamo seggiolini per bambini. L'aiuto con i bagagli nel carico e nello scarico del bagagliaio è compreso e non viene mai addebitato, così come una attesa ragionevole mentre lei esce dagli arrivi.",
     "categories": {
       "eco": "Taxi ibrido ecologico",
       "standard": "Taxi standard",
@@ -459,7 +459,7 @@
     "flight": "Numero di volo",
     "flightHelp": "Facoltativo. Permette all'autista di seguire il tuo atterraggio.",
     "notes": "Note per l'autista",
-    "notesHelp": "Facoltativo. Codici del portone, bagagli extra, seggiolini.",
+    "notesHelp": "Facoltativo. Codici del portone, bagagli extra.",
     "passengers": "Passeggeri",
     "luggage": "Bagagli",
     "summary": "Riepilogo prezzo",
@@ -526,7 +526,9 @@
     "interBody2": "La cifra al chilometro è più alta di quella urbana per un motivo che vale la pena conoscere: la tariffa interurbana tratta il viaggio come un circuito chiuso e addebita anche il rientro dell'autista, perché per legge non può caricare un cliente fuori dalla propria area e tornerebbe a vuoto. Un chilometro percorso costa dunque due chilometri su quella tariffa. È la ragione del costo di un trasferimento lungo, e la ragione per cui un prezzo al chilometro pubblicizzato senza quel dettaglio è circa la metà di quello reale.",
     "officialTitle": "È questa la tariffa ufficiale del taxi?",
     "officialBody": "No. È il nostro prezzo fisso per un trasferimento prenotato e pagato in anticipo, non la tariffa regolamentata. Il taxi del posteggio si paga a tassametro secondo la tariffa dell'AMB. Con noi il prezzo è noto prima di partire e in auto non si deve nulla.",
-    "officialLink": "Come si confronta con il tassametro del posteggio"
+    "officialLink": "Come si confronta con il tassametro del posteggio",
+    "adjTolls": "Pedaggi",
+    "adjTollsValue": "Si applicano quando il percorso usa una strada a pedaggio"
   },
   "site": {
     "name": "BCNAirportTaxi"
