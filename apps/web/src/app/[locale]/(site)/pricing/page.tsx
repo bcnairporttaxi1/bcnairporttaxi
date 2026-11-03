@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/page-hero';
 import { BreadcrumbJsonLd } from '@/components/json-ld';
+import { FixedPriceTable } from '@/components/fixed-price-table';
 import { TARIFFS } from '@bcn/core/tariffs';
 import { localeHrefLang, locales } from '@/i18n/routing';
 
@@ -44,22 +45,6 @@ export default async function PricingPage(props: {
   /** 7.5 reads better than 7.500000000000001 after the percent conversion. */
   const round = (n: number) => Math.round(n * 10) / 10;
 
-
-  /** One row per route, priced across the three vehicle classes. */
-  const routes: Array<[string, string, string, string]> = [
-    [
-      t('rowCityAirport', { km: FIXED.flatZoneRadiusKm }),
-      eur(FIXED.cityAirport.sedan),
-      eur(FIXED.cityAirport.van6),
-      eur(FIXED.cityAirport.van7),
-    ],
-    [
-      t('rowPortAirport'),
-      eur(FIXED.portAirport.sedan),
-      eur(FIXED.portAirport.van6),
-      eur(FIXED.portAirport.van7),
-    ],
-  ];
 
   /**
    * The official AMB supplements, which are already inside every listed
@@ -117,68 +102,7 @@ export default async function PricingPage(props: {
           </Link>
         </aside>
 
-        {/* Four columns on a phone would force a pinch, so the table keeps
-            its own scroll container rather than widening the page body. */}
-        {/*
-          The price has to be visible on a phone, and it was not.
-          The table sat at min-width 520px inside a 341px scroll container on
-          a 375px screen, so the first price column was already clipped
-          ("Standa...") and the six- and seven-seat columns were off-screen
-          with nothing to indicate they existed. A pricing page where a
-          visitor cannot see a price is worse than a thin one.
-
-          Three changes, all mobile-only: the route column sticks so the row
-          keeps its label while the prices scroll past it, the minimum width
-          drops so the first price is on screen unscrolled, and a gradient on
-          the right edge shows there is more to reach. The route labels are
-          what pushed the table wide, so they are allowed to wrap.
-        */}
-        <div className="relative">
-          <div className="overflow-x-auto rounded-card border border-line bg-raise">
-            <table className="w-full min-w-[420px] border-collapse text-left sm:min-w-[520px] [&_tbody_th]:sticky [&_tbody_th]:left-0 [&_tbody_th]:bg-raise [&_thead_th:first-child]:sticky [&_thead_th:first-child]:left-0 [&_thead_th:first-child]:bg-raise">
-            <caption className="px-5 pt-5 text-left text-sm text-dim">
-              {t('tableCaption')}
-            </caption>
-            <thead>
-              <tr className="border-b border-line">
-                <th scope="col" className="px-5 py-3 font-display text-sm font-bold">
-                  {t('routeCol')}
-                </th>
-                <th scope="col" className="px-5 py-3 text-right font-display text-sm font-bold">
-                  {t('standardCol')}
-                </th>
-                <th scope="col" className="px-5 py-3 text-right font-display text-sm font-bold">
-                  {t('minivanCol')}
-                </th>
-                <th scope="col" className="px-5 py-3 text-right font-display text-sm font-bold">
-                  {t('vanCol')}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {routes.map(([route, sedan, van6, van7]) => (
-                <tr key={route} className="border-b border-line last:border-0">
-                  <th scope="row" className="px-5 py-3 text-sm font-normal">
-                    {route}
-                  </th>
-                  <td className="px-5 py-3 text-right font-mono text-sm font-bold text-gold">
-                    {sedan}
-                  </td>
-                  <td className="px-5 py-3 text-right font-mono text-sm">{van6}</td>
-                  <td className="px-5 py-3 text-right font-mono text-sm">{van7}</td>
-                </tr>
-              ))}
-            </tbody>
-            </table>
-          </div>
-          {/* Shows there is more table to the right. Hidden once the whole
-              table fits, and hidden from assistive tech, which gets the
-              scroll container instead. */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-10 rounded-r-card bg-gradient-to-l from-raise to-transparent sm:hidden"
-          />
-        </div>
+        <FixedPriceTable locale={locale} />
 
         {/* A fixed price can still be added to, so what adds to it is listed
             where the prices are rather than buried in a footnote. */}

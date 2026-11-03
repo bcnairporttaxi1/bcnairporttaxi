@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { QuoteWidget } from '@/components/quote-widget';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld';
+import { FixedPriceTable } from '@/components/fixed-price-table';
 import { Rise, Stagger, StaggerItem } from '@/components/motion';
 import { TrustBand } from '@/components/trust-band';
 import {
@@ -105,6 +106,9 @@ function anchor(heading: string, index: number): string {
     .replace(/^-+|-+$/g, '');
   return slug || `section-${index + 1}`;
 }
+
+/** Landing pages that carry the fixed price table. */
+const PRICE_TABLE_SLUGS = new Set(['barcelona-airport-taxi-price', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi']);
 
 export default async function LandingPageRoute(props: {
   params: Promise<{ locale: string; slug: string[] }>;
@@ -257,6 +261,15 @@ export default async function LandingPageRoute(props: {
           </Rise>
         ))}
       </article>
+
+      {/* The price pages and the two head-term owners show the list itself, as
+          text: a visitor, a snippet and an assistant should not have to open
+          the quote widget to learn what the fixed price is. */}
+      {PRICE_TABLE_SLUGS.has(page.slug) && (
+        <section className="mx-auto max-w-3xl px-4 pb-16">
+          <FixedPriceTable locale={locale} heading={th('sections.faresTitle')} />
+        </section>
+      )}
 
       {/* Every one of these pages draws price queries — "precio taxi
           aeropuerto", "cuanto cuesta" — and the answer to all of them is the

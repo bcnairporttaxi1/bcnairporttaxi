@@ -21,8 +21,8 @@ import { LANDING_PAGES, getLandingCopy } from './landing-pages';
 
 /** Phrases that claim the price comes from the official meter or tariff. */
 const CLAIMS: Array<[string, RegExp]> = [
-  ['en meter/tariff', /official (?:AMB )?(?:meter|tariff|fare|rate)|on the meter|metered rate|official AMB \w+ (?:tariff|rate|fare)|AMB fares?\b|AMB tariffs?\b/i],
-  ['es tarifa oficial', /tarifa oficial|taxímetro oficial|importe del taxímetro/i],
+  ['en meter/tariff', /official (?:AMB )?(?:meter|tariff|fare|rate)|on the meter|metered rate|official AMB \w+ (?:tariff|rate|fare)|AMB fares?\b|AMB tariffs?\b|regulated fares|from the real tariff/i],
+  ['es tarifa oficial', /tarifa oficial|taxímetro oficial|importe del taxímetro|tarifas reguladas|de la tarifa real/i],
   ['ca tarifa oficial', /tarifa oficial|taxímetre oficial|tarifa de taxímetre/i],
   ['fr tarif officiel', /tarif officiel|compteur officiel|(?:au|du) compteur/i],
   ['de AMB-Tarif', /offiziell\w*\s+AMB[- ]|AMB-(?:Tarif|Nachttarif)|Taxameterpreis/i],

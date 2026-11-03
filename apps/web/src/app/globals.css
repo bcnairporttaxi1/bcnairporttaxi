@@ -1044,7 +1044,10 @@ a > .p-card:hover {
 .fab {
   position: fixed;
   right: 1rem;
-  bottom: calc(1rem + var(--fab-lift, 0px));
+  bottom: 1rem;
+  /* Lifted with transform, not `bottom`: animating `bottom` runs on the main
+     thread and Lighthouse flags it as a non-composited animation. */
+  transform: translateY(calc(var(--fab-lift, 0px) * -1));
   z-index: 55;
   display: flex;
   align-items: center;
@@ -1064,11 +1067,10 @@ a > .p-card:hover {
     0 4px 14px -6px rgb(37 211 102 / 45%);
   transition:
     transform 0.5s var(--ease-brand),
-    bottom 0.5s var(--ease-brand),
     box-shadow 0.5s var(--ease-brand);
 }
 .fab:hover {
-  transform: scale(1.06);
+  transform: translateY(calc(var(--fab-lift, 0px) * -1)) scale(1.06);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 55%),
     0 0 0 1px rgb(0 0 0 / 55%),
@@ -1076,7 +1078,7 @@ a > .p-card:hover {
     0 6px 22px -6px rgb(37 211 102 / 65%);
 }
 .fab:active {
-  transform: scale(0.96);
+  transform: translateY(calc(var(--fab-lift, 0px) * -1)) scale(0.96);
 }
 
 /**
