@@ -52,7 +52,7 @@ export interface LandingPage {
 export const LANDING_PAGES: LandingPage[] = [
   {
     slug: 'airport-to-city',
-    related: ['city-to-airport', 'el-prat-airport-taxi', 'barcelona-airport-taxi-price', 'hotel-transfers'],
+    related: ['city-to-airport', 'el-prat-airport-taxi', 'barcelona-airport-taxi-price', 'hotel-transfers', 'cruise-port-taxi'],
     preset: { pickup: 'Barcelona El Prat Airport (BCN)' },
     copy: {
       en: {
@@ -135,7 +135,7 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: 'el-prat-airport-taxi',
-    related: ['airport-to-city', 'city-to-airport', 'barcelona-airport-taxi-price', '24-hour-taxi'],
+    related: ['airport-to-city', 'city-to-airport', 'barcelona-airport-taxi-price', '24-hour-taxi', 'cruise-port-taxi'],
     copy: {
       en: {
         title: 'El Prat Airport Taxi | Licensed Barcelona Transfers',
@@ -527,7 +527,7 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: 'group-taxi',
-    related: ['private-transfer', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi'],
+    related: ['private-transfer', 'airport-to-city', 'city-to-airport', 'el-prat-airport-taxi', 'cruise-port-taxi'],
     copy: {
       en: {
         title: 'Group Taxi Barcelona Airport | 5, 6 or 7 Seats',

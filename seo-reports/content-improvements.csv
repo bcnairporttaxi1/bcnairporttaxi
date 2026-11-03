@@ -1,0 +1,75 @@
+﻿# before = live production crawl 2026-11-03 (451 URLs); after = local production build of branch seo/full-site-optimisation (461 URLs); not yet deployed
+url,language,words_before,words_after,delta,title_changed,h1_changed,what_changed
+https://bcnairporttaxi.es/,-,1447,1456,9,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca,ca,1619,1631,12,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/airport-to-city,ca,773,828,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/barcelona-airport-taxi-price,ca,736,781,45,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/city-to-airport,ca,764,809,45,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/cruise-port-taxi,ca,,865,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/el-prat-airport-taxi,ca,731,786,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ca/group-taxi,ca,761,771,10,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de,de,1355,1363,8,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/airport-to-city,de,645,690,45,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/barcelona-airport-taxi-price,de,635,672,37,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/city-to-airport,de,658,695,37,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/cruise-port-taxi,de,,729,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/el-prat-airport-taxi,de,630,675,45,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/de/group-taxi,de,634,642,8,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en,en,1447,1456,9,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/airport-to-city,en,695,738,43,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/barcelona-airport-taxi-price,en,676,711,35,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/city-to-airport,en,696,731,35,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/cruise-port-taxi,en,,751,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/el-prat-airport-taxi,en,659,702,43,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/group-taxi,en,670,678,8,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/en/terms,en,528,552,24,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es,es,1548,1561,13,no,no,"fixed-price headline + intro rewritten (all locales); Spanish copy-edit: tú register, 'precio fijo' consistency, typos; og:locale now language_TERRITORY"
+https://bcnairporttaxi.es/es/airport-to-city,es,757,812,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es/barcelona-airport-taxi-price,es,724,768,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es/city-to-airport,es,755,799,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es/cruise-port-taxi,es,,858,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es/el-prat-airport-taxi,es,724,779,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/es/fleet,es,647,646,-1,no,no,"Spanish copy-edit: tú register, 'precio fijo' consistency, typos; og:locale now language_TERRITORY"
+https://bcnairporttaxi.es/es/group-taxi,es,746,757,11,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr,fr,1573,1586,13,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/airport-to-city,fr,750,804,54,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/barcelona-airport-taxi-price,fr,738,782,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/city-to-airport,fr,742,786,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/cruise-port-taxi,fr,,849,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/el-prat-airport-taxi,fr,720,774,54,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/fr/group-taxi,fr,757,767,10,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it,it,1514,1527,13,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/airport-to-city,it,731,784,53,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/barcelona-airport-taxi-price,it,708,751,43,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/city-to-airport,it,688,731,43,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/cruise-port-taxi,it,,822,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/el-prat-airport-taxi,it,709,762,53,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/it/group-taxi,it,731,741,10,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl,nl,1465,1474,9,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/airport-to-city,nl,694,742,48,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/barcelona-airport-taxi-price,nl,692,731,39,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/city-to-airport,nl,685,724,39,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/cruise-port-taxi,nl,,785,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/el-prat-airport-taxi,nl,686,734,48,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/nl/group-taxi,nl,689,698,9,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt,pt,1556,1570,14,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/airport-to-city,pt,757,812,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/barcelona-airport-taxi-price,pt,743,787,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/city-to-airport,pt,757,801,44,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/cruise-port-taxi,pt,,849,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/el-prat-airport-taxi,pt,739,794,55,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/pt/group-taxi,pt,744,755,11,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru,ru,1320,1327,7,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/airport-to-city,ru,606,655,49,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/barcelona-airport-taxi-price,ru,587,629,42,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/city-to-airport,ru,593,635,42,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/cruise-port-taxi,ru,,665,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/el-prat-airport-taxi,ru,575,624,49,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/ru/group-taxi,ru,589,596,7,no,no,og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh,zh,1909,1922,13,no,no,fixed-price headline + intro rewritten (all locales); og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/airport-to-city,zh,1018,1084,66,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/barcelona-airport-taxi-price,zh,988,1038,50,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/city-to-airport,zh,975,1025,50,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/cruise-port-taxi,zh,,1103,new,no,no,new page added with native copy; fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/el-prat-airport-taxi,zh,974,1040,66,no,no,fixed-price table rendered as server HTML; og:locale now language_TERRITORY
+https://bcnairporttaxi.es/zh/group-taxi,zh,1003,1019,16,no,no,og:locale now language_TERRITORY

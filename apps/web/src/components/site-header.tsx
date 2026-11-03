@@ -33,6 +33,7 @@ const NAV: NavItem[] = [
       { href: '/private-transfer', label: 'Private transfer' },
       { href: '/24-hour-taxi', label: '24 hour taxi' },
       { href: '/sants-station-to-airport', label: 'Sants station' },
+      { href: '/cruise-port-taxi', label: 'Cruise port' },
     ],
   },
   {
