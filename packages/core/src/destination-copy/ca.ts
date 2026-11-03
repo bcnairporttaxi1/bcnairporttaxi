@@ -15,7 +15,7 @@ export const CA_DESTINATION_COPY: LocaleDestinationCopy = {
         "La Costa Brava comença més o menys una hora al nord de Barcelona i arriba fins a la frontera francesa, i gairebé tots els visitants hi arriben per l'aeroport del Prat. La carretera de la costa és senzilla, però és un viatge de debò i no un salt dins la ciutat: compta uns 80 minuts fins a Lloret de Mar i prop de dues hores fins a les cales del nord.",
         "Un trasllat privat és més important aquí que en un trajecte urbà. No hi ha tren directe a la majoria dels pobles de la costa, els autocars només aturen als més grans i l'últim tram fins a un hotel de muntanya o a una casa fora del poble rarament es pot fer a peu amb les maletes. El conductor et deixa a la porta.",
         "Et recollim a la sala d'arribades amb un cartell amb el teu nom i seguim el teu vol, de manera que un aterratge amb retard no et fa perdre el cotxe. Per a grups, el Mercedes Vito o la V-Class porten sis o set passatgers amb l'equipatge corresponent, cosa que normalment surt més a compte que dos cotxes i és molt més còmoda.",
-        "Com que la Costa Brava queda fora de l'àrea metropolitana de Barcelona, el trajecte no es cobra pel taxímetre amb la tarifa de l'AMB. Et donem un preu fix per a la ruta abans que et comprometis, confirmat per escrit, de manera que a l'arribada no hi ha res a pagar més enllà del que has acordat.",
+        "Com que la Costa Brava queda fora de l'àrea metropolitana de Barcelona, el trajecte no es cobra pel taxímetre amb la tarifa de l'AMB. Et donem un preu fix per a la ruta abans que et comprometis, confirmat per escrit, Els peatges d'autopista no estan inclosos en aquest preu i es cobren a part quan la ruta fa servir vies de peatge.",
       ],
     },
     girona: {

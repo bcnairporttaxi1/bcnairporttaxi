@@ -7,14 +7,14 @@ import type { BlogLocaleCopy } from '../blog-copy';
 export const IT_BLOG_COPY: Record<string, BlogLocaleCopy> = {
   'how-much-is-a-taxi-from-barcelona-airport': {
     title: `Quanto costa un taxi dall'aeroporto di Barcellona?`,
-    description: `Prezzi dei taxi dall'aeroporto di Barcellona: le nostre tariffe fisse tutto incluso per la città, come cambia il tassametro e cosa aggiungono i supplementi.`,
+    description: `Prezzi dei taxi dall'aeroporto di Barcellona: le nostre tariffe fisse per la città, come cambia il tassametro e cosa aggiungono i supplementi.`,
     h1: `Quanto costa un taxi dall'aeroporto di Barcellona?`,
     excerpt: `Un transfer prenotato da El Prat a Barcellona costa 50 € per un'auto a quattro posti, a prezzo fisso e pagato online. La fila dei taxi fuori dagli arrivi funziona in modo diverso, con un tassametro regolamentato. Ecco quanto costa davvero ciascuna delle due soluzioni e perché le due cifre non coincidono.`,
     sections: [
       {
         h2: `La risposta breve`,
         body: [
-          `Un transfer prenotato tra El Prat e qualsiasi punto di Barcellona costa 50 € in un'auto a quattro posti, 70 € in un Mercedes Vito a sei posti e 75 € in una V-Class a sette posti. È il prezzo totale. Viene comunicato prima del viaggio, si paga online al momento della prenotazione e all'autista in auto non si deve nulla.`,
+          `Un transfer prenotato tra El Prat e qualsiasi punto di Barcellona costa 50 € in un'auto a quattro posti, 70 € in un Mercedes Vito a sei posti e 75 € in una V-Class a sette posti. È tutto il prezzo fisso. Viene comunicato prima del viaggio e si paga online al momento della prenotazione; i pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.`,
           `Il terminal crociere di Moll Adossat è una tratta a parte: 60 €, 80 € e 85 € per le stesse tre dimensioni di veicolo.`,
           `Queste cifre non cambiano con l'ora del giorno. Un ritiro alle 04:30 per un volo mattutino costa come uno alle due del pomeriggio. L'unica cosa che le aumenta è il fine settimana o un giorno festivo, che aggiunge il 7,5 per cento: un transfer in berlina il sabato costa quindi 53,75 € invece di 50 €.`,
           `Se invece prende un taxi dalla fila fuori dagli arrivi, non acquista affatto un prezzo fisso: acquista una corsa a tassametro, e la cifra finale dipende dal traffico, dall'orario e dal percorso. Il resto di questa pagina spiega entrambe le soluzioni, perché quale sia la più conveniente dipende davvero da quando viaggia.`,

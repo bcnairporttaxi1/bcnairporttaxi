@@ -8,7 +8,7 @@ export const FR_BLOG_COPY: Record<string, BlogLocaleCopy> = {
   'how-much-is-a-taxi-from-barcelona-airport': {
     title: 'Combien coûte un taxi depuis l’aéroport de Barcelone ?',
     description:
-      'Prix du taxi depuis l’aéroport de Barcelone : nos tarifs fixes tout compris vers la ville, en quoi le compteur de la station diffère, et les suppléments.',
+      'Prix du taxi depuis l’aéroport de Barcelone : nos tarifs fixes vers la ville, en quoi le compteur de la station diffère, et les suppléments.',
     h1: 'Combien coûte un taxi depuis l’aéroport de Barcelone ?',
     excerpt:
       'Un transfert réservé entre El Prat et Barcelone coûte 50 € pour une voiture de 4 places, à prix fixe et payé en ligne. La station devant les arrivées fonctionne autrement, au compteur réglementé. Voici ce que coûte réellement chacune des deux formules, et pourquoi les deux montants ne sont pas les mêmes.',
@@ -16,7 +16,7 @@ export const FR_BLOG_COPY: Record<string, BlogLocaleCopy> = {
       {
         h2: 'La réponse courte',
         body: [
-          'Un transfert réservé entre El Prat et n’importe quelle adresse de Barcelone coûte 50 € dans une voiture de 4 places, 70 € dans un Mercedes Vito de 6 places et 75 € dans une Mercedes Classe V de 7 places. C’est le prix total. Il est annoncé avant le voyage, payé en ligne à la réservation, et vous ne devez rien au chauffeur dans la voiture.',
+          'Un transfert réservé entre El Prat et n’importe quelle adresse de Barcelone coûte 50 € dans une voiture de 4 places, 70 € dans un Mercedes Vito de 6 places et 75 € dans une Mercedes Classe V de 7 places. C’est tout le prix fixe. Il est annoncé avant le voyage et payé en ligne à la réservation ; les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.',
           'Le terminal de croisières du Moll Adossat est une liaison à part : 60 €, 80 € et 85 € pour les trois mêmes tailles de véhicule.',
           'Ces montants ne varient pas selon l’heure. Une prise en charge à 04:30 pour un vol matinal coûte autant qu’une à 14 h. Seuls les week-ends et les jours fériés les majorent de 7,5 %, si bien qu’un transfert en berline le samedi revient à 53,75 € au lieu de 50 €.',
           'Si vous prenez plutôt un taxi à la station devant les arrivées, vous n’achetez pas du tout un prix fixe : vous achetez une course au compteur, et le montant final dépend de la circulation, de l’heure et du trajet. La suite de cette page explique les deux formules, car celle qui revient le moins cher dépend vraiment du moment où vous voyagez.',
@@ -81,7 +81,7 @@ export const FR_BLOG_COPY: Record<string, BlogLocaleCopy> = {
         body: [
           'Dès que l’une des extrémités du trajet est hors de l’aire métropolitaine, les tarifs de Barcelone cessent de s’appliquer et le trajet est facturé selon les tarifs interurbains fixés par la Generalitat de Catalunya. Ce sont le T-6, du lundi au vendredi de 08:00 à 20:00, et le T-7 à tout autre moment, y compris les samedis et dimanches entiers.',
           'Le compteur interurbain a une particularité qui surprend presque tout le monde : il facture le trajet retour. Un taxi pris de Barcelone à Sitges est, selon le tarif, un aller-retour — le circuit fermé — car le chauffeur doit rentrer et ne peut pas prendre de client en chemin. Un kilomètre parcouru vers le sud coûte donc deux kilomètres au compteur. Au tarif T-6 de 0,82 € du kilomètre, cela fait 1,64 € par kilomètre réellement parcouru, et non 0,82 €.',
-          'C’est pourquoi un long transfert coûte ce qu’il coûte, et pourquoi un chiffre qui ressemble à un tarif au kilomètre sur un comparateur vaut souvent la moitié du vrai. Tout compris, notre service inclus, cela donne environ 2,16 € par kilomètre parcouru en semaine (T-6) et entre 2,38 € et 2,48 € la nuit et le week-end (T-7), plus une prise en charge. Sitges, à 38 kilomètres, coûte 90,78 € au total. Rien n’est doublé deux fois.',
+          'C’est pourquoi un long transfert coûte ce qu’il coûte, et pourquoi un chiffre qui ressemble à un tarif au kilomètre sur un comparateur vaut souvent la moitié du vrai. Au total, notre service inclus, cela donne environ 2,16 € par kilomètre parcouru en semaine (T-6) et entre 2,38 € et 2,48 € la nuit et le week-end (T-7), plus une prise en charge. Sitges, à 38 kilomètres, coûte 90,78 € au total. Rien n’est doublé deux fois.',
           'Concrètement : Sitges, Tarragone, Gérone, Reus et la Costa Brava sont facturés au kilomètre et chiffrés avant la réservation, comme tout le reste. Ils ne sont pas couverts par la liste fixe de la ville, et aucune liste fixe honnête ne pourrait les couvrir : les distances varient d’un facteur cinq.',
         ],
       },

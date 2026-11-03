@@ -15,7 +15,7 @@ export const DE_DESTINATION_COPY: LocaleDestinationCopy = {
         'Die Costa Brava beginnt gut eine Autostunde nördlich von Barcelona und zieht sich bis zur französischen Grenze, und fast alle Gäste reisen über El Prat an. Die Küstenstraße ist unkompliziert, aber es ist eine echte Reise und kein Stadtsprung: Rechnen Sie mit rund 80 Minuten bis Lloret de Mar und eher zwei Stunden bis zu den Buchten im Norden.',
         'Ein privater Transfer lohnt sich hier mehr als auf einer Stadtfahrt. In die meisten Badeorte fährt kein direkter Zug, die Reisebusse halten nur in den größeren, und das letzte Stück zu einem Hotel am Hang oder einer Villa außerhalb des Ortes legt man mit Koffern kaum zu Fuß zurück. Ihr Fahrer bringt Sie bis vor die Tür.',
         'Wir holen Sie mit Namensschild in der Ankunftshalle ab und verfolgen Ihren Flug, sodass eine verspätete Landung Sie nicht den Wagen kostet. Für Gruppen fasst der Mercedes Vito oder die V-Class sechs beziehungsweise sieben Personen samt passendem Gepäck, was meist günstiger ist als zwei getrennte Fahrzeuge und deutlich einfacher.',
-        'Da die Costa Brava außerhalb des Großraums Barcelona liegt, wird die Fahrt nicht nach dem Taxameter der AMB abgerechnet. Wir nennen Ihnen vor der Buchung einen Festpreis für die Strecke, schriftlich bestätigt, sodass am Ziel nichts weiter zu klären ist als das, was Sie vereinbart haben.',
+        'Da die Costa Brava außerhalb des Großraums Barcelona liegt, wird die Fahrt nicht nach dem Taxameter der AMB abgerechnet. Wir nennen Ihnen vor der Buchung einen Festpreis für die Strecke, schriftlich bestätigt. Mautgebühren sind in diesem Preis nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
       ],
     },
     girona: {

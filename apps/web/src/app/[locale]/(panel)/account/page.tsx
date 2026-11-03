@@ -127,9 +127,11 @@ export default async function AccountPage(props: {
               <dd>{b.vehicle?.name ?? t('vehicleTbd')}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="shrink-0 p-muted">{t('toPayInTaxi')}</dt>
-              <dd className="font-mono font-bold">
-                {prepaid ? t('nothingToPay') : eur(b.meterEstimate)}
+              {/* A prepaid booking has nothing left to pay for the fare, but motorway tolls are
+                  charged separately (owner policy, 2026-11-03), so "nothing to pay" is no longer true. */}
+              <dt className="shrink-0 p-muted">{prepaid ? t('tollsLabel') : t('toPayInTaxi')}</dt>
+              <dd className={prepaid ? 'font-medium' : 'font-mono font-bold'}>
+                {prepaid ? t('tollsValue') : eur(b.meterEstimate)}
               </dd>
             </div>
             {b.driver && (

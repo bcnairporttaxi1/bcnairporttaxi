@@ -67,7 +67,7 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
             image: absoluteUrl('/img/hero-banner.jpg'),
             logo: { '@type': 'ImageObject', url: absoluteUrl('/img/logo.png') },
             description:
-              'Online booking service for licensed Barcelona airport taxis to and from El Prat, at fixed all-inclusive prices paid online.',
+              'Online booking service for licensed Barcelona airport taxis to and from El Prat, at fixed prices paid online. Motorway tolls are not included.',
             ...(WHATSAPP_NUMBER && WHATSAPP_NUMBER !== '34600000000'
               ? { telephone: `+${WHATSAPP_NUMBER}` }
               : {}),
@@ -269,7 +269,7 @@ export function ServiceJsonLd({
   url: string;
   /** Where this particular service runs; the sitewide node already covers Barcelona. */
   areaServed?: string;
-  /** All-inclusive price in EUR, from the same quote the visible page uses. */
+  /** Fixed price in EUR (tolls not included), from the same quote the visible page uses. */
   price?: number;
 }) {
   return (
@@ -293,7 +293,7 @@ export function ServiceJsonLd({
                 '@type': 'Offer',
                 price: price.toFixed(2),
                 priceCurrency: 'EUR',
-                description: 'All-inclusive fixed price; +7.5% on weekends and public holidays',
+                description: 'Fixed price; +7.5% on weekends and public holidays; motorway tolls not included',
               },
             }
           : {}),

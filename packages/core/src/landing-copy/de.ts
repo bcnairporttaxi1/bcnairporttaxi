@@ -5,14 +5,14 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Flughafen Barcelona Zentrum | Online buchen',
     description:
-      'Buchen Sie ein Taxi vom Flughafen Barcelona ins Zentrum. Fester Komplettpreis, El-Prat-Zuschlag bereits enthalten, Fahrer wartet in der Ankunftshalle.',
+      'Buchen Sie ein Taxi vom Flughafen Barcelona ins Zentrum. Festpreis, El-Prat-Zuschlag enthalten, Maut extra, Fahrer wartet in der Ankunftshalle.',
     h1: 'Taxi vom Flughafen Barcelona ins Zentrum',
     intro:
       'Ein Taxi von El Prat ins Zentrum von Barcelona braucht je nach Verkehr und Terminal 25 bis 35 Minuten. Wer vorab bucht, hat bei der Landung bereits einen zugeteilten Fahrer mit Namensschild in der Ankunftshalle — statt sich am Taxistand von T1 oder T2 anzustellen.',
     sections: [
       {
         h2: 'Was ein Transfer vom Flughafen Barcelona kostet',
-        body: 'Ihr Preis ist ein fester Betrag aus unserer eigenen Preisliste, kein Taxameterstand und keine Schätzung — jeder offizielle Zuschlag der Strecke ist bereits darin enthalten. Eine Fahrt vom Flughafen an jeden Ort in Barcelona kostet im Standardtaxi feste 50 EUR, unabhängig von Entfernung und Uhrzeit; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie oben Ihr genaues Ziel ein, um Ihren Komplettpreis zu sehen.',
+        body: 'Ihr Preis ist ein fester Betrag aus unserer eigenen Preisliste, kein Taxameterstand und keine Schätzung — jeder offizielle Zuschlag der Strecke ist bereits darin enthalten. Eine Fahrt vom Flughafen an jeden Ort in Barcelona kostet im Standardtaxi feste 50 EUR, unabhängig von Entfernung und Uhrzeit; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie oben Ihr genaues Ziel ein, um Ihren Festpreis zu sehen. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
       },
       {
         h2: 'Wo Ihr Fahrer auf Sie wartet',
@@ -36,7 +36,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi Barcelona zum Flughafen | Online buchen',
     description:
-      'Buchen Sie ein Taxi von Barcelona zum Flughafen El Prat. Feste Abholzeit, fester Komplettpreis und Fahrer, die die Terminaleinfahrten kennen.',
+      'Buchen Sie ein Taxi von Barcelona zum Flughafen El Prat. Feste Abholzeit, Festpreis (Maut extra) und Fahrer, die die Terminaleinfahrten kennen.',
     h1: 'Taxi von Barcelona zum Flughafen',
     intro:
       'Die Hinfahrt ist die Fahrt, die sich wirklich zu buchen lohnt. Ein vorbestelltes Taxi steht zur vereinbarten Zeit vor Ihrem Hotel oder Apartment — das zählt deutlich mehr, wenn Sie einen Flug erreichen müssen, als bei der Ankunft.',
@@ -71,7 +71,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Flughafen El Prat | Lizenzierte Transfers',
     description:
-      'Lizenzierte Taxis von und zum Flughafen Barcelona-El Prat (BCN). Online buchen zum Festpreis, mit einem Ihrem Flug zugeteilten Fahrer.',
+      'Lizenzierte Taxis von und zum Flughafen Barcelona-El Prat (BCN). Online buchen zum Festpreis, Maut extra, mit einem Ihrem Flug zugeteilten Fahrer.',
     h1: 'Taxi Flughafen El Prat',
     intro:
       'Der Flughafen Josep Tarradellas Barcelona-El Prat, den fast alle weiterhin schlicht El Prat nennen, liegt rund 15 km südwestlich der Stadt. Er ist der zweitgrößte Flughafen Spaniens, und das Taxi ist zu fast jeder Stunde der schnellste Weg nach Barcelona — sofern ein Wagen bereitsteht.',
@@ -82,7 +82,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Der Flughafenzuschlag in El Prat',
-        body: 'Der offizielle Flughafenzuschlag und jede andere für die Strecke geltende Gebühr sind in dem Festpreis enthalten, den wir Ihnen nennen. Auf Ihrer Fahrt läuft kein Taxameter und am Ende steht kein zweiter Betrag, also kann nichts überraschen.',
+        body: 'Der offizielle Flughafenzuschlag und jede andere für die Strecke geltende Gebühr sind in dem Festpreis enthalten, den wir Ihnen nennen. Auf Ihrer Fahrt läuft kein Taxameter. Nur Mautgebühren sind nicht im Preis enthalten; sie werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
       },
       {
         h2: 'Kreuzfahrtgäste und der Hafen',
@@ -109,15 +109,15 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       'Was ein Taxi zum Flughafen Barcelona wirklich kostet: unsere Festpreise je Fahrzeug und was Wochenend- und Außerzonen-Tarif hinzufügen.',
     h1: 'Taxipreis zum Flughafen Barcelona',
     intro:
-      'Ein Flughafentransfer in Barcelona kostet bei uns einen Festpreis, der vor der Buchung feststeht und mit ihr gesichert wird. Kein Taxameter, kein Rätselraten über die Entfernung und nichts, was im Wagen abzurechnen wäre. Hier die ganze Liste und die drei Dinge, die sie erhöhen können.',
+      'Ein Flughafentransfer in Barcelona kostet bei uns einen Festpreis, der vor der Buchung feststeht und mit ihr gesichert wird. Kein Taxameter und kein Rätselraten über die Entfernung. Hier die ganze Liste und die Dinge, die sie erhöhen können, darunter Mautgebühren, die gesondert berechnet werden.',
     sections: [
       {
         h2: 'Wie Ihr Fahrpreis zustande kommt',
-        body: 'Ein Transfer ist ein Festpreis, bestimmt durch Strecke und Fahrzeug, nicht durch Entfernung oder Uhrzeit. Vom Flughafen an jeden Ort in Barcelona ist es ein Betrag, vom Flughafen zum Kreuzfahrtterminal ein anderer, und Standardtaxi, Sechssitzer und Siebensitzer haben jeweils ihren eigenen. Nur drei Dinge können hinzukommen: ein Ziel jenseits der Pauschalzone, ein Transfer zum Kreuzfahrthafen und der Wochenend- und Feiertagstarif. Jedes erscheint vor der Zahlung als eigene Zeile.',
+        body: 'Ein Transfer ist ein Festpreis, bestimmt durch Strecke und Fahrzeug, nicht durch Entfernung oder Uhrzeit. Vom Flughafen an jeden Ort in Barcelona ist es ein Betrag, vom Flughafen zum Kreuzfahrtterminal ein anderer, und Standardtaxi, Sechssitzer und Siebensitzer haben jeweils ihren eigenen. Nur wenige Dinge können hinzukommen: ein Ziel jenseits der Pauschalzone, ein Transfer zum Kreuzfahrthafen und der Wochenend- und Feiertagstarif. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet. Jeder Aufschlag erscheint vor der Zahlung als eigene Zeile.',
       },
       {
         h2: 'Gibt es ein günstiges Taxi ab dem Flughafen?',
-        body: 'Vergleichen Sie danach, wovor der Preis Sie schützt, nicht nur nach der Zahl. Ein Festpreis bewegt sich nach der Zusage nicht mehr: Verkehr, ein Umweg, eine verspätete Landung und die Tageszeit sind unser Problem, nicht Ihres, und im Auto wird nichts eingesammelt. Steuern können Sie das Fahrzeug und die Reise außerhalb des Wochenendfensters. Seien Sie bei einem auffällig niedrigen Preis misstrauisch — meist steht dahinter ein nicht lizenziertes Fahrzeug oder ein Betrag, der bis zu Ihrer Ankunft wächst.',
+        body: 'Vergleichen Sie danach, wovor der Preis Sie schützt, nicht nur nach der Zahl. Ein Festpreis bewegt sich nach der Zusage nicht mehr: Verkehr, ein Umweg, eine verspätete Landung und die Tageszeit sind unser Problem, nicht Ihres, Mautgebühren sind die einzige Ausnahme: Sie werden gesondert berechnet. Steuern können Sie das Fahrzeug und die Reise außerhalb des Wochenendfensters. Seien Sie bei einem auffällig niedrigen Preis misstrauisch — meist steht dahinter ein nicht lizenziertes Fahrzeug oder ein Betrag, der bis zu Ihrer Ankunft wächst.',
       },
       {
         h2: 'Wie weit der Festpreis reicht',
@@ -125,7 +125,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Was Ihr Preis enthält',
-        body: 'Sie zahlen bei der Reservierung online einen einzigen Komplettpreis. Er deckt die Fahrt ab, jeden offiziellen Zuschlag, der für Ihre Route gilt, und unseren Service für Organisation und Zusage des Wagens. Es gibt keinen zweiten Betrag: Im Taxi ist nichts zu zahlen, und die Quittung über den vollen Preis erhalten Sie per E-Mail.',
+        body: 'Sie zahlen bei der Reservierung online einen Festpreis. Er deckt die Fahrt ab, jeden offiziellen Zuschlag, der für Ihre Route gilt, und unseren Service für Organisation und Zusage des Wagens. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Die Quittung über den gezahlten Preis erhalten Sie per E-Mail.',
       },
       {
         h2: 'Was Ihren Preis nie verändert',
@@ -133,7 +133,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wie und wann Sie zahlen',
-        body: 'Der gesamte Preis wird bei der Buchung online per Karte oder Bizum bezahlt, und eine Quittung über den vollen Betrag kommt mit Ihrer Bestätigung per E-Mail. Im Wagen wird nichts kassiert, also müssen Sie weder Bargeld suchen noch hoffen, dass das Kartenlesegerät am Bordstein funktioniert.',
+        body: 'Der Festpreis wird bei der Buchung online per Karte oder Bizum bezahlt, und eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet.',
       },
     ],
   },
@@ -168,7 +168,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Preis und Zahlung beim Hoteltransfer',
-        body: 'Der Preis ist ein fester Komplettpreis aus unserer eigenen Liste, den Sie bei der Buchung online per Karte oder Bizum bezahlen. Im Wagen schulden Sie dem Fahrer nichts. Wer mit der Familie oder einer größeren Gruppe reist, kann bis zu sechs Wagen in einem Checkout gemeinsam buchen.',
+        body: 'Der Preis ist ein Festpreis aus unserer eigenen Liste, den Sie bei der Buchung online per Karte oder Bizum bezahlen. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Wer mit der Familie oder einer größeren Gruppe reist, kann bis zu sechs Wagen in einem Checkout gemeinsam buchen.',
       },
       {
         h2: 'Rechnungen für einen Geschäftsaufenthalt',
@@ -180,14 +180,14 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Bahnhof Sants zum Flughafen Barcelona',
     description:
-      'Buchen Sie ein Taxi vom Bahnhof Barcelona-Sants zum Flughafen El Prat. Rund 15 Minuten, fester Komplettpreis inklusive Bahnhofszuschlag.',
+      'Buchen Sie ein Taxi vom Bahnhof Barcelona-Sants zum Flughafen El Prat. Rund 15 Minuten, Festpreis inklusive Bahnhofszuschlag, Maut extra.',
     h1: 'Taxi vom Bahnhof Sants zum Flughafen',
     intro:
       'Sants ist der Hauptbahnhof Barcelonas und Ankunftspunkt der AVE-Züge aus Madrid, Valencia und Sevilla. Er ist zugleich der dem Flughafen nächstgelegene große Verkehrsknoten: Die Taxifahrt dauert außerhalb der Stoßzeiten etwa 15 Minuten.',
     sections: [
       {
         h2: 'Der Zuschlag für den Bahnhof Sants',
-        body: 'Fahrten, die am Bahnhof Sants beginnen oder enden, enthalten zusätzlich einen kleinen festen Zuschlag, den die AMB festlegt. Zusammen mit dem Flughafenzuschlag sind beide bereits in dem Preis enthalten, den Sie vor der Buchung sehen — danach kommt nichts mehr hinzu.',
+        body: 'Fahrten, die am Bahnhof Sants beginnen oder enden, enthalten zusätzlich einen kleinen festen Zuschlag, den die AMB festlegt. Zusammen mit dem Flughafenzuschlag sind beide bereits im Festpreis enthalten, den Sie vor der Buchung sehen. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet.',
       },
       {
         h2: 'Wo Sie Ihren Fahrer in Sants treffen',
@@ -246,7 +246,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Preis und Zahlung beim Privattransfer',
-        body: 'Ein Privattransfer kostet bei uns nicht mehr als jede andere Buchung: Sie zahlen einen festen Komplettpreis aus unserer eigenen Liste, je nach Fahrzeug, online per Karte oder Bizum und schon bei der Buchung. Im Wagen ist nichts zu zahlen, und eine Stornierung mindestens 24 Stunden vor der Abholung wird vollständig erstattet. Die Fahrer warten in der Ankunftshalle mit Namensschild und verfolgen Ihre Flugnummer.',
+        body: 'Ein Privattransfer kostet bei uns nicht mehr als jede andere Buchung: Sie zahlen einen Festpreis aus unserer eigenen Liste, je nach Fahrzeug, online per Karte oder Bizum und schon bei der Buchung. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Eine Stornierung mindestens 24 Stunden vor der Abholung wird vollständig erstattet. Die Fahrer warten in der Ankunftshalle mit Namensschild und verfolgen Ihre Flugnummer.',
       },
     ],
   },
@@ -324,7 +324,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/eixample': {
     title: 'Taxi Eixample zum Flughafen Barcelona | Tür zu Tür',
     description:
-      'Buchen Sie ein Taxi vom Eixample zum Flughafen Barcelona-El Prat. Unkomplizierte Tür-zu-Tür-Abholung im Raster, zum festen Komplettpreis.',
+      'Buchen Sie ein Taxi vom Eixample zum Flughafen Barcelona-El Prat. Unkomplizierte Tür-zu-Tür-Abholung im Raster, zum Festpreis, Maut extra.',
     h1: 'Taxi vom Eixample zum Flughafen Barcelona',
     intro:
       'Der Eixample ist der bequemste Stadtteil Barcelonas für eine Taxiabholung. Cerdàs Raster macht fast jede Adresse mit dem Auto erreichbar, mit Platz zum Halten und Einladen — das genaue Gegenteil der Altstadt.',
@@ -363,7 +363,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Stadtzentrum Barcelona zum Flughafen',
     description:
-      'Buchen Sie ein Taxi vom Stadtzentrum Barcelonas zum Flughafen El Prat. Abholung an jeder zentralen Adresse, fester Komplettpreis, Fahrer vorab bestätigt.',
+      'Buchen Sie ein Taxi vom Stadtzentrum Barcelonas zum Flughafen El Prat. Abholung an jeder zentralen Adresse, ein Festpreis, Fahrer vorab bestätigt, Maut extra.',
     h1: 'Taxi vom Zentrum Barcelonas zum Flughafen',
     intro:
       'Von jedem zentralen Punkt — der Rambla, Plaça de Catalunya, El Born, dem Raval oder dem Passeig de Gràcia — sind es 20 bis 35 Minuten Fahrt nach El Prat. Eine Vorabbuchung legt Abholzeit und Wagen fest, was vor allem auf der Hinfahrt zählt.',
@@ -378,7 +378,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Was ein Taxi vom Zentrum zum Flughafen kostet',
-        body: 'Ein Festpreis von jedem Punkt im Zentrum bis El Prat, mit allen offiziellen Zuschlägen bereits darin und nichts im Taxi zu zahlen. Die Uhrzeit ändert ihn nicht; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie Ihre Adresse ein, um vor der Buchung Ihren genauen Preis zu sehen.',
+        body: 'Ein Festpreis von jedem Punkt im Zentrum bis El Prat, mit allen offiziellen Zuschlägen bereits darin. Mautgebühren werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Die Uhrzeit ändert ihn nicht; an Wochenenden und Feiertagen kommen 7,5 % hinzu. Geben Sie Ihre Adresse ein, um vor der Buchung Ihren genauen Preis zu sehen.',
       },
       {
         h2: 'Was für den Festpreis als Zentrum gilt',
@@ -398,7 +398,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: 'Gruppentaxi Flughafen Barcelona | 5, 6 oder 7 Sitze',
     description:
-      'Taxi für Gruppen ab dem Flughafen Barcelona: ein Van mit sechs oder sieben Sitzen oder mehrere Wagen in einem Checkout. Ein fester Komplettpreis.',
+      'Taxi für Gruppen ab dem Flughafen Barcelona: ein Van mit sechs oder sieben Sitzen oder mehrere Wagen in einem Checkout. Ein Festpreis, Maut extra.',
     h1: 'Gruppentaxi ab dem Flughafen Barcelona',
     intro:
       'Ein normales Taxi in Barcelona hat vier Sitze. Für fünf, sechs oder sieben Personen gibt es den sechssitzigen Mercedes Vito und die siebensitzige Mercedes V-Class, und für eine größere Gruppe buchen Sie zwei oder mehr Wagen gemeinsam. Ein einzelnes Taxi mit neun Sitzen gibt es in Barcelona nicht, und wir sagen das lieber, als dass Sie es am Bordstein erfahren.',
@@ -409,11 +409,11 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Fünf, sechs oder sieben Personen: ein Fahrzeug',
-        body: 'Bis zu sieben Personen fahren gemeinsam in einem einzigen Fahrzeug zu einem festen Komplettpreis. Das Viersitzer-Taxi kostet 50 EUR zwischen dem Flughafen und jedem Ort in Barcelona, der sechssitzige Vito 70 EUR und die siebensitzige V-Class 75 EUR. Wochenenden und Feiertage fügen 7,5 % hinzu. Das ist der ganze Preis: Der Flughafenzuschlag, der Zuschlag für das größere Fahrzeug und unser Service sind bereits darin enthalten, und dem Fahrer ist nichts zu zahlen.',
+        body: 'Bis zu sieben Personen fahren gemeinsam in einem einzigen Fahrzeug zu einem Festpreis. Das Viersitzer-Taxi kostet 50 EUR zwischen dem Flughafen und jedem Ort in Barcelona, der sechssitzige Vito 70 EUR und die siebensitzige V-Class 75 EUR. Wochenenden und Feiertage fügen 7,5 % hinzu. Das ist der ganze Festpreis: Der Flughafenzuschlag, der Zuschlag für das größere Fahrzeug und unser Service sind bereits darin enthalten. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
       },
       {
         h2: 'Acht, neun oder zehn Personen: zwei Wagen gemeinsam buchen',
-        body: 'Über sieben gibt es kein einzelnes Taxi, die Antwort sind also zwei oder mehr Fahrzeuge, die als eine Gruppe fahren. Wählen Sie mehrere Wagen in einer Buchung, werden sie gemeinsam reserviert, in einem Checkout bezahlt und zum selben Abholpunkt geschickt, bis zu sechs Wagen. Jeder wird zum veröffentlichten Preis seiner Größe berechnet, es gibt also kein individuelles Angebot und keine Überraschung: Acht Personen können in zwei Viersitzer-Taxis werktags für 100 EUR fahren, neun in einem sechssitzigen Vito und einem Viersitzer-Taxi für 120 EUR (70 EUR plus 50 EUR), und elf in einer siebensitzigen V-Class und einem Viersitzer-Taxi für 125 EUR.',
+        body: 'Über sieben gibt es kein einzelnes Taxi, die Antwort sind also zwei oder mehr Fahrzeuge, die als eine Gruppe fahren. Wählen Sie mehrere Wagen in einer Buchung, werden sie gemeinsam reserviert, in einem Checkout bezahlt und zum selben Abholpunkt geschickt, bis zu sechs Wagen. Jeder wird zum veröffentlichten Preis seiner Größe berechnet, es gibt also kein individuelles Angebot: Acht Personen können in zwei Viersitzer-Taxis werktags für 100 EUR fahren, neun in einem sechssitzigen Vito und einem Viersitzer-Taxi für 120 EUR (70 EUR plus 50 EUR), und elf in einer siebensitzigen V-Class und einem Viersitzer-Taxi für 125 EUR.',
       },
       {
         h2: 'Ein Checkout, ein Abholpunkt, alle Wagen zusammen',
@@ -429,14 +429,14 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: 'Taxi Kreuzfahrthafen Barcelona | Festpreis-Transfer',
     description:
-      'Taxi zwischen Flughafen Barcelona und Kreuzfahrthafen: Festpreis für die Terminals A bis E am Moll Adossat, online gebucht, nichts im Wagen zu zahlen.',
+      'Taxi zwischen Flughafen Barcelona und Kreuzfahrthafen: Festpreis für die Terminals A bis E am Moll Adossat, online gebucht, Maut extra.',
     h1: 'Taxi zwischen dem Flughafen Barcelona und dem Kreuzfahrthafen',
     intro:
-      'Kreuzfahrtgäste kommen mit großen Koffern und einer festen Deadline an, deshalb braucht ein Transfer einen Preis, den Sie schon vor der Reise kennen, und einen Fahrer, der Sie bereits erwartet. Zwischen El Prat und den Kreuzfahrtterminals am Moll Adossat ist der Preis fest, all-inclusive und wird bei der Buchung vereinbart: 60 EUR im Viersitzer, 80 EUR im Sechssitzer-Van und 85 EUR im Siebensitzer-Van.',
+      'Kreuzfahrtgäste kommen mit großen Koffern und einer festen Deadline an, deshalb braucht ein Transfer einen Preis, den Sie schon vor der Reise kennen, und einen Fahrer, der Sie bereits erwartet. Zwischen El Prat und den Kreuzfahrtterminals am Moll Adossat ist der Preis fest und wird bei der Buchung vereinbart: 60 EUR im Viersitzer, 80 EUR im Sechssitzer-Van und 85 EUR im Siebensitzer-Van.',
     sections: [
       {
         h2: 'Was der Transfer vom Flughafen zum Kreuzfahrthafen kostet',
-        body: 'Der Preis ist in beiden Richtungen und für jedes Terminal am Moll Adossat, A bis E, derselbe. Ein Viersitzer-Taxi kostet 60 EUR, der sechssitzige Mercedes Vito 80 EUR und die siebensitzige Mercedes V-Class 85 EUR. Wochenenden und Feiertage fügen 7,5 % hinzu. Der Flughafenzuschlag, die Gebühr für das Kreuzfahrtterminal und der Zuschlag für das größere Fahrzeug sind in dieser Summe bereits enthalten, es ist also kein Taxameterstand, und dem Fahrer an der Pier ist nichts zu zahlen. Es ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer und nicht der regulierte Tarif eines Taxis vom Taxistand.',
+        body: 'Der Preis ist in beiden Richtungen und für jedes Terminal am Moll Adossat, A bis E, derselbe. Ein Viersitzer-Taxi kostet 60 EUR, der sechssitzige Mercedes Vito 80 EUR und die siebensitzige Mercedes V-Class 85 EUR. Wochenenden und Feiertage fügen 7,5 % hinzu. Der Flughafenzuschlag, die Gebühr für das Kreuzfahrtterminal und der Zuschlag für das größere Fahrzeug sind in dieser Summe bereits enthalten, es ist also kein Taxameterstand. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Es ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer und nicht der regulierte Tarif eines Taxis vom Taxistand.',
       },
       {
         h2: 'Vom Schiff zum Hotel oder in die Stadt',
@@ -463,7 +463,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       'Buchen Sie in Minuten ein Taxi zum Flughafen Barcelona. Sofortiger Festpreis, sichere Zahlung und eine Bestätigung per E-Mail.',
     h1: 'Taxi zum Flughafen Barcelona online buchen',
     intro:
-      'Die Onlinebuchung dauert ein paar Minuten und sichert Ihnen einen bestätigten Wagen mit zugeteiltem Fahrer. Sie zahlen einen Komplettpreis online und schulden im Taxi nichts.',
+      'Die Onlinebuchung dauert ein paar Minuten und sichert Ihnen einen bestätigten Wagen mit zugeteiltem Fahrer. Sie zahlen den Festpreis online; Mautgebühren werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
     sections: [
       {
         h2: 'Was Sie für die Buchung brauchen',
@@ -487,11 +487,11 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wie Sie zahlen und was Sie zurückbekommen',
-        body: 'Der gesamte Betrag wird bei der Buchung online bezahlt, per Kreditkarte, Debitkarte oder Bizum. Es gibt keine Aufteilung in Anzahlung und Restbetrag, und dem Fahrer im Wagen ist überhaupt nichts zu zahlen — kein Fahrpreis, kein Zuschlag, kein erwartetes Trinkgeld. Eine Quittung über den vollen Betrag kommt mit Ihrer Bestätigung per E-Mail, sodass die Unterlagen für eine Spesenabrechnung vor der Fahrt eintreffen und nicht danach. Brauchen Sie zusätzlich die regulierte Taxirechnung für die Fahrt selbst, kann Ihr Fahrer sie auf Wunsch ausstellen.',
+        body: 'Der Festpreis wird bei der Buchung online bezahlt, per Kreditkarte, Debitkarte oder Bizum. Dafür gibt es keine Aufteilung in Anzahlung und Restbetrag, und ein Trinkgeld wird nicht erwartet. Mautgebühren werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail, sodass die Unterlagen für eine Spesenabrechnung vor der Fahrt eintreffen und nicht danach. Brauchen Sie zusätzlich die regulierte Taxirechnung für die Fahrt selbst, kann Ihr Fahrer sie auf Wunsch ausstellen.',
       },
       {
         h2: 'Der Ablauf in drei Schritten',
-        body: 'Geben Sie Abholort, Ziel, Datum und Uhrzeit ein, wählen Sie das Fahrzeug und sehen Sie sofort Ihren Festpreis. Dann zahlen Sie den vollen Betrag online per Karte oder Bizum. Danach kommt die Bestätigung mit Quittung per E-Mail, und wir teilen Ihnen einen Fahrer zu. Brauchen Sie mehr als ein Fahrzeug, lassen sich bis zu sechs Wagen in einem Checkout gemeinsam reservieren. Im Taxi selbst ist nichts mehr zu zahlen.',
+        body: 'Geben Sie Abholort, Ziel, Datum und Uhrzeit ein, wählen Sie das Fahrzeug und sehen Sie sofort Ihren Festpreis. Dann zahlen Sie den vollen Betrag online per Karte oder Bizum. Danach kommt die Bestätigung mit Quittung per E-Mail, und wir teilen Ihnen einen Fahrer zu. Brauchen Sie mehr als ein Fahrzeug, lassen sich bis zu sechs Wagen in einem Checkout gemeinsam reservieren. Mautgebühren werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.',
       },
     ],
   },

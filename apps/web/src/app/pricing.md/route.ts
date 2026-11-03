@@ -49,8 +49,9 @@ export function GET(): Response {
 
   const body = `# Pricing — BCNAirportTaxi
 
-> Barcelona airport and cruise-port taxi transfers at fixed, all-inclusive
-> prices. One amount, paid online when booking. Nothing is owed to the driver.
+> Barcelona airport and cruise-port taxi transfers at fixed prices, paid
+> online when booking. Motorway tolls are NOT included in the fixed price and
+> are charged separately to the customer when the route uses toll roads.
 
 Currency: EUR. Prices are per vehicle, not per passenger.
 Last updated: ${new Date().toISOString().slice(0, 10)} (generated from the live price list)
@@ -73,7 +74,7 @@ across the city to Park Guell cost the same.
 | Cruise port transfer | + ${eur(f.portSurcharge)} | The quay is one end and the airport is not |
 | Distance beyond the flat zone | + ${eur(f.excessPerKm)} per km | Only the kilometres past ${f.flatZoneRadiusKm} km |
 | Weekend and public holidays | + ${surge}% | Saturday and Sunday, and the Catalan public holiday calendar, including Christmas and New Year |
-| Motorway tolls | Apply | Where the route uses a toll road |
+| Motorway tolls | Not included; charged separately | Where the route uses a toll road. No amount is published here |
 
 Nothing else is added to the fixed city and cruise-port prices. The time of day does not change them: a
 pickup at 03:00 costs what the same journey costs at midday.
@@ -83,14 +84,16 @@ pickup at 03:00 costs what the same journey costs at midday.
 - The fare, and every official supplement that applies to the route
 - Our service in arranging and guaranteeing the car
 - Flight tracking, so a late landing does not lose the booking
-- A receipt for the full amount, emailed with the confirmation
+- A receipt for the amount paid at booking, emailed with the confirmation
 
-Nothing is collected in the vehicle.
+Not included: motorway tolls. They are charged separately to the customer when
+the route uses toll roads. This file does not state toll amounts or how they are
+collected.
 
 ## What is not a fixed price
 
 Journeys with an end outside the Barcelona metropolitan area are priced per
-kilometre from the real road distance, ALL-IN (our service charge included),
+kilometre from the real road distance, (our service charge included, motorway tolls NOT included),
 and quoted in full before you book:
 
 | When | Per km | Start |

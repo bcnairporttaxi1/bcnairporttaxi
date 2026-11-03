@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Flughafen Barcelona | El Prat Transfers online",
-    "metaDescription": "Buchen Sie ein Taxi zum Flughafen Barcelona online und im Voraus. Ein fester Komplettpreis, vor der Buchung vereinbart und mit ihr fixiert.",
+    "metaDescription": "Buchen Sie ein Taxi zum Flughafen Barcelona online und im Voraus. Ein Festpreis, vor der Buchung vereinbart und mit ihr fixiert. Maut extra.",
     "h1": "Taxi zum Flughafen Barcelona, gebucht bevor Sie landen",
-    "intro": "Reservieren Sie ein lizenziertes schwarz-gelbes Barcelona-Taxi zum oder vom Flughafen El Prat. Ein Festpreis, alles inklusive, vor der Buchung angezeigt und mit ihr fixiert — kein Taxameter, keine Entfernungsschätzung — Sie zahlen online, und beim Fahrer ist nichts zu begleichen.",
+    "intro": "Reservieren Sie ein lizenziertes schwarz-gelbes Barcelona-Taxi zum oder vom Flughafen El Prat. Ein Festpreis, vor der Buchung angezeigt und mit ihr fixiert — kein Taxameter, keine Entfernungsschätzung — bei der Buchung online bezahlt. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "trust": {
       "licensed": "Lizenzierte AMB-Taxis",
       "meter": "Festpreis, kein Taxameter",
@@ -41,15 +41,15 @@
       "whyTitle": "Warum bei uns buchen",
       "whyIntro": "Feste Preise, ein reservierter Wagen und jemand, den Sie anrufen können, wenn sich etwas ändert.",
       "destTitle": "Wohin wir sonst fahren",
-      "destIntro": "Mehr als die Flughafenfahrt: die Küste, die Berge und die Straßen nach Süden. Ein lizenziertes Fahrzeug, ein Komplettpreis, wie weit es auch geht.",
+      "destIntro": "Mehr als die Flughafenfahrt: die Küste, die Berge und die Straßen nach Süden. Ein lizenziertes Fahrzeug und ein Festpreis, wie weit es auch geht; Mautgebühren werden gesondert berechnet.",
       "fleetLede": "nur einen Wisch entfernt.",
       "destLede": "Preis vorab bekannt.",
-      "faresLede": "alles inklusive, vor der Buchung vereinbart.",
+      "faresLede": "Festpreis, vor der Buchung vereinbart.",
       "closingLede": "und losfahren.",
       "faresTitle": "Festpreise",
-      "faresIntro": "Jeder Betrag unten ist ein fester Komplettpreis — genau der, den auch das Buchungsformular nennt.",
+      "faresIntro": "Jeder Betrag unten ist ein Festpreis — genau der, den auch das Buchungsformular nennt. Mautgebühren sind nicht enthalten und werden gesondert berechnet.",
       "closingTitle": "Landen, rausgehen,",
-      "closingIntro": "Ein Komplettpreis in Sekunden. Kein Konto nötig, um ihn zu sehen.",
+      "closingIntro": "Ein Festpreis in Sekunden. Kein Konto nötig, um ihn zu sehen.",
       "howLede": "in drei Schritten.",
       "whyLede": "und warum es hält.",
       "routesLede": "die meistgebuchten."
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Ein Preis, festgelegt vor der Fahrt",
-        "body": "Ihr Preis ist ein Festbetrag aus unserer eigenen Preisliste, keine Taxameteranzeige — er richtet sich nach Strecke und Fahrzeug, nicht nach Entfernung oder Uhrzeit. Sie stimmen ihm vor der Buchung zu und er ist damit fixiert, sodass der genannte Betrag auch der bezahlte ist, was der Verkehr auch tut."
+        "body": "Ihr Preis ist ein Festbetrag aus unserer eigenen Preisliste, keine Taxameteranzeige — er richtet sich nach Strecke und Fahrzeug, nicht nach Entfernung oder Uhrzeit. Sie stimmen ihm vor der Buchung zu und er ist damit fixiert, sodass sich der genannte Preis nicht ändert, was der Verkehr auch tut. Mautgebühren werden, wo die Strecke mautpflichtige Straßen nutzt, gesondert berechnet."
       },
       "flight": {
         "title": "Wir verfolgen Ihren Flug",
@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Online zahlen, einmal, in voller Höhe",
-      "note": "Sichere Zahlung über SumUp. Im Taxi ist dem Fahrer nichts zu zahlen."
+      "note": "Sichere Zahlung über SumUp. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Fahrzeit ca.",
     "payNow": "Jetzt zahlen",
     "payInTaxi": "Im Taxi zahlen",
-    "nothingInTaxi": "Nichts im Taxi zu zahlen",
+    "nothingInTaxi": "Mautgebühren werden gesondert berechnet",
     "paidOnline": "Online bezahlt",
     "balanceInTaxi": "Restbetrag an den Fahrer",
     "bookNow": "Jetzt buchen",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfer Kreuzfahrthafen",
       "weekendSurge": "Wochenend-/Feiertagstarif"
     },
-    "disclaimer": "Ihr Preis steht mit der Buchung fest und deckt die gesamte Fahrt einschließlich aller offiziellen Zuschläge ab. Im Taxi ist nichts zu zahlen. Die Quittung erhalten Sie per E-Mail mit Ihrer Bestätigung.",
+    "disclaimer": "Ihr Preis steht mit der Buchung fest und deckt die Fahrt einschließlich aller offiziellen Zuschläge ab. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Die Quittung erhalten Sie per E-Mail mit Ihrer Bestätigung.",
     "errors": {
       "pickupRequired": "Wählen Sie einen Abholort.",
       "dropoffRequired": "Wählen Sie ein Ziel.",
@@ -147,10 +147,10 @@
     },
     "panelKicker": "Reservierung",
     "panelTitle": "Planen Sie Ihren Transfer",
-    "panelSub": "Sofortpreis · Alles inklusive · 24/7",
+    "panelSub": "Sofortpreis · Festpreis · 24/7",
     "totalPrice": "Gesamtpreis",
-    "allInclusive": "Alles inklusive · online bezahlen",
-    "includedNote": "Ein Preis für die gesamte Fahrt — Tarif, offizielle Zuschläge und Buchung inklusive. Sie zahlen dem Fahrer nichts.",
+    "allInclusive": "Festpreis · online bezahlen",
+    "includedNote": "Ein Festpreis für die Fahrt — Tarif, offizielle Zuschläge und Buchung. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "sections": {
       "nextTitle": "Wie es weitergeht",
       "nextLede": "sobald bezahlt ist."
@@ -163,7 +163,7 @@
     "returnTooEarly": "Die Rückfahrt muss mindestens eine Stunde nach der Abholung liegen.",
     "fixedRouteApplied": "Festpreis für diese Strecke. Entfernung und Tageszeit ändern ihn nicht.",
     "fixedPlusKmApplied": "Festpreis bis {km} km, zuzüglich der Strecke darüber.",
-    "perVehicle": "pro Fahrzeug, alles inklusive"
+    "perVehicle": "pro Fahrzeug, Festpreis"
   },
   "fleet": {
     "h1": "Unser Taxi-Fuhrpark in Barcelona",
@@ -221,7 +221,7 @@
     "min": "Min."
   },
   "footer": {
-    "about": "BCNAirportTaxi ist ein Buchungsservice für lizenzierte Barcelona-Taxis. Wir sind Vermittler, kein Taxiunternehmen: wir legen unsere eigenen Transfer-Festpreise fest, und Sie zahlen uns bei der Buchung einen Komplettbetrag.",
+    "about": "BCNAirportTaxi ist ein Buchungsservice für lizenzierte Barcelona-Taxis. Wir sind Vermittler, kein Taxiunternehmen: wir legen unsere eigenen Transfer-Festpreise fest, und Sie zahlen uns bei der Buchung den Festpreis. Mautgebühren werden gesondert berechnet.",
     "routes": "Beliebte Strecken",
     "company": "Unternehmen",
     "legal": "Rechtliches",
@@ -276,7 +276,7 @@
     "coverage5": "Fahrzeuge mit 4 bis 8 Sitzen und Minivans mit Gepäckraum",
     "coverage6": "Festpreis, vor der Fahrt bestätigt",
     "pricingTitle": "Wie diese Preise zustande kommen.",
-    "pricingBody": "Die Taxameter-Tarife der AMB gelten nur im Großraum Barcelona. Alle Ziele auf dieser Seite liegen außerhalb, daher gilt für diese Fahrten der von der Generalitat de Catalunya festgelegte Überlandtarif: <b>T-6</b> werktags zwischen 08:00 und 20:00 Uhr und der höhere <b>T-7</b> nachts, an Wochenenden und an Feiertagen. Geben Sie Ihre Adressen im Buchungsformular ein, um den genauen Preis zu sehen, oder fragen Sie uns nach einem schriftlichen Festpreis inklusive Wartezeit.",
+    "pricingBody": "Die Taxameter-Tarife der AMB gelten nur im Großraum Barcelona. Alle Ziele auf dieser Seite liegen außerhalb, daher gilt für diese Fahrten der von der Generalitat de Catalunya festgelegte Überlandtarif: <b>T-6</b> werktags zwischen 08:00 und 20:00 Uhr und der höhere <b>T-7</b> nachts, an Wochenenden und an Feiertagen. Geben Sie Ihre Adressen im Buchungsformular ein, um den genauen Preis zu sehen, oder fragen Sie uns nach einem schriftlichen Festpreis inklusive Wartezeit. Mautgebühren sind in diesen Preisen nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "featuredH2": "Beliebte Strecken",
     "featuredIntro": "Die Transfers, nach denen am häufigsten gefragt wird — jeder mit eigener Streckenseite.",
     "badgeRoutePage": "Streckenseite",
@@ -310,7 +310,7 @@
     "ctaBookInstead": "Stattdessen Flughafentransfer buchen",
     "pricedH2": "Wie der Preis dieser Strecke zustande kommt",
     "pricedP1": "Die Taxameter-Tarife der AMB gelten nur im Großraum Barcelona. {place} liegt außerhalb, daher gilt für diese Fahrt der von der Generalitat de Catalunya festgelegte Überlandtarif: <b>T-6</b> werktags zwischen 08:00 und 20:00 Uhr und der höhere <b>T-7</b> nachts, an Wochenenden und an Feiertagen.",
-    "pricedP2": "Der Betrag oben ist ein Richtwert auf Basis der üblichen Entfernung. Geben Sie Ihre genauen Adressen im Buchungsformular ein, um den exakten Preis zu sehen, oder fragen Sie uns per WhatsApp nach einem schriftlichen Festpreis inklusive etwaiger Wartezeit.",
+    "pricedP2": "Der Betrag oben ist ein Richtwert auf Basis der üblichen Entfernung. Geben Sie Ihre genauen Adressen im Buchungsformular ein, um den exakten Preis zu sehen, oder fragen Sie uns per WhatsApp nach einem schriftlichen Festpreis inklusive etwaiger Wartezeit. Mautgebühren sind in diesem Preis nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "interH2": "Warum ein Fernpreis anders funktioniert",
     "interP1": "Sobald ein Ende der Fahrt außerhalb des Großraums Barcelona liegt, gilt die feste Stadtliste nicht mehr und die Fahrt wird nach Kilometern auf dem Überlandtarif der Generalitat de Catalunya berechnet. Deshalb nennt diese Seite eine Entfernung und eine daraus abgeleitete Zahl statt eines der pauschalen Stadtpreise: keine ehrliche Festpreisliste könnte Ziele abdecken, deren Entfernungen um den Faktor fünf auseinanderliegen.",
     "interP2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte. Der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt, was eine lange Fahrt kostet, und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist.",
@@ -320,7 +320,7 @@
     "photoAlt": "{place}, Ziel für einen privaten Transfer ab Barcelona",
     "waQuote": "Hallo, ich hätte gern ein Festpreis-Angebot für einen Transfer ab Barcelona: {place}.",
     "waQuoteSibling": "Hallo, ich hätte gern ein Angebot für {name}.",
-    "metaDescription": "Privates Taxi von Barcelona nach {place}: Festpreis mit allem inklusive, lizenzierter Fahrer und Flugverfolgung. In Minuten online buchen."
+    "metaDescription": "Privates Taxi von Barcelona nach {place}: ein Festpreis, lizenzierter Fahrer und Flugverfolgung. Maut extra. In Minuten online buchen."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als App installieren",
@@ -398,7 +398,9 @@
     "rebookTitle": "Diese Fahrt erneut buchen",
     "rebookIntro": "Ihre letzte Fahrt, bereit zur Wiederholung. Datum an der Kasse ändern.",
     "rebookCta": "Erneut buchen",
-    "happeningNow": "Läuft gerade"
+    "happeningNow": "Läuft gerade",
+    "tollsLabel": "Mautgebühren",
+    "tollsValue": "Werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt"
   },
   "trip": {
     "livePosition": "Live-Position",
@@ -442,7 +444,7 @@
     "rowBcnSitges": "Barcelona nach Sitges",
     "rowBcnTarragona": "Barcelona nach Tarragona",
     "rowBcnGirona": "Barcelona zum Flughafen Girona",
-    "note": "Transfers zum Flughafen und zum Kreuzfahrthafen haben einen Festpreis: die Tageszeit ändert ihn nicht. An Wochenenden und Feiertagen kommen {surge} % hinzu, und ein Ziel mehr als {km} km von Flughafen oder Hafen entfernt {rate} je zusätzlichem Kilometer. Nur Fahrten aus dem Stadtgebiet heraus werden nach Kilometern berechnet. Alle Preise sind All-inclusive, im Taxi ist nichts zu zahlen.",
+    "note": "Transfers zum Flughafen und zum Kreuzfahrthafen haben einen Festpreis: die Tageszeit ändert ihn nicht. An Wochenenden und Feiertagen kommen {surge} % hinzu, und ein Ziel mehr als {km} km von Flughafen oder Hafen entfernt {rate} je zusätzlichem Kilometer. Nur Fahrten aus dem Stadtgebiet heraus werden nach Kilometern berechnet. Jeder angezeigte Preis ist ein Festpreis; Mautgebühren sind nicht enthalten und werden gesondert berechnet.",
     "totalPrice": "Gesamtpreis"
   },
   "checkout": {
@@ -483,9 +485,9 @@
     "bothLegs": "Hin- und Rückfahrt, zusammen bezahlt"
   },
   "pricing": {
-    "feeBody": "Alles. Die Fahrt, jeden offiziellen Zuschlag Ihrer Strecke und unsere Leistung, das Fahrzeug zu organisieren und zu garantieren, in einem Betrag, online bei der Buchung bezahlt. Es gibt keinen zweiten Betrag: im Taxi ist nichts zu zahlen, und eine vollständige Quittung kommt per E-Mail mit Ihrer Bestätigung.",
+    "feeBody": "Die Fahrt, jeden offiziellen Zuschlag Ihrer Strecke und unsere Leistung, das Fahrzeug zu organisieren und zu garantieren, in einem Betrag, online bei der Buchung bezahlt. Mautgebühren sind die Ausnahme: Sie sind nicht enthalten und werden dem Kunden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Eine vollständige Quittung kommt per E-Mail mit Ihrer Bestätigung.",
     "metaTitle": "Taxipreise Flughafen Barcelona 2026",
-    "metaDescription": "Festpreise für das Taxi zum Flughafen Barcelona: {sedan} in die Stadt, {port} zum Kreuzfahrthafen. Je Fahrzeug, alles inklusive.",
+    "metaDescription": "Festpreise für das Taxi zum Flughafen Barcelona: {sedan} in die Stadt, {port} zum Kreuzfahrthafen. Je Fahrzeug, Maut extra. Online buchen.",
     "h1": "Taxipreise zum Flughafen Barcelona",
     "intro": "Ein Festpreis je Fahrt, vor der Buchung vereinbart und mit ihr fixiert. Keine Taxameteranzeige und keine Schätzung: der angezeigte Betrag ist der bezahlte, was der Verkehr auch tut und zu welcher Stunde auch immer.",
     "tableCaption": "Transfer-Festpreise, je Fahrzeug",
@@ -510,7 +512,7 @@
     "zoneBody1": "Der Listenpreis gilt für jede Adresse innerhalb von {km} km vom Terminal, gemessen in der Luftlinie und nicht entlang der Straße. Das umfasst die gesamte Innenstadt und fast alles, wo Besucher wohnen: Ciutat Vella, das Eixample, Gràcia, Sants, die Uferzone bis zur Barceloneta und Poblenou sowie den Park Güell oberhalb von Gràcia mit 14,3 km – sie zahlen alle dasselbe wie ein Hotel am Passeig de Gràcia. Die Ausnahme sind die äußeren nördlichen und östlichen Bezirke: La Sagrera mit 16,4 km, das Fòrum mit 17,4, Sant Andreu mit 17,7 und Nou Barris mit 17,9 liegen außerhalb der Zone, und für sie kommt der unten genannte Kilometerpreis hinzu.",
     "zoneBody2": "Die Messung in der Luftlinie ist Absicht und sie wirkt zu Ihren Gunsten. Die Plaça de Catalunya liegt 12,3 km Luftlinie vom Terminal entfernt, aber 19,6 km über die Straße, weil diese den Llobregat umfährt und über die Gran Via hereinführt. Eine Zone, die auf der Straße bei {km} km gemessen würde, ließe das Stadtzentrum außen vor und begänne genau auf der häufigsten Fahrt überhaupt Zusatzkilometer zu berechnen. Jenseits der Zone – Badalona mit 21,8 km, Sant Cugat mit 19,5 – gilt der Listenpreis plus {rate} pro zusätzlichem Kilometer, als eine veröffentlichte Zahl und nicht als der jeweils gerade geltende Tarif.",
     "supTitle": "Die amtlichen Zuschläge, bereits in Ihrem Preis enthalten",
-    "supIntro": "Der regulierte Barcelona-Tarif erhebt feste Zuschläge für bestimmte Orte und Tage. Es sind keine Extras, die wir obendrauf berechnen: jeder davon steckt bereits in der Zahl der Tabelle oben, und genau deshalb ist im Wagen nichts zu begleichen. Sie sind hier aufgeführt, damit ein Zuschlag, den Sie auf einer Tariftafel sehen, ein Zuschlag ist, den Sie einordnen können.",
+    "supIntro": "Der regulierte Barcelona-Tarif erhebt feste Zuschläge für bestimmte Orte und Tage. Es sind keine Extras, die wir obendrauf berechnen: jeder davon steckt bereits in der Zahl der Tabelle oben, Sie werden also keinen zusätzlich aufgeschlagenen Zuschlag sehen. Sie sind hier aufgeführt, damit ein Zuschlag, den Sie auf einer Tariftafel sehen, ein Zuschlag ist, den Sie einordnen können.",
     "supAirport": "Flughafen El Prat",
     "supPort": "Kreuzfahrtterminal Moll Adossat",
     "supSants": "Bahnhof Sants",
@@ -520,12 +522,12 @@
     "supCap": "Der regulierte Tarif begrenzt die Summe der Zuschläge einer einzelnen Fahrt auf {cap}. Bei einem gewöhnlichen Flughafentransfer gilt ein Zuschlag, und diese Obergrenze wird nie erreicht.",
     "neverTitle": "Was Ihren Preis nie verändert",
     "neverBody1": "Die Tageszeit. Eine Abholung um 04:30 für einen frühen Flug kostet genau so viel wie eine Fahrt um zwei Uhr nachmittags. Bei einem Festpreis gibt es keinen Nachttarif und keinen Flughafenzuschlag, der am Ende noch auftaucht.",
-    "neverBody2": "Ebenso wenig der Verkehr, die Route, die Ihr Fahrer wählt, das Terminal, an dem Sie landen, die Zahl der Mitfahrenden bis zur Kapazität des Fahrzeugs oder die Menge an Gepäck, die darin Platz hat. Wochenenden und Feiertage sind das Einzige, was einen Listenpreis anhebt, und zwar um einen einzigen veröffentlichten Prozentsatz. Alles andere ist unser Risiko – und genau das kauft man, wenn man einen Preis im Voraus festschreibt.",
+    "neverBody2": "Ebenso wenig der Verkehr, die Route, die Ihr Fahrer wählt, das Terminal, an dem Sie landen, die Zahl der Mitfahrenden bis zur Kapazität des Fahrzeugs oder die Menge an Gepäck, die darin Platz hat. Wochenenden und Feiertage sind das Einzige, was einen Listenpreis anhebt, und zwar um einen einzigen veröffentlichten Prozentsatz, und Mautgebühren werden gesondert berechnet, wo die Strecke mautpflichtige Straßen nutzt. Alles andere ist unser Risiko – und genau das kauft man, wenn man einen Preis im Voraus festschreibt.",
     "interTitle": "Fahrten außerhalb des Großraums",
     "interBody1": "Sobald ein Ende der Fahrt außerhalb des Großraums Barcelona liegt, gilt der Stadttarif nicht mehr und die Fahrt wird nach Kilometern auf dem Überlandtarif der Generalitat de Catalunya berechnet. Sitges, Tarragona, Girona, Reus, die Costa Brava und Andorra werden so berechnet, vor der Buchung vollständig beziffert und nicht der Festpreisliste entnommen – keine ehrliche Festpreisliste könnte Entfernungen abdecken, die um den Faktor fünf auseinanderliegen.",
     "interBody2": "Der Kilometerpreis liegt aus einem Grund über dem städtischen, den man kennen sollte: der Überlandtarif behandelt die Fahrt als geschlossenen Kreis und berechnet auch die Rückfahrt des Fahrers, weil dieser außerhalb seines Gebiets keinen Fahrgast aufnehmen darf und sonst leer heimfahren würde. Ein gefahrener Kilometer kostet in diesem Tarif also zwei Kilometer. Das erklärt den Preis einer langen Fahrt – und warum ein irgendwo ohne diesen Hinweis genannter Kilometerpreis etwa die Hälfte des echten ist.",
     "officialTitle": "Ist das der amtliche Taxitarif?",
-    "officialBody": "Nein. Das ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer, nicht der regulierte Tarif. Ein Taxi vom Stand wird nach dem Taxameter zum AMB-Tarif bezahlt. Bei uns steht der Preis vor der Fahrt fest, und im Wagen ist nichts zu zahlen.",
+    "officialBody": "Nein. Das ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer, nicht der regulierte Tarif. Ein Taxi vom Stand wird nach dem Taxameter zum AMB-Tarif bezahlt. Bei uns steht der Preis vor der Fahrt fest. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "officialLink": "Wie sich das Taxameter am Stand vergleicht",
     "adjTolls": "Mautgebühren",
     "adjTollsValue": "Fallen an, wenn die Strecke eine mautpflichtige Straße nutzt"
@@ -535,7 +537,7 @@
   },
   "howItWorks": {
     "metaTitle": "So buchen Sie ein Flughafentaxi in Barcelona",
-    "metaDescription": "Buchen Sie ein Barcelona-Flughafentaxi in drei Schritten: sofortiger Komplettpreis, Online-Zahlung, Treffen mit Ihrem Fahrer. Im Taxi ist nichts zu zahlen.",
+    "metaDescription": "Buchen Sie ein Barcelona-Flughafentaxi in drei Schritten: sofortiger Festpreis, Online-Zahlung, Treffen mit Ihrem Fahrer. Maut gesondert.",
     "h1": "So funktioniert es",
     "steps": {
       "one": {
@@ -548,12 +550,12 @@
       },
       "three": {
         "title": "Fahrer treffen",
-        "body": "Ihr Fahrer erwartet Sie zur vereinbarten Zeit. Alles ist bereits bezahlt, im Wagen ist also nichts mehr zu regeln."
+        "body": "Ihr Fahrer erwartet Sie zur vereinbarten Zeit. Der Festpreis ist bereits bezahlt; Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet."
       }
     },
     "live": {
       "reserved": "Reserviert · online bezahlt",
-      "arrived": "Angekommen · nichts im Taxi zu zahlen",
+      "arrived": "Angekommen · Festpreis online bezahlt",
       "live": "Fahrer live"
     },
     "prepTitle": "Was wir von Ihnen brauchen",
@@ -564,7 +566,7 @@
     "afterBody2": "Danach wird Ihrer Fahrt ein Fahrer zugeteilt, und sobald das geschieht, erhalten Sie dessen Namen und Telefonnummer per E-Mail, zusammen mit dem genauen Treffpunkt für Ihr Terminal. Diese Zuteilung ist eine echte Zusage für einen bestimmten Wagen und eine bestimmte Person und nicht eine Anfrage, die bei Ihrer Landung in eine Runde gegeben wird – deshalb verhält sich ein gebuchter Transfer anders als eine Warteschlange am Stand um zwei Uhr morgens.",
     "dayTitle": "Am Tag selbst",
     "dayBody1": "Bei einer Abholung am Flughafen wartet Ihr Fahrer in der Ankunftshalle, auf der öffentlichen Seite des Ausgangs der Gepäckausgabe, mit einem Schild mit Ihrem Namen. Nicht am Bordstein und nicht in der Schlange am Taxistand. Bei einer Abholung in der Stadt kommt er zur angegebenen Adresse, zur vereinbarten Zeit.",
-    "dayBody2": "Alles ist bereits bezahlt, im Wagen ist also nichts zu begleichen: keine Fahrt, kein Zuschlag, kein erwartetes Trinkgeld. Wenn Sie die amtliche Taxameterrechnung für die Fahrt selbst möchten, stellt der Fahrer sie auf Wunsch aus; Ihre eigene Quittung über den gezahlten Betrag kam mit der Bestätigung.",
+    "dayBody2": "Der Festpreis ist bereits bezahlt, es gibt also weder eine Fahrt noch einen Zuschlag zu begleichen, und ein Trinkgeld wird nicht erwartet. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet. Wenn Sie die amtliche Taxameterrechnung für die Fahrt selbst möchten, stellt der Fahrer sie auf Wunsch aus; Ihre eigene Quittung über den gezahlten Betrag kam mit der Bestätigung.",
     "changeTitle": "Wenn sich etwas ändert",
     "changeBody1": "Innerhalb von 30 Minuten nach der Buchung ändern Sie die Angaben selbst, danach bis zur Abfahrt Ihres Fahrers: antworten Sie auf Ihre Bestätigung oder schreiben Sie uns auf WhatsApp. Ein anderes Terminal, eine andere Abholzeit oder eine andere Adresse kostet nichts, und ein falsches Terminal ist die Korrektur, die wir am häufigsten vornehmen.",
     "changeBody2": "Ein verspäteter Flug ist keine Änderung und erfordert nichts von Ihnen: die Abholung folgt der tatsächlichen Landezeit, ohne Mehrkosten und ganz gleich, wie spät die Maschine ist. Fällt Ihr Flug ganz aus oder platzen Ihre Pläne, sagen Sie uns Bescheid, sobald Sie es wissen – bei einer Absage mindestens 24 Stunden vor der Abholung wird der gesamte Betrag auf die verwendete Karte erstattet, in der Regel innerhalb von fünf bis zehn Werktagen. Innerhalb dieser 24 Stunden versuchen wir immer zu helfen, aber eine Erstattung ist dann nicht mehr automatisch."
@@ -576,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Ist der angezeigte Preis der Preis, den ich zahle?",
-        "a": "Ja. Der angezeigte Preis ist der Preis, den Sie zahlen. Es ist ein Festbetrag aus unserer eigenen Liste, er enthält bereits jeden offiziellen Zuschlag Ihrer Strecke, und er wird im Moment der Buchung fixiert. Verkehr und Routenwahl sind unser Risiko, nicht Ihres: nachträglich kommt nichts hinzu, und dem Fahrer ist nichts geschuldet."
+        "a": "Ja, für die Fahrt. Der angezeigte Preis ist der Festpreis: ein Festbetrag aus unserer eigenen Liste, der bereits jeden offiziellen Zuschlag Ihrer Strecke enthält und im Moment der Buchung fixiert wird. Verkehr und Routenwahl sind unser Risiko, nicht Ihres. Nicht enthalten sind nur Mautgebühren, die gesondert berechnet werden, wenn die Strecke mautpflichtige Straßen nutzt."
       },
       "whyFee": {
         "q": "Was ist im Preis enthalten?",
-        "a": "Alles. Die Fahrt selbst, jeder offizielle Zuschlag Ihrer Strecke — der Flughafenzuschlag El Prat, der Kreuzfahrthafenzuschlag, der Zuschlag für Fahrzeuge mit fünf bis acht Plätzen — und unser Service, den Wagen zu reservieren und zuzusagen, einen Fahrer zuzuteilen und Sie am Tag der Fahrt zu betreuen. Ein einziger Betrag, online bei der Buchung bezahlt, ohne etwas Separates und ohne Schuld im Taxi."
+        "a": "Die Fahrt selbst, jeder offizielle Zuschlag Ihrer Strecke — der Flughafenzuschlag El Prat, der Kreuzfahrthafenzuschlag, der Zuschlag für Fahrzeuge mit fünf bis acht Plätzen — und unser Service, den Wagen zu reservieren und zuzusagen, einen Fahrer zuzuteilen und Sie am Tag der Fahrt zu betreuen. Der Betrag wird online bei der Buchung bezahlt. Mautgebühren sind nicht enthalten: Sie werden dem Kunden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
       },
       "invoice": {
         "q": "Bekomme ich eine Rechnung?",
@@ -619,8 +621,8 @@
         "a": "Manchmal, und das sagen wir lieber offen. An einem ruhigen Werktag zeigt das Taxameter am Stand oft weniger, weil unser Festpreis ein Verkehrsrisiko enthält, das nicht eingetreten ist. Bei dichtem Verkehr, am Wochenende oder in den drei Zuschlagsnächten liegt der Festpreis meist darunter – und er steht immer vorher fest."
       },
       "payment": {
-        "q": "Wie wird bezahlt, und schuldet man dem Fahrer etwas?",
-        "a": "Sie zahlen den vollen Betrag online bei der Buchung, per Kreditkarte, Debitkarte oder Bizum. Im Taxi ist nichts zu zahlen: keine Fahrt, kein Zuschlag, kein erwartetes Trinkgeld. Den Fahrer rechnen wir im Nachhinein ab, er wird Sie nie um Geld bitten."
+        "q": "Wie wird bezahlt, und was ist nicht enthalten?",
+        "a": "Sie zahlen den Festpreis online bei der Buchung, per Kreditkarte, Debitkarte oder Bizum. Ein Trinkgeld wird nicht erwartet. Mautgebühren gehören nicht zu diesem Preis und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
       },
       "flightDelay": {
         "q": "Was passiert, wenn mein Flug Verspätung hat?",

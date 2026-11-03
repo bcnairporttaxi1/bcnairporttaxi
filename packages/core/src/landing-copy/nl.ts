@@ -5,14 +5,14 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Luchthaven Barcelona Centrum | Online Boeken',
     description:
-      'Boek een taxi van de luchthaven Barcelona naar het centrum. Vaste alles-inbegrepen prijs, El Prat-toeslag al inbegrepen, chauffeur in de aankomsthal.',
+      'Boek een taxi van de luchthaven Barcelona naar het centrum. Eén vaste prijs, El Prat-toeslag al inbegrepen, tol extra, chauffeur in de aankomsthal.',
     h1: 'Taxi van de luchthaven Barcelona naar het centrum',
     intro:
       'Een taxi van El Prat naar het centrum van Barcelona duurt 25 tot 35 minuten, afhankelijk van het verkeer en de terminal waar u landt. Vooraf boeken betekent dat er bij de landing al een chauffeur klaarstaat met een naambordje in de aankomsthal, in plaats van aansluiten in de rij bij T1 of T2.',
     sections: [
       {
         h2: 'Wat een transfer vanaf de luchthaven kost',
-        body: 'Uw prijs is een vast bedrag uit onze eigen prijslijst: geen meterstand en geen schatting, en elke toeslag die op de route van toepassing is zit er al in. Een rit van de luchthaven naar elke plek in Barcelona kost een vaste € 50 in een standaardtaxi, ongeacht de afstand en ongeacht het tijdstip; in het weekend en op feestdagen komt er 7,5 % bij. Vul hierboven uw exacte bestemming in om uw eigen alles-inbegrepen prijs te zien.',
+        body: 'Uw prijs is een vast bedrag uit onze eigen prijslijst: geen meterstand en geen schatting, en elke toeslag die op de route van toepassing is zit er al in. Een rit van de luchthaven naar elke plek in Barcelona kost een vaste € 50 in een standaardtaxi, ongeacht de afstand en ongeacht het tijdstip; in het weekend en op feestdagen komt er 7,5 % bij. Vul hierboven uw exacte bestemming in om uw eigen vaste prijs te zien. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.',
       },
       {
         h2: 'Waar uw chauffeur op u wacht',
@@ -36,7 +36,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi Barcelona naar de Luchthaven | Online Boeken',
     description:
-      'Boek een taxi van Barcelona stad naar luchthaven El Prat. Vaste ophaaltijd, vaste alles-inbegrepen prijs en chauffeurs die de terminaldeuren kennen.',
+      'Boek een taxi van Barcelona stad naar luchthaven El Prat. Vaste ophaaltijd, één vaste prijs (tol extra) en chauffeurs die de terminaldeuren kennen.',
     h1: 'Taxi van Barcelona naar de luchthaven',
     intro:
       'Het is de heenrit die het echt waard is om te boeken. Een vooraf bestelde taxi staat op de afgesproken tijd voor uw hotel of appartement, en dat weegt veel zwaarder wanneer u een vlucht moet halen dan wanneer u aankomt.',
@@ -82,7 +82,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'De luchthaventoeslag van El Prat',
-        body: 'De luchthaventoeslag en elke andere kost die bij de route hoort zitten in de vaste prijs die wij u geven. Er loopt geen meter tijdens uw rit en er is geen tweede bedrag aan het eind, dus er kan niets verrassen.',
+        body: 'De luchthaventoeslag en elke andere kost die bij de route hoort zitten in de vaste prijs die wij u geven. Er loopt geen meter tijdens uw rit. Het enige wat niet in de prijs zit is tol voor snelwegen, die apart in rekening wordt gebracht wanneer de route tolwegen gebruikt.',
       },
       {
         h2: 'Cruisepassagiers en de haven',
@@ -109,15 +109,15 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       'Wat een taxi naar de luchthaven van Barcelona echt kost: onze vaste prijzen per voertuig, het bereik van de vaste prijs en wat het weekendtarief toevoegt.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
-      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter, geen gokken op afstand en niets af te rekenen in de auto. Hier staat de hele lijst en de drie dingen die er iets aan kunnen toevoegen.',
+      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter en geen gokken op afstand. Hier staat de hele lijst en de dingen die er iets aan kunnen toevoegen, waaronder tolgelden voor snelwegen, die apart in rekening worden gebracht.',
     sections: [
       {
         h2: 'Hoe uw tarief tot stand komt',
-        body: 'Een transfer is één vaste prijs, bepaald door route en voertuig, niet door afstand of klok. Van de luchthaven naar elke plek in Barcelona is één bedrag, van de luchthaven naar de cruiseterminal een ander, en standaardtaxi, zespersoons minivan en zevenpersoons van hebben elk hun eigen bedrag. Slechts drie dingen kunnen erbij komen: een bestemming buiten de vaste zone, een transfer naar de cruisehaven, en het weekend- en feestdagtarief. Elk verschijnt vóór het betalen als een eigen regel.',
+        body: 'Een transfer is één vaste prijs, bepaald door route en voertuig, niet door afstand of klok. Van de luchthaven naar elke plek in Barcelona is één bedrag, van de luchthaven naar de cruiseterminal een ander, en standaardtaxi, zespersoons minivan en zevenpersoons van hebben elk hun eigen bedrag. Slechts een paar dingen kunnen erbij komen: een bestemming buiten de vaste zone, een transfer naar de cruisehaven, en het weekend- en feestdagtarief. Tolgelden voor snelwegen worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Elke toevoeging aan de prijs verschijnt vóór het betalen als een eigen regel.',
       },
       {
         h2: 'Bestaat er een goedkope taxi vanaf de luchthaven?',
-        body: 'Vergelijk op waartegen de prijs u beschermt, niet alleen op het bedrag. Een vaste prijs beweegt niet meer zodra hij is afgesproken: het verkeer, een omleiding, een late landing en het tijdstip zijn ons probleem, niet het uwe, en in de auto wordt niets geïnd. Wat u wel kunt kiezen is het voertuig en reizen buiten het weekend. Wees op uw hoede bij een opvallend lage prijs: dat duidt meestal op een voertuig zonder vergunning, of op een bedrag dat nog groeit voordat u aankomt.',
+        body: 'Vergelijk op waartegen de prijs u beschermt, niet alleen op het bedrag. Een vaste prijs beweegt niet meer zodra hij is afgesproken: het verkeer, een omleiding, een late landing en het tijdstip zijn ons probleem, niet het uwe, Tolgelden voor snelwegen zijn de enige uitzondering: die worden apart in rekening gebracht. Wat u wel kunt kiezen is het voertuig en reizen buiten het weekend. Wees op uw hoede bij een opvallend lage prijs: dat duidt meestal op een voertuig zonder vergunning, of op een bedrag dat nog groeit voordat u aankomt.',
       },
       {
         h2: 'Hoe ver de vaste prijs reikt',
@@ -125,11 +125,11 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wat u verder betaalt',
-        body: 'U betaalt bij het online reserveren één alles-inbegrepen prijs. Die dekt de rit, elke toeslag die op uw route van toepassing is, en onze service om de auto te regelen en te garanderen. Er is geen tweede bedrag: in de taxi bent u niets verschuldigd, en u ontvangt per e-mail een bon voor de volledige prijs.',
+        body: 'U betaalt bij het online reserveren één vaste prijs. Die dekt de rit, elke toeslag die op uw route van toepassing is, en onze service om de auto te regelen en te garanderen. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. U ontvangt per e-mail een bon voor de betaalde prijs.',
       },
       {
         h2: 'Wat uw prijs nooit verandert',
-        body: 'Niet het tijdstip: een ophaalrit om 04:30 voor een vroeg vertrek kost precies hetzelfde als een rit om twee uur \'s middags, want een vaste prijs kent geen nachttarief. Ook niet het verkeer, de route die uw chauffeur neemt, de terminal waar u landt, het aantal passagiers binnen de capaciteit van het voertuig of de hoeveelheid bagage daarbinnen. Weekenden en feestdagen zijn het enige dat een vermelde prijs verhoogt, met één bekendgemaakt percentage en niet met een toeslag die meebeweegt met de drukte. Al het andere is ons risico en niet het uwe, en dat is precies wat u koopt door een prijs vooraf vast te leggen.',
+        body: 'Niet het tijdstip: een ophaalrit om 04:30 voor een vroeg vertrek kost precies hetzelfde als een rit om twee uur \'s middags, want een vaste prijs kent geen nachttarief. Ook niet het verkeer, de route die uw chauffeur neemt, de terminal waar u landt, het aantal passagiers binnen de capaciteit van het voertuig of de hoeveelheid bagage daarbinnen. Weekenden en feestdagen zijn het enige dat een vermelde prijs verhoogt, met één bekendgemaakt percentage en niet met een toeslag die meebeweegt met de drukte. Tolgelden voor snelwegen vormen de enige uitzondering en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. Al het andere is ons risico en niet het uwe, en dat is precies wat u koopt door een prijs vooraf vast te leggen.',
       },
       {
         h2: 'Hoe en wanneer u betaalt',
@@ -176,14 +176,14 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Station Sants naar Luchthaven Barcelona',
     description:
-      'Boek een taxi van station Barcelona-Sants naar luchthaven El Prat. Ongeveer 15 minuten, vaste alles-inbegrepen prijs inclusief stationstoeslag.',
+      'Boek een taxi van station Barcelona-Sants naar luchthaven El Prat. Ongeveer 15 minuten, één vaste prijs inclusief stationstoeslag, tol extra.',
     h1: 'Taxi van station Sants naar de luchthaven',
     intro:
       'Sants is het belangrijkste treinstation van Barcelona en het aankomstpunt van de AVE-treinen uit Madrid, Valencia en Sevilla. Het is ook het grote vervoersknooppunt dat het dichtst bij El Prat ligt: de taxirit duurt buiten de spits zo\'n 15 minuten.',
     sections: [
       {
         h2: 'De toeslag voor station Sants',
-        body: 'Ritten die op station Sants beginnen of eindigen kennen naast de vaste prijs een kleine vaste toeslag van de AMB. Samen met de luchthaventoeslag zitten beide al in de prijs die u vóór het boeken ziet, dus u hoeft er achteraf niets bij te rekenen.',
+        body: 'Ritten die op station Sants beginnen of eindigen kennen naast de vaste prijs een kleine vaste toeslag van de AMB. Samen met de luchthaventoeslag zitten beide al in de prijs die u vóór het boeken ziet, Tolgelden voor snelwegen worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht.',
       },
       {
         h2: 'Waar u uw chauffeur treft',
@@ -355,7 +355,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Taxi Centrum Barcelona naar de Luchthaven',
     description:
-      'Boek een taxi van het centrum van Barcelona naar luchthaven El Prat. Ophalen op elk centraal adres, vaste alles-inbegrepen prijs en vooraf bevestigde chauffeur.',
+      'Boek een taxi van het centrum van Barcelona naar luchthaven El Prat. Ophalen op elk centraal adres, één vaste prijs en vooraf bevestigde chauffeur.',
     h1: 'Taxi van het centrum van Barcelona naar de luchthaven',
     intro:
       'Vanaf elk centraal punt — de Rambla, plaça de Catalunya, El Born, de Raval of de Passeig de Gràcia — is El Prat 20 tot 35 minuten rijden. Vooraf boeken legt de ophaaltijd en de wagen vast, wat vooral op de heenrit telt.',
@@ -370,7 +370,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wat de rit kost',
-        body: 'Eén vaste prijs van elk punt in het centrum tot El Prat, met elke toeslag er al in en niets te betalen in de taxi. Het tijdstip verandert hem niet; weekenden en feestdagen voegen 7,5 % toe. Vul uw adres in om uw exacte prijs te zien voordat u beslist.',
+        body: 'Eén vaste prijs van elk punt in het centrum tot El Prat, met elke toeslag er al in. Tolgelden voor snelwegen worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Het tijdstip verandert hem niet; weekenden en feestdagen voegen 7,5 % toe. Vul uw adres in om uw exacte prijs te zien voordat u beslist.',
       },
       {
         h2: 'Wat voor de vaste prijs als centrum telt',
@@ -390,7 +390,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: 'Groepstaxi Luchthaven Barcelona | 5, 6 of 7 Plaatsen',
     description:
-      'Taxi voor groepen vanaf de luchthaven van Barcelona: een bus met zes of zeven plaatsen, of meerdere auto’s in één boeking. Eén vaste alles-inbegrepen prijs.',
+      'Taxi voor groepen vanaf de luchthaven van Barcelona: een bus met zes of zeven plaatsen, of meerdere auto’s in één boeking. Eén vaste prijs, tol extra.',
     h1: 'Groepstaxi vanaf de luchthaven van Barcelona',
     intro:
       'Een standaardtaxi in Barcelona heeft vier zitplaatsen. Voor vijf, zes of zeven personen is er een Mercedes Vito met zes zitplaatsen en een Mercedes V-Class met zeven zitplaatsen, en voor een groter gezelschap boekt u twee of meer auto’s samen. Een enkele taxi met negen zitplaatsen bestaat er in Barcelona niet, en dat zeggen we liever dan u het aan de stoeprand te laten ontdekken.',
@@ -401,11 +401,11 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Vijf, zes of zeven personen: één voertuig',
-        body: 'Tot zeven personen reizen samen in één voertuig, tegen een vaste alles-inbegrepen prijs. De taxi met vier zitplaatsen kost € 50 tussen de luchthaven en elke plek in Barcelona, de Vito met zes zitplaatsen € 70 en de V-Class met zeven zitplaatsen € 75. Weekenden en feestdagen voegen 7,5 % toe. Dat is de hele prijs: de luchthaventoeslag, de toeslag voor het grotere voertuig en onze service zitten er al in, en u bent de chauffeur niets verschuldigd.',
+        body: 'Tot zeven personen reizen samen in één voertuig, tegen een vaste prijs. De taxi met vier zitplaatsen kost € 50 tussen de luchthaven en elke plek in Barcelona, de Vito met zes zitplaatsen € 70 en de V-Class met zeven zitplaatsen € 75. Weekenden en feestdagen voegen 7,5 % toe. Dat is de hele vaste prijs: de luchthaventoeslag, de toeslag voor het grotere voertuig en onze service zitten er al in. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.',
       },
       {
         h2: 'Acht, negen of tien personen: boek twee auto’s samen',
-        body: 'Boven de zeven is er geen enkele taxi, dus het antwoord is twee of meer voertuigen die als één gezelschap reizen. Kies meerdere auto’s in één boeking, dan worden ze samen gereserveerd, in één keer betaald en naar hetzelfde ophaalpunt gestuurd, tot zes auto’s. Elke auto kost de vermelde prijs voor zijn formaat, dus er is geen offerte op maat en geen verrassing: acht personen reizen in twee taxi’s met vier zitplaatsen voor € 100 op een doordeweekse dag, negen in een Vito met zes zitplaatsen en een taxi met vier zitplaatsen voor € 120 (€ 70 plus € 50), en elf in een V-Class met zeven zitplaatsen en een taxi met vier zitplaatsen voor € 125.',
+        body: 'Boven de zeven is er geen enkele taxi, dus het antwoord is twee of meer voertuigen die als één gezelschap reizen. Kies meerdere auto’s in één boeking, dan worden ze samen gereserveerd, in één keer betaald en naar hetzelfde ophaalpunt gestuurd, tot zes auto’s. Elke auto kost de vermelde prijs voor zijn formaat, dus er is geen offerte op maat: acht personen reizen in twee taxi’s met vier zitplaatsen voor € 100 op een doordeweekse dag, negen in een Vito met zes zitplaatsen en een taxi met vier zitplaatsen voor € 120 (€ 70 plus € 50), en elf in een V-Class met zeven zitplaatsen en een taxi met vier zitplaatsen voor € 125.',
       },
       {
         h2: 'Eén afrekening, één ophaalpunt, alle auto’s samen',
@@ -421,14 +421,14 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: 'Taxi Cruisehaven Barcelona | Vaste Prijs Transfer',
     description:
-      'Taxi tussen de luchthaven van Barcelona en de cruisehaven: vaste alles-inbegrepen prijs voor Moll Adossat A tot E, online geboekt, niets te betalen in de taxi.',
+      'Taxi tussen de luchthaven van Barcelona en de cruisehaven: één vaste prijs voor Moll Adossat A tot E, online geboekt. Tol extra.',
     h1: 'Taxi tussen de luchthaven van Barcelona en de cruisehaven',
     intro:
-      'Cruisepassagiers komen aan met grote koffers en een strakke deadline, dus een transfer vraagt om een prijs die u vooraf kent en een chauffeur die u al verwacht. Tussen El Prat en de cruiseterminals van Moll Adossat is de prijs vast, alles-inbegrepen en afgesproken bij het boeken: € 60 in een auto met vier zitplaatsen, € 80 in een bus met zes zitplaatsen en € 85 in een bus met zeven zitplaatsen.',
+      'Cruisepassagiers komen aan met grote koffers en een strakke deadline, dus een transfer vraagt om een prijs die u vooraf kent en een chauffeur die u al verwacht. Tussen El Prat en de cruiseterminals van Moll Adossat is de prijs vast en afgesproken bij het boeken: € 60 in een auto met vier zitplaatsen, € 80 in een bus met zes zitplaatsen en € 85 in een bus met zeven zitplaatsen.',
     sections: [
       {
         h2: 'Wat de transfer van de luchthaven naar de cruisehaven kost',
-        body: 'De prijs is in beide richtingen hetzelfde en geldt voor elke terminal van Moll Adossat, A tot E. Een taxi met vier zitplaatsen kost € 60, de Mercedes Vito met zes zitplaatsen € 80 en de Mercedes V-Class met zeven zitplaatsen € 85. Weekenden en feestdagen voegen 7,5 % toe. De luchthaventoeslag, de toeslag van de cruiseterminal en de toeslag voor het grotere voertuig zitten al in dat bedrag, dus het is geen taximeterstand en u bent de chauffeur aan de kade niets verschuldigd. Het is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief van een taxi die u bij de standplaats neemt.',
+        body: 'De prijs is in beide richtingen hetzelfde en geldt voor elke terminal van Moll Adossat, A tot E. Een taxi met vier zitplaatsen kost € 60, de Mercedes Vito met zes zitplaatsen € 80 en de Mercedes V-Class met zeven zitplaatsen € 85. Weekenden en feestdagen voegen 7,5 % toe. De luchthaventoeslag, de toeslag van de cruiseterminal en de toeslag voor het grotere voertuig zitten al in dat bedrag, dus het is geen taximeterstand. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. Het is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief van een taxi die u bij de standplaats neemt.',
       },
       {
         h2: 'Van het schip naar een hotel of naar de stad',
@@ -455,7 +455,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       'Boek in enkele minuten een taxi naar de luchthaven van Barcelona. Direct een vaste prijs, veilig betalen en meteen een bevestiging.',
     h1: 'Een taxi naar de luchthaven van Barcelona online boeken',
     intro:
-      'Online boeken kost twee minuten en levert u een bevestigde wagen met toegewezen chauffeur op. U betaalt online één alles-inbegrepen prijs en bent in de taxi niets verschuldigd.',
+      'Online boeken kost twee minuten en levert u een bevestigde wagen met toegewezen chauffeur op. U betaalt de vaste prijs online; tolgelden voor snelwegen worden apart in rekening gebracht wanneer de route tolwegen gebruikt.',
     sections: [
       {
         h2: 'Wat u nodig heeft om te boeken',
@@ -479,7 +479,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Hoe u betaalt, en wat u terugkrijgt',
-        body: 'Het hele bedrag betaalt u online op het moment van boeken, met creditcard, pinpas of Bizum. Er is geen splitsing in aanbetaling en restbedrag en u bent de chauffeur in de auto helemaal niets verschuldigd — geen rit, geen toeslag, geen fooi verwacht. Een bon voor het volledige bedrag ontvangt u per e-mail bij uw bevestiging, dus de papieren voor een declaratie zijn er vóór de rit en niet erna. Hebt u daarnaast de gereguleerde taxifactuur voor de rit zelf nodig, dan kan uw chauffeur die op verzoek uitschrijven.',
+        body: 'De vaste prijs betaalt u online op het moment van boeken, met creditcard, pinpas of Bizum. Daarvoor is er geen splitsing in aanbetaling en restbedrag, en er wordt geen fooi verwacht. Tolgelden worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Een bon voor het betaalde bedrag ontvangt u per e-mail bij uw bevestiging, dus de papieren voor een declaratie zijn er vóór de rit en niet erna. Hebt u daarnaast de gereguleerde taxifactuur voor de rit zelf nodig, dan kan uw chauffeur die op verzoek uitschrijven.',
       },
     ],
   },

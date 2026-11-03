@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Aeroporto Barcellona | Transfer El Prat Online",
-    "metaDescription": "Prenoti online e in anticipo un taxi per l’aeroporto di Barcellona. Un prezzo fisso tutto incluso, concordato prima e bloccato alla prenotazione.",
+    "metaDescription": "Prenoti online e in anticipo un taxi per l’aeroporto di Barcellona. Un prezzo fisso, concordato prima e bloccato alla prenotazione. Pedaggi esclusi.",
     "h1": "Taxi per l'aeroporto di Barcellona, prenotato prima di atterrare",
-    "intro": "Prenoti un taxi di Barcellona autorizzato, nero e giallo, da o per l’aeroporto di El Prat. Un prezzo fisso tutto incluso, mostrato prima di prenotare e bloccato al momento della prenotazione — senza tassametro e senza stime di distanza — lo paga online e non resta nulla da saldare al conducente.",
+    "intro": "Prenoti un taxi di Barcellona autorizzato, nero e giallo, da o per l’aeroporto di El Prat. Un prezzo fisso, mostrato prima di prenotare e bloccato al momento della prenotazione — senza tassametro e senza stime di distanza — da pagare online alla prenotazione. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "trust": {
       "licensed": "Taxi autorizzati AMB",
       "meter": "Prezzo fisso, senza tassametro",
@@ -41,15 +41,15 @@
       "whyTitle": "Perché prenotare con noi",
       "whyIntro": "Prezzi fissi, un'auto riservata per te e qualcuno da chiamare se qualcosa cambia.",
       "destTitle": "Dove andiamo anche",
-      "destIntro": "Oltre la corsa in aeroporto: la costa, la montagna e le strade verso sud. Un'auto autorizzata, un prezzo tutto incluso, per quanto lontano.",
+      "destIntro": "Oltre la corsa in aeroporto: la costa, la montagna e le strade verso sud. Un'auto autorizzata e un prezzo fisso, per quanto lontano; i pedaggi autostradali sono addebitati a parte.",
       "fleetLede": "a uno swipe di distanza.",
       "destLede": "con il prezzo già noto.",
-      "faresLede": "tutto incluso, concordati prima di prenotare.",
+      "faresLede": "a prezzo fisso, concordati prima di prenotare.",
       "closingLede": "e si parte.",
       "faresTitle": "Prezzi fissi",
-      "faresIntro": "Ogni cifra qui sotto è un prezzo fisso tutto incluso, la stessa che indica il modulo di prenotazione.",
+      "faresIntro": "Ogni cifra qui sotto è un prezzo fisso, lo stesso che indica il modulo di prenotazione. I pedaggi autostradali non sono inclusi e vengono addebitati a parte.",
       "closingTitle": "Atterra, esci",
-      "closingIntro": "Un prezzo tutto incluso in pochi secondi. Non serve un account per vederlo.",
+      "closingIntro": "Un prezzo fisso in pochi secondi. Non serve un account per vederlo.",
       "howLede": "in tre mosse.",
       "whyLede": "e perché regge.",
       "routesLede": "i più richiesti."
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Un prezzo, fissato prima di partire",
-        "body": "Il suo prezzo è una cifra fissa del nostro listino, non una lettura del tassametro: dipende dal percorso e dal veicolo, non dalla distanza né dall’ora. Lo accetta prima di prenotare e resta bloccato, quindi la cifra indicata è quella che paga, qualunque cosa faccia il traffico."
+        "body": "Il suo prezzo è una cifra fissa del nostro listino, non una lettura del tassametro: dipende dal percorso e dal veicolo, non dalla distanza né dall’ora. Lo accetta prima di prenotare e resta bloccato, quindi il prezzo indicato non cambia, qualunque cosa faccia il traffico. I pedaggi autostradali, quando il percorso li prevede, sono addebitati a parte."
       },
       "flight": {
         "title": "Seguiamo il tuo volo",
@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Paga online, una volta, per intero",
-      "note": "Pagamento sicuro con SumUp. In taxi non si deve nulla all’autista."
+      "note": "Pagamento sicuro con SumUp. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Tempo stim.",
     "payNow": "Paga ora",
     "payInTaxi": "Paga in taxi",
-    "nothingInTaxi": "Niente da pagare in taxi",
+    "nothingInTaxi": "Pedaggi autostradali addebitati a parte",
     "paidOnline": "Pagato online",
     "balanceInTaxi": "Saldo da pagare al conducente",
     "bookNow": "Prenota ora",
@@ -132,7 +132,7 @@
       "portTransfer": "Trasferimento porto crociere",
       "weekendSurge": "Tariffa weekend / festivi"
     },
-    "disclaimer": "Il prezzo è fissato al momento della prenotazione e copre l'intero tragitto, compresi tutti i supplementi ufficiali. In taxi non si paga nulla. La ricevuta ti arriva via e-mail con la conferma.",
+    "disclaimer": "Il prezzo è fissato al momento della prenotazione e copre il tragitto, compresi tutti i supplementi ufficiali. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio. La ricevuta ti arriva via e-mail con la conferma.",
     "errors": {
       "pickupRequired": "Scegli un punto di ritiro.",
       "dropoffRequired": "Scegli una destinazione.",
@@ -147,10 +147,10 @@
     },
     "panelKicker": "Prenotazione",
     "panelTitle": "Pianifica il tuo transfer",
-    "panelSub": "Prezzo immediato · Tutto incluso · 24/7",
+    "panelSub": "Prezzo immediato · Prezzo fisso · 24/7",
     "totalPrice": "Prezzo totale",
-    "allInclusive": "Tutto incluso · pagamento online",
-    "includedNote": "Un solo prezzo per l'intero tragitto: tariffa, supplementi ufficiali e prenotazione inclusi. Non paghi nulla al conducente.",
+    "allInclusive": "Prezzo fisso · pagamento online",
+    "includedNote": "Un solo prezzo fisso per il tragitto: tariffa, supplementi ufficiali e prenotazione. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "sections": {
       "nextTitle": "Cosa succede dopo",
       "nextLede": "una volta pagato."
@@ -163,7 +163,7 @@
     "returnTooEarly": "Il ritorno deve essere almeno un’ora dopo il ritiro.",
     "fixedRouteApplied": "Prezzo fisso per questa tratta. Distanza e orario non lo modificano.",
     "fixedPlusKmApplied": "Prezzo fisso fino a {km} km, più la distanza oltre.",
-    "perVehicle": "per veicolo, tutto incluso"
+    "perVehicle": "per veicolo, prezzo fisso"
   },
   "fleet": {
     "h1": "La nostra flotta di taxi a Barcellona",
@@ -221,7 +221,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi è un servizio di prenotazione di taxi autorizzati di Barcellona. Siamo un intermediario, non un operatore di taxi: fissiamo i nostri prezzi di trasferimento e lei ci paga un unico importo tutto incluso alla prenotazione.",
+    "about": "BCNAirportTaxi è un servizio di prenotazione di taxi autorizzati di Barcellona. Siamo un intermediario, non un operatore di taxi: fissiamo i nostri prezzi di trasferimento e lei ci paga il prezzo fisso alla prenotazione. I pedaggi autostradali sono addebitati a parte.",
     "routes": "Tratte popolari",
     "company": "Azienda",
     "legal": "Note legali",
@@ -276,7 +276,7 @@
     "coverage5": "Veicoli da 4 a 8 posti e minivan con spazio per i bagagli",
     "coverage6": "Prezzo fisso confermato prima della partenza",
     "pricingTitle": "Come vengono calcolati questi prezzi.",
-    "pricingBody": "Le tariffe a tassametro dell'AMB coprono solo l'area metropolitana di Barcellona. Tutte le destinazioni di questa pagina si trovano oltre quel confine, quindi questi viaggi seguono la tariffa interurbana stabilita dalla Generalitat de Catalunya: <b>T-6</b> nei giorni feriali tra le 08:00 e le 20:00 e la più alta <b>T-7</b> di notte, nei fine settimana e nei giorni festivi. Inserisci i tuoi indirizzi nel modulo per un prezzo esatto, oppure chiedici un preventivo fisso scritto che includa il tempo di attesa.",
+    "pricingBody": "Le tariffe a tassametro dell'AMB coprono solo l'area metropolitana di Barcellona. Tutte le destinazioni di questa pagina si trovano oltre quel confine, quindi questi viaggi seguono la tariffa interurbana stabilita dalla Generalitat de Catalunya: <b>T-6</b> nei giorni feriali tra le 08:00 e le 20:00 e la più alta <b>T-7</b> di notte, nei fine settimana e nei giorni festivi. Inserisci i tuoi indirizzi nel modulo per un prezzo esatto, oppure chiedici un preventivo fisso scritto che includa il tempo di attesa. I pedaggi autostradali non sono inclusi in questi prezzi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "featuredH2": "Tratte più richieste",
     "featuredIntro": "I transfer che ci vengono chiesti più spesso, ognuno con la propria pagina.",
     "badgeRoutePage": "Pagina dedicata",
@@ -310,7 +310,7 @@
     "ctaBookInstead": "Prenota invece un transfer aeroportuale",
     "pricedH2": "Come viene calcolato il prezzo di questa tratta",
     "pricedP1": "Le tariffe a tassametro dell'AMB coprono solo l'area metropolitana di Barcellona. {place} si trova oltre quel confine, quindi questo viaggio segue la tariffa interurbana stabilita dalla Generalitat de Catalunya: <b>T-6</b> nei giorni feriali tra le 08:00 e le 20:00 e la più alta <b>T-7</b> di notte, nei fine settimana e nei giorni festivi.",
-    "pricedP2": "La cifra qui sopra è indicativa e si basa sulla distanza abituale. Inserisci gli indirizzi esatti nel modulo per un prezzo preciso, oppure chiedici su WhatsApp un preventivo fisso scritto che includa l'eventuale tempo di attesa.",
+    "pricedP2": "La cifra qui sopra è indicativa e si basa sulla distanza abituale. Inserisci gli indirizzi esatti nel modulo per un prezzo preciso, oppure chiedici su WhatsApp un preventivo fisso scritto che includa l'eventuale tempo di attesa. I pedaggi autostradali non sono inclusi in questo prezzo e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "interH2": "Perché un prezzo a lunga distanza funziona in modo diverso",
     "interP1": "Appena uno dei due capi del percorso si trova fuori dall’area metropolitana di Barcellona, il listino urbano fisso cessa di applicarsi e il viaggio viene calcolato a chilometro sulla tariffa interurbana fissata dalla Generalitat de Catalunya. Per questo la pagina indica una distanza e una cifra che ne deriva invece di uno dei prezzi urbani forfettari: nessun listino fisso onesto potrebbe coprire destinazioni le cui distanze variano di un fattore cinque.",
     "interP2": "La cifra al chilometro è più alta di quella urbana per un motivo che vale la pena conoscere. La tariffa interurbana tratta il viaggio come un circuito chiuso e addebita anche il rientro dell’autista, perché per legge non può caricare un cliente fuori dalla propria area e tornerebbe a vuoto. Un chilometro percorso costa dunque due chilometri su quella tariffa. Spiega quanto costa un trasferimento lungo, e perché un prezzo al chilometro pubblicizzato senza quel dettaglio è circa la metà di quello reale.",
@@ -320,7 +320,7 @@
     "photoAlt": "{place}, destinazione per un transfer privato da Barcellona",
     "waQuote": "Ciao, vorrei un preventivo a prezzo fisso per un transfer da Barcellona: {place}.",
     "waQuoteSibling": "Ciao, vorrei un preventivo per {name}.",
-    "metaDescription": "Taxi privato da Barcellona a {place}: prezzo fisso tutto incluso, autista con licenza e volo monitorato. Prenota online in pochi minuti."
+    "metaDescription": "Taxi privato da Barcellona a {place}: prezzo fisso, autista con licenza e volo monitorato. Pedaggi esclusi. Prenota online in pochi minuti."
   },
   "install": {
     "metaTitle": "Installa BCNAirportTaxi come app",
@@ -398,7 +398,9 @@
     "rebookTitle": "Ripeti questo viaggio",
     "rebookIntro": "Il tuo ultimo viaggio, pronto da ripetere. Cambia la data al pagamento.",
     "rebookCta": "Prenota di nuovo",
-    "happeningNow": "In corso ora"
+    "happeningNow": "In corso ora",
+    "tollsLabel": "Pedaggi autostradali",
+    "tollsValue": "Addebitati a parte quando il percorso utilizza strade a pedaggio"
   },
   "trip": {
     "livePosition": "Posizione in tempo reale",
@@ -442,7 +444,7 @@
     "rowBcnSitges": "Barcellona a Sitges",
     "rowBcnTarragona": "Barcellona a Tarragona",
     "rowBcnGirona": "Barcellona all aeroporto di Girona",
-    "note": "I trasferimenti per l’aeroporto e il porto crociere hanno un prezzo fisso: l’ora del giorno non lo cambia. Nei fine settimana e nei festivi si aggiunge il {surge} %, e una destinazione oltre {km} km dall’aeroporto o dal porto aggiunge {rate} per chilometro in più. Solo i viaggi che escono dall’area metropolitana sono tariffati a chilometro. Tutti i prezzi sono tutto incluso, senza nulla da pagare in taxi.",
+    "note": "I trasferimenti per l’aeroporto e il porto crociere hanno un prezzo fisso: l’ora del giorno non lo cambia. Nei fine settimana e nei festivi si aggiunge il {surge} %, e una destinazione oltre {km} km dall’aeroporto o dal porto aggiunge {rate} per chilometro in più. Solo i viaggi che escono dall’area metropolitana sono tariffati a chilometro. Ogni prezzo indicato è un prezzo fisso; i pedaggi autostradali non sono inclusi e vengono addebitati a parte.",
     "totalPrice": "Prezzo totale"
   },
   "checkout": {
@@ -483,9 +485,9 @@
     "bothLegs": "Andata e ritorno, pagati insieme"
   },
   "pricing": {
-    "feeBody": "Tutto. Il tragitto, ogni supplemento ufficiale applicabile al percorso e il nostro servizio di organizzazione e garanzia del veicolo, in un unico importo pagato online alla prenotazione. Non c’è una seconda cifra da saldare: in taxi non si deve nulla e una ricevuta completa arriva per e-mail con la conferma.",
+    "feeBody": "Il tragitto, ogni supplemento ufficiale applicabile al percorso e il nostro servizio di organizzazione e garanzia del veicolo, in un unico importo pagato online alla prenotazione. I pedaggi autostradali fanno eccezione: non sono inclusi e vengono addebitati a parte al cliente quando il percorso utilizza strade a pedaggio. Una ricevuta completa arriva per e-mail con la conferma.",
     "metaTitle": "Prezzi Taxi Aeroporto Barcellona 2026",
-    "metaDescription": "Prezzi fissi del taxi per l’aeroporto di Barcellona: {sedan} in città, {port} al porto crociere. Per veicolo, tutto incluso.",
+    "metaDescription": "Prezzi fissi del taxi per l’aeroporto di Barcellona: {sedan} in città, {port} al porto crociere. Per veicolo, pedaggi esclusi.",
     "h1": "Prezzi del taxi per l’aeroporto di Barcellona",
     "intro": "Un prezzo fisso per tragitto, concordato prima di prenotare e bloccato al momento della prenotazione. Non è una lettura del tassametro né una stima: la cifra che vede è quella che paga, qualunque cosa faccia il traffico e a qualunque ora.",
     "tableCaption": "Prezzi fissi di trasferimento, per veicolo",
@@ -510,7 +512,7 @@
     "zoneBody1": "Il prezzo di listino copre qualsiasi indirizzo entro {km} km dal terminal, misurati in linea d’aria e non lungo la strada. Questo comprende tutto il centro e quasi ogni luogo in cui alloggia un visitatore: Ciutat Vella, l’Eixample, Gràcia, Sants, il lungomare fino alla Barceloneta e Poblenou, e il Park Güell dietro Gràcia a 14,3 km, che pagano tutti quanto un hotel del passeig de Gràcia. L’eccezione sono i quartieri esterni a nord e a est: la Sagrera a 16,4 km, il Fòrum a 17,4, Sant Andreu a 17,7 e Nou Barris a 17,9 restano fuori dalla zona e a loro si aggiunge il prezzo al chilometro indicato sotto.",
     "zoneBody2": "La misurazione in linea d'aria è voluta e gioca a suo favore. La plaça de Catalunya è a 12,3 km dal terminal in linea d'aria ma a 19,6 km su strada, perché questa gira attorno al Llobregat ed entra lungo la Gran Via. Una zona misurata su strada a {km} km lascerebbe fuori il centro città e inizierebbe a conteggiare chilometri aggiuntivi proprio sul percorso più comune di tutti. Oltre la zona — Badalona a 21,8 km, Sant Cugat a 19,5 — si applica il prezzo di listino più {rate} per ogni chilometro aggiuntivo, come un'unica cifra pubblicata e non come la tariffa vigente in quel momento.",
     "supTitle": "I supplementi ufficiali, già compresi nel suo prezzo",
-    "supIntro": "La tariffa regolamentata di Barcellona aggiunge supplementi fissi per determinati luoghi e date. Non sono extra che addebitiamo a parte: ognuno è già contenuto nella cifra della tabella sopra, ed è per questo che in auto non c'è nulla da saldare. Sono elencati qui perché un supplemento visto su un tabellario tariffario sia un supplemento che lei possa collocare.",
+    "supIntro": "La tariffa regolamentata di Barcellona aggiunge supplementi fissi per determinati luoghi e date. Non sono extra che addebitiamo a parte: ognuno è già contenuto nella cifra della tabella sopra, quindi non vedrà alcun supplemento aggiunto. Sono elencati qui perché un supplemento visto su un tabellario tariffario sia un supplemento che lei possa collocare.",
     "supAirport": "Aeroporto di El Prat",
     "supPort": "Terminal crociere del Moll Adossat",
     "supSants": "Stazione di Sants",
@@ -520,12 +522,12 @@
     "supCap": "La tariffa regolamentata limita il totale dei supplementi di un singolo servizio a {cap}. In un normale trasferimento aeroportuale si applica un solo supplemento e quel tetto non viene mai raggiunto.",
     "neverTitle": "Cosa non cambia mai il suo prezzo",
     "neverBody1": "L'ora del giorno. Un ritiro alle 04:30 per un volo all'alba costa esattamente quanto una corsa alle due del pomeriggio. In un prezzo fisso non esiste tariffa notturna, né un sovrapprezzo di arrivo in aeroporto che compaia alla fine.",
-    "neverBody2": "E nemmeno il traffico, il percorso scelto dall'autista, il terminal di atterraggio, il numero di passeggeri fino alla capienza del veicolo o la quantità di bagaglio che ci sta. Fine settimana e festivi sono l'unica cosa che alza un prezzo di listino, con un'unica percentuale pubblicata. Tutto il resto è il nostro rischio, ed è esattamente ciò che si acquista fissando un prezzo in anticipo.",
+    "neverBody2": "E nemmeno il traffico, il percorso scelto dall'autista, il terminal di atterraggio, il numero di passeggeri fino alla capienza del veicolo o la quantità di bagaglio che ci sta. Fine settimana e festivi sono l'unica cosa che alza un prezzo di listino, con un'unica percentuale pubblicata, e i pedaggi autostradali sono addebitati a parte quando il percorso li prevede. Tutto il resto è il nostro rischio, ed è esattamente ciò che si acquista fissando un prezzo in anticipo.",
     "interTitle": "Percorsi fuori dall'area metropolitana",
     "interBody1": "Appena uno dei due capi del percorso si trova fuori dall'area metropolitana di Barcellona, la tariffa urbana cessa di applicarsi e il viaggio viene calcolato a chilometro sulla tariffa interurbana fissata dalla Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava e Andorra si calcolano così, quotati per intero prima della prenotazione e non ripresi dal listino fisso: nessun listino fisso onesto potrebbe coprire distanze che variano di un fattore cinque.",
     "interBody2": "La cifra al chilometro è più alta di quella urbana per un motivo che vale la pena conoscere: la tariffa interurbana tratta il viaggio come un circuito chiuso e addebita anche il rientro dell'autista, perché per legge non può caricare un cliente fuori dalla propria area e tornerebbe a vuoto. Un chilometro percorso costa dunque due chilometri su quella tariffa. È la ragione del costo di un trasferimento lungo, e la ragione per cui un prezzo al chilometro pubblicizzato senza quel dettaglio è circa la metà di quello reale.",
     "officialTitle": "È questa la tariffa ufficiale del taxi?",
-    "officialBody": "No. È il nostro prezzo fisso per un trasferimento prenotato e pagato in anticipo, non la tariffa regolamentata. Il taxi del posteggio si paga a tassametro secondo la tariffa dell'AMB. Con noi il prezzo è noto prima di partire e in auto non si deve nulla.",
+    "officialBody": "No. È il nostro prezzo fisso per un trasferimento prenotato e pagato in anticipo, non la tariffa regolamentata. Il taxi del posteggio si paga a tassametro secondo la tariffa dell'AMB. Con noi il prezzo è noto prima di partire. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "officialLink": "Come si confronta con il tassametro del posteggio",
     "adjTolls": "Pedaggi",
     "adjTollsValue": "Si applicano quando il percorso usa una strada a pedaggio"
@@ -535,7 +537,7 @@
   },
   "howItWorks": {
     "metaTitle": "Come prenotare un taxi per l'aeroporto di Barcellona",
-    "metaDescription": "Prenota un taxi per l'aeroporto di Barcellona in tre passi: prezzo immediato tutto incluso, pagamento online e incontro con l'autista.",
+    "metaDescription": "Prenota un taxi per l'aeroporto di Barcellona in tre passi: prezzo fisso immediato, pagamento online e incontro con l'autista. Pedaggi addebitati a parte.",
     "h1": "Come funziona",
     "steps": {
       "one": {
@@ -548,12 +550,12 @@
       },
       "three": {
         "title": "Incontra il tuo autista",
-        "body": "Il tuo autista ti aspetta all'orario concordato. È già tutto pagato, quindi in auto non c'è nulla da saldare."
+        "body": "Il tuo autista ti aspetta all'orario concordato. Il prezzo fisso è già pagato; i pedaggi autostradali, se il percorso utilizza strade a pedaggio, sono addebitati a parte."
       }
     },
     "live": {
       "reserved": "Prenotato · pagato online",
-      "arrived": "Arrivato · niente da pagare in taxi",
+      "arrived": "Arrivato · prezzo fisso pagato online",
       "live": "Autista in diretta"
     },
     "prepTitle": "Che cosa ci serve da lei",
@@ -564,7 +566,7 @@
     "afterBody2": "Successivamente al suo viaggio viene assegnato un autista e, quando ciò avviene, riceve per email il suo nome e il suo telefono insieme al punto d'incontro esatto per il suo terminal. Quell'assegnazione è un impegno reale su un'auto e una persona precise, non una richiesta lanciata a un gruppo quando lei atterra: per questo un trasferimento prenotato si comporta in modo diverso dalla coda al posteggio alle due di notte.",
     "dayTitle": "Il giorno del viaggio",
     "dayBody1": "Per un ritiro in aeroporto il suo autista attende dentro la sala arrivi, sul lato pubblico all'uscita del ritiro bagagli, con un cartello col suo nome. Non sul marciapiede e non nella coda del posteggio. Per un ritiro in città si presenta all'indirizzo che ha indicato, all'ora concordata.",
-    "dayBody2": "Tutto è già pagato, quindi in auto non c'è nulla da saldare: né corsa, né supplementi, né si attende una mancia. Se desidera la fattura ufficiale del tassametro per il percorso in sé, l'autista può rilasciarla su richiesta; la sua ricevuta per l'importo pagato è arrivata con la conferma.",
+    "dayBody2": "Il prezzo fisso è già pagato, quindi non c'è nessuna corsa né supplemento da saldare e non si attende una mancia. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, sono addebitati a parte. Se desidera la fattura ufficiale del tassametro per il percorso in sé, l'autista può rilasciarla su richiesta; la sua ricevuta per l'importo pagato è arrivata con la conferma.",
     "changeTitle": "Se qualcosa cambia",
     "changeBody1": "Può modificare i dati da sé entro 30 minuti dalla prenotazione e, in seguito, fino alla partenza del suo autista: risponda alla conferma o ci scriva su WhatsApp. Cambiare un terminal, un orario di ritiro o un indirizzo non costa nulla, e un terminal sbagliato è la correzione che facciamo più spesso.",
     "changeBody2": "Un volo in ritardo non è una modifica e non richiede nulla da parte sua: il ritiro segue l'orario reale di atterraggio, senza costi aggiuntivi e per quanto tardi sia l'aereo. Se il volo viene annullato del tutto, o i suoi programmi cambiano, ce lo dica appena lo sa: annullando almeno 24 ore prima del ritiro l'intero importo viene rimborsato sulla carta con cui ha pagato, di norma entro cinque-dieci giorni lavorativi. Entro quelle 24 ore cercheremo sempre di aiutarla, ma il rimborso non è più automatico."
@@ -576,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Il prezzo che vedo è quello che pago?",
-        "a": "Sì. Il prezzo che vede è quello che paga. È una cifra fissa del nostro listino, contiene già ogni supplemento ufficiale previsto per il suo percorso e si blocca nel momento della prenotazione. Traffico e percorso sono un rischio nostro, non suo: dopo non si aggiunge nulla e al conducente non si deve nulla."
+        "a": "Sì, per il tragitto. Il prezzo che vede è il prezzo fisso: una cifra del nostro listino che contiene già ogni supplemento ufficiale previsto per il suo percorso e si blocca nel momento della prenotazione. Traffico e percorso sono un rischio nostro, non suo. L'unica cosa che non comprende sono i pedaggi autostradali, che vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
       },
       "whyFee": {
         "q": "Cosa comprende il prezzo?",
-        "a": "Tutto. La corsa stessa, ogni supplemento ufficiale previsto per il tuo percorso — quello dell'aeroporto El Prat, quello del porto crociere, quello dei veicoli da cinque a otto passeggeri — e il nostro servizio di prenotare e garantire l'auto, assegnare un autista e assisterti il giorno stesso. Un solo importo, pagato online alla prenotazione, senza nulla a parte e senza debiti in taxi."
+        "a": "La corsa stessa, ogni supplemento ufficiale previsto per il tuo percorso — quello dell'aeroporto El Prat, quello del porto crociere, quello dei veicoli da cinque a otto passeggeri — e il nostro servizio di prenotare e garantire l'auto, assegnare un autista e assisterti il giorno stesso. Si paga online alla prenotazione. I pedaggi autostradali non sono inclusi: vengono addebitati a parte al cliente quando il percorso utilizza strade a pedaggio."
       },
       "invoice": {
         "q": "Posso avere una fattura?",
@@ -619,8 +621,8 @@
         "a": "A volte, e preferiamo dirlo chiaramente. In un giorno tranquillo infrasettimanale il tassametro al posteggio segna spesso meno, perché il nostro prezzo fisso include l'assunzione di un rischio di traffico che non si è verificato. Con traffico intenso, nel fine settimana o nelle tre notti con supplemento, il prezzo fisso è di norma più basso, e si conosce sempre in anticipo."
       },
       "payment": {
-        "q": "Come si paga? Si deve qualcosa all'autista?",
-        "a": "Si paga l'intero importo online al momento della prenotazione, con carta di credito, di debito o Bizum. In taxi non si deve assolutamente nulla: né corsa, né supplementi, né si attende una mancia. L'autista viene liquidato da noi in seguito e non le chiederà mai denaro."
+        "q": "Come si paga e cosa non è incluso?",
+        "a": "Si paga il prezzo fisso online al momento della prenotazione, con carta di credito, di debito o Bizum. Non si attende una mancia. I pedaggi autostradali non fanno parte di quel prezzo e vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
       },
       "flightDelay": {
         "q": "Cosa succede se il mio volo è in ritardo?",

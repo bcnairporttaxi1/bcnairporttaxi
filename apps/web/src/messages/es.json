@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
-    "metaDescription": "Reserva online y con antelación un taxi al aeropuerto de Barcelona. Un precio fijo todo incluido, acordado antes de reservar y bloqueado al hacerlo.",
+    "metaDescription": "Reserva online y con antelación un taxi al aeropuerto de Barcelona. Un precio fijo, acordado antes de reservar y bloqueado al hacerlo. Peajes aparte.",
     "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
-    "intro": "Reserva un taxi de Barcelona con licencia, negro y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo todo incluido, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — lo pagas online y no queda nada por pagar al conductor.",
+    "intro": "Reserva un taxi de Barcelona con licencia, negro y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — que pagas online al reservar. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "trust": {
       "licensed": "Taxis con licencia AMB",
       "meter": "Precio fijo, sin taxímetro",
@@ -41,15 +41,15 @@
       "whyTitle": "Por qué reservar con nosotros",
       "whyIntro": "Precios fijos, un coche reservado para ti y alguien a quien llamar si algo cambia.",
       "destTitle": "A dónde más vamos",
-      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia, un precio con todo incluido, por lejos que sea.",
+      "destIntro": "Más allá del aeropuerto: la costa, la montaña y las carreteras del sur. Un coche con licencia y un precio fijo, por lejos que sea; los peajes se cobran aparte.",
       "fleetLede": "a un gesto de distancia.",
       "destLede": "con precio antes de salir.",
-      "faresLede": "todo incluido, acordados antes de reservar.",
+      "faresLede": "precio fijo, acordado antes de reservar.",
       "closingLede": "y en marcha.",
       "faresTitle": "Precios fijos",
-      "faresIntro": "Cada importe de abajo es un precio fijo con todo incluido, el mismo que te da el formulario de reserva.",
+      "faresIntro": "Cada importe de abajo es un precio fijo, el mismo que te da el formulario de reserva. Los peajes no están incluidos y se cobran aparte.",
       "closingTitle": "Aterriza, sal",
-      "closingIntro": "Un precio con todo incluido en segundos. No necesitas cuenta para verlo.",
+      "closingIntro": "Un precio fijo en segundos. No necesitas cuenta para verlo.",
       "howLede": "en tres pasos.",
       "whyLede": "y por qué se sostiene.",
       "routesLede": "las que más se piden."
@@ -57,7 +57,7 @@
     "why": {
       "meter": {
         "title": "Un precio, fijado antes de viajar",
-        "body": "Tu precio es una cifra fija de nuestra propia lista, no una lectura del taxímetro: depende de la ruta y del vehículo, no de la distancia ni de la hora. Lo aceptas antes de reservar y queda bloqueado al hacerlo, así que el precio que ves es el que pagas, pase lo que pase con el tráfico."
+        "body": "Tu precio es una cifra fija de nuestra propia lista, no una lectura del taxímetro: depende de la ruta y del vehículo, no de la distancia ni de la hora. Lo aceptas antes de reservar y queda bloqueado al hacerlo, así que el precio que te damos no se mueve, pase lo que pase con el tráfico. Los peajes, cuando la ruta los utiliza, se cobran aparte."
       },
       "flight": {
         "title": "Seguimos tu vuelo",
@@ -75,7 +75,7 @@
     "kicker": "Servicio de taxi con licencia al aeropuerto de Barcelona",
     "payment": {
       "title": "Paga online, una vez, el importe completo",
-      "note": "Pago seguro con SumUp. No se debe nada al conductor en el taxi."
+      "note": "Pago seguro con SumUp. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Tiempo est.",
     "payNow": "Pagar ahora",
     "payInTaxi": "Pagar en el taxi",
-    "nothingInTaxi": "Nada que pagar en el taxi",
+    "nothingInTaxi": "Los peajes se cobran aparte",
     "paidOnline": "Pagado online",
     "balanceInTaxi": "Resto a pagar al conductor",
     "bookNow": "Reservar ahora",
@@ -134,7 +134,7 @@
       "portTransfer": "Traslado al puerto de cruceros",
       "weekendSurge": "Tarifa de fin de semana / festivo"
     },
-    "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. No se paga nada al conductor en el taxi. Recibirás el recibo por correo con tu confirmación.",
+    "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje. Recibirás el recibo por correo con tu confirmación.",
     "errors": {
       "pickupRequired": "Elige un punto de recogida.",
       "dropoffRequired": "Elige un destino.",
@@ -149,10 +149,10 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planifica tu traslado",
-    "panelSub": "Precio al instante · Todo incluido · 24/7",
+    "panelSub": "Precio al instante · Precio fijo · 24/7",
     "totalPrice": "Precio total",
-    "allInclusive": "Todo incluido · pago online",
-    "includedNote": "Un solo precio para todo el trayecto: tarifa, suplementos oficiales y reserva incluidos. No pagas nada al conductor.",
+    "allInclusive": "Precio fijo · pago online",
+    "includedNote": "Un solo precio fijo para el trayecto: tarifa, suplementos oficiales y reserva. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "sections": {
       "nextTitle": "Qué pasa después",
       "nextLede": "una vez has pagado."
@@ -163,7 +163,7 @@
     "returnTooEarly": "La vuelta debe ser al menos una hora después de la recogida.",
     "fixedRouteApplied": "Precio fijo para esta ruta. La distancia y la hora no lo modifican.",
     "fixedPlusKmApplied": "Precio fijo hasta {km} km, más la distancia adicional.",
-    "perVehicle": "por vehículo, todo incluido"
+    "perVehicle": "por vehículo, precio fijo"
   },
   "fleet": {
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
@@ -221,7 +221,7 @@
     "relatedTransfers": "Traslados relacionados"
   },
   "footer": {
-    "about": "BCNAirportTaxi es un servicio de reservas de taxis con licencia de Barcelona. Somos intermediarios, no operadores de taxi: fijamos nuestros propios precios de traslado y pagas un único importe con todo incluido al reservar.",
+    "about": "BCNAirportTaxi es un servicio de reservas de taxis con licencia de Barcelona. Somos intermediarios, no operadores de taxi: fijamos nuestros propios precios de traslado y pagas el precio fijo al reservar. Los peajes se cobran aparte.",
     "routes": "Rutas populares",
     "company": "Empresa",
     "legal": "Legal",
@@ -331,7 +331,7 @@
     "coverage5": "Vehículos de 4 a 8 plazas y minivans con espacio para equipaje",
     "coverage6": "Precio fijo confirmado antes de viajar",
     "pricingTitle": "Cómo se calculan estos precios.",
-    "pricingBody": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. Todos los destinos de esta página quedan fuera, así que estos trayectos se rigen por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos. Introduce tus direcciones en el formulario para un precio exacto, o pídenos un presupuesto fijo por escrito que incluya el tiempo de espera.",
+    "pricingBody": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. Todos los destinos de esta página quedan fuera, así que estos trayectos se rigen por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos. Introduce tus direcciones en el formulario para un precio exacto, o pídenos un presupuesto fijo por escrito que incluya el tiempo de espera. Los peajes no están incluidos en estos precios y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "featuredH2": "Rutas destacadas",
     "featuredIntro": "Los traslados que más nos piden, cada uno con su propia página de ruta.",
     "badgeRoutePage": "Página de ruta",
@@ -365,7 +365,7 @@
     "ctaBookInstead": "Reservar mejor un traslado al aeropuerto",
     "pricedH2": "Cómo se calcula el precio de esta ruta",
     "pricedP1": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. {place} queda fuera, así que este trayecto se rige por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos.",
-    "pricedP2": "La cifra de arriba es orientativa y se basa en la distancia habitual. Introduce tus direcciones exactas en el formulario para un precio preciso, o pídenos por WhatsApp un presupuesto fijo por escrito que incluya el tiempo de espera.",
+    "pricedP2": "La cifra de arriba es orientativa y se basa en la distancia habitual. Introduce tus direcciones exactas en el formulario para un precio preciso, o pídenos por WhatsApp un presupuesto fijo por escrito que incluya el tiempo de espera. Los peajes no están incluidos en este precio y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "interH2": "Por qué un precio de larga distancia funciona de otra manera",
     "interP1": "En cuanto uno de los extremos del trayecto queda fuera del área metropolitana de Barcelona, la lista urbana fija deja de aplicarse y el viaje se calcula por kilómetro con la tarifa interurbana que fija la Generalitat de Catalunya. Por eso esta página indica una distancia y una cifra derivada de ella en lugar de uno de los precios urbanos planos: ninguna lista fija honesta podría cubrir destinos cuyas distancias se diferencian en un factor de cinco.",
     "interP2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer. La tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Eso explica lo que cuesta un traslado largo, y por qué un precio por kilómetro anunciado en cualquier sitio sin ese detalle es aproximadamente la mitad del real.",
@@ -375,7 +375,7 @@
     "photoAlt": "{place}, destino de traslado privado desde Barcelona",
     "waQuote": "Hola, quería un presupuesto fijo para un traslado desde Barcelona: {place}.",
     "waQuoteSibling": "Hola, quería un presupuesto para {name}.",
-    "metaDescription": "Taxi privado de Barcelona a {place}: precio fijo todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
+    "metaDescription": "{name} en taxi privado: un precio fijo, conductor con licencia y seguimiento de tu vuelo. Peajes aparte. Reserva online en minutos."
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",
@@ -453,7 +453,9 @@
     "rebookTitle": "Repite este trayecto",
     "rebookIntro": "Tu último viaje, listo para repetir. Cambia la fecha al pagar.",
     "rebookCta": "Reservar de nuevo",
-    "happeningNow": "En curso ahora"
+    "happeningNow": "En curso ahora",
+    "tollsLabel": "Peajes",
+    "tollsValue": "Se cobran aparte cuando la ruta utiliza vías de peaje"
   },
   "trip": {
     "livePosition": "Posición en directo",
@@ -497,13 +499,13 @@
     "rowBcnSitges": "Barcelona a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona al aeropuerto de Girona",
-    "note": "Los traslados al aeropuerto y al puerto de cruceros tienen precio fijo: la hora del día no lo cambia. Fines de semana y festivos añaden un {surge} %, y un destino a más de {km} km del aeropuerto o del puerto añade {rate} por kilómetro extra. Solo los viajes que salen del área metropolitana se cobran por kilómetro. Todos los precios son todo incluido, sin nada que pagar en el taxi.",
+    "note": "Los traslados al aeropuerto y al puerto de cruceros tienen precio fijo: la hora del día no lo cambia. Fines de semana y festivos añaden un {surge} %, y un destino a más de {km} km del aeropuerto o del puerto añade {rate} por kilómetro extra. Solo los viajes que salen del área metropolitana se cobran por kilómetro. Todos los precios son precios fijos; los peajes no están incluidos y se cobran aparte.",
     "totalPrice": "Precio total"
   },
   "pricing": {
-    "feeBody": "Todo. El trayecto, cada suplemento oficial que corresponda a tu ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. No hay una segunda cifra que liquidar: no se debe nada en el taxi y se envía un recibo completo por email con la confirmación.",
+    "feeBody": "El trayecto, cada suplemento oficial que corresponda a tu ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. Los peajes son la excepción: no están incluidos y se cobran aparte al cliente cuando la ruta utiliza vías de peaje. Con la confirmación se envía por email un recibo completo.",
     "metaTitle": "Precios Taxi Aeropuerto Barcelona 2026",
-    "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros. Todo incluido.",
+    "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros. Por vehículo, peajes aparte.",
     "h1": "Precios del taxi al aeropuerto de Barcelona",
     "intro": "Un precio fijo por trayecto, acordado antes de reservar y bloqueado al hacerlo. No es una lectura del taxímetro ni una estimación: la cifra que ves es la que pagas, pase lo que pase con el tráfico y sea la hora que sea.",
     "tableCaption": "Precios fijos de traslado, por vehículo",
@@ -528,7 +530,7 @@
     "zoneBody1": "El precio de la lista cubre cualquier dirección situada a menos de {km} km de la terminal, medidos en línea recta y no por carretera. Eso abarca todo el centro y casi cualquier sitio donde se aloje un visitante: Ciutat Vella, el Eixample, Gràcia, Sants, el frente marítimo hasta la Barceloneta y el Poblenou, y el Park Güell por detrás de Gràcia a 14,3 km, que pagan todos lo mismo que un hotel del passeig de Gràcia. La excepción son los distritos del norte y del este: la Sagrera a 16,4 km, el Fòrum a 17,4, Sant Andreu a 17,7 y Nou Barris a 17,9 quedan fuera de la zona y se les añade el precio por kilómetro indicado más abajo.",
     "zoneBody2": "La medición en línea recta es deliberada y juega a tu favor. La plaça de Catalunya está a 12,3 km de la terminal a vuelo de pájaro, pero a 19,6 km por carretera, porque la vía rodea el Llobregat y entra por la Gran Via. Una zona medida por carretera a {km} km dejaría fuera el centro de la ciudad y empezaría a cobrar kilómetros extra en el trayecto más habitual de todos. Más allá de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— se aplica el precio de la lista más {rate} por cada kilómetro adicional, como una única cifra publicada y no como la tarifa que toque a esa hora.",
     "supTitle": "Los suplementos oficiales, ya incluidos en tu precio",
-    "supIntro": "La tarifa regulada de Barcelona añade suplementos fijos por determinados lugares y fechas. No son extras que cobremos aparte: cada uno ya está contenido en la cifra de la tabla anterior, y por eso no hay nada que liquidar en el coche. Los enumeramos aquí para que un suplemento que veas en un cuadro de tarifas sea un suplemento que puedas situar.",
+    "supIntro": "La tarifa regulada de Barcelona añade suplementos fijos por determinados lugares y fechas. No son extras que cobremos aparte: cada uno ya está contenido en la cifra de la tabla anterior, así que no verás ningún suplemento sumado a ella. Los enumeramos aquí para que un suplemento que veas en un cuadro de tarifas sea un suplemento que puedas situar.",
     "supAirport": "Aeropuerto de El Prat",
     "supPort": "Terminal de cruceros del Moll Adossat",
     "supSants": "Estación de Sants",
@@ -538,12 +540,12 @@
     "supCap": "La tarifa regulada limita el total de suplementos de un mismo servicio a {cap}. En un traslado de aeropuerto normal se aplica un solo suplemento y nunca se alcanza ese techo.",
     "neverTitle": "Qué no cambia nunca tu precio",
     "neverBody1": "La hora del día. Una recogida a las 04:30 para un vuelo temprano cuesta exactamente lo mismo que un trayecto a las dos de la tarde. En un precio fijo no hay tarifa nocturna, ni recargo por llegada al aeropuerto que aparezca al final.",
-    "neverBody2": "Tampoco el tráfico, la ruta que elija el conductor, la terminal en la que aterrices, el número de pasajeros hasta la capacidad del vehículo ni la cantidad de equipaje que quepa en él. Los fines de semana y festivos son lo único que eleva un precio de la lista, con un porcentaje único publicado. Todo lo demás es nuestro riesgo, y es precisamente lo que se compra al fijar un precio por adelantado.",
+    "neverBody2": "Tampoco el tráfico, la ruta que elija el conductor, la terminal en la que aterrices, el número de pasajeros hasta la capacidad del vehículo ni la cantidad de equipaje que quepa en él. Los fines de semana y festivos son lo único que eleva un precio de la lista, con un porcentaje único publicado, y los peajes se cobran aparte cuando la ruta los utiliza. Todo lo demás es nuestro riesgo, y es precisamente lo que se compra al fijar un precio por adelantado.",
     "interTitle": "Trayectos fuera del área metropolitana",
     "interBody1": "En cuanto uno de los extremos del trayecto queda fuera del área metropolitana de Barcelona, la tarifa urbana deja de aplicarse y el viaje se calcula por kilómetro con la tarifa interurbana que fija la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava y Andorra se calculan así, con presupuesto completo antes de reservar y no a partir de la lista fija: ninguna lista fija honesta podría cubrir distancias que se diferencian en un factor de cinco.",
     "interBody2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer: la tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Es la razón de que un trayecto largo cueste lo que cuesta, y de que un precio por kilómetro anunciado en cualquier sitio sin ese detalle sea aproximadamente la mitad del real.",
     "officialTitle": "¿Es esta la tarifa oficial del taxi?",
-    "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar y no se debe nada en el coche.",
+    "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "officialLink": "Cómo se compara con el taxímetro de la parada",
     "adjTolls": "Peajes",
     "adjTollsValue": "Se aplican cuando la ruta usa una vía de peaje"
@@ -553,7 +555,7 @@
   },
   "howItWorks": {
     "metaTitle": "Cómo funciona reservar un taxi al aeropuerto de Barcelona",
-    "metaDescription": "Reserva un taxi al aeropuerto de Barcelona en tres pasos: precio inmediato con todo incluido, pago online y encuentro con tu conductor.",
+    "metaDescription": "Reserva un taxi al aeropuerto de Barcelona en tres pasos: precio fijo inmediato, pago online y encuentro con tu conductor. Los peajes se cobran aparte.",
     "h1": "Cómo funciona",
     "steps": {
       "one": {
@@ -566,12 +568,12 @@
       },
       "three": {
         "title": "Encuentra a tu conductor",
-        "body": "Tu conductor te espera a la hora acordada. Todo está ya pagado, así que no hay nada que liquidar en el coche."
+        "body": "Tu conductor te espera a la hora acordada. El precio fijo ya está pagado; los peajes, si la ruta utiliza vías de peaje, se cobran aparte."
       }
     },
     "live": {
       "reserved": "Reservado · pagado online",
-      "arrived": "Ha llegado · nada que pagar en el taxi",
+      "arrived": "Ha llegado · precio fijo pagado online",
       "live": "Conductor en directo"
     },
     "prepTitle": "Qué necesitamos de ti",
@@ -582,7 +584,7 @@
     "afterBody2": "Después se asigna un conductor a tu trayecto y, cuando eso ocurre, recibes por correo su nombre y su teléfono junto con el punto exacto de encuentro para tu terminal. Esa asignación es un compromiso real de un coche y una persona concretos, no una petición lanzada a un grupo cuando aterrizas, y por eso un traslado reservado se comporta de forma distinta a la cola de la parada a las dos de la madrugada.",
     "dayTitle": "El día del viaje",
     "dayBody1": "En una recogida en el aeropuerto tu conductor espera dentro de la sala de llegadas, en la zona pública a la salida de la recogida de equipajes, con un cartel con tu nombre. No en la acera ni en la cola de la parada. En una recogida en la ciudad acude a la dirección que indicaste, a la hora acordada.",
-    "dayBody2": "Todo está ya pagado, así que no hay nada que liquidar en el coche: ni carrera, ni suplementos, ni se espera propina. Si quieres la factura oficial del taxímetro por el trayecto en sí, el conductor puede facilitarla si se la pides; tu propio recibo por el importe pagado llegó con la confirmación.",
+    "dayBody2": "El precio fijo ya está pagado, así que no hay ni carrera ni suplementos que liquidar, y no se espera propina. Los peajes, cuando la ruta utiliza vías de peaje, se cobran aparte. Si quieres la factura oficial del taxímetro por el trayecto en sí, el conductor puede facilitarla si se la pides; tu propio recibo por el importe pagado llegó con la confirmación.",
     "changeTitle": "Si algo cambia",
     "changeBody1": "Puedes cambiar los datos tú mismo durante los 30 minutos siguientes a la reserva y, después, hasta que el conductor salga: responde a tu confirmación o escríbenos por WhatsApp. Cambiar una terminal, una hora de recogida o una dirección no cuesta nada, y una terminal equivocada es la corrección más frecuente que hacemos.",
     "changeBody2": "Un vuelo retrasado no es un cambio y no requiere nada por tu parte: la recogida sigue la hora real de aterrizaje, sin coste adicional y por mucho que se retrase el avión. Si tu vuelo se cancela del todo, o tus planes se caen, avísanos en cuanto lo sepas: si cancelas al menos 24 horas antes de la recogida se devuelve el importe completo a la tarjeta con la que pagaste, normalmente en cinco a diez días laborables. Dentro de esas 24 horas siempre intentaremos ayudar, pero el reembolso ya no es automático."
@@ -594,11 +596,11 @@
     "items": {
       "fareAccurate": {
         "q": "¿El precio que veo es el que pago?",
-        "a": "Sí. El precio que ves es el que pagas. Es una cifra fija de nuestra propia lista, ya incluye todos los suplementos oficiales que correspondan a tu ruta y queda bloqueado en el momento de reservar. El tráfico y el recorrido son nuestro riesgo, no el tuyo: después no se añade nada y al conductor no se le debe nada."
+        "a": "Sí, por el trayecto. El precio que ves es el precio fijo: una cifra de nuestra propia lista que ya incluye todos los suplementos oficiales que correspondan a tu ruta y que queda bloqueada en el momento de reservar. El tráfico y el recorrido son nuestro riesgo, no el tuyo. Lo único que no incluye son los peajes, que se cobran aparte cuando la ruta utiliza vías de peaje."
       },
       "whyFee": {
         "q": "¿Qué incluye el precio?",
-        "a": "Todo. El trayecto en sí, todos los suplementos oficiales que correspondan a tu ruta —el del aeropuerto de El Prat, el del puerto de cruceros, el de vehículos de cinco a ocho plazas— y nuestro servicio de reservar y garantizar el coche, asignar conductor y darte soporte el día del viaje. Es un único importe, pagado online al reservar, sin nada aparte y sin deber nada en el taxi."
+        "a": "El trayecto en sí, todos los suplementos oficiales que correspondan a tu ruta —el del aeropuerto de El Prat, el del puerto de cruceros, el de vehículos de cinco a ocho plazas— y nuestro servicio de reservar y garantizar el coche, asignar conductor y darte soporte el día del viaje. Se paga online al reservar. Los peajes no están incluidos: se cobran aparte al cliente cuando la ruta utiliza vías de peaje."
       },
       "invoice": {
         "q": "¿Puedo recibir factura?",
@@ -637,8 +639,8 @@
         "a": "A veces, y preferimos decirlo claro. Un día tranquilo entre semana el taxímetro de la parada suele marcar menos, porque nuestro precio fijo incluye asumir un riesgo de tráfico que no se produjo. Con mucho tráfico, en fin de semana o en las tres noches con suplemento, el precio fijo suele ser más bajo, y siempre se conoce de antemano."
       },
       "payment": {
-        "q": "¿Cómo se paga? ¿Hay que darle algo al conductor?",
-        "a": "Se paga el importe completo en línea al reservar, con tarjeta de crédito, de débito o Bizum. En el taxi no se debe absolutamente nada: ni carrera, ni suplementos, ni se espera propina. Al conductor le liquidamos nosotros después y nunca te pedirá dinero."
+        "q": "¿Cómo se paga y qué no está incluido?",
+        "a": "Pagas el precio fijo en línea al reservar, con tarjeta de crédito, de débito o Bizum. No se espera propina. Los peajes no forman parte de ese precio y se cobran aparte cuando la ruta utiliza vías de peaje."
       },
       "flightDelay": {
         "q": "¿Qué pasa si mi vuelo se retrasa?",

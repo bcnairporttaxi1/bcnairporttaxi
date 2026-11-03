@@ -24,9 +24,9 @@
   },
   "home": {
     "metaTitle": "Barcelona Airport Taxi | Book El Prat Transfers Online",
-    "metaDescription": "Book a Barcelona airport taxi online in advance. One fixed all-inclusive price, agreed before you book and locked when you do.",
+    "metaDescription": "Book a Barcelona airport taxi online in advance. One fixed price, agreed before you book and locked when you do. Motorway tolls are extra.",
     "h1": "Barcelona airport taxi, booked before you land",
-    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. One fixed all-inclusive price, shown before you book and locked when you do — no meter, no distance guesswork — you pay it online and there is nothing to settle with the driver.",
+    "intro": "Reserve a licensed black-and-yellow Barcelona taxi to or from El Prat airport. One fixed price, shown before you book and locked when you do — no meter, no distance guesswork — paid online when you book. Motorway tolls are not included and are charged separately when the route uses toll roads.",
     "trust": {
       "licensed": "Licensed AMB taxis",
       "meter": "Fixed price, no meter",
@@ -44,15 +44,15 @@
       "whyTitle": "Why book with us",
       "whyIntro": "Fixed prices, a car held for you, and someone to call if anything changes.",
       "destTitle": "Where else we go",
-      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car, one all-inclusive price, however far it runs.",
+      "destIntro": "Beyond the airport run: the coast, the mountains, and the roads south. One licensed car and one fixed price, however far it runs; motorway tolls are charged separately.",
       "fleetLede": "one swipe apart.",
       "destLede": "priced before you go.",
-      "faresLede": "all-inclusive, agreed before you book.",
+      "faresLede": "fixed price, agreed before you book.",
       "closingLede": "drive off.",
       "faresTitle": "Fixed prices",
-      "faresIntro": "Every figure below is an all-inclusive fixed price — the same one the booking form quotes.",
+      "faresIntro": "Every figure below is a fixed price — the same one the booking form quotes. Motorway tolls are not included and are charged separately.",
       "closingTitle": "Land, walk out,",
-      "closingIntro": "One all-inclusive price in seconds. No account needed to see it.",
+      "closingIntro": "One fixed price in seconds. No account needed to see it.",
       "howLede": "in three moves.",
       "whyLede": "and why it holds.",
       "routesLede": "the ones people take."
@@ -60,7 +60,7 @@
     "why": {
       "meter": {
         "title": "One price, locked before you travel",
-        "body": "Your price is a fixed figure from our own list, not a meter reading — set by route and vehicle, not by distance or the hour. You agree it before you book and it is locked when you do, so the figure you are quoted is the figure you pay, whatever the traffic does."
+        "body": "Your price is a fixed figure from our own list, not a meter reading — set by route and vehicle, not by distance or the hour. You agree it before you book and it is locked when you do, so the price you are quoted does not move whatever the traffic does. Motorway tolls, where the route uses them, are charged separately."
       },
       "flight": {
         "title": "We watch your flight",
@@ -78,7 +78,7 @@
     "kicker": "Barcelona's licensed airport taxi service",
     "payment": {
       "title": "Pay online, once, in full",
-      "note": "Secure checkout by SumUp. Nothing is owed to the driver in the car."
+      "note": "Secure checkout by SumUp. Motorway tolls are not included and are charged separately when the route uses toll roads."
     }
   },
   "quote": {
@@ -106,7 +106,7 @@
     "duration": "Est. time",
     "payNow": "Pay now",
     "payInTaxi": "Pay in the taxi",
-    "nothingInTaxi": "Nothing to pay in the taxi",
+    "nothingInTaxi": "Motorway tolls are charged separately",
     "paidOnline": "Paid online",
     "balanceInTaxi": "Balance to pay the driver",
     "bookNow": "Book now",
@@ -137,7 +137,7 @@
       "portTransfer": "Cruise port transfer",
       "weekendSurge": "Weekend / holiday rate"
     },
-    "disclaimer": "Your price is locked when you book and covers the whole journey, including every official supplement. Nothing is owed to the driver in the taxi. A receipt is emailed with your confirmation.",
+    "disclaimer": "Your price is locked when you book and covers the journey, including every official supplement. Motorway tolls are not included and are charged separately when the route uses toll roads. A receipt is emailed with your confirmation.",
     "errors": {
       "pickupRequired": "Choose a pickup point.",
       "dropoffRequired": "Choose a destination.",
@@ -152,10 +152,10 @@
     },
     "panelKicker": "Reservation",
     "panelTitle": "Plan your transfer",
-    "panelSub": "Instant price · All-inclusive · 24/7",
+    "panelSub": "Instant price · Fixed price · 24/7",
     "totalPrice": "Total price",
-    "allInclusive": "All-inclusive · pay online",
-    "includedNote": "One price for the whole journey — fare, official supplements and booking all included. Nothing to pay your driver.",
+    "allInclusive": "Fixed price · pay online",
+    "includedNote": "One fixed price for the journey — fare, official supplements and booking. Motorway tolls are not included and are charged separately when the route uses toll roads.",
     "sections": {
       "nextTitle": "What happens next",
       "nextLede": "once you have paid."
@@ -166,7 +166,7 @@
     "returnTooEarly": "The return must be at least an hour after the pickup.",
     "fixedRouteApplied": "One fixed price for this route. Distance and time of day do not change it.",
     "fixedPlusKmApplied": "Fixed price up to {km} km, plus the extra distance beyond it.",
-    "perVehicle": "per vehicle, all-inclusive"
+    "perVehicle": "per vehicle, fixed price"
   },
   "fleet": {
     "metaTitle": "Barcelona Taxi Fleet: Cars, Minivans, Vans",
@@ -213,12 +213,12 @@
   },
   "pricing": {
     "metaTitle": "Barcelona Airport Taxi Prices 2026",
-    "metaDescription": "Fixed Barcelona airport taxi prices: {sedan} to anywhere in the city, {port} to the cruise port. Per vehicle, all-inclusive. Book online.",
+    "metaDescription": "Fixed Barcelona airport taxi prices: {sedan} to anywhere in the city, {port} to the cruise port. Per vehicle, tolls extra. Book online.",
     "h1": "Barcelona airport taxi prices",
     "intro": "One fixed price per journey, agreed before you book and locked when you do. It is not a meter reading and not an estimate: the figure you see is the figure you pay, whatever the traffic does and whatever the hour.",
     "tableCaption": "Fixed transfer prices, per vehicle",
     "feeTitle": "What your price includes",
-    "feeBody": "Everything. The journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car, in one amount paid online when you book. There is no second figure to settle: nothing at all is owed in the taxi, and a full receipt is emailed with your confirmation.",
+    "feeBody": "The journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car, in one amount paid online when you book. Motorway tolls are the exception: they are not included and are charged separately to the customer when the route uses toll roads. A full receipt is emailed with your confirmation.",
     "verifyNote": "Our prices are fixed by us and reviewed as costs change. Journeys outside the metropolitan area are priced per kilometre on the interurban tariff set by the Generalitat de Catalunya, which we verify at every changeover.",
     "routeCol": "Route",
     "standardCol": "Standard taxi (4)",
@@ -239,7 +239,7 @@
     "zoneBody1": "The listed price covers any address within {km} km of the terminal, measured in a straight line rather than along the road. That takes in the whole of the centre and almost everywhere a visitor stays: Ciutat Vella, the Eixample, Gràcia, Sants, the waterfront out to Barceloneta and Poblenou, and Park Güell up behind Gràcia at 14.3 km, which all pay the same as a hotel on Passeig de Gràcia. The outer northern and eastern districts are the exception — La Sagrera at 16.4 km, the Fòrum at 17.4, Sant Andreu at 17.7 and Nou Barris at 17.9 sit beyond the zone and add the per-kilometre rate below.",
     "zoneBody2": "The straight-line measurement is deliberate, and it works in your favour. Plaça de Catalunya is 12.3 km from the terminal as the crow flies but 19.6 km by road, because the road runs around the Llobregat and in along the Gran Via. A zone measured along the road at {km} km would put the centre of the city outside it and start billing extra kilometres on the most common journey of all. Beyond the zone — Badalona at 21.8 km, Sant Cugat at 19.5 — the list price applies plus {rate} for each additional kilometre, as one published figure rather than the tariff of the hour.",
     "supTitle": "The official supplements, already inside your price",
-    "supIntro": "Barcelona's regulated tariff adds fixed supplements for certain places and dates. They are not extras we bill on top: each one is already contained in the figure in the table above, which is why there is nothing to settle in the car. They are listed here so that a supplement you see on a tariff board is one you can account for.",
+    "supIntro": "Barcelona's regulated tariff adds fixed supplements for certain places and dates. They are not extras we bill on top: each one is already contained in the figure in the table above, so you will not see a supplement added to it. They are listed here so that a supplement you see on a tariff board is one you can account for.",
     "supAirport": "El Prat airport",
     "supPort": "Moll Adossat cruise terminal",
     "supSants": "Sants station",
@@ -249,19 +249,19 @@
     "supCap": "The regulated tariff caps total supplements on a single service at {cap}. On an ordinary airport transfer one supplement applies and the ceiling is never reached.",
     "neverTitle": "What never changes your price",
     "neverBody1": "The hour of the day. A 04:30 pickup for an early departure costs exactly what a two-o'clock-in-the-afternoon run costs. There is no night rate on a fixed price, and no airport-arrival surcharge appearing at the end.",
-    "neverBody2": "Nor does the traffic, the route your driver chooses, which terminal you land at, the number of passengers up to the vehicle's capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by a single published percentage. Everything else is our risk, which is what you are buying when you fix a price in advance.",
+    "neverBody2": "Nor does the traffic, the route your driver chooses, which terminal you land at, the number of passengers up to the vehicle's capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by a single published percentage, and motorway tolls are charged separately where the route uses them. Everything else is our risk, which is what you are buying when you fix a price in advance.",
     "interTitle": "Journeys outside the metropolitan area",
     "interBody1": "Once either end of the journey lies outside the Barcelona metropolitan area, the city tariff stops applying and the journey is priced per kilometre on the interurban tariff set by the Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, the Costa Brava and Andorra are all priced this way, quoted in full before you book rather than taken from the fixed list — no honest fixed list could cover distances that differ by a factor of five.",
     "interBody2": "The per-kilometre figure is higher than the city one for a reason worth knowing: the interurban tariff treats the journey as a closed circuit and bills the driver's return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It is why a long transfer costs what it does, and why a per-kilometre rate quoted anywhere without that detail is about half the real one.",
     "officialTitle": "Is this the official taxi fare?",
-    "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel and nothing is owed in the car.",
+    "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel. Motorway tolls are not included and are charged separately when the route uses toll roads.",
     "officialLink": "How the rank meter compares",
     "adjTolls": "Motorway tolls",
     "adjTollsValue": "Apply where the route uses a toll road"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
-    "metaDescription": "Book a Barcelona airport taxi in three steps: get an instant all-inclusive price, pay online, and meet your driver. Nothing to pay in the taxi.",
+    "metaDescription": "Book a Barcelona airport taxi in three steps: get an instant fixed price, pay online, and meet your driver. Motorway tolls are charged separately.",
     "h1": "How it works",
     "steps": {
       "one": {
@@ -274,12 +274,12 @@
       },
       "three": {
         "title": "Meet your driver",
-        "body": "Your driver meets you at the agreed time. Everything is already paid, so there is nothing to settle in the car."
+        "body": "Your driver meets you at the agreed time. The fixed price is already paid; motorway tolls, if the route uses toll roads, are charged separately."
       }
     },
     "live": {
       "reserved": "Reserved · paid online",
-      "arrived": "Arrived · nothing to pay in the car",
+      "arrived": "Arrived · fixed price paid online",
       "live": "Driver live"
     },
     "prepTitle": "What we need from you",
@@ -290,7 +290,7 @@
     "afterBody2": "A driver is then assigned to your trip, and when that happens you are emailed their name and phone number along with the exact meeting point for your terminal. That assignment is a real commitment of a specific car and person rather than a request put out to a pool when you land, which is why a booked transfer behaves differently from a rank queue at two in the morning.",
     "dayTitle": "On the day",
     "dayBody1": "For an airport pickup your driver waits inside the arrivals hall, on the public side of the exit from baggage reclaim, holding a sign with your name. Not at the kerb, and not in the rank queue. For a city pickup they come to the address you gave, at the time agreed.",
-    "dayBody2": "Everything is already paid, so there is nothing to settle in the car: no fare, no supplement, no tip expected. If you want the official taxi meter invoice for the journey itself, the driver can provide it on request — your own receipt for the amount you paid arrived with the confirmation.",
+    "dayBody2": "The fixed price is already paid, so there is no fare or supplement to settle, and no tip is expected. Motorway tolls, where the route uses toll roads, are charged separately. If you want the official taxi meter invoice for the journey itself, the driver can provide it on request — your own receipt for the amount you paid arrived with the confirmation.",
     "changeTitle": "If something changes",
     "changeBody1": "You can change the details yourself within 30 minutes of booking, and after that up until your driver sets off — reply to your confirmation or message us on WhatsApp. Changing a terminal, a pickup time or an address costs nothing, and a changed terminal is the single most common correction we make.",
     "changeBody2": "A delayed flight is not a change and needs no action from you: the pickup follows the real landing time, at no extra charge, however late the aircraft is. If your flight is cancelled outright, or your plans fall through, tell us as soon as you know — cancel at least 24 hours before the pickup and the whole amount is refunded to the card you paid with, normally within five to ten working days. Inside 24 hours we will still always try to help, but a refund at that point is no longer automatic."
@@ -302,11 +302,11 @@
     "items": {
       "fareAccurate": {
         "q": "Is the price I see the price I pay?",
-        "a": "Yes. The price you are shown is the price you pay. It is a fixed figure from our own list, it already contains every official supplement that applies to your route, and it is locked the moment you book. Traffic and routing are our risk, not yours: nothing is added afterwards and nothing is owed to the driver."
+        "a": "Yes, for the journey. The price you are shown is the fixed price: a figure from our own list that already contains every official supplement that applies to your route, and it is locked the moment you book. Traffic and routing are our risk, not yours. The one thing it does not include is motorway tolls, which are charged separately when the route uses toll roads."
       },
       "whyFee": {
         "q": "What is included in the price?",
-        "a": "Everything. The fare itself, every official supplement that applies to your route — the El Prat airport charge, the cruise-port charge, the five-to-eight-passenger vehicle charge — and our service for reserving and guaranteeing the car, assigning a driver and supporting you on the day. It is one amount, paid online when you book, with nothing separate to pay and nothing owed in the taxi."
+        "a": "The fare itself, every official supplement that applies to your route — the El Prat airport charge, the cruise-port charge, the five-to-eight-passenger vehicle charge — and our service for reserving and guaranteeing the car, assigning a driver and supporting you on the day. It is paid online when you book. Motorway tolls are not included: they are charged separately to the customer when the route uses toll roads."
       },
       "invoice": {
         "q": "Can I get an invoice?",
@@ -345,8 +345,8 @@
         "a": "Sometimes, and we would rather be straight about it. On a quiet weekday the rank's meter often reads less, because our fixed price includes absorbing traffic risk that did not happen. In heavy traffic, at weekends, or on the three supplement nights, the fixed price is usually lower — and it is always known in advance."
       },
       "payment": {
-        "q": "How do I pay, and is anything owed to the driver?",
-        "a": "You pay the whole amount online when you book, by credit card, debit card or Bizum. Nothing at all is owed in the taxi — no fare, no supplement, no tip expected. The driver is settled by us afterwards and never asks you for money."
+        "q": "How do I pay, and what is not included?",
+        "a": "You pay the fixed price online when you book, by credit card, debit card or Bizum. No tip is expected. Motorway tolls are not part of that price and are charged separately when the route uses toll roads."
       },
       "flightDelay": {
         "q": "What happens if my flight is delayed?",
@@ -500,7 +500,7 @@
     "relatedTransfers": "Related transfers"
   },
   "footer": {
-    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: we set our own fixed transfer prices, and you pay one all-inclusive amount to us when you book.",
+    "about": "BCNAirportTaxi is a booking service for licensed Barcelona taxis. We are an intermediary, not a taxi operator: we set our own fixed transfer prices, and you pay the fixed price to us when you book. Motorway tolls are charged separately.",
     "routes": "Popular routes",
     "company": "Company",
     "legal": "Legal",
@@ -555,7 +555,7 @@
     "coverage5": "4–8 seat vehicles and minivans with luggage space",
     "coverage6": "Fixed price confirmed before you travel",
     "pricingTitle": "How these are priced.",
-    "pricingBody": "AMB meter tariffs cover the Barcelona metropolitan area only. Every destination on this page lies beyond it, so these journeys run on the interurban tariff set by the Generalitat de Catalunya: <b>T-6</b> on weekdays between 08:00 and 20:00, and the higher <b>T-7</b> at night, at weekends and on holidays. Enter your addresses in the booking form for an exact price, or ask us for a written fixed quote including waiting time.",
+    "pricingBody": "AMB meter tariffs cover the Barcelona metropolitan area only. Every destination on this page lies beyond it, so these journeys run on the interurban tariff set by the Generalitat de Catalunya: <b>T-6</b> on weekdays between 08:00 and 20:00, and the higher <b>T-7</b> at night, at weekends and on holidays. Enter your addresses in the booking form for an exact price, or ask us for a written fixed quote including waiting time. Motorway tolls are not included in these prices and are charged separately when the route uses toll roads.",
     "featuredH2": "Featured routes",
     "featuredIntro": "The transfers we are asked for most, each with its own route page.",
     "badgeRoutePage": "Route page",
@@ -589,7 +589,7 @@
     "ctaBookInstead": "Book an airport transfer instead",
     "pricedH2": "How this route is priced",
     "pricedP1": "AMB meter tariffs cover the Barcelona metropolitan area only. {place} lies beyond it, so this journey runs on the interurban tariff set by the Generalitat de Catalunya: <b>T-6</b> on weekdays between 08:00 and 20:00, and the higher <b>T-7</b> at night, at weekends and on holidays.",
-    "pricedP2": "The figure above is a guide based on the typical distance. Enter your exact addresses in the booking form for a precise price, or ask us on WhatsApp for a written fixed quote including any waiting time.",
+    "pricedP2": "The figure above is a guide based on the typical distance. Enter your exact addresses in the booking form for a precise price, or ask us on WhatsApp for a written fixed quote including any waiting time. Motorway tolls are not included in this price and are charged separately when the route uses toll roads.",
     "interH2": "Why a long-distance price works differently",
     "interP1": "Once either end of the journey lies outside the Barcelona metropolitan area, the fixed city list stops applying and the trip is priced per kilometre on the interurban tariff set by the Generalitat de Catalunya. That is why this page quotes a distance and a figure derived from it rather than one of the flat city prices: no honest fixed list could cover destinations whose distances differ by a factor of five.",
     "interP2": "The per-kilometre figure is higher than the city one for a reason worth knowing. The interurban tariff treats the journey as a closed circuit and bills the driver’s return leg as well, because they cannot legally pick up a fare outside their own area and would otherwise drive home empty. So a kilometre travelled costs two kilometres on that tariff. It explains what a long transfer costs, and why a per-kilometre rate quoted anywhere without that detail is about half the real one.",
@@ -599,7 +599,7 @@
     "photoAlt": "{place}, destination for a private transfer from Barcelona",
     "waQuote": "Hi, I would like a fixed quote for a Barcelona transfer: {name}.",
     "waQuoteSibling": "Hi, I would like a quote for {name}.",
-    "metaDescription": "{name} by private taxi: one fixed all-inclusive price, a licensed driver and your flight tracked. Book online in minutes."
+    "metaDescription": "{name} by private taxi: one fixed price, a licensed driver and your flight tracked. Tolls extra. Book online in minutes."
   },
   "install": {
     "metaTitle": "Install BCNAirportTaxi as an App",
@@ -677,7 +677,9 @@
     "rebookTitle": "Book this journey again",
     "rebookIntro": "Your last trip, ready to repeat. Change the date at checkout.",
     "rebookCta": "Rebook this journey",
-    "happeningNow": "Happening now"
+    "happeningNow": "Happening now",
+    "tollsLabel": "Motorway tolls",
+    "tollsValue": "Charged separately when the route uses toll roads"
   },
   "trip": {
     "livePosition": "Live position",
@@ -721,7 +723,7 @@
     "rowBcnSitges": "Barcelona to Sitges",
     "rowBcnTarragona": "Barcelona to Tarragona",
     "rowBcnGirona": "Barcelona to Girona airport",
-    "note": "Airport and cruise port transfers are a fixed price: the hour of the day does not change it. Weekends and public holidays add {surge}%, and a drop-off more than {km} km from the airport or port adds {rate} for each extra kilometre. Only journeys that leave the metropolitan area are priced by the kilometre. Every price shown is all-inclusive, with nothing to pay in the taxi.",
+    "note": "Airport and cruise port transfers are a fixed price: the hour of the day does not change it. Weekends and public holidays add {surge}%, and a drop-off more than {km} km from the airport or port adds {rate} for each extra kilometre. Only journeys that leave the metropolitan area are priced by the kilometre. Every price shown is a fixed price; motorway tolls are not included and are charged separately.",
     "totalPrice": "Total price"
   },
   "findBooking": {

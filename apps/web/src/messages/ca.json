@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Aeroport Barcelona | Trasllats El Prat Online",
-    "metaDescription": "Reserva en línia i amb antelació un taxi a l’aeroport de Barcelona. Un preu fix tot inclòs, acordat abans de reservar i blocat en fer-ho.",
+    "metaDescription": "Reserva en línia i amb antelació un taxi a l’aeroport de Barcelona. Un preu fix, acordat abans de reservar i blocat en fer-ho. Peatges a part.",
     "h1": "Taxi a l'aeroport de Barcelona, reservat abans d'aterrar",
-    "intro": "Reserveu un taxi de Barcelona amb llicència, negre i groc, cap a o des de l’aeroport del Prat. Un preu fix tot inclòs, mostrat abans de reservar i blocat en fer-ho — sense taxímetre i sense càlculs de distància — el pagueu en línia i no queda res a pagar al conductor.",
+    "intro": "Reserveu un taxi de Barcelona amb llicència, negre i groc, cap a o des de l’aeroport del Prat. Un preu fix, mostrat abans de reservar i blocat en fer-ho — sense taxímetre i sense càlculs de distància — que es paga en línia en reservar. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
     "trust": {
       "licensed": "Taxis amb llicència AMB",
       "meter": "Preu fix, sense taxímetre",
@@ -41,15 +41,15 @@
       "whyTitle": "Per què reservar amb nosaltres",
       "whyIntro": "Preus fixos, un cotxe reservat per a tu i algú a qui trucar si alguna cosa canvia.",
       "destTitle": "On més anem",
-      "destIntro": "Més enllà de l'aeroport: la costa, la muntanya i les carreteres del sud. Un cotxe amb llicència, un preu amb tot inclòs, per lluny que sigui.",
+      "destIntro": "Més enllà de l'aeroport: la costa, la muntanya i les carreteres del sud. Un cotxe amb llicència i un preu fix, per lluny que sigui; els peatges d’autopista es cobren a part.",
       "fleetLede": "a un gest de distància.",
       "destLede": "amb preu abans de sortir.",
-      "faresLede": "tot inclòs, acordats abans de reservar.",
+      "faresLede": "preu fix, acordat abans de reservar.",
       "closingLede": "i en marxa.",
       "faresTitle": "Preus fixos",
-      "faresIntro": "Cada import de sota és un preu fix amb tot inclòs, el mateix que et dóna el formulari de reserva.",
+      "faresIntro": "Cada import de sota és un preu fix, el mateix que et dóna el formulari de reserva. Els peatges d’autopista no estan inclosos i es cobren a part.",
       "closingTitle": "Aterra, surt",
-      "closingIntro": "Un preu amb tot inclòs en segons. No cal cap compte per veure’l.",
+      "closingIntro": "Un preu fix en segons. No cal cap compte per veure’l.",
       "howLede": "en tres passos.",
       "whyLede": "i per què es manté.",
       "routesLede": "les que més es demanen."
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Un preu, fixat abans de viatjar",
-        "body": "El seu preu és una xifra fixa de la nostra pròpia llista, no una lectura del taxímetre: depèn de la ruta i del vehicle, no de la distància ni de l’hora. L’accepta abans de reservar i queda blocat en fer-ho, així que el preu que veu és el que paga, passi el que passi amb el trànsit."
+        "body": "El seu preu és una xifra fixa de la nostra pròpia llista, no una lectura del taxímetre: depèn de la ruta i del vehicle, no de la distància ni de l’hora. L’accepta abans de reservar i queda blocat en fer-ho, així que el preu que veu no canvia, passi el que passi amb el trànsit. Els peatges d’autopista, quan la ruta en fa servir, es cobren a part."
       },
       "flight": {
         "title": "Seguim el teu vol",
@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Paga en línia, un cop, l’import complet",
-      "note": "Pagament segur amb SumUp. No es deu res al conductor al taxi."
+      "note": "Pagament segur amb SumUp. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Temps est.",
     "payNow": "Pagar ara",
     "payInTaxi": "Pagar al taxi",
-    "nothingInTaxi": "Res a pagar al taxi",
+    "nothingInTaxi": "Els peatges es cobren a part",
     "paidOnline": "Pagat en línia",
     "balanceInTaxi": "Resta a pagar al conductor",
     "bookNow": "Reservar ara",
@@ -132,7 +132,7 @@
       "portTransfer": "Trasllat al port de creuers",
       "weekendSurge": "Tarifa de cap de setmana / festiu"
     },
-    "disclaimer": "El preu queda fixat en reservar i cobreix tot el trajecte, inclosos tots els suplements oficials. No es paga res al conductor dins el taxi. Rebràs el rebut per correu amb la confirmació.",
+    "disclaimer": "El preu queda fixat en reservar i cobreix el trajecte, inclosos tots els suplements oficials. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge. Rebràs el rebut per correu amb la confirmació.",
     "errors": {
       "pickupRequired": "Tria un punt de recollida.",
       "dropoffRequired": "Tria una destinació.",
@@ -147,10 +147,10 @@
     },
     "panelKicker": "Reserva",
     "panelTitle": "Planifica el teu trasllat",
-    "panelSub": "Preu a l'instant · Tot inclòs · 24/7",
+    "panelSub": "Preu a l'instant · Preu fix · 24/7",
     "totalPrice": "Preu total",
-    "allInclusive": "Tot inclòs · pagament en línia",
-    "includedNote": "Un sol preu per a tot el trajecte: tarifa, suplements oficials i reserva inclosos. No pagues res al conductor.",
+    "allInclusive": "Preu fix · pagament en línia",
+    "includedNote": "Un sol preu fix per al trajecte: tarifa, suplements oficials i reserva. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
     "sections": {
       "nextTitle": "Què passa després",
       "nextLede": "un cop has pagat."
@@ -163,7 +163,7 @@
     "returnTooEarly": "La tornada ha de ser almenys una hora després de la recollida.",
     "fixedRouteApplied": "Preu fix per a aquesta ruta. La distància i l’hora no el modifiquen.",
     "fixedPlusKmApplied": "Preu fix fins a {km} km, més la distància addicional.",
-    "perVehicle": "per vehicle, tot inclòs"
+    "perVehicle": "per vehicle, preu fix"
   },
   "fleet": {
     "h1": "La nostra flota de taxis a Barcelona",
@@ -221,7 +221,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi és un servei de reserves de taxis amb llicència de Barcelona. Som intermediaris, no operadors de taxi: fixem els nostres propis preus de trasllat i pagues un únic import amb tot inclòs en reservar.",
+    "about": "BCNAirportTaxi és un servei de reserves de taxis amb llicència de Barcelona. Som intermediaris, no operadors de taxi: fixem els nostres propis preus de trasllat i pagues el preu fix a nosaltres en reservar. Els peatges d’autopista es cobren a part.",
     "routes": "Rutes populars",
     "company": "Empresa",
     "legal": "Legal",
@@ -276,7 +276,7 @@
     "coverage5": "Vehicles de 4 a 8 places i minivans amb espai per a equipatge",
     "coverage6": "Preu tancat confirmat abans de viatjar",
     "pricingTitle": "Com es calculen aquests preus.",
-    "pricingBody": "Les tarifes del taxímetre de l'AMB només cobreixen l'àrea metropolitana de Barcelona. Totes les destinacions d'aquesta pàgina queden fora, així que aquests trajectes es regeixen per la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de dilluns a divendres entre les 08:00 i les 20:00, i la més alta <b>T-7</b> de nit, els caps de setmana i els festius. Introdueix les teves adreces al formulari per obtenir un preu exacte, o demana'ns un pressupost tancat per escrit que inclogui el temps d'espera.",
+    "pricingBody": "Les tarifes del taxímetre de l'AMB només cobreixen l'àrea metropolitana de Barcelona. Totes les destinacions d'aquesta pàgina queden fora, així que aquests trajectes es regeixen per la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de dilluns a divendres entre les 08:00 i les 20:00, i la més alta <b>T-7</b> de nit, els caps de setmana i els festius. Introdueix les teves adreces al formulari per obtenir un preu exacte, o demana'ns un pressupost tancat per escrit que inclogui el temps d'espera. Els peatges d’autopista no estan inclosos en aquests preus i es cobren a part quan la ruta fa servir vies de peatge.",
     "featuredH2": "Rutes destacades",
     "featuredIntro": "Els trasllats que més ens demanen, cadascun amb la seva pàgina de ruta.",
     "badgeRoutePage": "Pàgina de ruta",
@@ -310,7 +310,7 @@
     "ctaBookInstead": "Reservar millor un trasllat a l'aeroport",
     "pricedH2": "Com es calcula el preu d'aquesta ruta",
     "pricedP1": "Les tarifes del taxímetre de l'AMB només cobreixen l'àrea metropolitana de Barcelona. {place} queda fora, així que aquest trajecte es regeix per la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de dilluns a divendres entre les 08:00 i les 20:00, i la més alta <b>T-7</b> de nit, els caps de setmana i els festius.",
-    "pricedP2": "La xifra de dalt és orientativa i es basa en la distància habitual. Introdueix les adreces exactes al formulari per obtenir un preu prècis, o demana'ns per WhatsApp un pressupost tancat per escrit que inclogui el temps d'espera.",
+    "pricedP2": "La xifra de dalt és orientativa i es basa en la distància habitual. Introdueix les adreces exactes al formulari per obtenir un preu prècis, o demana'ns per WhatsApp un pressupost tancat per escrit que inclogui el temps d'espera. Els peatges d’autopista no estan inclosos en aquest preu i es cobren a part quan la ruta fa servir vies de peatge.",
     "interH2": "Per què un preu de llarga distància funciona d’una altra manera",
     "interP1": "Tan bon punt un dels extrems del trajecte queda fora de l’àrea metropolitana de Barcelona, la llista urbana fixa deixa d’aplicar-se i el viatge es calcula per quilòmetre amb la tarifa interurbana que fixa la Generalitat de Catalunya. Per això aquesta pàgina indica una distància i una xifra derivada d’ella en lloc d’un dels preus urbans plans: cap llista fixa honesta no podria cobrir destinacions amb distàncies que es diferencien en un factor de cinc.",
     "interP2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer. La tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. Això explica què costa un trasllat llarg, i per què un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall és aproximadament la meitat del real.",
@@ -320,7 +320,7 @@
     "photoAlt": "{place}, destinació de trasllat privat des de Barcelona",
     "waQuote": "Hola, voldria un pressupost tancat per a un trasllat des de Barcelona: {place}.",
     "waQuoteSibling": "Hola, voldria un pressupost per a {name}.",
-    "metaDescription": "Taxi privat de Barcelona a {place}: preu tancat tot inclòs, conductor amb llicència i seguiment del teu vol. Reserva en línia en pocs minuts."
+    "metaDescription": "Taxi privat de Barcelona a {place}: un sol preu fix, conductor amb llicència i seguiment del teu vol. Peatges a part. Reserva en línia en pocs minuts."
   },
   "install": {
     "metaTitle": "Instal·la BCNAirportTaxi com a aplicació",
@@ -398,7 +398,9 @@
     "rebookTitle": "Repeteix aquest trajecte",
     "rebookIntro": "El teu últim viatge, a punt per repetir. Canvia la data en pagar.",
     "rebookCta": "Reservar de nou",
-    "happeningNow": "En curs ara"
+    "happeningNow": "En curs ara",
+    "tollsLabel": "Peatges d’autopista",
+    "tollsValue": "Es cobren a part quan la ruta fa servir vies de peatge"
   },
   "trip": {
     "livePosition": "Posició en directe",
@@ -442,7 +444,7 @@
     "rowBcnSitges": "Barcelona a Sitges",
     "rowBcnTarragona": "Barcelona a Tarragona",
     "rowBcnGirona": "Barcelona a l aeroport de Girona",
-    "note": "Els trasllats a l’aeroport i al port de creuers tenen preu fix: l’hora del dia no el canvia. Caps de setmana i festius hi afegeixen un {surge} %, i una destinació a més de {km} km de l’aeroport o del port hi afegeix {rate} per quilòmetre extra. Només els viatges que surten de l’àrea metropolitana es cobren per quilòmetre. Tots els preus són tot inclòs, sense res a pagar al taxi.",
+    "note": "Els trasllats a l’aeroport i al port de creuers tenen preu fix: l’hora del dia no el canvia. Caps de setmana i festius hi afegeixen un {surge} %, i una destinació a més de {km} km de l’aeroport o del port hi afegeix {rate} per quilòmetre extra. Només els viatges que surten de l’àrea metropolitana es cobren per quilòmetre. Tots els preus són preus fixos; els peatges d’autopista no estan inclosos i es cobren a part.",
     "totalPrice": "Preu total"
   },
   "checkout": {
@@ -483,9 +485,9 @@
     "bothLegs": "Anada i tornada, pagades juntes"
   },
   "pricing": {
-    "feeBody": "Tot. El trajecte, cada suplement oficial que correspongui a la ruta i el nostre servei de gestió i garantia del vehicle, en un únic import pagat en línia al reservar. No hi ha una segona xifra a liquidar: no es deu res al taxi i s’envia un rebut complet per correu amb la confirmació.",
+    "feeBody": "El trajecte, cada suplement oficial que correspongui a la ruta i el nostre servei de gestió i garantia del vehicle, en un únic import pagat en línia al reservar. Els peatges d’autopista són l’excepció: no estan inclosos i es cobren a part al client quan la ruta fa servir vies de peatge. S’envia un rebut complet per correu amb la confirmació.",
     "metaTitle": "Preus Taxi Aeroport Barcelona 2026",
-    "metaDescription": "Preus fixos de taxi a l’aeroport de Barcelona: {sedan} a qualsevol punt de la ciutat, {port} al port de creuers. Tot inclòs, per vehicle.",
+    "metaDescription": "Preus fixos de taxi a l’aeroport de Barcelona: {sedan} a qualsevol punt de la ciutat, {port} al port de creuers. Per vehicle, peatges a part. Reserva en línia.",
     "h1": "Preus del taxi a l’aeroport de Barcelona",
     "intro": "Un preu fix per trajecte, acordat abans de reservar i blocat en fer-ho. No és una lectura del taxímetre ni una estimació: la xifra que veieu és la que pagueu, passi el que passi amb el trànsit i sigui l’hora que sigui.",
     "tableCaption": "Preus fixos de trasllat, per vehicle",
@@ -510,7 +512,7 @@
     "zoneBody1": "El preu de la llista cobreix qualsevol adreça situada a menys de {km} km de la terminal, mesurats en línia recta i no per carretera. Això abasta tot el centre i gairebé qualsevol lloc on s’allotgi un visitant: Ciutat Vella, l’Eixample, Gràcia, Sants, el front marítim fins a la Barceloneta i el Poblenou, i el Park Güell darrere de Gràcia a 14,3 km, que paguen tots el mateix que un hotel del passeig de Gràcia. L’excepció són els districtes del nord i de l’est: la Sagrera a 16,4 km, el Fòrum a 17,4, Sant Andreu a 17,7 i Nou Barris a 17,9 queden fora de la zona i se’ls afegeix el preu per quilòmetre indicat més avall.",
     "zoneBody2": "El mesurament en línia recta és deliberat i va a favor vostre. La plaça de Catalunya és a 12,3 km de la terminal en línia d'aire, però a 19,6 km per carretera, perquè la via volta el Llobregat i entra per la Gran Via. Una zona mesurada per carretera a {km} km deixaria fora el centre de la ciutat i començaria a cobrar quilòmetres extra en el trajecte més habitual de tots. Més enllà de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— s'aplica el preu de la llista més {rate} per cada quilòmetre addicional, com una xifra única publicada i no com la tarifa que toqui en aquella hora.",
     "supTitle": "Els suplements oficials, ja inclosos en el vostre preu",
-    "supIntro": "La tarifa regulada de Barcelona afegeix suplements fixos per determinats llocs i dates. No són extres que cobrem a part: cadascun ja està contingut en la xifra de la taula anterior, i per això no hi ha res a liquidar al cotxe. Els enumerem aquí perquè un suplement que vegeu en un quadre de tarifes sigui un suplement que pugueu situar.",
+    "supIntro": "La tarifa regulada de Barcelona afegeix suplements fixos per determinats llocs i dates. No són extres que cobrem a part: cadascun ja està contingut en la xifra de la taula anterior, així que no veureu cap suplement afegit a aquesta xifra. Els enumerem aquí perquè un suplement que vegeu en un quadre de tarifes sigui un suplement que pugueu situar.",
     "supAirport": "Aeroport del Prat",
     "supPort": "Terminal de creuers del Moll Adossat",
     "supSants": "Estació de Sants",
@@ -520,12 +522,12 @@
     "supCap": "La tarifa regulada limita el total de suplements d'un mateix servei a {cap}. En un trasllat d'aeroport normal s'aplica un sol suplement i mai no s'arriba a aquell sostre.",
     "neverTitle": "Què no canvia mai el vostre preu",
     "neverBody1": "L'hora del dia. Una recollida a les 04:30 per a un vol matiner costa exactament el mateix que un trajecte a les dues de la tarda. En un preu fix no hi ha tarifa nocturna, ni recàrrec per arribada a l'aeroport que aparegui al final.",
-    "neverBody2": "Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterreu, el nombre de passatgers fins a la capacitat del vehicle ni la quantitat d'equipatge que hi càpiga. Els caps de setmana i festius són l'única cosa que apuja un preu de la llista, amb un percentatge únic publicat. Tot la resta és el nostre risc, i és precisament el que es compra quan es fixa un preu per endavant.",
+    "neverBody2": "Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterreu, el nombre de passatgers fins a la capacitat del vehicle ni la quantitat d'equipatge que hi càpiga. Els caps de setmana i festius són l'única cosa que apuja un preu de la llista, amb un percentatge únic publicat, i els peatges d’autopista es cobren a part quan la ruta en fa servir. Tot la resta és el nostre risc, i és precisament el que es compra quan es fixa un preu per endavant.",
     "interTitle": "Trajectes fora de l'àrea metropolitana",
     "interBody1": "Tan bon punt un dels extrems del trajecte queda fora de l'àrea metropolitana de Barcelona, la tarifa urbana deixa d'aplicar-se i el viatge es calcula per quilòmetre amb la tarifa interurbana que fixa la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava i Andorra es calculen així, amb pressupost complet abans de reservar i no a partir de la llista fixa: cap llista fixa honesta no podria cobrir distàncies que es diferencien en un factor de cinc.",
     "interBody2": "La xifra per quilòmetre és més alta que la urbana per un motiu que convé conèixer: la tarifa interurbana tracta el viatge com un circuit tancat i cobra també el retorn del conductor, perquè legalment no pot recollir passatge fora de la seva àrea i tornaria de buit. Així doncs, un quilòmetre recorregut costa dos quilòmetres en aquella tarifa. És la raó que un trajecte llarg costi el que costa, i que un preu per quilòmetre anunciat en qualsevol lloc sense aquell detall sigui aproximadament la meitat del real.",
     "officialTitle": "És aquesta la tarifa oficial del taxi?",
-    "officialBody": "No. És el nostre preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada. El taxi de la parada es paga amb taxímetre segons la tarifa de l'AMB. Amb nosaltres coneixes el preu abans de viatjar i no es deu res al cotxe.",
+    "officialBody": "No. És el nostre preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada. El taxi de la parada es paga amb taxímetre segons la tarifa de l'AMB. Amb nosaltres coneixes el preu abans de viatjar. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
     "officialLink": "Com es compara amb el taxímetre de la parada",
     "adjTolls": "Peatges",
     "adjTollsValue": "S'apliquen quan la ruta fa servir una via de peatge"
@@ -535,7 +537,7 @@
   },
   "howItWorks": {
     "metaTitle": "Com funciona reservar un taxi a l'aeroport de Barcelona",
-    "metaDescription": "Reserva un taxi a l'aeroport de Barcelona en tres passos: preu immediat amb tot inclòs, pagament en línia i trobada amb el conductor. Res a pagar al taxi.",
+    "metaDescription": "Reserva un taxi a l'aeroport de Barcelona en tres passos: preu fix immediat, pagament en línia i trobada amb el conductor. Els peatges es cobren a part.",
     "h1": "Com funciona",
     "steps": {
       "one": {
@@ -548,12 +550,12 @@
       },
       "three": {
         "title": "Troba el teu conductor",
-        "body": "El teu conductor t'espera a l'hora acordada. Tot està ja pagat, així que no hi ha res a liquidar al cotxe."
+        "body": "El teu conductor t'espera a l'hora acordada. El preu fix ja està pagat; els peatges d’autopista, si la ruta fa servir vies de peatge, es cobren a part."
       }
     },
     "live": {
       "reserved": "Reservat · pagat en línia",
-      "arrived": "Ha arribat · res a pagar al taxi",
+      "arrived": "Ha arribat · preu fix pagat en línia",
       "live": "Conductor en directe"
     },
     "prepTitle": "Què necessitem de vosaltres",
@@ -564,7 +566,7 @@
     "afterBody2": "Després s'assigna un conductor al vostre trajecte i, quan això passa, rebeu per correu el seu nom i el seu telèfon juntament amb el punt exacte de trobada per a la vostra terminal. Aquella assignació és un compromís real d'un cotxe i una persona concrets, no una petició llançada a un grup quan aterreu, i per això un trasllat reservat es comporta de manera diferent de la cua de la parada a les dues de la matinada.",
     "dayTitle": "El dia del viatge",
     "dayBody1": "En una recollida a l'aeroport el vostre conductor espera dins la sala d'arribades, a la zona pública a la sortida de la recollida d'equipatges, amb un cartell amb el vostre nom. No a la vorera ni a la cua de la parada. En una recollida a la ciutat va a l'adreça que vau indicar, a l'hora acordada.",
-    "dayBody2": "Tot està ja pagat, així que no hi ha res a liquidar al cotxe: ni carrera, ni suplements, ni s'espera propina. Si voleu la factura oficial del taxímetre pel trajecte en si, el conductor us la pot facilitar si la demaneu; el vostre rebut per l'import pagat va arribar amb la confirmació.",
+    "dayBody2": "El preu fix ja està pagat, així que no hi ha carrera ni suplements a liquidar, i no s'espera propina. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es cobren a part. Si voleu la factura oficial del taxímetre pel trajecte en si, el conductor us la pot facilitar si la demaneu; el vostre rebut per l'import pagat va arribar amb la confirmació.",
     "changeTitle": "Si alguna cosa canvia",
     "changeBody1": "Podeu canviar les dades vosaltres mateixos durant els 30 minuts següents a la reserva i, després, fins que el conductor surti: responeu a la confirmació o escriviu-nos per WhatsApp. Canviar una terminal, una hora de recollida o una adreça no costa res, i una terminal equivocada és la correcció més freqüent que fem.",
     "changeBody2": "Un vol retardat no és un canvi i no requereix res de part vostra: la recollida segueix l'hora real d'aterratge, sense cost addicional i per molt que es retardi l'avió. Si el vol es cancel·la del tot, o els plans se'n van en orris, aviseu-nos tan bon punt ho sapigueu: si cancel·leu com a mínim 24 hores abans de la recollida es retorna l'import complet a la targeta amb què vau pagar, normalment en cinc a deu dies laborables. Dins d'aquelles 24 hores sempre intentarem ajudar, però el reemborsament ja no és automàtic."
@@ -576,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "El preu que veig és el que pago?",
-        "a": "Sí. El preu que veus és el que pagues. És una xifra fixa de la nostra pròpia llista, ja inclou tots els suplements oficials que corresponguin a la teva ruta i queda blocat en el moment de reservar. El trànsit i el recorregut són el nostre risc, no el teu: després no s’hi afegeix res i al conductor no se li deu res."
+        "a": "Sí, pel trajecte. El preu que veus és el preu fix: una xifra de la nostra pròpia llista que ja inclou tots els suplements oficials que corresponguin a la teva ruta i que queda blocada en el moment de reservar. El trànsit i el recorregut són el nostre risc, no el teu. L’única cosa que no inclou són els peatges d’autopista, que es cobren a part quan la ruta fa servir vies de peatge."
       },
       "whyFee": {
         "q": "Què inclou el preu?",
-        "a": "Tot. El trajecte, tots els suplements oficials que corresponguin a la teva ruta —el de l'aeroport del Prat, el del port de creuers, el de vehicles de cinc a vuit places— i el nostre servei de reservar i garantir el cotxe, assignar conductor i donar-te suport el dia del viatge. És un únic import, pagat en línia en reservar, sense res a part i sense deure res al taxi."
+        "a": "La tarifa mateixa, tots els suplements oficials que corresponguin a la teva ruta —el de l'aeroport del Prat, el del port de creuers, el de vehicles de cinc a vuit places— i el nostre servei de reservar i garantir el cotxe, assignar conductor i donar-te suport el dia del viatge. Es paga en línia en reservar. Els peatges d’autopista no estan inclosos: es cobren a part al client quan la ruta fa servir vies de peatge."
       },
       "invoice": {
         "q": "Puc rebre factura?",
@@ -619,8 +621,8 @@
         "a": "De vegades, i preferim dir-ho clar. Un dia tranquil entre setmana el taxímetre de la parada sol marcar menys, perquè el nostre preu fix inclou assumir un risc de trànsit que no s'ha produït. Amb molt trànsit, en cap de setmana o les tres nits amb suplement, el preu fix acostuma a ser més baix, i sempre es coneix per endavant."
       },
       "payment": {
-        "q": "Com es paga? Cal donar res al conductor?",
-        "a": "Es paga l'import complet en línia en reservar, amb targeta de crèdit, de dèbit o Bizum. Al taxi no es deu absolutament res: ni carrera, ni suplements, ni s'espera propina. Al conductor el liquidem nosaltres després i mai no li demanarà diners."
+        "q": "Com es paga? Què no està inclòs?",
+        "a": "Es paga el preu fix en línia en reservar, amb targeta de crèdit, de dèbit o Bizum. No s'espera propina. Els peatges d’autopista no formen part d’aquest preu i es cobren a part quan la ruta fa servir vies de peatge."
       },
       "flightDelay": {
         "q": "Què passa si el meu vol s'endarrereix?",

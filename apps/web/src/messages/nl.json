@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Luchthaven Barcelona | El Prat Transfers Online",
-    "metaDescription": "Boek vooraf online een taxi naar de luchthaven van Barcelona. Eén vaste alles-inbegrepen prijs, afgesproken vóór het boeken en vastgezet zodra u boekt.",
+    "metaDescription": "Boek vooraf online een taxi naar de luchthaven van Barcelona. Eén vaste prijs, afgesproken vóór het boeken en vastgezet zodra u boekt. Tol is extra.",
     "h1": "Taxi naar de luchthaven van Barcelona, geboekt voor u landt",
-    "intro": "Reserveer een erkende zwart-gele Barcelona-taxi naar of van de luchthaven El Prat. Eén vaste alles-inbegrepen prijs, zichtbaar vóór het boeken en vastgezet zodra u boekt — geen meter, geen afstandsgegoochel — u betaalt online en bij de chauffeur hoeft niets te worden afgerekend.",
+    "intro": "Reserveer een erkende zwart-gele Barcelona-taxi naar of van de luchthaven El Prat. Eén vaste prijs, zichtbaar vóór het boeken en vastgezet zodra u boekt — geen meter, geen afstandsgegoochel — online te betalen bij het boeken. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "trust": {
       "licensed": "Vergunde AMB-taxi's",
       "meter": "Vaste prijs, geen meter",
@@ -41,15 +41,15 @@
       "whyTitle": "Waarom bij ons boeken",
       "whyIntro": "Vaste prijzen, een auto die voor u klaarstaat en iemand om te bellen als er iets verandert.",
       "destTitle": "Waar we nog meer heen gaan",
-      "destIntro": "Meer dan alleen de luchthavenrit: de kust, de bergen en de wegen naar het zuiden. Eén vergunde auto, één all-in prijs, hoe ver het ook is.",
+      "destIntro": "Meer dan alleen de luchthavenrit: de kust, de bergen en de wegen naar het zuiden. Eén vergunde auto en één vaste prijs, hoe ver het ook is; tolgelden voor snelwegen worden apart in rekening gebracht.",
       "fleetLede": "één veeg verderop.",
       "destLede": "met de prijs vooraf.",
-      "faresLede": "alles inbegrepen, vooraf afgesproken.",
+      "faresLede": "vaste prijs, vooraf afgesproken.",
       "closingLede": "en wegwezen.",
       "faresTitle": "Vaste prijzen",
-      "faresIntro": "Elk bedrag hieronder is een vaste alles-inbegrepen prijs — dezelfde die het boekingsformulier noemt.",
+      "faresIntro": "Elk bedrag hieronder is een vaste prijs — dezelfde die het boekingsformulier noemt. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht.",
       "closingTitle": "Land, loop naar buiten,",
-      "closingIntro": "Eén all-in prijs in enkele seconden. Geen account nodig om hem te zien.",
+      "closingIntro": "Eén vaste prijs in enkele seconden. Geen account nodig om hem te zien.",
       "howLede": "in drie stappen.",
       "whyLede": "en waarom het klopt.",
       "routesLede": "de meest geboekte."
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Eén prijs, vastgezet voordat u rijdt",
-        "body": "Uw prijs is een vast bedrag uit onze eigen prijslijst, geen meterstand — bepaald door route en voertuig, niet door afstand of tijdstip. U gaat ermee akkoord vóór het boeken en dan staat hij vast, dus het genoemde bedrag is wat u betaalt, wat het verkeer ook doet."
+        "body": "Uw prijs is een vast bedrag uit onze eigen prijslijst, geen meterstand — bepaald door route en voertuig, niet door afstand of tijdstip. U gaat ermee akkoord vóór het boeken en dan staat hij vast, dus het genoemde bedrag verandert niet, wat het verkeer ook doet. Tolgelden voor snelwegen worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht."
       },
       "flight": {
         "title": "Wij volgen uw vlucht",
@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Betaal online, één keer, volledig",
-      "note": "Veilig afrekenen via SumUp. In de taxi is de chauffeur niets verschuldigd."
+      "note": "Veilig afrekenen via SumUp. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Reistijd ca.",
     "payNow": "Nu betalen",
     "payInTaxi": "In de taxi betalen",
-    "nothingInTaxi": "Niets te betalen in de taxi",
+    "nothingInTaxi": "Tolgelden worden apart in rekening gebracht",
     "paidOnline": "Online betaald",
     "balanceInTaxi": "Restbedrag aan de chauffeur",
     "bookNow": "Nu boeken",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfer cruisehaven",
       "weekendSurge": "Weekend-/feestdagtarief"
     },
-    "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. In de taxi betaalt u niets. De bon ontvangt u per e-mail bij uw bevestiging.",
+    "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. De bon ontvangt u per e-mail bij uw bevestiging.",
     "errors": {
       "pickupRequired": "Kies een ophaalpunt.",
       "dropoffRequired": "Kies een bestemming.",
@@ -147,10 +147,10 @@
     },
     "panelKicker": "Reservering",
     "panelTitle": "Plan uw transfer",
-    "panelSub": "Direct een prijs · Alles inbegrepen · 24/7",
+    "panelSub": "Direct een prijs · Vaste prijs · 24/7",
     "totalPrice": "Totaalprijs",
-    "allInclusive": "Alles inbegrepen · online betalen",
-    "includedNote": "Eén prijs voor de hele rit: tarief, officiële toeslagen en reservering inbegrepen. U betaalt de chauffeur niets.",
+    "allInclusive": "Vaste prijs · online betalen",
+    "includedNote": "Eén vaste prijs voor de rit: tarief, officiële toeslagen en reservering. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "sections": {
       "nextTitle": "Wat er daarna gebeurt",
       "nextLede": "zodra u betaald hebt."
@@ -163,7 +163,7 @@
     "returnTooEarly": "De terugreis moet minstens een uur na de ophaaltijd zijn.",
     "fixedRouteApplied": "Vaste prijs voor deze rit. Afstand en tijdstip veranderen er niets aan.",
     "fixedPlusKmApplied": "Vaste prijs tot {km} km, plus de afstand daarboven.",
-    "perVehicle": "per voertuig, alles inbegrepen"
+    "perVehicle": "per voertuig, vaste prijs"
   },
   "fleet": {
     "h1": "Ons taxiwagenpark in Barcelona",
@@ -221,7 +221,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi is een boekingsdienst voor erkende Barcelona-taxi’s. Wij zijn een tussenpersoon, geen taxibedrijf: wij stellen onze eigen vaste transferprijzen vast, en u betaalt ons bij het boeken één bedrag met alles inbegrepen.",
+    "about": "BCNAirportTaxi is een boekingsdienst voor erkende Barcelona-taxi’s. Wij zijn een tussenpersoon, geen taxibedrijf: wij stellen onze eigen vaste transferprijzen vast, en u betaalt ons de vaste prijs bij het boeken. Tol voor snelwegen wordt apart in rekening gebracht.",
     "routes": "Populaire routes",
     "company": "Bedrijf",
     "legal": "Juridisch",
@@ -276,7 +276,7 @@
     "coverage5": "Voertuigen met 4 tot 8 zitplaatsen en minivans met bagageruimte",
     "coverage6": "Vaste prijs, bevestigd voordat u vertrekt",
     "pricingTitle": "Hoe deze prijzen tot stand komen.",
-    "pricingBody": "De metertarieven van de AMB gelden alleen binnen de agglomeratie Barcelona. Alle bestemmingen op deze pagina liggen daarbuiten, dus deze ritten vallen onder het interlokale tarief van de Generalitat de Catalunya: <b>T-6</b> op werkdagen tussen 08:00 en 20:00 en het hogere <b>T-7</b> 's nachts, in het weekend en op feestdagen. Vul uw adressen in het boekingsformulier in voor een exacte prijs, of vraag ons om een schriftelijke vaste offerte inclusief wachttijd.",
+    "pricingBody": "De metertarieven van de AMB gelden alleen binnen de agglomeratie Barcelona. Alle bestemmingen op deze pagina liggen daarbuiten, dus deze ritten vallen onder het interlokale tarief van de Generalitat de Catalunya: <b>T-6</b> op werkdagen tussen 08:00 en 20:00 en het hogere <b>T-7</b> 's nachts, in het weekend en op feestdagen. Vul uw adressen in het boekingsformulier in voor een exacte prijs, of vraag ons om een schriftelijke vaste offerte inclusief wachttijd. Tolgelden zijn niet inbegrepen in deze prijzen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "featuredH2": "Populaire routes",
     "featuredIntro": "De transfers waar het vaakst om wordt gevraagd, elk met een eigen routepagina.",
     "badgeRoutePage": "Routepagina",
@@ -310,7 +310,7 @@
     "ctaBookInstead": "Liever een luchthaventransfer boeken",
     "pricedH2": "Hoe de prijs van deze route tot stand komt",
     "pricedP1": "De metertarieven van de AMB gelden alleen binnen de agglomeratie Barcelona. {place} ligt daarbuiten, dus deze rit valt onder het interlokale tarief van de Generalitat de Catalunya: <b>T-6</b> op werkdagen tussen 08:00 en 20:00 en het hogere <b>T-7</b> 's nachts, in het weekend en op feestdagen.",
-    "pricedP2": "Het bedrag hierboven is een richtprijs op basis van de gebruikelijke afstand. Vul uw exacte adressen in het boekingsformulier in voor een precieze prijs, of vraag ons via WhatsApp om een schriftelijke vaste offerte inclusief eventuele wachttijd.",
+    "pricedP2": "Het bedrag hierboven is een richtprijs op basis van de gebruikelijke afstand. Vul uw exacte adressen in het boekingsformulier in voor een precieze prijs, of vraag ons via WhatsApp om een schriftelijke vaste offerte inclusief eventuele wachttijd. Tolgelden zijn niet inbegrepen in deze prijs en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "interH2": "Waarom een langeafstandsprijs anders werkt",
     "interP1": "Zodra een van de uiteinden van de rit buiten het stadsgewest Barcelona ligt, geldt de vaste stadslijst niet meer en wordt de rit per kilometer berekend op het interlokale tarief dat de Generalitat de Catalunya vaststelt. Daarom noemt deze pagina een afstand en een daaruit afgeleid bedrag in plaats van een van de vaste stadsprijzen: geen enkele eerlijke vaste lijst kan bestemmingen dekken waarvan de afstanden een factor vijf verschillen.",
     "interP2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen. Het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is.",
@@ -320,7 +320,7 @@
     "photoAlt": "{place}, bestemming voor een privétransfer vanuit Barcelona",
     "waQuote": "Hallo, ik wil graag een offerte met vaste prijs voor een transfer vanaf Barcelona: {place}.",
     "waQuoteSibling": "Hallo, ik wil graag een offerte voor {name}.",
-    "metaDescription": "Privétaxi van Barcelona naar {place}: één vaste prijs alles inbegrepen, een erkende chauffeur en uw vlucht gevolgd. Boek online in enkele minuten."
+    "metaDescription": "Privétaxi van Barcelona naar {place}: één vaste prijs, een erkende chauffeur en uw vlucht gevolgd. Tol extra. Boek online in enkele minuten."
   },
   "install": {
     "metaTitle": "BCNAirportTaxi als app installeren",
@@ -398,7 +398,9 @@
     "rebookTitle": "Deze rit opnieuw boeken",
     "rebookIntro": "Uw laatste rit, klaar om te herhalen. Wijzig de datum bij het afrekenen.",
     "rebookCta": "Opnieuw boeken",
-    "happeningNow": "Nu onderweg"
+    "happeningNow": "Nu onderweg",
+    "tollsLabel": "Tolgelden",
+    "tollsValue": "Apart in rekening gebracht wanneer de route tolwegen gebruikt"
   },
   "trip": {
     "livePosition": "Live positie",
@@ -442,7 +444,7 @@
     "rowBcnSitges": "Barcelona naar Sitges",
     "rowBcnTarragona": "Barcelona naar Tarragona",
     "rowBcnGirona": "Barcelona naar luchthaven Girona",
-    "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge} % bij, en een bestemming verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Alleen ritten buiten het stadsgebied gaan per kilometer. Alle prijzen zijn alles inbegrepen, in de taxi betaalt u niets.",
+    "note": "Transfers naar de luchthaven en de cruisehaven hebben een vaste prijs: het tijdstip verandert die niet. In het weekend en op feestdagen komt er {surge} % bij, en een bestemming verder dan {km} km van de luchthaven of haven {rate} per extra kilometer. Alleen ritten buiten het stadsgebied gaan per kilometer. Alle getoonde prijzen zijn vaste prijzen; tol voor snelwegen is niet inbegrepen en wordt apart in rekening gebracht.",
     "totalPrice": "Totaalprijs"
   },
   "checkout": {
@@ -483,9 +485,9 @@
     "bothLegs": "Heen en terug, samen betaald"
   },
   "pricing": {
-    "feeBody": "Alles. De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Er is geen tweede bedrag: in de taxi is niets verschuldigd, en een volledige bon komt per e-mail met uw bevestiging.",
+    "feeBody": "De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Tolgelden zijn de uitzondering: die zijn niet inbegrepen en worden apart bij de klant in rekening gebracht wanneer de route tolwegen gebruikt. Een volledige bon komt per e-mail met uw bevestiging.",
     "metaTitle": "Taxiprijzen Luchthaven Barcelona 2026",
-    "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar de stad, {port} naar de cruisehaven. Per voertuig, alles inbegrepen.",
+    "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar de stad, {port} naar de cruisehaven. Per voertuig, tol extra. Boek online.",
     "h1": "Taxiprijzen luchthaven Barcelona",
     "intro": "Eén vaste prijs per rit, afgesproken vóór het boeken en vastgezet zodra u boekt. Het is geen meterstand en geen schatting: het bedrag dat u ziet is wat u betaalt, wat het verkeer ook doet en op welk uur dan ook.",
     "tableCaption": "Vaste transferprijzen, per voertuig",
@@ -510,7 +512,7 @@
     "zoneBody1": "De lijstprijs dekt elk adres binnen {km} km van de terminal, hemelsbreed gemeten en niet langs de weg. Daarmee valt het hele centrum eronder en vrijwel alles waar een bezoeker verblijft: Ciutat Vella, de Eixample, Gràcia, Sants, de waterkant tot Barceloneta en Poblenou, en Park Güell achter Gràcia op 14,3 km — die betalen allemaal hetzelfde als een hotel aan de passeig de Gràcia. De uitzondering zijn de buitenwijken in het noorden en oosten: La Sagrera op 16,4 km, het Fòrum op 17,4, Sant Andreu op 17,7 en Nou Barris op 17,9 vallen buiten de zone en daarvoor komt de kilometerprijs hieronder erbij.",
     "zoneBody2": "De hemelsbrede meting is bewust gekozen en werkt in uw voordeel. De plaça de Catalunya ligt hemelsbreed 12,3 km van de terminal maar 19,6 km over de weg, omdat die om de Llobregat heen loopt en via de Gran Via de stad in komt. Een zone die over de weg op {km} km werd gemeten, zou het stadscentrum erbuiten laten vallen en juist op de meest gemaakte rit extra kilometers gaan rekenen. Buiten de zone — Badalona op 21,8 km, Sant Cugat op 19,5 — geldt de lijstprijs plus {rate} per extra kilometer, als één gepubliceerd bedrag en niet als het tarief dat op dat uur geldt.",
     "supTitle": "De officiële toeslagen, al in uw prijs begrepen",
-    "supIntro": "Het gereguleerde tarief van Barcelona kent vaste toeslagen voor bepaalde plaatsen en data. Het zijn geen extra's die wij er bovenop zetten: elke toeslag zit al in het bedrag in de tabel hierboven, en daarom valt er in de auto niets af te rekenen. Ze staan hier zodat een toeslag die u op een tarievenbord ziet, een toeslag is die u kunt plaatsen.",
+    "supIntro": "Het gereguleerde tarief van Barcelona kent vaste toeslagen voor bepaalde plaatsen en data. Het zijn geen extra's die wij er bovenop zetten: elke toeslag zit al in het bedrag in de tabel hierboven, dus u ziet er geen toeslag bij komen. Ze staan hier zodat een toeslag die u op een tarievenbord ziet, een toeslag is die u kunt plaatsen.",
     "supAirport": "Luchthaven El Prat",
     "supPort": "Cruiseterminal Moll Adossat",
     "supSants": "Station Sants",
@@ -520,12 +522,12 @@
     "supCap": "Het gereguleerde tarief maximeert het totaal aan toeslagen per rit op {cap}. Bij een gewone luchthaventransfer geldt één toeslag en wordt dat plafond nooit bereikt.",
     "neverTitle": "Wat uw prijs nooit verandert",
     "neverBody1": "Het tijdstip van de dag. Ophalen om 04:30 voor een vroege vlucht kost precies hetzelfde als een rit om twee uur 's middags. Bij een vaste prijs bestaat er geen nachttarief en geen luchthaventoeslag die aan het eind nog opduikt.",
-    "neverBody2": "Evenmin het verkeer, de route die uw chauffeur kiest, de terminal waar u landt, het aantal passagiers tot de capaciteit van het voertuig of de hoeveelheid bagage die erin past. Weekenden en feestdagen zijn het enige wat een lijstprijs verhoogt, met één gepubliceerd percentage. Al het overige is ons risico — en dat is precies wat u koopt door een prijs vooraf vast te zetten.",
+    "neverBody2": "Evenmin het verkeer, de route die uw chauffeur kiest, de terminal waar u landt, het aantal passagiers tot de capaciteit van het voertuig of de hoeveelheid bagage die erin past. Weekenden en feestdagen zijn het enige wat een lijstprijs verhoogt, met één gepubliceerd percentage, en tolgelden worden apart in rekening gebracht wanneer de route tolwegen gebruikt. Al het overige is ons risico — en dat is precies wat u koopt door een prijs vooraf vast te zetten.",
     "interTitle": "Ritten buiten het stadsgewest",
     "interBody1": "Zodra een van de uiteinden van de rit buiten het stadsgewest Barcelona ligt, geldt het stadstarief niet meer en wordt de rit per kilometer berekend op het interlokale tarief dat de Generalitat de Catalunya vaststelt. Sitges, Tarragona, Girona, Reus, de Costa Brava en Andorra worden zo berekend, volledig geprijsd vóór het boeken en niet uit de vaste lijst gehaald: geen enkele eerlijke vaste lijst kan afstanden dekken die een factor vijf verschillen.",
     "interBody2": "Het kilometerbedrag is hoger dan het stedelijke, om een reden die het waard is te kennen: het interlokale tarief behandelt de rit als een gesloten circuit en rekent ook de terugrit van de chauffeur, omdat die buiten zijn eigen gebied wettelijk geen klant mag oppikken en anders leeg terug zou rijden. Eén gereden kilometer kost op dat tarief dus twee kilometer. Dat verklaart wat een lange transfer kost, en waarom een kilometerprijs die ergens zonder die nuance wordt genoemd ongeveer de helft van de echte is.",
     "officialTitle": "Is dit het officiële taxitarief?",
-    "officialBody": "Nee. Dit is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief. Een taxi van de standplaats wordt betaald volgens de meter op het AMB-tarief. Bij ons is de prijs bekend vóór de reis en is er in de auto niets verschuldigd.",
+    "officialBody": "Nee. Dit is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief. Een taxi van de standplaats wordt betaald volgens de meter op het AMB-tarief. Bij ons is de prijs bekend vóór de reis. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "officialLink": "Zo verhoudt het zich tot de meter op de standplaats",
     "adjTolls": "Tolwegen",
     "adjTollsValue": "Van toepassing wanneer de route een tolweg gebruikt"
@@ -535,7 +537,7 @@
   },
   "howItWorks": {
     "metaTitle": "Zo boekt u een taxi naar de luchthaven van Barcelona",
-    "metaDescription": "Boek een taxi naar de luchthaven van Barcelona in drie stappen: direct een all-in prijs, online betalen en uw chauffeur ontmoeten.",
+    "metaDescription": "Boek een taxi naar de luchthaven van Barcelona in drie stappen: direct een vaste prijs, online betalen en uw chauffeur ontmoeten. Tol wordt apart berekend.",
     "h1": "Hoe het werkt",
     "steps": {
       "one": {
@@ -548,12 +550,12 @@
       },
       "three": {
         "title": "Ontmoet uw chauffeur",
-        "body": "Uw chauffeur staat op de afgesproken tijd klaar. Alles is al betaald, dus in de auto hoeft niets meer te worden afgerekend."
+        "body": "Uw chauffeur staat op de afgesproken tijd klaar. De vaste prijs is al betaald; tolgelden worden, als de route tolwegen gebruikt, apart in rekening gebracht."
       }
     },
     "live": {
       "reserved": "Gereserveerd · online betaald",
-      "arrived": "Aangekomen · niets te betalen in de taxi",
+      "arrived": "Aangekomen · vaste prijs online betaald",
       "live": "Chauffeur live"
     },
     "prepTitle": "Wat wij van u nodig hebben",
@@ -564,7 +566,7 @@
     "afterBody2": "Daarna wordt er een chauffeur aan uw rit toegewezen, en op dat moment krijgt u per e-mail zijn naam en telefoonnummer samen met het exacte ontmoetingspunt voor uw terminal. Die toewijzing is een echte vastlegging van een specifieke auto en persoon, niet een verzoek dat bij uw landing in een groep wordt gegooid — en daarom gedraagt een geboekte transfer zich anders dan een rij bij de standplaats om twee uur 's nachts.",
     "dayTitle": "Op de dag zelf",
     "dayBody1": "Bij een luchthavenophaal wacht uw chauffeur binnen in de aankomsthal, aan de publieke zijde van de uitgang van de bagageband, met een bordje met uw naam. Niet aan de stoeprand en niet in de rij bij de standplaats. Bij een ophaal in de stad komt hij naar het door u opgegeven adres, op de afgesproken tijd.",
-    "dayBody2": "Alles is al betaald, dus in de auto valt niets af te rekenen: geen rit, geen toeslag, geen verwachte tip. Wilt u de officiële meterfactuur voor de rit zelf, dan kan de chauffeur die op verzoek verstrekken; uw eigen bon voor het betaalde bedrag kwam met de bevestiging.",
+    "dayBody2": "De vaste prijs is al betaald, dus er is geen rit of toeslag af te rekenen en er wordt geen tip verwacht. Tolgelden worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Wilt u de officiële meterfactuur voor de rit zelf, dan kan de chauffeur die op verzoek verstrekken; uw eigen bon voor het betaalde bedrag kwam met de bevestiging.",
     "changeTitle": "Als er iets verandert",
     "changeBody1": "U kunt de gegevens binnen 30 minuten na het boeken zelf wijzigen, en daarna tot het moment dat uw chauffeur vertrekt: antwoord op uw bevestiging of stuur ons een WhatsApp. Een andere terminal, ophaaltijd of adres kost niets, en een verkeerde terminal is de correctie die wij het vaakst doorvoeren.",
     "changeBody2": "Een vertraagde vlucht is geen wijziging en vraagt niets van u: het ophalen volgt de werkelijke landingstijd, zonder extra kosten en hoe laat het vliegtuig ook is. Wordt uw vlucht helemaal geschrapt, of vallen uw plannen in het water, laat het ons dan weten zodra u het weet: bij annuleren ten minste 24 uur voor het ophalen wordt het hele bedrag terugbetaald op de kaart waarmee u betaalde, normaal binnen vijf tot tien werkdagen. Binnen die 24 uur zullen we altijd proberen te helpen, maar terugbetaling is dan niet meer automatisch."
@@ -576,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Is de prijs die ik zie de prijs die ik betaal?",
-        "a": "Ja. De prijs die u ziet is wat u betaalt. Het is een vast bedrag uit onze eigen prijslijst, het bevat al elke officiële toeslag die op uw route van toepassing is, en het staat vast op het moment van boeken. Verkeer en route zijn ons risico, niet het uwe: er komt achteraf niets bij en aan de chauffeur is niets verschuldigd."
+        "a": "Ja, voor de rit. De prijs die u ziet is de vaste prijs: een bedrag uit onze eigen prijslijst dat al elke officiële toeslag bevat die op uw route van toepassing is, en het staat vast op het moment van boeken. Verkeer en route zijn ons risico, niet het uwe. Het enige wat er niet in zit zijn tolgelden voor snelwegen, die apart in rekening worden gebracht wanneer de route tolwegen gebruikt."
       },
       "whyFee": {
         "q": "Wat zit er in de prijs?",
-        "a": "Alles. De rit zelf, elke officiële toeslag die op uw route van toepassing is — de luchthaventoeslag El Prat, de cruisehaventoeslag, de toeslag voor voertuigen met vijf tot acht plaatsen — en onze service om de auto te reserveren en te garanderen, een chauffeur toe te wijzen en u op de dag zelf te ondersteunen. Eén bedrag, online betaald bij het boeken, zonder iets aparts en zonder iets verschuldigd in de taxi."
+        "a": "De rit zelf, elke officiële toeslag die op uw route van toepassing is — de luchthaventoeslag El Prat, de cruisehaventoeslag, de toeslag voor voertuigen met vijf tot acht plaatsen — en onze service om de auto te reserveren en te garanderen, een chauffeur toe te wijzen en u op de dag zelf te ondersteunen. U betaalt online bij het boeken. Tolgelden zijn niet inbegrepen: die worden apart bij de klant in rekening gebracht wanneer de route tolwegen gebruikt."
       },
       "invoice": {
         "q": "Kan ik een factuur krijgen?",
@@ -619,8 +621,8 @@
         "a": "Soms, en dat zeggen we liever eerlijk. Op een rustige weekdag staat de meter op de standplaats vaak lager, omdat onze vaste prijs een verkeersrisico bevat dat zich niet voordeed. Bij druk verkeer, in het weekend of op de drie toeslagnachten is de vaste prijs meestal lager — en hij staat altijd vooraf vast."
       },
       "payment": {
-        "q": "Hoe betaal ik, en is de chauffeur nog iets verschuldigd?",
-        "a": "U betaalt het volledige bedrag online bij het boeken, met creditcard, betaalkaart of Bizum. In de taxi is niets verschuldigd: geen rit, geen toeslag, geen verwachte tip. De chauffeur wordt achteraf door ons afgerekend en zal u nooit om geld vragen."
+        "q": "Hoe betaal ik, en wat is niet inbegrepen?",
+        "a": "U betaalt de vaste prijs online bij het boeken, met creditcard, betaalkaart of Bizum. Er wordt geen tip verwacht. Tolgelden maken geen deel uit van die prijs en worden apart in rekening gebracht wanneer de route tolwegen gebruikt."
       },
       "flightDelay": {
         "q": "Wat als mijn vlucht vertraging heeft?",

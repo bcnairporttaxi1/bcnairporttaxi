@@ -58,14 +58,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Airport to City Taxi | Book Online',
         description:
-          'Book a taxi from Barcelona airport to the city centre. One fixed all-inclusive price, El Prat supplement included, driver waiting at arrivals.',
+          'Book a taxi from Barcelona airport to the city centre. One fixed price, El Prat supplement included, tolls extra, driver waiting at arrivals.',
         h1: 'Taxi from Barcelona airport to the city',
         intro:
           'A taxi from Barcelona El Prat to the city centre takes roughly 25 to 35 minutes depending on traffic and which terminal you land at. Booking ahead means a driver is already assigned when you land, holding a name sign in arrivals, instead of joining the rank queue at T1 or T2.',
         sections: [
           {
             h2: 'What a Barcelona airport transfer taxi costs',
-            body: 'Your price is a fixed figure from our own list, not a meter reading and not an estimate — every official supplement that applies to the route is already inside it. A ride from the airport to anywhere in Barcelona is a fixed EUR 50 in a standard taxi, whatever the distance and whatever the hour; weekends and public holidays add 7.5%. Enter your exact destination above to see your own all-inclusive price.',
+            body: 'Your price is a fixed figure from our own list, not a meter reading and not an estimate — every official supplement that applies to the route is already inside it. A ride from the airport to anywhere in Barcelona is a fixed EUR 50 in a standard taxi, whatever the distance and whatever the hour; weekends and public holidays add 7.5%. Enter your exact destination above to see your own fixed price. Motorway tolls are not included and are charged separately when the route uses toll roads.',
           },
           {
             h2: 'Where your driver meets you at arrivals',
@@ -97,7 +97,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi from Barcelona to the Airport | Book Online',
         description:
-          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, one fixed all-inclusive price, and a driver who knows the terminal drop-off points.',
+          'Book a taxi from Barcelona city to El Prat airport. Fixed pickup time, one fixed price (tolls extra), and a driver who knows the terminal drop-off points.',
         h1: 'Taxi from Barcelona to the airport',
         intro:
           'Going the other way is the trip worth booking in advance. A pre-booked taxi to Barcelona airport arrives at your hotel or apartment at a set time, which matters far more when you have a flight to catch than when you are arriving.',
@@ -140,7 +140,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'El Prat Airport Taxi | Licensed Barcelona Transfers',
         description:
-          'Licensed taxis to and from Barcelona El Prat airport (BCN). Book online at a fixed all-inclusive price, with a driver assigned to your flight.',
+          'Licensed taxis to and from Barcelona El Prat airport (BCN). Book online at a fixed price, tolls extra, with a driver assigned to your flight.',
         h1: 'El Prat airport taxi',
         intro:
           'Josep Tarradellas Barcelona–El Prat, still known to nearly everyone as El Prat, sits about 15 km southwest of the city. It is the second-busiest airport in Spain, and the taxi rank is the fastest way into Barcelona at almost any hour — provided there is a car waiting.',
@@ -151,7 +151,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'The El Prat airport supplement',
-            body: 'The official airport supplement and every other charge that applies to the route are inside the fixed price you are quoted. There is no meter running on your journey and no second figure at the end of it, so there is nothing to be surprised by.',
+            body: 'The official airport supplement and every other charge that applies to the route are inside the fixed price you are quoted. There is no meter running on your journey. The one thing that is not in the price is motorway tolls, which are charged separately when the route uses toll roads.',
           },
           {
             h2: 'Cruise passengers and the port',
@@ -186,15 +186,15 @@ export const LANDING_PAGES: LandingPage[] = [
           'What a Barcelona airport taxi really costs: our fixed prices per vehicle, how far the flat price reaches, and what the weekend and out-of-zone rates add.',
         h1: 'Barcelona airport taxi price',
         intro:
-          'A Barcelona airport transfer with us is one fixed price, agreed before you book and locked when you do. No meter, no distance guesswork and nothing to settle in the car. Here is the whole list and the three things that can add to it.',
+          'A Barcelona airport transfer with us is one fixed price, agreed before you book and locked when you do. No meter and no distance guesswork. Here is the whole list and the things that can add to it, including motorway tolls, which are charged separately.',
         sections: [
           {
             h2: 'How your Barcelona airport taxi fare is calculated',
-            body: 'A transfer is one fixed price, set by vehicle rather than by distance or clock. The airport to anywhere in Barcelona is one figure, the airport to the cruise terminal another, and a standard taxi, a six-seat minivan and a seven-seat van each have their own. Only three things can add to it: a drop-off beyond the flat zone, a transfer to or from the cruise quay, and the weekend and public-holiday rate. Each is shown as its own line before you pay.',
+            body: 'A transfer is one fixed price, set by vehicle rather than by distance or clock. The airport to anywhere in Barcelona is one figure, the airport to the cruise terminal another, and a standard taxi, a six-seat minivan and a seven-seat van each have their own. Only a few things can add to it: a drop-off beyond the flat zone, a transfer to or from the cruise quay, and the weekend and public-holiday rate. Motorway tolls, where the route uses toll roads, are charged separately. Each addition to the price is shown as its own line before you pay.',
           },
           {
             h2: 'Is there a cheap taxi from Barcelona airport?',
-            body: 'Compare on what the price actually protects you from rather than on the headline figure. A fixed price cannot move once agreed: traffic, a longer route, a late landing and the time of day are our problem, not yours, and nothing is collected in the car. What you can control is vehicle choice and travelling outside the weekend window. Be wary of an unusually low quote — it usually means an unlicensed vehicle, or a figure that will grow before you arrive.',
+            body: 'Compare on what the price actually protects you from rather than on the headline figure. A fixed price cannot move once agreed: traffic, a longer route, a late landing and the time of day are our problem, not yours. Motorway tolls are the one exception: they are charged separately. What you can control is vehicle choice and travelling outside the weekend window. Be wary of an unusually low quote — it usually means an unlicensed vehicle, or a figure that will grow before you arrive.',
           },
           {
             h2: 'How far the fixed price reaches',
@@ -202,17 +202,17 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What we charge on top',
-            body: 'You pay one all-inclusive price online when you reserve. It covers the journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. There is no second amount to settle: nothing at all is owed in the taxi, and you receive a receipt for the full price by email.',
+            body: 'You pay one fixed price online when you reserve. It covers the journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. Motorway tolls are not included and are charged separately when the route uses toll roads. You receive a receipt for the price you paid by email.',
           },
           {
             h2: 'What never changes your price',
             body:
-              'Not the hour of the day: a 04:30 pickup for an early departure costs exactly what a two-in-the-afternoon run costs, because a fixed price carries no night rate. Not the traffic, the route your driver takes, which terminal you land at, the number of passengers up to the vehicle’s capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by one published percentage rather than a surge that moves with demand. Everything else is our risk rather than yours, which is precisely what fixing a price in advance buys.',
+              'Not the hour of the day: a 04:30 pickup for an early departure costs exactly what a two-in-the-afternoon run costs, because a fixed price carries no night rate. Not the traffic, the route your driver takes, which terminal you land at, the number of passengers up to the vehicle’s capacity, or the amount of luggage within it. Weekends and public holidays are the only thing that lifts a listed price, by one published percentage rather than a surge that moves with demand. Motorway tolls are the one exception, charged separately where the route uses toll roads. Everything else is our risk rather than yours, which is precisely what fixing a price in advance buys.',
           },
           {
             h2: 'How and when you pay',
             body:
-              'The whole price is paid online by card or Bizum when you book, and a receipt for the full amount is emailed with your confirmation. Nothing is collected in the car, so there is no cash to find and no card machine to hope works at the kerb.',
+              'The fixed price is paid online by card or Bizum when you book, and a receipt for the amount paid is emailed with your confirmation. Motorway tolls, where the route uses toll roads, are charged separately.',
           },
         ],
       },
@@ -269,14 +269,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Sants Station to Barcelona Airport',
         description:
-          'Book a taxi from Barcelona Sants railway station to El Prat airport. Around 15 minutes, one all-inclusive price including the Sants station supplement.',
+          'Book a taxi from Barcelona Sants railway station to El Prat airport. Around 15 minutes, one fixed price including the Sants station supplement.',
         h1: 'Taxi from Sants station to Barcelona airport',
         intro:
           'Sants is Barcelona\'s main railway station and the arrival point for AVE high-speed trains from Madrid, Valencia and Seville. It is also the closest major transport hub to El Prat: the taxi run takes around 15 minutes outside rush hour.',
         sections: [
           {
             h2: 'The Sants station supplement',
-            body: 'Journeys starting or ending at Sants station carry a small fixed supplement set by the AMB. Combined with the airport supplement, both are already inside the price you see before booking — there is nothing to add on afterwards.',
+            body: 'Journeys starting or ending at Sants station carry a small fixed supplement set by the AMB. Combined with the airport supplement, both are already inside the fixed price you see before booking. Motorway tolls, if the route uses toll roads, are charged separately.',
           },
           {
             h2: 'Where to meet your driver at Sants',
@@ -489,7 +489,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Taxi Barcelona City Centre to Airport',
         description:
-          'Book a taxi from Barcelona city centre to El Prat airport. Pickup from any central address, one all-inclusive price, driver confirmed in advance.',
+          'Book a taxi from Barcelona city centre to El Prat airport. Pickup from any central address, one fixed price, driver confirmed in advance.',
         h1: 'Taxi from Barcelona city centre to the airport',
         intro:
           'From anywhere central — the Rambla, Plaça de Catalunya, El Born, the Raval or Passeig de Gràcia — El Prat is a 20 to 35 minute drive. Booking ahead fixes the pickup time and the car, which matters most on the outbound leg.',
@@ -504,7 +504,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What a city centre to airport taxi costs',
-            body: 'One fixed price from anywhere in the centre to El Prat, with every official supplement already inside it and nothing to pay in the taxi. The hour does not change it; weekends and public holidays add 7.5%. Enter your address to see your exact price before you commit.',
+            body: 'One fixed price from anywhere in the centre to El Prat, with every official supplement already inside it. Motorway tolls, if the route uses toll roads, are charged separately. The hour does not change it; weekends and public holidays add 7.5%. Enter your address to see your exact price before you commit.',
           },
           {
             h2: 'What counts as the centre for the fixed price',
@@ -532,7 +532,7 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Group Taxi Barcelona Airport | 5, 6 or 7 Seats',
         description:
-          'Taxi for groups from Barcelona airport: a six- or seven-seat van, or several cars booked together in one checkout. One fixed all-inclusive price.',
+          'Taxi for groups from Barcelona airport: a six- or seven-seat van, or several cars booked together in one checkout. One fixed price, tolls extra.',
         h1: 'Group taxi from Barcelona airport',
         intro:
           'A standard Barcelona taxi seats four. For five, six or seven people there is a six-seat Mercedes Vito and a seven-seat Mercedes V-Class, and for a bigger party you book two or more cars together. There is no single nine-seat taxi in Barcelona, and we would rather say so than let you find out at the kerb.',
@@ -543,11 +543,11 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'Five, six or seven people: one vehicle',
-            body: 'Up to seven people travel together in a single vehicle, at a fixed all-inclusive price. The four-seat taxi is EUR 50 between the airport and anywhere in Barcelona, the six-seat Vito is EUR 70 and the seven-seat V-Class is EUR 75. Weekends and public holidays add 7.5%. That is the whole price: the airport supplement, the larger-vehicle supplement and our service are already inside it, and nothing is owed to the driver.',
+            body: 'Up to seven people travel together in a single vehicle, at a fixed price. The four-seat taxi is EUR 50 between the airport and anywhere in Barcelona, the six-seat Vito is EUR 70 and the seven-seat V-Class is EUR 75. Weekends and public holidays add 7.5%. That is the whole fixed price: the airport supplement, the larger-vehicle supplement and our service are already inside it. Motorway tolls are not included and are charged separately when the route uses toll roads.',
           },
           {
             h2: 'Eight, nine or ten people: book two cars together',
-            body: 'Above seven there is no single taxi, so the answer is two or more vehicles travelling as one party. Choose several cars in a single booking and they are reserved together, paid in one checkout and sent to the same pickup point, up to six cars. Each is charged at the published price for its size, so there is no bespoke quote and no surprise: eight people can travel in two four-seat taxis for EUR 100 on a weekday, nine in a six-seat Vito and a four-seat taxi for EUR 120 (EUR 70 plus EUR 50), and eleven in a seven-seat V-Class and a four-seat taxi for EUR 125.',
+            body: 'Above seven there is no single taxi, so the answer is two or more vehicles travelling as one party. Choose several cars in a single booking and they are reserved together, paid in one checkout and sent to the same pickup point, up to six cars. Each is charged at the published price for its size, so there is no bespoke quote: eight people can travel in two four-seat taxis for EUR 100 on a weekday, nine in a six-seat Vito and a four-seat taxi for EUR 120 (EUR 70 plus EUR 50), and eleven in a seven-seat V-Class and a four-seat taxi for EUR 125.',
           },
           {
             h2: 'One checkout, one pickup point, all the cars together',
@@ -572,14 +572,14 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Barcelona Cruise Port Taxi | Fixed-Price Transfers',
         description:
-          'Taxi between Barcelona airport and the cruise port: one fixed all-inclusive price for Moll Adossat terminals A to E, booked online, nothing to pay in the car.',
+          'Taxi between Barcelona airport and the cruise port: one fixed price for Moll Adossat terminals A to E, booked online. Tolls extra.',
         h1: 'Taxi between Barcelona airport and the cruise port',
         intro:
-          'Cruise passengers arrive with large cases and a hard deadline, so a transfer needs a price you know before you travel and a driver who is already expecting you. Between El Prat and the Moll Adossat cruise terminals the price is fixed, all-inclusive and agreed when you book: EUR 60 in a four-seat car, EUR 80 in a six-seat van and EUR 85 in a seven-seat van.',
+          'Cruise passengers arrive with large cases and a hard deadline, so a transfer needs a price you know before you travel and a driver who is already expecting you. Between El Prat and the Moll Adossat cruise terminals the price is fixed and agreed when you book: EUR 60 in a four-seat car, EUR 80 in a six-seat van and EUR 85 in a seven-seat van.',
         sections: [
           {
             h2: 'What the airport to cruise port transfer costs',
-            body: 'The price is the same in both directions and for every Moll Adossat terminal, A to E. A four-seat taxi is EUR 60, the six-seat Mercedes Vito is EUR 80 and the seven-seat Mercedes V-Class is EUR 85. Weekends and public holidays add 7.5%. The airport supplement, the cruise terminal charge and the larger-vehicle supplement are already inside that figure, so it is not a meter reading and nothing is owed to the driver at the quay. It is our own fixed price for a booked, prepaid transfer, not the regulated fare of a taxi taken from the rank.',
+            body: 'The price is the same in both directions and for every Moll Adossat terminal, A to E. A four-seat taxi is EUR 60, the six-seat Mercedes Vito is EUR 80 and the seven-seat Mercedes V-Class is EUR 85. Weekends and public holidays add 7.5%. The airport supplement, the cruise terminal charge and the larger-vehicle supplement are already inside that figure, so it is not a meter reading. Motorway tolls are not included and are charged separately when the route uses toll roads. It is our own fixed price for a booked, prepaid transfer, not the regulated fare of a taxi taken from the rank.',
           },
           {
             h2: 'From the ship to a hotel or to the city',
@@ -608,10 +608,10 @@ export const LANDING_PAGES: LandingPage[] = [
       en: {
         title: 'Book Airport Taxi Barcelona Online | Instant Price',
         description:
-          'Book a Barcelona airport taxi online in minutes. Instant fixed all-inclusive price, secure payment and an email confirmation straight away.',
+          'Book a Barcelona airport taxi online in minutes. Instant fixed price, secure payment and an email confirmation straight away.',
         h1: 'Book an airport taxi in Barcelona online',
         intro:
-          'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. You pay one all-inclusive price online, and owe nothing at all in the taxi.',
+          'Booking online takes a couple of minutes and gives you a confirmed car with an assigned driver. You pay the fixed price online; motorway tolls are charged separately when the route uses toll roads.',
         sections: [
           {
             h2: 'What you need to book a taxi to Barcelona airport',
@@ -638,7 +638,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'How you pay, and what you get back',
             body:
-              'The whole amount is paid online when you book, by credit card, debit card or Bizum. There is no deposit-and-balance split and nothing at all is owed to the driver in the car — no fare, no supplement, no tip expected. A receipt for the full amount is emailed with your confirmation, so the paperwork for an expense claim arrives before the trip rather than after it. If you also need the regulated taxi invoice for the journey itself, your driver can issue it on request.',
+              'The fixed price is paid online when you book, by credit card, debit card or Bizum. There is no deposit-and-balance split for it, and no tip is expected. Motorway tolls are charged separately when the route uses toll roads. A receipt for the amount paid is emailed with your confirmation, so the paperwork for an expense claim arrives before the trip rather than after it. If you also need the regulated taxi invoice for the journey itself, your driver can issue it on request.',
           },
         ],
       },

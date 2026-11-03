@@ -12,14 +12,14 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aeropuerto Barcelona al Centro | Reserva Online',
     description:
-      'Reserva un taxi del aeropuerto de Barcelona al centro. Precio fijo todo incluido, con el suplemento de El Prat ya dentro y conductor esperando en llegadas.',
+      'Reserva un taxi del aeropuerto de Barcelona al centro. Precio fijo con el suplemento de El Prat ya dentro, peajes aparte y conductor esperando en llegadas.',
     h1: 'Taxi del aeropuerto de Barcelona al centro',
     intro:
       'Un taxi desde El Prat hasta el centro de Barcelona tarda entre 25 y 35 minutos según el tráfico y la terminal en la que aterrices. Reservar con antelación significa que ya hay un conductor asignado cuando llegas, con un cartel con tu nombre en la sala de llegadas, en lugar de hacer cola en la parada de T1 o T2.',
     sections: [
       {
         h2: 'Cuánto cuesta un traslado del aeropuerto de Barcelona',
-        body: 'El precio lo fijamos nosotros, de nuestra propia lista: no es una lectura del taxímetro ni una estimación. Todos los suplementos oficiales que correspondan a la ruta ya están dentro de la cifra. En la práctica, un trayecto del aeropuerto a cualquier punto de Barcelona son 50 € fijos en taxi estándar, sea cual sea la distancia y la hora; los fines de semana y festivos añaden un 7,5 %. Introduce tu destino exacto arriba para ver tu precio.',
+        body: 'El precio lo fijamos nosotros, de nuestra propia lista: no es una lectura del taxímetro ni una estimación. Todos los suplementos oficiales que correspondan a la ruta ya están dentro de la cifra. En la práctica, un trayecto del aeropuerto a cualquier punto de Barcelona son 50 € fijos en taxi estándar, sea cual sea la distancia y la hora; los fines de semana y festivos añaden un 7,5 %. Introduce tu destino exacto arriba para ver tu precio fijo. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.',
       },
       {
         h2: 'Dónde te espera el conductor en llegadas',
@@ -43,7 +43,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi de Barcelona al Aeropuerto | Reserva Online',
     description:
-      'Reserva un taxi desde Barcelona al aeropuerto de El Prat. Hora de recogida fija, precio fijo todo incluido y conductores expertos.',
+      'Reserva un taxi desde Barcelona al aeropuerto de El Prat. Hora de recogida fija, precio fijo (peajes aparte) y conductores expertos.',
     h1: 'Taxi de Barcelona al aeropuerto',
     intro:
       'El trayecto de ida al aeropuerto es el que realmente conviene reservar. Un taxi previamente contratado llega a tu hotel o apartamento a una hora fijada, algo que importa mucho más cuando tienes un vuelo que coger que cuando estás llegando.',
@@ -89,7 +89,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'El suplemento de aeropuerto de El Prat',
-        body: 'El suplemento oficial de aeropuerto y cualquier otro cargo que corresponda a la ruta están dentro del precio fijo que te damos. No hay taxímetro en marcha ni una segunda cifra al final, así que no hay sorpresas.',
+        body: 'El suplemento oficial de aeropuerto y cualquier otro cargo que corresponda a la ruta están dentro del precio fijo que te damos. No hay taxímetro en marcha. Lo único que no está en el precio son los peajes, que se cobran aparte cuando la ruta utiliza vías de peaje.',
       },
       {
         h2: 'Pasajeros de crucero',
@@ -116,15 +116,15 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       'Lo que cuesta de verdad un taxi al aeropuerto de Barcelona: nuestros precios fijos por vehículo y qué añade la tarifa de fin de semana.',
     h1: 'Precio del taxi al aeropuerto de Barcelona',
     intro:
-      'Un traslado con nosotros es un precio fijo, acordado antes de reservar y fijado al reservar. Sin taxímetro, sin cálculos de distancia y sin nada que pagar en el coche. Esta es la lista completa y las tres cosas que pueden añadirse.',
+      'Un traslado con nosotros es un precio fijo, acordado antes de reservar y fijado al reservar. Sin taxímetro y sin cálculos de distancia. Esta es la lista completa y lo que puede añadirse, incluidos los peajes, que se cobran aparte.',
     sections: [
       {
         h2: 'Cómo se calcula el precio de tu taxi al aeropuerto',
-        body: 'Un traslado es un precio fijo, definido por ruta y vehículo, no por distancia ni por hora. Del aeropuerto a cualquier punto de Barcelona es una cifra; del aeropuerto a la terminal de cruceros, otra; y el taxi estándar, el minivan de seis plazas y la van de siete tienen cada uno la suya. Solo tres cosas pueden añadirse: un destino más allá de la zona plana, un traslado al puerto de cruceros y la tarifa de fin de semana y festivos. Cada una aparece como una línea propia antes de pagar.',
+        body: 'Un traslado es un precio fijo, definido por ruta y vehículo, no por distancia ni por hora. Del aeropuerto a cualquier punto de Barcelona es una cifra; del aeropuerto a la terminal de cruceros, otra; y el taxi estándar, el minivan de seis plazas y la van de siete tienen cada uno la suya. Solo unas pocas cosas pueden añadirse: un destino más allá de la zona plana, un traslado al puerto de cruceros y la tarifa de fin de semana y festivos. Los peajes, cuando la ruta utiliza vías de peaje, se cobran aparte. Cada una aparece como una línea propia antes de pagar.',
       },
       {
         h2: '¿Existe un taxi barato desde el aeropuerto de Barcelona?',
-        body: 'Compara por lo que el precio te protege, no solo por la cifra. Un precio fijo no se mueve una vez acordado: el tráfico, un desvío, un aterrizaje con retraso y la hora del día son nuestro problema, no tuyo, y en el coche no se cobra nada. Lo que sí puedes controlar es el vehículo y viajar fuera del fin de semana. Desconfía de un precio inusualmente bajo: suele indicar un vehículo sin licencia, o una cifra que crecerá antes de que llegues.',
+        body: 'Compara por lo que el precio te protege, no solo por la cifra. Un precio fijo no se mueve una vez acordado: el tráfico, un desvío, un aterrizaje con retraso y la hora del día son nuestro problema, no tuyo. Los peajes son la única excepción: se cobran aparte. Lo que sí puedes controlar es el vehículo y viajar fuera del fin de semana. Desconfía de un precio inusualmente bajo: suele indicar un vehículo sin licencia, o una cifra que crecerá antes de que llegues.',
       },
       {
         h2: 'Hasta dónde llega el precio fijo',
@@ -132,7 +132,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Qué incluye tu precio',
-        body: 'Pagas un único precio con todo incluido al reservar online. Cubre el trayecto, todos los suplementos oficiales que correspondan a tu ruta y nuestro servicio de reservar y garantizar el coche. No hay un segundo importe: en el taxi no se paga nada, y recibes por correo un recibo por el precio completo.',
+        body: 'Pagas un único precio fijo al reservar online. Cubre el trayecto, todos los suplementos oficiales que correspondan a tu ruta y nuestro servicio de reservar y garantizar el coche. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje. Recibes por correo un recibo por el precio que has pagado.',
       },
       {
         h2: 'Qué nunca cambia tu precio',
@@ -140,7 +140,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cómo y cuándo se paga',
-        body: 'El precio completo se paga online con tarjeta o Bizum al reservar, y el recibo por el importe total te llega por correo junto con la confirmación. No se cobra nada en el coche, así que no tienes que buscar efectivo ni confiar en que funcione el datáfono en la acera.',
+        body: 'El precio fijo se paga online con tarjeta o Bizum al reservar, y el recibo por el importe pagado te llega por correo junto con la confirmación. Los peajes, cuando la ruta utiliza vías de peaje, se cobran aparte.',
       },
     ],
   },
@@ -190,7 +190,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'El suplemento de la estación de Sants',
-        body: 'Los trayectos que empiezan o terminan en la estación de Sants llevan un pequeño suplemento fijo establecido por el AMB. Junto con el de aeropuerto, ambos ya están dentro del precio fijo que ves antes de reservar, así que no se suman al final.',
+        body: 'Los trayectos que empiezan o terminan en la estación de Sants llevan un pequeño suplemento fijo establecido por el AMB. Junto con el de aeropuerto, ambos ya están dentro del precio fijo que ves antes de reservar. Los peajes, si la ruta utiliza vías de peaje, se cobran aparte.',
       },
       {
         h2: 'Dónde encontrar a tu conductor en Sants',
@@ -218,7 +218,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'private-transfer': {
     title: 'Taxi Privado Barcelona | Traslado desde el Aeropuerto',
     description:
-      'Taxi privado en Barcelona y desde el aeropuerto de El Prat: coche con licencia solo para ti, sin compartir ni esperar, con precio fijo todo incluido.',
+      'Taxi privado en Barcelona y desde el aeropuerto de El Prat: coche con licencia solo para ti, sin compartir ni esperar, con precio fijo, peajes aparte.',
     h1: 'Taxi privado en Barcelona y traslado desde el aeropuerto',
     intro:
       'Todas las reservas aquí son traslados privados. El vehículo es solo tuyo: sin lanzadera compartida, sin desvíos para recoger a otros pasajeros y sin horario fijo de salida. Viajas directo desde tu punto de recogida hasta tu destino.',
@@ -377,7 +377,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cuánto cuesta un taxi del centro al aeropuerto',
-        body: 'Un precio fijo desde cualquier punto del centro hasta El Prat, con todos los suplementos oficiales ya dentro y sin nada que pagar en el taxi. La hora no lo cambia; los fines de semana y festivos añaden un 7,5 %. Introduce tu dirección para ver tu precio exacto antes de decidir.',
+        body: 'Un precio fijo desde cualquier punto del centro hasta El Prat, con todos los suplementos oficiales ya dentro. Los peajes, si la ruta utiliza vías de peaje, se cobran aparte. La hora no lo cambia; los fines de semana y festivos añaden un 7,5 %. Introduce tu dirección para ver tu precio exacto antes de decidir.',
       },
       {
         h2: 'Qué cuenta como centro para el precio fijo',
@@ -397,7 +397,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: 'Taxi 5, 6 o 7 Plazas Aeropuerto Barcelona | Grupos',
     description:
-      'Taxi para grupos desde el aeropuerto de Barcelona: furgoneta de seis o siete plazas, o varios coches en una sola reserva. Precio fijo todo incluido.',
+      'Taxi para grupos desde el aeropuerto de Barcelona: furgoneta de seis o siete plazas, o varios coches en una sola reserva. Precio fijo, peajes aparte.',
     h1: 'Taxi para grupos del aeropuerto de Barcelona',
     intro:
       'Un taxi estándar de Barcelona tiene cuatro plazas. Para cinco, seis o siete personas hay una Mercedes Vito de seis plazas y una Mercedes V-Class de siete, y para un grupo mayor se reservan dos o más coches juntos. En Barcelona no existe un taxi único de nueve plazas, y preferimos decírtelo antes de que lo descubras en la acera.',
@@ -408,11 +408,11 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cinco, seis o siete personas: un solo vehículo',
-        body: 'Hasta siete personas viajan juntas en un solo vehículo, a un precio fijo todo incluido. El taxi de cuatro plazas cuesta 50 € entre el aeropuerto y cualquier punto de Barcelona, la Vito de seis plazas cuesta 70 € y la V-Class de siete plazas cuesta 75 €. Los fines de semana y festivos añaden un 7,5 %. Ese es el precio completo: el suplemento de aeropuerto, el del vehículo mayor y nuestro servicio ya están dentro, y no se debe nada al conductor.',
+        body: 'Hasta siete personas viajan juntas en un solo vehículo, a un precio fijo. El taxi de cuatro plazas cuesta 50 € entre el aeropuerto y cualquier punto de Barcelona, la Vito de seis plazas cuesta 70 € y la V-Class de siete plazas cuesta 75 €. Los fines de semana y festivos añaden un 7,5 %. Ese es el precio fijo completo: el suplemento de aeropuerto, el del vehículo mayor y nuestro servicio ya están dentro. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.',
       },
       {
         h2: 'Ocho, nueve o diez personas: reserva dos coches juntos',
-        body: 'Por encima de siete no hay un taxi único, así que la respuesta son dos o más vehículos que viajan como un solo grupo. Elige varios coches en una sola reserva y se reservan juntos, se pagan en un solo pago y se envían al mismo punto de recogida, hasta seis coches. Cada uno se cobra al precio publicado para su tamaño, de modo que no hay presupuesto a medida ni sorpresas: ocho personas pueden viajar en dos taxis de cuatro plazas por 100 € entre semana, nueve en una Vito de seis plazas y un taxi de cuatro por 120 € (70 € más 50 €), y once en una V-Class de siete plazas y un taxi de cuatro por 125 €.',
+        body: 'Por encima de siete no hay un taxi único, así que la respuesta son dos o más vehículos que viajan como un solo grupo. Elige varios coches en una sola reserva y se reservan juntos, se pagan en un solo pago y se envían al mismo punto de recogida, hasta seis coches. Cada uno se cobra al precio publicado para su tamaño, de modo que no hay presupuesto a medida: ocho personas pueden viajar en dos taxis de cuatro plazas por 100 € entre semana, nueve en una Vito de seis plazas y un taxi de cuatro por 120 € (70 € más 50 €), y once en una V-Class de siete plazas y un taxi de cuatro por 125 €.',
       },
       {
         h2: 'Un solo pago, un punto de recogida, todos los coches juntos',
@@ -428,14 +428,14 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: 'Taxi Puerto de Cruceros Barcelona | Precio Fijo',
     description:
-      'Taxi entre el aeropuerto de Barcelona y el puerto de cruceros: precio fijo todo incluido para las terminales A a E del Moll Adossat, sin pagar en el coche.',
+      'Taxi entre el aeropuerto de Barcelona y el puerto de cruceros: precio fijo para las terminales A a E del Moll Adossat. Peajes aparte.',
     h1: 'Taxi entre el aeropuerto de Barcelona y el puerto de cruceros',
     intro:
-      'Quien llega de un crucero viaja con maletas grandes y una hora límite, así que el traslado necesita un precio que conozcas antes de salir y un conductor que ya te esté esperando. Entre El Prat y las terminales de cruceros del Moll Adossat el precio es fijo, todo incluido y cerrado al reservar: 60 € en un coche de cuatro plazas, 80 € en una furgoneta de seis plazas y 85 € en una de siete plazas.',
+      'Quien llega de un crucero viaja con maletas grandes y una hora límite, así que el traslado necesita un precio que conozcas antes de salir y un conductor que ya te esté esperando. Entre El Prat y las terminales de cruceros del Moll Adossat el precio es fijo y está cerrado al reservar: 60 € en un coche de cuatro plazas, 80 € en una furgoneta de seis plazas y 85 € en una de siete plazas.',
     sections: [
       {
         h2: 'Cuánto cuesta el traslado del aeropuerto al puerto de cruceros',
-        body: 'El precio es el mismo en los dos sentidos y para todas las terminales del Moll Adossat, de la A a la E. Un taxi de cuatro plazas cuesta 60 €, la Mercedes Vito de seis plazas cuesta 80 € y la Mercedes V-Class de siete plazas cuesta 85 €. Los fines de semana y festivos añaden un 7,5 %. El suplemento de aeropuerto, el de la terminal de cruceros y el del vehículo mayor ya están dentro de esa cifra, así que no es lo que marca el taxímetro y no se debe nada al conductor en el muelle. Es nuestro propio precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada de un taxi cogido en la parada.',
+        body: 'El precio es el mismo en los dos sentidos y para todas las terminales del Moll Adossat, de la A a la E. Un taxi de cuatro plazas cuesta 60 €, la Mercedes Vito de seis plazas cuesta 80 € y la Mercedes V-Class de siete plazas cuesta 85 €. Los fines de semana y festivos añaden un 7,5 %. El suplemento de aeropuerto, el de la terminal de cruceros y el del vehículo mayor ya están dentro de esa cifra, así que no es lo que marca el taxímetro. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje. Es nuestro propio precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada de un taxi cogido en la parada.',
       },
       {
         h2: 'Del barco al hotel o a la ciudad',
@@ -459,10 +459,10 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Reservar Taxi Aeropuerto Barcelona | Online',
     description:
-      'Reserva un taxi al aeropuerto de Barcelona online en minutos. Precio fijo todo incluido al instante, pago seguro y confirmación inmediata por correo.',
+      'Reserva un taxi al aeropuerto de Barcelona online en minutos. Precio fijo al instante, pago seguro y confirmación inmediata por correo.',
     h1: 'Reservar un taxi al aeropuerto de Barcelona online',
     intro:
-      'Reservar online lleva un par de minutos y te deja un coche confirmado con conductor asignado. Pagas un único precio con todo incluido y no debes nada en el taxi.',
+      'Reservar online lleva un par de minutos y te deja un coche confirmado con conductor asignado. Pagas el precio fijo online; los peajes se cobran aparte cuando la ruta utiliza vías de peaje.',
     sections: [
       {
         h2: 'Qué necesitas para reservar un taxi al aeropuerto de Barcelona',
@@ -486,7 +486,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cómo se paga y qué recibes',
-        body: 'El importe completo se paga online al reservar, con tarjeta de crédito, de débito o Bizum. No hay un pago dividido entre depósito y resto y no se debe nada al conductor en el coche: ni tarifa, ni suplemento, ni se espera propina. Con la confirmación te llega por correo un recibo por el importe completo, de modo que el papeleo para un informe de gastos llega antes del viaje y no después. Si además necesitas la factura regulada del taxi por el propio trayecto, tu conductor puede emitirla si se la pides.',
+        body: 'El precio fijo se paga online al reservar, con tarjeta de crédito, de débito o Bizum. No hay un pago dividido entre depósito y resto para él, y no se espera propina. Los peajes se cobran aparte cuando la ruta utiliza vías de peaje. Con la confirmación te llega por correo un recibo por el importe pagado, de modo que el papeleo para un informe de gastos llega antes del viaje y no después. Si además necesitas la factura regulada del taxi por el propio trayecto, tu conductor puede emitirla si se la pides.',
       },
     ],
   },

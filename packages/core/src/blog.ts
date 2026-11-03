@@ -52,7 +52,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'how-much-is-a-taxi-from-barcelona-airport',
     title: 'How Much Is a Taxi from Barcelona Airport?',
     description:
-      'Barcelona airport taxi prices explained: our fixed all-inclusive fares to the city, how the official rank meter differs, and what the supplements add.',
+      'Barcelona airport taxi prices explained: our fixed fares to the city, how the official rank meter differs, and what the supplements add.',
     h1: 'How much is a taxi from Barcelona airport?',
     published: '2026-08-10',
     updated: '2026-10-25',
@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h2: 'The short answer',
         body: [
-          'A booked transfer between El Prat and anywhere in Barcelona is EUR 50 in a four-seat car, EUR 70 in a six-seat Mercedes Vito and EUR 75 in a seven-seat V-Class. That is the whole price. It is quoted before you travel, paid online when you book, and nothing is owed to the driver in the car.',
+          'A booked transfer between El Prat and anywhere in Barcelona is EUR 50 in a four-seat car, EUR 70 in a six-seat Mercedes Vito and EUR 75 in a seven-seat V-Class. That is the whole fixed price. It is quoted before you travel and paid online when you book; motorway tolls are not included and are charged separately when the route uses toll roads.',
           'The cruise terminal at Moll Adossat is its own route: EUR 60, EUR 80 and EUR 85 for the same three vehicle sizes.',
           'Those figures do not move with the hour of the day. A pickup at 04:30 for an early flight costs the same as one at two in the afternoon. The only thing that lifts them is a weekend or a public holiday, which adds 7.5 per cent, so a Saturday sedan transfer is EUR 53.75 rather than EUR 50.',
           'If you take a taxi from the rank outside arrivals instead, you are not buying a fixed price at all — you are buying a metered journey, and the number at the end depends on the traffic, the hour and the route. The rest of this page explains both, because which one is cheaper genuinely depends on when you travel.',

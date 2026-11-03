@@ -8,7 +8,7 @@ export const PT_BLOG_COPY: Record<string, BlogLocaleCopy> = {
   'how-much-is-a-taxi-from-barcelona-airport': {
     title: 'Quanto custa um táxi do aeroporto de Barcelona?',
     description:
-      'Preços do táxi do aeroporto de Barcelona: as nossas tarifas fixas, tudo incluído, como difere o taxímetro da praça de táxis e o que somam os suplementos.',
+      'Preços do táxi do aeroporto de Barcelona: as nossas tarifas fixas, como difere o taxímetro da praça de táxis e o que somam os suplementos.',
     h1: 'Quanto custa um táxi do aeroporto de Barcelona?',
     excerpt:
       'Um transfer reservado de El Prat para Barcelona custa 50 € num carro de 4 lugares, com preço fixo e pagamento online. A praça de táxis à saída das chegadas funciona de outra forma, com taxímetro regulado. Eis o que custa cada opção e porque é que os dois valores não coincidem.',
@@ -16,7 +16,7 @@ export const PT_BLOG_COPY: Record<string, BlogLocaleCopy> = {
       {
         h2: 'A resposta curta',
         body: [
-          'Um transfer reservado entre El Prat e qualquer ponto de Barcelona custa 50 € num carro de 4 lugares, 70 € no Mercedes Vito de 6 lugares e 75 € na V-Class de 7 lugares. Esse é o preço total. É indicado antes de viajar, pago online no momento da reserva, e não fica nada a dever ao motorista no carro.',
+          'Um transfer reservado entre El Prat e qualquer ponto de Barcelona custa 50 € num carro de 4 lugares, 70 € no Mercedes Vito de 6 lugares e 75 € na V-Class de 7 lugares. Esse é o preço fixo total. É indicado antes de viajar e pago online no momento da reserva; as portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem.',
           'O terminal de cruzeiros de Moll Adossat é uma rota à parte: 60 €, 80 € e 85 € para os mesmos três tamanhos de veículo.',
           'Estes valores não variam com a hora do dia. Uma recolha às 04:30 para um voo cedo custa o mesmo que uma às duas da tarde. A única coisa que os aumenta é um fim de semana ou feriado, que acrescenta 7,5 %, pelo que um transfer de sedan ao sábado custa 53,75 € em vez de 50 €.',
           'Se, em vez disso, apanhar um táxi na praça à saída das chegadas, não está a comprar um preço fixo: está a comprar uma viagem com taxímetro, e o valor final depende do trânsito, da hora e do percurso. O resto desta página explica as duas opções, porque saber qual é mais barata depende mesmo de quando viaja.',
@@ -81,7 +81,7 @@ export const PT_BLOG_COPY: Record<string, BlogLocaleCopy> = {
         body: [
           'Quando uma das pontas da viagem fica fora da área metropolitana, as tarifas de Barcelona deixam de se aplicar por completo e a viagem é cobrada pelas tarifas interurbanas definidas pela Generalitat de Catalunya. São a T-6, de segunda a sexta das 08:00 às 20:00, e a T-7 em todos os outros momentos, incluindo todo o sábado e domingo.',
           'O taxímetro interurbano tem uma característica que surpreende quase toda a gente: cobra o trajeto de regresso. Um táxi de Barcelona a Sitges é, na tarifa, uma viagem de ida e volta, o circuito fechado, porque o motorista tem de voltar a casa e não pode apanhar clientes pelo caminho. Assim, um quilómetro percorrido para sul custa dois quilómetros no taxímetro. À tarifa T-6 de 0,82 € por quilómetro, são 1,64 € por cada quilómetro realmente percorrido, e não 0,82 €.',
-          'É por isso que um transfer longo custa o que custa, e por isso que um valor que num comparador parece uma tarifa por quilómetro é muitas vezes metade do real. Com tudo incluído, também o nosso serviço, dá cerca de 2,16 € por quilómetro percorrido em dia útil (T-6) e entre 2,38 € e 2,48 € à noite e ao fim de semana (T-7), mais uma taxa de saída. Sitges, a 38 quilómetros, custa 90,78 € no total. Nada é duplicado duas vezes.',
+          'É por isso que um transfer longo custa o que custa, e por isso que um valor que num comparador parece uma tarifa por quilómetro é muitas vezes metade do real. Somando também o nosso serviço, dá cerca de 2,16 € por quilómetro percorrido em dia útil (T-6) e entre 2,38 € e 2,48 € à noite e ao fim de semana (T-7), mais uma taxa de saída. Sitges, a 38 quilómetros, custa 90,78 € no total. Nada é duplicado duas vezes.',
           'Na prática: Sitges, Tarragona, Girona, Reus e a Costa Brava são preçados ao quilómetro e orçamentados antes de reservar, como tudo o resto. Não estão cobertos pela lista fixa da cidade, e nenhuma lista fixa honesta os poderia cobrir, porque as distâncias diferem por um fator de cinco.',
         ],
       },

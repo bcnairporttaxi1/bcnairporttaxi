@@ -72,14 +72,16 @@ describe('booking confirmation email', () => {
     expect(weekend.html).not.toContain('10.90');
   });
 
-  it('tells a prepaid passenger nothing is owed in the taxi', () => {
+  it('tells a prepaid passenger the price is paid and motorway tolls are charged separately', () => {
     const prepaid = bookingConfirmationEmail({
       ...base,
       paymentMode: 'FULL_PREPAID',
       amountInTaxi: 0,
       feePaid: true,
     });
-    expect(prepaid.text).toMatch(/Nothing/);
+    expect(prepaid.text).toMatch(/Motorway tolls/);
+    expect(prepaid.text).not.toMatch(/Nothing|nothing further/);
+    expect(prepaid.html).not.toMatch(/all-inclusive/i);
   });
 });
 
@@ -220,11 +222,12 @@ describe('driver job notice', () => {
     expect(text).not.toMatch(/€\d/);
   });
 
-  it('says plainly that there is nothing to collect', () => {
-    expect(driverJobEmail(job).text).toContain('nothing to collect in the car');
+  it('says plainly that there is no fare balance to collect, and that tolls are separate', () => {
+    expect(driverJobEmail(job).text).toContain('no fare balance to collect');
+    expect(driverJobEmail(job).text).toContain('Motorway tolls are not included');
     // A zero balance is the normal case and must read the same as none at all.
     expect(driverJobEmail({ ...job, collectInCar: 0 }).text).toContain(
-      'nothing to collect in the car',
+      'no fare balance to collect',
     );
   });
 
@@ -233,7 +236,7 @@ describe('driver job notice', () => {
     // mail stating the passenger had paid in full, so nobody asked for the rest.
     const { text, html } = driverJobEmail({ ...job, collectInCar: 25 });
     expect(text).toContain('COLLECT €25.00 IN THE CAR');
-    expect(text).not.toContain('nothing to collect');
+    expect(text).not.toContain('no fare balance to collect');
     expect(html).toContain('Collect <strong>€25.00</strong>');
     expect(html).not.toContain('paid in full');
   });

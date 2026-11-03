@@ -11,14 +11,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aeroport Barcelona al Centre | Reserva Online',
     description:
-      'Reserva un taxi de l’aeroport de Barcelona al centre. Preu fix tot inclòs, amb el suplement del Prat ja dins i conductor esperant a arribades.',
+      'Reserva un taxi de l’aeroport de Barcelona al centre. Preu fix, amb el suplement del Prat ja dins, peatges a part i conductor esperant a arribades.',
     h1: 'Taxi de l\'aeroport de Barcelona al centre',
     intro:
       'Un taxi des del Prat fins al centre de Barcelona triga entre 25 i 35 minuts segons el trànsit i la terminal on aterris. Reservar amb antelació vol dir que ja hi ha un conductor assignat quan arribes, amb un cartell amb el teu nom a la sala d\'arribades, en comptes de fer cua a la parada de la T1 o la T2.',
     sections: [
       {
         h2: 'Quant costa un trasllat de l\'aeroport de Barcelona',
-        body: 'El preu el fixem nosaltres: no és una lectura del taxímetre ni una estimació, i tots els suplements oficials de la ruta ja són dins de la xifra. A la pràctica, un trajecte de l’aeroport a qualsevol punt de Barcelona són 50 EUR fixos en taxi estàndard, sigui quina sigui la distància i l’hora; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva destinació exacta a dalt per veure el teu preu.',
+        body: 'El preu el fixem nosaltres: no és una lectura del taxímetre ni una estimació, i tots els suplements oficials de la ruta ja són dins de la xifra. A la pràctica, un trajecte de l’aeroport a qualsevol punt de Barcelona són 50 EUR fixos en taxi estàndard, sigui quina sigui la distància i l’hora; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva destinació exacta a dalt per veure el teu preu fix. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.',
       },
       {
         h2: 'On t\'espera el conductor a arribades',
@@ -42,7 +42,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Taxi de Barcelona a l\'Aeroport | Reserva Online',
     description:
-      'Reserva un taxi des de Barcelona a l’aeroport del Prat. Hora de recollida fixada, preu fix tot inclòs i conductors que coneixen les portes.',
+      'Reserva un taxi des de Barcelona a l’aeroport del Prat. Hora de recollida fixada, preu fix (peatges a part) i conductors que coneixen les portes.',
     h1: 'Taxi de Barcelona a l\'aeroport',
     intro:
       'El trajecte d\'anada a l\'aeroport és el que realment convé reservar. Un taxi contractat prèviament arriba al teu hotel o apartament a una hora fixada, cosa que importa molt més quan has d\'agafar un vol que no pas quan estàs arribant.',
@@ -88,7 +88,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'El suplement d\'aeroport del Prat',
-        body: 'El suplement oficial d’aeroport i qualsevol altre càrrec que correspongui a la ruta són dins del preu fix que et donem. No hi ha taxímetre en marxa ni una segona xifra al final, així que no hi ha sorpreses.',
+        body: 'El suplement oficial d’aeroport i qualsevol altre càrrec que correspongui a la ruta són dins del preu fix que et donem. No hi ha taxímetre en marxa. L’única cosa que no és al preu són els peatges, que es cobren a part quan la ruta fa servir vies de peatge.',
       },
       {
         h2: 'Passatgers de creuer',
@@ -115,15 +115,15 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       'El que costa un taxi a l’aeroport de Barcelona: els preus fixos per vehicle, fins on arriba el preu pla i què hi afegeixen cap de setmana i fora de zona',
     h1: 'Preu del taxi a l\'aeroport de Barcelona',
     intro:
-      'Un trasllat a l’aeroport de Barcelona amb nosaltres és un preu fix, acordat abans de reservar i bloquejat quan reserves. Sense taxímetre, sense haver d’endevinar la distància i sense res a liquidar al cotxe. Aquí tens la llista sencera i les tres coses que hi poden afegir.',
+      'Un trasllat a l’aeroport de Barcelona amb nosaltres és un preu fix, acordat abans de reservar i bloquejat quan reserves. Sense taxímetre i sense haver d’endevinar la distància. Aquí tens la llista sencera i les coses que hi poden afegir, inclosos els peatges d’autopista, que es cobren a part.',
     sections: [
       {
         h2: 'Com es calcula la tarifa del teu taxi a l\'aeroport',
-        body: 'Un trasllat és un preu fix, definit per ruta i vehicle, no per distància ni per hora. De l’aeroport a qualsevol punt de Barcelona és una xifra; de l’aeroport a la terminal de creuers, una altra; i el taxi estàndard, el minivan de sis places i la van de set tenen cadascun la seva. Només tres coses hi poden afegir: una destinació més enllà de la zona plana, un trasllat al port de creuers i la tarifa de cap de setmana i festius. Cadascuna apareix com una línia pròpia abans de pagar.',
+        body: 'Un trasllat és un preu fix, definit per ruta i vehicle, no per distància ni per hora. De l’aeroport a qualsevol punt de Barcelona és una xifra; de l’aeroport a la terminal de creuers, una altra; i el taxi estàndard, el minivan de sis places i la van de set tenen cadascun la seva. Només unes quantes coses hi poden afegir: una destinació més enllà de la zona plana, un trasllat al port de creuers i la tarifa de cap de setmana i festius. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es cobren a part. Cada addició al preu apareix com una línia pròpia abans de pagar.',
       },
       {
         h2: 'Hi ha algun taxi barat des de l\'aeroport de Barcelona?',
-        body: 'Compara pel que el preu et protegeix, no només per la xifra. Un preu fix no es mou un cop acordat: el trànsit, un desviament, un aterratge amb retard i l’hora del dia són el nostre problema, no el teu, i al cotxe no es cobra res. El que sí que pots controlar és el vehicle i viatjar fora del cap de setmana. Desconfia d’un preu inusualment baix: sol indicar un vehicle sense llicència, o una xifra que creixerà abans que arribis.',
+        body: 'Compara pel que el preu et protegeix, no només per la xifra. Un preu fix no es mou un cop acordat: el trànsit, un desviament, un aterratge amb retard i l’hora del dia són el nostre problema, no el teu. Els peatges d’autopista són l’única excepció: es cobren a part. El que sí que pots controlar és el vehicle i viatjar fora del cap de setmana. Desconfia d’un preu inusualment baix: sol indicar un vehicle sense llicència, o una xifra que creixerà abans que arribis.',
       },
       {
         h2: 'Fins on arriba el preu fix',
@@ -131,15 +131,15 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Què hi afegim a sobre',
-        body: 'Pagues un únic preu amb tot inclòs en reservar en línia. Cobreix el trajecte, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. No hi ha cap segon import: al taxi no es deu res en absolut i rebràs per correu un rebut de l’import complet.',
+        body: 'Pagues un únic preu fix en reservar en línia. Cobreix el trajecte, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge. Rebràs per correu un rebut de l’import pagat.',
       },
       {
         h2: "Què no canvia mai el teu preu",
-        body: "No l’hora del dia: una recollida a les 04:30 per a una sortida de matinada costa exactament el mateix que una a les dues de la tarda, perquè un preu fix no té tarifa nocturna. Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterris, el nombre de passatgers dins de la capacitat del vehicle ni la quantitat d’equipatge que hi càpiga. Els caps de setmana i els festius són l’única cosa que puja un preu de la llista, i ho fan amb un percentatge publicat i no amb un recàrrec que varia segons la demanda. Tota la resta és risc nostre i no teu, que és precisament el que s’obté fixant un preu per endavant.",
+        body: "No l’hora del dia: una recollida a les 04:30 per a una sortida de matinada costa exactament el mateix que una a les dues de la tarda, perquè un preu fix no té tarifa nocturna. Tampoc el trànsit, la ruta que triï el conductor, la terminal on aterris, el nombre de passatgers dins de la capacitat del vehicle ni la quantitat d’equipatge que hi càpiga. Els caps de setmana i els festius són l’única cosa que puja un preu de la llista, i ho fan amb un percentatge publicat i no amb un recàrrec que varia segons la demanda. Els peatges d’autopista són l’única excepció, i es cobren a part quan la ruta fa servir vies de peatge. Tota la resta és risc nostre i no teu, que és precisament el que s’obté fixant un preu per endavant.",
       },
       {
         h2: "Com i quan es paga",
-        body: "Tot l’import es paga en línia, amb targeta o Bizum, quan reserves, i amb la confirmació t’enviem per correu un rebut de l’import complet. Al cotxe no es cobra res, de manera que no cal buscar efectiu ni esperar que el datàfon funcioni a la vorera.",
+        body: "El preu fix es paga en línia, amb targeta o Bizum, quan reserves, i amb la confirmació t’enviem per correu un rebut de l’import pagat. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es cobren a part.",
       },
     ],
   },
@@ -182,14 +182,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Taxi Estació de Sants a l\'Aeroport de Barcelona',
     description:
-      'Reserva un taxi des de l\'estació de Sants a l\'aeroport del Prat. Uns 15 minuts, preu fix tot inclòs amb el suplement d\'estació inclòs.',
+      'Reserva un taxi des de l\'estació de Sants a l\'aeroport del Prat. Uns 15 minuts, preu fix amb el suplement d\'estació inclòs.',
     h1: 'Taxi de l\'estació de Sants a l\'aeroport de Barcelona',
     intro:
       'Sants és la principal estació de tren de Barcelona i el punt d\'arribada dels AVE des de Madrid, València i Sevilla. També és el gran node de transport més proper al Prat: el trajecte en taxi ronda els 15 minuts fora d\'hora punta.',
     sections: [
       {
         h2: 'El suplement de l\'estació de Sants',
-        body: 'Els trajectes que comencen o acaben a l\'estació de Sants porten un petit suplement fix establert per l\'AMB. Juntament amb el suplement d\'aeroport, tots dos són ja dins del preu que veus abans de reservar: no hi has d\'afegir res després.',
+        body: 'Els trajectes que comencen o acaben a l\'estació de Sants porten un petit suplement fix establert per l\'AMB. Juntament amb el suplement d\'aeroport, tots dos són ja dins del preu fix que veus abans de reservar. Els peatges d\'autopista, si la ruta fa servir vies de peatge, es cobren a part.',
       },
       {
         h2: 'On trobar el teu conductor a Sants',
@@ -252,7 +252,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   '24-hour-taxi': {
     title: 'Taxi 24 Hores Aeroport Barcelona | Trasllats Nocturns',
     description:
-      'Servei de taxi 24 hores a l\'aeroport de Barcelona. Reserva aterratges nocturns i sortides de matinada per endavant, a preu fix i tot inclòs.',
+      'Servei de taxi 24 hores a l\'aeroport de Barcelona. Reserva aterratges nocturns i sortides de matinada per endavant, a preu fix, peatges a part.',
     h1: 'Taxi 24 hores a l\'aeroport de Barcelona',
     intro:
       'El Prat funciona les vint-i-quatre hores, i el servei de taxi també. Les hores que de debò convé reservar són les incòmodes: aterratges passada la mitjanit i sortides que exigeixen recollida abans de l\'alba.',
@@ -376,7 +376,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Quant costa del centre a l\'aeroport',
-        body: 'Un preu fix des de qualsevol punt del centre fins al Prat, amb tots els suplements oficials ja dins i sense res a pagar al taxi. L’hora no el canvia; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva adreça per veure el preu exacte abans de decidir.',
+        body: 'Un preu fix des de qualsevol punt del centre fins al Prat, amb tots els suplements oficials ja dins. Els peatges d’autopista, si la ruta fa servir vies de peatge, es cobren a part. L’hora no el canvia; els caps de setmana i festius hi afegeixen un 7,5 %. Introdueix la teva adreça per veure el preu exacte abans de decidir.',
       },
       {
         h2: "Què compta com a centre per al preu fix",
@@ -396,7 +396,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: "Taxi de Grup Aeroport Barcelona | 5, 6 o 7 Places",
     description:
-      "Taxi per a grups des de l’aeroport de Barcelona: una furgoneta de sis o set places, o diversos cotxes reservats junts en un sol pagament. Preu fix tot inclòs.",
+      "Taxi per a grups des de l’aeroport de Barcelona: una furgoneta de sis o set places, o diversos cotxes en un sol pagament. Preu fix, peatges a part.",
     h1: "Taxi de grup des de l’aeroport de Barcelona",
     intro:
       "Un taxi estàndard de Barcelona té quatre places. Per a cinc, sis o set persones hi ha una Mercedes Vito de sis places i una Mercedes V-Class de set places, i per a un grup més gran es reserven dos o més cotxes junts. A Barcelona no existeix cap taxi de nou places, i preferim dir-ho que deixar que ho descobreixis a la vorera.",
@@ -407,7 +407,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Cinc, sis o set persones: un sol vehicle",
-        body: "Fins a set persones viatgen juntes en un sol vehicle, a un preu fix tot inclòs. El taxi de quatre places són 50 EUR entre l’aeroport i qualsevol punt de Barcelona, la Vito de sis places són 70 EUR i la V-Class de set places són 75 EUR. Els caps de setmana i els festius hi afegeixen un 7,5 %. Aquest és tot el preu: el suplement d’aeroport, el del vehicle més gran i el nostre servei ja hi són inclosos, i no es deu res al conductor.",
+        body: "Fins a set persones viatgen juntes en un sol vehicle, a un preu fix. El taxi de quatre places són 50 EUR entre l’aeroport i qualsevol punt de Barcelona, la Vito de sis places són 70 EUR i la V-Class de set places són 75 EUR. Els caps de setmana i els festius hi afegeixen un 7,5 %. Aquest és tot el preu fix: el suplement d’aeroport, el del vehicle més gran i el nostre servei ja hi són inclosos. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
       },
       {
         h2: "Vuit, nou o deu persones: reserva dos cotxes junts",
@@ -427,14 +427,14 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: "Taxi Port de Creuers Barcelona | Preu Fix",
     description:
-      "Taxi entre l’aeroport de Barcelona i el port de creuers: preu fix tot inclòs per a les terminals A a E del Moll Adossat, reserva en línia, res a pagar al cotxe.",
+      "Taxi entre l’aeroport de Barcelona i el port de creuers: preu fix per a les terminals A a E del Moll Adossat, reserva en línia. Peatges a part.",
     h1: "Taxi entre l’aeroport de Barcelona i el port de creuers",
     intro:
-      "Els passatgers de creuer arriben amb maletes grans i un horari que no admet retards, així que el trasllat necessita un preu que coneguis abans de viatjar i un conductor que ja t’estigui esperant. Entre El Prat i les terminals de creuers del Moll Adossat el preu és fix, tot inclòs i acordat en el moment de reservar: 60 EUR en un cotxe de quatre places, 80 EUR en una furgoneta de sis places i 85 EUR en una de set places.",
+      "Els passatgers de creuer arriben amb maletes grans i un horari que no admet retards, així que el trasllat necessita un preu que coneguis abans de viatjar i un conductor que ja t’estigui esperant. Entre El Prat i les terminals de creuers del Moll Adossat el preu és fix i acordat en el moment de reservar: 60 EUR en un cotxe de quatre places, 80 EUR en una furgoneta de sis places i 85 EUR en una de set places.",
     sections: [
       {
         h2: "Quant costa el trasllat de l’aeroport al port de creuers",
-        body: "El preu és el mateix en els dos sentits i per a totes les terminals del Moll Adossat, de la A a la E. Un taxi de quatre places són 60 EUR, la Mercedes Vito de sis places són 80 EUR i la Mercedes V-Class de set places són 85 EUR. Els caps de setmana i els festius hi afegeixen un 7,5 %. El suplement d’aeroport, la taxa de la terminal de creuers i el suplement del vehicle més gran ja són dins d’aquesta xifra, de manera que no és la lectura d’un taxímetre i no es deu res al conductor al moll. És el nostre propi preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada d’un taxi agafat a la parada.",
+        body: "El preu és el mateix en els dos sentits i per a totes les terminals del Moll Adossat, de la A a la E. Un taxi de quatre places són 60 EUR, la Mercedes Vito de sis places són 80 EUR i la Mercedes V-Class de set places són 85 EUR. Els caps de setmana i els festius hi afegeixen un 7,5 %. El suplement d’aeroport, la taxa de la terminal de creuers i el suplement del vehicle més gran ja són dins d’aquesta xifra, de manera que no és la lectura d’un taxímetre. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge. És el nostre propi preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada d’un taxi agafat a la parada.",
       },
       {
         h2: "Del vaixell a l’hotel o al centre de la ciutat",
@@ -458,10 +458,10 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Reservar Taxi Aeroport Barcelona Online | Preu a l\'Instant',
     description:
-      'Reserva un taxi a l\'aeroport de Barcelona online en minuts. Preu fix tot inclòs a l\'instant, pagament segur i confirmació per correu de seguida.',
+      'Reserva un taxi a l\'aeroport de Barcelona online en minuts. Preu fix a l\'instant, pagament segur i confirmació per correu de seguida.',
     h1: 'Reservar un taxi a l\'aeroport de Barcelona online',
     intro:
-      'Reservar en línia dura un parell de minuts i et deixa un cotxe confirmat amb conductor assignat. Pagues un únic preu amb tot inclòs i no deus res al taxi.',
+      'Reservar en línia dura un parell de minuts i et deixa un cotxe confirmat amb conductor assignat. Pagues el preu fix en línia; els peatges d’autopista es cobren a part quan la ruta fa servir vies de peatge.',
     sections: [
       {
         h2: 'Què necessites per reservar un taxi a l\'aeroport de Barcelona',
@@ -485,7 +485,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Com es paga i què en reps",
-        body: "Tot l’import es paga en línia quan reserves, amb targeta de crèdit, targeta de dèbit o Bizum. No hi ha cap dipòsit amb saldo posterior i al conductor no se li deu res dins del cotxe: ni tarifa, ni suplement, ni cal deixar propina. Amb la confirmació t’enviem per correu un rebut de l’import complet, de manera que els papers per a una nota de despeses arriben abans del viatge i no després. Si a més necessites la factura regulada del taxi del trajecte, el conductor te la pot emetre si la hi demanes.",
+        body: "El preu fix es paga en línia quan reserves, amb targeta de crèdit, targeta de dèbit o Bizum. No hi ha cap dipòsit amb saldo posterior per a aquest preu, i no cal deixar propina. Els peatges d’autopista es cobren a part quan la ruta fa servir vies de peatge. Amb la confirmació t’enviem per correu un rebut de l’import pagat, de manera que els papers per a una nota de despeses arriben abans del viatge i no després. Si a més necessites la factura regulada del taxi del trajecte, el conductor te la pot emetre si la hi demanes.",
       },
     ],
   },

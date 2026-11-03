@@ -16,7 +16,7 @@ export const NL_DESTINATION_COPY: LocaleDestinationCopy = {
         'De Costa Brava begint ruwweg een uur ten noorden van Barcelona en loopt door tot aan de Franse grens, en vrijwel iedere bezoeker komt aan via El Prat. De kustweg is eenvoudig, maar het is een echte reis en geen sprongetje door de stad: reken op ongeveer 80 minuten naar Lloret de Mar en bijna twee uur naar de baaitjes in het noorden.',
         'Een privétransfer is hier meer waard dan bij een rit binnen de stad. Naar de meeste badplaatsen rijdt geen directe trein, de touringcars stoppen alleen in de grotere plaatsen en het laatste stuk naar een hotel op een heuvel of een villa buiten het dorp leg je met koffers zelden te voet af. Uw chauffeur brengt u tot aan de deur.',
         'Wij halen u op in de aankomsthal met een naambordje en volgen uw vlucht, dus een vertraagde landing kost u de auto niet. Voor groepen biedt de Mercedes Vito of V-Class plaats aan zes of zeven passagiers met bijpassende bagage, wat meestal goedkoper is dan twee aparte auto’s en een stuk eenvoudiger.',
-        'Omdat de Costa Brava buiten het grootstedelijk gebied van Barcelona ligt, wordt de rit niet volgens de AMB-taximeter berekend. Wij geven u voor de route een vaste prijs, voordat u boekt en schriftelijk bevestigd, zodat u aan het eind niets meer hoeft af te rekenen buiten wat u hebt afgesproken.',
+        'Omdat de Costa Brava buiten het grootstedelijk gebied van Barcelona ligt, wordt de rit niet volgens de AMB-taximeter berekend. Wij geven u voor de route een vaste prijs, voordat u boekt en schriftelijk bevestigd, Tolgelden zijn niet inbegrepen in die prijs en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.',
       ],
     },
     girona: {

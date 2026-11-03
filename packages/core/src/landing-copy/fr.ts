@@ -5,14 +5,14 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aéroport Barcelone Centre-Ville | Réserver',
     description:
-      "Réservez un taxi de l’aéroport de Barcelone vers le centre. Prix fixe tout compris, supplément El Prat inclus, chauffeur à l’arrivée.",
+      "Réservez un taxi de l’aéroport de Barcelone vers le centre. Prix fixe, supplément El Prat inclus, péages en sus, chauffeur à l’arrivée.",
     h1: "Taxi de l'aéroport de Barcelone vers le centre",
     intro:
       "Un taxi depuis El Prat jusqu'au centre de Barcelone prend 25 à 35 minutes selon la circulation et le terminal d'arrivée. Réserver à l'avance signifie qu'un chauffeur vous attend déjà à l'atterrissage, pancarte à votre nom en salle d'arrivée, plutôt que la file d'attente à la station T1 ou T2.",
     sections: [
       {
         h2: "Combien coûte un transfert depuis l'aéroport de Barcelone",
-        body: "Le prix est fixé par nous : ce n’est ni un relevé de compteur ni une estimation, et tous les suppléments officiels applicables au trajet sont déjà dedans. En pratique, un trajet de l’aéroport vers n’importe quel point de Barcelone coûte 50 EUR fixes en taxi standard, quelle que soit la distance et quelle que soit l’heure ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre destination exacte ci-dessus pour voir votre prix.",
+        body: "Le prix est fixé par nous : ce n’est ni un relevé de compteur ni une estimation, et tous les suppléments officiels applicables au trajet sont déjà dedans. En pratique, un trajet de l’aéroport vers n’importe quel point de Barcelone coûte 50 EUR fixes en taxi standard, quelle que soit la distance et quelle que soit l’heure ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre destination exacte ci-dessus pour voir votre prix fixe. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
       },
       {
         h2: 'Où votre chauffeur vous attend',
@@ -36,7 +36,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: "Taxi Barcelone vers l'Aéroport | Réserver en ligne",
     description:
-      "Réservez un taxi depuis Barcelone vers l’aéroport El Prat. Heure de prise en charge fixe, prix fixe tout compris, chauffeurs expérimentés.",
+      "Réservez un taxi depuis Barcelone vers l’aéroport El Prat. Heure de prise en charge fixe, prix fixe (péages en sus), chauffeurs expérimentés.",
     h1: "Taxi de Barcelone vers l'aéroport",
     intro:
       "C'est le trajet aller qui mérite vraiment d'être réservé. Un taxi commandé à l'avance se présente à votre hôtel ou appartement à une heure convenue, ce qui compte bien davantage quand vous avez un vol à prendre que lorsque vous arrivez.",
@@ -51,7 +51,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Départs matinaux depuis El Prat',
-        body: "La première vague de départs quitte El Prat avant 07:00, ce qui implique des prises en charge dès 04:30. Une prise en charge à 04:30 coûte le même prix que le même trajet à midi, car l’heure ne déplace pas un prix fixe, et nous confirmons le chauffeur la veille au soir pour qu’il n’y ait rien à régler à quatre heures du matin.",
+        body: "La première vague de départs quitte El Prat avant 07:00, ce qui implique des prises en charge dès 04:30. Une prise en charge à 04:30 coûte le même prix que le même trajet à midi, car l’heure ne déplace pas un prix fixe, et nous confirmons le chauffeur la veille au soir pour qu’il n’y ait aucune incertitude à quatre heures du matin.",
       },
       {
         h2: "Vérifiez le terminal sur votre carte d’embarquement, pas sur la réservation",
@@ -71,7 +71,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aéroport El Prat | Transferts Agréés Barcelone',
     description:
-      "Taxis agréés vers et depuis l’aéroport de Barcelone-El Prat (BCN). Réservez en ligne à un prix fixe tout compris, avec un chauffeur affecté à votre vol.",
+      "Taxis agréés vers et depuis l’aéroport de Barcelone-El Prat (BCN). Réservez en ligne à un prix fixe, péages en sus, avec un chauffeur affecté à votre vol.",
     h1: 'Taxi aéroport El Prat',
     intro:
       "L'aéroport Josep Tarradellas Barcelone-El Prat, que presque tout le monde appelle encore simplement El Prat, se trouve à environ 15 km au sud-ouest de la ville. Deuxième aéroport d'Espagne par le trafic, il se rejoint le plus rapidement en taxi à presque toute heure — à condition qu'une voiture attende.",
@@ -82,7 +82,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Le supplément aéroport d'El Prat",
-        body: "Le supplément aéroport officiel et tout autre frais applicable au trajet sont inclus dans le prix fixe que nous vous donnons. Aucun compteur ne tourne pendant votre course et il n’y a pas de second montant à la fin, donc rien ne peut vous surprendre.",
+        body: "Le supplément aéroport officiel et tout autre frais applicable au trajet sont inclus dans le prix fixe que nous vous donnons. Aucun compteur ne tourne pendant votre course. Les péages sont la seule chose qui ne soit pas comprise dans le prix : ils sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
       },
       {
         h2: 'Passagers de croisière',
@@ -109,15 +109,15 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       "Ce que coûte vraiment un taxi pour l’aéroport de Barcelone : nos prix fixes par véhicule, la portée du prix forfaitaire et ce qu’ajoutent week-end et hors zone.",
     h1: "Prix d'un taxi pour l'aéroport de Barcelone",
     intro:
-      "Un transfert vers l’aéroport de Barcelone chez nous est un prix fixe, convenu avant la réservation et verrouillé dès que vous réservez. Pas de compteur, pas d’estimation de distance et rien à régler dans la voiture. Voici toute la liste et les trois éléments qui peuvent s’y ajouter.",
+      "Un transfert vers l’aéroport de Barcelone chez nous est un prix fixe, convenu avant la réservation et verrouillé dès que vous réservez. Pas de compteur et pas d’estimation de distance. Voici toute la liste et les éléments qui peuvent s’y ajouter, dont les péages autoroutiers, facturés séparément.",
     sections: [
       {
         h2: 'Comment votre tarif est calculé',
-        body: "Un transfert est un prix fixe, défini par véhicule et non par distance ni par heure. De l’aéroport vers n’importe quel point de Barcelone, c’est un montant ; de l’aéroport vers le terminal de croisière, un autre ; et le taxi standard, le minivan six places et le van sept places ont chacun le leur. Trois choses seulement peuvent s’y ajouter : une destination au-delà de la zone forfaitaire, un transfert au port de croisière, et le tarif week-end et jours fériés. Chacune apparaît comme une ligne distincte avant le paiement.",
+        body: "Un transfert est un prix fixe, défini par véhicule et non par distance ni par heure. De l’aéroport vers n’importe quel point de Barcelone, c’est un montant ; de l’aéroport vers le terminal de croisière, un autre ; et le taxi standard, le minivan six places et le van sept places ont chacun le leur. Seules quelques choses peuvent s’y ajouter : une destination au-delà de la zone forfaitaire, un transfert au port de croisière, et le tarif week-end et jours fériés. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont facturés séparément. Chacune apparaît comme une ligne distincte avant le paiement.",
       },
       {
         h2: "Existe-t-il un taxi pas cher depuis l'aéroport ?",
-        body: "Comparez sur ce contre quoi le prix vous protège, pas seulement sur le montant affiché. Un prix fixe ne bouge plus une fois accepté : la circulation, un détour, un atterrissage tardif et l’heure de la journée sont notre problème, pas le vôtre, et rien n’est encaissé dans la voiture. Ce que vous pouvez contrôler, c’est le véhicule et le fait de voyager hors week-end. Méfiez-vous d’un prix anormalement bas : il signale en général un véhicule non agréé, ou un montant qui gonflera avant votre arrivée.",
+        body: "Comparez sur ce contre quoi le prix vous protège, pas seulement sur le montant affiché. Un prix fixe ne bouge plus une fois accepté : la circulation, un détour, un atterrissage tardif et l’heure de la journée sont notre problème, pas le vôtre. Les péages autoroutiers sont la seule exception : ils sont facturés séparément. Ce que vous pouvez contrôler, c’est le véhicule et le fait de voyager hors week-end. Méfiez-vous d’un prix anormalement bas : il signale en général un véhicule non agréé, ou un montant qui gonflera avant votre arrivée.",
       },
       {
         h2: 'Jusqu’où porte le prix fixe',
@@ -125,15 +125,15 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Ce que votre prix comprend',
-        body: "Vous réglez en ligne un prix unique tout compris au moment de la réservation. Il couvre le trajet au prix fixe, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Il n'y a pas de second montant : rien à payer dans le taxi.",
+        body: "Vous réglez en ligne un prix fixe unique au moment de la réservation. Il couvre le trajet, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Vous recevez par e-mail un reçu du prix payé.",
       },
       {
         h2: "Ce qui ne change jamais votre prix",
-        body: "Pas l’heure de la journée : une prise en charge à 04:30 pour un départ matinal coûte exactement ce que coûte une course à deux heures de l’après-midi, car un prix fixe ne comporte pas de tarif de nuit. Ni la circulation, ni l’itinéraire de votre chauffeur, ni le terminal où vous atterrissez, ni le nombre de passagers dans la limite de la capacité du véhicule, ni la quantité de bagages dans cette même limite. Les week-ends et jours fériés sont la seule chose qui relève un prix de la liste, d’un pourcentage publié et non d’une majoration qui suit la demande. Tout le reste est notre risque et non le vôtre, ce qui est précisément ce qu’achète un prix fixé à l’avance.",
+        body: "Pas l’heure de la journée : une prise en charge à 04:30 pour un départ matinal coûte exactement ce que coûte une course à deux heures de l’après-midi, car un prix fixe ne comporte pas de tarif de nuit. Ni la circulation, ni l’itinéraire de votre chauffeur, ni le terminal où vous atterrissez, ni le nombre de passagers dans la limite de la capacité du véhicule, ni la quantité de bagages dans cette même limite. Les week-ends et jours fériés sont la seule chose qui relève un prix de la liste, d’un pourcentage publié et non d’une majoration qui suit la demande. Les péages autoroutiers sont la seule exception, facturés séparément lorsque l’itinéraire emprunte des routes à péage. Tout le reste est notre risque et non le vôtre, ce qui est précisément ce qu’achète un prix fixé à l’avance.",
       },
       {
         h2: "Comment et quand vous payez",
-        body: "Le prix total se règle en ligne, par carte ou par Bizum, au moment de la réservation, et un reçu du montant complet est envoyé avec votre confirmation. Rien n’est encaissé dans la voiture : pas d’espèces à trouver et pas de terminal de paiement dont il faudrait espérer qu’il fonctionne sur le trottoir.",
+        body: "Le prix fixe se règle en ligne, par carte ou par Bizum, au moment de la réservation, et un reçu du montant payé est envoyé avec votre confirmation. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont facturés séparément.",
       },
     ],
   },
@@ -176,14 +176,14 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: "Taxi Gare de Sants vers l'Aéroport de Barcelone",
     description:
-      "Réservez un taxi de la gare de Barcelone-Sants vers l’aéroport El Prat. Environ 15 minutes, un prix tout compris incluant le supplément gare de Sants.",
+      "Réservez un taxi de la gare de Barcelone-Sants vers l’aéroport El Prat. Environ 15 minutes, un prix fixe incluant le supplément gare de Sants.",
     h1: "Taxi de la gare de Sants vers l'aéroport",
     intro:
       "Sants est la principale gare de Barcelone et le point d'arrivée des AVE depuis Madrid, Valence et Séville. C'est aussi le grand pôle de transport le plus proche d'El Prat : environ 15 minutes en taxi hors heures de pointe.",
     sections: [
       {
         h2: 'Le supplément gare de Sants',
-        body: "Les courses au départ ou à destination de Sants comportent un petit supplément fixe défini par l’AMB. Combiné au supplément aéroport, les deux sont déjà inclus dans le prix affiché avant la réservation : il n’y a rien à ajouter ensuite.",
+        body: "Les courses au départ ou à destination de Sants comportent un petit supplément fixe défini par l’AMB. Combiné au supplément aéroport, les deux sont déjà inclus dans le prix fixe affiché avant la réservation. Les péages autoroutiers, si l’itinéraire emprunte des routes à péage, sont facturés séparément.",
       },
       {
         h2: 'Où retrouver votre chauffeur',
@@ -246,7 +246,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   '24-hour-taxi': {
     title: 'Taxi 24h Aéroport Barcelone | Transferts de Nuit',
     description:
-      "Taxi 24h/24 à l’aéroport de Barcelone. Réservez atterrissages de nuit et départs avant l’aube à un prix fixe tout compris, sans majoration nocturne.",
+      "Taxi 24h/24 à l’aéroport de Barcelone. Réservez atterrissages de nuit et départs avant l’aube à un prix fixe, sans majoration nocturne. Péages en sus.",
     h1: 'Taxi 24h à l’aéroport de Barcelone',
     intro:
       "El Prat fonctionne jour et nuit, et le service de taxi aussi. Les horaires qu'il vaut vraiment la peine de réserver sont les plus ingrats : les atterrissages après minuit et les départs qui exigent une prise en charge avant l'aube.",
@@ -370,7 +370,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Ce que coûte le trajet',
-        body: "Un prix fixe depuis n’importe quel point du centre jusqu’à El Prat, tous suppléments officiels déjà inclus et rien à payer dans le taxi. L’heure ne le change pas ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre adresse pour voir votre prix exact avant de vous engager.",
+        body: "Un prix fixe depuis n’importe quel point du centre jusqu’à El Prat, tous suppléments officiels déjà inclus. Les péages autoroutiers, si l’itinéraire emprunte des routes à péage, sont facturés séparément. L’heure ne le change pas ; les week-ends et jours fériés ajoutent 7,5 %. Indiquez votre adresse pour voir votre prix exact avant de vous engager.",
       },
       {
         h2: "Ce qui compte comme centre pour le prix fixe",
@@ -390,7 +390,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: "Taxi Groupe Aéroport Barcelone | 5, 6 ou 7 Places",
     description:
-      "Taxi de groupe depuis l’aéroport de Barcelone : un van de six ou sept places, ou plusieurs voitures réservées ensemble. Un prix fixe tout compris.",
+      "Taxi de groupe depuis l’aéroport de Barcelone : un van de six ou sept places, ou plusieurs voitures réservées ensemble. Un prix fixe, péages en sus.",
     h1: "Taxi de groupe depuis l’aéroport de Barcelone",
     intro:
       "Un taxi standard de Barcelone compte quatre places. Pour cinq, six ou sept personnes, il existe le Mercedes Vito de six places et la Mercedes V-Class de sept places, et pour un groupe plus nombreux on réserve deux voitures ou plus ensemble. Il n’existe pas de taxi unique de neuf places à Barcelone, et nous préférons vous le dire plutôt que de vous le faire découvrir sur le trottoir.",
@@ -401,11 +401,11 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Cinq, six ou sept personnes : un seul véhicule",
-        body: "Jusqu’à sept personnes voyagent ensemble dans un seul véhicule, à un prix fixe tout compris. Le taxi de quatre places coûte 50 EUR entre l’aéroport et n’importe quel point de Barcelone, le Vito de six places 70 EUR et la V-Class de sept places 75 EUR. Les week-ends et jours fériés ajoutent 7,5 %. C’est tout le prix : le supplément aéroport, le supplément du véhicule plus grand et notre service sont déjà inclus, et rien n’est dû au chauffeur.",
+        body: "Jusqu’à sept personnes voyagent ensemble dans un seul véhicule, à un prix fixe. Le taxi de quatre places coûte 50 EUR entre l’aéroport et n’importe quel point de Barcelone, le Vito de six places 70 EUR et la V-Class de sept places 75 EUR. Les week-ends et jours fériés ajoutent 7,5 %. C’est tout le prix fixe : le supplément aéroport, le supplément du véhicule plus grand et notre service sont déjà inclus. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
       },
       {
         h2: "Huit, neuf ou dix personnes : réservez deux voitures ensemble",
-        body: "Au-delà de sept, il n’existe pas de taxi unique ; la réponse consiste donc en deux véhicules ou plus qui voyagent comme un seul groupe. Choisissez plusieurs voitures dans une seule réservation : elles sont réservées ensemble, payées en un seul paiement et envoyées au même point de prise en charge, jusqu’à six voitures. Chacune est facturée au prix publié pour sa taille, sans devis sur mesure et sans surprise : huit personnes peuvent voyager dans deux taxis de quatre places pour 100 EUR en semaine, neuf dans un Vito de six places et un taxi de quatre places pour 120 EUR (70 EUR plus 50 EUR), et onze dans une V-Class de sept places et un taxi de quatre places pour 125 EUR.",
+        body: "Au-delà de sept, il n’existe pas de taxi unique ; la réponse consiste donc en deux véhicules ou plus qui voyagent comme un seul groupe. Choisissez plusieurs voitures dans une seule réservation : elles sont réservées ensemble, payées en un seul paiement et envoyées au même point de prise en charge, jusqu’à six voitures. Chacune est facturée au prix publié pour sa taille, sans devis sur mesure : huit personnes peuvent voyager dans deux taxis de quatre places pour 100 EUR en semaine, neuf dans un Vito de six places et un taxi de quatre places pour 120 EUR (70 EUR plus 50 EUR), et onze dans une V-Class de sept places et un taxi de quatre places pour 125 EUR.",
       },
       {
         h2: "Un seul paiement, un seul point de prise en charge, toutes les voitures ensemble",
@@ -421,14 +421,14 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: "Taxi Port de Croisière Barcelone | Prix Fixe",
     description:
-      "Taxi entre l’aéroport de Barcelone et le port de croisière : prix fixe tout compris pour les terminaux A à E du Moll Adossat, réservé en ligne.",
+      "Taxi entre l’aéroport de Barcelone et le port de croisière : un prix fixe pour les terminaux A à E du Moll Adossat, réservé en ligne. Péages en sus.",
     h1: "Taxi entre l’aéroport de Barcelone et le port de croisière",
     intro:
-      "Les passagers de croisière arrivent avec de grosses valises et un horaire impératif : leur transfert doit donc avoir un prix connu avant le départ et un chauffeur qui les attend déjà. Entre l’aéroport d’El Prat et les terminaux de croisière du Moll Adossat, le prix est fixe, tout compris et convenu à la réservation : 60 EUR dans une voiture de quatre places, 80 EUR dans un van de six places et 85 EUR dans un van de sept places.",
+      "Les passagers de croisière arrivent avec de grosses valises et un horaire impératif : leur transfert doit donc avoir un prix connu avant le départ et un chauffeur qui les attend déjà. Entre l’aéroport d’El Prat et les terminaux de croisière du Moll Adossat, le prix est fixe et convenu à la réservation : 60 EUR dans une voiture de quatre places, 80 EUR dans un van de six places et 85 EUR dans un van de sept places.",
     sections: [
       {
         h2: "Combien coûte le transfert entre l’aéroport et le port de croisière",
-        body: "Le prix est le même dans les deux sens et pour chaque terminal du Moll Adossat, de A à E. Un taxi de quatre places coûte 60 EUR, le Mercedes Vito de six places 80 EUR et la Mercedes V-Class de sept places 85 EUR. Les week-ends et jours fériés ajoutent 7,5 %. Le supplément aéroport, la taxe du terminal de croisière et le supplément du véhicule plus grand sont déjà compris dans ce montant : ce n’est donc pas un relevé de compteur et rien n’est dû au chauffeur sur le quai. C’est notre propre prix fixe pour un transfert réservé et payé d’avance, et non le tarif réglementé d’un taxi pris à la station.",
+        body: "Le prix est le même dans les deux sens et pour chaque terminal du Moll Adossat, de A à E. Un taxi de quatre places coûte 60 EUR, le Mercedes Vito de six places 80 EUR et la Mercedes V-Class de sept places 85 EUR. Les week-ends et jours fériés ajoutent 7,5 %. Le supplément aéroport, la taxe du terminal de croisière et le supplément du véhicule plus grand sont déjà compris dans ce montant : ce n’est donc pas un relevé de compteur. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. C’est notre propre prix fixe pour un transfert réservé et payé d’avance, et non le tarif réglementé d’un taxi pris à la station.",
       },
       {
         h2: "Du bateau à l’hôtel ou au centre-ville",
@@ -455,7 +455,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       "Réservez un taxi pour l’aéroport de Barcelone en quelques minutes. Prix fixe immédiat, paiement sécurisé et confirmation par e-mail.",
     h1: "Réserver un taxi pour l'aéroport de Barcelone en ligne",
     intro:
-      "Réserver en ligne prend quelques minutes et vous garantit une voiture confirmée avec chauffeur affecté. Vous réglez un prix unique tout compris en ligne et ne devez rien dans le taxi.",
+      "Réserver en ligne prend quelques minutes et vous garantit une voiture confirmée avec chauffeur affecté. Vous réglez le prix fixe en ligne ; les péages autoroutiers sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     sections: [
       {
         h2: 'Ce qu’il faut pour réserver',
@@ -479,7 +479,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Comment vous payez, et ce que vous recevez",
-        body: "La totalité du montant se règle en ligne à la réservation, par carte bancaire de crédit, de débit ou par Bizum. Il n’y a pas de partage acompte et solde, et rien n’est dû au chauffeur dans la voiture : ni course, ni supplément, ni pourboire attendu. Un reçu du montant complet est envoyé avec votre confirmation, si bien que les papiers pour une note de frais arrivent avant le trajet et non après. Si vous avez aussi besoin de la facture de taxi réglementaire pour la course elle-même, votre chauffeur peut l’établir sur demande.",
+        body: "Le prix fixe se règle en ligne à la réservation, par carte bancaire de crédit, de débit ou par Bizum. Il n’y a pas de partage acompte et solde pour ce prix, et aucun pourboire n’est attendu. Les péages autoroutiers sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Un reçu du montant payé est envoyé avec votre confirmation, si bien que les papiers pour une note de frais arrivent avant le trajet et non après. Si vous avez aussi besoin de la facture de taxi réglementaire pour la course elle-même, votre chauffeur peut l’établir sur demande.",
       },
     ],
   },

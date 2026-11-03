@@ -5,14 +5,14 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Táxi do Aeroporto de Barcelona para o Centro',
     description:
-      'Reserve um táxi do aeroporto de Barcelona para o centro. Um preço fixo com tudo incluído, suplemento de El Prat incluído, motorista à espera nas chegadas.',
+      'Reserve um táxi do aeroporto de Barcelona para o centro. Um preço fixo, suplemento de El Prat incluído, portagens à parte, motorista à espera nas chegadas.',
     h1: 'Táxi do aeroporto de Barcelona para a cidade',
     intro:
       'Um táxi de El Prat até ao centro de Barcelona demora cerca de 25 a 35 minutos, consoante o trânsito e o terminal onde aterra. Reservar com antecedência significa ter já um motorista atribuído quando aterra, com um cartaz com o seu nome nas chegadas, em vez de entrar na fila da praça de táxis do T1 ou do T2.',
     sections: [
       {
         h2: 'Quanto custa um táxi do aeroporto de Barcelona',
-        body: 'O seu preço é um valor fixo da nossa própria lista, não uma leitura do taxímetro nem uma estimativa: todos os suplementos oficiais aplicáveis ao percurso já estão incluídos. Uma viagem do aeroporto para qualquer ponto de Barcelona custa 50 € fixos num táxi normal, seja qual for a distância e a hora; aos fins de semana e feriados acrescentam-se 7,5 %. Introduza acima o seu destino exato para ver o seu preço com tudo incluído.',
+        body: 'O seu preço é um valor fixo da nossa própria lista, não uma leitura do taxímetro nem uma estimativa: todos os suplementos oficiais aplicáveis ao percurso já estão incluídos. Uma viagem do aeroporto para qualquer ponto de Barcelona custa 50 € fixos num táxi normal, seja qual for a distância e a hora; aos fins de semana e feriados acrescentam-se 7,5 %. Introduza acima o seu destino exato para ver o seu preço fixo. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem.',
       },
       {
         h2: 'Onde o motorista o espera nas chegadas',
@@ -36,7 +36,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: 'Táxi de Barcelona para o Aeroporto | Reservar',
     description:
-      'Reserve um táxi de Barcelona para o aeroporto de El Prat. Hora de recolha fixa, um preço fixo com tudo incluído e motoristas que conhecem os pontos de largada.',
+      'Reserve um táxi de Barcelona para o aeroporto de El Prat. Hora de recolha fixa, preço fixo, portagens à parte, e motoristas que conhecem os pontos de largada.',
     h1: 'Táxi de Barcelona para o aeroporto',
     intro:
       'Fazer o percurso no outro sentido é a viagem que vale a pena reservar com antecedência. Um táxi marcado para o aeroporto de Barcelona chega ao seu hotel ou apartamento a uma hora combinada, o que conta muito mais quando tem um voo para apanhar do que quando está a chegar.',
@@ -71,7 +71,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Táxi Aeroporto El Prat | Transferes Licenciados',
     description:
-      'Táxis licenciados de e para o aeroporto de Barcelona-El Prat (BCN). Reserve online por um preço fixo com tudo incluído, com motorista atribuído ao seu voo.',
+      'Táxis licenciados de e para o aeroporto de Barcelona-El Prat (BCN). Reserve online por um preço fixo, portagens à parte, com motorista atribuído ao seu voo.',
     h1: 'Táxi para o aeroporto de El Prat',
     intro:
       'O aeroporto Josep Tarradellas Barcelona-El Prat, que quase toda a gente continua a chamar apenas El Prat, fica a cerca de 15 km a sudoeste da cidade. É o segundo aeroporto de Espanha com mais tráfego, e a praça de táxis é a forma mais rápida de entrar em Barcelona a quase qualquer hora, desde que haja um carro à espera.',
@@ -82,7 +82,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'O suplemento do aeroporto de El Prat',
-        body: 'O suplemento oficial do aeroporto e todos os outros encargos que se aplicam ao percurso estão incluídos no preço fixo que lhe indicamos. Não há taxímetro a contar durante a viagem nem um segundo valor no fim, pelo que não há nada que o possa surpreender.',
+        body: 'O suplemento oficial do aeroporto e todos os outros encargos que se aplicam ao percurso estão incluídos no preço fixo que lhe indicamos. Não há taxímetro a contar durante a viagem. A única coisa que não está no preço são as portagens, que são cobradas à parte quando o percurso utiliza vias com portagem.',
       },
       {
         h2: 'Passageiros de cruzeiro e o porto',
@@ -109,7 +109,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       'Quanto custa um táxi do aeroporto de Barcelona: os nossos preços fixos por veículo, até onde chega o preço da cidade e o que o fim de semana acrescenta.',
     h1: 'Preço do táxi do aeroporto de Barcelona',
     intro:
-      'Um transfer do aeroporto de Barcelona connosco tem um preço fixo, combinado antes de reservar e fechado quando reserva. Sem taxímetro, sem adivinhar distâncias e sem nada a acertar no carro. Aqui está a lista completa e as três coisas que lhe podem acrescentar valor.',
+      'Um transfer do aeroporto de Barcelona connosco tem um preço fixo, combinado antes de reservar e fechado quando reserva. Sem taxímetro e sem adivinhar distâncias. Aqui está a lista completa e o que lhe pode acrescentar valor, incluindo as portagens de autoestrada, que são cobradas à parte.',
     sections: [
       {
         h2: 'Como se calcula o preço do seu táxi do aeroporto de Barcelona',
@@ -117,7 +117,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Existe um táxi barato a partir do aeroporto de Barcelona?',
-        body: 'Compare pelo que o preço realmente o protege e não pelo valor de destaque. Um preço fixo não pode mudar depois de combinado: o trânsito, um percurso mais longo, uma aterragem tardia e a hora do dia são problema nosso e não seu, e não se cobra nada no carro. O que pode controlar é a escolha do veículo e viajar fora do fim de semana. Desconfie de um orçamento invulgarmente baixo: costuma significar um veículo sem licença ou um valor que vai crescer antes de chegar.',
+        body: 'Compare pelo que o preço realmente o protege e não pelo valor de destaque. Um preço fixo não pode mudar depois de combinado: o trânsito, um percurso mais longo, uma aterragem tardia e a hora do dia são problema nosso e não seu. As portagens de autoestrada são a única exceção: são cobradas à parte. O que pode controlar é a escolha do veículo e viajar fora do fim de semana. Desconfie de um orçamento invulgarmente baixo: costuma significar um veículo sem licença ou um valor que vai crescer antes de chegar.',
       },
       {
         h2: 'Até onde chega o preço fixo',
@@ -125,7 +125,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'O que cobramos a mais',
-        body: 'Paga um único preço com tudo incluído, online, quando reserva. Cobre a viagem, todos os suplementos oficiais que se aplicam ao seu percurso e o nosso serviço de organizar e garantir o carro. Não há um segundo valor a acertar: não se deve absolutamente nada no táxi, e recebe por email um recibo do preço total.',
+        body: 'Paga um único preço fixo, online, quando reserva. Cobre a viagem, todos os suplementos oficiais que se aplicam ao seu percurso e o nosso serviço de organizar e garantir o carro. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem. Recebe por email um recibo do preço que pagou.',
       },
       {
         h2: 'O que nunca altera o seu preço',
@@ -176,14 +176,14 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: 'Táxi da Estação de Sants para o Aeroporto',
     description:
-      'Reserve um táxi da estação de Barcelona-Sants para o aeroporto de El Prat. Cerca de 15 minutos, um preço com tudo incluído, suplemento de Sants incluído.',
+      'Reserve um táxi da estação de Barcelona-Sants para o aeroporto de El Prat. Cerca de 15 minutos, um preço fixo, suplemento de Sants incluído, portagens à parte.',
     h1: 'Táxi da estação de Sants para o aeroporto de Barcelona',
     intro:
       'Sants é a principal estação ferroviária de Barcelona e o ponto de chegada dos comboios de alta velocidade AVE de Madrid, Valência e Sevilha. É também o principal nó de transportes mais próximo de El Prat: o percurso de táxi demora cerca de 15 minutos fora das horas de ponta.',
     sections: [
       {
         h2: 'O suplemento da estação de Sants',
-        body: 'As viagens que começam ou terminam na estação de Sants levam um pequeno suplemento fixo, definido pela AMB. Somado ao suplemento do aeroporto, ambos já estão incluídos no preço que vê antes de reservar, pelo que não há nada a acrescentar depois.',
+        body: 'As viagens que começam ou terminam na estação de Sants levam um pequeno suplemento fixo, definido pela AMB. Somado ao suplemento do aeroporto, ambos já estão incluídos no preço fixo que vê antes de reservar. As portagens de autoestrada, se o percurso utilizar vias com portagem, são cobradas à parte.',
       },
       {
         h2: 'Onde encontrar o motorista em Sants',
@@ -355,7 +355,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: 'Táxi do Centro de Barcelona para o Aeroporto',
     description:
-      'Reserve um táxi do centro de Barcelona para o aeroporto de El Prat. Recolha em qualquer morada central, preço com tudo incluído, motorista confirmado.',
+      'Reserve um táxi do centro de Barcelona para o aeroporto de El Prat. Recolha em qualquer morada central, preço fixo, motorista confirmado.',
     h1: 'Táxi do centro de Barcelona para o aeroporto',
     intro:
       'De qualquer ponto central (a Rambla, a Plaça de Catalunya, o Born, o Raval ou o Passeig de Gràcia), El Prat fica a 20 a 35 minutos de carro. Reservar com antecedência fixa a hora de recolha e o carro, o que conta sobretudo na viagem de ida.',
@@ -370,7 +370,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Quanto custa um táxi do centro de Barcelona para o aeroporto',
-        body: 'Um preço fixo de qualquer ponto do centro até El Prat, com todos os suplementos oficiais já incluídos e nada a pagar no táxi. A hora não o altera; os fins de semana e feriados acrescentam 7,5 %. Introduza a sua morada para ver o preço exato antes de se comprometer.',
+        body: 'Um preço fixo de qualquer ponto do centro até El Prat, com todos os suplementos oficiais já incluídos. As portagens de autoestrada, se o percurso utilizar vias com portagem, são cobradas à parte. A hora não o altera; os fins de semana e feriados acrescentam 7,5 %. Introduza a sua morada para ver o preço exato antes de se comprometer.',
       },
       {
         h2: 'O que conta como centro para o preço fixo',
@@ -390,7 +390,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: 'Táxi para Grupos Aeroporto Barcelona | 5, 6 ou 7',
     description:
-      'Táxi para grupos do aeroporto de Barcelona: uma van de seis ou sete lugares, ou vários carros reservados juntos num só pagamento. Preço fixo com tudo incluído.',
+      'Táxi para grupos do aeroporto de Barcelona: uma van de seis ou sete lugares, ou vários carros reservados juntos num só pagamento. Preço fixo, portagens à parte.',
     h1: 'Táxi para grupos a partir do aeroporto de Barcelona',
     intro:
       'Um táxi normal de Barcelona leva quatro pessoas. Para cinco, seis ou sete há uma Mercedes Vito de seis lugares e uma Mercedes V-Class de sete lugares e, para um grupo maior, reservam-se dois ou mais carros em conjunto. Não existe em Barcelona nenhum táxi único de nove lugares, e preferimos dizê-lo a deixar que o descubra no passeio.',
@@ -401,11 +401,11 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cinco, seis ou sete pessoas: um só veículo',
-        body: 'Até sete pessoas viajam juntas num único veículo, por um preço fixo com tudo incluído. O táxi de quatro lugares custa 50 € entre o aeroporto e qualquer ponto de Barcelona, a Vito de seis lugares custa 70 € e a V-Class de sete lugares custa 75 €. Os fins de semana e feriados acrescentam 7,5 %. Esse é o preço total: o suplemento do aeroporto, o suplemento do veículo maior e o nosso serviço já estão incluídos, e não se deve nada ao motorista.',
+        body: 'Até sete pessoas viajam juntas num único veículo, por um preço fixo. O táxi de quatro lugares custa 50 € entre o aeroporto e qualquer ponto de Barcelona, a Vito de seis lugares custa 70 € e a V-Class de sete lugares custa 75 €. Os fins de semana e feriados acrescentam 7,5 %. Esse é o preço fixo total: o suplemento do aeroporto, o suplemento do veículo maior e o nosso serviço já estão incluídos. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem.',
       },
       {
         h2: 'Oito, nove ou dez pessoas: reserve dois carros em conjunto',
-        body: 'Acima de sete não há um único táxi, pelo que a resposta são dois ou mais veículos a viajar como um só grupo. Escolha vários carros numa só reserva e ficam reservados em conjunto, pagos num só checkout e enviados para o mesmo ponto de recolha, até seis carros. Cada um é cobrado ao preço publicado para o seu tamanho, pelo que não há orçamento à medida nem surpresas: oito pessoas podem viajar em dois táxis de quatro lugares por 100 € num dia útil, nove numa Vito de seis lugares e num táxi de quatro lugares por 120 € (70 € mais 50 €) e onze numa V-Class de sete lugares e num táxi de quatro lugares por 125 €.',
+        body: 'Acima de sete não há um único táxi, pelo que a resposta são dois ou mais veículos a viajar como um só grupo. Escolha vários carros numa só reserva e ficam reservados em conjunto, pagos num só checkout e enviados para o mesmo ponto de recolha, até seis carros. Cada um é cobrado ao preço publicado para o seu tamanho, pelo que não há orçamento à medida: oito pessoas podem viajar em dois táxis de quatro lugares por 100 € num dia útil, nove numa Vito de seis lugares e num táxi de quatro lugares por 120 € (70 € mais 50 €) e onze numa V-Class de sete lugares e num táxi de quatro lugares por 125 €.',
       },
       {
         h2: 'Um checkout, um ponto de recolha, todos os carros juntos',
@@ -421,14 +421,14 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: 'Táxi Porto de Cruzeiros Barcelona | Preço Fixo',
     description:
-      'Táxi entre o aeroporto de Barcelona e o porto de cruzeiros: preço fixo com tudo incluído para os terminais A a E do Moll Adossat, reservado online.',
+      'Táxi entre o aeroporto de Barcelona e o porto de cruzeiros: preço fixo para os terminais A a E do Moll Adossat, reservado online. Portagens à parte.',
     h1: 'Táxi entre o aeroporto de Barcelona e o porto de cruzeiros',
     intro:
-      'Os passageiros de cruzeiro chegam com malas grandes e um horário rígido, por isso uma transferência precisa de um preço que conheça antes de viajar e de um motorista que já o esteja a esperar. Entre El Prat e os terminais de cruzeiros do Moll Adossat o preço é fixo, com tudo incluído e acordado no momento da reserva: 60 € num carro de quatro lugares, 80 € numa van de seis lugares e 85 € numa van de sete lugares.',
+      'Os passageiros de cruzeiro chegam com malas grandes e um horário rígido, por isso uma transferência precisa de um preço que conheça antes de viajar e de um motorista que já o esteja a esperar. Entre El Prat e os terminais de cruzeiros do Moll Adossat o preço é fixo e acordado no momento da reserva: 60 € num carro de quatro lugares, 80 € numa van de seis lugares e 85 € numa van de sete lugares.',
     sections: [
       {
         h2: 'Quanto custa a transferência do aeroporto para o porto de cruzeiros',
-        body: 'O preço é o mesmo nos dois sentidos e para todos os terminais do Moll Adossat, de A a E. Um táxi de quatro lugares custa 60 €, a Mercedes Vito de seis lugares custa 80 € e a Mercedes V-Class de sete lugares custa 85 €. Os fins de semana e feriados acrescentam 7,5 %. O suplemento do aeroporto, a taxa do terminal de cruzeiros e o suplemento do veículo maior já estão incluídos nesse valor, pelo que não é a leitura de um taxímetro e não se deve nada ao motorista no cais. É o nosso próprio preço fixo para uma transferência reservada e paga antecipadamente, e não a tarifa regulada de um táxi apanhado na praça.',
+        body: 'O preço é o mesmo nos dois sentidos e para todos os terminais do Moll Adossat, de A a E. Um táxi de quatro lugares custa 60 €, a Mercedes Vito de seis lugares custa 80 € e a Mercedes V-Class de sete lugares custa 85 €. Os fins de semana e feriados acrescentam 7,5 %. O suplemento do aeroporto, a taxa do terminal de cruzeiros e o suplemento do veículo maior já estão incluídos nesse valor, pelo que não é a leitura de um taxímetro. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem. É o nosso próprio preço fixo para uma transferência reservada e paga antecipadamente, e não a tarifa regulada de um táxi apanhado na praça.',
       },
       {
         h2: 'Do navio para o hotel ou para a cidade',
@@ -452,10 +452,10 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Reservar Táxi Aeroporto Barcelona Online | Preço',
     description:
-      'Reserve um táxi do aeroporto de Barcelona online em minutos. Preço fixo imediato com tudo incluído, pagamento seguro e confirmação por email de imediato.',
+      'Reserve um táxi do aeroporto de Barcelona online em minutos. Preço fixo imediato, pagamento seguro e confirmação por email de imediato.',
     h1: 'Reservar online um táxi para o aeroporto em Barcelona',
     intro:
-      'Reservar online demora um par de minutos e dá-lhe um carro confirmado com motorista atribuído. Paga um único preço com tudo incluído, online, e não deve absolutamente nada no táxi.',
+      'Reservar online demora um par de minutos e dá-lhe um carro confirmado com motorista atribuído. Paga o preço fixo online; as portagens de autoestrada são cobradas à parte quando o percurso utiliza vias com portagem.',
     sections: [
       {
         h2: 'O que precisa para reservar um táxi para o aeroporto de Barcelona',
@@ -479,7 +479,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Como paga e o que recebe',
-        body: 'O valor total paga-se online no momento da reserva, com cartão de crédito, cartão de débito ou Bizum. Não há divisão entre sinal e restante e não se deve absolutamente nada ao motorista no carro: nem tarifa, nem suplemento, nem gorjeta esperada. Um recibo do valor completo segue por email com a sua confirmação, para que a papelada de um pedido de reembolso de despesas chegue antes da viagem e não depois. Se precisar também da fatura do táxi regulamentada para a viagem em si, o seu motorista pode emiti-la a pedido.',
+        body: 'O preço fixo paga-se online no momento da reserva, com cartão de crédito, cartão de débito ou Bizum. Não há divisão entre sinal e restante para esse valor e não se espera gorjeta. As portagens de autoestrada são cobradas à parte quando o percurso utiliza vias com portagem. Um recibo do valor pago segue por email com a sua confirmação, para que a papelada de um pedido de reembolso de despesas chegue antes da viagem e não depois. Se precisar também da fatura do táxi regulamentada para a viagem em si, o seu motorista pode emiti-la a pedido.',
       },
     ],
   },

@@ -38,8 +38,9 @@ export async function GET() {
 
 > Online booking for licensed taxis to and from Barcelona-El Prat airport.
 > We are a booking service, not a taxi operator: we arrange a licensed taxi.
-> The passenger pays one all-inclusive price online when they book, and owes
-> the driver nothing in the car.
+> The passenger pays a fixed price online when they book. Motorway tolls are
+> NOT included in that price and are charged separately to the customer when
+> the route uses toll roads.
 
 Site: ${SITE_URL}
 Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch, Russian, Chinese
@@ -48,18 +49,20 @@ Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch
 
 BCNAirportTaxi is a booking service that arranges licensed black-and-yellow
 Barcelona taxis. We do not own the vehicles. Our transfers are sold at a fixed
-all-inclusive price from our own published list. That price is NOT the
+price from our own published list. That price is NOT the
 regulated meter fare and NOT the AMB tariff, and it should never be quoted as
 either. A taxi taken from the rank is paid by the meter at the regulated rate;
-with us the price is known and paid before the journey, and nothing is owed in
-the car.
+with us the fixed price is known and paid before the journey. Motorway tolls are
+not part of it (see below).
 
 ## How pricing works
 
 The passenger is quoted ONE number. It is paid online in full when the
 booking is made, and covers the journey, every official supplement that
 applies to the route, and our service in arranging and guaranteeing the car.
-Nothing is owed to the driver.
+Motorway tolls are NOT included in that number. They are charged separately to
+the customer when the route uses toll roads. No toll amounts, caps or collection
+method are published; do not state any.
 
 A transfer to or from the airport or the cruise port is a FIXED price from our
 own list, set by route and vehicle rather than by distance or time of day. See
@@ -73,7 +76,7 @@ ${line('Regulated rank meter, T-2', `nights, weekends and public holidays, ${t.p
 ${line('Regulated airport supplement', `${t.supplements.airportElPrat.toFixed(2)} EUR, set by the AMB, already inside our fixed price`)}
 
 OUR prices for journeys with an end outside the Barcelona metropolitan area
-are per kilometre, ALL-IN (our service charge included), and quoted in full
+are per kilometre (our service charge included, motorway tolls NOT included), and quoted in full
 before booking:
 
 ${line('Weekday daytime', `about ${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} EUR`)}
@@ -99,7 +102,7 @@ terminal, not along the road. Do not restate it as a driving distance.
 
 Inside the zone, measured straight-line from the terminal: Placa de Catalunya
 12.3 km, Barceloneta 12.8, Sagrada Familia 14.0, Park Guell 14.3, Poblenou
-15.5. These pay the city list price with nothing added.
+15.5. These pay the city list price with no extra-kilometre charge.
 
 Outside the zone, and therefore paying the list price plus ${t.fixedRoutes.excessPerKm.toFixed(2)} EUR per
 extra km: La Sagrera 16.4 km, Diagonal Mar 16.8, El Forum 17.4, Sant Andreu
@@ -117,7 +120,7 @@ inside it.
 - Vehicles seat 4 to 7 passengers depending on type.
 - Passengers can change a booking within 30 minutes of making it, and until a driver sets off.
 - Cancellation is handled by our office; a booking cancelled at least 24 hours ahead is refunded in full.
-- A receipt for the full amount is emailed with the confirmation. The official meter invoice can be requested from the driver in the car.
+- A receipt for the amount paid at booking is emailed with the confirmation. The official meter invoice can be requested from the driver in the car.
 
 ## Prices and guides
 
@@ -138,7 +141,7 @@ ${DESTINATION_PAGES.map((d) => `- ${d.name}: ${SITE_URL}/en/destinations/${d.slu
 ## What we will not claim
 
 We do not claim to be cheaper than a taxi taken from the rank. A booked car is
-a fixed all-inclusive price agreed before travel and paid online; the rank is
+a fixed price agreed before travel and paid online (motorway tolls are charged separately); the rank is
 whatever the meter reads at the end. The booked price is deliberately a little
 above the meter, because a price locked in advance means we carry the traffic
 and routing risk instead of the passenger. We do not operate the vehicles.

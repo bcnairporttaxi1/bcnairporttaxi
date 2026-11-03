@@ -355,8 +355,8 @@ export async function POST(request: Request) {
       reference,
       description:
         created.length > 1
-          ? `Barcelona taxi ${reference} + ${created.length - 1} more — all-inclusive`
-          : `Barcelona taxi ${reference} — all-inclusive`,
+          ? `Barcelona taxi ${reference} + ${created.length - 1} more — fixed price`
+          : `Barcelona taxi ${reference} — fixed price`,
       returnUrl: `${SITE_URL}/${input.locale}/booking/${reference}`,
     });
 

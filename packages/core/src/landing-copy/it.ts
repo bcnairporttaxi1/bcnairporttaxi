@@ -5,14 +5,14 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'airport-to-city': {
     title: 'Taxi Aeroporto Barcellona Centro | Prenoti Online',
     description:
-      "Prenoti un taxi dall'aeroporto di Barcellona al centro. Prezzo fisso tutto incluso, supplemento El Prat già compreso, autista in sala arrivi.",
+      "Prenoti un taxi dall'aeroporto di Barcellona al centro. Prezzo fisso, supplemento El Prat già compreso, pedaggi esclusi, autista in sala arrivi.",
     h1: "Taxi dall'aeroporto di Barcellona al centro",
     intro:
       "Un taxi da El Prat al centro di Barcellona impiega dai 25 ai 35 minuti a seconda del traffico e del terminal di arrivo. Prenotare in anticipo significa avere già un autista assegnato all'atterraggio, con il cartello con il suo nome in sala arrivi, invece di mettersi in coda al posteggio del T1 o del T2.",
     sections: [
       {
         h2: "Quanto costa un transfer dall'aeroporto di Barcellona",
-        body: "Il suo prezzo è una cifra fissa del nostro listino, non una lettura del tassametro e non una stima: ogni supplemento previsto per il percorso è già compreso. Una corsa dall'aeroporto a qualsiasi punto di Barcellona costa 50 € fissi in taxi standard, qualunque sia la distanza e qualunque sia l'ora; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca qui sopra la destinazione esatta per vedere il suo prezzo tutto incluso.",
+        body: "Il suo prezzo è una cifra fissa del nostro listino, non una lettura del tassametro e non una stima: ogni supplemento previsto per il percorso è già compreso. Una corsa dall'aeroporto a qualsiasi punto di Barcellona costa 50 € fissi in taxi standard, qualunque sia la distanza e qualunque sia l'ora; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca qui sopra la destinazione esatta per vedere il suo prezzo fisso. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
       },
       {
         h2: 'Dove la aspetta il suo autista in sala arrivi',
@@ -36,7 +36,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'city-to-airport': {
     title: "Taxi da Barcellona all'Aeroporto | Prenoti Online",
     description:
-      "Prenoti un taxi da Barcellona all'aeroporto di El Prat. Orario di ritiro fisso, un prezzo fisso tutto incluso e un autista esperto dei terminal.",
+      "Prenoti un taxi da Barcellona all'aeroporto di El Prat. Orario di ritiro fisso, un prezzo fisso (pedaggi esclusi) e un autista esperto dei terminal.",
     h1: "Taxi da Barcellona all'aeroporto",
     intro:
       "È la corsa di andata quella che conviene davvero prenotare. Un taxi prenotato in anticipo arriva al suo hotel o appartamento a un orario fissato, cosa che conta molto di più quando deve prendere un volo che non quando sta arrivando.",
@@ -71,7 +71,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'el-prat-airport-taxi': {
     title: 'Taxi Aeroporto El Prat | Transfer Autorizzati',
     description:
-      "Taxi autorizzati da e per l'aeroporto di Barcellona-El Prat (BCN). Prenoti online a un prezzo fisso tutto incluso, con un autista assegnato al suo volo.",
+      "Taxi autorizzati da e per l'aeroporto di Barcellona-El Prat (BCN). Prenoti online a un prezzo fisso, pedaggi esclusi, con un autista assegnato al suo volo.",
     h1: 'Taxi aeroporto El Prat',
     intro:
       "L'aeroporto Josep Tarradellas Barcellona-El Prat, che quasi tutti continuano a chiamare semplicemente El Prat, si trova a circa 15 km a sud-ovest della città. È il secondo scalo spagnolo per traffico, e il taxi è il modo più rapido per raggiungere Barcellona a quasi qualsiasi ora, a patto che un'auto sia già lì ad aspettare.",
@@ -82,7 +82,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Il supplemento aeroportuale di El Prat',
-        body: "Il supplemento aeroportuale e ogni altro onere previsto per il percorso sono dentro il prezzo fisso che le indichiamo. Non c'è nessun tassametro in moto durante la corsa né una seconda cifra alla fine, quindi non ci sono sorprese.",
+        body: "Il supplemento aeroportuale e ogni altro onere previsto per il percorso sono dentro il prezzo fisso che le indichiamo. Non c'è nessun tassametro in moto durante la corsa. L'unica cosa che non è nel prezzo sono i pedaggi autostradali, che vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
       },
       {
         h2: 'Passeggeri delle crociere e il porto',
@@ -109,15 +109,15 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       "Quanto costa davvero un taxi per l'aeroporto di Barcellona: i nostri prezzi fissi per veicolo, la zona a prezzo unico e le aggiunte di weekend.",
     h1: "Prezzo del taxi per l'aeroporto di Barcellona",
     intro:
-      "Un transfer dall'aeroporto di Barcellona con noi è un prezzo fisso, concordato prima di prenotare e bloccato al momento della prenotazione. Nessun tassametro, nessun calcolo di distanza e nulla da saldare in auto. Questo è il listino completo e le tre cose che possono aggiungersi.",
+      "Un transfer dall'aeroporto di Barcellona con noi è un prezzo fisso, concordato prima di prenotare e bloccato al momento della prenotazione. Nessun tassametro e nessun calcolo di distanza. Questo è il listino completo e le cose che possono aggiungersi, compresi i pedaggi autostradali, addebitati a parte.",
     sections: [
       {
         h2: "Come si calcola il prezzo del taxi per l'aeroporto di Barcellona",
-        body: "Un transfer è un unico prezzo fisso, definito dal veicolo e non dalla distanza o dall'orologio. Dall'aeroporto a qualsiasi punto di Barcellona è una cifra; dall'aeroporto al terminal crociere un'altra; e taxi standard, minivan a sei posti e van a sette posti hanno ciascuno la propria. Solo tre cose possono aggiungersi: una destinazione oltre la zona a prezzo unico, un transfer da o verso il molo crociere e la tariffa di fine settimana e festivi. Ognuna compare come riga a sé prima del pagamento.",
+        body: "Un transfer è un unico prezzo fisso, definito dal veicolo e non dalla distanza o dall'orologio. Dall'aeroporto a qualsiasi punto di Barcellona è una cifra; dall'aeroporto al terminal crociere un'altra; e taxi standard, minivan a sei posti e van a sette posti hanno ciascuno la propria. Solo poche cose possono aggiungersi: una destinazione oltre la zona a prezzo unico, un transfer da o verso il molo crociere e la tariffa di fine settimana e festivi. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, sono addebitati a parte. Ogni aggiunta compare come riga a sé prima del pagamento.",
       },
       {
         h2: "Esiste un taxi economico dall'aeroporto di Barcellona?",
-        body: "Confronti su ciò da cui il prezzo la protegge, non solo sulla cifra. Un prezzo fisso non si muove una volta concordato: il traffico, un percorso più lungo, un atterraggio in ritardo e l'ora del giorno sono un problema nostro, non suo, e in auto non si incassa nulla. Quello che può scegliere è il veicolo e viaggiare fuori dal fine settimana. Diffidi di un prezzo insolitamente basso: di solito indica un veicolo non autorizzato, o una cifra destinata a crescere prima del suo arrivo.",
+        body: "Confronti su ciò da cui il prezzo la protegge, non solo sulla cifra. Un prezzo fisso non si muove una volta concordato: il traffico, un percorso più lungo, un atterraggio in ritardo e l'ora del giorno sono un problema nostro, non suo. I pedaggi autostradali sono l'unica eccezione: vengono addebitati a parte. Quello che può scegliere è il veicolo e viaggiare fuori dal fine settimana. Diffidi di un prezzo insolitamente basso: di solito indica un veicolo non autorizzato, o una cifra destinata a crescere prima del suo arrivo.",
       },
       {
         h2: 'Fin dove arriva il prezzo fisso',
@@ -125,15 +125,15 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cosa si aggiunge al prezzo',
-        body: "Paga online un unico prezzo tutto incluso al momento della prenotazione. Copre il tragitto, ogni supplemento previsto per il suo percorso e il nostro servizio di prenotazione e garanzia dell'auto. Non c'è un secondo importo: in taxi non si paga nulla e riceve per email la ricevuta dell'intero prezzo.",
+        body: "Paga online un unico prezzo fisso al momento della prenotazione. Copre il tragitto, ogni supplemento previsto per il suo percorso e il nostro servizio di prenotazione e garanzia dell'auto. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio. Riceve per email la ricevuta del prezzo pagato.",
       },
       {
         h2: 'Cosa non cambia mai il suo prezzo',
-        body: "Non l'ora del giorno: un ritiro alle 04:30 per una partenza all'alba costa esattamente come una corsa alle due del pomeriggio, perché un prezzo fisso non ha tariffa notturna. Non il traffico, il percorso scelto dall'autista, il terminal in cui atterra, il numero di passeggeri entro la capienza del veicolo né la quantità di bagagli entro i suoi limiti. Weekend e festivi sono l'unica cosa che alza un prezzo di listino, di una percentuale pubblicata e non di una maggiorazione che segue la domanda. Tutto il resto è un rischio nostro e non suo, ed è proprio ciò che si ottiene fissando il prezzo in anticipo.",
+        body: "Non l'ora del giorno: un ritiro alle 04:30 per una partenza all'alba costa esattamente come una corsa alle due del pomeriggio, perché un prezzo fisso non ha tariffa notturna. Non il traffico, il percorso scelto dall'autista, il terminal in cui atterra, il numero di passeggeri entro la capienza del veicolo né la quantità di bagagli entro i suoi limiti. Weekend e festivi sono l'unica cosa che alza un prezzo di listino, di una percentuale pubblicata e non di una maggiorazione che segue la domanda. I pedaggi autostradali sono l'unica eccezione, addebitati a parte quando il percorso utilizza strade a pedaggio. Tutto il resto è un rischio nostro e non suo, ed è proprio ciò che si ottiene fissando il prezzo in anticipo.",
       },
       {
         h2: 'Come e quando si paga',
-        body: "L'intero prezzo si paga online con carta o Bizum al momento della prenotazione, e la ricevuta dell'importo completo arriva per email con la conferma. In auto non si incassa nulla, quindi non c'è contante da cercare né un POS che speriamo funzioni sul marciapiede.",
+        body: "Il prezzo fisso si paga online con carta o Bizum al momento della prenotazione, e la ricevuta dell'importo pagato arriva per email con la conferma. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, sono addebitati a parte.",
       },
     ],
   },
@@ -176,14 +176,14 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'sants-station-to-airport': {
     title: "Taxi Stazione di Sants all'Aeroporto di Barcellona",
     description:
-      "Prenoti un taxi dalla stazione di Sants all'aeroporto di El Prat. Circa 15 minuti, un prezzo fisso tutto incluso con il supplemento della stazione.",
+      "Prenoti un taxi dalla stazione di Sants all'aeroporto di El Prat. Circa 15 minuti, un prezzo fisso con il supplemento della stazione compreso.",
     h1: "Taxi dalla stazione di Sants all'aeroporto",
     intro:
       "Sants è la principale stazione ferroviaria di Barcellona e il punto d'arrivo degli AVE da Madrid, Valencia e Siviglia. È anche il grande nodo di trasporto più vicino a El Prat: la corsa in taxi dura circa 15 minuti fuori dalle ore di punta.",
     sections: [
       {
         h2: 'Il supplemento della stazione di Sants',
-        body: "Le corse che iniziano o terminano alla stazione di Sants prevedono un piccolo supplemento fisso stabilito dall'AMB. Insieme al supplemento aeroportuale, entrambi sono già compresi nel prezzo che vede prima di prenotare: non c'è nulla da aggiungere dopo.",
+        body: "Le corse che iniziano o terminano alla stazione di Sants prevedono un piccolo supplemento fisso stabilito dall'AMB. Insieme al supplemento aeroportuale, entrambi sono già compresi nel prezzo fisso che vede prima di prenotare. I pedaggi autostradali, se il percorso utilizza strade a pedaggio, vengono addebitati a parte.",
       },
       {
         h2: 'Dove incontrare il suo autista a Sants',
@@ -246,7 +246,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   '24-hour-taxi': {
     title: 'Taxi 24 Ore Aeroporto Barcellona | Transfer Notturni',
     description:
-      "Servizio taxi 24 ore su 24 all'aeroporto di Barcellona. Prenoti in anticipo atterraggi notturni e partenze prima dell'alba, a prezzo fisso tutto incluso.",
+      "Servizio taxi 24 ore su 24 all'aeroporto di Barcellona. Prenoti in anticipo atterraggi notturni e partenze prima dell'alba, a prezzo fisso, pedaggi esclusi.",
     h1: "Taxi 24 ore all'aeroporto di Barcellona",
     intro:
       "El Prat funziona ventiquattro ore su ventiquattro, e così il servizio taxi. Le ore che vale davvero la pena prenotare in anticipo sono le più scomode: gli atterraggi dopo mezzanotte e le partenze che richiedono un ritiro prima dell'alba.",
@@ -355,7 +355,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'neighborhoods/city-centre': {
     title: "Taxi Centro di Barcellona all'Aeroporto",
     description:
-      "Prenoti un taxi dal centro di Barcellona all'aeroporto di El Prat. Ritiro a qualsiasi indirizzo centrale, prezzo tutto incluso e autista confermato prima.",
+      "Prenoti un taxi dal centro di Barcellona all'aeroporto di El Prat. Ritiro a qualsiasi indirizzo centrale, prezzo fisso e autista confermato prima.",
     h1: "Taxi dal centro di Barcellona all'aeroporto",
     intro:
       "Da qualsiasi punto centrale — la Rambla, plaça de Catalunya, il Born, il Raval o il Passeig de Gràcia — El Prat dista 20-35 minuti d'auto. Prenotare fissa l'orario di ritiro e il veicolo, cosa che conta soprattutto sulla corsa di andata.",
@@ -370,7 +370,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Quanto costa un taxi dal centro all'aeroporto",
-        body: "Un solo prezzo fisso da qualsiasi punto del centro fino a El Prat, con ogni supplemento già dentro e nulla da pagare in taxi. L'ora non lo cambia; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca il suo indirizzo per vedere il prezzo esatto prima di decidere.",
+        body: "Un solo prezzo fisso da qualsiasi punto del centro fino a El Prat, con ogni supplemento già dentro. I pedaggi autostradali, se il percorso utilizza strade a pedaggio, vengono addebitati a parte. L'ora non lo cambia; nei fine settimana e nei festivi si aggiunge il 7,5 %. Inserisca il suo indirizzo per vedere il prezzo esatto prima di decidere.",
       },
       {
         h2: 'Cosa conta come centro per il prezzo fisso',
@@ -390,7 +390,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'group-taxi': {
     title: 'Taxi di Gruppo Aeroporto Barcellona | 5, 6 o 7 Posti',
     description:
-      "Taxi per gruppi dall'aeroporto di Barcellona: un van a sei o sette posti, oppure più auto prenotate insieme in un unico checkout. Un prezzo fisso tutto incluso.",
+      "Taxi per gruppi dall'aeroporto di Barcellona: un van a sei o sette posti, oppure più auto prenotate insieme in un unico checkout. Pedaggi esclusi.",
     h1: "Taxi di gruppo dall'aeroporto di Barcellona",
     intro:
       "Un normale taxi di Barcellona ha quattro posti. Per cinque, sei o sette persone c'è la Mercedes Vito a sei posti e la Mercedes V-Class a sette posti, e per un gruppo più numeroso si prenotano insieme due o più auto. A Barcellona non esiste un taxi singolo a nove posti, e preferiamo dirlo piuttosto che lasciarle scoprirlo sul marciapiede.",
@@ -401,7 +401,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cinque, sei o sette persone: un solo veicolo',
-        body: "Fino a sette persone viaggiano insieme in un unico veicolo, a un prezzo fisso tutto incluso. Il taxi a quattro posti costa 50 € tra l'aeroporto e qualsiasi punto di Barcellona, la Vito a sei posti 70 € e la V-Class a sette posti 75 €. Nei fine settimana e nei festivi si aggiunge il 7,5 %. È tutto il prezzo: il supplemento aeroportuale, il supplemento per il veicolo più grande e il nostro servizio sono già dentro, e all'autista non si deve nulla.",
+        body: "Fino a sette persone viaggiano insieme in un unico veicolo, a un prezzo fisso. Il taxi a quattro posti costa 50 € tra l'aeroporto e qualsiasi punto di Barcellona, la Vito a sei posti 70 € e la V-Class a sette posti 75 €. Nei fine settimana e nei festivi si aggiunge il 7,5 %. È tutto il prezzo fisso: il supplemento aeroportuale, il supplemento per il veicolo più grande e il nostro servizio sono già dentro. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
       },
       {
         h2: 'Otto, nove o dieci persone: prenotare due auto insieme',
@@ -421,14 +421,14 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'cruise-port-taxi': {
     title: 'Taxi Porto Crociere Barcellona | Prezzo Fisso',
     description:
-      "Taxi tra aeroporto di Barcellona e porto crociere: prezzo fisso tutto incluso per i terminal da A a E del Moll Adossat, prenota online, nulla da pagare in auto.",
+      "Taxi tra aeroporto di Barcellona e porto crociere: prezzo fisso per i terminal da A a E del Moll Adossat, prenota online. Pedaggi esclusi.",
     h1: "Taxi tra l'aeroporto di Barcellona e il porto crociere",
     intro:
-      "I crocieristi arrivano con valigie grandi e una scadenza precisa, quindi un transfer richiede un prezzo che si conosca prima di partire e un autista che La stia già aspettando. Tra El Prat e i terminal crociere del Moll Adossat il prezzo è fisso, tutto incluso e stabilito al momento della prenotazione: 60 € con un'auto a quattro posti, 80 € con un van a sei posti e 85 € con un van a sette posti.",
+      "I crocieristi arrivano con valigie grandi e una scadenza precisa, quindi un transfer richiede un prezzo che si conosca prima di partire e un autista che La stia già aspettando. Tra El Prat e i terminal crociere del Moll Adossat il prezzo è fisso e stabilito al momento della prenotazione: 60 € con un'auto a quattro posti, 80 € con un van a sei posti e 85 € con un van a sette posti.",
     sections: [
       {
         h2: "Quanto costa il transfer dall'aeroporto al porto crociere",
-        body: "Il prezzo è lo stesso nei due sensi e per ogni terminal del Moll Adossat, dalla A alla E. Un taxi a quattro posti costa 60 €, la Mercedes Vito a sei posti 80 € e la Mercedes V-Class a sette posti 85 €. Nei fine settimana e nei festivi si aggiunge il 7,5 %. Il supplemento aeroportuale, la tassa del terminal crociere e il supplemento per il veicolo più grande sono già compresi in quella cifra, quindi non è la lettura di un tassametro e all'autista, in banchina, non si deve nulla. È il nostro prezzo fisso per un transfer prenotato e pagato in anticipo, non la tariffa regolamentata di un taxi preso al posteggio.",
+        body: "Il prezzo è lo stesso nei due sensi e per ogni terminal del Moll Adossat, dalla A alla E. Un taxi a quattro posti costa 60 €, la Mercedes Vito a sei posti 80 € e la Mercedes V-Class a sette posti 85 €. Nei fine settimana e nei festivi si aggiunge il 7,5 %. Il supplemento aeroportuale, la tassa del terminal crociere e il supplemento per il veicolo più grande sono già compresi in quella cifra, quindi non è la lettura di un tassametro. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio. È il nostro prezzo fisso per un transfer prenotato e pagato in anticipo, non la tariffa regolamentata di un taxi preso al posteggio.",
       },
       {
         h2: "Dalla nave all'hotel o al centro città",
@@ -452,10 +452,10 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
   'book-online': {
     title: 'Prenoti Taxi Aeroporto Barcellona Online | Prezzo Subito',
     description:
-      "Prenoti in pochi minuti un taxi per l'aeroporto di Barcellona. Prezzo fisso tutto incluso immediato, pagamento sicuro e conferma istantanea via email.",
+      "Prenoti in pochi minuti un taxi per l'aeroporto di Barcellona. Prezzo fisso immediato, pagamento sicuro e conferma istantanea via email.",
     h1: "Prenotare un taxi per l'aeroporto di Barcellona online",
     intro:
-      "Prenotare online richiede un paio di minuti e le garantisce un'auto confermata con autista assegnato. Paga online un unico prezzo tutto incluso e non deve nulla in taxi.",
+      "Prenotare online richiede un paio di minuti e le garantisce un'auto confermata con autista assegnato. Paga online il prezzo fisso; i pedaggi autostradali sono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     sections: [
       {
         h2: "Cosa serve per prenotare un taxi per l'aeroporto di Barcellona",
@@ -479,7 +479,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Come si paga e cosa si riceve',
-        body: "L'intero importo si paga online al momento della prenotazione, con carta di credito, carta di debito o Bizum. Non c'è una divisione tra acconto e saldo e all'autista in auto non si deve nulla: né tariffa, né supplemento, né mancia attesa. La ricevuta dell'importo completo arriva per email con la conferma, così i documenti per una nota spese arrivano prima del viaggio e non dopo. Se le serve anche la fattura del taxi per la corsa stessa, l'autista può rilasciarla su richiesta direttamente in auto, senza costi aggiuntivi.",
+        body: "Il prezzo fisso si paga online al momento della prenotazione, con carta di credito, carta di debito o Bizum. Non c'è una divisione tra acconto e saldo per questo importo e non si attende una mancia. I pedaggi autostradali vengono addebitati a parte quando il percorso utilizza strade a pedaggio. La ricevuta dell'importo pagato arriva per email con la conferma, così i documenti per una nota spese arrivano prima del viaggio e non dopo. Se le serve anche la fattura del taxi per la corsa stessa, l'autista può rilasciarla su richiesta direttamente in auto, senza costi aggiuntivi.",
       },
     ],
   },

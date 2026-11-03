@@ -56,7 +56,7 @@ export const DESTINATION_GROUPS: DestinationGroup[] = [
           'The Costa Brava starts roughly an hour north of Barcelona and runs up to the French border, and almost every visitor arrives through El Prat. The coast road is straightforward, but it is a genuine journey rather than a city hop: allow around 80 minutes to Lloret de Mar and closer to two hours for the northern coves.',
           'A private transfer matters more here than on a city run. There is no direct train to most of the resort towns, the coach services stop only at the larger ones, and the last leg to a hillside hotel or a villa outside town is rarely walkable with cases. Your driver takes you to the door.',
           'We collect from arrivals with a name sign and track your flight, so a delayed landing does not cost you the car. For groups the Mercedes Vito or V-Class carries six or seven passengers with matching luggage, which is usually cheaper than two separate cars and considerably simpler.',
-          'Because the Costa Brava lies outside the Barcelona metropolitan area, the journey is not metered on the AMB tariff. We quote a fixed price for the route before you commit, confirmed in writing, so there is nothing to settle at the far end beyond what you agreed.',
+          'Because the Costa Brava lies outside the Barcelona metropolitan area, the journey is not metered on the AMB tariff. We quote a fixed price for the route before you commit, confirmed in writing. Motorway tolls are not included in that price and are charged separately when the route uses toll roads.',
         ],
       },
       {

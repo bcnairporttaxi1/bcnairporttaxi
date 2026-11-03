@@ -21,9 +21,9 @@
   },
   "home": {
     "metaTitle": "Taxi Aéroport Barcelone | Transferts El Prat en ligne",
-    "metaDescription": "Réservez un taxi pour l’aéroport de Barcelone en ligne et à l’avance. Un prix fixe tout compris, accepté avant la réservation et verrouillé dès ce moment.",
+    "metaDescription": "Réservez un taxi pour l’aéroport de Barcelone en ligne et à l’avance. Un prix fixe, accepté avant la réservation et verrouillé dès ce moment. Péages en sus.",
     "h1": "Taxi aéroport de Barcelone, réservé avant d'atterrir",
-    "intro": "Réservez un taxi barcelonais agréé, noir et jaune, vers ou depuis l’aéroport d’El Prat. Un prix fixe tout compris, affiché avant de réserver et verrouillé dès ce moment — sans compteur ni estimation de distance — vous le payez en ligne et il n’y a rien à régler au chauffeur.",
+    "intro": "Réservez un taxi barcelonais agréé, noir et jaune, vers ou depuis l’aéroport d’El Prat. Un prix fixe, affiché avant de réserver et verrouillé dès ce moment — sans compteur ni estimation de distance — payé en ligne à la réservation. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "trust": {
       "licensed": "Taxis agréés AMB",
       "meter": "Prix fixe, sans compteur",
@@ -41,15 +41,15 @@
       "whyTitle": "Pourquoi réserver chez nous",
       "whyIntro": "Des prix fixes, une voiture réservée pour vous, et quelqu'un à appeler si quelque chose change.",
       "destTitle": "Où nous allons aussi",
-      "destIntro": "Au-delà de l'aéroport : la côte, la montagne et les routes du sud. Une voiture agréée, un prix tout compris, quelle que soit la distance.",
+      "destIntro": "Au-delà de l'aéroport : la côte, la montagne et les routes du sud. Une voiture agréée et un prix fixe, quelle que soit la distance ; les péages autoroutiers sont facturés séparément.",
       "fleetLede": "à un geste près.",
       "destLede": "au prix connu d'avance.",
-      "faresLede": "tout compris, convenus avant de réserver.",
+      "faresLede": "prix fixe, convenu avant de réserver.",
       "closingLede": "et c'est parti.",
       "faresTitle": "Prix fixes",
-      "faresIntro": "Chaque montant ci-dessous est un prix fixe tout compris, le même que celui du formulaire de réservation.",
+      "faresIntro": "Chaque montant ci-dessous est un prix fixe, le même que celui du formulaire de réservation. Les péages autoroutiers ne sont pas inclus et sont facturés séparément.",
       "closingTitle": "Atterrissez, sortez",
-      "closingIntro": "Un prix tout compris en quelques secondes. Aucun compte nécessaire pour le voir.",
+      "closingIntro": "Un prix fixe en quelques secondes. Aucun compte nécessaire pour le voir.",
       "howLede": "en trois étapes.",
       "whyLede": "et pourquoi cela tient.",
       "routesLede": "les plus demandés."
@@ -58,7 +58,7 @@
     "why": {
       "meter": {
         "title": "Un prix, fixé avant de partir",
-        "body": "Votre prix est un montant fixe issu de notre propre barème, pas un relevé de compteur : il dépend du trajet et du véhicule, non de la distance ni de l’heure. Vous l’acceptez avant de réserver et il est verrouillé dès ce moment, donc le prix affiché est celui que vous payez, quelle que soit la circulation."
+        "body": "Votre prix est un montant fixe issu de notre propre barème, pas un relevé de compteur : il dépend du trajet et du véhicule, non de la distance ni de l’heure. Vous l’acceptez avant de réserver et il est verrouillé dès ce moment, donc le prix annoncé ne bouge pas, quelle que soit la circulation. Les péages autoroutiers, lorsque l’itinéraire en comporte, sont facturés séparément."
       },
       "flight": {
         "title": "Nous suivons votre vol",
@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Payez en ligne, une fois, en totalité",
-      "note": "Paiement sécurisé par SumUp. Rien à régler au chauffeur dans le taxi."
+      "note": "Paiement sécurisé par SumUp. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Durée est.",
     "payNow": "Payer maintenant",
     "payInTaxi": "Payer dans le taxi",
-    "nothingInTaxi": "Rien à payer dans le taxi",
+    "nothingInTaxi": "Péages autoroutiers facturés séparément",
     "paidOnline": "Payé en ligne",
     "balanceInTaxi": "Solde à payer au chauffeur",
     "bookNow": "Réserver",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfert port de croisière",
       "weekendSurge": "Tarif week-end / jour férié"
     },
-    "disclaimer": "Votre prix est fixé au moment de la réservation et couvre tout le trajet, y compris tous les suppléments officiels. Rien à régler dans le taxi. Le reçu vous est envoyé par e-mail avec votre confirmation.",
+    "disclaimer": "Votre prix est fixé au moment de la réservation et couvre le trajet, y compris tous les suppléments officiels. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Le reçu vous est envoyé par e-mail avec votre confirmation.",
     "errors": {
       "pickupRequired": "Choisissez un point de prise en charge.",
       "dropoffRequired": "Choisissez une destination.",
@@ -147,10 +147,10 @@
     },
     "panelKicker": "Réservation",
     "panelTitle": "Planifiez votre transfert",
-    "panelSub": "Prix immédiat · Tout compris · 24/7",
+    "panelSub": "Prix immédiat · Prix fixe · 24/7",
     "totalPrice": "Prix total",
-    "allInclusive": "Tout compris · paiement en ligne",
-    "includedNote": "Un seul prix pour tout le trajet : tarif, suppléments officiels et réservation inclus. Rien à payer au chauffeur.",
+    "allInclusive": "Prix fixe · paiement en ligne",
+    "includedNote": "Un seul prix fixe pour le trajet : tarif, suppléments officiels et réservation. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "sections": {
       "nextTitle": "Ce qui se passe ensuite",
       "nextLede": "une fois le paiement fait."
@@ -163,7 +163,7 @@
     "returnTooEarly": "Le retour doit avoir lieu au moins une heure après la prise en charge.",
     "fixedRouteApplied": "Prix fixe pour ce trajet. La distance et l’heure ne le modifient pas.",
     "fixedPlusKmApplied": "Prix fixe jusqu’à {km} km, plus la distance au-delà.",
-    "perVehicle": "par véhicule, tout compris"
+    "perVehicle": "par véhicule, prix fixe"
   },
   "fleet": {
     "h1": "Notre flotte de taxis à Barcelone",
@@ -221,7 +221,7 @@
     "min": "min"
   },
   "footer": {
-    "about": "BCNAirportTaxi est un service de réservation de taxis agréés de Barcelone. Nous sommes un intermédiaire, pas un opérateur de taxi : nous fixons nos propres prix de transfert, et vous nous payez un montant unique tout compris à la réservation.",
+    "about": "BCNAirportTaxi est un service de réservation de taxis agréés de Barcelone. Nous sommes un intermédiaire, pas un opérateur de taxi : nous fixons nos propres prix de transfert, et vous nous payez le prix fixe à la réservation. Les péages autoroutiers sont facturés séparément.",
     "routes": "Trajets populaires",
     "company": "Entreprise",
     "legal": "Mentions légales",
@@ -276,7 +276,7 @@
     "coverage5": "Véhicules de 4 à 8 places et minivans avec espace bagages",
     "coverage6": "Prix ferme confirmé avant le départ",
     "pricingTitle": "Comment ces prix sont calculés.",
-    "pricingBody": "Les tarifs au compteur de l'AMB ne couvrent que l'aire métropolitaine de Barcelone. Toutes les destinations de cette page se situent au-delà : ces trajets relèvent donc du tarif interurbain fixé par la Generalitat de Catalunya, <b>T-6</b> en semaine entre 08:00 et 20:00 et le tarif supérieur <b>T-7</b> la nuit, le week-end et les jours fériés. Saisissez vos adresses dans le formulaire pour un prix exact, ou demandez-nous un devis ferme écrit incluant le temps d'attente.",
+    "pricingBody": "Les tarifs au compteur de l'AMB ne couvrent que l'aire métropolitaine de Barcelone. Toutes les destinations de cette page se situent au-delà : ces trajets relèvent donc du tarif interurbain fixé par la Generalitat de Catalunya, <b>T-6</b> en semaine entre 08:00 et 20:00 et le tarif supérieur <b>T-7</b> la nuit, le week-end et les jours fériés. Saisissez vos adresses dans le formulaire pour un prix exact, ou demandez-nous un devis ferme écrit incluant le temps d'attente. Les péages autoroutiers ne sont pas inclus dans ces prix et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "featuredH2": "Trajets les plus demandés",
     "featuredIntro": "Les transferts qu'on nous demande le plus, chacun avec sa propre page.",
     "badgeRoutePage": "Page dédiée",
@@ -310,7 +310,7 @@
     "ctaBookInstead": "Réserver plutôt un transfert aéroport",
     "pricedH2": "Comment le prix de ce trajet est calculé",
     "pricedP1": "Les tarifs au compteur de l'AMB ne couvrent que l'aire métropolitaine de Barcelone. {place} se situe au-delà : ce trajet relève donc du tarif interurbain fixé par la Generalitat de Catalunya, <b>T-6</b> en semaine entre 08:00 et 20:00 et le tarif supérieur <b>T-7</b> la nuit, le week-end et les jours fériés.",
-    "pricedP2": "Le montant ci-dessus est indicatif et repose sur la distance habituelle. Saisissez vos adresses exactes dans le formulaire pour un prix précis, ou demandez-nous sur WhatsApp un devis ferme écrit incluant le temps d'attente éventuel.",
+    "pricedP2": "Le montant ci-dessus est indicatif et repose sur la distance habituelle. Saisissez vos adresses exactes dans le formulaire pour un prix précis, ou demandez-nous sur WhatsApp un devis ferme écrit incluant le temps d'attente éventuel. Les péages autoroutiers ne sont pas inclus dans ce prix et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "interH2": "Pourquoi un prix longue distance fonctionne autrement",
     "interP1": "Dès qu’une extrémité du trajet se trouve hors de l’aire métropolitaine de Barcelone, la liste urbaine fixe cesse de s’appliquer et le trajet est calculé au kilomètre selon le tarif interurbain fixé par la Generalitat de Catalunya. C’est pourquoi cette page indique une distance et un montant qui en découle plutôt qu’un des prix urbains forfaitaires : aucune liste fixe honnête ne pourrait couvrir des destinations dont les distances varient d’un facteur cinq.",
     "interP2": "Le prix au kilomètre est plus élevé que l’urbain pour une raison qu’il vaut la peine de connaître. Le tarif interurbain traite le trajet comme un circuit fermé et facture aussi le retour du chauffeur, car celui-ci ne peut légalement pas prendre un client hors de sa zone et rentrerait à vide. Un kilomètre parcouru coûte donc deux kilomètres sur ce tarif. Cela explique le prix d’un long transfert, et pourquoi un tarif kilométrique annoncé quelque part sans cette précision vaut environ la moitié du vrai.",
@@ -320,7 +320,7 @@
     "photoAlt": "{place}, destination de transfert privé depuis Barcelone",
     "waQuote": "Bonjour, je souhaite un devis à prix fixe pour un transfert depuis Barcelone : {place}.",
     "waQuoteSibling": "Bonjour, je souhaite un devis pour {name}.",
-    "metaDescription": "Taxi privé de Barcelone à {place} : prix fixe tout compris, chauffeur agréé et suivi de votre vol. Réservez en ligne en quelques minutes."
+    "metaDescription": "Taxi privé de Barcelone à {place} : un prix fixe, un chauffeur agréé et le suivi de votre vol. Péages en sus. Réservez en ligne en quelques minutes."
   },
   "install": {
     "metaTitle": "Installer BCNAirportTaxi comme application",
@@ -398,7 +398,9 @@
     "rebookTitle": "Refaire ce trajet",
     "rebookIntro": "Votre dernier trajet, prêt à répéter. Changez la date au paiement.",
     "rebookCta": "Réserver à nouveau",
-    "happeningNow": "En cours"
+    "happeningNow": "En cours",
+    "tollsLabel": "Péages autoroutiers",
+    "tollsValue": "Facturés séparément lorsque l’itinéraire emprunte des routes à péage"
   },
   "trip": {
     "livePosition": "Position en direct",
@@ -442,7 +444,7 @@
     "rowBcnSitges": "Barcelone à Sitges",
     "rowBcnTarragona": "Barcelone vers Tarragone",
     "rowBcnGirona": "Barcelone vers l aeroport de Gerone",
-    "note": "Les transferts aéroport et port de croisière sont à prix fixe : l’heure ne le change pas. Les week-ends et jours fériés ajoutent {surge} %, et une destination à plus de {km} km de l’aéroport ou du port ajoute {rate} par kilomètre supplémentaire. Seuls les trajets quittant l’aire métropolitaine sont facturés au kilomètre. Tous les prix sont tout compris, sans rien à payer dans le taxi.",
+    "note": "Les transferts aéroport et port de croisière sont à prix fixe : l’heure ne le change pas. Les week-ends et jours fériés ajoutent {surge} %, et une destination à plus de {km} km de l’aéroport ou du port ajoute {rate} par kilomètre supplémentaire. Seuls les trajets quittant l’aire métropolitaine sont facturés au kilomètre. Tous les prix affichés sont des prix fixes ; les péages autoroutiers ne sont pas inclus et sont facturés séparément.",
     "totalPrice": "Prix total"
   },
   "checkout": {
@@ -483,9 +485,9 @@
     "bothLegs": "Aller et retour, payés ensemble"
   },
   "pricing": {
-    "feeBody": "Tout. Le trajet, chaque supplément officiel applicable à votre itinéraire et notre service d’organisation et de garantie du véhicule, en un seul montant payé en ligne à la réservation. Il n’y a pas de second montant à régler : rien n’est dû dans le taxi, et un reçu complet est envoyé par e-mail avec votre confirmation.",
+    "feeBody": "Le trajet, chaque supplément officiel applicable à votre itinéraire et notre service d’organisation et de garantie du véhicule, en un seul montant payé en ligne à la réservation. Les péages autoroutiers font exception : ils ne sont pas inclus et sont facturés séparément au client lorsque l’itinéraire emprunte des routes à péage. Un reçu complet est envoyé par e-mail avec votre confirmation.",
     "metaTitle": "Prix Taxi Aéroport Barcelone 2026",
-    "metaDescription": "Prix fixes du taxi pour l’aéroport de Barcelone : {sedan} vers la ville, {port} vers le port de croisière. Par véhicule, tout compris.",
+    "metaDescription": "Prix fixes du taxi pour l’aéroport de Barcelone : {sedan} vers la ville, {port} vers le port de croisière. Par véhicule, péages en sus. Réservez en ligne.",
     "h1": "Prix du taxi pour l’aéroport de Barcelone",
     "intro": "Un prix fixe par trajet, accepté avant la réservation et verrouillé dès ce moment. Ce n’est ni un relevé de compteur ni une estimation : le montant affiché est celui que vous payez, quelle que soit la circulation et quelle que soit l’heure.",
     "tableCaption": "Prix fixes de transfert, par véhicule",
@@ -510,7 +512,7 @@
     "zoneBody1": "Le prix affiché couvre toute adresse située à moins de {km} km du terminal, mesurés à vol d’oiseau et non le long de la route. Cela englobe tout le centre et presque partout où descend un visiteur : Ciutat Vella, l’Eixample, Gràcia, Sants, le front de mer jusqu’à la Barceloneta et Poblenou, et le Park Güell derrière Gràcia à 14,3 km, qui paient tous autant qu’un hôtel du passeig de Gràcia. L’exception, ce sont les quartiers du nord et de l’est : la Sagrera à 16,4 km, le Fòrum à 17,4, Sant Andreu à 17,7 et Nou Barris à 17,9 tombent hors de la zone et se voient appliquer le prix au kilomètre indiqué ci-dessous.",
     "zoneBody2": "La mesure à vol d'oiseau est volontaire et elle joue en votre faveur. La plaça de Catalunya est à 12,3 km du terminal en ligne droite mais à 19,6 km par la route, car celle-ci contourne le Llobregat et entre par la Gran Via. Une zone mesurée sur route à {km} km placerait le centre-ville à l'extérieur et se mettrait à facturer des kilomètres supplémentaires sur le trajet le plus courant de tous. Au-delà de la zone — Badalona à 21,8 km, Sant Cugat à 19,5 — le prix affiché s'applique plus {rate} par kilomètre supplémentaire, sous la forme d'un chiffre unique publié et non du tarif en vigueur à cette heure-là.",
     "supTitle": "Les suppléments officiels, déjà compris dans votre prix",
-    "supIntro": "Le tarif réglementé de Barcelone ajoute des suppléments fixes pour certains lieux et certaines dates. Ce ne sont pas des extras que nous facturons en plus : chacun est déjà contenu dans le montant du tableau ci-dessus, et c'est pourquoi il n'y a rien à régler dans la voiture. Ils sont énumérés ici afin qu'un supplément vu sur une grille tarifaire soit un supplément que vous puissiez situer.",
+    "supIntro": "Le tarif réglementé de Barcelone ajoute des suppléments fixes pour certains lieux et certaines dates. Ce ne sont pas des extras que nous facturons en plus : chacun est déjà contenu dans le montant du tableau ci-dessus, vous ne verrez donc pas de supplément s'y ajouter. Ils sont énumérés ici afin qu'un supplément vu sur une grille tarifaire soit un supplément que vous puissiez situer.",
     "supAirport": "Aéroport El Prat",
     "supPort": "Terminal de croisière du Moll Adossat",
     "supSants": "Gare de Sants",
@@ -520,12 +522,12 @@
     "supCap": "Le tarif réglementé plafonne le total des suppléments d'un même service à {cap}. Sur un transfert aéroport ordinaire, un seul supplément s'applique et ce plafond n'est jamais atteint.",
     "neverTitle": "Ce qui ne change jamais votre prix",
     "neverBody1": "L'heure de la journée. Une prise en charge à 04h30 pour un vol matinal coûte exactement ce que coûte un trajet à deux heures de l'après-midi. Sur un prix fixe, il n'y a pas de tarif de nuit, ni de majoration d'arrivée à l'aéroport apparaissant à la fin.",
-    "neverBody2": "Pas davantage la circulation, l'itinéraire choisi par votre chauffeur, le terminal où vous atterrissez, le nombre de passagers dans la limite de la capacité du véhicule ou la quantité de bagages qui y tient. Les week-ends et jours fériés sont la seule chose qui relève un prix affiché, selon un pourcentage unique publié. Tout le reste est notre risque, et c'est précisément ce que l'on achète en fixant un prix à l'avance.",
+    "neverBody2": "Pas davantage la circulation, l'itinéraire choisi par votre chauffeur, le terminal où vous atterrissez, le nombre de passagers dans la limite de la capacité du véhicule ou la quantité de bagages qui y tient. Les week-ends et jours fériés sont la seule chose qui relève un prix affiché, selon un pourcentage unique publié, et les péages autoroutiers sont facturés séparément lorsque l'itinéraire en comporte. Tout le reste est notre risque, et c'est précisément ce que l'on achète en fixant un prix à l'avance.",
     "interTitle": "Trajets hors de l'aire métropolitaine",
     "interBody1": "Dès qu'une extrémité du trajet se trouve hors de l'aire métropolitaine de Barcelone, le tarif urbain cesse de s'appliquer et le trajet est calculé au kilomètre selon le tarif interurbain fixé par la Generalitat de Catalunya. Sitges, Tarragone, Gérone, Reus, la Costa Brava et l'Andorre sont calculés ainsi, chiffrés intégralement avant la réservation et non repris de la liste fixe : aucune liste fixe honnête ne pourrait couvrir des distances qui varient d'un facteur cinq.",
     "interBody2": "Le prix au kilomètre est plus élevé que l'urbain pour une raison qu'il vaut la peine de connaître : le tarif interurbain traite le trajet comme un circuit fermé et facture aussi le retour du chauffeur, car celui-ci ne peut légalement pas prendre un client hors de sa zone et rentrerait à vide. Un kilomètre parcouru coûte donc deux kilomètres sur ce tarif. C'est la raison du prix d'un long transfert, et la raison pour laquelle un tarif kilométrique annoncé quelque part sans cette précision vaut environ la moitié du vrai.",
     "officialTitle": "Est-ce le tarif officiel du taxi ?",
-    "officialBody": "Non. C'est notre prix fixe pour un transfert réservé et payé à l'avance, et non le tarif réglementé. Le taxi de la station se paie au compteur selon le tarif de l'AMB. Chez nous, le prix est connu avant le départ et rien n'est dû dans la voiture.",
+    "officialBody": "Non. C'est notre prix fixe pour un transfert réservé et payé à l'avance, et non le tarif réglementé. Le taxi de la station se paie au compteur selon le tarif de l'AMB. Chez nous, le prix est connu avant le départ. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "officialLink": "Comparaison avec le compteur de la station",
     "adjTolls": "Péages",
     "adjTollsValue": "S'appliquent lorsque l'itinéraire emprunte une route à péage"
@@ -535,7 +537,7 @@
   },
   "howItWorks": {
     "metaTitle": "Comment réserver un taxi pour l'aéroport de Barcelone",
-    "metaDescription": "Réservez un taxi pour l'aéroport de Barcelone en trois étapes : prix tout compris immédiat, paiement en ligne, rendez-vous avec votre chauffeur.",
+    "metaDescription": "Réservez un taxi pour l'aéroport de Barcelone en trois étapes : prix fixe immédiat, paiement en ligne, rendez-vous avec votre chauffeur. Péages en sus.",
     "h1": "Comment ça marche",
     "steps": {
       "one": {
@@ -548,12 +550,12 @@
       },
       "three": {
         "title": "Retrouvez votre chauffeur",
-        "body": "Votre chauffeur vous attend à l'heure convenue. Tout est déjà réglé, il n'y a donc rien à payer dans la voiture."
+        "body": "Votre chauffeur vous attend à l'heure convenue. Le prix fixe est déjà réglé ; les péages autoroutiers, si l’itinéraire emprunte des routes à péage, sont facturés séparément."
       }
     },
     "live": {
       "reserved": "Réservé · payé en ligne",
-      "arrived": "Arrivé · rien à payer dans le taxi",
+      "arrived": "Arrivé · prix fixe payé en ligne",
       "live": "Chauffeur en direct"
     },
     "prepTitle": "Ce dont nous avons besoin de votre part",
@@ -564,7 +566,7 @@
     "afterBody2": "Un chauffeur est ensuite affecté à votre trajet et, à ce moment-là, vous recevez par e-mail son nom et son numéro ainsi que le point de rendez-vous exact pour votre terminal. Cette affectation engage réellement une voiture et une personne précises, et non une demande lancée à un groupe au moment où vous atterrissez : c'est pourquoi un transfert réservé ne se comporte pas comme une file d'attente à la station à deux heures du matin.",
     "dayTitle": "Le jour même",
     "dayBody1": "Pour une prise en charge à l'aéroport, votre chauffeur attend à l'intérieur du hall des arrivées, côté public à la sortie de la livraison des bagages, avec une pancarte à votre nom. Pas au bord du trottoir et pas dans la file de la station. Pour une prise en charge en ville, il se rend à l'adresse indiquée, à l'heure convenue.",
-    "dayBody2": "Tout est déjà payé, il n'y a donc rien à régler dans la voiture : ni course, ni supplément, ni pourboire attendu. Si vous souhaitez la facture officielle du compteur pour le trajet lui-même, le chauffeur peut vous la fournir sur demande ; votre propre reçu du montant payé est arrivé avec la confirmation.",
+    "dayBody2": "Le prix fixe est déjà payé, il n'y a donc ni course ni supplément à régler, et aucun pourboire n'est attendu. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont facturés séparément. Si vous souhaitez la facture officielle du compteur pour le trajet lui-même, le chauffeur peut vous la fournir sur demande ; votre propre reçu du montant payé est arrivé avec la confirmation.",
     "changeTitle": "Si quelque chose change",
     "changeBody1": "Vous pouvez modifier les informations vous-même dans les 30 minutes suivant la réservation puis, ensuite, jusqu'au départ de votre chauffeur : répondez à votre confirmation ou écrivez-nous sur WhatsApp. Changer de terminal, d'heure de prise en charge ou d'adresse ne coûte rien, et un terminal erroné est la correction que nous faisons le plus souvent.",
     "changeBody2": "Un vol retardé n'est pas une modification et ne demande rien de votre part : la prise en charge suit l'heure réelle d'atterrissage, sans frais supplémentaires, quel que soit le retard de l'appareil. Si votre vol est purement annulé, ou si vos projets tombent à l'eau, prévenez-nous dès que vous le savez : en annulant au moins 24 heures avant la prise en charge, la totalité du montant est remboursée sur la carte utilisée, généralement sous cinq à dix jours ouvrés. Dans ces 24 heures, nous chercherons toujours à vous aider, mais le remboursement n'est plus automatique."
@@ -576,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Le prix affiché est-il le prix payé ?",
-        "a": "Oui. Le prix affiché est celui que vous payez. C’est un montant fixe issu de notre propre barème, il contient déjà tous les suppléments officiels applicables à votre trajet, et il est verrouillé au moment de la réservation. La circulation et l’itinéraire sont notre risque, pas le vôtre : rien n’est ajouté ensuite et rien n’est dû au chauffeur."
+        "a": "Oui, pour le trajet. Le prix affiché est le prix fixe : un montant issu de notre propre barème, qui contient déjà tous les suppléments officiels applicables à votre trajet, et qui est verrouillé au moment de la réservation. La circulation et l’itinéraire sont notre risque, pas le vôtre. Seuls les péages autoroutiers n’y figurent pas : ils sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
       },
       "whyFee": {
         "q": "Que comprend le prix ?",
-        "a": "Tout. La course elle-même, chaque supplément officiel applicable à votre itinéraire — celui de l'aéroport El Prat, celui du port de croisière, celui des véhicules de cinq à huit passagers — et notre service de réservation et de garantie du véhicule, d'affectation d'un chauffeur et d'assistance le jour même. Un seul montant, réglé en ligne à la réservation, sans rien à part et sans rien à payer dans le taxi."
+        "a": "La course elle-même, chaque supplément officiel applicable à votre itinéraire — celui de l'aéroport El Prat, celui du port de croisière, celui des véhicules de cinq à huit passagers — et notre service de réservation et de garantie du véhicule, d'affectation d'un chauffeur et d'assistance le jour même. Le tout est réglé en ligne à la réservation. Les péages autoroutiers ne sont pas inclus : ils sont facturés séparément au client lorsque l’itinéraire emprunte des routes à péage."
       },
       "invoice": {
         "q": "Puis-je obtenir une facture ?",
@@ -619,8 +621,8 @@
         "a": "Parfois, et autant le dire franchement. Un jour calme en semaine, le compteur de la station affiche souvent moins, parce que notre prix fixe inclut un risque de circulation qui ne s'est pas matérialisé. En cas de trafic dense, le week-end ou lors des trois nuits à supplément, le prix fixe est généralement plus bas, et il est toujours connu à l'avance."
       },
       "payment": {
-        "q": "Comment paie-t-on, et doit-on quelque chose au chauffeur ?",
-        "a": "Vous payez la totalité en ligne à la réservation, par carte de crédit, carte de débit ou Bizum. Rien n'est dû dans le taxi : ni course, ni supplément, et aucun pourboire attendu. Nous réglons le chauffeur ensuite et il ne vous demandera jamais d'argent."
+        "q": "Comment paie-t-on, et qu'est-ce qui n'est pas inclus ?",
+        "a": "Vous payez le prix fixe en ligne à la réservation, par carte de crédit, carte de débit ou Bizum. Aucun pourboire n'est attendu. Les péages autoroutiers ne font pas partie de ce prix et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
       },
       "flightDelay": {
         "q": "Que se passe-t-il si mon vol est retardé ?",
