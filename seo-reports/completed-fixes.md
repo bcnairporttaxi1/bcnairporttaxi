@@ -1,4 +1,4 @@
-# Completed fixes (branch `seo/full-site-optimisation`, 5 commits, nothing deployed)
+# Completed fixes (branch `seo/full-site-optimisation`, 6 commits, nothing deployed)
 
 Every item was verified by the unit/acceptance tests (core 423, web 168, `tsc` clean, `eslint` clean on touched
 files), a production build, and a full 461-URL crawl of that build. Items marked (agent) came from a specialist report

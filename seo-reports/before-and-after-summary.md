@@ -1,6 +1,6 @@
 # Before and after
 
-"Before" = live production, crawled 2026-11-03. "After" = local production build of branch `seo/full-site-optimisation` (5 commits, 47 files, +1,866 / -202 lines). The branch is not deployed. No SEO score and no ranking forecast is given: neither can be measured honestly without Search Console and field data.
+"Before" = live production, crawled 2026-11-03. "After" = local production build of branch `seo/full-site-optimisation` (6 commits, 52 files, +2,038 / -202 lines). The branch is not deployed. No SEO score and no ranking forecast is given: neither can be measured honestly without Search Console and field data.
 
 | Measure | Before | After |
 |---|---|---|
