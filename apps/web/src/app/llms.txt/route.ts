@@ -88,7 +88,7 @@ Generalitat defines an interurban journey as a closed circuit: the meter counts
 the driver's return leg, since they cannot legally pick up a fare outside their
 own area and drive home empty.
 
-A typical airport-to-city-centre journey is about 19 km by road and 25-35
+A typical airport-to-city-centre journey is about 19.6 km by road (Placa de Catalunya) and 25-35
 minutes, and costs the fixed city price in full: see /pricing.md for the list
 per vehicle, and the additions that can apply to it.
 

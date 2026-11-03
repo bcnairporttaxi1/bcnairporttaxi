@@ -8,10 +8,10 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
   'how-much-is-a-taxi-from-barcelona-airport': {
     title: '¿Cuánto cuesta un taxi desde el aeropuerto de Barcelona?',
     description:
-      'Precio del taxi del aeropuerto de Barcelona: nuestras tarifas cerradas, en qué se diferencia el taxímetro de la parada y qué suman los suplementos.',
+      'Precio del taxi del aeropuerto de Barcelona: nuestras tarifas fijas, en qué se diferencia el taxímetro de la parada y qué suman los suplementos.',
     h1: '¿Cuánto cuesta un taxi desde el aeropuerto de Barcelona?',
     excerpt:
-      'Un traslado reservado desde El Prat hasta Barcelona cuesta 50 € en un coche de cuatro plazas, con precio cerrado y pago online. La parada de taxis de llegadas funciona de otra forma, con taxímetro regulado. Aquí tienes lo que cuesta cada opción y por qué las dos cifras no coinciden.',
+      'Un traslado reservado desde El Prat hasta Barcelona cuesta 50 € en un coche de cuatro plazas, con precio fijo y pago online. La parada de taxis de llegadas funciona de otra forma, con taxímetro regulado. Aquí tienes lo que cuesta cada opción y por qué las dos cifras no coinciden.',
     sections: [
       {
         h2: 'La respuesta corta',
@@ -23,11 +23,11 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
         ],
       },
       {
-        h2: 'Por qué un precio cerrado y no la lectura del taxímetro',
+        h2: 'Por qué un precio fijo y no la lectura del taxímetro',
         body: [
           'Las tarifas de los taxis de Barcelona las regula el Área Metropolitana de Barcelona, y todos los taxis con licencia de la ciudad usan el mismo taxímetro con las mismas tarifas. Es una protección real para el consumidor y no la discutimos. Lo que un taxímetro regulado no hace es decirte el precio de antemano.',
           'En un trayecto de 15 kilómetros hasta el Eixample, la lectura del taxímetro oscila unos diez euros según pilles la Ronda de Dalt fluida o retenida, y otro veinticinco por ciento según sea un martes a la hora de comer o un sábado por la noche. Las dos cifras son correctas. Ninguna se puede saber cuando estás en la sala de llegadas decidiendo qué hacer.',
-          'Un precio cerrado traslada esa variación a nuestro lado. Te damos 50 €, liquidamos con el conductor según lo que acabe costando realmente el trayecto, y la diferencia es nuestra en ambos sentidos. Un martes con tráfico fluido, eso es peor trato para ti que la parada. Con el tráfico de un viernes por la tarde, es mejor. Lo que siempre es, es conocido.',
+          'Un precio fijo traslada esa variación a nuestro lado. Te damos 50 €, liquidamos con el conductor según lo que acabe costando realmente el trayecto, y la diferencia es nuestra en ambos sentidos. Un martes con tráfico fluido, eso es peor trato para ti que la parada. Con el tráfico de un viernes por la tarde, es mejor. Lo que siempre es, es conocido.',
           'Es también la única forma honesta de vender un traslado a alguien que todavía no está en Barcelona. Nadie que reserve desde Mánchester en marzo puede calcular la lectura del taxímetro de un jueves por la tarde en julio, así que un presupuesto que en realidad es una estimación puede resultar erróneo, y siempre se equivoca en el sentido de que la cifra sube.',
         ],
       },
@@ -56,7 +56,7 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
           'Un vehículo con cinco o más pasajeros añade 4,60 €. Es un suplemento de la tarifa por el propio vehículo grande y no un cargo por persona, y es una de las razones por las que la Vito de seis plazas cuesta más que un turismo en el mismo trayecto.',
           'Tres noches del año llevan 4,60 € adicionales: Nochebuena hacia la mañana de Navidad, Nochevieja hacia el día de Año Nuevo y la Revetlla de Sant Joan, la noche del 23 de junio. Si llegas en avión una de esas noches, la parada costará más que su tarifa habitual y el precio reservado no.',
           'Hay un tope de 17,10 € para el total de suplementos cobrables en un solo servicio, pensado para casos límite, como un vehículo grande que sale de la terminal de cruceros en Nochevieja. En un trayecto normal del aeropuerto pagas un único suplemento de 4,60 €, muy lejos del techo.',
-          'Todo esto está dentro de nuestro precio cerrado. Los 50 € no son una tarifa a la que se añadirán suplementos: son el total, con el suplemento del aeropuerto, el vehículo, la tarifa y nuestro propio cargo por servicio ya incluidos. La queja más habitual en los traslados al aeropuerto de cualquier lugar es un precio que crece entre el presupuesto y la acera, y la manera de no hacerlo es dar el número que de verdad vas a cobrar.',
+          'Todo esto está dentro de nuestro precio fijo. Los 50 € no son una tarifa a la que se añadirán suplementos: son el total, con el suplemento del aeropuerto, el vehículo, la tarifa y nuestro propio cargo por servicio ya incluidos. La queja más habitual en los traslados al aeropuerto de cualquier lugar es un precio que crece entre el presupuesto y la acera, y la manera de no hacerlo es dar el número que de verdad vas a cobrar.',
         ],
       },
       {
@@ -70,9 +70,9 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
       {
         h2: 'La terminal de cruceros es un caso aparte',
         body: [
-          'El trayecto entre El Prat y Moll Adossat tiene un precio oficial cerrado de 46,00 € con la tarifa T-4, fijado por el AMB y no por nosotros. No funciona con taxímetro en absoluto.',
-          'Es poco habitual y tiene una buena razón: los pasajeros de cruceros viajan con una hora límite de embarque, a menudo en el peor tráfico del puerto de la semana, y una tarifa con taxímetro en esa situación es una apuesta que nadie quiere hacer. Un precio cerrado elimina el riesgo del tráfico en un trayecto en el que llegar tarde no es una molestia, sino perder el barco.',
-          'Nuestro precio reservado para la misma ruta es de 60 € en berlina, por encima del precio oficial cerrado porque incluye una garantía concreta que la parada no ofrece: un conductor asignado de antemano, que te recibe con un cartel con tu nombre y que mantiene tu hueco aunque el barco no atraque a su hora. Para una familia con equipaje y una hora de zarpada, suele ser lo que merece la pena pagar. Para un viajero solo con una mochila y una tarde tranquila, la parada a 46 € es la mejor compra y preferimos decirlo antes que aparentar lo contrario.',
+          'El trayecto entre El Prat y Moll Adossat tiene un precio oficial fijo de 46,00 € con la tarifa T-4, fijado por el AMB y no por nosotros. No funciona con taxímetro en absoluto.',
+          'Es poco habitual y tiene una buena razón: los pasajeros de cruceros viajan con una hora límite de embarque, a menudo en el peor tráfico del puerto de la semana, y una tarifa con taxímetro en esa situación es una apuesta que nadie quiere hacer. Un precio fijo elimina el riesgo del tráfico en un trayecto en el que llegar tarde no es una molestia, sino perder el barco.',
+          'Nuestro precio reservado para la misma ruta es de 60 € en berlina, por encima del precio oficial fijo porque incluye una garantía concreta que la parada no ofrece: un conductor asignado de antemano, que te recibe con un cartel con tu nombre y que mantiene tu hueco aunque el barco no atraque a su hora. Para una familia con equipaje y una hora de zarpada, suele ser lo que merece la pena pagar. Para un viajero solo con una mochila y una tarde tranquila, la parada a 46 € es la mejor compra y preferimos decirlo antes que aparentar lo contrario.',
           'Un traslado entre la terminal de cruceros y la ciudad, en lugar del aeropuerto, es el precio de la ciudad más un recargo portuario de 10 €, lo que da los mismos 60 €. La simetría es intencionada.',
         ],
       },
@@ -88,8 +88,8 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
       {
         h2: 'Fines de semana, festivos y qué cambia realmente',
         body: [
-          'Un precio cerrado sube un 7,5 % los fines de semana y festivos. En una berlina de 50 € son 3,75 €. El incremento existe porque cubrir el servicio en fines de semana y festivos cuesta más, y es una única tarifa publicada y no un multiplicador que se mueve con la demanda: el precio que te damos un sábado de febrero es el mismo que te damos un sábado de agosto.',
-          'Se aplica solo a los precios cerrados de ciudad y puerto. Un trayecto interurbano ya pasa de la T-6 a la T-7 el fin de semana, con su propia tarifa más alta, así que añadir el incremento encima cobraría dos veces el mismo recargo.',
+          'Un precio fijo sube un 7,5 % los fines de semana y festivos. En una berlina de 50 € son 3,75 €. El incremento existe porque cubrir el servicio en fines de semana y festivos cuesta más, y es una única tarifa publicada y no un multiplicador que se mueve con la demanda: el precio que te damos un sábado de febrero es el mismo que te damos un sábado de agosto.',
+          'Se aplica solo a los precios fijos de ciudad y puerto. Un trayecto interurbano ya pasa de la T-6 a la T-7 el fin de semana, con su propia tarifa más alta, así que añadir el incremento encima cobraría dos veces el mismo recargo.',
           'Lo que no cambia: la hora del día, la terminal, el tráfico, la ruta que siga el conductor, el número de pasajeros dentro de la capacidad del vehículo ni la cantidad de equipaje dentro de ella. Un coche de cuatro plazas con tres maletas a las 06:00 y un coche de cuatro plazas con una bolsa a las 18:00 cuestan los dos 50 € entre semana.',
         ],
       },
@@ -98,7 +98,7 @@ export const ES_BLOG_COPY: Record<string, BlogLocaleCopy> = {
         body: [
           'Para un traslado reservado hasta Barcelona: 50 € entre semana en un coche de cuatro plazas, 53,75 € en fin de semana. 70 € o 75 € si necesitas uno de seis o siete plazas, lo que para cuatro adultos con cuatro maletas grandes suele ser la respuesta honesta y no una venta de más: tres maletas es el límite realista en un Corolla o un Toledo.',
           'Para la parada, en un trayecto diurno entre semana hasta el centro: el taxímetro más el suplemento de 4,60 €, que suele quedar en torno a los cuarenta y pico euros, y más por la tarde, en fin de semana o con mucho tráfico. Cuenta con la posibilidad de que el datáfono no funcione, que pasa.',
-          'Para la terminal de cruceros: 46 € con el precio oficial cerrado, o 60 € reservando, con un conductor que mantiene tu hueco.',
+          'Para la terminal de cruceros: 46 € con el precio oficial fijo, o 60 € reservando, con un conductor que mantiene tu hueco.',
           'Lo único que merece decirse con claridad es que la parada y un coche reservado no son el mismo producto a distinto precio. Uno es un trayecto con taxímetro regulado que compras al llegar. El otro es una cifra fija, un conductor con nombre y un coche ya asignado cuando aterriza tu vuelo. Cuál es mejor depende por completo de cuánto te valga la incertidumbre ese día, y para muchos trayectos la respuesta es «no mucho», en cuyo caso la parada está ahí mismo.',
         ],
       },

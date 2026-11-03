@@ -30,7 +30,8 @@ export async function generateMetadata(props: {
       sedan: eur(TARIFFS.fixedRoutes.cityAirport.sedan),
       port: eur(TARIFFS.fixedRoutes.portAirport.sedan),
     }),
-    alternates: { canonical: `/${locale}/pricing`, languages },
+    // The same price list as plain text for agents (see app/pricing.md/route.ts).
+    alternates: { canonical: `/${locale}/pricing`, languages, types: { 'text/markdown': '/pricing.md' } },
   };
 }
 

@@ -23,7 +23,7 @@
     "metaTitle": "Taxi Aeropuerto Barcelona | Traslados El Prat Online",
     "metaDescription": "Reserva online y con antelación un taxi al aeropuerto de Barcelona. Un precio fijo todo incluido, acordado antes de reservar y bloqueado al hacerlo.",
     "h1": "Taxi al aeropuerto de Barcelona, reservado antes de aterrizar",
-    "intro": "Reserve un taxi de Barcelona con licencia, negro y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo todo incluido, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — lo paga online y no queda nada por pagar al conductor.",
+    "intro": "Reserva un taxi de Barcelona con licencia, negro y amarillo, hacia o desde el aeropuerto de El Prat. Un precio fijo todo incluido, mostrado antes de reservar y bloqueado al hacerlo — sin taxímetro y sin cálculos de distancia — lo pagas online y no queda nada por pagar al conductor.",
     "trust": {
       "licensed": "Taxis con licencia AMB",
       "meter": "Precio fijo, sin taxímetro",
@@ -57,7 +57,7 @@
     "why": {
       "meter": {
         "title": "Un precio, fijado antes de viajar",
-        "body": "Su precio es una cifra fija de nuestra propia lista, no una lectura del taxímetro: depende de la ruta y del vehículo, no de la distancia ni de la hora. Lo acepta antes de reservar y queda bloqueado al hacerlo, así que el precio que ve es el que paga, pase lo que pase con el tráfico."
+        "body": "Tu precio es una cifra fija de nuestra propia lista, no una lectura del taxímetro: depende de la ruta y del vehículo, no de la distancia ni de la hora. Lo aceptas antes de reservar y queda bloqueado al hacerlo, así que el precio que ves es el que pagas, pase lo que pase con el tráfico."
       },
       "flight": {
         "title": "Seguimos tu vuelo",
@@ -169,20 +169,20 @@
     "metaTitle": "Flota de Taxis Barcelona | Coches, Minivans y Furgonetas",
     "metaDescription": "Taxis con licencia para el aeropuerto de Barcelona: Toyota Prius+, Toyota Corolla, Mercedes Vito y Mercedes V-Class. Plazas y equipaje para cada grupo.",
     "h1": "Nuestra flota de taxis en Barcelona",
-    "intro": "Todos los vehículos son taxis de Barcelona con licencia. Elija según el grupo y el equipaje: un taxi estándar lleva cuatro pasajeros, un minivan seis y una van siete, y cada uno tiene su propio precio fijo de traslado, visible antes de reservar.",
+    "intro": "Todos los vehículos son taxis de Barcelona con licencia. Elige según el grupo y el equipaje: un taxi estándar lleva cuatro pasajeros, un minivan seis y una van siete, y cada uno tiene su propio precio fijo de traslado, visible antes de reservar.",
     "seats": "{count, plural, one {# pasajero} other {# pasajeros}}",
     "bags": "{count, plural, one {# maleta} other {# maletas}}",
     "passengersLabel": "Pasajeros",
     "luggageLabel": "Equipaje",
     "chooseTitle": "Elija por el equipaje, no por el número de personas",
     "chooseBody1": "Escoja el vehículo según el número de maletas, no de pasajeros. En un taxi estándar de cuatro plazas caben cuatro personas, pero solo unas tres maletas grandes: el maletero de un Corolla o de un SEAT Toledo es el límite real, y es el que más se infravalora al reservar desde casa. Cuatro adultos con una maleta grande cada uno necesitan la Mercedes Vito de seis plazas, que lleva seis pasajeros y seis maletas.",
-    "chooseBody2": "Por encima de eso, la Mercedes V-Class de siete plazas transporta siete pasajeros y siete maletas. Si viaja con algo de gran tamaño —una bicicleta, esquís, una tabla de surf, un violonchelo— indíquelo en las notas de la reserva en lugar de elegir un coche más grande y confiar en que quepa, porque a veces la respuesta correcta es un vehículo concreto y no simplemente uno mayor. Para grupos de más de siete personas se pueden reservar varios coches a la vez en un único pago, cada uno a su precio publicado.",
+    "chooseBody2": "Por encima de eso, la Mercedes V-Class de siete plazas transporta siete pasajeros y siete maletas. Si viajas con algo de gran tamaño —una bicicleta, esquís, una tabla de surf, un violonchelo— indícalo en las notas de la reserva en lugar de elegir un coche más grande y confiar en que quepa, porque a veces la respuesta correcta es un vehículo concreto y no simplemente uno mayor. Para grupos de más de siete personas se pueden reservar varios coches a la vez en un único pago, cada uno a su precio publicado.",
     "licensedTitle": "Qué significa aquí «taxi de Barcelona con licencia»",
     "licensedBody1": "Todos los vehículos de esta flota son taxis de Barcelona con licencia, con la librea oficial negra y amarilla, que operan con la licencia metropolitana de taxi y no como vehículos de alquiler con conductor. No es un detalle de imagen: significa que el vehículo puede usar las paradas y los carriles de taxi, cuenta con el seguro regulado, está sujeto al régimen de inspección del AMB y puede emitir la factura oficial del taxímetro por el trayecto.",
     "licensedBody2": "También significa que el conductor es un taxista profesional de Barcelona que ha superado los requisitos municipales de conocimiento y licencia, no un colaborador con una aplicación. Al reservar aquí reserva un taxi regulado a un precio fijo acordado de antemano: el vehículo y el conductor son los mismos que encontraría en la parada, con el precio y el coche resueltos antes de aterrizar en lugar de después.",
     "commonTitle": "Qué tienen todos los vehículos",
     "commonBody1": "Aire acondicionado, cinturón en todas las plazas, terminal de pago con tarjeta y espacio para el equipaje indicado en su ficha. Todos son libres de humo. Cada coche pasa las inspecciones según el calendario del AMB y está asegurado como taxi con licencia, de modo que el mínimo lo marca la normativa y no nosotros.",
-    "commonBody2": "Las sillas infantiles no vienen de serie; si necesita una, pídala en las notas de la reserva antes de viajar para que se asigne el coche adecuado. La ayuda con el equipaje al cargar y descargar el maletero está incluida y nunca se cobra, igual que una espera razonable mientras usted sale de llegadas.",
+    "commonBody2": "Las sillas infantiles no vienen de serie; si necesitas una, pídela en las notas de la reserva antes de viajar para que se asigne el coche adecuado. La ayuda con el equipaje al cargar y descargar el maletero está incluida y nunca se cobra, igual que una espera razonable mientras sales de llegadas.",
     "categories": {
       "eco": "Taxi híbrido ecológico",
       "standard": "Taxi estándar",
@@ -323,15 +323,15 @@
     "emailUs": "Escríbenos",
     "bookTransfer": "Reservar traslado al aeropuerto",
     "coverageH2": "Rutas para aeropuertos, puertos, hoteles y grupos",
-    "coverageIntro": "Elige una ruta más abajo o pidenos un precio cerrado a cualquier otro destino. Confirmamos el vehículo, el punto de recogida y el precio antes del viaje.",
+    "coverageIntro": "Elige una ruta más abajo o pídenos un precio fijo a cualquier otro destino. Confirmamos el vehículo, el punto de recogida y el precio antes del viaje.",
     "coverage1": "Recogida y llegada en el aeropuerto de Barcelona",
     "coverage2": "Traslados desde las terminales de cruceros de Barcelona",
     "coverage3": "Recogida en hotel para familias, parejas y viajeros de negocios",
     "coverage4": "Recogida en domicilio particular en Barcelona y poblaciones cercanas",
     "coverage5": "Vehículos de 4 a 8 plazas y minivans con espacio para equipaje",
-    "coverage6": "Precio cerrado confirmado antes de viajar",
+    "coverage6": "Precio fijo confirmado antes de viajar",
     "pricingTitle": "Cómo se calculan estos precios.",
-    "pricingBody": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. Todos los destinos de esta página quedan fuera, así que estos trayectos se rigen por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos. Introduce tus direcciones en el formulario para un precio exacto, o pidenos un presupuesto cerrado por escrito que incluya el tiempo de espera.",
+    "pricingBody": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. Todos los destinos de esta página quedan fuera, así que estos trayectos se rigen por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos. Introduce tus direcciones en el formulario para un precio exacto, o pídenos un presupuesto fijo por escrito que incluya el tiempo de espera.",
     "featuredH2": "Rutas destacadas",
     "featuredIntro": "Los traslados que más nos piden, cada uno con su propia página de ruta.",
     "badgeRoutePage": "Página de ruta",
@@ -361,21 +361,21 @@
     "journeyTime": "Duración",
     "fromDaytime": "Desde (de día)",
     "onRequest": "Bajo petición",
-    "ctaFixedQuote": "Pedir precio cerrado por WhatsApp",
+    "ctaFixedQuote": "Pedir precio fijo por WhatsApp",
     "ctaBookInstead": "Reservar mejor un traslado al aeropuerto",
     "pricedH2": "Cómo se calcula el precio de esta ruta",
     "pricedP1": "Las tarifas del taxímetro del AMB solo cubren el área metropolitana de Barcelona. {place} queda fuera, así que este trayecto se rige por la tarifa interurbana de la Generalitat de Catalunya: <b>T-6</b> de lunes a viernes entre las 08:00 y las 20:00, y la más alta <b>T-7</b> de noche, los fines de semana y en festivos.",
-    "pricedP2": "La cifra de arriba es orientativa y se basa en la distancia habitual. Introduce tus direcciones exactas en el formulario para un precio preciso, o pidenos por WhatsApp un presupuesto cerrado por escrito que incluya el tiempo de espera.",
+    "pricedP2": "La cifra de arriba es orientativa y se basa en la distancia habitual. Introduce tus direcciones exactas en el formulario para un precio preciso, o pídenos por WhatsApp un presupuesto fijo por escrito que incluya el tiempo de espera.",
     "interH2": "Por qué un precio de larga distancia funciona de otra manera",
     "interP1": "En cuanto uno de los extremos del trayecto queda fuera del área metropolitana de Barcelona, la lista urbana fija deja de aplicarse y el viaje se calcula por kilómetro con la tarifa interurbana que fija la Generalitat de Catalunya. Por eso esta página indica una distancia y una cifra derivada de ella en lugar de uno de los precios urbanos planos: ninguna lista fija honesta podría cubrir destinos cuyas distancias se diferencian en un factor de cinco.",
     "interP2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer. La tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Eso explica lo que cuesta un traslado largo, y por qué un precio por kilómetro anunciado en cualquier sitio sin ese detalle es aproximadamente la mitad del real.",
     "vehiclesH2": "Vehículos para esta ruta",
-    "paxBags": "{seats} pax · {bags} maletas",
+    "paxBags": "{seats} plazas · {bags} maletas",
     "otherIn": "Otros destinos: {group}",
     "photoAlt": "{place}, destino de traslado privado desde Barcelona",
-    "waQuote": "Hola, quería un presupuesto cerrado para un traslado desde Barcelona: {place}.",
+    "waQuote": "Hola, quería un presupuesto fijo para un traslado desde Barcelona: {place}.",
     "waQuoteSibling": "Hola, quería un presupuesto para {name}.",
-    "metaDescription": "Taxi privado de Barcelona a {place}: precio cerrado todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
+    "metaDescription": "Taxi privado de Barcelona a {place}: precio fijo todo incluido, conductor con licencia y seguimiento de tu vuelo. Reserva online en minutos."
   },
   "install": {
     "metaTitle": "Instala BCNAirportTaxi como aplicación",
@@ -501,13 +501,13 @@
     "totalPrice": "Precio total"
   },
   "pricing": {
-    "feeBody": "Todo. El trayecto, cada suplemento oficial que corresponda a su ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. No hay una segunda cifra que liquidar: no se debe nada en el taxi y se envía un recibo completo por email con la confirmación.",
+    "feeBody": "Todo. El trayecto, cada suplemento oficial que corresponda a tu ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. No hay una segunda cifra que liquidar: no se debe nada en el taxi y se envía un recibo completo por email con la confirmación.",
     "metaTitle": "Precios Taxi Aeropuerto Barcelona 2026",
     "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros. Todo incluido.",
     "h1": "Precios del taxi al aeropuerto de Barcelona",
-    "intro": "Un precio fijo por trayecto, acordado antes de reservar y bloqueado al hacerlo. No es una lectura del taxímetro ni una estimación: la cifra que ve es la que paga, pase lo que pase con el tráfico y sea la hora que sea.",
+    "intro": "Un precio fijo por trayecto, acordado antes de reservar y bloqueado al hacerlo. No es una lectura del taxímetro ni una estimación: la cifra que ves es la que pagas, pase lo que pase con el tráfico y sea la hora que sea.",
     "tableCaption": "Precios fijos de traslado, por vehículo",
-    "feeTitle": "Qué incluye su precio",
+    "feeTitle": "Qué incluye tu precio",
     "verifyNote": "Nuestros precios los fijamos nosotros y se revisan cuando cambian los costes. Los viajes fuera del área metropolitana se cobran por kilómetro según la tarifa interurbana de la Generalitat de Catalunya, que verificamos en cada cambio.",
     "routeCol": "Ruta",
     "standardCol": "Taxi estándar (4)",
@@ -526,9 +526,9 @@
     "adjInterurbanValue": "se cobra por kilómetro",
     "zoneTitle": "Qué direcciones cubre el precio urbano",
     "zoneBody1": "El precio de la lista cubre cualquier dirección situada a menos de {km} km de la terminal, medidos en línea recta y no por carretera. Eso abarca todo el centro y casi cualquier sitio donde se aloje un visitante: Ciutat Vella, el Eixample, Gràcia, Sants, el frente marítimo hasta la Barceloneta y el Poblenou, y el Park Güell por detrás de Gràcia a 14,3 km, que pagan todos lo mismo que un hotel del passeig de Gràcia. La excepción son los distritos del norte y del este: la Sagrera a 16,4 km, el Fòrum a 17,4, Sant Andreu a 17,7 y Nou Barris a 17,9 quedan fuera de la zona y se les añade el precio por kilómetro indicado más abajo.",
-    "zoneBody2": "La medición en línea recta es deliberada y juega a su favor. La plaça de Catalunya está a 12,3 km de la terminal a vuelo de pájaro, pero a 19,6 km por carretera, porque la vía rodea el Llobregat y entra por la Gran Via. Una zona medida por carretera a {km} km dejaría fuera el centro de la ciudad y empezaría a cobrar kilómetros extra en el trayecto más habitual de todos. Más allá de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— se aplica el precio de la lista más {rate} por cada kilómetro adicional, como una única cifra publicada y no como la tarifa que toque a esa hora.",
-    "supTitle": "Los suplementos oficiales, ya incluidos en su precio",
-    "supIntro": "La tarifa regulada de Barcelona añade suplementos fijos por determinados lugares y fechas. No son extras que cobremos aparte: cada uno ya está contenido en la cifra de la tabla anterior, y por eso no hay nada que liquidar en el coche. Los enumeramos aquí para que un suplemento que vea en un cuadro de tarifas sea un suplemento que pueda situar.",
+    "zoneBody2": "La medición en línea recta es deliberada y juega a tu favor. La plaça de Catalunya está a 12,3 km de la terminal a vuelo de pájaro, pero a 19,6 km por carretera, porque la vía rodea el Llobregat y entra por la Gran Via. Una zona medida por carretera a {km} km dejaría fuera el centro de la ciudad y empezaría a cobrar kilómetros extra en el trayecto más habitual de todos. Más allá de la zona —Badalona a 21,8 km, Sant Cugat a 19,5— se aplica el precio de la lista más {rate} por cada kilómetro adicional, como una única cifra publicada y no como la tarifa que toque a esa hora.",
+    "supTitle": "Los suplementos oficiales, ya incluidos en tu precio",
+    "supIntro": "La tarifa regulada de Barcelona añade suplementos fijos por determinados lugares y fechas. No son extras que cobremos aparte: cada uno ya está contenido en la cifra de la tabla anterior, y por eso no hay nada que liquidar en el coche. Los enumeramos aquí para que un suplemento que veas en un cuadro de tarifas sea un suplemento que puedas situar.",
     "supAirport": "Aeropuerto de El Prat",
     "supPort": "Terminal de cruceros del Moll Adossat",
     "supSants": "Estación de Sants",
@@ -536,9 +536,9 @@
     "supLarge": "Vehículo con {seats} plazas o más",
     "supNights": "Nochebuena, Nochevieja y la noche de Sant Joan",
     "supCap": "La tarifa regulada limita el total de suplementos de un mismo servicio a {cap}. En un traslado de aeropuerto normal se aplica un solo suplemento y nunca se alcanza ese techo.",
-    "neverTitle": "Qué no cambia nunca su precio",
+    "neverTitle": "Qué no cambia nunca tu precio",
     "neverBody1": "La hora del día. Una recogida a las 04:30 para un vuelo temprano cuesta exactamente lo mismo que un trayecto a las dos de la tarde. En un precio fijo no hay tarifa nocturna, ni recargo por llegada al aeropuerto que aparezca al final.",
-    "neverBody2": "Tampoco el tráfico, la ruta que elija el conductor, la terminal en la que aterrice, el número de pasajeros hasta la capacidad del vehículo ni la cantidad de equipaje que quepa en él. Los fines de semana y festivos son lo único que eleva un precio de la lista, con un porcentaje único publicado. Todo lo demás es nuestro riesgo, y es precisamente lo que se compra al fijar un precio por adelantado.",
+    "neverBody2": "Tampoco el tráfico, la ruta que elija el conductor, la terminal en la que aterrices, el número de pasajeros hasta la capacidad del vehículo ni la cantidad de equipaje que quepa en él. Los fines de semana y festivos son lo único que eleva un precio de la lista, con un porcentaje único publicado. Todo lo demás es nuestro riesgo, y es precisamente lo que se compra al fijar un precio por adelantado.",
     "interTitle": "Trayectos fuera del área metropolitana",
     "interBody1": "En cuanto uno de los extremos del trayecto queda fuera del área metropolitana de Barcelona, la tarifa urbana deja de aplicarse y el viaje se calcula por kilómetro con la tarifa interurbana que fija la Generalitat de Catalunya. Sitges, Tarragona, Girona, Reus, la Costa Brava y Andorra se calculan así, con presupuesto completo antes de reservar y no a partir de la lista fija: ninguna lista fija honesta podría cubrir distancias que se diferencian en un factor de cinco.",
     "interBody2": "La cifra por kilómetro es más alta que la urbana por un motivo que conviene conocer: la tarifa interurbana trata el viaje como un circuito cerrado y cobra también el regreso del conductor, porque legalmente no puede recoger pasaje fuera de su área y volvería de vacío. Así que un kilómetro recorrido cuesta dos kilómetros en esa tarifa. Es la razón de que un trayecto largo cueste lo que cuesta, y de que un precio por kilómetro anunciado en cualquier sitio sin ese detalle sea aproximadamente la mitad del real.",
@@ -636,15 +636,15 @@
       },
       "payment": {
         "q": "¿Cómo se paga? ¿Hay que darle algo al conductor?",
-        "a": "Se paga el importe completo en línea al reservar, con tarjeta de crédito, de débito o Bizum. En el taxi no se debe absolutamente nada: ni carrera, ni suplementos, ni se espera propina. Al conductor le liquidamos nosotros después y nunca le pedirá dinero."
+        "a": "Se paga el importe completo en línea al reservar, con tarjeta de crédito, de débito o Bizum. En el taxi no se debe absolutamente nada: ni carrera, ni suplementos, ni se espera propina. Al conductor le liquidamos nosotros después y nunca te pedirá dinero."
       },
       "flightDelay": {
         "q": "¿Qué pasa si mi vuelo se retrasa?",
-        "a": "No tiene que hacer nada. Seguimos su número de vuelo y movemos la recogida a la hora real de aterrizaje, sin coste adicional. Un retraso no le hace perder el coche ni le cuesta una cancelación. Si el vuelo se cancela del todo, avísenos y se devuelve el importe completo."
+        "a": "No tienes que hacer nada. Seguimos tu número de vuelo y movemos la recogida a la hora real de aterrizaje, sin coste adicional. Un retraso no te hace perder el coche ni te cuesta una cancelación. Si el vuelo se cancela del todo, avísanos y se devuelve el importe completo."
       },
       "multipleCars": {
         "q": "Somos un grupo grande. ¿Podemos reservar más de un coche?",
-        "a": "Sí. Puede elegir varios vehículos en una sola reserva: se reservan juntos, se pagan en un único proceso y se envían al mismo punto de recogida, hasta seis coches. Cada coche se cobra a la misma tarifa publicada para su tamaño, así que un grupo de diez son dos coches a precio de lista, no un presupuesto a medida."
+        "a": "Sí. Puedes elegir varios vehículos en una sola reserva: se reservan juntos, se pagan en un único proceso y se envían al mismo punto de recogida, hasta seis coches. Cada coche se cobra a la misma tarifa publicada para su tamaño, así que un grupo de diez son dos coches a precio de lista, no un presupuesto a medida."
       },
       "whichVehicle": {
         "q": "¿Qué tamaño de vehículo necesito?",
@@ -652,7 +652,7 @@
       },
       "changeBooking": {
         "q": "¿Puedo modificar una reserva ya hecha?",
-        "a": "Sí. Puede cambiar los datos usted mismo durante los 30 minutos siguientes a la reserva y, después, hasta que el conductor salga: responda al correo de confirmación o escríbanos por WhatsApp. Cambiar la terminal o la hora de recogida no cuesta nada."
+        "a": "Sí. Puedes cambiar los datos tú mismo durante los 30 minutos siguientes a la reserva y, después, hasta que el conductor salga: responde al correo de confirmación o escríbenos por WhatsApp. Cambiar la terminal o la hora de recogida no cuesta nada."
       },
       "cruisePort": {
         "q": "¿Dais servicio a la terminal de cruceros del Moll Adossat?",
@@ -664,7 +664,7 @@
       },
       "findDriver": {
         "q": "¿Y si no encuentro a mi conductor?",
-        "a": "En su confirmación hay un teléfono que llega directamente al conductor, no a un centro de llamadas. Las salas de llegadas son grandes y los carteles con el nombre se bajan, así que una llamada suele resolverlo en menos de un minuto. El conductor también tiene su número y le llamará si no le ve."
+        "a": "En tu confirmación hay un teléfono que llega directamente al conductor, no a un centro de llamadas. Las salas de llegadas son grandes y los carteles con el nombre se bajan, así que una llamada suele resolverlo en menos de un minuto. El conductor también tiene tu número y te llamará si no te ve."
       }
     }
   },

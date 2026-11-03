@@ -26,6 +26,9 @@ export const dynamic = 'force-static';
 
 const eur = (n: number) => `EUR ${n.toFixed(2)}`;
 
+/** Fare plus our service charge, which is what the customer actually pays per km. */
+const allIn = (fare: number, rate: number) => (fare * (1 + rate)).toFixed(2);
+
 /** Seats decide the column, so the fleet is grouped the way the list prices it. */
 function vehicleClass(seats: number): 'sedan' | 'van6' | 'van7' {
   if (seats <= 4) return 'sedan';
@@ -33,6 +36,7 @@ function vehicleClass(seats: number): 'sedan' | 'van6' | 'van7' {
 }
 
 export function GET(): Response {
+  const t = TARIFFS;
   const f = TARIFFS.fixedRoutes;
   const surge = Math.round(f.surgeRate * 1000) / 10;
 
@@ -84,10 +88,19 @@ Nothing is collected in the vehicle.
 
 ## What is not a fixed price
 
-Journeys that leave the Barcelona metropolitan area are priced per kilometre
-on the interurban tariff set by the Generalitat de Catalunya (T-6 on weekdays
-between 08:00 and 20:00, T-7 at night, weekends and public holidays). Those
-are quoted from the real road distance at booking.
+Journeys with an end outside the Barcelona metropolitan area are priced per
+kilometre from the real road distance, ALL-IN (our service charge included),
+and quoted in full before you book:
+
+| When | Per km | Start |
+|---|---|---|
+| Weekday daytime | about EUR ${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} | EUR ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} |
+| Weekday night | about EUR ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekday)} | EUR ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekday)} |
+| Weekend and public holiday | about EUR ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekend)} | EUR ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekend)} |
+
+Example: city centre to Sitges is 38 km, EUR 90.78 on a weekday. The
+interurban rates follow the Generalitat de Catalunya's T-6 (weekdays 08:00 to
+20:00) and T-7 (nights, weekends, public holidays) structure.
 
 ## Booking
 
