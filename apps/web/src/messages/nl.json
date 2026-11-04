@@ -530,7 +530,7 @@
     "officialBody": "Nee. Dit is onze eigen vaste prijs voor een geboekte, vooraf betaalde transfer, niet het gereguleerde tarief. Een taxi van de standplaats wordt betaald volgens de meter op het AMB-tarief. Bij ons is de prijs bekend vóór de reis. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
     "officialLink": "Zo verhoudt het zich tot de meter op de standplaats",
     "adjTolls": "Tolwegen",
-    "adjTollsValue": "Van toepassing wanneer de route een tolweg gebruikt"
+    "adjTollsValue": "Niet inbegrepen; aan de chauffeur in de auto te betalen wanneer de route een tolweg gebruikt"
   },
   "site": {
     "name": "BCNAirportTaxi"

@@ -530,7 +530,7 @@
     "officialBody": "No. És el nostre preu fix per a un trasllat reservat i pagat per avançat, no la tarifa regulada. El taxi de la parada es paga amb taxímetre segons la tarifa de l'AMB. Amb nosaltres coneixes el preu abans de viatjar. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
     "officialLink": "Com es compara amb el taxímetre de la parada",
     "adjTolls": "Peatges",
-    "adjTollsValue": "S'apliquen quan la ruta fa servir una via de peatge"
+    "adjTollsValue": "No inclosos; es paguen al conductor al cotxe quan la ruta fa servir una via de peatge"
   },
   "site": {
     "name": "BCNAirportTaxi"

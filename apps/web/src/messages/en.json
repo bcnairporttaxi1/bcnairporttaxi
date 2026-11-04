@@ -257,7 +257,7 @@
     "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel. Motorway tolls are not included and are charged separately when the route uses toll roads.",
     "officialLink": "How the rank meter compares",
     "adjTolls": "Motorway tolls",
-    "adjTollsValue": "Apply where the route uses a toll road"
+    "adjTollsValue": "Not included; paid to the driver in the car where the route uses a toll road"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",

@@ -23,6 +23,11 @@ Verified on the preview at `b35168d` (in-browser, all 374 sitemap pages plus che
 
 Open (see `outstanding-issues.md` section A): who collects tolls and how, how the customer learns the amount, which routes, and whether the Terms need a toll clause. The preview-only changes touch payment-adjacent text (the SumUp checkout description now reads "Barcelona taxi REF - fixed price" instead of "all-inclusive") and the email templates; no payment logic, price calculation or booking flow code changed.
 
+## Update 3: tolls are collected by the driver in the car (owner, 2026-11-03), applied and re-verified at `e7e0534`+
+Owner: the driver collects tolls from the customer in the car, and tells the customer on the way when the route uses a toll road; tolls are still not in the fixed price. The English and all nine other languages now say that wherever payment is explained (pricing page including the toll row, quote/booking/checkout notes, FAQ, how it works, landing pages, account page, Terms, `pricing.md`, `llms.txt`, and all four email types). Still not stated: amount, payment method, route list.
+
+Verified on the preview (all 374 pages, 10 languages, plus checkout): 0 leftover old claims; toll and driver wording on checkout 10 / 10; every other check (hreflang, `og:locale`, H1, structured data, titles, descriptions) still passes. Tests: core 423, web 300, `tsc` clean, `eslint` clean, production build exit 0. Two leftover contradictory sentences that the first pass missed (a Dutch "nothing is collected in the car" and a Chinese "nothing is charged in the car") were found by a broader scan and fixed; the test now catches them.
+
 ## 1. Preview
 - Environment: **Preview** (Vercel confirms), not Production. Address: `https://bcnairporttaxi-git-seo-full-si-6ad3a7-bcnairporttaxi1s-projects.vercel.app` (behind your Vercel login, so it is private; crawlers and PageSpeed cannot reach it).
 - `GET /api/health` on the preview returns `{"status":"ok","database":"up","commit":"912e5a1"}`. **The preview is connected to a database.** Treat it as live data: nobody should place a booking on the preview.

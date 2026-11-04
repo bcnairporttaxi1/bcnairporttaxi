@@ -530,7 +530,7 @@
     "officialBody": "No. È il nostro prezzo fisso per un trasferimento prenotato e pagato in anticipo, non la tariffa regolamentata. Il taxi del posteggio si paga a tassametro secondo la tariffa dell'AMB. Con noi il prezzo è noto prima di partire. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
     "officialLink": "Come si confronta con il tassametro del posteggio",
     "adjTolls": "Pedaggi",
-    "adjTollsValue": "Si applicano quando il percorso usa una strada a pedaggio"
+    "adjTollsValue": "Non inclusi; si pagano all'autista in auto quando il percorso usa una strada a pedaggio"
   },
   "site": {
     "name": "BCNAirportTaxi"

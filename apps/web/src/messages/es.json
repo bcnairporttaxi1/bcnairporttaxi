@@ -548,7 +548,7 @@
     "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "officialLink": "Cómo se compara con el taxímetro de la parada",
     "adjTolls": "Peajes",
-    "adjTollsValue": "Se aplican cuando la ruta usa una vía de peaje"
+    "adjTollsValue": "No incluidos; se pagan al conductor en el coche cuando la ruta usa una vía de peaje"
   },
   "site": {
     "name": "BCNAirportTaxi"

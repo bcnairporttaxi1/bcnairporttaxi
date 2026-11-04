@@ -530,7 +530,7 @@
     "officialBody": "Nein. Das ist unser eigener Festpreis für einen gebuchten, im Voraus bezahlten Transfer, nicht der regulierte Tarif. Ein Taxi vom Stand wird nach dem Taxameter zum AMB-Tarif bezahlt. Bei uns steht der Preis vor der Fahrt fest. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
     "officialLink": "Wie sich das Taxameter am Stand vergleicht",
     "adjTolls": "Mautgebühren",
-    "adjTollsValue": "Fallen an, wenn die Strecke eine mautpflichtige Straße nutzt"
+    "adjTollsValue": "Nicht enthalten; werden im Wagen an den Fahrer gezahlt, wenn die Strecke eine mautpflichtige Straße nutzt"
   },
   "site": {
     "name": "BCNAirportTaxi"

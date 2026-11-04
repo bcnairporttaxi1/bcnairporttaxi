@@ -530,7 +530,7 @@
     "officialBody": "Non. C'est notre prix fixe pour un transfert réservé et payé à l'avance, et non le tarif réglementé. Le taxi de la station se paie au compteur selon le tarif de l'AMB. Chez nous, le prix est connu avant le départ. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
     "officialLink": "Comparaison avec le compteur de la station",
     "adjTolls": "Péages",
-    "adjTollsValue": "S'appliquent lorsque l'itinéraire emprunte une route à péage"
+    "adjTollsValue": "Non compris ; payés au chauffeur dans la voiture lorsque l’itinéraire emprunte une route à péage"
   },
   "site": {
     "name": "BCNAirportTaxi"

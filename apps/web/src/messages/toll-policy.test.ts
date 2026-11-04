@@ -51,6 +51,7 @@ const DRIVER: Record<Loc, RegExp> = {
 /** Keys that must say the DRIVER collects the toll in the car (owner, 2026-11-03). */
 const MUST_SAY_DRIVER_COLLECTS = [
   'account.tollsValue',
+  'pricing.adjTollsValue',
   'quote.nothingInTaxi',
   'quote.disclaimer',
   'quote.includedNote',
