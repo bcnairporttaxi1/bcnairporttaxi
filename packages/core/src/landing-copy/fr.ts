@@ -113,7 +113,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
     sections: [
       {
         h2: 'Comment votre tarif est calculé',
-        body: "Un transfert est un prix fixe, défini par véhicule et non par distance ni par heure. De l’aéroport vers n’importe quel point de Barcelone, c’est un montant ; de l’aéroport vers le terminal de croisière, un autre ; et le taxi standard, le minivan six places et le van sept places ont chacun le leur. Seules quelques choses peuvent s’y ajouter : une destination au-delà de la zone forfaitaire, un transfert au port de croisière, et le tarif week-end et jours fériés. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont facturés séparément. Chacune apparaît comme une ligne distincte avant le paiement.",
+        body: "Un transfert est un prix fixe, défini par véhicule et non par distance ni par heure. De l’aéroport vers n’importe quel point de Barcelone, c’est un montant ; de l’aéroport vers le terminal de croisière, un autre ; et le taxi standard, le minivan six places et le van sept places ont chacun le leur. Seules quelques choses peuvent s’y ajouter : une destination au-delà de la zone forfaitaire, un transfert au port de croisière, et le tarif week-end et jours fériés. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont payés à votre chauffeur dans la voiture. Chacune apparaît comme une ligne distincte avant le paiement.",
       },
       {
         h2: "Existe-t-il un taxi pas cher depuis l'aéroport ?",
@@ -125,7 +125,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Ce que votre prix comprend',
-        body: "Vous réglez en ligne un prix fixe unique au moment de la réservation. Il couvre le trajet, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Vous recevez par e-mail un reçu du prix payé.",
+        body: "Vous réglez en ligne un prix fixe unique au moment de la réservation. Il couvre le trajet, chaque supplément officiel applicable à votre itinéraire et notre service de réservation et de garantie du véhicule. Les péages autoroutiers ne sont pas inclus : lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture. Vous recevez par e-mail un reçu du prix payé.",
       },
       {
         h2: "Ce qui ne change jamais votre prix",
@@ -479,7 +479,7 @@ export const FR_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Comment vous payez, et ce que vous recevez",
-        body: "Le prix fixe se règle en ligne à la réservation, par carte bancaire de crédit, de débit ou par Bizum. Il n’y a pas de partage acompte et solde pour ce prix, et aucun pourboire n’est attendu. Les péages autoroutiers sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Un reçu du montant payé est envoyé avec votre confirmation, si bien que les papiers pour une note de frais arrivent avant le trajet et non après. Si vous avez aussi besoin de la facture de taxi réglementaire pour la course elle-même, votre chauffeur peut l’établir sur demande.",
+        body: "Le prix fixe se règle en ligne à la réservation, par carte bancaire de crédit, de débit ou par Bizum. Il n’y a pas de partage acompte et solde pour ce prix, et aucun pourboire n’est attendu. Si l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture. Un reçu du montant payé est envoyé avec votre confirmation, si bien que les papiers pour une note de frais arrivent avant le trajet et non après. Si vous avez aussi besoin de la facture de taxi réglementaire pour la course elle-même, votre chauffeur peut l’établir sur demande.",
       },
     ],
   },

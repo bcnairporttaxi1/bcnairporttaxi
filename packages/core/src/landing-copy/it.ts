@@ -125,7 +125,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cosa si aggiunge al prezzo',
-        body: "Paga online un unico prezzo fisso al momento della prenotazione. Copre il tragitto, ogni supplemento previsto per il suo percorso e il nostro servizio di prenotazione e garanzia dell'auto. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio. Riceve per email la ricevuta del prezzo pagato.",
+        body: "Paga online un unico prezzo fisso al momento della prenotazione. Copre il tragitto, ogni supplemento previsto per il suo percorso e il nostro servizio di prenotazione e garanzia dell'auto. I pedaggi autostradali non sono inclusi: quando il percorso utilizza strade a pedaggio, il suo autista la avvisa lungo il tragitto e riscuote il pedaggio da lei in auto. Riceve per email la ricevuta del prezzo pagato.",
       },
       {
         h2: 'Cosa non cambia mai il suo prezzo',
@@ -133,7 +133,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Come e quando si paga',
-        body: "Il prezzo fisso si paga online con carta o Bizum al momento della prenotazione, e la ricevuta dell'importo pagato arriva per email con la conferma. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, sono addebitati a parte.",
+        body: "Il prezzo fisso si paga online con carta o Bizum al momento della prenotazione, e la ricevuta dell'importo pagato arriva per email con la conferma. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, si pagano all'autista in auto.",
       },
     ],
   },
@@ -479,7 +479,7 @@ export const IT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Come si paga e cosa si riceve',
-        body: "Il prezzo fisso si paga online al momento della prenotazione, con carta di credito, carta di debito o Bizum. Non c'è una divisione tra acconto e saldo per questo importo e non si attende una mancia. I pedaggi autostradali vengono addebitati a parte quando il percorso utilizza strade a pedaggio. La ricevuta dell'importo pagato arriva per email con la conferma, così i documenti per una nota spese arrivano prima del viaggio e non dopo. Se le serve anche la fattura del taxi per la corsa stessa, l'autista può rilasciarla su richiesta direttamente in auto, senza costi aggiuntivi.",
+        body: "Il prezzo fisso si paga online al momento della prenotazione, con carta di credito, carta di debito o Bizum. Non c'è una divisione tra acconto e saldo per questo importo e non si attende una mancia. Se il percorso utilizza strade a pedaggio, il suo autista la avvisa lungo il tragitto e riscuote il pedaggio da lei in auto. La ricevuta dell'importo pagato arriva per email con la conferma, così i documenti per una nota spese arrivano prima del viaggio e non dopo. Se le serve anche la fattura del taxi per la corsa stessa, l'autista può rilasciarla su richiesta direttamente in auto, senza costi aggiuntivi.",
       },
     ],
   },

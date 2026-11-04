@@ -16,16 +16,16 @@ type Loc = (typeof LOCALES)[number];
 
 /** Phrases that claim the price covers everything, or that nothing is owed alongside it. */
 const OLD_CLAIM: Record<Loc, RegExp> = {
-  en: /all[- ]inclusive|nothing (?:further |at all |else )?(?:is |was )?(?:owed|to pay|to settle|due|to collect)|owe nothing|nothing is collected|nothing to settle/i,
-  es: /todo incluido|todo-incluido|nada que pagar|no se debe nada|no pagas nada|no debes nada|nada que liquidar|nada que cobrar|sin nada que pagar|nada al conductor/i,
-  ca: /tot inclòs|res a pagar|no es deu res|no pagues res|res a liquidar|res al conductor|res a cobrar/i,
-  fr: /tout compris|rien à payer|rien n[’']est dû|rien à régler|rien à verser|ne devez rien|rien à encaisser/i,
-  de: /alles inklusive|all-inclusive|nichts zu zahlen|nichts zu bezahlen|nichts schuldig|dem Fahrer nichts|nichts im Wagen|nichts an den Fahrer|nichts zu kassieren/i,
-  it: /tutto incluso|nulla da pagare|non si deve nulla|non paghi nulla|non deve nulla|niente da pagare|nulla da saldare|nulla da riscuotere/i,
-  nl: /alles inbegrepen|alles-in|niets te betalen|niets verschuldigd|chauffeur niets|niets af te rekenen|niets te innen/i,
-  pt: /tudo incluído|nada a pagar|nada é devido|não paga nada|nada ao motorista|nada para pagar|nada a cobrar|nada a liquidar/i,
-  ru: /всё включено|все включено|ничего не нужно платить|платить ничего не нужно|ничего не должны|водителю платить ничего|ничего не оплачивается|не нужно платить водителю|ничего не нужно собирать/i,
-  zh: /全包|无需再向司机付款|无需向司机|无需付款|无需再付|无需在车上|无需再支付/i,
+  en: /no cash to find|all[- ]inclusive|nothing (?:further |at all |else )?(?:is |was )?(?:owed|to pay|to settle|due|to collect)|owe nothing|nothing is collected|nothing to settle/i,
+  es: /no se cobra nada|todo incluido|todo-incluido|nada que pagar|no se debe nada|no pagas nada|no debes nada|nada que liquidar|nada que cobrar|sin nada que pagar|nada al conductor/i,
+  ca: /no es cobra res|tot inclòs|res a pagar|no es deu res|no pagues res|res a liquidar|res al conductor|res a cobrar/i,
+  fr: /rien n[’']est encaissé|tout compris|rien à payer|rien n[’']est dû|rien à régler|rien à verser|ne devez rien|rien à encaisser/i,
+  de: /nichts kassiert|alles inklusive|all-inclusive|nichts zu zahlen|nichts zu bezahlen|nichts schuldig|dem Fahrer nichts|nichts im Wagen|nichts an den Fahrer|nichts zu kassieren/i,
+  it: /non si incassa nulla|tutto incluso|nulla da pagare|non si deve nulla|non paghi nulla|non deve nulla|niente da pagare|nulla da saldare|nulla da riscuotere/i,
+  nl: /niets geïnd|alles inbegrepen|alles-in|niets te betalen|niets verschuldigd|chauffeur niets|niets af te rekenen|niets te innen/i,
+  pt: /não se cobra nada|tudo incluído|nada a pagar|nada é devido|não paga nada|nada ao motorista|nada para pagar|nada a cobrar|nada a liquidar/i,
+  ru: /ничего не взимается|всё включено|все включено|ничего не нужно платить|платить ничего не нужно|ничего не должны|водителю платить ничего|ничего не оплачивается|не нужно платить водителю|ничего не нужно собирать/i,
+  zh: /不收取任何费用|全包|无需再向司机付款|无需向司机|无需付款|无需再付|无需在车上|无需再支付/i,
 };
 
 /** The word for "toll" in each language. */
@@ -41,6 +41,27 @@ const TOLL: Record<Loc, RegExp> = {
   ru: /платн\S* дорог|пошлин|платных/i,
   zh: /过路费|通行费|收费公路|高速费|路桥费/,
 };
+
+/** The word for "driver", used to check the toll is said to be collected by the driver in the car. */
+const DRIVER: Record<Loc, RegExp> = {
+  en: /driver/i, es: /conductor/i, ca: /conductor/i, fr: /chauffeur/i, de: /Fahrer/i,
+  it: /conducente|autista/i, nl: /chauffeur/i, pt: /motorista|condutor/i, ru: /водител/i, zh: /司机/,
+};
+
+/** Keys that must say the DRIVER collects the toll in the car (owner, 2026-11-03). */
+const MUST_SAY_DRIVER_COLLECTS = [
+  'account.tollsValue',
+  'quote.nothingInTaxi',
+  'quote.disclaimer',
+  'quote.includedNote',
+  'home.payment.note',
+  'pricing.feeBody',
+  'howItWorks.steps.three.body',
+  'howItWorks.dayBody2',
+  'faq.items.fareAccurate.a',
+  'faq.items.whyFee.a',
+  'faq.items.payment.a',
+];
 
 /** Message keys that explain what a price covers: each must say tolls are separate. */
 const MUST_MENTION_TOLLS = [
@@ -85,6 +106,12 @@ describe.each(LOCALES)('toll policy [%s]', (l) => {
   it('the pages that explain a price say tolls are separate', () => {
     const d = web(l);
     const missing = MUST_MENTION_TOLLS.filter((k) => !TOLL[l].test(get(d, k) ?? ''));
+    expect(missing).toEqual([]);
+  });
+
+  it('says the driver collects the toll in the car where payment is explained', () => {
+    const d = web(l);
+    const missing = MUST_SAY_DRIVER_COLLECTS.filter((k) => !(TOLL[l].test(get(d, k) ?? '') && DRIVER[l].test(get(d, k) ?? '')));
     expect(missing).toEqual([]);
   });
 

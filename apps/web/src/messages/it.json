@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Paga online, una volta, per intero",
-      "note": "Pagamento sicuro con SumUp. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
+      "note": "Pagamento sicuro con SumUp. I pedaggi autostradali non sono inclusi e si pagano all’autista in auto quando il percorso utilizza strade a pedaggio."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Tempo stim.",
     "payNow": "Paga ora",
     "payInTaxi": "Paga in taxi",
-    "nothingInTaxi": "Pedaggi autostradali addebitati a parte",
+    "nothingInTaxi": "I pedaggi autostradali si pagano all'autista in auto",
     "paidOnline": "Pagato online",
     "balanceInTaxi": "Saldo da pagare al conducente",
     "bookNow": "Prenota ora",
@@ -132,7 +132,7 @@
       "portTransfer": "Trasferimento porto crociere",
       "weekendSurge": "Tariffa weekend / festivi"
     },
-    "disclaimer": "Il prezzo è fissato al momento della prenotazione e copre il tragitto, compresi tutti i supplementi ufficiali. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio. La ricevuta ti arriva via e-mail con la conferma.",
+    "disclaimer": "Il prezzo è fissato al momento della prenotazione e copre il tragitto, compresi tutti i supplementi ufficiali. I pedaggi autostradali non sono inclusi: quando il percorso utilizza strade a pedaggio, l'autista ti avvisa durante il tragitto e ti chiede il pedaggio in auto. La ricevuta ti arriva via e-mail con la conferma.",
     "errors": {
       "pickupRequired": "Scegli un punto di ritiro.",
       "dropoffRequired": "Scegli una destinazione.",
@@ -150,7 +150,7 @@
     "panelSub": "Prezzo immediato · Prezzo fisso · 24/7",
     "totalPrice": "Prezzo totale",
     "allInclusive": "Prezzo fisso · pagamento online",
-    "includedNote": "Un solo prezzo fisso per il tragitto: tariffa, supplementi ufficiali e prenotazione. I pedaggi autostradali non sono inclusi e vengono addebitati a parte quando il percorso utilizza strade a pedaggio.",
+    "includedNote": "Un solo prezzo fisso per il tragitto: tariffa, supplementi ufficiali e prenotazione. I pedaggi autostradali non sono inclusi: l'autista te li fa pagare in auto quando il percorso utilizza strade a pedaggio.",
     "sections": {
       "nextTitle": "Cosa succede dopo",
       "nextLede": "una volta pagato."
@@ -400,7 +400,7 @@
     "rebookCta": "Prenota di nuovo",
     "happeningNow": "In corso ora",
     "tollsLabel": "Pedaggi autostradali",
-    "tollsValue": "Addebitati a parte quando il percorso utilizza strade a pedaggio"
+    "tollsValue": "Pagati al tuo autista in auto quando il percorso utilizza strade a pedaggio"
   },
   "trip": {
     "livePosition": "Posizione in tempo reale",
@@ -485,7 +485,7 @@
     "bothLegs": "Andata e ritorno, pagati insieme"
   },
   "pricing": {
-    "feeBody": "Il tragitto, ogni supplemento ufficiale applicabile al percorso e il nostro servizio di organizzazione e garanzia del veicolo, in un unico importo pagato online alla prenotazione. I pedaggi autostradali fanno eccezione: non sono inclusi e vengono addebitati a parte al cliente quando il percorso utilizza strade a pedaggio. Una ricevuta completa arriva per e-mail con la conferma.",
+    "feeBody": "Il tragitto, ogni supplemento ufficiale applicabile al percorso e il nostro servizio di organizzazione e garanzia del veicolo, in un unico importo pagato online alla prenotazione. I pedaggi autostradali fanno eccezione: non sono inclusi. Quando il percorso utilizza strade a pedaggio, l'autista la avvisa durante il tragitto e le chiede il pedaggio in auto. Una ricevuta completa arriva per e-mail con la conferma.",
     "metaTitle": "Prezzi Taxi Aeroporto Barcellona 2026",
     "metaDescription": "Prezzi fissi del taxi per l’aeroporto di Barcellona: {sedan} in città, {port} al porto crociere. Per veicolo, pedaggi esclusi.",
     "h1": "Prezzi del taxi per l’aeroporto di Barcellona",
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Incontra il tuo autista",
-        "body": "Il tuo autista ti aspetta all'orario concordato. Il prezzo fisso è già pagato; i pedaggi autostradali, se il percorso utilizza strade a pedaggio, sono addebitati a parte."
+        "body": "Il tuo autista ti aspetta all'orario concordato. Il prezzo fisso è già pagato. Se il percorso utilizza strade a pedaggio, l'autista ti avvisa durante il tragitto e ti chiede il pedaggio in auto."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Successivamente al suo viaggio viene assegnato un autista e, quando ciò avviene, riceve per email il suo nome e il suo telefono insieme al punto d'incontro esatto per il suo terminal. Quell'assegnazione è un impegno reale su un'auto e una persona precise, non una richiesta lanciata a un gruppo quando lei atterra: per questo un trasferimento prenotato si comporta in modo diverso dalla coda al posteggio alle due di notte.",
     "dayTitle": "Il giorno del viaggio",
     "dayBody1": "Per un ritiro in aeroporto il suo autista attende dentro la sala arrivi, sul lato pubblico all'uscita del ritiro bagagli, con un cartello col suo nome. Non sul marciapiede e non nella coda del posteggio. Per un ritiro in città si presenta all'indirizzo che ha indicato, all'ora concordata.",
-    "dayBody2": "Il prezzo fisso è già pagato, quindi non c'è nessuna corsa né supplemento da saldare e non si attende una mancia. I pedaggi autostradali, quando il percorso utilizza strade a pedaggio, sono addebitati a parte. Se desidera la fattura ufficiale del tassametro per il percorso in sé, l'autista può rilasciarla su richiesta; la sua ricevuta per l'importo pagato è arrivata con la conferma.",
+    "dayBody2": "Il prezzo fisso è già pagato, quindi non c'è nessuna corsa né supplemento da saldare e non si attende una mancia. Se il percorso utilizza strade a pedaggio, l'autista la avvisa durante il tragitto e le chiede il pedaggio in auto. Se desidera la fattura ufficiale del tassametro per il percorso in sé, l'autista può rilasciarla su richiesta; la sua ricevuta per l'importo pagato è arrivata con la conferma.",
     "changeTitle": "Se qualcosa cambia",
     "changeBody1": "Può modificare i dati da sé entro 30 minuti dalla prenotazione e, in seguito, fino alla partenza del suo autista: risponda alla conferma o ci scriva su WhatsApp. Cambiare un terminal, un orario di ritiro o un indirizzo non costa nulla, e un terminal sbagliato è la correzione che facciamo più spesso.",
     "changeBody2": "Un volo in ritardo non è una modifica e non richiede nulla da parte sua: il ritiro segue l'orario reale di atterraggio, senza costi aggiuntivi e per quanto tardi sia l'aereo. Se il volo viene annullato del tutto, o i suoi programmi cambiano, ce lo dica appena lo sa: annullando almeno 24 ore prima del ritiro l'intero importo viene rimborsato sulla carta con cui ha pagato, di norma entro cinque-dieci giorni lavorativi. Entro quelle 24 ore cercheremo sempre di aiutarla, ma il rimborso non è più automatico."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Il prezzo che vedo è quello che pago?",
-        "a": "Sì, per il tragitto. Il prezzo che vede è il prezzo fisso: una cifra del nostro listino che contiene già ogni supplemento ufficiale previsto per il suo percorso e si blocca nel momento della prenotazione. Traffico e percorso sono un rischio nostro, non suo. L'unica cosa che non comprende sono i pedaggi autostradali, che vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
+        "a": "Sì, per il tragitto. Il prezzo che vede è il prezzo fisso: una cifra del nostro listino che contiene già ogni supplemento ufficiale previsto per il suo percorso e si blocca nel momento della prenotazione. Traffico e percorso sono un rischio nostro, non suo. L'unica cosa che non comprende sono i pedaggi autostradali: quando il percorso utilizza strade a pedaggio, l'autista la avvisa durante il tragitto e le chiede il pedaggio in auto."
       },
       "whyFee": {
         "q": "Cosa comprende il prezzo?",
-        "a": "La corsa stessa, ogni supplemento ufficiale previsto per il tuo percorso — quello dell'aeroporto El Prat, quello del porto crociere, quello dei veicoli da cinque a otto passeggeri — e il nostro servizio di prenotare e garantire l'auto, assegnare un autista e assisterti il giorno stesso. Si paga online alla prenotazione. I pedaggi autostradali non sono inclusi: vengono addebitati a parte al cliente quando il percorso utilizza strade a pedaggio."
+        "a": "La corsa stessa, ogni supplemento ufficiale previsto per il tuo percorso — quello dell'aeroporto El Prat, quello del porto crociere, quello dei veicoli da cinque a otto passeggeri — e il nostro servizio di prenotare e garantire l'auto, assegnare un autista e assisterti il giorno stesso. Si paga online alla prenotazione. I pedaggi autostradali non sono inclusi: quando il percorso utilizza strade a pedaggio, l'autista te li fa pagare in auto."
       },
       "invoice": {
         "q": "Posso avere una fattura?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Come si paga e cosa non è incluso?",
-        "a": "Si paga il prezzo fisso online al momento della prenotazione, con carta di credito, di debito o Bizum. Non si attende una mancia. I pedaggi autostradali non fanno parte di quel prezzo e vengono addebitati a parte quando il percorso utilizza strade a pedaggio."
+        "a": "Si paga il prezzo fisso online al momento della prenotazione, con carta di credito, di debito o Bizum. Non si attende una mancia. I pedaggi autostradali non fanno parte di quel prezzo: quando il percorso utilizza strade a pedaggio, l'autista la avvisa durante il tragitto e le chiede il pedaggio in auto."
       },
       "flightDelay": {
         "q": "Cosa succede se il mio volo è in ritardo?",

@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Payez en ligne, une fois, en totalité",
-      "note": "Paiement sécurisé par SumUp. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
+      "note": "Paiement sécurisé par SumUp. Les péages autoroutiers ne sont pas inclus et sont payés à votre chauffeur dans la voiture lorsque l’itinéraire emprunte des routes à péage."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Durée est.",
     "payNow": "Payer maintenant",
     "payInTaxi": "Payer dans le taxi",
-    "nothingInTaxi": "Péages autoroutiers facturés séparément",
+    "nothingInTaxi": "Péages autoroutiers payés au chauffeur dans la voiture",
     "paidOnline": "Payé en ligne",
     "balanceInTaxi": "Solde à payer au chauffeur",
     "bookNow": "Réserver",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfert port de croisière",
       "weekendSurge": "Tarif week-end / jour férié"
     },
-    "disclaimer": "Votre prix est fixé au moment de la réservation et couvre le trajet, y compris tous les suppléments officiels. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage. Le reçu vous est envoyé par e-mail avec votre confirmation.",
+    "disclaimer": "Votre prix est fixé au moment de la réservation et couvre le trajet, y compris tous les suppléments officiels. Les péages autoroutiers ne sont pas inclus : lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture. Le reçu vous est envoyé par e-mail avec votre confirmation.",
     "errors": {
       "pickupRequired": "Choisissez un point de prise en charge.",
       "dropoffRequired": "Choisissez une destination.",
@@ -150,7 +150,7 @@
     "panelSub": "Prix immédiat · Prix fixe · 24/7",
     "totalPrice": "Prix total",
     "allInclusive": "Prix fixe · paiement en ligne",
-    "includedNote": "Un seul prix fixe pour le trajet : tarif, suppléments officiels et réservation. Les péages autoroutiers ne sont pas inclus et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage.",
+    "includedNote": "Un seul prix fixe pour le trajet : tarif, suppléments officiels et réservation. Les péages autoroutiers ne sont pas inclus : votre chauffeur vous les demande dans la voiture lorsque l’itinéraire emprunte des routes à péage.",
     "sections": {
       "nextTitle": "Ce qui se passe ensuite",
       "nextLede": "une fois le paiement fait."
@@ -400,7 +400,7 @@
     "rebookCta": "Réserver à nouveau",
     "happeningNow": "En cours",
     "tollsLabel": "Péages autoroutiers",
-    "tollsValue": "Facturés séparément lorsque l’itinéraire emprunte des routes à péage"
+    "tollsValue": "Payés à votre chauffeur dans la voiture lorsque l’itinéraire emprunte des routes à péage"
   },
   "trip": {
     "livePosition": "Position en direct",
@@ -485,7 +485,7 @@
     "bothLegs": "Aller et retour, payés ensemble"
   },
   "pricing": {
-    "feeBody": "Le trajet, chaque supplément officiel applicable à votre itinéraire et notre service d’organisation et de garantie du véhicule, en un seul montant payé en ligne à la réservation. Les péages autoroutiers font exception : ils ne sont pas inclus et sont facturés séparément au client lorsque l’itinéraire emprunte des routes à péage. Un reçu complet est envoyé par e-mail avec votre confirmation.",
+    "feeBody": "Le trajet, chaque supplément officiel applicable à votre itinéraire et notre service d’organisation et de garantie du véhicule, en un seul montant payé en ligne à la réservation. Les péages autoroutiers font exception : ils ne sont pas inclus. Lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture. Un reçu complet est envoyé par e-mail avec votre confirmation.",
     "metaTitle": "Prix Taxi Aéroport Barcelone 2026",
     "metaDescription": "Prix fixes du taxi pour l’aéroport de Barcelone : {sedan} vers la ville, {port} vers le port de croisière. Par véhicule, péages en sus. Réservez en ligne.",
     "h1": "Prix du taxi pour l’aéroport de Barcelone",
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Retrouvez votre chauffeur",
-        "body": "Votre chauffeur vous attend à l'heure convenue. Le prix fixe est déjà réglé ; les péages autoroutiers, si l’itinéraire emprunte des routes à péage, sont facturés séparément."
+        "body": "Votre chauffeur vous attend à l'heure convenue. Le prix fixe est déjà réglé. Si l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous demande le montant du péage dans la voiture."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Un chauffeur est ensuite affecté à votre trajet et, à ce moment-là, vous recevez par e-mail son nom et son numéro ainsi que le point de rendez-vous exact pour votre terminal. Cette affectation engage réellement une voiture et une personne précises, et non une demande lancée à un groupe au moment où vous atterrissez : c'est pourquoi un transfert réservé ne se comporte pas comme une file d'attente à la station à deux heures du matin.",
     "dayTitle": "Le jour même",
     "dayBody1": "Pour une prise en charge à l'aéroport, votre chauffeur attend à l'intérieur du hall des arrivées, côté public à la sortie de la livraison des bagages, avec une pancarte à votre nom. Pas au bord du trottoir et pas dans la file de la station. Pour une prise en charge en ville, il se rend à l'adresse indiquée, à l'heure convenue.",
-    "dayBody2": "Le prix fixe est déjà payé, il n'y a donc ni course ni supplément à régler, et aucun pourboire n'est attendu. Les péages autoroutiers, lorsque l’itinéraire emprunte des routes à péage, sont facturés séparément. Si vous souhaitez la facture officielle du compteur pour le trajet lui-même, le chauffeur peut vous la fournir sur demande ; votre propre reçu du montant payé est arrivé avec la confirmation.",
+    "dayBody2": "Le prix fixe est déjà payé, il n'y a donc ni course ni supplément à régler, et aucun pourboire n'est attendu. Si l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous demande le montant du péage dans la voiture. Si vous souhaitez la facture officielle du compteur pour le trajet lui-même, le chauffeur peut vous la fournir sur demande ; votre propre reçu du montant payé est arrivé avec la confirmation.",
     "changeTitle": "Si quelque chose change",
     "changeBody1": "Vous pouvez modifier les informations vous-même dans les 30 minutes suivant la réservation puis, ensuite, jusqu'au départ de votre chauffeur : répondez à votre confirmation ou écrivez-nous sur WhatsApp. Changer de terminal, d'heure de prise en charge ou d'adresse ne coûte rien, et un terminal erroné est la correction que nous faisons le plus souvent.",
     "changeBody2": "Un vol retardé n'est pas une modification et ne demande rien de votre part : la prise en charge suit l'heure réelle d'atterrissage, sans frais supplémentaires, quel que soit le retard de l'appareil. Si votre vol est purement annulé, ou si vos projets tombent à l'eau, prévenez-nous dès que vous le savez : en annulant au moins 24 heures avant la prise en charge, la totalité du montant est remboursée sur la carte utilisée, généralement sous cinq à dix jours ouvrés. Dans ces 24 heures, nous chercherons toujours à vous aider, mais le remboursement n'est plus automatique."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Le prix affiché est-il le prix payé ?",
-        "a": "Oui, pour le trajet. Le prix affiché est le prix fixe : un montant issu de notre propre barème, qui contient déjà tous les suppléments officiels applicables à votre trajet, et qui est verrouillé au moment de la réservation. La circulation et l’itinéraire sont notre risque, pas le vôtre. Seuls les péages autoroutiers n’y figurent pas : ils sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
+        "a": "Oui, pour le trajet. Le prix affiché est le prix fixe : un montant issu de notre propre barème, qui contient déjà tous les suppléments officiels applicables à votre trajet, et qui est verrouillé au moment de la réservation. La circulation et l’itinéraire sont notre risque, pas le vôtre. Seuls les péages autoroutiers n’y figurent pas : lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture."
       },
       "whyFee": {
         "q": "Que comprend le prix ?",
-        "a": "La course elle-même, chaque supplément officiel applicable à votre itinéraire — celui de l'aéroport El Prat, celui du port de croisière, celui des véhicules de cinq à huit passagers — et notre service de réservation et de garantie du véhicule, d'affectation d'un chauffeur et d'assistance le jour même. Le tout est réglé en ligne à la réservation. Les péages autoroutiers ne sont pas inclus : ils sont facturés séparément au client lorsque l’itinéraire emprunte des routes à péage."
+        "a": "La course elle-même, chaque supplément officiel applicable à votre itinéraire — celui de l'aéroport El Prat, celui du port de croisière, celui des véhicules de cinq à huit passagers — et notre service de réservation et de garantie du véhicule, d'affectation d'un chauffeur et d'assistance le jour même. Le tout est réglé en ligne à la réservation. Les péages autoroutiers ne sont pas inclus : lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous les demande dans la voiture."
       },
       "invoice": {
         "q": "Puis-je obtenir une facture ?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Comment paie-t-on, et qu'est-ce qui n'est pas inclus ?",
-        "a": "Vous payez le prix fixe en ligne à la réservation, par carte de crédit, carte de débit ou Bizum. Aucun pourboire n'est attendu. Les péages autoroutiers ne font pas partie de ce prix et sont facturés séparément lorsque l’itinéraire emprunte des routes à péage."
+        "a": "Vous payez le prix fixe en ligne à la réservation, par carte de crédit, carte de débit ou Bizum. Aucun pourboire n'est attendu. Les péages autoroutiers ne font pas partie de ce prix : lorsque l’itinéraire emprunte des routes à péage, votre chauffeur vous en informe en chemin et vous en demande le montant dans la voiture."
       },
       "flightDelay": {
         "q": "Que se passe-t-il si mon vol est retardé ?",

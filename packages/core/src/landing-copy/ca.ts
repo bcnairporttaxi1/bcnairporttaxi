@@ -131,7 +131,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Què hi afegim a sobre',
-        body: 'Pagues un únic preu fix en reservar en línia. Cobreix el trajecte, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge. Rebràs per correu un rebut de l’import pagat.',
+        body: 'Pagues un únic preu fix en reservar en línia. Cobreix el trajecte, tots els suplements oficials que corresponguin a la teva ruta i el nostre servei de reservar i garantir el cotxe. Els peatges d’autopista no estan inclosos: quan la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe. Rebràs per correu un rebut de l’import pagat.',
       },
       {
         h2: "Què no canvia mai el teu preu",
@@ -139,7 +139,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Com i quan es paga",
-        body: "El preu fix es paga en línia, amb targeta o Bizum, quan reserves, i amb la confirmació t’enviem per correu un rebut de l’import pagat. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es cobren a part.",
+        body: "El preu fix es paga en línia, amb targeta o Bizum, quan reserves, i amb la confirmació t’enviem per correu un rebut de l’import pagat. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es paguen al conductor dins el cotxe.",
       },
     ],
   },
@@ -485,7 +485,7 @@ export const CA_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: "Com es paga i què en reps",
-        body: "El preu fix es paga en línia quan reserves, amb targeta de crèdit, targeta de dèbit o Bizum. No hi ha cap dipòsit amb saldo posterior per a aquest preu, i no cal deixar propina. Els peatges d’autopista es cobren a part quan la ruta fa servir vies de peatge. Amb la confirmació t’enviem per correu un rebut de l’import pagat, de manera que els papers per a una nota de despeses arriben abans del viatge i no després. Si a més necessites la factura regulada del taxi del trajecte, el conductor te la pot emetre si la hi demanes.",
+        body: "El preu fix es paga en línia quan reserves, amb targeta de crèdit, targeta de dèbit o Bizum. No hi ha cap dipòsit amb saldo posterior per a aquest preu, i no cal deixar propina. Si la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe. Amb la confirmació t’enviem per correu un rebut de l’import pagat, de manera que els papers per a una nota de despeses arriben abans del viatge i no després. Si a més necessites la factura regulada del taxi del trajecte, el conductor te la pot emetre si la hi demanes.",
       },
     ],
   },

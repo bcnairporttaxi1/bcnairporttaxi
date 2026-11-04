@@ -45,7 +45,7 @@ export const LEGAL_DOCS: Record<string, LegalDoc> = {
       {
         h2: 'Prices and payment',
         paragraphs: [
-          'You pay a single fixed price, quoted before you book and collected by us online at the time of booking. It covers the journey, every official supplement that applies to your route, and our service in arranging, confirming and supporting the reservation. Motorway tolls are not included in the fixed price and are charged separately to the customer when the route uses toll roads.',
+          'You pay a single fixed price, quoted before you book and collected by us online at the time of booking. It covers the journey, every official supplement that applies to your route, and our service in arranging, confirming and supporting the reservation. Motorway tolls are not included in the fixed price. Where the route uses toll roads, the driver informs the customer during the journey and collects the toll from the customer in the vehicle.',
           'The price is set by us and taken from our published price list for your route and vehicle. It is fixed once your booking is confirmed, and variations in traffic, routing or time of day do not change the fixed price. Journeys outside the Barcelona metropolitan area are the exception: those are priced per kilometre on the interurban tariff set by the Generalitat de Catalunya.',
           'We settle the journey with the licensed driver ourselves. You receive a receipt for the full amount by email with your confirmation; the official taxi meter invoice for the journey remains available from the driver on request.',
         ],

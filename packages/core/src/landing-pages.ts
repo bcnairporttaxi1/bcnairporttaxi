@@ -202,7 +202,7 @@ export const LANDING_PAGES: LandingPage[] = [
           },
           {
             h2: 'What we charge on top',
-            body: 'You pay one fixed price online when you reserve. It covers the journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. Motorway tolls are not included and are charged separately when the route uses toll roads. You receive a receipt for the price you paid by email.',
+            body: 'You pay one fixed price online when you reserve. It covers the journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car. Motorway tolls are not included: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car. You receive a receipt for the price you paid by email.',
           },
           {
             h2: 'What never changes your price',
@@ -212,7 +212,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'How and when you pay',
             body:
-              'The fixed price is paid online by card or Bizum when you book, and a receipt for the amount paid is emailed with your confirmation. Motorway tolls, where the route uses toll roads, are charged separately.',
+              'The fixed price is paid online by card or Bizum when you book, and a receipt for the amount paid is emailed with your confirmation. Motorway tolls, where the route uses toll roads, are paid to your driver in the car.',
           },
         ],
       },
@@ -638,7 +638,7 @@ export const LANDING_PAGES: LandingPage[] = [
           {
             h2: 'How you pay, and what you get back',
             body:
-              'The fixed price is paid online when you book, by credit card, debit card or Bizum. There is no deposit-and-balance split for it, and no tip is expected. Motorway tolls are charged separately when the route uses toll roads. A receipt for the amount paid is emailed with your confirmation, so the paperwork for an expense claim arrives before the trip rather than after it. If you also need the regulated taxi invoice for the journey itself, your driver can issue it on request.',
+              'The fixed price is paid online when you book, by credit card, debit card or Bizum. There is no deposit-and-balance split for it, and no tip is expected. If the route uses toll roads, your driver tells you on the way and collects the toll from you in the car. A receipt for the amount paid is emailed with your confirmation, so the paperwork for an expense claim arrives before the trip rather than after it. If you also need the regulated taxi invoice for the journey itself, your driver can issue it on request.',
           },
         ],
       },

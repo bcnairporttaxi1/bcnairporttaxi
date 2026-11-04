@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Paga en línia, un cop, l’import complet",
-      "note": "Pagament segur amb SumUp. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge."
+      "note": "Pagament segur amb SumUp. Els peatges d’autopista no estan inclosos i es paguen al conductor dins el cotxe quan la ruta fa servir vies de peatge."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Temps est.",
     "payNow": "Pagar ara",
     "payInTaxi": "Pagar al taxi",
-    "nothingInTaxi": "Els peatges es cobren a part",
+    "nothingInTaxi": "Els peatges es paguen al conductor dins el cotxe",
     "paidOnline": "Pagat en línia",
     "balanceInTaxi": "Resta a pagar al conductor",
     "bookNow": "Reservar ara",
@@ -132,7 +132,7 @@
       "portTransfer": "Trasllat al port de creuers",
       "weekendSurge": "Tarifa de cap de setmana / festiu"
     },
-    "disclaimer": "El preu queda fixat en reservar i cobreix el trajecte, inclosos tots els suplements oficials. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge. Rebràs el rebut per correu amb la confirmació.",
+    "disclaimer": "El preu queda fixat en reservar i cobreix el trajecte, inclosos tots els suplements oficials. Els peatges d’autopista no estan inclosos: quan la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe. Rebràs el rebut per correu amb la confirmació.",
     "errors": {
       "pickupRequired": "Tria un punt de recollida.",
       "dropoffRequired": "Tria una destinació.",
@@ -150,7 +150,7 @@
     "panelSub": "Preu a l'instant · Preu fix · 24/7",
     "totalPrice": "Preu total",
     "allInclusive": "Preu fix · pagament en línia",
-    "includedNote": "Un sol preu fix per al trajecte: tarifa, suplements oficials i reserva. Els peatges d’autopista no estan inclosos i es cobren a part quan la ruta fa servir vies de peatge.",
+    "includedNote": "Un sol preu fix per al trajecte: tarifa, suplements oficials i reserva. Els peatges d’autopista no estan inclosos: el conductor te’ls cobra dins el cotxe quan la ruta fa servir vies de peatge.",
     "sections": {
       "nextTitle": "Què passa després",
       "nextLede": "un cop has pagat."
@@ -400,7 +400,7 @@
     "rebookCta": "Reservar de nou",
     "happeningNow": "En curs ara",
     "tollsLabel": "Peatges d’autopista",
-    "tollsValue": "Es cobren a part quan la ruta fa servir vies de peatge"
+    "tollsValue": "Es paguen al conductor dins el cotxe quan la ruta fa servir vies de peatge"
   },
   "trip": {
     "livePosition": "Posició en directe",
@@ -485,7 +485,7 @@
     "bothLegs": "Anada i tornada, pagades juntes"
   },
   "pricing": {
-    "feeBody": "El trajecte, cada suplement oficial que correspongui a la ruta i el nostre servei de gestió i garantia del vehicle, en un únic import pagat en línia al reservar. Els peatges d’autopista són l’excepció: no estan inclosos i es cobren a part al client quan la ruta fa servir vies de peatge. S’envia un rebut complet per correu amb la confirmació.",
+    "feeBody": "El trajecte, cada suplement oficial que correspongui a la ruta i el nostre servei de gestió i garantia del vehicle, en un únic import pagat en línia al reservar. Els peatges d’autopista són l’excepció: no estan inclosos. Quan la ruta fa servir vies de peatge, el conductor us avisa pel camí i us cobra el peatge dins el cotxe. S’envia un rebut complet per correu amb la confirmació.",
     "metaTitle": "Preus Taxi Aeroport Barcelona 2026",
     "metaDescription": "Preus fixos de taxi a l’aeroport de Barcelona: {sedan} a qualsevol punt de la ciutat, {port} al port de creuers. Per vehicle, peatges a part. Reserva en línia.",
     "h1": "Preus del taxi a l’aeroport de Barcelona",
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Troba el teu conductor",
-        "body": "El teu conductor t'espera a l'hora acordada. El preu fix ja està pagat; els peatges d’autopista, si la ruta fa servir vies de peatge, es cobren a part."
+        "body": "El teu conductor t'espera a l'hora acordada. El preu fix ja està pagat. Si la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Després s'assigna un conductor al vostre trajecte i, quan això passa, rebeu per correu el seu nom i el seu telèfon juntament amb el punt exacte de trobada per a la vostra terminal. Aquella assignació és un compromís real d'un cotxe i una persona concrets, no una petició llançada a un grup quan aterreu, i per això un trasllat reservat es comporta de manera diferent de la cua de la parada a les dues de la matinada.",
     "dayTitle": "El dia del viatge",
     "dayBody1": "En una recollida a l'aeroport el vostre conductor espera dins la sala d'arribades, a la zona pública a la sortida de la recollida d'equipatges, amb un cartell amb el vostre nom. No a la vorera ni a la cua de la parada. En una recollida a la ciutat va a l'adreça que vau indicar, a l'hora acordada.",
-    "dayBody2": "El preu fix ja està pagat, així que no hi ha carrera ni suplements a liquidar, i no s'espera propina. Els peatges d’autopista, quan la ruta fa servir vies de peatge, es cobren a part. Si voleu la factura oficial del taxímetre pel trajecte en si, el conductor us la pot facilitar si la demaneu; el vostre rebut per l'import pagat va arribar amb la confirmació.",
+    "dayBody2": "El preu fix ja està pagat, així que no hi ha carrera ni suplements a liquidar, i no s'espera propina. Si la ruta fa servir vies de peatge, el conductor us avisa pel camí i us cobra el peatge dins el cotxe. Si voleu la factura oficial del taxímetre pel trajecte en si, el conductor us la pot facilitar si la demaneu; el vostre rebut per l'import pagat va arribar amb la confirmació.",
     "changeTitle": "Si alguna cosa canvia",
     "changeBody1": "Podeu canviar les dades vosaltres mateixos durant els 30 minuts següents a la reserva i, després, fins que el conductor surti: responeu a la confirmació o escriviu-nos per WhatsApp. Canviar una terminal, una hora de recollida o una adreça no costa res, i una terminal equivocada és la correcció més freqüent que fem.",
     "changeBody2": "Un vol retardat no és un canvi i no requereix res de part vostra: la recollida segueix l'hora real d'aterratge, sense cost addicional i per molt que es retardi l'avió. Si el vol es cancel·la del tot, o els plans se'n van en orris, aviseu-nos tan bon punt ho sapigueu: si cancel·leu com a mínim 24 hores abans de la recollida es retorna l'import complet a la targeta amb què vau pagar, normalment en cinc a deu dies laborables. Dins d'aquelles 24 hores sempre intentarem ajudar, però el reemborsament ja no és automàtic."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "El preu que veig és el que pago?",
-        "a": "Sí, pel trajecte. El preu que veus és el preu fix: una xifra de la nostra pròpia llista que ja inclou tots els suplements oficials que corresponguin a la teva ruta i que queda blocada en el moment de reservar. El trànsit i el recorregut són el nostre risc, no el teu. L’única cosa que no inclou són els peatges d’autopista, que es cobren a part quan la ruta fa servir vies de peatge."
+        "a": "Sí, pel trajecte. El preu que veus és el preu fix: una xifra de la nostra pròpia llista que ja inclou tots els suplements oficials que corresponguin a la teva ruta i que queda blocada en el moment de reservar. El trànsit i el recorregut són el nostre risc, no el teu. L’única cosa que no inclou són els peatges d’autopista: quan la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe."
       },
       "whyFee": {
         "q": "Què inclou el preu?",
-        "a": "La tarifa mateixa, tots els suplements oficials que corresponguin a la teva ruta —el de l'aeroport del Prat, el del port de creuers, el de vehicles de cinc a vuit places— i el nostre servei de reservar i garantir el cotxe, assignar conductor i donar-te suport el dia del viatge. Es paga en línia en reservar. Els peatges d’autopista no estan inclosos: es cobren a part al client quan la ruta fa servir vies de peatge."
+        "a": "La tarifa mateixa, tots els suplements oficials que corresponguin a la teva ruta —el de l'aeroport del Prat, el del port de creuers, el de vehicles de cinc a vuit places— i el nostre servei de reservar i garantir el cotxe, assignar conductor i donar-te suport el dia del viatge. Es paga en línia en reservar. Els peatges d’autopista no estan inclosos: quan la ruta fa servir vies de peatge, el conductor te’ls cobra dins el cotxe."
       },
       "invoice": {
         "q": "Puc rebre factura?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Com es paga? Què no està inclòs?",
-        "a": "Es paga el preu fix en línia en reservar, amb targeta de crèdit, de dèbit o Bizum. No s'espera propina. Els peatges d’autopista no formen part d’aquest preu i es cobren a part quan la ruta fa servir vies de peatge."
+        "a": "Es paga el preu fix en línia en reservar, amb targeta de crèdit, de dèbit o Bizum. No s'espera propina. Els peatges d’autopista no formen part d’aquest preu: quan la ruta fa servir vies de peatge, el conductor t’avisa pel camí i et cobra el peatge dins el cotxe."
       },
       "flightDelay": {
         "q": "Què passa si el meu vol s'endarrereix?",

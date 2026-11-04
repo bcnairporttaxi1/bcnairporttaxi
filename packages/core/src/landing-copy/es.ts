@@ -132,7 +132,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Qué incluye tu precio',
-        body: 'Pagas un único precio fijo al reservar online. Cubre el trayecto, todos los suplementos oficiales que correspondan a tu ruta y nuestro servicio de reservar y garantizar el coche. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje. Recibes por correo un recibo por el precio que has pagado.',
+        body: 'Pagas un único precio fijo al reservar online. Cubre el trayecto, todos los suplementos oficiales que correspondan a tu ruta y nuestro servicio de reservar y garantizar el coche. Los peajes no están incluidos: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche. Recibes por correo un recibo por el precio que has pagado.',
       },
       {
         h2: 'Qué nunca cambia tu precio',
@@ -140,7 +140,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cómo y cuándo se paga',
-        body: 'El precio fijo se paga online con tarjeta o Bizum al reservar, y el recibo por el importe pagado te llega por correo junto con la confirmación. Los peajes, cuando la ruta utiliza vías de peaje, se cobran aparte.',
+        body: 'El precio fijo se paga online con tarjeta o Bizum al reservar, y el recibo por el importe pagado te llega por correo junto con la confirmación. Los peajes, cuando la ruta utiliza vías de peaje, se pagan al conductor en el coche.',
       },
     ],
   },
@@ -486,7 +486,7 @@ export const ES_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Cómo se paga y qué recibes',
-        body: 'El precio fijo se paga online al reservar, con tarjeta de crédito, de débito o Bizum. No hay un pago dividido entre depósito y resto para él, y no se espera propina. Los peajes se cobran aparte cuando la ruta utiliza vías de peaje. Con la confirmación te llega por correo un recibo por el importe pagado, de modo que el papeleo para un informe de gastos llega antes del viaje y no después. Si además necesitas la factura regulada del taxi por el propio trayecto, tu conductor puede emitirla si se la pides.',
+        body: 'El precio fijo se paga online al reservar, con tarjeta de crédito, de débito o Bizum. No hay un pago dividido entre depósito y resto para él, y no se espera propina. Si la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche. Con la confirmación te llega por correo un recibo por el importe pagado, de modo que el papeleo para un informe de gastos llega antes del viaje y no después. Si además necesitas la factura regulada del taxi por el propio trayecto, tu conductor puede emitirla si se la pides.',
       },
     ],
   },

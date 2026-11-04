@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Online zahlen, einmal, in voller Höhe",
-      "note": "Sichere Zahlung über SumUp. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
+      "note": "Sichere Zahlung über SumUp. Mautgebühren sind nicht enthalten und werden im Wagen an Ihren Fahrer gezahlt, wenn die Strecke mautpflichtige Straßen nutzt."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Fahrzeit ca.",
     "payNow": "Jetzt zahlen",
     "payInTaxi": "Im Taxi zahlen",
-    "nothingInTaxi": "Mautgebühren werden gesondert berechnet",
+    "nothingInTaxi": "Mautgebühren werden im Wagen an den Fahrer gezahlt",
     "paidOnline": "Online bezahlt",
     "balanceInTaxi": "Restbetrag an den Fahrer",
     "bookNow": "Jetzt buchen",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfer Kreuzfahrthafen",
       "weekendSurge": "Wochenend-/Feiertagstarif"
     },
-    "disclaimer": "Ihr Preis steht mit der Buchung fest und deckt die Fahrt einschließlich aller offiziellen Zuschläge ab. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Die Quittung erhalten Sie per E-Mail mit Ihrer Bestätigung.",
+    "disclaimer": "Ihr Preis steht mit der Buchung fest und deckt die Fahrt einschließlich aller offiziellen Zuschläge ab. Mautgebühren sind nicht enthalten: wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen. Die Quittung erhalten Sie per E-Mail mit Ihrer Bestätigung.",
     "errors": {
       "pickupRequired": "Wählen Sie einen Abholort.",
       "dropoffRequired": "Wählen Sie ein Ziel.",
@@ -150,7 +150,7 @@
     "panelSub": "Sofortpreis · Festpreis · 24/7",
     "totalPrice": "Gesamtpreis",
     "allInclusive": "Festpreis · online bezahlen",
-    "includedNote": "Ein Festpreis für die Fahrt — Tarif, offizielle Zuschläge und Buchung. Mautgebühren sind nicht enthalten und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt.",
+    "includedNote": "Ein Festpreis für die Fahrt — Tarif, offizielle Zuschläge und Buchung. Mautgebühren sind nicht enthalten: Ihr Fahrer kassiert sie im Wagen bei Ihnen, wenn die Strecke mautpflichtige Straßen nutzt.",
     "sections": {
       "nextTitle": "Wie es weitergeht",
       "nextLede": "sobald bezahlt ist."
@@ -400,7 +400,7 @@
     "rebookCta": "Erneut buchen",
     "happeningNow": "Läuft gerade",
     "tollsLabel": "Mautgebühren",
-    "tollsValue": "Werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt"
+    "tollsValue": "Wird im Wagen an Ihren Fahrer gezahlt, wenn die Strecke mautpflichtige Straßen nutzt"
   },
   "trip": {
     "livePosition": "Live-Position",
@@ -485,7 +485,7 @@
     "bothLegs": "Hin- und Rückfahrt, zusammen bezahlt"
   },
   "pricing": {
-    "feeBody": "Die Fahrt, jeden offiziellen Zuschlag Ihrer Strecke und unsere Leistung, das Fahrzeug zu organisieren und zu garantieren, in einem Betrag, online bei der Buchung bezahlt. Mautgebühren sind die Ausnahme: Sie sind nicht enthalten und werden dem Kunden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt. Eine vollständige Quittung kommt per E-Mail mit Ihrer Bestätigung.",
+    "feeBody": "Die Fahrt, jeden offiziellen Zuschlag Ihrer Strecke und unsere Leistung, das Fahrzeug zu organisieren und zu garantieren, in einem Betrag, online bei der Buchung bezahlt. Mautgebühren sind die Ausnahme: Sie sind nicht enthalten. Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen. Eine vollständige Quittung kommt per E-Mail mit Ihrer Bestätigung.",
     "metaTitle": "Taxipreise Flughafen Barcelona 2026",
     "metaDescription": "Festpreise für das Taxi zum Flughafen Barcelona: {sedan} in die Stadt, {port} zum Kreuzfahrthafen. Je Fahrzeug, Maut extra. Online buchen.",
     "h1": "Taxipreise zum Flughafen Barcelona",
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Fahrer treffen",
-        "body": "Ihr Fahrer erwartet Sie zur vereinbarten Zeit. Der Festpreis ist bereits bezahlt; Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet."
+        "body": "Ihr Fahrer erwartet Sie zur vereinbarten Zeit. Der Festpreis ist bereits bezahlt. Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Danach wird Ihrer Fahrt ein Fahrer zugeteilt, und sobald das geschieht, erhalten Sie dessen Namen und Telefonnummer per E-Mail, zusammen mit dem genauen Treffpunkt für Ihr Terminal. Diese Zuteilung ist eine echte Zusage für einen bestimmten Wagen und eine bestimmte Person und nicht eine Anfrage, die bei Ihrer Landung in eine Runde gegeben wird – deshalb verhält sich ein gebuchter Transfer anders als eine Warteschlange am Stand um zwei Uhr morgens.",
     "dayTitle": "Am Tag selbst",
     "dayBody1": "Bei einer Abholung am Flughafen wartet Ihr Fahrer in der Ankunftshalle, auf der öffentlichen Seite des Ausgangs der Gepäckausgabe, mit einem Schild mit Ihrem Namen. Nicht am Bordstein und nicht in der Schlange am Taxistand. Bei einer Abholung in der Stadt kommt er zur angegebenen Adresse, zur vereinbarten Zeit.",
-    "dayBody2": "Der Festpreis ist bereits bezahlt, es gibt also weder eine Fahrt noch einen Zuschlag zu begleichen, und ein Trinkgeld wird nicht erwartet. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, gesondert berechnet. Wenn Sie die amtliche Taxameterrechnung für die Fahrt selbst möchten, stellt der Fahrer sie auf Wunsch aus; Ihre eigene Quittung über den gezahlten Betrag kam mit der Bestätigung.",
+    "dayBody2": "Der Festpreis ist bereits bezahlt, es gibt also weder eine Fahrt noch einen Zuschlag zu begleichen, und ein Trinkgeld wird nicht erwartet. Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen. Wenn Sie die amtliche Taxameterrechnung für die Fahrt selbst möchten, stellt der Fahrer sie auf Wunsch aus; Ihre eigene Quittung über den gezahlten Betrag kam mit der Bestätigung.",
     "changeTitle": "Wenn sich etwas ändert",
     "changeBody1": "Innerhalb von 30 Minuten nach der Buchung ändern Sie die Angaben selbst, danach bis zur Abfahrt Ihres Fahrers: antworten Sie auf Ihre Bestätigung oder schreiben Sie uns auf WhatsApp. Ein anderes Terminal, eine andere Abholzeit oder eine andere Adresse kostet nichts, und ein falsches Terminal ist die Korrektur, die wir am häufigsten vornehmen.",
     "changeBody2": "Ein verspäteter Flug ist keine Änderung und erfordert nichts von Ihnen: die Abholung folgt der tatsächlichen Landezeit, ohne Mehrkosten und ganz gleich, wie spät die Maschine ist. Fällt Ihr Flug ganz aus oder platzen Ihre Pläne, sagen Sie uns Bescheid, sobald Sie es wissen – bei einer Absage mindestens 24 Stunden vor der Abholung wird der gesamte Betrag auf die verwendete Karte erstattet, in der Regel innerhalb von fünf bis zehn Werktagen. Innerhalb dieser 24 Stunden versuchen wir immer zu helfen, aber eine Erstattung ist dann nicht mehr automatisch."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Ist der angezeigte Preis der Preis, den ich zahle?",
-        "a": "Ja, für die Fahrt. Der angezeigte Preis ist der Festpreis: ein Festbetrag aus unserer eigenen Liste, der bereits jeden offiziellen Zuschlag Ihrer Strecke enthält und im Moment der Buchung fixiert wird. Verkehr und Routenwahl sind unser Risiko, nicht Ihres. Nicht enthalten sind nur Mautgebühren, die gesondert berechnet werden, wenn die Strecke mautpflichtige Straßen nutzt."
+        "a": "Ja, für die Fahrt. Der angezeigte Preis ist der Festpreis: ein Festbetrag aus unserer eigenen Liste, der bereits jeden offiziellen Zuschlag Ihrer Strecke enthält und im Moment der Buchung fixiert wird. Verkehr und Routenwahl sind unser Risiko, nicht Ihres. Nicht enthalten sind nur Mautgebühren: wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen."
       },
       "whyFee": {
         "q": "Was ist im Preis enthalten?",
-        "a": "Die Fahrt selbst, jeder offizielle Zuschlag Ihrer Strecke — der Flughafenzuschlag El Prat, der Kreuzfahrthafenzuschlag, der Zuschlag für Fahrzeuge mit fünf bis acht Plätzen — und unser Service, den Wagen zu reservieren und zuzusagen, einen Fahrer zuzuteilen und Sie am Tag der Fahrt zu betreuen. Der Betrag wird online bei der Buchung bezahlt. Mautgebühren sind nicht enthalten: Sie werden dem Kunden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
+        "a": "Die Fahrt selbst, jeder offizielle Zuschlag Ihrer Strecke — der Flughafenzuschlag El Prat, der Kreuzfahrthafenzuschlag, der Zuschlag für Fahrzeuge mit fünf bis acht Plätzen — und unser Service, den Wagen zu reservieren und zuzusagen, einen Fahrer zuzuteilen und Sie am Tag der Fahrt zu betreuen. Der Betrag wird online bei der Buchung bezahlt. Mautgebühren sind nicht enthalten: Wenn die Strecke mautpflichtige Straßen nutzt, kassiert Ihr Fahrer sie im Wagen bei Ihnen."
       },
       "invoice": {
         "q": "Bekomme ich eine Rechnung?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Wie wird bezahlt, und was ist nicht enthalten?",
-        "a": "Sie zahlen den Festpreis online bei der Buchung, per Kreditkarte, Debitkarte oder Bizum. Ein Trinkgeld wird nicht erwartet. Mautgebühren gehören nicht zu diesem Preis und werden gesondert berechnet, wenn die Strecke mautpflichtige Straßen nutzt."
+        "a": "Sie zahlen den Festpreis online bei der Buchung, per Kreditkarte, Debitkarte oder Bizum. Ein Trinkgeld wird nicht erwartet. Mautgebühren gehören nicht zu diesem Preis: wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen."
       },
       "flightDelay": {
         "q": "Was passiert, wenn mein Flug Verspätung hat?",

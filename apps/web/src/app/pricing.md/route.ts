@@ -50,8 +50,9 @@ export function GET(): Response {
   const body = `# Pricing — BCNAirportTaxi
 
 > Barcelona airport and cruise-port taxi transfers at fixed prices, paid
-> online when booking. Motorway tolls are NOT included in the fixed price and
-> are charged separately to the customer when the route uses toll roads.
+> online when booking. Motorway tolls are NOT included in the fixed price: the
+> driver tells the passenger on the way when the route uses toll roads and
+> collects the toll from the passenger in the car.
 
 Currency: EUR. Prices are per vehicle, not per passenger.
 Last updated: ${new Date().toISOString().slice(0, 10)} (generated from the live price list)
@@ -74,7 +75,7 @@ across the city to Park Guell cost the same.
 | Cruise port transfer | + ${eur(f.portSurcharge)} | The quay is one end and the airport is not |
 | Distance beyond the flat zone | + ${eur(f.excessPerKm)} per km | Only the kilometres past ${f.flatZoneRadiusKm} km |
 | Weekend and public holidays | + ${surge}% | Saturday and Sunday, and the Catalan public holiday calendar, including Christmas and New Year |
-| Motorway tolls | Not included; charged separately | Where the route uses a toll road. No amount is published here |
+| Motorway tolls | Not included; paid to the driver in the car | Where the route uses a toll road; the driver tells the passenger on the way. No amount is published here |
 
 Nothing else is added to the fixed city and cruise-port prices. The time of day does not change them: a
 pickup at 03:00 costs what the same journey costs at midday.
@@ -86,9 +87,9 @@ pickup at 03:00 costs what the same journey costs at midday.
 - Flight tracking, so a late landing does not lose the booking
 - A receipt for the amount paid at booking, emailed with the confirmation
 
-Not included: motorway tolls. They are charged separately to the customer when
-the route uses toll roads. This file does not state toll amounts or how they are
-collected.
+Not included: motorway tolls. When the route uses toll roads the driver tells the
+passenger on the way and collects the toll from the passenger in the car. This
+file does not state toll amounts.
 
 ## What is not a fixed price
 

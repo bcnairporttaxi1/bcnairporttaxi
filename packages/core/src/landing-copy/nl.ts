@@ -109,7 +109,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       'Wat een taxi naar de luchthaven van Barcelona echt kost: onze vaste prijzen per voertuig, het bereik van de vaste prijs en wat het weekendtarief toevoegt.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
-      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter en geen gokken op afstand. Hier staat de hele lijst en de dingen die er iets aan kunnen toevoegen, waaronder tolgelden voor snelwegen, die apart in rekening worden gebracht.',
+      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter en geen gokken op afstand. Hier staat de hele lijst en de dingen die er iets aan kunnen toevoegen, waaronder tol voor snelwegen, die in de auto aan uw chauffeur wordt betaald.',
     sections: [
       {
         h2: 'Hoe uw tarief tot stand komt',
@@ -125,7 +125,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wat u verder betaalt',
-        body: 'U betaalt bij het online reserveren één vaste prijs. Die dekt de rit, elke toeslag die op uw route van toepassing is, en onze service om de auto te regelen en te garanderen. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. U ontvangt per e-mail een bon voor de betaalde prijs.',
+        body: 'U betaalt bij het online reserveren één vaste prijs. Die dekt de rit, elke toeslag die op uw route van toepassing is, en onze service om de auto te regelen en te garanderen. Tol voor snelwegen is niet inbegrepen: wanneer de route tolwegen gebruikt, laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u. U ontvangt per e-mail een bon voor de betaalde prijs.',
       },
       {
         h2: 'Wat uw prijs nooit verandert',
@@ -133,7 +133,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Hoe en wanneer u betaalt',
-        body: 'De volledige prijs betaalt u online met kaart of Bizum op het moment van boeken, en een bon voor het volledige bedrag ontvangt u per e-mail bij uw bevestiging. In de auto wordt niets geïnd, dus u hoeft geen contant geld te zoeken en niet te hopen dat er aan de stoeprand een pinautomaat werkt.',
+        body: 'De vaste prijs betaalt u online met kaart of Bizum op het moment van boeken, en een bon voor het betaalde bedrag ontvangt u per e-mail bij uw bevestiging. Tol voor snelwegen wordt, wanneer de route tolwegen gebruikt, aan de chauffeur in de auto betaald.',
       },
     ],
   },
@@ -479,7 +479,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Hoe u betaalt, en wat u terugkrijgt',
-        body: 'De vaste prijs betaalt u online op het moment van boeken, met creditcard, pinpas of Bizum. Daarvoor is er geen splitsing in aanbetaling en restbedrag, en er wordt geen fooi verwacht. Tolgelden worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Een bon voor het betaalde bedrag ontvangt u per e-mail bij uw bevestiging, dus de papieren voor een declaratie zijn er vóór de rit en niet erna. Hebt u daarnaast de gereguleerde taxifactuur voor de rit zelf nodig, dan kan uw chauffeur die op verzoek uitschrijven.',
+        body: 'De vaste prijs betaalt u online op het moment van boeken, met creditcard, pinpas of Bizum. Daarvoor is er geen splitsing in aanbetaling en restbedrag, en er wordt geen fooi verwacht. Gebruikt de route tolwegen, dan laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u. Een bon voor het betaalde bedrag ontvangt u per e-mail bij uw bevestiging, dus de papieren voor een declaratie zijn er vóór de rit en niet erna. Hebt u daarnaast de gereguleerde taxifactuur voor de rit zelf nodig, dan kan uw chauffeur die op verzoek uitschrijven.',
       },
     ],
   },

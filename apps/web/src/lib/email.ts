@@ -158,7 +158,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     ? `<p style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px;font-size:14px">
          Payment of <strong>${eur(d.amountOnline)}</strong> received.
          ${prepaid
-           ? 'The fixed price is paid in full. Motorway tolls are not included and are charged separately when the route uses toll roads.'
+           ? 'The fixed price is paid in full. Motorway tolls are not included: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car.'
            : `You still pay the metered fare of about <strong>${eur(d.amountInTaxi)}</strong> to your driver.`}
        </p>`
     : `<p style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:14px">
@@ -168,7 +168,7 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
 
   const fareRows = prepaid
     ? `${row('Total price (paid online)', eur(d.amountOnline), true)}
-       ${row('Motorway tolls', 'Not included; charged separately when the route uses toll roads')}`
+       ${row('Motorway tolls', 'Not included; paid to your driver in the car when the route uses toll roads')}`
     : `${row('Estimated meter fare', eur(d.meterEstimate), true)}
        ${row('Paid online', eur(d.amountOnline), true)}
        ${row('To pay your driver', `about ${eur(d.amountInTaxi)}`, true)}`;
@@ -177,8 +177,8 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
     ? `<p style="font-size:14px;line-height:1.6">
          Your price is <strong>locked</strong> — the fare, every official
          supplement and the booking itself. Whatever the traffic does, it does not change.
-         <strong>Motorway tolls are not included</strong> and are charged separately to you
-         when the route uses toll roads.
+         <strong>Motorway tolls are not included</strong>: when the route uses toll roads,
+         your driver tells you on the way and collects the toll from you in the car.
        </p>`
     : `<p style="font-size:14px;line-height:1.6">
          You pay the <strong>metered fare</strong> directly to your driver in the taxi, by cash or card.
@@ -218,11 +218,11 @@ export function bookingConfirmationEmail(d: BookingEmailData) {
       d.feePaid ? '(received)' : '(pending)'
     }`,
     prepaid
-      ? `Motorway tolls:   not included; charged separately when the route uses toll roads`
+      ? `Motorway tolls:   not included; paid to your driver in the car when the route uses toll roads`
       : `Pay in the taxi:   about ${eur(d.amountInTaxi)}`,
     ``,
     prepaid
-      ? `Your price is locked. Motorway tolls are not included and are charged separately when the route uses toll roads.`
+      ? `Your price is locked. Motorway tolls are not included: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car.`
       : `You pay the metered fare directly to your driver. The meter decides the exact amount.`,
   ]
     // A prepaid booking drops the meter line, so the array can hold a null.
@@ -366,7 +366,7 @@ export function adminBookingEmail(d: {
   const lead = d.paid
     ? d.amountPaid != null && d.amountPaid < d.amountOnline
       ? `<strong>Part-paid — assign a driver and tell them to collect the rest.</strong> ${eur(d.amountPaid)} of ${eur(d.amountOnline)} was taken online; <strong>${eur(d.amountOnline - d.amountPaid)} is owed in the car</strong>.`
-      : `<strong>Paid — assign a driver.</strong> ${eur(d.amountOnline)} taken online; no fare balance to collect. Motorway tolls are not included in the price and are charged separately to the customer.`
+      : `<strong>Paid — assign a driver.</strong> ${eur(d.amountOnline)} taken online; no fare balance to collect. Motorway tolls are not included in the price: the driver collects them from the customer in the car.`
     : `<strong>Booking received, payment not yet confirmed.</strong> The passenger has been sent to pay ${eur(d.amountOnline)}. If it stays pending, chase them — there is no webhook, so a passenger who pays and closes the tab is only marked paid when they return to the site.`;
 
   const html = layout(
@@ -585,7 +585,7 @@ export function driverJobEmail(d: {
   const owed = d.collectInCar != null && d.collectInCar > 0 ? d.collectInCar : null;
   const paymentLine = owed
     ? `<strong>The passenger has only part-paid online.</strong> Collect <strong>${eur(owed)}</strong> from them in the car.`
-    : `<strong>The passenger has paid the fixed price in full online</strong> — no fare balance to collect. Motorway tolls are not included in it and are charged separately to the passenger.`;
+    : `<strong>The passenger has paid the fixed price in full online</strong> — no fare balance to collect. Motorway tolls are not included in it: tell the passenger on the way when the route uses toll roads and collect the toll from them in the car.`;
 
   const html = layout(
     'You have a new ride',
@@ -617,7 +617,7 @@ export function driverJobEmail(d: {
     `${d.driverName}, you have a new ride: ${d.reference}`,
     owed
       ? `PART-PAID ONLINE — COLLECT ${eur(owed)} IN THE CAR.`
-      : `Fixed price paid in full online — no fare balance to collect. Motorway tolls are not included and are charged separately to the passenger.`,
+      : `Fixed price paid in full online — no fare balance to collect. Motorway tolls are not included: tell the passenger on the way when the route uses toll roads and collect the toll from them in the car.`,
     ``,
     `Pickup:    ${when}`,
     `From:      ${d.pickupLabel}`,
@@ -710,7 +710,7 @@ export function rideCompletedEmail(d: {
     ? d.paidInCarWasBalance
       ? `Your card payment covered part of the price, so the remaining ${money(d.paidInCar)} was settled with your driver in the car. An invoice is available from the driver on request.`
       : `You paid the metered fare of about ${money(d.paidInCar)} to your driver in the car. An invoice is available from the driver on request.`
-    : `The fixed price was paid in full in advance. Motorway tolls, where the route used toll roads, are charged separately.`;
+    : `The fixed price was paid in full in advance. Motorway tolls, where the route used toll roads, are paid to your driver in the car.`;
 
   const html = layout(
     'Ride complete',

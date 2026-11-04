@@ -125,7 +125,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'O que cobramos a mais',
-        body: 'Paga um único preço fixo, online, quando reserva. Cobre a viagem, todos os suplementos oficiais que se aplicam ao seu percurso e o nosso serviço de organizar e garantir o carro. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem. Recebe por email um recibo do preço que pagou.',
+        body: 'Paga um único preço fixo, online, quando reserva. Cobre a viagem, todos os suplementos oficiais que se aplicam ao seu percurso e o nosso serviço de organizar e garantir o carro. As portagens de autoestrada não estão incluídas: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro. Recebe por email um recibo do preço que pagou.',
       },
       {
         h2: 'O que nunca altera o seu preço',
@@ -133,7 +133,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Como e quando se paga',
-        body: 'O preço total paga-se online, com cartão ou Bizum, no momento da reserva, e um recibo do valor completo segue por email com a confirmação. Não se cobra nada no carro, por isso não há dinheiro para procurar nem uma máquina de cartões de que se espera que funcione no passeio.',
+        body: 'O preço total paga-se online, com cartão ou Bizum, no momento da reserva, e um recibo do valor completo segue por email com a confirmação. As portagens de autoestrada, quando o percurso utiliza vias com portagem, são pagas ao seu motorista no carro.',
       },
     ],
   },
@@ -479,7 +479,7 @@ export const PT_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Como paga e o que recebe',
-        body: 'O preço fixo paga-se online no momento da reserva, com cartão de crédito, cartão de débito ou Bizum. Não há divisão entre sinal e restante para esse valor e não se espera gorjeta. As portagens de autoestrada são cobradas à parte quando o percurso utiliza vias com portagem. Um recibo do valor pago segue por email com a sua confirmação, para que a papelada de um pedido de reembolso de despesas chegue antes da viagem e não depois. Se precisar também da fatura do táxi regulamentada para a viagem em si, o seu motorista pode emiti-la a pedido.',
+        body: 'O preço fixo paga-se online no momento da reserva, com cartão de crédito, cartão de débito ou Bizum. Não há divisão entre sinal e restante para esse valor e não se espera gorjeta. Se o percurso utilizar vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro. Um recibo do valor pago segue por email com a sua confirmação, para que a papelada de um pedido de reembolso de despesas chegue antes da viagem e não depois. Se precisar também da fatura do táxi regulamentada para a viagem em si, o seu motorista pode emiti-la a pedido.',
       },
     ],
   },

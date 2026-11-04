@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Betaal online, één keer, volledig",
-      "note": "Veilig afrekenen via SumUp. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt."
+      "note": "Veilig afrekenen via SumUp. Tol voor snelwegen is niet inbegrepen en wordt in de auto aan uw chauffeur betaald wanneer de route tolwegen gebruikt."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Reistijd ca.",
     "payNow": "Nu betalen",
     "payInTaxi": "In de taxi betalen",
-    "nothingInTaxi": "Tolgelden worden apart in rekening gebracht",
+    "nothingInTaxi": "Tol voor snelwegen betaalt u in de auto aan de chauffeur",
     "paidOnline": "Online betaald",
     "balanceInTaxi": "Restbedrag aan de chauffeur",
     "bookNow": "Nu boeken",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfer cruisehaven",
       "weekendSurge": "Weekend-/feestdagtarief"
     },
-    "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt. De bon ontvangt u per e-mail bij uw bevestiging.",
+    "disclaimer": "Uw prijs staat vast zodra u boekt en dekt de hele rit, inclusief alle officiële toeslagen. Tol voor snelwegen is niet inbegrepen: wanneer de route tolwegen gebruikt, laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u. De bon ontvangt u per e-mail bij uw bevestiging.",
     "errors": {
       "pickupRequired": "Kies een ophaalpunt.",
       "dropoffRequired": "Kies een bestemming.",
@@ -150,7 +150,7 @@
     "panelSub": "Direct een prijs · Vaste prijs · 24/7",
     "totalPrice": "Totaalprijs",
     "allInclusive": "Vaste prijs · online betalen",
-    "includedNote": "Eén vaste prijs voor de rit: tarief, officiële toeslagen en reservering. Tolgelden voor snelwegen zijn niet inbegrepen en worden apart in rekening gebracht wanneer de route tolwegen gebruikt.",
+    "includedNote": "Eén vaste prijs voor de rit: tarief, officiële toeslagen en reservering. Tol voor snelwegen is niet inbegrepen: uw chauffeur int die in de auto bij u wanneer de route tolwegen gebruikt.",
     "sections": {
       "nextTitle": "Wat er daarna gebeurt",
       "nextLede": "zodra u betaald hebt."
@@ -400,7 +400,7 @@
     "rebookCta": "Opnieuw boeken",
     "happeningNow": "Nu onderweg",
     "tollsLabel": "Tolgelden",
-    "tollsValue": "Apart in rekening gebracht wanneer de route tolwegen gebruikt"
+    "tollsValue": "In de auto aan uw chauffeur te betalen wanneer de route tolwegen gebruikt"
   },
   "trip": {
     "livePosition": "Live positie",
@@ -485,7 +485,7 @@
     "bothLegs": "Heen en terug, samen betaald"
   },
   "pricing": {
-    "feeBody": "De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Tolgelden zijn de uitzondering: die zijn niet inbegrepen en worden apart bij de klant in rekening gebracht wanneer de route tolwegen gebruikt. Een volledige bon komt per e-mail met uw bevestiging.",
+    "feeBody": "De rit, elke officiële toeslag die op uw route van toepassing is en onze dienst om de auto te regelen en te garanderen, in één bedrag dat u online bij het boeken betaalt. Tol is de uitzondering: die is niet inbegrepen. Wanneer de route tolwegen gebruikt, laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u. Een volledige bon komt per e-mail met uw bevestiging.",
     "metaTitle": "Taxiprijzen Luchthaven Barcelona 2026",
     "metaDescription": "Vaste taxiprijzen voor de luchthaven van Barcelona: {sedan} naar de stad, {port} naar de cruisehaven. Per voertuig, tol extra. Boek online.",
     "h1": "Taxiprijzen luchthaven Barcelona",
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Ontmoet uw chauffeur",
-        "body": "Uw chauffeur staat op de afgesproken tijd klaar. De vaste prijs is al betaald; tolgelden worden, als de route tolwegen gebruikt, apart in rekening gebracht."
+        "body": "Uw chauffeur staat op de afgesproken tijd klaar. De vaste prijs is al betaald. Gebruikt de route tolwegen, dan laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Daarna wordt er een chauffeur aan uw rit toegewezen, en op dat moment krijgt u per e-mail zijn naam en telefoonnummer samen met het exacte ontmoetingspunt voor uw terminal. Die toewijzing is een echte vastlegging van een specifieke auto en persoon, niet een verzoek dat bij uw landing in een groep wordt gegooid — en daarom gedraagt een geboekte transfer zich anders dan een rij bij de standplaats om twee uur 's nachts.",
     "dayTitle": "Op de dag zelf",
     "dayBody1": "Bij een luchthavenophaal wacht uw chauffeur binnen in de aankomsthal, aan de publieke zijde van de uitgang van de bagageband, met een bordje met uw naam. Niet aan de stoeprand en niet in de rij bij de standplaats. Bij een ophaal in de stad komt hij naar het door u opgegeven adres, op de afgesproken tijd.",
-    "dayBody2": "De vaste prijs is al betaald, dus er is geen rit of toeslag af te rekenen en er wordt geen tip verwacht. Tolgelden worden, wanneer de route tolwegen gebruikt, apart in rekening gebracht. Wilt u de officiële meterfactuur voor de rit zelf, dan kan de chauffeur die op verzoek verstrekken; uw eigen bon voor het betaalde bedrag kwam met de bevestiging.",
+    "dayBody2": "De vaste prijs is al betaald, dus er is geen rit of toeslag af te rekenen en er wordt geen tip verwacht. Gebruikt de route tolwegen, dan laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u. Wilt u de officiële meterfactuur voor de rit zelf, dan kan de chauffeur die op verzoek verstrekken; uw eigen bon voor het betaalde bedrag kwam met de bevestiging.",
     "changeTitle": "Als er iets verandert",
     "changeBody1": "U kunt de gegevens binnen 30 minuten na het boeken zelf wijzigen, en daarna tot het moment dat uw chauffeur vertrekt: antwoord op uw bevestiging of stuur ons een WhatsApp. Een andere terminal, ophaaltijd of adres kost niets, en een verkeerde terminal is de correctie die wij het vaakst doorvoeren.",
     "changeBody2": "Een vertraagde vlucht is geen wijziging en vraagt niets van u: het ophalen volgt de werkelijke landingstijd, zonder extra kosten en hoe laat het vliegtuig ook is. Wordt uw vlucht helemaal geschrapt, of vallen uw plannen in het water, laat het ons dan weten zodra u het weet: bij annuleren ten minste 24 uur voor het ophalen wordt het hele bedrag terugbetaald op de kaart waarmee u betaalde, normaal binnen vijf tot tien werkdagen. Binnen die 24 uur zullen we altijd proberen te helpen, maar terugbetaling is dan niet meer automatisch."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "Is de prijs die ik zie de prijs die ik betaal?",
-        "a": "Ja, voor de rit. De prijs die u ziet is de vaste prijs: een bedrag uit onze eigen prijslijst dat al elke officiële toeslag bevat die op uw route van toepassing is, en het staat vast op het moment van boeken. Verkeer en route zijn ons risico, niet het uwe. Het enige wat er niet in zit zijn tolgelden voor snelwegen, die apart in rekening worden gebracht wanneer de route tolwegen gebruikt."
+        "a": "Ja, voor de rit. De prijs die u ziet is de vaste prijs: een bedrag uit onze eigen prijslijst dat al elke officiële toeslag bevat die op uw route van toepassing is, en het staat vast op het moment van boeken. Verkeer en route zijn ons risico, niet het uwe. Het enige wat er niet in zit is tol voor snelwegen: wanneer de route tolwegen gebruikt, laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u."
       },
       "whyFee": {
         "q": "Wat zit er in de prijs?",
-        "a": "De rit zelf, elke officiële toeslag die op uw route van toepassing is — de luchthaventoeslag El Prat, de cruisehaventoeslag, de toeslag voor voertuigen met vijf tot acht plaatsen — en onze service om de auto te reserveren en te garanderen, een chauffeur toe te wijzen en u op de dag zelf te ondersteunen. U betaalt online bij het boeken. Tolgelden zijn niet inbegrepen: die worden apart bij de klant in rekening gebracht wanneer de route tolwegen gebruikt."
+        "a": "De rit zelf, elke officiële toeslag die op uw route van toepassing is — de luchthaventoeslag El Prat, de cruisehaventoeslag, de toeslag voor voertuigen met vijf tot acht plaatsen — en onze service om de auto te reserveren en te garanderen, een chauffeur toe te wijzen en u op de dag zelf te ondersteunen. U betaalt online bij het boeken. Tol voor snelwegen is niet inbegrepen: wanneer de route tolwegen gebruikt, int uw chauffeur die in de auto bij u."
       },
       "invoice": {
         "q": "Kan ik een factuur krijgen?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Hoe betaal ik, en wat is niet inbegrepen?",
-        "a": "U betaalt de vaste prijs online bij het boeken, met creditcard, betaalkaart of Bizum. Er wordt geen tip verwacht. Tolgelden maken geen deel uit van die prijs en worden apart in rekening gebracht wanneer de route tolwegen gebruikt."
+        "a": "U betaalt de vaste prijs online bij het boeken, met creditcard, betaalkaart of Bizum. Er wordt geen tip verwacht. Tol voor snelwegen maakt geen deel uit van die prijs: wanneer de route tolwegen gebruikt, laat uw chauffeur het u onderweg weten en int hij de tol in de auto bij u."
       },
       "flightDelay": {
         "q": "Wat als mijn vlucht vertraging heeft?",

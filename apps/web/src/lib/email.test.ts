@@ -162,7 +162,9 @@ describe('email footer', () => {
       paymentMode: 'FULL_PREPAID', meterEstimate: 38, fixedFare: 40, bookingFee: 4,
       amountOnline: 44, amountInTaxi: 0, feePaid: true,
     });
-    expect(html).not.toContain('paid to your driver in the car');
+    // The legacy footer made the metered fare payable to the driver. Motorway tolls are paid to
+    // the driver (owner policy, 2026-11-03) but the fare is not, so only the meter sentence is banned.
+    expect(html).not.toContain('final fare is set by the official taxi meter');
     expect(html).toContain('wa.me/34632414610');
   });
 
