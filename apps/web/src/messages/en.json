@@ -78,7 +78,7 @@
     "kicker": "Barcelona's licensed airport taxi service",
     "payment": {
       "title": "Pay online, once, in full",
-      "note": "Secure checkout by SumUp. Motorway tolls are not included and are paid to your driver in the car when the route uses toll roads."
+      "note": "Secure checkout by SumUp. Motorway tolls are not included and are paid to your driver in the car, by card or cash, when the route uses toll roads."
     }
   },
   "quote": {
@@ -106,7 +106,7 @@
     "duration": "Est. time",
     "payNow": "Pay now",
     "payInTaxi": "Pay in the taxi",
-    "nothingInTaxi": "Motorway tolls are paid to the driver in the car",
+    "nothingInTaxi": "Motorway tolls are paid to the driver in the car, by card or cash",
     "paidOnline": "Paid online",
     "balanceInTaxi": "Balance to pay the driver",
     "bookNow": "Book now",
@@ -137,7 +137,7 @@
       "portTransfer": "Cruise port transfer",
       "weekendSurge": "Weekend / holiday rate"
     },
-    "disclaimer": "Your price is locked when you book and covers the journey, including every official supplement. Motorway tolls are not included: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car. A receipt is emailed with your confirmation.",
+    "disclaimer": "Your price is locked when you book and covers the journey, including every official supplement. Motorway tolls are not included: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash. A receipt is emailed with your confirmation.",
     "errors": {
       "pickupRequired": "Choose a pickup point.",
       "dropoffRequired": "Choose a destination.",
@@ -155,7 +155,7 @@
     "panelSub": "Instant price · Fixed price · 24/7",
     "totalPrice": "Total price",
     "allInclusive": "Fixed price · pay online",
-    "includedNote": "One fixed price for the journey — fare, official supplements and booking. Motorway tolls are not included: your driver collects them from you in the car when the route uses toll roads.",
+    "includedNote": "One fixed price for the journey — fare, official supplements and booking. Motorway tolls are not included: your driver collects them from you in the car, by card or cash, when the route uses toll roads.",
     "sections": {
       "nextTitle": "What happens next",
       "nextLede": "once you have paid."
@@ -218,7 +218,7 @@
     "intro": "One fixed price per journey, agreed before you book and locked when you do. It is not a meter reading and not an estimate: the figure you see is the figure you pay, whatever the traffic does and whatever the hour.",
     "tableCaption": "Fixed transfer prices, per vehicle",
     "feeTitle": "What your price includes",
-    "feeBody": "The journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car, in one amount paid online when you book. Motorway tolls are the exception: they are not included. When the route uses toll roads, your driver tells you on the way and collects the toll from you in the car. A full receipt is emailed with your confirmation.",
+    "feeBody": "The journey, every official supplement that applies to your route, and our service in arranging and guaranteeing the car, in one amount paid online when you book. Motorway tolls are the exception: they are not included. When the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash. A full receipt is emailed with your confirmation.",
     "verifyNote": "Our prices are fixed by us and reviewed as costs change. Journeys outside the metropolitan area are priced per kilometre on the interurban tariff set by the Generalitat de Catalunya, which we verify at every changeover.",
     "routeCol": "Route",
     "standardCol": "Standard taxi (4)",
@@ -257,7 +257,7 @@
     "officialBody": "No. This is our own fixed price for a booked, prepaid transfer, not the regulated fare. A taxi from the rank is paid by the meter at the AMB tariff. With us the price is known before you travel. Motorway tolls are not included and are charged separately when the route uses toll roads.",
     "officialLink": "How the rank meter compares",
     "adjTolls": "Motorway tolls",
-    "adjTollsValue": "Not included; paid to the driver in the car where the route uses a toll road"
+    "adjTollsValue": "Not included; paid to the driver in the car, by card or cash, where the route uses a toll road"
   },
   "howItWorks": {
     "metaTitle": "How Booking a Barcelona Airport Taxi Works",
@@ -274,7 +274,7 @@
       },
       "three": {
         "title": "Meet your driver",
-        "body": "Your driver meets you at the agreed time. The fixed price is already paid. If the route uses toll roads, your driver tells you on the way and collects the toll from you in the car."
+        "body": "Your driver meets you at the agreed time. The fixed price is already paid. If the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash."
       }
     },
     "live": {
@@ -290,7 +290,7 @@
     "afterBody2": "A driver is then assigned to your trip, and when that happens you are emailed their name and phone number along with the exact meeting point for your terminal. That assignment is a real commitment of a specific car and person rather than a request put out to a pool when you land, which is why a booked transfer behaves differently from a rank queue at two in the morning.",
     "dayTitle": "On the day",
     "dayBody1": "For an airport pickup your driver waits inside the arrivals hall, on the public side of the exit from baggage reclaim, holding a sign with your name. Not at the kerb, and not in the rank queue. For a city pickup they come to the address you gave, at the time agreed.",
-    "dayBody2": "The fixed price is already paid, so there is no fare or supplement to settle, and no tip is expected. If the route uses toll roads, your driver tells you on the way and collects the toll from you in the car. If you want the official taxi meter invoice for the journey itself, the driver can provide it on request — your own receipt for the amount you paid arrived with the confirmation.",
+    "dayBody2": "The fixed price is already paid, so there is no fare or supplement to settle, and no tip is expected. If the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash. If you want the official taxi meter invoice for the journey itself, the driver can provide it on request — your own receipt for the amount you paid arrived with the confirmation.",
     "changeTitle": "If something changes",
     "changeBody1": "You can change the details yourself within 30 minutes of booking, and after that up until your driver sets off — reply to your confirmation or message us on WhatsApp. Changing a terminal, a pickup time or an address costs nothing, and a changed terminal is the single most common correction we make.",
     "changeBody2": "A delayed flight is not a change and needs no action from you: the pickup follows the real landing time, at no extra charge, however late the aircraft is. If your flight is cancelled outright, or your plans fall through, tell us as soon as you know — cancel at least 24 hours before the pickup and the whole amount is refunded to the card you paid with, normally within five to ten working days. Inside 24 hours we will still always try to help, but a refund at that point is no longer automatic."
@@ -302,11 +302,11 @@
     "items": {
       "fareAccurate": {
         "q": "Is the price I see the price I pay?",
-        "a": "Yes, for the journey. The price you are shown is the fixed price: a figure from our own list that already contains every official supplement that applies to your route, and it is locked the moment you book. Traffic and routing are our risk, not yours. The one thing it does not include is motorway tolls: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car."
+        "a": "Yes, for the journey. The price you are shown is the fixed price: a figure from our own list that already contains every official supplement that applies to your route, and it is locked the moment you book. Traffic and routing are our risk, not yours. The one thing it does not include is motorway tolls: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash."
       },
       "whyFee": {
         "q": "What is included in the price?",
-        "a": "The fare itself, every official supplement that applies to your route — the El Prat airport charge, the cruise-port charge, the five-to-eight-passenger vehicle charge — and our service for reserving and guaranteeing the car, assigning a driver and supporting you on the day. It is paid online when you book. Motorway tolls are not included: when the route uses toll roads, your driver collects them from you in the car."
+        "a": "The fare itself, every official supplement that applies to your route — the El Prat airport charge, the cruise-port charge, the five-to-eight-passenger vehicle charge — and our service for reserving and guaranteeing the car, assigning a driver and supporting you on the day. It is paid online when you book. Motorway tolls are not included: when the route uses toll roads, your driver collects them from you in the car, by card or cash."
       },
       "invoice": {
         "q": "Can I get an invoice?",
@@ -346,7 +346,7 @@
       },
       "payment": {
         "q": "How do I pay, and what is not included?",
-        "a": "You pay the fixed price online when you book, by credit card, debit card or Bizum. No tip is expected. Motorway tolls are not part of that price: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car."
+        "a": "You pay the fixed price online when you book, by credit card, debit card or Bizum. No tip is expected. Motorway tolls are not part of that price: when the route uses toll roads, your driver tells you on the way and collects the toll from you in the car, by card or cash."
       },
       "flightDelay": {
         "q": "What happens if my flight is delayed?",
@@ -679,7 +679,7 @@
     "rebookCta": "Rebook this journey",
     "happeningNow": "Happening now",
     "tollsLabel": "Motorway tolls",
-    "tollsValue": "Paid to your driver in the car when the route uses toll roads"
+    "tollsValue": "Paid to your driver in the car, by card or cash, when the route uses toll roads"
   },
   "trip": {
     "livePosition": "Live position",

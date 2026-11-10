@@ -75,7 +75,7 @@
     "kicker": "Servicio de taxi con licencia al aeropuerto de Barcelona",
     "payment": {
       "title": "Paga online, una vez, el importe completo",
-      "note": "Pago seguro con SumUp. Los peajes no están incluidos y se pagan al conductor en el coche cuando la ruta utiliza vías de peaje."
+      "note": "Pago seguro con SumUp. Los peajes no están incluidos y se pagan al conductor en el coche, con tarjeta o en efectivo, cuando la ruta utiliza vías de peaje."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Tiempo est.",
     "payNow": "Pagar ahora",
     "payInTaxi": "Pagar en el taxi",
-    "nothingInTaxi": "Los peajes se pagan al conductor en el coche",
+    "nothingInTaxi": "Los peajes se pagan al conductor en el coche, con tarjeta o en efectivo",
     "paidOnline": "Pagado online",
     "balanceInTaxi": "Resto a pagar al conductor",
     "bookNow": "Reservar ahora",
@@ -134,7 +134,7 @@
       "portTransfer": "Traslado al puerto de cruceros",
       "weekendSurge": "Tarifa de fin de semana / festivo"
     },
-    "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. Los peajes no están incluidos: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche. Recibirás el recibo por correo con tu confirmación.",
+    "disclaimer": "El precio queda fijado al reservar y cubre todo el trayecto, incluidos todos los suplementos oficiales. Los peajes no están incluidos: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo. Recibirás el recibo por correo con tu confirmación.",
     "errors": {
       "pickupRequired": "Elige un punto de recogida.",
       "dropoffRequired": "Elige un destino.",
@@ -152,7 +152,7 @@
     "panelSub": "Precio al instante · Precio fijo · 24/7",
     "totalPrice": "Precio total",
     "allInclusive": "Precio fijo · pago online",
-    "includedNote": "Un solo precio fijo para el trayecto: tarifa, suplementos oficiales y reserva. Los peajes no están incluidos: tu conductor te los cobra en el coche cuando la ruta utiliza vías de peaje.",
+    "includedNote": "Un solo precio fijo para el trayecto: tarifa, suplementos oficiales y reserva. Los peajes no están incluidos: tu conductor te los cobra en el coche, con tarjeta o en efectivo, cuando la ruta utiliza vías de peaje.",
     "sections": {
       "nextTitle": "Qué pasa después",
       "nextLede": "una vez has pagado."
@@ -455,7 +455,7 @@
     "rebookCta": "Reservar de nuevo",
     "happeningNow": "En curso ahora",
     "tollsLabel": "Peajes",
-    "tollsValue": "Se pagan al conductor en el coche cuando la ruta utiliza vías de peaje"
+    "tollsValue": "Se pagan al conductor en el coche, con tarjeta o en efectivo, cuando la ruta utiliza vías de peaje"
   },
   "trip": {
     "livePosition": "Posición en directo",
@@ -503,7 +503,7 @@
     "totalPrice": "Precio total"
   },
   "pricing": {
-    "feeBody": "El trayecto, cada suplemento oficial que corresponda a tu ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. Los peajes son la excepción: no están incluidos. Cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche. Con la confirmación se envía por email un recibo completo.",
+    "feeBody": "El trayecto, cada suplemento oficial que corresponda a tu ruta y nuestro servicio de gestión y garantía del vehículo, en un único importe pagado online al reservar. Los peajes son la excepción: no están incluidos. Cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo. Con la confirmación se envía por email un recibo completo.",
     "metaTitle": "Precios Taxi Aeropuerto Barcelona 2026",
     "metaDescription": "Precios fijos de taxi al aeropuerto de Barcelona: {sedan} a cualquier punto de la ciudad, {port} al puerto de cruceros. Por vehículo, peajes aparte.",
     "h1": "Precios del taxi al aeropuerto de Barcelona",
@@ -548,7 +548,7 @@
     "officialBody": "No. Es nuestro precio fijo para un traslado reservado y pagado de antemano, no la tarifa regulada. El taxi de la parada se paga por taxímetro según la tarifa del AMB. Con nosotros conoces el precio antes de viajar. Los peajes no están incluidos y se cobran aparte cuando la ruta utiliza vías de peaje.",
     "officialLink": "Cómo se compara con el taxímetro de la parada",
     "adjTolls": "Peajes",
-    "adjTollsValue": "No incluidos; se pagan al conductor en el coche cuando la ruta usa una vía de peaje"
+    "adjTollsValue": "No incluidos; se pagan al conductor en el coche, con tarjeta o en efectivo, cuando la ruta usa una vía de peaje"
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -568,7 +568,7 @@
       },
       "three": {
         "title": "Encuentra a tu conductor",
-        "body": "Tu conductor te espera a la hora acordada. El precio fijo ya está pagado. Si la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche."
+        "body": "Tu conductor te espera a la hora acordada. El precio fijo ya está pagado. Si la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo."
       }
     },
     "live": {
@@ -584,7 +584,7 @@
     "afterBody2": "Después se asigna un conductor a tu trayecto y, cuando eso ocurre, recibes por correo su nombre y su teléfono junto con el punto exacto de encuentro para tu terminal. Esa asignación es un compromiso real de un coche y una persona concretos, no una petición lanzada a un grupo cuando aterrizas, y por eso un traslado reservado se comporta de forma distinta a la cola de la parada a las dos de la madrugada.",
     "dayTitle": "El día del viaje",
     "dayBody1": "En una recogida en el aeropuerto tu conductor espera dentro de la sala de llegadas, en la zona pública a la salida de la recogida de equipajes, con un cartel con tu nombre. No en la acera ni en la cola de la parada. En una recogida en la ciudad acude a la dirección que indicaste, a la hora acordada.",
-    "dayBody2": "El precio fijo ya está pagado, así que no hay ni carrera ni suplementos que liquidar, y no se espera propina. Si la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche. Si quieres la factura oficial del taxímetro por el trayecto en sí, el conductor puede facilitarla si se la pides; tu propio recibo por el importe pagado llegó con la confirmación.",
+    "dayBody2": "El precio fijo ya está pagado, así que no hay ni carrera ni suplementos que liquidar, y no se espera propina. Si la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo. Si quieres la factura oficial del taxímetro por el trayecto en sí, el conductor puede facilitarla si se la pides; tu propio recibo por el importe pagado llegó con la confirmación.",
     "changeTitle": "Si algo cambia",
     "changeBody1": "Puedes cambiar los datos tú mismo durante los 30 minutos siguientes a la reserva y, después, hasta que el conductor salga: responde a tu confirmación o escríbenos por WhatsApp. Cambiar una terminal, una hora de recogida o una dirección no cuesta nada, y una terminal equivocada es la corrección más frecuente que hacemos.",
     "changeBody2": "Un vuelo retrasado no es un cambio y no requiere nada por tu parte: la recogida sigue la hora real de aterrizaje, sin coste adicional y por mucho que se retrase el avión. Si tu vuelo se cancela del todo, o tus planes se caen, avísanos en cuanto lo sepas: si cancelas al menos 24 horas antes de la recogida se devuelve el importe completo a la tarjeta con la que pagaste, normalmente en cinco a diez días laborables. Dentro de esas 24 horas siempre intentaremos ayudar, pero el reembolso ya no es automático."
@@ -596,11 +596,11 @@
     "items": {
       "fareAccurate": {
         "q": "¿El precio que veo es el que pago?",
-        "a": "Sí, por el trayecto. El precio que ves es el precio fijo: una cifra de nuestra propia lista que ya incluye todos los suplementos oficiales que correspondan a tu ruta y que queda bloqueada en el momento de reservar. El tráfico y el recorrido son nuestro riesgo, no el tuyo. Lo único que no incluye son los peajes: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche."
+        "a": "Sí, por el trayecto. El precio que ves es el precio fijo: una cifra de nuestra propia lista que ya incluye todos los suplementos oficiales que correspondan a tu ruta y que queda bloqueada en el momento de reservar. El tráfico y el recorrido son nuestro riesgo, no el tuyo. Lo único que no incluye son los peajes: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo."
       },
       "whyFee": {
         "q": "¿Qué incluye el precio?",
-        "a": "El trayecto en sí, todos los suplementos oficiales que correspondan a tu ruta —el del aeropuerto de El Prat, el del puerto de cruceros, el de vehículos de cinco a ocho plazas— y nuestro servicio de reservar y garantizar el coche, asignar conductor y darte soporte el día del viaje. Se paga online al reservar. Los peajes no están incluidos: cuando la ruta utiliza vías de peaje, tu conductor te los cobra en el coche."
+        "a": "El trayecto en sí, todos los suplementos oficiales que correspondan a tu ruta —el del aeropuerto de El Prat, el del puerto de cruceros, el de vehículos de cinco a ocho plazas— y nuestro servicio de reservar y garantizar el coche, asignar conductor y darte soporte el día del viaje. Se paga online al reservar. Los peajes no están incluidos: cuando la ruta utiliza vías de peaje, tu conductor te los cobra en el coche, con tarjeta o en efectivo."
       },
       "invoice": {
         "q": "¿Puedo recibir factura?",
@@ -640,7 +640,7 @@
       },
       "payment": {
         "q": "¿Cómo se paga y qué no está incluido?",
-        "a": "Pagas el precio fijo en línea al reservar, con tarjeta de crédito, de débito o Bizum. No se espera propina. Los peajes no forman parte de ese precio: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche."
+        "a": "Pagas el precio fijo en línea al reservar, con tarjeta de crédito, de débito o Bizum. No se espera propina. Los peajes no forman parte de ese precio: cuando la ruta utiliza vías de peaje, tu conductor te avisa por el camino y te cobra el peaje en el coche, con tarjeta o en efectivo."
       },
       "flightDelay": {
         "q": "¿Qué pasa si mi vuelo se retrasa?",

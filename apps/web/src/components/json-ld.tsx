@@ -95,8 +95,8 @@ export function OrganizationJsonLd({ locale }: { locale: string }) {
              */
             priceRange: `${TARIFFS.currency} ${f.cityAirport.sedan.toFixed(0)}+`,
             currenciesAccepted: TARIFFS.currency,
-            // No cash. The whole price is taken online and nothing is
-            // collected in the car, so listing it contradicted the product.
+            // How the fixed price is paid: online only. Motorway tolls are separate
+            // and go to the driver in the car (card or cash); they are not the price.
             paymentAccepted: 'Credit Card, Debit Card, Bizum',
             knowsLanguage: languages,
             openingHoursSpecification: {

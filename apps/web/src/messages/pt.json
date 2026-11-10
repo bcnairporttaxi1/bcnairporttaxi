@@ -75,7 +75,7 @@
     },
     "payment": {
       "title": "Pague online, uma vez, na totalidade",
-      "note": "Pagamento seguro pela SumUp. As portagens de autoestrada não estão incluídas e são pagas ao seu motorista no carro quando o percurso utiliza vias com portagem."
+      "note": "Pagamento seguro pela SumUp. As portagens de autoestrada não estão incluídas e são pagas ao seu motorista no carro, com cartão ou em dinheiro, quando o percurso utiliza vias com portagem."
     }
   },
   "quote": {
@@ -103,7 +103,7 @@
     "duration": "Tempo est.",
     "payNow": "Pagar agora",
     "payInTaxi": "Pagar no táxi",
-    "nothingInTaxi": "As portagens de autoestrada são pagas ao motorista no carro",
+    "nothingInTaxi": "As portagens de autoestrada são pagas ao motorista no carro, com cartão ou em dinheiro",
     "paidOnline": "Pago online",
     "balanceInTaxi": "Restante a pagar ao motorista",
     "bookNow": "Reservar agora",
@@ -132,7 +132,7 @@
       "portTransfer": "Transfer para o porto de cruzeiros",
       "weekendSurge": "Tarifa de fim de semana / feriado"
     },
-    "disclaimer": "O preço fica fixado ao reservar e cobre o percurso, incluindo todos os suplementos oficiais. As portagens de autoestrada não estão incluídas: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro. O recibo é enviado por e-mail com a sua confirmação.",
+    "disclaimer": "O preço fica fixado ao reservar e cobre o percurso, incluindo todos os suplementos oficiais. As portagens de autoestrada não estão incluídas: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro. O recibo é enviado por e-mail com a sua confirmação.",
     "errors": {
       "pickupRequired": "Escolha um ponto de recolha.",
       "dropoffRequired": "Escolha um destino.",
@@ -150,7 +150,7 @@
     "panelSub": "Preço imediato · Preço fixo · 24/7",
     "totalPrice": "Preço total",
     "allInclusive": "Preço fixo · pagamento online",
-    "includedNote": "Um só preço fixo para o percurso — tarifa, suplementos oficiais e reserva. As portagens de autoestrada não estão incluídas: o motorista cobra-lhas no carro quando o percurso utiliza vias com portagem.",
+    "includedNote": "Um só preço fixo para o percurso — tarifa, suplementos oficiais e reserva. As portagens de autoestrada não estão incluídas: o motorista cobra-lhas no carro, com cartão ou em dinheiro, quando o percurso utiliza vias com portagem.",
     "sections": {
       "nextTitle": "O que acontece a seguir",
       "nextLede": "assim que pagar."
@@ -400,7 +400,7 @@
     "rebookCta": "Reservar de novo",
     "happeningNow": "A decorrer agora",
     "tollsLabel": "Portagens de autoestrada",
-    "tollsValue": "Pagas ao motorista no carro quando o percurso utiliza vias com portagem"
+    "tollsValue": "Pagas ao motorista no carro, com cartão ou em dinheiro, quando o percurso utiliza vias com portagem"
   },
   "trip": {
     "livePosition": "Posição em direto",
@@ -485,7 +485,7 @@
     "bothLegs": "Ida e volta, pagas em conjunto"
   },
   "pricing": {
-    "feeBody": "A viagem, cada suplemento oficial aplicável ao percurso e o nosso serviço de organizar e garantir o carro, num único valor pago online ao reservar. As portagens de autoestrada são a exceção: não estão incluídas. Quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro. Um recibo completo é enviado por email com a confirmação.",
+    "feeBody": "A viagem, cada suplemento oficial aplicável ao percurso e o nosso serviço de organizar e garantir o carro, num único valor pago online ao reservar. As portagens de autoestrada são a exceção: não estão incluídas. Quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro. Um recibo completo é enviado por email com a confirmação.",
     "metaTitle": "Preços Táxi Aeroporto Barcelona 2026",
     "metaDescription": "Preços fixos de táxi para o aeroporto de Barcelona: {sedan} para a cidade, {port} para o porto de cruzeiros. Por veículo, portagens à parte. Reserve online.",
     "h1": "Preços do táxi para o aeroporto de Barcelona",
@@ -530,7 +530,7 @@
     "officialBody": "Não. É o nosso preço fixo para um transfer reservado e pago antecipadamente, não a tarifa regulamentada. O táxi da praça paga-se pelo taxímetro segundo a tarifa da AMB. Connosco o preço é conhecido antes de viajar. As portagens de autoestrada não estão incluídas e são cobradas à parte quando o percurso utiliza vias com portagem.",
     "officialLink": "Como se compara com o taxímetro da praça",
     "adjTolls": "Portagens",
-    "adjTollsValue": "Não incluídas; pagam-se ao motorista no carro quando o percurso usa uma via com portagem"
+    "adjTollsValue": "Não incluídas; pagam-se ao motorista no carro, com cartão ou em dinheiro, quando o percurso usa uma via com portagem"
   },
   "site": {
     "name": "BCNAirportTaxi"
@@ -550,7 +550,7 @@
       },
       "three": {
         "title": "Encontre o seu motorista",
-        "body": "O seu motorista espera por si à hora combinada. O preço fixo já está pago. Se o percurso utilizar vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro."
+        "body": "O seu motorista espera por si à hora combinada. O preço fixo já está pago. Se o percurso utilizar vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro."
       }
     },
     "live": {
@@ -566,7 +566,7 @@
     "afterBody2": "Depois é atribuído um motorista à sua viagem e, quando isso acontece, recebe por email o nome e o telefone dele juntamente com o ponto exato de encontro para o seu terminal. Essa atribuição é um compromisso real de um carro e de uma pessoa concretos, não um pedido lançado a um grupo quando aterra — e é por isso que um transfer reservado se comporta de forma diferente de uma fila na praça às duas da manhã.",
     "dayTitle": "No dia",
     "dayBody1": "Numa recolha no aeroporto o seu motorista espera dentro da sala de chegadas, do lado público à saída da recolha de bagagem, com uma placa com o seu nome. Não no passeio nem na fila da praça. Numa recolha na cidade vai ao endereço que indicou, à hora combinada.",
-    "dayBody2": "O preço fixo já está pago, pelo que não há viagem nem suplementos a liquidar e não se espera gorjeta. Se o percurso utilizar vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro. Se quiser a fatura oficial do taxímetro pelo percurso em si, o motorista pode fornecê-la a pedido; o seu recibo pelo valor pago chegou com a confirmação.",
+    "dayBody2": "O preço fixo já está pago, pelo que não há viagem nem suplementos a liquidar e não se espera gorjeta. Se o percurso utilizar vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro. Se quiser a fatura oficial do taxímetro pelo percurso em si, o motorista pode fornecê-la a pedido; o seu recibo pelo valor pago chegou com a confirmação.",
     "changeTitle": "Se algo mudar",
     "changeBody1": "Pode alterar os dados por si próprio nos 30 minutos seguintes à reserva e, depois disso, até o seu motorista partir: responda à confirmação ou escreva-nos por WhatsApp. Mudar um terminal, uma hora de recolha ou um endereço não custa nada, e um terminal errado é a correção que fazemos mais vezes.",
     "changeBody2": "Um voo atrasado não é uma alteração e não exige nada de si: a recolha segue a hora real de aterragem, sem custo adicional e por muito atrasado que o avião esteja. Se o voo for cancelado por completo, ou os seus planos caírem, avise-nos assim que souber: cancelando pelo menos 24 horas antes da recolha o valor total é reembolsado no cartão com que pagou, normalmente em cinco a dez dias úteis. Dentro dessas 24 horas tentaremos sempre ajudar, mas o reembolso já não é automático."
@@ -578,11 +578,11 @@
     "items": {
       "fareAccurate": {
         "q": "O preço que vejo é o preço que pago?",
-        "a": "Sim, quanto à viagem. O preço que vê é o preço fixo: um valor da nossa própria tabela que já contém todos os suplementos oficiais aplicáveis ao seu percurso e fica bloqueado no momento da reserva. O trânsito e o percurso são o nosso risco, não o seu. A única coisa que não inclui são as portagens de autoestrada: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro."
+        "a": "Sim, quanto à viagem. O preço que vê é o preço fixo: um valor da nossa própria tabela que já contém todos os suplementos oficiais aplicáveis ao seu percurso e fica bloqueado no momento da reserva. O trânsito e o percurso são o nosso risco, não o seu. A única coisa que não inclui são as portagens de autoestrada: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro."
       },
       "whyFee": {
         "q": "O que está incluído no preço?",
-        "a": "A viagem em si, todos os suplementos oficiais aplicáveis ao seu percurso — o do aeroporto de El Prat, o do porto de cruzeiros, o dos veículos de cinco a oito passageiros — e o nosso serviço de reservar e garantir o carro, atribuir um motorista e apoiá-lo no dia. É pago online ao reservar. As portagens de autoestrada não estão incluídas: quando o percurso utiliza vias com portagem, o motorista cobra-lhas no carro."
+        "a": "A viagem em si, todos os suplementos oficiais aplicáveis ao seu percurso — o do aeroporto de El Prat, o do porto de cruzeiros, o dos veículos de cinco a oito passageiros — e o nosso serviço de reservar e garantir o carro, atribuir um motorista e apoiá-lo no dia. É pago online ao reservar. As portagens de autoestrada não estão incluídas: quando o percurso utiliza vias com portagem, o motorista cobra-lhas no carro, com cartão ou em dinheiro."
       },
       "invoice": {
         "q": "Posso obter uma fatura?",
@@ -622,7 +622,7 @@
       },
       "payment": {
         "q": "Como se paga e o que não está incluído?",
-        "a": "Paga o preço fixo online ao reservar, com cartão de crédito, cartão de débito ou Bizum. Não se espera gorjeta. As portagens de autoestrada não fazem parte desse preço: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro."
+        "a": "Paga o preço fixo online ao reservar, com cartão de crédito, cartão de débito ou Bizum. Não se espera gorjeta. As portagens de autoestrada não fazem parte desse preço: quando o percurso utiliza vias com portagem, o motorista avisa-o durante a viagem e cobra-lhe a portagem no carro, com cartão ou em dinheiro."
       },
       "flightDelay": {
         "q": "O que acontece se o meu voo atrasar?",

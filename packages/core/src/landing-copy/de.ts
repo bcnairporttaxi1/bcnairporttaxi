@@ -125,7 +125,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Was Ihr Preis enthält',
-        body: 'Sie zahlen bei der Reservierung online einen Festpreis. Er deckt die Fahrt ab, jeden offiziellen Zuschlag, der für Ihre Route gilt, und unseren Service für Organisation und Zusage des Wagens. Mautgebühren sind nicht enthalten: Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen. Die Quittung über den gezahlten Preis erhalten Sie per E-Mail.',
+        body: 'Sie zahlen bei der Reservierung online einen Festpreis. Er deckt die Fahrt ab, jeden offiziellen Zuschlag, der für Ihre Route gilt, und unseren Service für Organisation und Zusage des Wagens. Mautgebühren sind nicht enthalten: Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen, bar oder mit Karte. Die Quittung über den gezahlten Preis erhalten Sie per E-Mail.',
       },
       {
         h2: 'Was Ihren Preis nie verändert',
@@ -133,7 +133,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wie und wann Sie zahlen',
-        body: 'Der Festpreis wird bei der Buchung online per Karte oder Bizum bezahlt, und eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, im Wagen an Ihren Fahrer gezahlt.',
+        body: 'Der Festpreis wird bei der Buchung online per Karte oder Bizum bezahlt, und eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail. Mautgebühren werden, wenn die Strecke mautpflichtige Straßen nutzt, im Wagen bar oder mit Karte an Ihren Fahrer gezahlt.',
       },
     ],
   },
@@ -312,7 +312,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Das Viertel für einen frühen Flug verlassen',
-        body: 'Bei einem Abflug im Morgengrauen ist das Viertel ruhig, die Straßen sind leer und die Fahrt nach El Prat so schnell wie sonst nie — 20 bis 25 Minuten statt der 30 bis 35, die sie um neun Uhr morgens braucht. Schwierig ist um 04:30 Uhr, ein Taxi zu finden. Eines in einer Fußgängergasse vor Tagesanbruch anzuhalten funktioniert nicht, und der nächste Stand ist ein Fußweg mit Gepäck. Das ist der klarste Fall auf der ganzen Seite, zu buchen statt zu improvisieren, und der Preis ist derselbe wie für dieselbe Fahrt mittags. Er ist ein Festpreis, online bezahlt, und im Wagen schulden Sie nichts.',
+        body: 'Bei einem Abflug im Morgengrauen ist das Viertel ruhig, die Straßen sind leer und die Fahrt nach El Prat so schnell wie sonst nie — 20 bis 25 Minuten statt der 30 bis 35, die sie um neun Uhr morgens braucht. Schwierig ist um 04:30 Uhr, ein Taxi zu finden. Eines in einer Fußgängergasse vor Tagesanbruch anzuhalten funktioniert nicht, und der nächste Stand ist ein Fußweg mit Gepäck. Das ist der klarste Fall auf der ganzen Seite, zu buchen statt zu improvisieren, und der Preis ist derselbe wie für dieselbe Fahrt mittags. Er ist ein Festpreis und wird online bezahlt.',
       },
       {
         h2: 'Wenn Ihre Gasse für Autos gesperrt ist',
@@ -487,7 +487,7 @@ export const DE_LANDING_COPY: Record<string, LandingCopy> = {
       },
       {
         h2: 'Wie Sie zahlen und was Sie zurückbekommen',
-        body: 'Der Festpreis wird bei der Buchung online bezahlt, per Kreditkarte, Debitkarte oder Bizum. Dafür gibt es keine Aufteilung in Anzahlung und Restbetrag, und ein Trinkgeld wird nicht erwartet. Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen. Eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail, sodass die Unterlagen für eine Spesenabrechnung vor der Fahrt eintreffen und nicht danach. Brauchen Sie zusätzlich die regulierte Taxirechnung für die Fahrt selbst, kann Ihr Fahrer sie auf Wunsch ausstellen.',
+        body: 'Der Festpreis wird bei der Buchung online bezahlt, per Kreditkarte, Debitkarte oder Bizum. Dafür gibt es keine Aufteilung in Anzahlung und Restbetrag, und ein Trinkgeld wird nicht erwartet. Wenn die Strecke mautpflichtige Straßen nutzt, sagt Ihnen Ihr Fahrer unterwegs Bescheid und kassiert die Maut im Wagen bei Ihnen, bar oder mit Karte. Eine Quittung über den gezahlten Betrag kommt mit Ihrer Bestätigung per E-Mail, sodass die Unterlagen für eine Spesenabrechnung vor der Fahrt eintreffen und nicht danach. Brauchen Sie zusätzlich die regulierte Taxirechnung für die Fahrt selbst, kann Ihr Fahrer sie auf Wunsch ausstellen.',
       },
       {
         h2: 'Der Ablauf in drei Schritten',

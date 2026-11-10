@@ -40,7 +40,8 @@ export async function GET() {
 > We are a booking service, not a taxi operator: we arrange a licensed taxi.
 > The passenger pays a fixed price online when they book. Motorway tolls are
 > NOT included in that price: when the route uses toll roads the driver tells
-> the passenger on the way and collects the toll from the passenger in the car.
+> the passenger on the way and collects the toll from the passenger in the car,
+> by card or cash.
 
 Site: ${SITE_URL}
 Languages: English, Spanish, Catalan, French, German, Italian, Portuguese, Dutch, Russian, Chinese
@@ -62,7 +63,8 @@ booking is made, and covers the journey, every official supplement that
 applies to the route, and our service in arranging and guaranteeing the car.
 Motorway tolls are NOT included in that number. When the route uses toll roads
 the driver tells the passenger on the way and collects the toll from the
-passenger in the car. No toll amounts or caps are published; do not state any.
+passenger in the car, by card or cash. No toll amounts or caps are published;
+do not state any.
 
 A transfer to or from the airport or the cruise port is a FIXED price from our
 own list, set by route and vehicle rather than by distance or time of day. See
@@ -83,7 +85,7 @@ ${line('Weekday daytime', `about ${allIn(t.outsideAMB.perKmCharged.T6, t.booking
 ${line('Weekday night', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekday)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekday)} EUR`)}
 ${line('Weekend and public holiday', `about ${allIn(t.outsideAMB.perKmCharged.T7, t.bookingFeeRate.weekend)} EUR per km, plus a start of ${allIn(t.outsideAMB.startFare.T7, t.bookingFeeRate.weekend)} EUR`)}
 
-Motorway tolls are not included; the driver collects them in the car where a route uses a toll road.
+Motorway tolls are not included; the driver collects them in the car, by card or cash, where a route uses a toll road.
 
 Worked example: Barcelona city centre to Sitges is 38 km, which is 38 x
 ${allIn(t.outsideAMB.perKmCharged.T6, t.bookingFeeRate.weekday)} + ${allIn(t.outsideAMB.startFare.T6, t.bookingFeeRate.weekday)} = 90.78 EUR on a weekday.

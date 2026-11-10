@@ -8,8 +8,11 @@ import { describe, expect, it } from 'vitest';
  * the driver; both claims are false the moment a route uses a toll road.
  *
  * This test fails on the old claims in any of the ten languages, and requires the pages where a price
- * is explained to mention tolls. It does NOT pin an amount, a method or a route list: none has been
- * given, and inventing one is worse than omitting it.
+ * is explained to mention tolls.
+ *
+ * The method IS pinned: the toll is paid to the driver in the car, by card or cash, both accepted
+ * (owner, 2026-11-10). An amount, an estimate, a cap and a route list are still NOT pinned: none has
+ * been given, and inventing one is worse than omitting it.
  */
 const LOCALES = ['en', 'es', 'ca', 'fr', 'de', 'it', 'nl', 'pt', 'ru', 'zh'] as const;
 type Loc = (typeof LOCALES)[number];
@@ -20,7 +23,7 @@ const OLD_CLAIM: Record<Loc, RegExp> = {
   es: /no se cobra nada|todo incluido|todo-incluido|nada que pagar|no se debe nada|no pagas nada|no debes nada|nada que liquidar|nada que cobrar|sin nada que pagar|nada al conductor/i,
   ca: /no es cobra res|tot inclòs|res a pagar|no es deu res|no pagues res|res a liquidar|res al conductor|res a cobrar/i,
   fr: /rien n[’']est encaissé|tout compris|rien à payer|rien n[’']est dû|rien à régler|rien à verser|ne devez rien|rien à encaisser/i,
-  de: /nichts kassiert|alles inklusive|all-inclusive|nichts zu zahlen|nichts zu bezahlen|nichts schuldig|dem Fahrer nichts|nichts im Wagen|nichts an den Fahrer|nichts zu kassieren/i,
+  de: /nichts kassiert|alles inklusive|all-inclusive|nichts zu zahlen|nichts zu bezahlen|nichts schuldig|dem Fahrer nichts|nichts im Wagen|nichts an den Fahrer|nichts zu kassieren|schulden Sie nichts|nichts schulden/i,
   it: /non si incassa nulla|tutto incluso|nulla da pagare|non si deve nulla|non paghi nulla|non deve nulla|niente da pagare|nulla da saldare|nulla da riscuotere/i,
   nl: /niets geïnd|alles inbegrepen|alles-in|niets te betalen|niets verschuldigd|chauffeur niets|niets af te rekenen|niets te innen/i,
   pt: /não se cobra nada|tudo incluído|nada a pagar|nada é devido|não paga nada|nada ao motorista|nada para pagar|nada a cobrar|nada a liquidar/i,
@@ -46,6 +49,20 @@ const TOLL: Record<Loc, RegExp> = {
 const DRIVER: Record<Loc, RegExp> = {
   en: /driver/i, es: /conductor/i, ca: /conductor/i, fr: /chauffeur/i, de: /Fahrer/i,
   it: /conducente|autista/i, nl: /chauffeur/i, pt: /motorista|condutor/i, ru: /водител/i, zh: /司机/,
+};
+
+/** "by card or cash", as each language says it next to the toll (owner, 2026-11-10). */
+const CARD_OR_CASH: Record<Loc, RegExp> = {
+  en: /by card or cash/i,
+  es: /con tarjeta o en efectivo/i,
+  ca: /amb targeta o en efectiu/i,
+  fr: /par carte ou en espèces/i,
+  de: /bar oder mit Karte/i,
+  it: /con carta o in contanti/i,
+  nl: /contant of met kaart/i,
+  pt: /com cartão ou em dinheiro/i,
+  ru: /картой или наличными/i,
+  zh: /刷卡或现金均可/,
 };
 
 /** Keys that must say the DRIVER collects the toll in the car (owner, 2026-11-03). */
@@ -116,6 +133,17 @@ describe.each(LOCALES)('toll policy [%s]', (l) => {
     expect(missing).toEqual([]);
   });
 
+  it('says the toll is paid by card or cash wherever the driver is said to collect it', () => {
+    const d = web(l);
+    const missing = MUST_SAY_DRIVER_COLLECTS.filter((k) => !CARD_OR_CASH[l].test(get(d, k) ?? ''));
+    expect(missing).toEqual([]);
+  });
+
+  it('the price and book-online landing pages say card or cash', () => {
+    const text = core(l === 'en' ? 'landing-pages.ts' : `landing-copy/${l}.ts`);
+    expect(text.match(new RegExp(CARD_OR_CASH[l].source, 'gi'))?.length ?? 0).toBeGreaterThanOrEqual(3);
+  });
+
   it('landing, destination and blog copy carry no old claim', () => {
     const file = l === 'en' ? ['landing-pages.ts', 'blog.ts', 'destinations.ts'] : [`landing-copy/${l}.ts`, `destination-copy/${l}.ts`, `blog-copy/${l}.ts`];
     const hits: string[] = [];
@@ -135,6 +163,18 @@ describe('English-only sources', () => {
   it('legal terms state that tolls are not included', () => {
     expect(core('legal.ts')).toMatch(/Motorway tolls are not included/);
   });
+
+  it('legal terms state that the toll may be paid to the driver by card or in cash', () => {
+    expect(core('legal.ts')).toMatch(/paid to the driver by card or in cash/);
+  });
+
+  it.each(['app/llms.txt/route.ts', 'app/pricing.md/route.ts', 'lib/email.ts'])(
+    'apps/web/src/%s says card or cash',
+    (f) => {
+      const text = readFileSync(join(__dirname, '..', f), 'utf8').replace(/\s+/g, ' ');
+      expect(text).toMatch(/by card or cash/);
+    },
+  );
 
   it.each(['app/llms.txt/route.ts', 'app/pricing.md/route.ts', 'app/manifest.ts', 'components/json-ld.tsx', 'lib/email.ts'])(
     'apps/web/src/%s',
