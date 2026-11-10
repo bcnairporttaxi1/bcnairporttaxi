@@ -109,7 +109,7 @@ export const NL_LANDING_COPY: Record<string, LandingCopy> = {
       'Wat een taxi naar de luchthaven van Barcelona echt kost: onze vaste prijzen per voertuig, het bereik van de vaste prijs en wat het weekendtarief toevoegt.',
     h1: 'Taxiprijs naar de luchthaven van Barcelona',
     intro:
-      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter en geen gokken op afstand. Hier staat de hele lijst en de dingen die er iets aan kunnen toevoegen, waaronder tol voor snelwegen, die in de auto aan uw chauffeur wordt betaald.',
+      'Een transfer naar de luchthaven van Barcelona met ons is één vaste prijs, afgesproken vóór u boekt en vastgelegd op het moment dat u boekt. Geen meter en geen gokken op afstand. Hier staat de hele lijst en de dingen die er iets aan kunnen toevoegen, waaronder tol voor snelwegen, die in de auto aan uw chauffeur wordt betaald, contant of met kaart.',
     sections: [
       {
         h2: 'Hoe uw tarief tot stand komt',

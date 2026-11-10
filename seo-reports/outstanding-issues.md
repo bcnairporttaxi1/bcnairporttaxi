@@ -1,4 +1,4 @@
-# Outstanding issues (updated 2026-11-03, after the owner's confirmations)
+# Outstanding issues (updated 2026-11-10, after the owner's confirmations)
 
 ## Confirmed by the owner on 2026-11-03 and now applied on the branch
 | Fact | Where it is applied |
@@ -7,22 +7,22 @@
 | Fully insured | home "Licensed drivers only" and fleet "What every car has", all 10 languages |
 | Vehicles undergo the required AMB inspections | same two places. Reworded from "inspected on the AMB's schedule" (which implied a known timetable). **No licence numbers, insurance details or inspection dates are stated anywhere, and none were invented** |
 | No child seats are provided | the fleet note now opens "We do not provide child seats"; the booking-notes hint no longer lists child seats; the private-transfer page says we do not provide them and its heading no longer names them (10 languages). The one remaining mention is the Aerobús guide's general "travelling with children, a pushchair or a car seat", which refers to the traveller's own seat |
-| Tolls apply | listed as "Motorway tolls: apply where the route uses a toll road" on the pricing page (10 languages), in `pricing.md` and in `llms.txt`. **Nothing says tolls are included in the fixed price, and no amount or collection method is stated** |
+| Tolls apply | listed as "Motorway tolls: apply where the route uses a toll road" on the pricing page (10 languages), in `pricing.md` and in `llms.txt`. **Nothing says tolls are included in the fixed price, and no amount is stated** |
+| Tolls are paid to the driver by card or cash, both accepted (confirmed 2026-11-10) | every place that says the driver collects the toll now adds "by card or cash": 12 message strings and the price and book-online pages in all 10 languages, Terms, Refund policy, the customer / desk / driver emails, `pricing.md`, `llms.txt` |
 
-## A. Toll policy: confirmed and applied; two small details still unpublished
-Owner confirmation (2026-11-03): **motorway tolls are NOT included in the fixed transfer price; the driver collects the toll from the customer in the car, and the driver tells the customer on the way when the route uses a toll road.** Applied on the branch in all 10 languages. The site says exactly that and nothing more. **No toll amount, estimate, cap, payment method (cash or card) or route list is stated anywhere**, because none was given.
+## A. Toll policy: confirmed and applied; three details still unpublished
+Owner confirmations (2026-11-03 and 2026-11-10): **motorway tolls are NOT included in the fixed transfer price; the driver tells the customer on the way when the route uses a toll road and collects the toll in the car; the customer pays the driver by card or cash, both accepted.** Applied on the branch in all 10 languages. The site says exactly that and nothing more. **No toll amount, estimate, cap or route list is stated anywhere**, because none was given.
 
 Where it is stated (verified on the private preview, 374 pages plus checkout): home, pricing (the toll row and the "what your price includes" text), FAQ (what is included / how do I pay / is the price I see the price I pay), how it works, booking page and widget notes, checkout, account page, all 12 destination pages and the destinations hub, the price and route landing pages including cruise port, footer, Terms, Refund policy, `pricing.md`, `llms.txt`, JSON-LD offer descriptions, the app description, the confirmation / desk / driver / completion emails, and the SumUp checkout description.
 
-Removed or rewritten: every "all-inclusive" label, "Nothing to pay your driver", "Nothing further is owed to the driver in the vehicle", "nothing to pay in the taxi / car", "nothing is collected in the car", "no cash to find", "no second figure at the end" and "no surprise" (all 10 languages). `toll-policy.test.ts` fails if any of those claims returns in any language, and requires the toll **and** the driver wherever payment is explained.
+Removed or rewritten: every "all-inclusive" label, "Nothing to pay your driver", "Nothing further is owed to the driver in the vehicle", "nothing to pay in the taxi / car", "nothing is collected in the car", "no cash to find", "no second figure at the end" and "no surprise" (all 10 languages). `toll-policy.test.ts` fails if any of those claims returns in any language, and requires the toll, the driver **and** the card-or-cash wording wherever payment is explained. On 2026-11-10 one more leftover was found and removed: a German sentence on the early-departure price passage ("im Wagen schulden Sie nichts", you owe nothing in the car); the test now bans that pattern too.
 
-Emails now match the policy: the customer email says the driver collects the toll in the car; the desk email says there is no fare balance to collect and the driver collects tolls; the **driver email tells the driver** to tell the passenger on the way when the route uses toll roads and to collect the toll in the car. Please read that driver wording, since it is now an operating instruction.
+Emails now match the policy: the customer email says the driver collects the toll in the car; the desk email says there is no fare balance to collect and the driver collects tolls; the **driver email tells the driver** to tell the passenger on the way when the route uses toll roads and to collect the toll in the car, **by card or cash**. Please read that driver wording, since it is now an operating instruction: it assumes every driver can take a card payment for a toll in the car.
 
 **Still unpublished (please decide whether the site should say more):**
-1. **How the customer pays the driver** (cash, card, either). The pages say "collects the toll from you in the car" and nothing about the method.
-2. **Whether the customer can learn the amount in advance** (WhatsApp, quote). The pages say the driver tells the customer on the way, not the amount.
-3. **Whether the Terms need a fuller toll clause** (receipt, who bears a toll if the customer refuses or has left, refund treatment). The Terms now say the driver informs the customer during the journey and collects the toll in the vehicle.
-4. **Which routes** carry tolls. The pages say "where the route uses toll roads".
+1. **Whether the customer can learn the amount in advance** (WhatsApp, quote). The pages say the driver tells the customer on the way, not the amount.
+2. **Whether the Terms need a fuller toll clause** (receipt, who bears a toll if the customer refuses or has left, refund treatment). The Terms now say the driver informs the customer during the journey and collects the toll in the vehicle, and that the toll may be paid to the driver by card or in cash.
+3. **Which routes** carry tolls. The pages say "where the route uses toll roads".
 
 ## B. Needs the owner (no code can fix these honestly)
 | # | Item | Why it matters |
